@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capture_method": {
+      "type": "string"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "content_hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "content_type": {
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "download_path": {
+      "type": "string"
+    },
+    "event_time_if_known": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "handoff_id": {
+      "pattern": "^[a-zA-Z0-9_-]{8,80}$",
+      "type": "string"
+    },
+    "license_note": {
+      "type": "string"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "processing_status": {
+      "enum": [
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "robots_note": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_title": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "terms_note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_id",
+    "created_at",
+    "created_by",
+    "source_url",
+    "source_title",
+    "source_type",
+    "capture_method",
+    "download_path",
+    "content_hash",
+    "observed_at",
+    "event_time_if_known",
+    "terms_note",
+    "robots_note",
+    "license_note",
+    "confidence",
+    "processing_status",
+    "source_id",
+    "content_type"
+  ],
+  "title": "DRAGONHYDRA handoff manifest v1",
+  "type": "object"
+}

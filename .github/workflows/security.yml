@@ -1,0 +1,34 @@
+name: Repository safety
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUTF8: "1"
+    steps:
+      - name: Check out source without persisted credentials
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Set up canonical Python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: "3.14"
+          allow-prereleases: false
+      - name: Read-only tracked-file safety scan
+        run: python scripts/repository_audit.py --tracked --check
+      - name: Markdown links against exact staged blobs
+        run: python scripts/check_repository_links.py
+      - name: Python syntax and dependency metadata
+        run: python scripts/run_ci.py --syntax-only

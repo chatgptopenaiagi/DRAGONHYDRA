@@ -1,0 +1,57 @@
+# Local/generated evidence, credentials, database files, downloads and handoffs.
+# Curated schemas/examples belong in config/, src/ or tests/, never runtime/.
+/runtime/
+/data/
+/models/
+
+# Python/build/cache artifacts.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+/build/
+/dist/
+
+# Machine-local configuration, credentials and private key material.
+.env
+.env.*
+*.local.json
+*.local.toml
+*.secret.*
+*.key
+*.pem
+*.pfx
+*.p12
+*.log
+credentials.local.txt
+experiments/**/private-config/
+experiments/**/downloads/
+experiments/**/backups/
+experiments/**/evidence/
+
+# Raw research captures remain local; reviewed source matrix and notes are authored.
+/research/browser_research/
+*.sqlite
+*.sqlite3
+*.db
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.parquet
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# Editor/OS state.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

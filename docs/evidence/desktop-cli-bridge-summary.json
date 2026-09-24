@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Desktop/CLI Bridge",
+  "evidence_class": "REPOSITORY_SAFE_HISTORICAL_SUMMARY",
+  "curated_at": "2026-09-24T19:07:13.417958+00:00",
+  "semantics": "Selected measurements copied from identified local artifacts. Historical proof only; not a new live check or independent attestation. Original paths are local evidence coordinates, not repository files.",
+  "source_artifacts": [
+    {
+      "id": "tests",
+      "local_evidence_path": "runtime/checkpoints/desktop-cli-bridge-20260924T183316Z/tests.json",
+      "sha256": "7420b9982a4804566c55322827b73a96d6db0bd444a030a1ee2f4f3c4e4ba7c3",
+      "recorded_at": "2026-09-24T18:30:35.303523+00:00"
+    },
+    {
+      "id": "initial-receipt",
+      "local_evidence_path": "runtime/checkpoints/desktop-cli-bridge-20260924T183316Z/receipt.json",
+      "sha256": "702a8a3c590b5c8978c7cc2d7bab979592aebe50cea8c9e0257eda3f1d5288d4",
+      "recorded_at": "2026-09-24T18:22:41.445810+00:00"
+    },
+    {
+      "id": "replay",
+      "local_evidence_path": "runtime/checkpoints/desktop-cli-bridge-20260924T183316Z/replay-receipts.json",
+      "sha256": "5394643c15bcb695e59f338c6e41f4661e0d367990bc8d3a564880abc17622bb"
+    },
+    {
+      "id": "database-proof",
+      "local_evidence_path": "runtime/checkpoints/desktop-cli-bridge-20260924T183316Z/database-proof.json",
+      "sha256": "b9f47dd278b7c82b7dcb1a3cba22a83c430881e2346d235b7b40ff2fb39adec1",
+      "recorded_at": "2026-09-24T18:31:19.663050+00:00"
+    },
+    {
+      "id": "joomla-proof",
+      "local_evidence_path": "runtime/checkpoints/desktop-cli-bridge-20260924T183316Z/joomla-proof.json",
+      "sha256": "5ab5735daf4566a65bd1cda9c0b93b548e0afe563dfe04e2f37bdae191f5cf7d",
+      "recorded_at": "2026-09-24T18:31:19.779312+00:00"
+    }
+  ],
+  "measurements": {
+    "tests": {
+      "source_artifact": "tests",
+      "python_version": "3.14.7",
+      "checked_utc": "2026-09-24T18:30:35.303523+00:00",
+      "tests_run": 190,
+      "tests_passed": 190,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "initial_attempt": {
+      "source_artifact": "initial-receipt",
+      "processed_at": "2026-09-24T18:22:41.445810+00:00",
+      "python_version": "3.14.7",
+      "provenance": "SYNTHETIC",
+      "idempotent_replay": false,
+      "sql_committed": true,
+      "mariadb_rows_updated": 2,
+      "sql_server_rows_inserted": {
+        "Artifact": 1,
+        "HandoffEnvelope": 1,
+        "Observation": 2,
+        "ProcessingReceipt": 2,
+        "Source": 1
+      },
+      "rejected_records": 0,
+      "status": "PROCESSED",
+      "validation_result": "ACCEPT"
+    },
+    "replay_attempts": [
+      {
+        "source_artifact": "replay",
+        "processed_at": "2026-09-24T18:26:08.747190+00:00",
+        "python_version": "3.14.7",
+        "provenance": "SYNTHETIC",
+        "idempotent_replay": true,
+        "sql_committed": true,
+        "mariadb_rows_updated": 2,
+        "sql_server_rows_inserted": {
+          "Artifact": 0,
+          "HandoffEnvelope": 0,
+          "Observation": 0,
+          "ProcessingReceipt": 1,
+          "Source": 0
+        },
+        "rejected_records": 0,
+        "status": "DUPLICATE",
+        "validation_result": "ACCEPT"
+      }
+    ],
+    "stored_synthetic_evidence": {
+      "source_artifact": "database-proof",
+      "recorded_at": "2026-09-24T18:31:19.663050+00:00",
+      "synthetic_observation_count": 2,
+      "tables": {
+        "Artifact": 1,
+        "HandoffEnvelope": 1,
+        "Observation": 2,
+        "ProcessingReceipt": 3,
+        "Source": 1
+      }
+    },
+    "local_presentation": {
+      "source_artifact": "joomla-proof",
+      "checked_at": "2026-09-24T18:31:19.779312+00:00",
+      "desktop_result": "NOT_CONFIRMED",
+      "http_status": 200,
+      "json_http_status": 200,
+      "bridge_status": {
+        "bridge_state": "PROCESSED",
+        "consumer_status": "DUPLICATE",
+        "desktop_handoff_status": "NOT_CONFIRMED",
+        "pipeline_status": "SUCCESS",
+        "producer": "test-fixture",
+        "provenance": "SYNTHETIC",
+        "observation_count": 2,
+        "mariadb_status": "HEALTHY",
+        "sqlserver_status": "HEALTHY"
+      }
+    }
+  },
+  "limitations": [
+    "The successful initial and replay handoffs have SYNTHETIC provenance; Desktop remains NOT_CONFIRMED.",
+    "The test artifact timestamp is retained exactly and must not be inferred from its enclosing checkpoint directory name.",
+    "No genuine Desktop research or separate Codex CLI application-session demonstration is established.",
+    "Local producer labels and hashes are trusted-file provenance, not cryptographically signed browser attestation.",
+    "SQL and MariaDB commits are separate; successful replay demonstrates this recorded recovery path, not a distributed transaction."
+  ]
+}

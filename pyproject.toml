@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dragonhydra"
+version = "0.1.0"
+description = "Python 3.14 sports evidence and computation foundation"
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/chatgptopenaiagi/DRAGONHYDRA"
+Documentation = "https://github.com/chatgptopenaiagi/DRAGONHYDRA/blob/main/docs/INDEX.md"
+Issues = "https://github.com/chatgptopenaiagi/DRAGONHYDRA/issues"
+
+[project.optional-dependencies]
+probe = ["PyMySQL==1.2.3"]
+sqlserver = ["pyodbc==5.3.0"]
+research = ["pypdf==6.19.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.dragonhydra]
+# NumPy/PyTorch are provided by the verified Conda environment, not resolved here.
+canonical-environment = "codex-pytorch"
+phase = "v1-evidence-ingestion"

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Dual Database",
+  "evidence_class": "REPOSITORY_SAFE_HISTORICAL_SUMMARY",
+  "curated_at": "2026-09-24T19:07:13.417958+00:00",
+  "semantics": "Selected measurements copied from identified local artifacts. Historical proof only; not a new live check or independent attestation. Original paths are local evidence coordinates, not repository files.",
+  "source_artifacts": [
+    {
+      "id": "tests",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T163749Z-e9b792e6/tests.json",
+      "sha256": "097b65f97aab93738ce891fa65d427fc8405119a4752dc92bcd4c776ab2213e9",
+      "recorded_at": "2026-09-24T16:37:59.873747+00:00"
+    },
+    {
+      "id": "capabilities",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T163749Z-e9b792e6/capabilities.json",
+      "sha256": "f12cfcf4e40df3cd597df14e27855445c5736788ac8daf49733fdf138da6d8f3",
+      "recorded_at": "2026-09-24T16:37:51.568829+00:00"
+    },
+    {
+      "id": "gpu",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T163749Z-e9b792e6/gpu-regression.json",
+      "sha256": "c54b82b53e53a1e2527fc586772f96232f0f331b51e5ea39119b97c92eadaecc",
+      "recorded_at": "2026-09-24T16:37:54.257851+00:00"
+    }
+  ],
+  "measurements": {
+    "tests": {
+      "source_artifact": "tests",
+      "python_version": "3.14.7",
+      "checked_utc": "2026-09-24T16:37:59.873747+00:00",
+      "tests_run": 92,
+      "tests_passed": 92,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "database_capabilities": {
+      "source_artifact": "capabilities",
+      "checked_utc": "2026-09-24T16:37:51.568829+00:00",
+      "simultaneous_database_listeners": true,
+      "required_services_running": true,
+      "passed": true,
+      "mariadb": {
+        "engine": "mariadb",
+        "version": "10.4.32-MariaDB",
+        "checked_at": "2026-09-24 16:37:49.451814+00:00",
+        "status": "healthy",
+        "connected": true,
+        "read": true,
+        "write": false,
+        "transaction": true,
+        "write_rejected": true,
+        "transport": {
+          "encrypted": null,
+          "certificate_validated": null
+        }
+      },
+      "sqlserver": {
+        "engine": "sqlserver",
+        "version": "16.0.1200.5",
+        "checked_at": "2026-09-24 16:37:49.573672+00:00",
+        "status": "healthy",
+        "connected": true,
+        "read": true,
+        "write": false,
+        "transaction": true,
+        "write_rejected": true,
+        "transport": {
+          "encrypted": true,
+          "certificate_validated": false
+        }
+      },
+      "sqlserver_permission_proof": {
+        "bounded_identity": true,
+        "writable_schema_count": 0,
+        "counts_unchanged": true,
+        "write_denied_native_error": 229
+      }
+    },
+    "joomla_http": {
+      "source_artifact": "capabilities",
+      "http_status": 200,
+      "joomla_marker": true,
+      "php_source_exposed": false
+    },
+    "gpu_correctness": {
+      "source_artifact": "gpu",
+      "checked_utc": "2026-09-24T16:37:54.257851+00:00",
+      "python_version": "3.14.7",
+      "numpy_version": "2.5.3",
+      "torch_version": "2.14.0+cu132",
+      "cuda_runtime": "13.2",
+      "cuda_available": true,
+      "cudnn_available": true,
+      "matrix_shape": [
+        96,
+        96
+      ],
+      "matrix_max_absolute_error": 5.763398931435404e-06,
+      "absolute_tolerance": 0.0001,
+      "matrix_passed": true,
+      "cpu_fallback_used": false,
+      "gpu_baseline_passed": true
+    }
+  },
+  "limitations": [
+    "Bounded local adapter checks do not certify production database security or future user mappings.",
+    "SQL Server encryption was measured with certificate validation bypassed by the documented loopback-only trust exception.",
+    "MariaDB transport TLS was not measured; null encryption/certificate fields mean unknown.",
+    "Client loopback use does not establish loopback-only service bindings. Existing broader bindings were not changed.",
+    "GPU matrix correctness is not a performance benchmark or model evaluation."
+  ]
+}

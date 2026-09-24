@@ -1,0 +1,41 @@
+name: Source adapter proposal
+description: Evaluate one source before adding an adapter.
+labels: [hydra-source, provenance]
+body:
+  - type: markdown
+    attributes:
+      value: "Public-source research only. Unknown terms or licensing blocks ingestion. Never include API keys, private endpoints or raw restricted data."
+  - type: input
+    id: source
+    attributes:
+      label: Source name and public URL
+    validations:
+      required: true
+  - type: textarea
+    id: permissions
+    attributes:
+      label: License, terms and robots
+      description: Record each separately with official public evidence URLs and review date; mark uncertainty explicitly.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data classes and timestamp quality
+      description: Coverage, units, event/observed/available times, timezone and correction behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: operations
+    attributes:
+      label: Reliability and rate limits
+      description: Availability, failure states, documented request limits and permitted access method.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Expected DRAGONHYDRA value
+      description: Active stage, current gap, existing alternatives and measurable benefit within the initial 2–3-source scope.
+    validations:
+      required: true

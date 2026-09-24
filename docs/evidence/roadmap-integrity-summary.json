@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Roadmap adoption and numeric-range integrity",
+  "evidence_class": "REPOSITORY_SAFE_HISTORICAL_SUMMARY",
+  "curated_at": "2026-09-24T19:07:13.417958+00:00",
+  "semantics": "Selected measurements copied from identified local artifacts. Historical proof only; not a new live check or independent attestation. Original paths are local evidence coordinates, not repository files.",
+  "source_artifacts": [
+    {
+      "id": "adoption-audit",
+      "local_evidence_path": "runtime/checkpoints/roadmap-adoption-20260924T184422Z-3178f45c/audit.json",
+      "sha256": "ef5f009a29a27d67cdd9b55938d86d6025133abe78221462ff27821dcace3008",
+      "recorded_at": "2026-09-24T18:46:42.400336+00:00"
+    },
+    {
+      "id": "correction-audit",
+      "local_evidence_path": "runtime/checkpoints/roadmap-range-correction-20260924T185126Z-9eb65c7a/audit.json",
+      "sha256": "0bf8caf73fdf0a1109cd76c67f1f7f3a0a3bc19ee4e084e683cc6f6d27a1056d",
+      "recorded_at": "2026-09-24T18:54:40.574698+00:00"
+    },
+    {
+      "id": "prior-checkpoint-before",
+      "local_evidence_path": "runtime/checkpoints/roadmap-range-correction-20260924T185126Z-9eb65c7a/prior-checkpoint-before.json",
+      "sha256": "675d083a5ec698e85a17aa8949cd441dde950f6b9349cdfd21b2a6b60c595b70"
+    },
+    {
+      "id": "prior-checkpoint-after",
+      "local_evidence_path": "runtime/checkpoints/roadmap-range-correction-20260924T185126Z-9eb65c7a/prior-checkpoint-after.json",
+      "sha256": "675d083a5ec698e85a17aa8949cd441dde950f6b9349cdfd21b2a6b60c595b70"
+    }
+  ],
+  "measurements": {
+    "adoption": {
+      "source_artifact": "adoption-audit",
+      "checked_at": "2026-09-24T18:46:42.400336+00:00",
+      "passed": true,
+      "local_links_checked": 59,
+      "checks": {
+        "all_29_sections": true,
+        "all_11_versions": true,
+        "required_status_fields": true,
+        "local_links_resolve": true,
+        "prior_test_claim_matches": true
+      },
+      "numeric_wording_authority": "SUPERSEDED_BY_OWNER_RANGE_CORRECTION"
+    },
+    "correction": {
+      "source_artifact": "correction-audit",
+      "checked_at": "2026-09-24T18:54:40.574698+00:00",
+      "passed": true,
+      "local_links_checked": 69,
+      "preserved_prior_checkpoint_files": 12,
+      "checks": {
+        "canonical_python314": true,
+        "all_29_roadmap_sections": true,
+        "all_11_versions": true,
+        "all_11_pyramid_layers": true,
+        "required_status_fields": true,
+        "local_links_resolve": true,
+        "seven_corrupted_occurrences_identified": true,
+        "no_corrupted_scope_wording_in_active_documents": true,
+        "v2_source_range_correct": true,
+        "initial_scope_range_correct": true,
+        "session_range_correct": true,
+        "no_collapsed_version_or_layer_ranges": true,
+        "previously_intact_range_separators_preserved": true,
+        "original_checkpoint_byte_for_byte_preserved": true,
+        "implementation_and_configuration_hashes_unchanged": true,
+        "balanced_markdown_fences": true
+      },
+      "corrupted_occurrences_before": 7,
+      "corrupted_occurrences_after": 0,
+      "intended_source_range": "2–3",
+      "intended_session_item_range": "3–5"
+    },
+    "preservation": {
+      "source_artifacts": [
+        "prior-checkpoint-before",
+        "prior-checkpoint-after"
+      ],
+      "recorded_manifests_equal": true,
+      "recorded_file_count": 12
+    }
+  },
+  "limitations": [
+    "Documentation-only audits did not rerun application, database or GPU checks.",
+    "The adoption audit passed its then-current checks but preserved corrupted numeric wording; it is not authority for the intended source/task counts.",
+    "The correction audit supersedes the numeric interpretation while retaining the original adoption checkpoint.",
+    "Historical link checks used the local project tree. They are not proof that all linked targets were staged or present on GitHub; repository-baseline link validation is separate.",
+    "Manifest equality corroborates the recorded before/after checkpoint preservation, not operating-system WORM storage."
+  ]
+}

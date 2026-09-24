@@ -1,0 +1,19 @@
+[project]
+phase = "pyramid-genesis"
+python_executable = 'C:\Users\Administrator\anaconda3\envs\codex-pytorch\python.exe'
+conda_environment = "codex-pytorch"
+
+[probe]
+host = "127.0.0.1"
+port = 3306
+database = "joomla_codex_lab"
+table_prefix = "j5faba9_"
+secret_file = "runtime/secrets/dragonhydra-probe.local.json"
+driver_directory = "runtime/vendor/pymysql-1.2.3"
+driver_version = "1.2.3"
+connect_timeout_seconds = 5
+
+[diagnostics]
+matrix_size = 96
+absolute_tolerance = 0.0001
+seed = 314

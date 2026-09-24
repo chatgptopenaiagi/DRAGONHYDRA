@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "downloaded_at": {
+            "format": "date-time",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "media_type": {
+            "enum": [
+              "application/json",
+              "text/plain",
+              "text/csv",
+              "image/png",
+              "image/jpeg"
+            ],
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative_path": {
+            "maxLength": 300,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "size_bytes": {
+            "maximum": 5000000,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "relative_path",
+          "sha256",
+          "media_type",
+          "size_bytes",
+          "downloaded_at"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "browser_evidence": {
+      "maxLength": 2000,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capture_method": {
+      "enum": [
+        "desktop-browser",
+        "human-browser",
+        "python-fetch",
+        "synthetic"
+      ],
+      "maxLength": 40,
+      "minLength": 1,
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "maxLength": 40,
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_id": {
+      "format": "uuid",
+      "maxLength": 36,
+      "minLength": 1,
+      "type": "string"
+    },
+    "notes": {
+      "maxLength": 4000,
+      "type": "string"
+    },
+    "observations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "effective_at": {
+            "format": "date-time",
+            "maxLength": 40,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "entity_name": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+          },
+          "entity_type": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "observation_type": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 1,
+            "type": "string"
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "unit": {
+            "maxLength": 80,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "maxLength": 2000,
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "observation_type",
+          "entity_type",
+          "entity_name",
+          "value",
+          "unit",
+          "observed_at",
+          "effective_at",
+          "source_id",
+          "confidence",
+          "synthetic"
+        ],
+        "type": "object"
+      },
+      "maxItems": 100,
+      "type": "array"
+    },
+    "observed_failure": {
+      "maxLength": 2000,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "producer": {
+      "enum": [
+        "codex-desktop",
+        "human-browser",
+        "python-fetch",
+        "test-fixture"
+      ],
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string"
+    },
+    "project_root": {
+      "const": "C:\\xampp\\DRAGONHYDRA",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 1000,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_method": {
+            "enum": [
+              "rendered-browser",
+              "manual-browser",
+              "python-fetch",
+              "synthetic"
+            ],
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "license_status": {
+            "enum": [
+              "CC0-1.0",
+              "RESEARCH_ONLY",
+              "UNVERIFIED",
+              "NOT_APPLICABLE"
+            ],
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "robots_status": {
+            "enum": [
+              "ALLOWED",
+              "ABSENT",
+              "DISALLOWED",
+              "UNVERIFIED",
+              "NOT_APPLICABLE"
+            ],
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "type": "string"
+          },
+          "source_type": {
+            "enum": [
+              "PUBLIC_DATASET",
+              "PUBLIC_PAGE",
+              "PUBLIC_API",
+              "SYNTHETIC"
+            ],
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string"
+          },
+          "terms_status": {
+            "enum": [
+              "ALLOWED_RESEARCH",
+              "UNVERIFIED",
+              "PROHIBITED",
+              "NOT_APPLICABLE"
+            ],
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "url",
+          "title",
+          "source_type",
+          "observed_at",
+          "access_method",
+          "terms_status",
+          "robots_status",
+          "license_status",
+          "confidence"
+        ],
+        "type": "object"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "SUCCESS",
+        "BLOCKED"
+      ],
+      "maxLength": 16,
+      "minLength": 1,
+      "type": "string"
+    },
+    "task": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "producer",
+    "created_at",
+    "task",
+    "project_root",
+    "capture_method",
+    "status",
+    "sources",
+    "artifacts",
+    "observations",
+    "notes",
+    "reason",
+    "observed_failure",
+    "browser_evidence"
+  ],
+  "title": "BrowserHandoffEnvelope v1",
+  "type": "object"
+}

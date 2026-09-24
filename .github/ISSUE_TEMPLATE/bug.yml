@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible defect using sanitized evidence.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include credentials, tokens, cookies, database dumps or private checkpoints. For vulnerabilities, read SECURITY.md before filing."
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Include the active roadmap stage and affected component.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Use synthetic inputs and sanitized commands.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and validation
+      description: Commit, Python version, operating system, test tier and sanitized result counts.
+    validations:
+      required: true
+  - type: textarea
+    id: integrity
+    attributes:
+      label: Provenance or temporal impact
+      description: Describe affected evidence or historical replay without uploading restricted data.

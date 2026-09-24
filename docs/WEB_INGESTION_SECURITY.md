@@ -1,0 +1,15 @@
+# Web ingestion security
+
+Runtime uses dedicated identities: SQL `dragonhydra_ingest` has SELECT/INSERT on eleven fixed tables, `dragonhydra_read` SELECT only. Neither has sysadmin/db_owner or UPDATE/DELETE. MariaDB `dragonhydra_ops` has SELECT/INSERT/UPDATE on three operational tables; `dragonhydra_web` has SELECT only on the one presentation cache. Existing read-only baseline accounts were not altered.
+
+`scripts/provision_web_sql.py` is an explicit one-time administrative migration, never imported by runtime. It used the authorized Windows SQL identity and local MariaDB administration only for creation. Credentials are randomly generated into the existing ACL-restricted `runtime/secrets` directory. Passwords never appear in command arguments, output, source or htdocs. The setup script refuses collisions; partial setup requires inspection, never automatic deletion/reset.
+
+SQL values use bound parameters; table choices come from a fixed allowlist. No web content can provide SQL. The PHP endpoint cannot connect to SQL Server. It reads only a bounded cache DTO using its one-table SELECT identity. Errors show a generic 503 response, not driver context. Strings are HTML-escaped; CSP forbids scripts and external resources; the page is GET-only, uses no sessions/forms and sends no-store/nosniff headers.
+
+The new directory has `Require local`; PHP independently checks REMOTE_ADDR and the local Host header. It does not trust forwarded headers. A forged Host and POST are denied. Existing server bindings were preserved: regression evidence shows Apache, MariaDB and SQL Server still have pre-existing wildcard listeners. This block did not add listeners, widen firewall rules, forward ports or certify perimeter isolation of those pre-existing services. The new dashboard itself is restricted to localhost.
+
+Fetches permit only exact allowlisted public HTTPS URLs, no credentials/query parameters, no redirects, no cookies or proxy discovery. DNS results must all be globally routable; the connection pins a vetted IP and validates TLS using the original hostname. Timeouts ≤30 seconds, response sizes ≤5 MB (demo 2 MB), robots ≤100 KB, minimum interval ≥1 second (demo 2 seconds). Socket/request errors, authentication, CAPTCHA and rate-limit responses stop the operation; no bypass or automatic retry occurs. Rate limiting is process-local; explicit operators must also respect the source policy across separate processes. No persistent crawler was introduced.
+
+SQL TLS retains the prior measured loopback-only certificate trust exception. MariaDB transport TLS remains unmeasured, as in the baseline. New adapters always connect to explicit loopback addresses. A protected local filesystem is part of the trust boundary: receipts are not signatures and local administrators can alter files.
+
+Tests cover SQL injection as literal data, append history permissions, read-only web identity, denied Joomla access from the operations identity, URL/path validation, private DNS rejection, fetch limits, temporal leakage, secret absence from evidence/web output and endpoint behavior.

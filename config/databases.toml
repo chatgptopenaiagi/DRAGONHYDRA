@@ -1,0 +1,21 @@
+[sqlserver]
+host = "127.0.0.1"
+port = 1433
+database = "DRAGONHYDRA_LAB"
+service_name = "MSSQLSERVER"
+instance_id = "MSSQL16.MSSQLSERVER"
+odbc_driver = "ODBC Driver 18 for SQL Server"
+python_driver_version = "5.3.0"
+driver_directory = "runtime/vendor/pyodbc-5.3.0"
+secret_file = "runtime/secrets/sqlserver-probe.local.json"
+connect_timeout_seconds = 5
+query_timeout_seconds = 10
+encrypt = true
+# Measured certificate-chain failure; this exception is valid only on loopback.
+trust_server_certificate = true
+
+[coexistence]
+mariadb_config = "config/genesis.toml"
+mariadb_service_name = "mysql"
+apache_service_name = "Apache2.4"
+joomla_url = "http://localhost/joomla-codex-lab/"

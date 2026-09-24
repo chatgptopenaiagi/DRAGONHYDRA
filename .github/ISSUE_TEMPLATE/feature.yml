@@ -1,0 +1,31 @@
+name: Coherent feature block
+description: Propose a bounded, measurable roadmap improvement.
+labels: [enhancement]
+body:
+  - type: input
+    id: stage
+    attributes:
+      label: Roadmap version and component
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and existing alternatives
+      description: What cannot the current system solve?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and measurable acceptance
+      description: Define one coherent block, baseline, improvement measure and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: cost
+    attributes:
+      label: Complexity and integrity
+      description: Failure modes, removal plan, dataset ownership, provenance and temporal implications.
+    validations:
+      required: true

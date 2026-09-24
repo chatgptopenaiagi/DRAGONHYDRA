@@ -1,0 +1,271 @@
+{
+  "created": [
+    {
+      "path": "config/dashboard.local.json",
+      "sha256": "e1aecd6b6b2ffa54cc3bcc2eec5e595b8ca73627bac7d8228b31d272f827167a"
+    },
+    {
+      "path": "config/handoff.schema.json",
+      "sha256": "30a00c18821156a315b3737210e569a40ee80d33324f1cc5e64cf49040272ada"
+    },
+    {
+      "path": "config/web_sources.json",
+      "sha256": "370904a783f03167c7d688f7ab27cf0941d469e773c5a286041db3122e6a7cf9"
+    },
+    {
+      "path": "docs/CODEX_DESKTOP_CLI_HANDOFF.md",
+      "sha256": "684778f9046e9dd1894efdf75bd933fe0fb1608a2a890d140c9e39e928348794"
+    },
+    {
+      "path": "docs/JOOMLA_INTELLIGENCE_DASHBOARD.md",
+      "sha256": "e52ffcf23a0253eb72e1c3aa7da2c87698f072516ac7c783367a984f404e4320"
+    },
+    {
+      "path": "docs/ODDS_OBSERVATION_MODEL.md",
+      "sha256": "c6368833a9502cfd6ebaddfd171be0dd80cd439270b56361a77ce4f229d080da"
+    },
+    {
+      "path": "docs/SPORT_SOURCE_POLICY.md",
+      "sha256": "b13c81cb6e02d23b9ac7e3a13d59b097511c5731fa3f862f95ba72d4e74e4569"
+    },
+    {
+      "path": "docs/SQLSERVER_SPORTS_INTELLIGENCE.md",
+      "sha256": "3912c4ed2f646be6e4477af94d65fef4efd64ac8b1f92b3f84608f62c1506772"
+    },
+    {
+      "path": "docs/WEB_INGESTION_SECURITY.md",
+      "sha256": "960e21f587b737f8d0601c689d2d71011cf551086c43673072fc2db90ab05c5e"
+    },
+    {
+      "path": "docs/WEB_SQL_FINAL_REPORT.md",
+      "sha256": "3f5166bc28850e03977d3b6495dc067416815d07d743a5fae107662581645e96"
+    },
+    {
+      "path": "docs/WEB_SQL_PIPELINE.md",
+      "sha256": "c43a867f3ccf62797295214a691885a85881b2797a8bc9f3f3d2466e6d76b447"
+    },
+    {
+      "path": "research/PUBLIC_SPORT_SOURCE_MATRIX.md",
+      "sha256": "473cfb9629868dc6a140f53aef70be9010e814d759d7f83c3c425e12e5e8548c"
+    },
+    {
+      "path": "scripts/provision_web_sql.py",
+      "sha256": "3a728038652a3bce184357321a016f192bd70dfa43137d0400264674352b7507"
+    },
+    {
+      "path": "scripts/Run-WebPipeline.ps1",
+      "sha256": "4990e40b81efcbd4da37ade7acfa2439e8810e60bc2c916de288fb37ca541712"
+    },
+    {
+      "path": "tests/test_web_pipeline.py",
+      "sha256": "42295ed8343794b07ef8364aa637749469bac8624c208de12f6d8271646864d3"
+    },
+    {
+      "path": "web/dashboard/.htaccess",
+      "sha256": "a078ce0c87ecd3fcdee5c4203d29271293e421d963f3699539c3f78aae83cab9"
+    },
+    {
+      "path": "web/dashboard/dashboard.css",
+      "sha256": "2267e26cc6c6673c0115538316bbb46759868e1a5865dc84431948c0c32bda4b"
+    },
+    {
+      "path": "web/dashboard/index.php",
+      "sha256": "1d7bdcddd736d74721f203f6859fbe8d43e1679000523408754f935e903d4016"
+    },
+    {
+      "path": "src/dragonhydra/storage/intelligence.py",
+      "sha256": "864cd51fe03d8c8e084dbc916c3befb215aa6de04cf473fe363e5ad7dc898e35"
+    },
+    {
+      "path": "src/dragonhydra/storage/router.py",
+      "sha256": "baa4efad662e87defdb26f358efd7210ead95a0be5746273bf20f3ea95f617f9"
+    },
+    {
+      "path": "src/dragonhydra/web/bridge.py",
+      "sha256": "6b6a8e422080098055d6e257547a052e3b7537b062dd346206e5e2f80c6a2e30"
+    },
+    {
+      "path": "src/dragonhydra/web/contracts.py",
+      "sha256": "13331b65a6cb1127fe6502dcb9c75b09acabbd15eca7cad51de489a8d3f2229e"
+    },
+    {
+      "path": "src/dragonhydra/web/fetch.py",
+      "sha256": "9aa383c723a0fe25584935b31f7e4e827439e3044da9814e459eb4e85fc6db6b"
+    },
+    {
+      "path": "src/dragonhydra/web/html.py",
+      "sha256": "7b515878fe542e9250449d79766693c176f3fd1301d4aa9ec5bf40ddc19771f8"
+    },
+    {
+      "path": "src/dragonhydra/web/json_api.py",
+      "sha256": "192eb17ec7b7f1f01e20185b09098820073c0bdd78ba2b6785fecdfe81d568ea"
+    },
+    {
+      "path": "src/dragonhydra/web/license_evidence.py",
+      "sha256": "7ed05d8f84c44439aebcb1f18d164f526a143519ceae18101b62d3aeeec5ce94"
+    },
+    {
+      "path": "src/dragonhydra/web/odds.py",
+      "sha256": "8d41ec68cf28f3e24c9de2fd594548082f897491cff39ffee2a51adf6dd3ae22"
+    },
+    {
+      "path": "src/dragonhydra/web/pipeline.py",
+      "sha256": "011d2fdb106f84da0e05c124c059e5c0a0391b1a2582ca923adc96de093d4419"
+    },
+    {
+      "path": "src/dragonhydra/web/provenance.py",
+      "sha256": "899976e5921a883f4079b4951c8898bc3ecced16641384955876a953e16d2a84"
+    },
+    {
+      "path": "src/dragonhydra/web/rate_limit.py",
+      "sha256": "e005ab5eeedb9ac2f0a8534b833b4688c388f07efecce05a36b1072e232188d9"
+    },
+    {
+      "path": "src/dragonhydra/web/robots.py",
+      "sha256": "4847fe8e5b99ef655aa1a581f5ed4e0bc30279bc26dee26f3a1d51adb77d728b"
+    },
+    {
+      "path": "src/dragonhydra/web/terms.py",
+      "sha256": "a8e9c8d5ba1f36a62ee167bc955e8a9d4adfa134af54405c61220b69776d2520"
+    },
+    {
+      "path": "src/dragonhydra/web/validation.py",
+      "sha256": "5d917ce191cf1213121e530ede9a9daada2767fbbaead16795dcc428f0a920ad"
+    },
+    {
+      "path": "src/dragonhydra/web/__init__.py",
+      "sha256": "c5a82f2be62b7bef16c918b1374b44122471795546cc8d5e3a1d982978282477"
+    },
+    {
+      "path": "research/browser_research/browser_note.json",
+      "sha256": "9b4828b3134db6cac1bf378a098b6c5325543c38e74d5d5d807de24ca9d1ce0e"
+    },
+    {
+      "path": "research/browser_research/license-extraction-corrected.json",
+      "sha256": "6405c16eecae12cd4728c9761f9c077198ac125df4627cae9041afffa6564037"
+    },
+    {
+      "path": "research/browser_research/license-extraction.json",
+      "sha256": "7e1b53f9e34ec93c58074e36ea8bea0a8bdc9c580402c43dceadd71f77158169"
+    },
+    {
+      "path": "research/browser_research/openfootball-LICENSE.md",
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673"
+    },
+    {
+      "path": "research/browser_research/openfootball-README.md",
+      "sha256": "aadc464ae476ba4d5467785f6f2be435d1a583f589f4b2b0617fdf86fc18e29c"
+    },
+    {
+      "path": "research/browser_research/openfootball-research.json",
+      "sha256": "56293c13f02e7622b576053c60117a39046eec89e518f17cac8d463b37ff7b10"
+    },
+    {
+      "path": "research/browser_research/statsbomb-license-extracted.txt",
+      "sha256": "d34943be906ec8ef5417d5b01ce92181f87114a00a7b4c4033c60b6d818fb974"
+    },
+    {
+      "path": "research/browser_research/statsbomb-license-pypdf-6.19.0.txt",
+      "sha256": "ce9a7e8ee0cbe76a38f768deb18889298d9bd42e34b6d8117ce3ec84af301ff8"
+    },
+    {
+      "path": "research/browser_research/statsbomb-license.pdf",
+      "sha256": "a5462e69aeb71a39268b760b110c5c2190a2e0cee3015ba976f66bd71f6c2bb4"
+    },
+    {
+      "path": "research/browser_research/statsbomb-open-research.json",
+      "sha256": "02c82b332374f3cbca61b4250f1c7e10cf478362b148f20c1d10feea49694b23"
+    },
+    {
+      "path": "research/browser_research/statsbomb-readme.txt",
+      "sha256": "98a757466c4d931dba4b6c4290c55c2fe74e4550d7455bbe05fd884dc831aff3"
+    },
+    {
+      "path": "research/browser_research/statsbomb-robots.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/browser_research/the-odds-api-research.json",
+      "sha256": "7a66bfe28e18886d08577d0dbb752553c7b140fa16019c7c2c7e309536ae6681"
+    },
+    {
+      "path": "research/browser_research/uefa-research.json",
+      "sha256": "f04fd4094f3de636300a8c83029bcff12641fb705686ace7c50dcb894c81bd36"
+    }
+  ],
+  "created_at": "2026-09-24T18:08:38.815018+00:00",
+  "deployed_files": [
+    {
+      "path": "C:\\xampp\\htdocs\\joomla-codex-lab\\dragonhydra\\.htaccess",
+      "sha256": "a078ce0c87ecd3fcdee5c4203d29271293e421d963f3699539c3f78aae83cab9"
+    },
+    {
+      "path": "C:\\xampp\\htdocs\\joomla-codex-lab\\dragonhydra\\dashboard.css",
+      "sha256": "2267e26cc6c6673c0115538316bbb46759868e1a5865dc84431948c0c32bda4b"
+    },
+    {
+      "path": "C:\\xampp\\htdocs\\joomla-codex-lab\\dragonhydra\\index.php",
+      "sha256": "1d7bdcddd736d74721f203f6859fbe8d43e1679000523408754f935e903d4016"
+    }
+  ],
+  "modified": [
+    {
+      "path": ".gitignore",
+      "sha256": "96b02466ce484827e5b532c49b8d0775c8104c543cb9228339ca054d517d45f8"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "2d08d7d2ce3e866850a1056be16081fe1017c0dcea063848a1e72aa0847d2669"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "595710d879daf81d4abcca5cf95acef2a313b9c78242ff686ebedbef4e57e4ed"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "sha256": "10c5f3b62f9e83a1e7303b060e7c24d4bae057e2279b5df33525c6facd871cfd"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "636a6e8107ba0a4b39bf524006e21bc03ad591798a73dfce456124f5a0f1c93f"
+    }
+  ],
+  "runtime_artifacts": [
+    {
+      "path": "runtime/handoff/browser_downloads/6eccd030d18147af8beebd6ea8ad80ea.json",
+      "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0"
+    },
+    {
+      "path": "runtime/handoff/manifests/6eccd030d18147af8beebd6ea8ad80ea.fetch.json",
+      "sha256": "efb5d9643badc6a79c9b218ed17e5c84ccc52b654b015ed29b637e5467b55551"
+    },
+    {
+      "path": "runtime/handoff/manifests/6eccd030d18147af8beebd6ea8ad80ea.json",
+      "sha256": "072d323f13492597188f4b92a9d3e2dea2c799c710dc2bdee4c4b6170d7b5135"
+    },
+    {
+      "path": "runtime/handoff/processed/6eccd030d18147af8beebd6ea8ad80ea-7d6b6e64a33b464a9069cb3edd23f425.json",
+      "sha256": "072d323f13492597188f4b92a9d3e2dea2c799c710dc2bdee4c4b6170d7b5135"
+    },
+    {
+      "path": "runtime/handoff/processed/6eccd030d18147af8beebd6ea8ad80ea-7d6b6e64a33b464a9069cb3edd23f425.receipt.json",
+      "sha256": "912c5f8cdab00ae6ee16cb5ef33784f4bb0525dad2d15421f2808254d65c624f"
+    },
+    {
+      "path": "runtime/handoff/manifests/bridge_events/3ad7c9de27cc4821a5bbea7d0c814055.json",
+      "sha256": "813e829b8067b3f14f6b4fc614da7081199474d5a3b64a3a31027215db402d03"
+    },
+    {
+      "path": "runtime/handoff/manifests/bridge_events/9eed57e826074e81bbcaea2dd4f0d2f2.json",
+      "sha256": "13634087ddc89b8c1ebed94e1c1e47e38a7d8fcbf81b771eda7d7a2225941152"
+    },
+    {
+      "path": "runtime/handoff/manifests/bridge_events/a1de401411c84b73a79bada4235b97a8.json",
+      "sha256": "1499b12d06994b2e554f2abd932f231b2ea7b4469172c73f98660990af308f90"
+    },
+    {
+      "path": "runtime/handoff/manifests/bridge_events/c0c0e084dfc9465793b2be2f025ac95d.json",
+      "sha256": "e6813f440f7b24ec27c414c97a5ad1df0b0091b545f96580646cf439ebdc6b47"
+    }
+  ]
+}

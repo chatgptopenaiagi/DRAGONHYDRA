@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "milestone": "GitHub repository baseline local validation",
+  "evidence_class": "REPOSITORY_SAFE_MEASUREMENT_SUMMARY",
+  "curated_at": "2026-09-24T19:15:13.364839+00:00",
+  "semantics": "Selected actual local measurements for repository readiness. Remote commit/Actions verification is recorded separately after publication. No raw credentials, logs, database rows or restricted capture data are exported.",
+  "source_artifacts": [
+    {
+      "id": "local-tests",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T191146Z-3b110eb1/tests.json",
+      "sha256": "bd0032bb96117aa42f85613d2ef3f2cc4d3148f88ed970090b3ec9be00cc0b46"
+    },
+    {
+      "id": "database-capabilities",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T191146Z-3b110eb1/capabilities.json",
+      "sha256": "af30e9e0cd50449c27325bbfd3b88937130ed8c19c3608b224fdad43bb1f5433"
+    },
+    {
+      "id": "gpu",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T191146Z-3b110eb1/gpu-regression.json",
+      "sha256": "38f420f4bae89533a50b6d8da9a9a879ab34be3db64b43b2288e81329b561a9e"
+    },
+    {
+      "id": "portable-tests",
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/portable-tests-release.json",
+      "sha256": "98679dbde43160463978bb67b4bd7b9c7207939ecd02840d733f3d215fa0b728"
+    },
+    {
+      "id": "initial-local-failure",
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T190637Z-9cd8bb7e/tests.json",
+      "sha256": "18e467802e6494713cc9c4f36fa26067786fd6e8753d37e5b110440e36acf463"
+    },
+    {
+      "id": "bridge-state",
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/bridge-latest-readonly-diagnosis.json",
+      "sha256": "b108ff38fa26a9a71c09925282cf919aba9c23dbf72f1b1427474202db73e8b1"
+    },
+    {
+      "id": "link-reconciliation",
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/link-reconciliation.json",
+      "sha256": "1195eef0f1e7c0cd375651171434662b4fe267df193981ef26c38075802d9652"
+    }
+  ],
+  "measurements": {
+    "local-tests": {
+      "source_artifact": "local-tests",
+      "checked_utc": "2026-09-24T19:12:01.042635+00:00",
+      "tests_run": 207,
+      "tests_passed": 207,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "portable-tests": {
+      "source_artifact": "portable-tests",
+      "checked_utc": "2026-09-24T19:11:59.395629+00:00",
+      "tests_run": 164,
+      "tests_passed": 164,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true,
+      "outside_tier_count": 43,
+      "blocked_live_dependency_attempts": 0
+    },
+    "initial-local-failure": {
+      "source_artifact": "initial-local-failure",
+      "checked_utc": "2026-09-24T19:06:51.533881+00:00",
+      "tests_run": 204,
+      "tests_passed": 202,
+      "tests_failed": 2,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": false
+    },
+    "database": {
+      "source_artifact": "database-capabilities",
+      "checked_utc": "2026-09-24T19:11:49.020544+00:00",
+      "passed": true,
+      "simultaneous_database_listeners": true,
+      "required_services_running": true,
+      "joomla_http_status": 200
+    },
+    "gpu": {
+      "source_artifact": "gpu",
+      "checked_utc": "2026-09-24T19:11:51.982093+00:00",
+      "python_version": "3.14.7",
+      "gpu_baseline_passed": true,
+      "canonical_interpreter_matches": true,
+      "cpu_fallback_used": false
+    },
+    "latest_bridge_state": {
+      "source_artifact": "bridge-state",
+      "provenance": "DESKTOP_BLOCKED",
+      "status": "BLOCKED",
+      "observation_count_for_handoff": 0,
+      "desktop_result": "NOT_CONFIRMED",
+      "archive_hash_matches": true,
+      "sql_receipt_matches_immutable_file": true,
+      "joomla_matches_cache": true
+    },
+    "reconciliation": {
+      "source_artifact": "link-reconciliation",
+      "links_reconciled": 87,
+      "checkpoint_links": 74,
+      "documents": 19
+    }
+  },
+  "limitations": [
+    "Portable tests exclude 43 explicitly local checks; full local tests execute both sets.",
+    "Initial 202/204 run had two stale synthetic-presentation assertions; current-state receipt validation repaired tests without changing production code or stored data.",
+    "A blocked Desktop attempt contributes no observations and is not a successful browser handoff.",
+    "GPU correctness and database coexistence are not performance or production-readiness benchmarks.",
+    "Source hashes identify local bytes; raw forensic evidence remains ignored and is not independently reproducible from the summary alone."
+  ]
+}

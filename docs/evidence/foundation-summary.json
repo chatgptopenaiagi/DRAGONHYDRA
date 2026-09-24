@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Foundation",
+  "evidence_class": "REPOSITORY_SAFE_HISTORICAL_SUMMARY",
+  "curated_at": "2026-09-24T19:07:13.417958+00:00",
+  "semantics": "Selected measurements copied from identified local artifacts. Historical proof only; not a new live check or independent attestation. Original paths are local evidence coordinates, not repository files.",
+  "source_artifacts": [
+    {
+      "id": "initial-tests",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155516Z-ddf9f093/tests.json",
+      "sha256": "81a807c60947050fb308c12f8be28468f3ce3aca8a1cede213df299d5e9b2e3e",
+      "recorded_at": "2026-09-24T15:55:23.183114+00:00"
+    },
+    {
+      "id": "initial-diagnostics",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155516Z-ddf9f093/diagnostics.json",
+      "sha256": "0ba2594c92f12841cdb6fb3c022b23771df1abb28b919a2f264efefaaad885d5",
+      "recorded_at": "2026-09-24T15:55:18.835674+00:00"
+    },
+    {
+      "id": "initial-bridge",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155516Z-ddf9f093/bridge.json",
+      "sha256": "08e9ba43e0f2714247ea15717b70058f578b9907c116fab3134f12b71f2b5d9a",
+      "recorded_at": "2026-09-24T15:55:19.752312+00:00"
+    },
+    {
+      "id": "final-tests",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155954Z-3065e1ef/tests.json",
+      "sha256": "23a3a0261ea65744b12676f40ae66c0a33dc453705f9c0effda56497c697105b",
+      "recorded_at": "2026-09-24T16:00:01.548340+00:00"
+    },
+    {
+      "id": "final-diagnostics",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155954Z-3065e1ef/diagnostics.json",
+      "sha256": "e16947f5d1942cb586430dd5e1717c49d767ead3cb7b353557ecd43915a7ba19",
+      "recorded_at": "2026-09-24T15:59:57.372049+00:00"
+    },
+    {
+      "id": "final-bridge",
+      "local_evidence_path": "runtime/checkpoints/genesis-20260924T155954Z-3065e1ef/bridge.json",
+      "sha256": "280311d5af1bfbeacfe64042e74ea932bdf2dba8c31a61357fe6c5d6d3e5d087",
+      "recorded_at": "2026-09-24T15:59:58.123699+00:00"
+    }
+  ],
+  "measurements": {
+    "test_runs": [
+      {
+        "source_artifact": "initial-tests",
+        "python_version": "3.14.7",
+        "checked_utc": "2026-09-24T15:55:23.183114+00:00",
+        "tests_run": 43,
+        "tests_passed": 43,
+        "tests_failed": 0,
+        "tests_errored": 0,
+        "tests_skipped": 0,
+        "successful": true
+      },
+      {
+        "source_artifact": "final-tests",
+        "python_version": "3.14.7",
+        "checked_utc": "2026-09-24T16:00:01.548340+00:00",
+        "tests_run": 53,
+        "tests_passed": 53,
+        "tests_failed": 0,
+        "tests_errored": 0,
+        "tests_skipped": 0,
+        "successful": true
+      }
+    ],
+    "gpu_correctness": [
+      {
+        "source_artifact": "initial-diagnostics",
+        "checked_utc": "2026-09-24T15:55:18.835674+00:00",
+        "python_version": "3.14.7",
+        "numpy_version": "2.5.3",
+        "torch_version": "2.14.0+cu132",
+        "cuda_runtime": "13.2",
+        "cuda_available": true,
+        "cudnn_available": true,
+        "matrix_shape": [
+          96,
+          96
+        ],
+        "matrix_max_absolute_error": 5.763398931435404e-06,
+        "absolute_tolerance": 0.0001,
+        "matrix_passed": true,
+        "cpu_fallback_used": false,
+        "gpu_baseline_passed": true
+      },
+      {
+        "source_artifact": "final-diagnostics",
+        "checked_utc": "2026-09-24T15:59:57.372049+00:00",
+        "python_version": "3.14.7",
+        "numpy_version": "2.5.3",
+        "torch_version": "2.14.0+cu132",
+        "cuda_runtime": "13.2",
+        "cuda_available": true,
+        "cudnn_available": true,
+        "matrix_shape": [
+          96,
+          96
+        ],
+        "matrix_max_absolute_error": 5.763398931435404e-06,
+        "absolute_tolerance": 0.0001,
+        "matrix_passed": true,
+        "cpu_fallback_used": false,
+        "gpu_baseline_passed": true
+      }
+    ],
+    "mariadb_probe": [
+      {
+        "source_artifact": "initial-bridge",
+        "checked_utc": "2026-09-24T15:55:19.752312+00:00",
+        "write_rejected_with_error_1142": true,
+        "aggregate_counts_unchanged": true,
+        "select_only_grants": true,
+        "passed": true
+      },
+      {
+        "source_artifact": "final-bridge",
+        "checked_utc": "2026-09-24T15:59:58.123699+00:00",
+        "write_rejected_with_error_1142": true,
+        "aggregate_counts_unchanged": true,
+        "select_only_grants": true,
+        "passed": true
+      }
+    ]
+  },
+  "limitations": [
+    "The initial run contains 43 tests; the later final foundation run contains 53. Do not attribute 53 tests to the initial checkpoint.",
+    "The 96 by 96 matrix check establishes numerical correctness for that operation, not GPU speedup, model quality or all workloads.",
+    "The MariaDB probe establishes the recorded bounded aggregate and permission checks only; no table contents, usernames, credentials or machine paths are exported.",
+    "A successful local environment is not a clean-machine reproduction or current service-health guarantee."
+  ]
+}

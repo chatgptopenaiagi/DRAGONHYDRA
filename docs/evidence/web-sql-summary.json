@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Web-to-SQL",
+  "evidence_class": "REPOSITORY_SAFE_HISTORICAL_SUMMARY",
+  "curated_at": "2026-09-24T19:07:13.417958+00:00",
+  "semantics": "Selected measurements copied from identified local artifacts. Historical proof only; not a new live check or independent attestation. Original paths are local evidence coordinates, not repository files.",
+  "source_artifacts": [
+    {
+      "id": "tests",
+      "local_evidence_path": "runtime/checkpoints/web-sql-20260924T174531Z/final-tests.json",
+      "sha256": "5ba7cd7d2bb03f39447f95dbb752830f6330e98e1273a72e3967874a53f2798f",
+      "recorded_at": "2026-09-24T18:06:49.316959+00:00"
+    },
+    {
+      "id": "flow",
+      "local_evidence_path": "runtime/checkpoints/web-sql-20260924T174531Z/flow-receipt.json",
+      "sha256": "e269af418b9803677a6ac107cacdeb32a059163e2e17a38348d8c0b11aff64e7",
+      "recorded_at": "2026-09-24T18:08:38.645491+00:00"
+    }
+  ],
+  "measurements": {
+    "tests": {
+      "source_artifact": "tests",
+      "python_version": "3.14.7",
+      "checked_utc": "2026-09-24T18:06:49.316959+00:00",
+      "tests_run": 141,
+      "tests_passed": 141,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "pipeline": {
+      "source_artifact": "flow",
+      "recorded_at": "2026-09-24T18:08:38.645491+00:00",
+      "cli": {
+        "status": "SUCCEEDED",
+        "separate_codex_cli_session": "NOT_VERIFIED"
+      },
+      "desktop": {
+        "confirmed": false,
+        "status": "BLOCKED_BROWSER_UNAVAILABLE"
+      },
+      "full_two_surface_experiment": "BLOCKED_AT_DESKTOP",
+      "sql": {
+        "status": "SUCCEEDED",
+        "real_fixtures": 380,
+        "synthetic_fixtures": 1,
+        "synthetic_quotes": 3
+      },
+      "web": {
+        "status": "SUCCEEDED",
+        "http_status": 200
+      },
+      "capture_origin": "CLI_FETCH",
+      "bridge_state": "PROCESSED"
+    }
+  },
+  "limitations": [
+    "The recorded real-data path used CLI acquisition; it is not a genuine rendered Desktop capture.",
+    "A separate Codex CLI application session was not verified by this run.",
+    "Synthetic fixture/odds counts remain distinct from real historical fixture counts.",
+    "The local Joomla-directory PHP endpoint is not proof of a native Joomla extension or browser visual inspection.",
+    "This summary exports no external dataset rows, HTTP bodies, logs or private runtime configuration."
+  ]
+}
