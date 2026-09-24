@@ -16,6 +16,8 @@ The [repository baseline report](reports/GITHUB_BASELINE.md) and [curated baseli
 
 [Historical milestone evidence](evidence/README.md) separately preserves foundation 53, dual database 92, Web-to-SQL 141 and bridge 190-test results. LOCAL FORENSIC EVIDENCE remains in ignored `runtime/checkpoints`; REPOSITORY-SAFE EVIDENCE is curated under `docs/evidence`. Publication status is recorded in the baseline report and subsequent release/remote verification.
 
+[Initial publication verification](evidence/repository-publication-summary.json): private `main` at `36db6f1bbbf229e3d47bf8a690f730c39f076fc4` matched local and remote; CI passed 164 portable tests on Windows and Ubuntu, and Repository safety passed all 358 links with no findings. This evidence is tied to that commit, not assumed for later changes.
+
 ## COMPLETION_PERCENTAGE
 
 UNMEASURED for V0, V1 and the overall roadmap. No agreed weighted acceptance denominator exists; test counts and file counts are not completion percentages. No numeric estimate is claimed. Future updates must define acceptance items, denominator and evidence before reporting a percentage.

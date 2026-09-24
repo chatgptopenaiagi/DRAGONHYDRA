@@ -1,6 +1,8 @@
 # GitHub repository baseline — 2026-09-24
 
-The authoritative local DRAGONHYDRA laboratory has been prepared as a private, auditable GitHub repository at [chatgptopenaiagi/DRAGONHYDRA](https://github.com/chatgptopenaiagi/DRAGONHYDRA). This block builds the repository home; V1 remains active and no V2 source-adapter expansion is included.
+The authoritative local DRAGONHYDRA laboratory has been published as a private, auditable GitHub repository at [chatgptopenaiagi/DRAGONHYDRA](https://github.com/chatgptopenaiagi/DRAGONHYDRA). This block builds the repository home; V1 remains active and no V2 source-adapter expansion is included.
+
+Initial commit `36db6f1bbbf229e3d47bf8a690f730c39f076fc4` was pushed and verified against remote `main`. All 164 remote file blobs matched the audited local tree; twelve key files were independently fetched through the GitHub contents API. [CI](https://github.com/chatgptopenaiagi/DRAGONHYDRA/actions/runs/36047122468) passed 164 portable tests on each of Windows and Ubuntu. [Repository safety](https://github.com/chatgptopenaiagi/DRAGONHYDRA/actions/runs/36047122504) passed with zero findings and 358 staged-documentation links. [Publication evidence](../evidence/repository-publication-summary.json) identifies that exact verified commit. This follow-up documentation commit records the result; its own remote checks remain part of the release gate.
 
 ## Initial state and scope
 
@@ -30,7 +32,7 @@ Two real preparation failures were resolved without changing production behavior
 
 The repository-wide audit searched recognized text and byte-compared known local credential values without printing them. No authored credential leak was found and no credential correction was required. Local secrets exist only in protected ignored credential/config files. Active MDF/LDF files are OS-locked, ignored and not publishable; arbitrary encoded-secret absence cannot be proved by a heuristic scanner.
 
-The entire runtime, data and models trees, raw browser research, experiment machine evidence, logs, local configuration, credential/key patterns, caches, vendor packages and database/model binaries are excluded. Only authored source/docs and curated safe evidence are intended for Git. The first staged set must pass the secret/policy scan, file-size review and exact-index link audit before committing.
+The entire runtime, data and models trees, raw browser research, experiment machine evidence, logs, local configuration, credential/key patterns, caches, vendor packages and database/model binaries are excluded. The initial staged set passed secret/policy and known-local-secret byte checks against its exact Git blobs, file-size review and exact-index link validation: 164 files, 791,399 bytes, largest file 25,243 bytes, zero forbidden paths/binaries or secret findings. Two pre-existing blank-at-EOF whitespace warnings were retained to preserve production source bytes; other Git whitespace checks passed.
 
 ## Evidence reconciliation
 
@@ -42,7 +44,7 @@ Before the first commit, 74 checkpoint links and 13 other ignored-evidence links
 
 Repository description is factual. Topics: sports-analytics, sports-intelligence, python, machine-learning, data-engineering, sql-server, mariadb, cuda, pytorch, simulation, odds and research. Labels cover architecture, hydra-source, medusa, pyramid, feature-factory, math-engine, simulation, prediction, odds, security, database, web, desktop-bridge, temporal-integrity, provenance, documentation, bug and enhancement. Existing default labels are retained. `main` is the trunk; no GitFlow or production deployment automation was introduced.
 
-Publication verification follows the initial commit: compare local/remote SHA, verify private visibility/default branch and README/policy/workflow contents through GitHub, inspect both Actions workflows and resolve any failures. The immutable local final report and any prerelease notes record the exact verified commit; this prepublication record does not itself claim an Actions result. Create `v0.1.0-alpha` only after a clean, pushed, verified baseline. Release assets must not contain runtime artifacts.
+Initial publication verification passed: local/remote SHA equality, private visibility, default branch `main`, README/policy/workflow contents and both Actions workflows. A documentation follow-up retains the evidence without rewriting initial history. The immutable local final report and any prerelease notes record the exact final verified commit. Create `v0.1.0-alpha` only after that clean, pushed commit is also verified. Release assets must not contain runtime artifacts.
 
 ## Limits and next action
 

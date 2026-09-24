@@ -12,18 +12,21 @@ These records summarize historical measurements. They do not rerun tests, prove 
 | [Desktop/CLI Bridge](desktop-cli-bridge-summary.json) | 190 passing tests, synthetic two-observation insertion, replay with zero additional observations and local presentation with Desktop NOT_CONFIRMED | `desktop-cli-bridge-20260924T183316Z` |
 | [Roadmap integrity](roadmap-integrity-summary.json) | Historical adoption/correction audits, seven corrected numeric occurrences, 2–3/3–5 ranges and recorded preservation of twelve original checkpoint files | `roadmap-adoption-20260924T184422Z-3178f45c`, `roadmap-range-correction-20260924T185126Z-9eb65c7a` |
 | [Repository baseline](repository-baseline-summary.json) | 207 full local and 164 portable tests, live database/GPU/HTTP checks, preserved initial failures, blocked Desktop state and evidence-link reconciliation | `github-baseline-20260924T185739Z-2960f29d`, `dual-database-20260924T191146Z-3b110eb1` |
+| [Initial GitHub publication](repository-publication-summary.json) | Exact initial commit/tree equality, private visibility, key file API checks, staged secret/link audit and successful Windows/Ubuntu CI | `github-baseline-20260924T185739Z-2960f29d` plus linked GitHub Actions runs |
 
 The 53-test foundation claim belongs to the later genesis run; the earlier run has 43 tests. Actual measurement timestamps are copied from artifacts and may differ from directory-name timestamps. The adoption audit's earlier numeric interpretation is explicitly superseded by the owner's correction.
 
 ## Summary contract
 
-Each JSON summary contains:
+Historical milestone JSON summaries contain:
 
 - `schema_version`, milestone, evidence classification and curation time.
 - A fixed statement distinguishing historical evidence from a new live check.
 - `source_artifacts` with an ID, exact `local_evidence_path` string, SHA-256 and available source-recorded time.
 - Selected measurements referring to their source-artifact IDs, including explicit test pass/fail/error/skip counts where applicable.
 - Limits that prevent a narrow result from becoming a broader capability claim.
+
+The repository-baseline summary adds current preparation measurements. The publication summary uses `verified_at` and an exact Git commit to record remote tree/content checks and linked Actions results; it does not claim those results for subsequent commits.
 
 `local_evidence_path` is a plain string, never a Markdown link or promise that the file exists in Git. It is relative to the authoritative local project root. Ancillary logs, configuration backups, original downloads and diagnosis artifacts may be referenced elsewhere as **LOCAL EVIDENCE PATH** followed by inline code. Their absence from these summaries is deliberate; the index does not claim that every private artifact has been curated.
 

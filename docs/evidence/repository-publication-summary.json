@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "milestone": "Initial GitHub publication verification",
+  "evidence_class": "REPOSITORY_SAFE_VERIFICATION_SUMMARY",
+  "verified_at": "2026-09-24T19:20:24.010280+00:00",
+  "verified_commit": "36db6f1bbbf229e3d47bf8a690f730c39f076fc4",
+  "repository_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA",
+  "visibility": "PRIVATE",
+  "default_branch": "main",
+  "local_remote_sha_equal": true,
+  "remote_tree_equals_local": true,
+  "committed_files": 164,
+  "required_file_api_checks": 12,
+  "forbidden_remote_runtime_paths": [],
+  "staged_secret_scan": {
+    "blocking_findings": 0,
+    "known_local_values_compared_without_disclosure": 12,
+    "bytes": 791399,
+    "largest_bytes": 25243
+  },
+  "staged_documentation_links": {
+    "markdown_files": 67,
+    "links_checked": 358,
+    "broken_links": [],
+    "passed": true
+  },
+  "actions": [
+    {
+      "name": "CI",
+      "run_id": 36047122468,
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/actions/runs/36047122468",
+      "commit": "36db6f1bbbf229e3d47bf8a690f730c39f076fc4",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "Portable contracts / Python 3.14 / windows-latest",
+          "conclusion": "success"
+        },
+        {
+          "name": "Portable contracts / Python 3.14 / ubuntu-latest",
+          "conclusion": "success"
+        }
+      ],
+      "metrics": [
+        "TIER 1 result: 164 passed, 0 failed, 0 errors, 0 skipped; 0 blocked live dependency attempts",
+        "TIER 1 result: 164 passed, 0 failed, 0 errors, 0 skipped; 0 blocked live dependency attempts"
+      ]
+    },
+    {
+      "name": "Repository safety",
+      "run_id": 36047122504,
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/actions/runs/36047122504",
+      "commit": "36db6f1bbbf229e3d47bf8a690f730c39f076fc4",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "repository-safety",
+          "conclusion": "success"
+        }
+      ],
+      "metrics": [
+        "\"blocking_finding_count\": 0",
+        "\"links_checked\": 358"
+      ]
+    }
+  ],
+  "source_artifacts": [
+    {
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/remote-initial-verification.json",
+      "sha256": "bd163cdc07e1f2ba7b8c97021d835cb1c0612f18d51a5e166b3d3ce49d0351dc"
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/actions-initial-verification.json",
+      "sha256": "87efe4be8bd28bc9b77eedae66a223944e2485c3006ad5c3602f922dc70ffa93"
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/staged-secret-audit.json",
+      "sha256": "f1ac6c5427ed4e67ee4cadac02adb10359a205253f48905c4ecc48f187921fbd"
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/github-baseline-20260924T185739Z-2960f29d/staged-links-initial.json",
+      "sha256": "2751f12405a21805b76055d06ca05a9a7d7ac0e51dca8dec85b81c35659c4105"
+    }
+  ],
+  "limitations": [
+    "This record covers the exact initial commit shown, not future commits.",
+    "The report itself is included by a later documentation commit whose Actions must also be checked.",
+    "No successful genuine Desktop handoff or production readiness is claimed."
+  ]
+}

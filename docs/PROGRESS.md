@@ -2,6 +2,8 @@
 
 ## 2026-09-24 GitHub repository engineering — current
 
+Publication verified: initial `main` commit `36db6f1bbbf229e3d47bf8a690f730c39f076fc4` matches GitHub; repository is PRIVATE, all 164 remote file blobs match local, twelve key contents API checks pass. CI on Windows/Ubuntu and Repository safety both succeeded. [Exact initial publication evidence](evidence/repository-publication-summary.json) separates these results from subsequent commits. A documentation follow-up records verification before the final prerelease gate.
+
 Created the private `chatgptopenaiagi/DRAGONHYDRA` repository after authenticated absence checks; initialized local `main` without prior Git history. Added professional README architecture/status, lightweight policies, ten ADR views, issue/PR templates, Python 3.14 portable CI, tracked-file safety scanning and exact Git-index link validation. Production source, database ownership, canonical Python and measured GPU stack remain unchanged.
 
 The owner evidence guardrail created [repository-safe evidence](evidence/README.md). Reconciled 74 ignored checkpoint Markdown links and 13 other ignored-evidence links across 19 documents. Full local checkpoints remain preserved; curated summaries retain hashes and limits without raw logs, credentials or database files. [Repository report](reports/GITHUB_BASELINE.md) records validation and publication boundaries.
