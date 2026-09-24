@@ -37,7 +37,8 @@
     "terms_url": "https://raw.githubusercontent.com/openfootball/football.json/master/README.md",
     "license_url": "https://raw.githubusercontent.com/openfootball/football.json/master/LICENSE.md",
     "allowed_urls": [
-      "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/en.1.json"
+      "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/en.1.json",
+      "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json"
     ],
     "content_types": [
       "text/plain",
@@ -63,7 +64,22 @@
         "EXTRACTION_STATUS": "READABLE",
         "path": "C:\\xampp\\DRAGONHYDRA\\research\\browser_research\\openfootball-README.md"
       }
-    ]
+    ],
+    "policy_version": "openfootball-research/2.0",
+    "prospective": {
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+      "competition": "Premier League",
+      "season": "2026-27",
+      "interval_hours": 24,
+      "document_name": "English Premier League 2026/27"
+    },
+    "scientific_review": {
+      "date": "2026-09-24",
+      "scope": "One additional exact URL from the existing CC0 source, English Premier League only; daily bounded fixture snapshot; no odds.",
+      "license_hash": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "readme_hash": "aadc464ae476ba4d5467785f6f2be435d1a583f589f4b2b0617fdf86fc18e29c",
+      "limitation": "No guaranteed upstream freshness or provider publication timestamps."
+    }
   },
   "uefa": {
     "source_id": "uefa",

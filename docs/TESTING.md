@@ -27,6 +27,8 @@ The original published handoff schema embeds `C:\xampp\DRAGONHYDRA`; the runtime
 
 The repository baseline selects **164 portable tests** and leaves **43 existing tests** in local tiers (207 total). Use current runner output for subsequent counts. Passing tier 1 is not equivalent to passing the complete suite or demonstrating a genuine Desktop capture.
 
+Scientific Phase A adds portable temporal properties/canaries, revision replay, entity ambiguity/rescheduling, metric known answers, deterministic chronological replay and mocked prospective acquisition. These use Python's standard library only; generated temporal cases avoid a new property-testing dependency. Historical demonstration and genuine source capture are separate local experiments, never CI network tasks. Current results are in the [scientific summary](evidence/scientific-spine-summary.json).
+
 Optional immutable local evidence (the directory must already exist):
 
 ```powershell

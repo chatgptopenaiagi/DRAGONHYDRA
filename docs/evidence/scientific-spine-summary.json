@@ -1,0 +1,1159 @@
+{
+  "schema_version": "1.0",
+  "block": "SCIENTIFIC_VALIDATION_SPINE_PHASE_A",
+  "roadmap_stage": "V1",
+  "maturity": "EXPERIMENTAL",
+  "baseline_tag": "v0.1.0-alpha",
+  "baseline_commit": "4d1b4b3d1960cdd047a9c857aafdc544961b9426",
+  "branch": "feature/scientific-validation-spine",
+  "temporal_modes": [
+    "STRICT_PIT",
+    "RECONSTRUCTED_PIT"
+  ],
+  "historical_demonstration": {
+    "assumptions": [
+      "Historical import was genuinely captured in 2026, not at the historical decision horizons.",
+      "Source local kickoff timezone is unverified. UTC day start is only a calendar-date decision proxy.",
+      "Fixture schedule is assumed available one day before the reported match date; no publication proof exists.",
+      "Event completion is conservatively represented by next UTC day start, not an observed final whistle.",
+      "Final result is assumed available two days after reported match-date UTC midnight; not a measured delay.",
+      "Declared source-name and round/team identity mappings are reconstructed now, not historically known IDs.",
+      "One season and fixed illustrative assumptions are insufficient for strong inference or profitability claims."
+    ],
+    "canonical_competitions": 1,
+    "canonical_fixtures": 380,
+    "canonical_teams": 20,
+    "capture_timestamps_backdated": false,
+    "computed_at": "2026-09-24T19:41:19.756217+00:00",
+    "crosswalk_policy": "DECLARED_SOURCE_NAMES_AND_ROUND_TEAM_KEYS",
+    "crosswalk_recorded_at": "2026-09-24T19:41:19.756217+00:00",
+    "crosswalk_records": 401,
+    "decision_horizon": "DAY_START_UTC_PROXY",
+    "evaluation_fixture_count": 321,
+    "external_source_changes": "NONE; retained bytes only",
+    "historical_strict_pit_eligible_records": 0,
+    "inference_status": [
+      "DEMONSTRATION_ONLY",
+      "INSUFFICIENT_SAMPLE_FOR_STRONG_INFERENCE"
+    ],
+    "issuance_kind": "HISTORICAL_REPLAY",
+    "min_training_matches": 50,
+    "model_results": [
+      {
+        "accuracy_tie_policy": "FIRST_IN_HOME_DRAW_AWAY_ORDER",
+        "benchmark": "BENCHMARK_UNIFORM",
+        "brier_per_class": {
+          "AWAY": 0.21702228470892287,
+          "DRAW": 0.1715148439828641,
+          "HOME": 0.25106299706061136
+        },
+        "calibration": [
+          {
+            "bucket": 0,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.2,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.3,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "HOME",
+            "count": 321,
+            "lower": 0.4,
+            "mean_probability": 0.4524117287098391,
+            "observed_frequency": 0.470404984423676,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "DRAW",
+            "count": 64,
+            "lower": 0.1,
+            "mean_probability": 0.19500232588627478,
+            "observed_frequency": 0.3125,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "DRAW",
+            "count": 257,
+            "lower": 0.2,
+            "mean_probability": 0.21379487627840735,
+            "observed_frequency": 0.19455252918287938,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.3,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.2,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "AWAY",
+            "count": 321,
+            "lower": 0.3,
+            "mean_probability": 0.3375401963360416,
+            "observed_frequency": 0.3115264797507788,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "evaluation_matches": 321,
+        "log_loss_infinite": false,
+        "metrics": {
+          "ACCURACY_SECONDARY": 0.470404984423676,
+          "LOG_LOSS": 1.0585004123815742,
+          "MULTICLASS_BRIER": 0.6396001257523983,
+          "RPS": 0.23404264088476712
+        },
+        "model_id": "BASELINE_A_LEAGUE_EMPIRICAL",
+        "model_version": "1.0.0",
+        "zero_probability_policy": "INFINITE_LOSS_REPORTED_AS_NULL_WITH_FLAG"
+      },
+      {
+        "accuracy_tie_policy": "FIRST_IN_HOME_DRAW_AWAY_ORDER",
+        "benchmark": "BENCHMARK_UNIFORM",
+        "brier_per_class": {
+          "AWAY": 0.1983316514086352,
+          "DRAW": 0.17651155082942263,
+          "HOME": 0.2313071230927161
+        },
+        "calibration": [
+          {
+            "bucket": 0,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "HOME",
+            "count": 17,
+            "lower": 0.2,
+            "mean_probability": 0.27183791417073094,
+            "observed_frequency": 0.17647058823529413,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "HOME",
+            "count": 85,
+            "lower": 0.3,
+            "mean_probability": 0.3607920012826725,
+            "observed_frequency": 0.3176470588235294,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "HOME",
+            "count": 112,
+            "lower": 0.4,
+            "mean_probability": 0.45048054316357583,
+            "observed_frequency": 0.4732142857142857,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "HOME",
+            "count": 84,
+            "lower": 0.5,
+            "mean_probability": 0.5449125515401699,
+            "observed_frequency": 0.6190476190476191,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "HOME",
+            "count": 22,
+            "lower": 0.6,
+            "mean_probability": 0.6302654736556352,
+            "observed_frequency": 0.7272727272727273,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "HOME",
+            "count": 1,
+            "lower": 0.7,
+            "mean_probability": 0.7558139534883721,
+            "observed_frequency": 0.0,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "DRAW",
+            "count": 4,
+            "lower": 0.0,
+            "mean_probability": 0.0894677834035696,
+            "observed_frequency": 0.25,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "DRAW",
+            "count": 138,
+            "lower": 0.1,
+            "mean_probability": 0.16013233977834698,
+            "observed_frequency": 0.2318840579710145,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "DRAW",
+            "count": 160,
+            "lower": 0.2,
+            "mean_probability": 0.2361315473248351,
+            "observed_frequency": 0.2125,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "DRAW",
+            "count": 19,
+            "lower": 0.3,
+            "mean_probability": 0.31748181561823907,
+            "observed_frequency": 0.15789473684210525,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "AWAY",
+            "count": 24,
+            "lower": 0.1,
+            "mean_probability": 0.17005685559032568,
+            "observed_frequency": 0.16666666666666666,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "AWAY",
+            "count": 90,
+            "lower": 0.2,
+            "mean_probability": 0.26072653000314566,
+            "observed_frequency": 0.14444444444444443,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "AWAY",
+            "count": 119,
+            "lower": 0.3,
+            "mean_probability": 0.34620923364157347,
+            "observed_frequency": 0.35294117647058826,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "AWAY",
+            "count": 77,
+            "lower": 0.4,
+            "mean_probability": 0.4403882024035199,
+            "observed_frequency": 0.44155844155844154,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "AWAY",
+            "count": 11,
+            "lower": 0.5,
+            "mean_probability": 0.5398570088952526,
+            "observed_frequency": 0.6363636363636364,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "evaluation_matches": 321,
+        "log_loss_infinite": false,
+        "metrics": {
+          "ACCURACY_SECONDARY": 0.5358255451713395,
+          "LOG_LOSS": 1.0210006211675053,
+          "MULTICLASS_BRIER": 0.6061503253307738,
+          "RPS": 0.21481938725067565
+        },
+        "model_id": "BASELINE_B_HOME_AWAY_EMPIRICAL",
+        "model_version": "1.0.0",
+        "zero_probability_policy": "INFINITE_LOSS_REPORTED_AS_NULL_WITH_FLAG"
+      },
+      {
+        "accuracy_tie_policy": "FIRST_IN_HOME_DRAW_AWAY_ORDER",
+        "benchmark": "BENCHMARK_UNIFORM",
+        "brier_per_class": {
+          "AWAY": 0.21495327102803743,
+          "DRAW": 0.18380062305295952,
+          "HOME": 0.2679127725856698
+        },
+        "calibration": [
+          {
+            "bucket": 0,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.2,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "HOME",
+            "count": 321,
+            "lower": 0.3,
+            "mean_probability": 0.3333333333333333,
+            "observed_frequency": 0.470404984423676,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "HOME",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.2,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "DRAW",
+            "count": 321,
+            "lower": 0.3,
+            "mean_probability": 0.3333333333333333,
+            "observed_frequency": 0.21806853582554517,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "DRAW",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          },
+          {
+            "bucket": 0,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.0,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.1,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 1,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.1,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.2,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 2,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.2,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.3,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 3,
+            "category": "AWAY",
+            "count": 321,
+            "lower": 0.3,
+            "mean_probability": 0.3333333333333333,
+            "observed_frequency": 0.3115264797507788,
+            "upper": 0.4,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 4,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.4,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.5,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 5,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.5,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.6,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 6,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.6,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.7,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 7,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.7,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 8,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.8,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "bucket": 9,
+            "category": "AWAY",
+            "count": 0,
+            "lower": 0.9,
+            "mean_probability": null,
+            "observed_frequency": null,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "evaluation_matches": 321,
+        "log_loss_infinite": false,
+        "metrics": {
+          "ACCURACY_SECONDARY": 0.470404984423676,
+          "LOG_LOSS": 1.0986122886681098,
+          "MULTICLASS_BRIER": 0.6666666666666667,
+          "RPS": 0.24143302180685364
+        },
+        "model_id": "BENCHMARK_UNIFORM",
+        "model_version": "1.0.0",
+        "zero_probability_policy": "INFINITE_LOSS_REPORTED_AS_NULL_WITH_FLAG"
+      }
+    ],
+    "packages_added": [],
+    "prediction_count": 963,
+    "raw_byte_count": 116669,
+    "schema_version": "1.0",
+    "skipped_fixture_count": 59,
+    "source": {
+      "capture_basis": "ORIGINAL_SQL_CAPTURE_CLOCKS_AND_HASH_VERIFIED_RETAINED_BYTES; INGESTED_AT_IS_CURRENT_DERIVED_SCIENTIFIC_INPUT_CONSTRUCTION_NOT_ORIGINAL_DB_COMMIT",
+      "content_hash": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
+      "ingested_at": "2026-09-24T19:41:19.755775+00:00",
+      "observed_at": "2026-09-24T17:56:42.321374+00:00",
+      "retrieved_at": "2026-09-24T17:56:42.321374+00:00",
+      "source_id": "openfootball",
+      "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/en.1.json"
+    },
+    "temporal_mode": "RECONSTRUCTED_PIT"
+  },
+  "prospective": {
+    "status": "INITIAL_CAPTURE_VERIFIED_SCHEDULING_NOT_COMMISSIONED",
+    "snapshot_count": 1,
+    "snapshot": {
+      "available_at": "2026-09-24T19:35:56.712660+00:00",
+      "byte_count": 55359,
+      "competition": "Premier League",
+      "content_hash": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "fixture_count": 380,
+      "media_type": "text/plain",
+      "observed_at": "2026-09-24T19:35:56.703350+00:00",
+      "parser_version": "openfootball-snapshot/1.0",
+      "raw_artifact_hash": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "retrieved_at": "2026-09-24T19:35:56.703350+00:00",
+      "season": "2026-27",
+      "snapshot_id": "2ef45fa848374bce95bf2d134d5518b7",
+      "source_id": "openfootball",
+      "source_policy_hash": "73ff8e2ffad11e45318ed80431dc5e1efe2a96e6767fd5e8106f241973fe7c01",
+      "source_policy_version": "openfootball-research/2.0",
+      "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+      "temporal_mode": "STRICT_PIT"
+    },
+    "failure_receipts": 1,
+    "failure_reason": "SCHEMA_CHANGED: expected document title corrected; original failure preserved",
+    "provider_count": 1,
+    "league_count": 1,
+    "cadence_hours": 24,
+    "new_odds_records": 0
+  },
+  "validation": {
+    "python": "3.14.7",
+    "new_tests": 69,
+    "portable": {
+      "tests_run": 233,
+      "tests_passed": 233,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "full_local": {
+      "tests_run": 276,
+      "tests_passed": 276,
+      "tests_failed": 0,
+      "tests_errored": 0,
+      "tests_skipped": 0,
+      "successful": true
+    },
+    "local_tier_tests": 43,
+    "portable_blocked_live_dependencies": 0,
+    "dual_database_healthy": true,
+    "sqlserver_connected": true,
+    "mariadb_connected": true,
+    "gpu_correctness_passed": true,
+    "joomla_http_200": "test-verified in full local suite; see source artifact hashes",
+    "desktop_success": "UNVERIFIED; Browser is not available: iab",
+    "repository_audit": {
+      "blocking_findings": 0,
+      "known_local_secrets_compared_in_memory": 12,
+      "scope": "all-local candidate file audit plus tracked-file scan",
+      "limitations": "Two locked ignored SQL database files could not be read; no raw runtime files staged."
+    },
+    "staged_link_audit": {
+      "links_checked": 385,
+      "broken_links": 0,
+      "scope": "exact Git-index blobs and committed target membership"
+    }
+  },
+  "exit_gates": {
+    "A": "PARTIAL: first capture; sustained scheduled operation not demonstrated",
+    "B": "DEMONSTRATED: declared walk-forward and simple baselines",
+    "C": "NOT_DEMONSTRATED: complete clean-machine laboratory"
+  },
+  "external_source_changes": [
+    "One exact 2026-27 English Premier League URL added to existing OpenFootball CC0 policy",
+    "Existing historical 380-fixture evidence reused without refetch"
+  ],
+  "packages_added": [],
+  "limitations": [
+    "RECONSTRUCTED_PIT; one season; no original publication/revision history",
+    "Scoped declared identity, not global cross-provider entity resolution",
+    "No genuine historical pre-kickoff predictions",
+    "No market benchmark, odds collection, superiority or profitability claim",
+    "No unattended scheduler or multi-day collection record",
+    "No advanced modeling or new storage technology"
+  ],
+  "next_exact_action": "Commission and verify bounded daily OpenFootball prospective collection, failure monitoring and a second-day immutable snapshot.",
+  "source_artifacts": [
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/baseline-manifest.json",
+      "sha256": "3581a4c3b17645ba3bb8cd77cff26085616746784480f9efbed9e1696055d037",
+      "byte_count": 28385
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/historical-demo/manifest.json",
+      "sha256": "5782c6680948cbbe6133c8f254cc56c8c26e41093cf86a0c9e14427ac8e8642e",
+      "byte_count": 885
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/historical-demo/protocol.json",
+      "sha256": "63e626d1c29e4fd94787fb9c7e2c9bf01d3df1e2aaca45c90cd28022048a7461",
+      "byte_count": 2432
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/historical-demo/report.json",
+      "sha256": "ee02919450d252659c360e45cf2863120e6d162140232998cb7c9a09b2f4e2e6",
+      "byte_count": 27005412
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/historical-demo/registry.json",
+      "sha256": "6d282a0bf4a3faf5e72d5baa09fa5a0e2baf0358bc0d082476d5e30423efe64f",
+      "byte_count": 371850
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca/portable-tests.json",
+      "sha256": "98e92ec00b2520d7afaad18dd998bc756af255ac0de465cdae77aceac1f4e4a8",
+      "byte_count": 28588
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T194213Z-86bda48c/tests.json",
+      "sha256": "55eeef84e39444b7c2cfac0fa3900f546a43de1849ff648fa884510077457858",
+      "byte_count": 26152
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T194213Z-86bda48c/capabilities.json",
+      "sha256": "afcea982c38c1de5e0b02ba91a84c3e169017aa31dfc0fee8f2e80d5d4f9c04d",
+      "byte_count": 6561
+    },
+    {
+      "local_evidence_path": "runtime/checkpoints/dual-database-20260924T194213Z-86bda48c/gpu-regression.json",
+      "sha256": "80265a6db58ae126d7b54b66c9e28a05ea819aa156d28eb7808388acfda02304",
+      "byte_count": 1100
+    }
+  ]
+}

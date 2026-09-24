@@ -1,5 +1,19 @@
 # DRAGONHYDRA decisions
 
+## Scientific D023: evaluation discipline, reconstruction and prospective clocks
+
+**Date:** 2026-09-24. **Status:** ACCEPTED for experimental Phase A, owner-directed.
+
+**Decision:** Add EVALUATION_DISCIPLINE, explicit STRICT_PIT/RECONSTRUCTED_PIT, minimal identities, simple chronological baselines and one-league prospective acquisition. Preserve actual capture clocks, baseline tag and original records. Use existing SQL read access and local derived artifacts; add no storage technology or dependency.
+
+**Reason:** Retrospective imports cannot create historical observation proof. Evaluation must constrain future model complexity, and genuine timestamps need to start accumulating now.
+
+**Alternatives:** silently backdate availability; defer evaluation until V9; add a feature store or advanced model; or use explicit low-confidence reconstruction and simple baselines. Chosen: the last option plus a genuine current snapshot from the already reviewed provider.
+
+**Evidence:** [Scientific report](SCIENTIFIC_VALIDATION_SPINE.md), [curated measurements](evidence/scientific-spine-summary.json), [ADR-011](architecture/ADR-011-scientific-validation.md).
+
+**Trade-offs:** One season/date proxies do not establish predictive superiority. Declared identities remain source-scoped. A first capture is not sustained collection, and the complete laboratory is not clean-machine reproducible. Scheduling, Poisson, market benchmarking and prospective predictions remain future bounded blocks. Browser repair is deferred; existing ACCEPT_WITH_WARNING is retained without migration.
+
 ## Repository D022: private baseline and explicit test tiers
 
 **Date:** 2026-09-24. **Status:** ACCEPTED, owner-directed.

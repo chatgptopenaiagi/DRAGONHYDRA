@@ -1,5 +1,7 @@
 # Repository-safe evidence
 
+Current scientific block: [Scientific Validation Spine Phase A](scientific-spine-summary.json) contains only aggregate results, counts, assumptions and hashes. Full reconstructed inputs, forecasts, raw bytes and acquisition receipts remain local. See the [scientific report](../SCIENTIFIC_VALIDATION_SPINE.md).
+
 DRAGONHYDRA separates **LOCAL FORENSIC EVIDENCE** from **REPOSITORY-SAFE EVIDENCE**. The original checkpoint tree remains authoritative local history under ignored `runtime/checkpoints/`. This directory contains small, reviewed summaries that can be read from a clean GitHub checkout without exposing that tree.
 
 These records summarize historical measurements. They do not rerun tests, prove present service health, reproduce a private machine, authenticate an external fact or attest that a browser performed an action. A source-artifact hash identifies exact local bytes; readers without those bytes cannot independently recompute that hash from the summary.

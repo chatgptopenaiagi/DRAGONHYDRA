@@ -12,6 +12,8 @@ IN_PROGRESS. The CLI-source ingestion path has a real historical-data demonstrat
 
 ## COMPLETION_EVIDENCE
 
+Current scientific Phase A: [curated evidence](evidence/scientific-spine-summary.json) records 233 portable and 276 full local tests passing, 321 reconstructed walk-forward evaluation matches, and one genuine prospective snapshot. These measurements establish the scoped scientific infrastructure; they do not complete future roadmap stages or prove model superiority. [Scientific report](SCIENTIFIC_VALIDATION_SPINE.md).
+
 The [repository baseline report](reports/GITHUB_BASELINE.md) and [curated baseline evidence](evidence/repository-baseline-summary.json) record the new Python 3.14.7 validation: 207 full local tests and 164 portable tests passed, zero failures/errors/skips. SQL/MariaDB capability checks, GPU correctness and Joomla HTTP checks passed. The first full run's two stale presentation assertions and the initial relocated-schema failure remain recorded, along with their fixes; no production source changed.
 
 [Historical milestone evidence](evidence/README.md) separately preserves foundation 53, dual database 92, Web-to-SQL 141 and bridge 190-test results. LOCAL FORENSIC EVIDENCE remains in ignored `runtime/checkpoints`; REPOSITORY-SAFE EVIDENCE is curated under `docs/evidence`. Publication status is recorded in the baseline report and subsequent release/remote verification.
@@ -60,7 +62,11 @@ Maturity: local ingestion and synthetic bridge paths are VALIDATED only within t
 
 ## CURRENT_BLOCK
 
-GitHub repository architecture and engineering baseline: private repository, professional entry point, lightweight ADR/policy structure, portable CI, explicit test tiers, curated evidence and Git-index link validation. No V2 expansion or new product functionality. The earlier [range correction](ROADMAP_RANGE_CORRECTION.md) and all original checkpoints remain preserved. Repository publication verification is separate from V1's pending genuine Desktop success gate.
+Scientific Validation Spine Phase A on `feature/scientific-validation-spine`, based on verified `v0.1.0-alpha` / `4d1b4b3d1960cdd047a9c857aafdc544961b9426`. Adds the fourth practical law, explicit temporal modes, scoped canonical identities, chronological empirical baselines and one permitted current-source capture. [Scientific report](SCIENTIFIC_VALIDATION_SPINE.md) and [safe evidence](evidence/scientific-spine-summary.json) distinguish observations from reconstructed assumptions. No V2 expansion, V9 completion or advanced modeling claim. Original checkpoints and the baseline tag remain preserved.
+
+SCIENTIFIC_VALIDATION_TRACK: SV0 temporal modes, SV1 scoped identities, SV2 evaluation and SV3 simple baselines are implemented experimentally. SV4 prediction ledger remains pending; its prerequisite evidence clock has one genuine capture. SV5 lawful market benchmark and SV6 measured uncertainty experiment are NOT_STARTED.
+
+Exit gates: GATE_A PARTIAL (initial capture and daily bounded command, no sustained scheduled history); GATE_B demonstrated by the recorded chronological baseline replay and tests; GATE_C NOT_DEMONSTRATED for the complete local laboratory. Portable CI is a narrower clean-checkout proof.
 
 ## CURRENT_LIMITATIONS
 
@@ -71,8 +77,8 @@ GitHub repository architecture and engineering baseline: private repository, pro
 - Existing broader service bindings and loopback SQL certificate-trust exception remain documented; adoption does not revalidate or change them.
 - New live tests and GPU/database correctness probes passed for the repository baseline; no performance benchmark or fresh external sports fetch was performed. Prior 190-test results retain their original timestamp.
 - Numeric intent is resolved: **2–3 sources (two to three)** and approximately **3–5 closely related items (three to five)** per normal session. Preserve the range separators exactly; these are small ranges, not two-digit task or source counts. No further numeric clarification is pending.
-- Source reliability, calibration, research benefit and full reproducibility remain unmeasured; no composite architecture score is claimed.
+- Source reliability and research benefit remain unmeasured. Baseline calibration is reported only for a reconstructed one-season demonstration; full laboratory reproducibility remains unproved. No composite architecture score is claimed.
 
 ## NEXT_EXACT_ACTION
 
-After successful push and remote verification, freeze the GitHub baseline, then complete the first genuine successful Codex Desktop Browser handoff: Desktop Browser → handoff → separate Codex CLI session → Python 3.14 → SQL Server → MariaDB → Joomla. Follow [Desktop instructions](CODEX_DESKTOP_HANDOFF_INSTRUCTIONS.md) and the [envelope schema](../config/browser-handoff-envelope.schema.json), review current source policy and preserve actual provenance/timestamps. A blocked attempt remains evidence of failure, not successful capture. Do not begin V2 Hydra Source Adapter expansion during this repository task.
+Commission and verify daily invocation of the one lawful OpenFootball prospective collector, including NOT_DUE, policy expiry and failure monitoring; demonstrate a second-day immutable snapshot. After sustained collection, add independent Poisson and Dixon–Coles baselines through the same declared protocol. The genuine Desktop success gate remains unverified and deferred; do not retry IAB or begin broad V2 expansion in this block.

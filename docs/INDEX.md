@@ -12,9 +12,10 @@ DRAGONHYDRA is an experimental local laboratory. V1 is the active roadmap stage;
 | [Agent operating rules](../AGENTS.md) | Required startup reading and engineering boundaries |
 | [Master roadmap](DRAGONHYDRA_MASTER_ROADMAP.md) | Long-term V0–V10 direction and permanent laws |
 | [Roadmap status](ROADMAP_STATUS.md) | Active block, completed evidence, limitations and next action |
+| [Scientific Validation Spine](SCIENTIFIC_VALIDATION_SPINE.md) | Phase A temporal modes, identities, evaluation, prospective clock and limits |
 | [Progress](PROGRESS.md) | Dated implementation and verification history; newest entries take precedence |
 | [Decision log](DECISIONS.md) | Original decisions and explicit supersessions |
-| [ADR index](architecture/ADR_INDEX.md) | Concise views of ten durable decisions with links to their original evidence |
+| [ADR index](architecture/ADR_INDEX.md) | Durable decisions with links to original evidence, including scientific evaluation discipline |
 | [Range correction](ROADMAP_RANGE_CORRECTION.md) | Owner-confirmed 2–3-source and approximately 3–5-item ranges |
 | [Changelog](../CHANGELOG.md) | Evidence-backed milestone summaries |
 | [Repository-safe evidence](evidence/README.md) | Curated historical proof with source hashes; distinct from ignored local forensic checkpoints |

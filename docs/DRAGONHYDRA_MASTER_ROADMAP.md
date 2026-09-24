@@ -23,7 +23,7 @@ REAL WORLD → HYDRA → EVIDENCE → MEDUSA → TIME CONSISTENCY → STORAGE
 → TARGETED HYDRA RESEARCH → NEW EVIDENCE → RECALCULATION
 ```
 
-## 2. THREE PERMANENT LAWS
+## 2. THREE PERMANENT LAWS AND THE FOURTH PRACTICAL LAW
 
 ### LAW A — PROVENANCE
 
@@ -36,6 +36,28 @@ Always distinguish what happened, when it happened, when it was observed, when i
 ### LAW C — FEEDBACK-DRIVEN RESEARCH
 
 HYDRA must not permanently operate as SCRAPE EVERYTHING. Its long-term design is CALCULATE → FIND UNCERTAINTY → IDENTIFY INFORMATION GAP → RESEARCH THAT GAP → VALIDATE NEW INFORMATION → RECALCULATE. This is a defining property of DRAGONHYDRA.
+
+### LAW 4 — EVALUATION DISCIPLINE
+
+Added by the owner in Scientific Validation Spine Phase A, 2026-09-24. No increase in modeling or architectural sophistication counts as predictive progress unless evaluated through a declared point-in-time, out-of-sample protocol against simple baselines. This addition preserves the three original laws and all historical checkpoints. Reconstructed historical assumptions must never be presented as genuine observed availability.
+
+### SCIENTIFIC_VALIDATION_TRACK
+
+This practical cross-cutting track supports and constrains V2–V9; it does not replace V0–V10 or declare V9 complete. Evaluation infrastructure moves earlier so later complexity can be tested.
+
+| Step | Purpose |
+| --- | --- |
+| SV0 | Explicit STRICT_PIT and RECONSTRUCTED_PIT temporal modes |
+| SV1 | Canonical competition/team/fixture identity and versioned crosswalks |
+| SV2 | Chronological evaluation harness with declared horizons and scoring rules |
+| SV3 | Simple forecasting baselines, before complex models |
+| SV4 | Prospective prediction ledger, preceded by genuine prospective evidence capture |
+| SV5 | One lawful, timestamped market benchmark |
+| SV6 | Measured uncertainty-reduction experiment |
+
+Before significant V4+ expansion, require GATE_A: prospective evidence ledger running; GATE_B: walk-forward evaluation against simple baselines working; GATE_C: clean-machine reproducibility demonstrated. Passing portable CI alone does not establish clean-machine laboratory reproducibility. Status and evidence belong in [Scientific Validation Spine](SCIENTIFIC_VALIDATION_SPINE.md) and [roadmap status](ROADMAP_STATUS.md).
+
+HYDRA heads are logical data capabilities: FETCH/SCHEDULER + SOURCE ADAPTER + DATA CLASS. Their names do not authorize separate agents or processes. MEDUSA's deterministic core validates schema, normalization, timestamps, content type and duplicates; entity resolution, long-term reliability/conflict scoring and quarantine operations remain distinct concerns. Policy and terms gates precede acquisition where technically possible. Existing ACCEPT_WITH_WARNING remains compatible; future simplification to ACCEPT/QUARANTINE/REJECT should carry warnings as structured reason codes without silent migration.
 
 ## 3. PERMANENT ROLE SEPARATION
 

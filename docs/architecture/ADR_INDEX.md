@@ -14,7 +14,8 @@ Recorded 2026-09-24. These short ADRs index and clarify accepted decisions; they
 | [ADR-008](ADR-008-no-private-ipc.md) | No private Codex IPC integration | D015, D020 |
 | [ADR-009](ADR-009-labelled-synthetic-data.md) | Synthetic evidence remains labelled | D010, D016 |
 | [ADR-010](ADR-010-independent-source-policy-gates.md) | Terms/license review is independent of robots | D012, D016 |
+| [ADR-011](ADR-011-scientific-validation.md) | Evaluate simply; distinguish reconstructed availability from genuine capture | Scientific Validation Spine Phase A, 2026-09-24 |
 
-All ten decisions are ACCEPTED within their stated scope. The original D005 describes a historical genesis state; D014/D020 supersede its deferred SQL Server and Joomla-role statements. No historical record is deleted. New substantive changes should add a decision with reason, alternatives, evidence, trade-offs, date and status, then identify any superseded record explicitly. Avoid inventing new ADRs for routine edits.
+All eleven decisions are ACCEPTED within their stated scope. The original D005 describes a historical genesis state; D014/D020 supersede its deferred SQL Server and Joomla-role statements. No historical record is deleted. New substantive changes should add a decision with reason, alternatives, evidence, trade-offs, date and status, then identify any superseded record explicitly. Avoid inventing new ADRs for routine edits.
 
 Evidence links lead to tracked documentation or code. Original checkpoint paths remain available only in the authoritative local project under ignored `runtime/checkpoints/`; they are not repository contents.

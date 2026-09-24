@@ -6,6 +6,8 @@ DRAGONHYDRA builds an auditable path from external sports evidence to time-corre
 
 Three permanent laws govern the design: **provenance, temporal discipline and feedback-driven research**. Every important fact needs its origin; historical analysis must use only information available at the prediction time; research should eventually target measured information gaps.
 
+The fourth practical law is **evaluation discipline**: predictive progress requires declared point-in-time, out-of-sample evaluation against simple baselines. [Scientific Validation Spine Phase A](docs/SCIENTIFIC_VALIDATION_SPINE.md) adds explicit temporal modes, canonical identities, empirical baselines and a prospective evidence clock while V1 remains active.
+
 This is an evolving engineering laboratory, not production software. Current work is **V1: Web → Medusa → SQL → Joomla**. The [master roadmap](docs/DRAGONHYDRA_MASTER_ROADMAP.md) is long-term direction, not a single-session implementation order. Begin with **2–3 high-quality sources**, one sport and one league; normally implement **3–5 closely related roadmap items** per coherent session.
 
 ## Current maturity
@@ -16,6 +18,7 @@ This is an evolving engineering laboratory, not production software. Current wor
 | Public Web → validation → SQL → MariaDB → local dashboard | Implemented; 380 historical OpenFootball fixtures demonstrated in the [Web-to-SQL report](docs/WEB_SQL_FINAL_REPORT.md) |
 | Desktop/CLI file bridge, hashing, append history, replay and receipts | Implemented; synthetic end-to-end demonstration in the [bridge report](docs/DESKTOP_CLI_BRIDGE_FINAL_REPORT.md) |
 | Genuine rendered Desktop Browser → separate Codex CLI → dashboard | Experimental; successful real-browser proof remains pending |
+| Scientific validation spine | Experimental: temporal modes, scoped identities, chronological empirical baselines and one genuine prospective snapshot; [evidence and limits](docs/SCIENTIFIC_VALIDATION_SPINE.md) |
 | Feature Factory, competing models, simulations, prediction tribunal, targeted uncertainty research | Planned; contracts and synthetic odds helpers do not establish these systems |
 
 See [current status](docs/ROADMAP_STATUS.md), [test tiers](docs/TESTING.md) and the [repository baseline report](docs/reports/GITHUB_BASELINE.md). Earlier milestone reports retain their original test counts and dates. **LOCAL FORENSIC EVIDENCE** stays in ignored `runtime/checkpoints`; **REPOSITORY-SAFE EVIDENCE** lives in [docs/evidence](docs/evidence/README.md) as small sanitized summaries with source hashes. Credentials, database files, raw logs and downloaded datasets are excluded from Git.
@@ -100,7 +103,7 @@ Local presentation: <http://localhost/joomla-codex-lab/dragonhydra/>. Prerequisi
 | V9 | Continuous historical evaluation | Planned |
 | V10 | Full multi-head HYDRA | Deferred until earlier stages earn expansion |
 
-No completion percentage is claimed. [ROADMAP_STATUS](docs/ROADMAP_STATUS.md) separates demonstrated components from pending gates. The next implementation action after freezing this GitHub baseline is one genuine successful Desktop Browser handoff through the separate Codex CLI, Python 3.14, SQL Server, MariaDB and Joomla path. V2 expansion is outside the repository-baseline task.
+No completion percentage is claimed. [ROADMAP_STATUS](docs/ROADMAP_STATUS.md) separates demonstrated components from pending gates. The next action is to commission and verify daily prospective collection for the existing permitted league/source. Genuine Desktop success remains unverified and is not being retried in this scientific block. The SV0–SV6 scientific track constrains future modeling without replacing V0–V10.
 
 ## Security and data boundaries
 

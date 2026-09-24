@@ -22,6 +22,8 @@ See [test tiers](docs/TESTING.md) for exact commands and boundaries.
 
 ## Preserve the three laws
 
+Also preserve the fourth practical law, evaluation discipline: compare predictive changes against simple baselines using a declared chronological out-of-sample protocol. Keep STRICT_PIT and RECONSTRUCTED_PIT explicit through outputs, retain actual capture clocks, and document every availability assumption. See the [scientific spine](docs/SCIENTIFIC_VALIDATION_SPINE.md). No architecture or model sophistication alone counts as predictive progress.
+
 - **Provenance:** retain source identity and URL, retrieval and observation times,
   hash where possible, parser/version, confidence, verification and rights state.
 - **Temporal discipline:** distinguish event, observation, availability,

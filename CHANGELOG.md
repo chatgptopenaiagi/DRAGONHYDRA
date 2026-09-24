@@ -4,6 +4,8 @@ This records evidenced engineering milestones, not a claim that the repository h
 
 ## Unreleased — repository baseline
 
+Scientific Validation Spine Phase A adds explicit temporal reconstruction, scoped canonical identities, chronological empirical baselines and a bounded prospective source clock. No dependencies or database migrations; the existing V1 pipeline and `v0.1.0-alpha` remain preserved. [Scientific report](docs/SCIENTIFIC_VALIDATION_SPINE.md) separates observed capture from the reconstructed one-season demonstration.
+
 - Establish repository navigation, architecture decision records, contribution/security/data/research policies and a conservative release strategy.
 - Preserve the local project and private runtime evidence. Separate repository contents from credentials, generated artifacts and licensed external datasets.
 - Keep V1 active; the genuine Desktop plus separate Codex CLI handoff proof remains pending. See [current status](docs/ROADMAP_STATUS.md) for the latest verified baseline and limitations.

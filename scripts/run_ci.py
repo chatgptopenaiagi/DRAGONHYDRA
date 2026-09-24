@@ -28,6 +28,15 @@ PORTABLE_CLASSES = {
     "test_repository_links.RepositoryLinkTests",
     "test_web_pipeline.WebContractsTests",
     "test_web_pipeline.LicenseBridgeTests",
+    "test_science_temporal.ScienceAvailabilityTests",
+    "test_science_temporal.ScienceHorizonTests",
+    "test_science_temporal.ScienceRevisionTests",
+    "test_science_entities.EntityIdentityTests",
+    "test_science_entities.CrosswalkTests",
+    "test_science_entities.FixtureScheduleTests",
+    "test_science_evaluation.EvaluationSpineTests",
+    "test_science_prospective.ProspectiveEvidenceTests",
+    "test_science_demo.HistoricalDemoTests",
 }
 LOCAL_CLASSES = {
     "test_compute.ComputeBaselineTests": "TIER_3: canonical Conda and CUDA/cuDNN",

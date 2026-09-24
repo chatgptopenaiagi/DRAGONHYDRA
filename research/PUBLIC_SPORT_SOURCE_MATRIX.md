@@ -11,6 +11,8 @@ One external dataset is enabled. Three initial candidates were reviewed; one rep
 
 Demo URL: `https://raw.githubusercontent.com/openfootball/football.json/master/2023-24/en.1.json`.
 
+Scientific Phase A review (2026-09-24) also permits the exact [2026–27 English Premier League URL](https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json) under `openfootball-research/2.0`. Same provider and league; no broad adapter expansion. The bounded prospective command allows one daily attempt plus at most one explicitly invoked recovery after failure; no automatic retries. The existing 2-second host interval and per-fetch robots/terms gates remain. README SHA-256 `aadc464ae476ba4d5467785f6f2be435d1a583f589f4b2b0617fdf86fc18e29c` and CC0 text SHA-256 `36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673` were reverified. Capture clocks are genuine; source publication times and update freshness remain unproved. [Scientific evidence and limits](../docs/SCIENTIFIC_VALIDATION_SPINE.md).
+
 No rejection was falsely attributed to robots: the active raw host had no robots file. UEFA was rejected by terms before robots/data access. StatsBomb was blocked by UNVERIFIED license/terms. SofaScore and Flashscore were not accessed for data.
 
 Source review notes in `research/browser_research` explicitly label research tool/terminal origin. They are not rendered Desktop observations. No unsupported injury gossip, sensitive traits, live odds or player profiling were collected.

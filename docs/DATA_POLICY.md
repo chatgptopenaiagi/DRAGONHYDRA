@@ -1,5 +1,7 @@
 # Data and generated-artifact policy
 
+Scientific Phase A: `runtime/raw/<sha256>` retains exact prospective source bytes; `runtime/prospective` retains acquisition/failure receipts and reviewed policy artifacts. Both are local/generated and excluded from Git. Derived identity registries, historical replay inputs, full predictions and calibration reports remain in local checkpoints. Only curated counts, aggregate metrics, assumptions, hashes and limitations may enter `docs/evidence`. Reconstructed historical availability must remain labelled through every derived output.
+
 Adopted 2026-09-24. The local project is authoritative; Git contains reviewed source, contracts and documentation. The initial GitHub baseline is private. Privacy of the repository never makes secrets or restricted data suitable for a commit.
 
 Repository source-code rights **are not** sports-data rights. The [license policy](../LICENSE_POLICY.md) grants no general open-source license. Each external dataset retains its own attribution, license, terms, scope and redistribution conditions independently.

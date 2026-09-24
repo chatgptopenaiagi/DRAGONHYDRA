@@ -1,5 +1,19 @@
 # DRAGONHYDRA progress
 
+## 2026-09-24 Scientific Validation Spine Phase A — current
+
+Verified clean local main = origin/main = `v0.1.0-alpha^{commit}` at `4d1b4b3d1960cdd047a9c857aafdc544961b9426` before creating `feature/scientific-validation-spine`. The new unique baseline manifest preserves the original 165 tracked-file hashes. No old checkpoint or tag is rewritten.
+
+Implemented temporal modes and explicit reconstruction policies, minimal canonical competition/team/fixture identities with crosswalks and schedule revisions, chronological baseline evaluation and bounded prospective acquisition. Existing storage, Web-to-SQL, browser handoff and dashboard behavior are preserved. No packages, storage engines or model runtimes added.
+
+Reviewed the existing OpenFootball CC0/README evidence again and permitted one exact current-season English Premier League URL. The first capture attempt preserved a document-name/schema failure; one explicit recovery captured 380 current fixture entries at the genuine 2026-09-24 clock. No source count expansion, odds acquisition or automatic scheduler. Historical evaluation reuses retained 2023–24 evidence under explicit reconstruction assumptions.
+
+[Scientific report](SCIENTIFIC_VALIDATION_SPINE.md) and [safe summary](evidence/scientific-spine-summary.json) record results, checks, limits and source hashes. LOCAL EVIDENCE PATH: `runtime/checkpoints/scientific-spine-a-20260924T192859Z-c463e0ca`. Full data and forensic evidence remain local. The prior repository entry below remains historical; this scientific block supersedes its immediate next-action priority without claiming Desktop success.
+
+NEXT_EXACT_ACTION: commission and verify the bounded daily prospective collector and a second-day snapshot before further modeling. No broad V2 expansion.
+
+Final local validation for this block: 233/233 portable and 276/276 full suite passed, zero failures/errors/skips; 69 new tests. SQL/MariaDB, GPU correctness, Web-to-SQL, bridge and Joomla HTTP regressions passed. The historical replay scored 321 matches after 59 warm-up exclusions; all outputs are DEMONSTRATION_ONLY / RECONSTRUCTED_PIT. The preliminary portable run failed classification while the new demo class was being added; its log remains preserved, and the explicit class manifest was completed before rerun. LOCAL EVIDENCE PATH: `runtime/checkpoints/dual-database-20260924T194213Z-86bda48c`.
+
 ## 2026-09-24 GitHub repository engineering — current
 
 Publication verified: initial `main` commit `36db6f1bbbf229e3d47bf8a690f730c39f076fc4` matches GitHub; repository is PRIVATE, all 164 remote file blobs match local, twelve key contents API checks pass. CI on Windows/Ubuntu and Repository safety both succeeded. [Exact initial publication evidence](evidence/repository-publication-summary.json) separates these results from subsequent commits. A documentation follow-up records verification before the final prerelease gate.
