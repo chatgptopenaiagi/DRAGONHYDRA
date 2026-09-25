@@ -13,6 +13,7 @@ DRAGONHYDRA is an experimental local laboratory. V1 is the active roadmap stage;
 | [Master roadmap](DRAGONHYDRA_MASTER_ROADMAP.md) | Long-term V0–V10 direction and permanent laws |
 | [Roadmap status](ROADMAP_STATUS.md) | Active block, completed evidence, limitations and next action |
 | [Scientific Validation Spine](SCIENTIFIC_VALIDATION_SPINE.md) | Phase A temporal modes, identities, evaluation, prospective clock and limits |
+| [Cognitive progress](COGNITIVE_PROGRESS.md) | Current authorized foundation, CHILD handoff, branch boundary and verification |
 | [Progress](PROGRESS.md) | Dated implementation and verification history; newest entries take precedence |
 | [Decision log](DECISIONS.md) | Original decisions and explicit supersessions |
 | [ADR index](architecture/ADR_INDEX.md) | Durable decisions with links to original evidence, including scientific evaluation discipline |
@@ -32,6 +33,13 @@ DRAGONHYDRA is an experimental local laboratory. V1 is the active roadmap stage;
 | [Technology matrix](TECHNOLOGY_COMPATIBILITY_MATRIX.md) | Measured versions versus untested candidates |
 | [Old DRAGON reconciliation](OLD_DRAGON_RECONCILIATION.md) | Read-only donor boundary; concepts are not copied implementation |
 | [XAMPP role](XAMPP_ROLE.md) | Local infrastructure and presentation boundary |
+| [Cognitive architecture](COGNITIVE_ARCHITECTURE.md) | Reconstructable operational awareness and distinct Qwen/Codex roles |
+| [Cognitive Separation Law](COGNITIVE_SEPARATION_LAW.md) | AI conclusions cannot become external evidence directly |
+| [Qwen resident intelligence](QWEN_RESIDENT_INTELLIGENCE.md) | Bounded local adapter, mock identity and live runtime gate |
+| [Codex awareness](CODEX_AWARENESS.md) | Explicit artifact handoff and runtime/engineering authority separation |
+| [Cognitive contracts](COGNITIVE_DATA_CONTRACTS.md) | Typed snapshots, deltas, requests, actions, reconciliation and feedback |
+| [World reconciliation loop](WORLD_RECONCILIATION_LOOP.md) | Observed outcomes and measurable replayable learning |
+| [Cognitive security model](COGNITIVE_SECURITY_MODEL.md) | Sanitization, action allow-list, injection and failure boundaries |
 
 ## Database ownership and security
 

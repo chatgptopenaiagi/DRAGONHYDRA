@@ -1,5 +1,19 @@
 # DRAGONHYDRA decisions
 
+## Cognitive D024: bounded awareness and cognitive separation
+
+**Date:** 2026-09-25. **Status:** ACCEPTED for the owner-authorized experimental foundation; implementation evidence is tracked separately.
+
+**Decision:** After independently closing CHILD, branch from actual parent HEAD and build sanitized reconstructable state, Qwen resident-analysis contracts, explicit Codex artifact orchestration, bounded actions, disagreement-preserving reconciliation and measurable feedback. Add the permanent Cognitive Separation Law: AI hypothesis -> ResearchNeed -> permitted HYDRA acquisition -> MEDUSA validation -> accepted evidence -> memory -> recalculation. Keep Python 3.14 and existing storage/source ownership.
+
+**Reason:** Both AI roles need the same auditable knowledge state without acquiring database/OS authority or turning internal belief into external fact. Later evidence and observed outcomes, rather than agreement or changed prose, must correct their conclusions.
+
+**Alternatives:** Merge CHILD wholesale; give AI unrestricted database/shell access; force Qwen/Codex agreement; install an unverified model; or use closed typed artifacts and a labelled mock until a working approved runtime exists. Chosen: the last option. Engineering Codex development tools remain separate from runtime orchestration capabilities.
+
+**Evidence:** [Architecture](COGNITIVE_ARCHITECTURE.md), [separation law](COGNITIVE_SEPARATION_LAW.md), [runtime discovery](QWEN_RESIDENT_INTELLIGENCE.md), [contracts](COGNITIVE_DATA_CONTRACTS.md) and [current verification](COGNITIVE_PROGRESS.md). CHILD clean published handoff remains `69922c7b2deda5e0242f819d5d48b0b77d712b22`; its scientific gates remain PARTIAL.
+
+**Trade-offs:** Bounded interfaces leave many acquisition/calculation capabilities unavailable until separately integrated. MOCK_ONLY is not live Qwen evidence. Contracts do not establish predictive gain, clean-machine reproduction, genuine Desktop capture or completion of downstream parent roadmap stages. Original forecasts, historical decisions and tags remain preserved; the feature branch is not automatically merged.
+
 ## Scientific D023: evaluation discipline, reconstruction and prospective clocks
 
 **Date:** 2026-09-24. **Status:** ACCEPTED for experimental Phase A, owner-directed.

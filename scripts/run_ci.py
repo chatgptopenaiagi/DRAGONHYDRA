@@ -15,6 +15,12 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PORTABLE_CLASSES = {
+    "test_cognitive_cli.CognitiveCLITests",
+    "test_cognitive_contracts.CognitiveContractTests",
+    "test_cognitive_runtime.CognitiveAdapterTests",
+    "test_cognitive_runtime.CognitiveArtifactTests",
+    "test_cognitive_runtime.CognitiveOrchestrationTests",
+    "test_cognitive_snapshot.CognitiveSnapshotTests",
     "test_ci_contracts.PortablePublishedSchemaTests",
     "test_configuration.ConfigurationTests",
     "test_database_contracts.DatabaseContractTests",

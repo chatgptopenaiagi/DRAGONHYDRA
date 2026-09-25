@@ -1,5 +1,19 @@
 # DRAGONHYDRA progress
 
+## 2026-09-25 Cognitive awareness foundation — current authorized block
+
+The continuation recovered CHILD from the actual machine and remote. Prior closure was already committed and published at `69922c7b2deda5e0242f819d5d48b0b77d712b22`; fresh verification proved clean local/remote equality, 349 applicable local tests, 336 exact-index portable tests and successful exact-HEAD CI/safety. CHILD remains PARTIAL / EXPERIMENTAL with an unchanged frozen prediction and external scientific gates.
+
+After that clean handoff, the parent was independently inspected at `a773d9fe14313f0af3bef3f0aec89f3391d81fa6` on `feature/scientific-validation-spine`; `feature/cognitive-awareness-foundation` was created from the actual HEAD. No CHILD commits, runtime, credentials, databases or raw evidence were imported. Existing historical records below remain intact.
+
+The authorized block builds typed cognitive state/deltas, sanitized deterministic snapshots, Qwen adapter/mock, explicit Codex artifacts, bounded capability decisions, disagreement-preserving reconciliation and measured feedback. [Cognitive progress](COGNITIVE_PROGRESS.md) is the current validation authority; [D024](DECISIONS.md) records the architectural decision. Live Qwen is BLOCKED after bounded read-only discovery; mock operation cannot be reported as live inference. No new package/model installation or service reconfiguration is authorized by a missing runtime.
+
+The scoped foundation is COMPLETE; operational cognition remains PARTIAL / EXPERIMENTAL. Final validation passed **374/374 tests (331 portable + 43 local), including 98 new cognitive tests**, zero failures/errors/skips; the guarded portable run passed 331 with zero live dependency attempts. [Curated cognitive evidence](evidence/cognitive-foundation-summary.json) records tests, actual artifact cycle and boundaries. LOCAL EVIDENCE PATH: `runtime/checkpoints/cognitive-foundation-20260925`.
+
+A bounded read produced 32 accepted source-record summaries; Qwen mock was explicitly MOCK_ONLY, live Qwen BLOCKED, and an engineering Codex artifact proposal was rejected without action execution. Reconciliation retained two positions with INSUFFICIENT_EVIDENCE. The initial zero-evidence projection and ODBC timestamp decode failure are preserved; fixes changed only the conservative read projection, not stored data. Hashes of 11 SQL tables and the MariaDB presentation cache remained unchanged; existing services and tag were preserved. No package/model/runtime install or shared service change occurred. The optional dashboard is NOT_STARTED.
+
+NEXT_EXACT_ACTION: finish exact-index publication and remote/CI verification, leave the feature branch unmerged, then separately validate an approved local Qwen runtime for bounded same-state replay comparison. Parent roadmap and scientific gates remain separate from this contract foundation.
+
 ## 2026-09-24 Scientific Validation Spine Phase A — current
 
 Verified clean local main = origin/main = `v0.1.0-alpha^{commit}` at `4d1b4b3d1960cdd047a9c857aafdc544961b9426` before creating `feature/scientific-validation-spine`. The new unique baseline manifest preserves the original 165 tracked-file hashes. No old checkpoint or tag is rewritten.

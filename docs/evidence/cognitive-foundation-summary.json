@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-25T19:18:52.516590+00:00",
+  "foundation_status": "COMPLETE",
+  "operational_status": "PARTIAL / EXPERIMENTAL",
+  "child_handoff": {
+    "head": "69922c7b2deda5e0242f819d5d48b0b77d712b22",
+    "remote_equal": true,
+    "status": "CLEAN",
+    "applicable_tests_passed": 349,
+    "scientific_status": "PARTIAL / EXPERIMENTAL"
+  },
+  "parent_base": "a773d9fe14313f0af3bef3f0aec89f3391d81fa6",
+  "starting_branch": "feature/scientific-validation-spine",
+  "branch": "feature/cognitive-awareness-foundation",
+  "merge_to_main": false,
+  "validation": {
+    "full_passed": 374,
+    "portable_passed": 331,
+    "local_passed": 43,
+    "new_cognitive_tests": 98,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "portable_live_dependency_attempts": 0
+  },
+  "qwen_adapter": "MOCK_ONLY",
+  "live_qwen": "BLOCKED",
+  "live_qwen_reason": "QWEN_RUNTIME_UNAVAILABLE",
+  "codex_awareness": "COMPLETE explicit artifact foundation; PARTIAL operational integration",
+  "live_trial": {
+    "bounded_parent_records": 32,
+    "active_fixture": null,
+    "source_acquisitions": 0,
+    "inference": "DETERMINISTIC_MOCK_NOT_QWEN",
+    "codex_origin": "ENGINEERING_CODEX_EXPLICIT_ARTIFACT_NOT_PRIVATE_IPC",
+    "research_proposal_status": "BLOCKED",
+    "actions_executed": 0,
+    "reconciliation": "INSUFFICIENT_EVIDENCE",
+    "positions_preserved": 2
+  },
+  "preservation": {
+    "sql_tables_unchanged": 11,
+    "mariadb_presentation_cache_unchanged": true,
+    "baseline_tag_unchanged": true,
+    "child_clean_after_parent_work": true,
+    "services_running": [
+      "Apache2.4",
+      "mysql",
+      "MSSQLSERVER"
+    ]
+  },
+  "environment": {
+    "python": "3.14.7",
+    "packages_added": 0,
+    "models_installed": 0,
+    "services_restarted": 0,
+    "runtime_configuration_changes": 0
+  },
+  "repository_audit": {
+    "blocking_findings": 0,
+    "limits": "Ignored active MDF/LDF files OS-locked; arbitrary encoded secrets not proven absent."
+  },
+  "proofs": {
+    "baseline-tests.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/baseline-tests.json",
+      "sha256": "f8d909adff981b233f70e51b0f7fa6e97efd90088830f446c85cc4845e3d5761"
+    },
+    "portable-final.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/portable-final.json",
+      "sha256": "761775de6c2dc5e2dd7a9bad5e5546c9836eef25746af1d0de739f772059a0e8"
+    },
+    "full-final.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/full-final.json",
+      "sha256": "11847abc565bad4d9bb9bd5c117e2e1a053ac708b2c5346d3d221dac0832e718"
+    },
+    "all-local-audit-final.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/all-local-audit-final.json",
+      "sha256": "bff4aa13ee099586bd8abc776a76cb19aedbfe27e8ac7e24e217a9280c540493"
+    },
+    "artifact-handoff.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/artifact-handoff.json",
+      "sha256": "fcee582a8524dfa63934adfcc41f550d06cb5f996435e8da6690f1f49c4aa700"
+    },
+    "data-before.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/data-before.json",
+      "sha256": "3ad5dfedb882ea0e2d8ebdc3d4d28976c8bbae2b092ec7fe346843695299a1a7"
+    },
+    "data-after.json": {
+      "local_evidence_path": "runtime/checkpoints/cognitive-foundation-20260925/data-after.json",
+      "sha256": "ce98bb25f55c17c148b52e33849c2d721a19aa7ad93b408411cb3faf44a56375"
+    }
+  },
+  "publication": "Exact final commit/remote/Actions verification is recorded separately in the immutable local publication receipt, avoiding self-referential commit hashes.",
+  "limits": [
+    "No live Qwen runtime established; timeout is adapter configuration, not live transport proof.",
+    "No runtime action dispatcher, autonomous research or automatic code modification.",
+    "Snapshot is a fixed 32-record sample, not a complete system memory export.",
+    "Source records are observations of captured source state; exact kickoff timezone is not inferred.",
+    "No predictive improvement or real-world research benefit established.",
+    "Calibration measurement remains conditional on trusted outcome/cohort references.",
+    "Artifacts use hashes and owner filesystem ACLs, not signed actor/evidence attestation.",
+    "Dashboard unchanged; optional panel NOT_STARTED.",
+    "Parent scientific gates and CHILD frozen forecast are unchanged."
+  ]
+}

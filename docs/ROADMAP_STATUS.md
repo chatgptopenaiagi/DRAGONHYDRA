@@ -1,5 +1,11 @@
 # DRAGONHYDRA roadmap status
 
+## 2026-09-25 current authorized cognitive foundation
+
+The owner authorized a bounded [cognitive-awareness foundation](COGNITIVE_ARCHITECTURE.md) after a verified clean CHILD handoff. Work is isolated on `feature/cognitive-awareness-foundation`, based on actual parent HEAD `a773d9fe14313f0af3bef3f0aec89f3391d81fa6`; no CHILD implementation or runtime is imported and no automatic merge is permitted. [Cognitive progress](COGNITIVE_PROGRESS.md) records the current block, validation and exact next action. Qwen is MOCK_ONLY with live inference BLOCKED; Codex consumes explicit sanitized artifacts. Cognitive contracts do not complete parent V2–V10 or replace their scientific gates.
+
+The dated scientific and roadmap record below remains historical authority for those existing stages and limits. Its next-action statements are superseded only for the currently authorized cognitive foundation block.
+
 As of 2026-09-24. Authority: [master roadmap](DRAGONHYDRA_MASTER_ROADMAP.md). Evidence and implementation history: [PROGRESS](PROGRESS.md) and [DECISIONS](DECISIONS.md).
 
 ## CURRENT_VERSION
