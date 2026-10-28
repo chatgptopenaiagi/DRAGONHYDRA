@@ -1,0 +1,30 @@
+{
+  "event_id": "synthetic-match-001",
+  "competition": "synthetic-league",
+  "home": "North FC",
+  "away": "South FC",
+  "market_type": "1x2",
+  "period": "full_time",
+  "outcome": "home",
+  "line": null,
+  "status": "pregame",
+  "settlement": "regulation_only",
+  "probability": "0.55",
+  "data_origin": "synthetic",
+  "model_version": "synthetic-assumption/1",
+  "evidence_id": "synthetic-estimate-001",
+  "source_id": "synthetic-estimate-fixture",
+  "source_published_at": "2026-01-01T12:00:00Z",
+  "received_at": "2026-01-01T12:00:00Z",
+  "persisted_at": "2026-01-01T12:00:00Z",
+  "usable_at": "2026-01-01T12:00:00Z",
+  "input_evidence": [{
+    "evidence_id": "synthetic-assumption-001",
+    "source_id": "synthetic-estimate-fixture",
+    "data_origin": "synthetic",
+    "source_published_at": "2026-01-01T12:00:00Z",
+    "received_at": "2026-01-01T12:00:00Z",
+    "persisted_at": "2026-01-01T12:00:00Z",
+    "usable_at": "2026-01-01T12:00:00Z"
+  }]
+}

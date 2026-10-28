@@ -1,0 +1,10 @@
+# Known issues and limits
+
+- Historical odds file columns do not establish original quote receipt time, provider-feed independence, settlement scope or exact simultaneous availability. The source labels are not proof of a tradable opportunity.
+- Operational SQLite records use a post-data-commit acknowledgment and separate receipt transaction; the precise second-transaction visibility boundary remains unverified. Do not claim a fully verified retrospective STRICT_PIT replay. Synthetic replay is separately labelled.
+- Fixture labels and dates alone do not establish cross-source identity. Ambiguous dates and mappings require review; the cognitive report leaves model-versus-market comparisons unavailable without verified fixture and settlement mapping.
+- No operational outcome or measured-evaluation records existed in the observed DB snapshot. Equal ensemble weights and present-knowledge holdout results do not establish live model performance or calibration.
+- A captured historical dataset was not locally available at the earlier event date. Retrospective chronological holdout is clearly separate from recorded, prospective forecasts.
+- Neural models, real-time provider integrations, full bankroll ledger, comprehensive backtesting, production deployment and SQL Server integration remain unverified or absent. The local watcher polls a supplied file; it is not a market data service.
+- Nuitka 2.8.10 did not compile against Python 3.14.10 on this host. PyInstaller's one-directory distribution needs its adjacent support files; do not distribute the `.exe` alone as if it were self-contained.
+- At the start of the freeze the root Git repository had no commits and no remote; source and handover files were untracked, and raw sources and runtime data were ignored. They are preserved separately in the checkpoint and recovery archive. Preserve remaining pre-existing untracked material; do not use `git clean` or reset as a routine step. The GitHub repository's pre-existing `main` is a separate history.

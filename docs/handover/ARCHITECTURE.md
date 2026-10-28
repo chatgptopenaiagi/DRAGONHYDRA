@@ -1,0 +1,11 @@
+# Architecture
+
+`dragon.py` invokes [the CLI](../../src/dragonhydra/cli.py). The principal flow is local source acquisition → validation and immutable source retention → as-of retrieval → deterministic market signals and cognitive models → predictions, uncertainty, research tasks and later observed feedback.
+
+- [market_store.py](../../src/dragonhydra/market_store.py) owns raw market snapshots, acquisition records, receipt-gated reads and quarantine. [public_results.py](../../src/dragonhydra/public_results.py) retains OpenFootball captures and fixture/result revisions. [estimate_store.py](../../src/dragonhydra/estimate_store.py) retains local probability assumptions.
+- [market_signals.py](../../src/dragonhydra/market_signals.py) and [scenario.py](../../src/dragonhydra/scenario.py) provide deterministic market and conditional risk calculations. [watch.py](../../src/dragonhydra/watch.py) offers bounded local-file polling.
+- [cognition/models.py](../../src/dragonhydra/cognition/models.py) calculates individual football models and a transparent ensemble. [memory.py](../../src/dragonhydra/cognition/memory.py) stores immutable model, prediction, outcome, evaluation, research-task and hypothesis records. [evaluation.py](../../src/dragonhydra/cognition/evaluation.py), [adaptation.py](../../src/dragonhydra/cognition/adaptation.py), [research.py](../../src/dragonhydra/cognition/research.py), [runtime.py](../../src/dragonhydra/cognition/runtime.py) and [commands.py](../../src/dragonhydra/cognition/commands.py) implement scoring, selection, gap generation and CLI orchestration.
+
+The actual root package uses SQLite, not a verified SQL Server integration. The earlier intended HYDRA → MEDUSA → SQL → features → models → simulation → tribunal → market → uncertainty → research flow remains a long-term direction rather than a claim that all layers exist here. No automatic betting or live-provider orchestration is implemented.
+
+Raw capture, source publication, system receipt, data-commit acknowledgment and usable time are distinct. SQLite writes data then a separate receipt: the exact visibility boundary of that receipt transaction is not established. Operational output is labelled receipt-bounded and must not be described as a fully proven retrospective STRICT_PIT replay.

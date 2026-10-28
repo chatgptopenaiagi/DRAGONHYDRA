@@ -1,0 +1,12 @@
+{
+  "project": "DRAGONHYDRA",
+  "release_type": "engineering_checkpoint",
+  "version": "0.2.0+genesis2.checkpoint",
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "git_tag": "v0.2.0+genesis2.checkpoint",
+  "git_commit": null,
+  "git_commit_note": "A commit cannot contain its own hash. Resolve this tag locally, and consult the final RELEASE-MANIFEST.json release asset for the actual commit and artifact hashes.",
+  "handover_entrypoint": "docs/handover/START-HERE.md",
+  "data_and_database_state": "Stored in the recovery archive, outside Git; see its RECOVERY-INVENTORY.json and database backup metadata.",
+  "privacy_note": "Verify repository visibility directly before any upload. The repository was previously public, so existing copies may persist."
+}

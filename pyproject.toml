@@ -1,0 +1,20 @@
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13"]
+build-backend = "uv_build"
+
+[project]
+name = "dragonhydra"
+version = "0.2.0+genesis2.checkpoint"
+description = "Provenance-aware point-in-time football research laboratory"
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[project.scripts]
+dragon = "dragonhydra.packaging_entry:main"
+
+[tool.uv.build-backend]
+module-name = "dragonhydra"
+source-include = ["tests/**", "examples/**", "docs/**", "dragon.py", "packaging/**", "scripts/build_checkpoint_archive.py"]
+source-exclude = ["/data", "/runtime", "/dist", "__pycache__", "*.pyc"]
+

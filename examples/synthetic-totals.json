@@ -1,0 +1,132 @@
+{
+  "snapshots": [
+    {
+      "source_id": "provider-a",
+      "provider_id": "provider-a",
+      "feed_id": "provider-a-totals",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-a-totals-1",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:00:00Z",
+      "received_at": "2026-01-01T12:00:00Z",
+      "persisted_at": "2026-01-01T12:00:00Z",
+      "event_id": "synthetic-totals-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "totals",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": "2.5",
+      "quotes": [
+        {
+          "outcome": "over",
+          "odds_original": "1.90",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "under",
+          "odds_original": "2.00",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-a",
+      "provider_id": "provider-a",
+      "feed_id": "provider-a-totals",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-a-totals-2",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:09:00Z",
+      "received_at": "2026-01-01T12:09:00Z",
+      "persisted_at": "2026-01-01T12:09:00Z",
+      "event_id": "synthetic-totals-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "totals",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": "2.5",
+      "quotes": [
+        {
+          "outcome": "over",
+          "odds_original": "1.85",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "under",
+          "odds_original": "2.05",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-b",
+      "provider_id": "provider-b",
+      "feed_id": "provider-b-totals",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-b-totals-1",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:00:30Z",
+      "received_at": "2026-01-01T12:00:30Z",
+      "persisted_at": "2026-01-01T12:00:30Z",
+      "event_id": "synthetic-totals-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "totals",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": "2.5",
+      "quotes": [
+        {
+          "outcome": "over",
+          "odds_original": "1.95",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "under",
+          "odds_original": "1.95",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-b",
+      "provider_id": "provider-b",
+      "feed_id": "provider-b-totals",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-b-totals-2",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:09:30Z",
+      "received_at": "2026-01-01T12:09:30Z",
+      "persisted_at": "2026-01-01T12:09:30Z",
+      "event_id": "synthetic-totals-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "totals",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": "2.5",
+      "quotes": [
+        {
+          "outcome": "over",
+          "odds_original": "1.91",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "under",
+          "odds_original": "2.00",
+          "odds_format": "decimal"
+        }
+      ]
+    }
+  ]
+}

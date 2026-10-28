@@ -1,0 +1,157 @@
+{
+  "schema_version": "dragonhydra-handover-inventory/1",
+  "checked_utc": "2026-10-28T14:40:07.465716+00:00",
+  "workspace": "C:/xampp/DRAGONHYDRA",
+  "scope": "project-local inventory; not a machine-wide software scan",
+  "repository": {
+    "branch": "master",
+    "commit_state": "no commits",
+    "working_tree": "project and pre-existing evidence directories are untracked; runtime and data/raw ignored",
+    "observation_context": "before checkpoint commit"
+  },
+  "runtime": {
+    "powershell_version": "7.6.9",
+    "python_launcher": "py -3.14",
+    "python_version": "3.14.10",
+    "sqlite_version": "3.50.4",
+    "git_version": "2.56.0.windows.3",
+    "dependencies": "current project CLI and tests use the Python standard library",
+    "codex_cli": "not modified during the work covered here",
+    "codex_version": "0.164.0",
+    "github_cli_version": "2.103.2",
+    "pip_version": "26.2.2",
+    "execution_mode": "CPU; standard-library statistical models",
+    "gpu_execution": "not verified"
+  },
+  "entrypoint": "dragon.py",
+  "documentation": "README.md",
+  "package": "src/dragonhydra",
+  "modules": {
+    "ingestion": [
+      "market_store.py",
+      "football_data.py",
+      "public_results.py",
+      "estimate_store.py",
+      "watch.py"
+    ],
+    "market_research": [
+      "market_signals.py",
+      "research.py",
+      "scenario.py"
+    ],
+    "cognition": [
+      "cognition/models.py",
+      "cognition/memory.py",
+      "cognition/evaluation.py",
+      "cognition/adaptation.py",
+      "cognition/research.py",
+      "cognition/runtime.py",
+      "cognition/commands.py"
+    ]
+  },
+  "data": [
+    {
+      "path": "data/raw/football-data-2025-26-E0.csv",
+      "bytes": 203438,
+      "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "receipt_hash_matches": true,
+      "source_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+      "captured_at": "2026-10-28T13:52:42.828086+00:00",
+      "license": null,
+      "data_origin": "imported_historical"
+    },
+    {
+      "path": "data/raw/openfootball-2025-26-en1.json",
+      "bytes": 108493,
+      "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+      "receipt_hash_matches": true,
+      "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/en.1.json",
+      "captured_at": "2026-10-28T13:45:25.604975+00:00",
+      "license": "CC0-1.0",
+      "data_origin": "imported_historical"
+    },
+    {
+      "path": "data/raw/openfootball-2026-27-en1.json",
+      "bytes": 55359,
+      "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "receipt_hash_matches": true,
+      "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+      "captured_at": "2026-10-28T13:51:48.055200+00:00",
+      "license": "CC0-1.0",
+      "data_origin": "imported_historical"
+    },
+    {
+      "path": "data/raw/tipsaudit-predictions-all.csv",
+      "bytes": 1768247,
+      "sha256": "c7964f06b9aa02800381c50aca4637ef8c1ad7e940855d3f9c3b5f1bd40e53c5",
+      "receipt_hash_matches": true,
+      "source_url": "https://raw.githubusercontent.com/tipsaudit/track-record-public/main/datasets/tipsaudit-predictions-all.csv",
+      "captured_at": "2026-10-28T13:45:26.514366+00:00",
+      "license": "CC-BY-4.0",
+      "data_origin": "imported_historical"
+    }
+  ],
+  "data_usage": "See source-specific attribution and terms; do not assume unrestricted Football-Data rights.",
+  "database_snapshot": {
+    "observed_utc": "2026-10-28T14:37:31.647100+00:00",
+    "path": "runtime/dragonhydra.sqlite3",
+    "public_fixture_records": 760,
+    "public_results_available": 430,
+    "market_acquisitions": 18,
+    "raw_sources": 4,
+    "quarantined_records": 6,
+    "cognitive_records": {
+      "model": 70,
+      "prediction": 60,
+      "task": 44,
+      "hypothesis": 10,
+      "outcome": 0,
+      "evaluation": 0
+    },
+    "distinct_predicted_fixtures": 1
+  },
+  "verification": {
+    "command": "py -3.14 -B -m unittest discover -s tests -q",
+    "python": "Python 3.14.10",
+    "exit_code": 0,
+    "captured_at_utc": "2026-10-28T14:38:20.5843189Z",
+    "tests_run": 161,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "unittest_duration_seconds": 7.889,
+    "evidence": [
+      "release/genesis2/metadata/test-run.json",
+      "release/genesis2/metadata/test-output.txt"
+    ],
+    "database_backup_metadata": "release/genesis2/metadata/database-backups.json",
+    "post_packaging": {
+      "captured_at_utc": "2026-10-28T14:43:46.8114269Z",
+      "tests_run": 163,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "unittest_duration_seconds": 7.913,
+      "exit_code": 0,
+      "output": "metadata/test-output-final.txt"
+    }
+  },
+  "material_limits": [
+    "SQLite receipt transaction exact visibility is unverified; operational replay is receipt-bounded.",
+    "Original historical quote timestamps, provider independence and cross-source fixture/settlement mappings are not established.",
+    "Present-knowledge chronological holdout is not a historical point-in-time backtest.",
+    "No neural model, live provider feed, SQL Server integration, validated real edge or deployment is established."
+  ],
+  "hardware": {
+    "os": "Windows 11 Pro Insider Preview",
+    "os_version": "10.0.29695",
+    "architecture": "64-bit",
+    "cpu": "AMD Ryzen 5 5600G with Radeon Graphics",
+    "logical_processors": 12,
+    "installed_ram_bytes": 68719476736,
+    "gpus": [
+      "AMD Radeon(TM) Graphics",
+      "NVIDIA GeForce RTX 3050"
+    ]
+  }
+}
