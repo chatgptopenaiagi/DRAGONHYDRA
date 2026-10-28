@@ -1,0 +1,537 @@
+{
+  "schema_version": "dragonhydra-provider-registry/1",
+  "documentation_checked_at_utc": "2026-10-28T14:56:55.744430+00:00",
+  "definitions": {
+    "api_documentation_verified": "Official public API authentication or access documentation reviewed; does not imply an implemented adapter or access.",
+    "successful_request_verified": "An actual request through this app adapter succeeded; a documentation lookup does not qualify.",
+    "data_import_verified": "Validated received data was durably retained by the app.",
+    "connection_state": "Initial installed-app state only; build-time verification is tracked separately.",
+    "last_successful_connection": "Most recent authenticated or public connection made by this app instance; null in the bundled registry until a runtime request succeeds."
+  },
+  "providers": [
+    {
+      "id": "the_odds_api",
+      "provider": "The Odds API",
+      "official_website": "https://the-odds-api.com/",
+      "documentation": "https://the-odds-api.com/liveapi/guides/v4/",
+      "registration": "https://the-odds-api.com/#get-access",
+      "authentication": "API key in apiKey query parameter",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": true,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football",
+        "basketball",
+        "baseball",
+        "American football",
+        "tennis"
+      ],
+      "supported_data": [
+        "fixtures",
+        "odds",
+        "scores"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Historical odds may require a paid plan; quote timestamps and provider-feed independence need validation.",
+        "Only mock authenticated responses tested; live key authentication not verified.",
+        "Provider requires the API key in the URL query, which provider or intermediary logs may retain; client does not log URLs.",
+        "The sports catalog endpoint is documented as using no quota credits."
+      ],
+      "adapter_scope": "Read-only sports-catalog authentication test only; no odds, event or evidence import."
+    },
+    {
+      "id": "sportmonks",
+      "provider": "Sportmonks",
+      "official_website": "https://www.sportmonks.com/",
+      "documentation": "https://docs.sportmonks.com/v3/welcome/authentication",
+      "registration": "https://my.sportmonks.com/register",
+      "authentication": "API token via Authorization header or api_token query",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football",
+        "cricket"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results",
+        "statistics",
+        "odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Provider recommends middleware to protect long-lived tokens; access varies by plan."
+      ]
+    },
+    {
+      "id": "sportradar",
+      "provider": "Sportradar",
+      "official_website": "https://sportradar.com/",
+      "documentation": "https://developer.sportradar.com/getting-started/docs/api-security-enhancements",
+      "registration": "https://developer.sportradar.com/",
+      "authentication": "API key in HTTPS request header",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football",
+        "basketball",
+        "tennis",
+        "American football",
+        "ice hockey"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results",
+        "statistics"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Account-specific feed access required; provider announces HTTPS/header requirement starting 2026-11-13."
+      ]
+    },
+    {
+      "id": "api_football",
+      "provider": "API-FOOTBALL / API-SPORTS",
+      "official_website": "https://www.api-football.com/",
+      "documentation": "https://www.api-football.com/documentation_v3",
+      "registration": "https://dashboard.api-football.com/register",
+      "authentication": "x-apisports-key HTTP header",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": true,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results",
+        "standings",
+        "statistics",
+        "odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Coverage and subscription scope vary; API key required.",
+        "Authentication response behavior is mock-tested only; no live authenticated request or imported data has been verified."
+      ],
+      "adapter_scope": "Read-only API-key connection test only; no fixture, result, market, statistics or evidence import."
+    },
+    {
+      "id": "football_data_org",
+      "provider": "football-data.org",
+      "official_website": "https://www.football-data.org/",
+      "documentation": "https://docs.football-data.org/general/v4/coding_client.html",
+      "registration": "https://www.football-data.org/client/register",
+      "authentication": "X-Auth-Token HTTP header",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": true,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results",
+        "standings",
+        "teams"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Coverage and rate limits vary by account.",
+        "Authentication response behavior is mock-tested only; no live authenticated request or imported data has been verified."
+      ],
+      "adapter_scope": "Read-only API-key connection test only; no fixture, result, market, statistics or evidence import."
+    },
+    {
+      "id": "sportsdataio",
+      "provider": "SportsDataIO",
+      "official_website": "https://sportsdata.io/",
+      "documentation": "https://sportsdata.io/developers/api-documentation/global",
+      "registration": "https://sportsdata.io/developers",
+      "authentication": "Ocp-Apim-Subscription-Key HTTP header",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "American football",
+        "basketball",
+        "baseball",
+        "ice hockey"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results",
+        "statistics",
+        "odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Access depends on subscription; trial data may be scrambled."
+      ]
+    },
+    {
+      "id": "betfair",
+      "provider": "Betfair Exchange",
+      "official_website": "https://www.betfair.com/",
+      "documentation": "https://support.developer.betfair.com/hc/en-us/articles/115003864651-How-do-I-get-started",
+      "registration": "https://developer.betfair.com/",
+      "authentication": "Application key and separately obtained authorized session token",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football",
+        "tennis",
+        "other exchange sports"
+      ],
+      "supported_data": [
+        "exchange markets",
+        "prices"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Account and app-key eligibility required; interactive login is not implemented."
+      ]
+    },
+    {
+      "id": "pinnacle",
+      "provider": "Pinnacle",
+      "official_website": "https://www.pinnacle.com/",
+      "documentation": "https://www.pinnacle.com/en/api",
+      "registration": "https://www.pinnacle.com/en/api",
+      "authentication": "Bespoke approved API access; authentication not verified",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "multiple sports"
+      ],
+      "supported_data": [
+        "prematch odds",
+        "in-play odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Apply for access; public authentication and user account eligibility not verified."
+      ]
+    },
+    {
+      "id": "admiral",
+      "provider": "ADMIRAL Sportwetten",
+      "official_website": "https://www.admiral.at/",
+      "documentation": "https://www.admiral.at/",
+      "registration": "https://www.admiral.at/",
+      "authentication": "User-accessible official API not verified",
+      "connection_state": "UNAVAILABLE",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "sports betting"
+      ],
+      "supported_data": [
+        "sports odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "API NOT VERIFIED. Do not use website credentials as API credentials."
+      ]
+    },
+    {
+      "id": "statsbomb_open_data",
+      "provider": "StatsBomb Open Data",
+      "official_website": "https://github.com/statsbomb/open-data",
+      "documentation": "https://github.com/statsbomb/open-data",
+      "registration": null,
+      "authentication": "Public GitHub data, no account required",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": true,
+      "authentication_configured": false,
+      "successful_request_verified": true,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football"
+      ],
+      "supported_data": [
+        "competitions",
+        "matches",
+        "events",
+        "lineups"
+      ],
+      "last_verified_at": "2026-10-28T15:00:31.017148Z",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Open data files, not a private API; attribution and provider terms apply.",
+        "Network request verified on Windows Dart VM only; app does not persist the downloaded response as eligible research evidence."
+      ],
+      "verification_evidence": {
+        "method": "Project-local Dart VM execution of public adapter; not Android device execution",
+        "retrieved_at_utc": "2026-10-28T15:00:31.017148Z",
+        "raw_response_sha256": "e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa",
+        "validated_record_count": 80,
+        "raw_persisted_for_probe": true,
+        "operational_database_import": false
+      },
+      "last_successful_build_probe": "2026-10-28T15:00:31.017148Z"
+    },
+    {
+      "id": "openfootball",
+      "provider": "OpenFootball",
+      "official_website": "https://github.com/openfootball/football.json",
+      "documentation": "https://github.com/openfootball/football.json",
+      "registration": null,
+      "authentication": "Public GitHub data, no API key",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": true,
+      "authentication_configured": false,
+      "successful_request_verified": true,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football"
+      ],
+      "supported_data": [
+        "fixtures",
+        "results"
+      ],
+      "last_verified_at": "2026-10-28T15:00:30.958581Z",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Public historical snapshots, not a verified live feed.",
+        "Network request verified on Windows Dart VM only; app does not persist the downloaded response as eligible research evidence."
+      ],
+      "verification_evidence": {
+        "method": "Project-local Dart VM execution of public adapter; not Android device execution",
+        "retrieved_at_utc": "2026-10-28T15:00:30.958581Z",
+        "raw_response_sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+        "validated_record_count": 380,
+        "raw_persisted_for_probe": true,
+        "operational_database_import": false
+      },
+      "last_successful_build_probe": "2026-10-28T15:00:30.958581Z"
+    },
+    {
+      "id": "football_data_uk",
+      "provider": "Football-Data.co.uk",
+      "official_website": "https://www.football-data.co.uk/",
+      "documentation": "https://www.football-data.co.uk/downloadm.php",
+      "registration": null,
+      "authentication": "Public historical CSV downloads",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "football"
+      ],
+      "supported_data": [
+        "results",
+        "historical odds"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Source terms apply. Individual quote times and provider independence are not established."
+      ]
+    },
+    {
+      "id": "theoddsapi_com",
+      "provider": "TheOddsAPI (theoddsapi.com)",
+      "official_website": "https://theoddsapi.com/",
+      "documentation": "https://theoddsapi.com/docs/",
+      "registration": "https://theoddsapi.com/",
+      "authentication": "x-api-key HTTP header",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": true,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "American football",
+        "basketball",
+        "baseball",
+        "football",
+        "tennis"
+      ],
+      "supported_data": [
+        "sports",
+        "odds",
+        "historical snapshots"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Separate service from the-odds-api.com; historical access is plan-dependent."
+      ]
+    },
+    {
+      "id": "nflverse",
+      "provider": "nflverse",
+      "official_website": "https://github.com/nflverse/nflverse-data",
+      "documentation": "https://github.com/nflverse/nflverse-data",
+      "registration": null,
+      "authentication": "Public GitHub releases/data",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "American football"
+      ],
+      "supported_data": [
+        "results",
+        "statistics",
+        "play by play"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Public data repository; not a configured API account."
+      ]
+    },
+    {
+      "id": "moneypuck",
+      "provider": "MoneyPuck",
+      "official_website": "https://www.moneypuck.com/data.htm",
+      "documentation": "https://www.moneypuck.com/data.htm",
+      "registration": null,
+      "authentication": "Public listed files; access and use restrictions apply",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "ice hockey"
+      ],
+      "supported_data": [
+        "statistics",
+        "game data"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Credit MoneyPuck; non-commercial use as stated on the source page; do not scrape unlisted content without approval."
+      ]
+    },
+    {
+      "id": "cricsheet",
+      "provider": "Cricsheet",
+      "official_website": "https://cricsheet.org/",
+      "documentation": "https://cricsheet.org/downloads/",
+      "registration": null,
+      "authentication": "Public match-data downloads",
+      "connection_state": "NOT CONFIGURED",
+      "api_documentation_verified": false,
+      "documentation_reviewed": true,
+      "adapter_implemented": false,
+      "authentication_configured": false,
+      "successful_request_verified": false,
+      "data_import_verified": false,
+      "supported_sports": [
+        "cricket"
+      ],
+      "supported_data": [
+        "historical matches",
+        "ball-by-ball"
+      ],
+      "last_verified_at": "2026-10-28T14:56:55.744430+00:00",
+      "last_successful_connection": null,
+      "last_synchronization": null,
+      "quota": null,
+      "limitations": [
+        "Consult source license and attribution requirements."
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # DRAGONHYDRA GENESIS-2 checkpoint
 
+For the later Android companion, see the separate
+[GENESIS-3 successor handover](../genesis3/HANDOVER.md). This document retains
+the GENESIS-2 checkpoint description and its original release remains intact.
+
 DRAGONHYDRA is a local sports-intelligence research laboratory. This checkpoint
 preserves its Python CLI, market analysis, statistical football forecasts,
 append-only cognitive memory, public input receipts and test evidence. It is

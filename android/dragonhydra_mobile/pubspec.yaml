@@ -1,0 +1,19 @@
+name: dragonhydra_mobile
+description: Offline sports intelligence companion.
+publish_to: 'none'
+version: 0.3.0-alpha+3
+environment:
+  sdk: ^3.13.7
+dependencies:
+  flutter:
+    sdk: flutter
+  crypto: ^3.0.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/football-snapshot.json
+    - assets/provider-manifest.json
