@@ -1,0 +1,226 @@
+{
+  "snapshots": [
+    {
+      "source_id": "provider-a",
+      "provider_id": "provider-a",
+      "feed_id": "feed-a",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-a-1",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:00:00Z",
+      "received_at": "2026-01-01T12:00:00Z",
+      "persisted_at": "2026-01-01T12:00:00Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.20",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.30",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.40",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-a",
+      "provider_id": "provider-a",
+      "feed_id": "feed-a",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-a-2",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:05:00Z",
+      "received_at": "2026-01-01T12:05:00Z",
+      "persisted_at": "2026-01-01T12:05:00Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.10",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.40",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.50",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-a",
+      "provider_id": "provider-a",
+      "feed_id": "feed-a",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-a-3",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:09:00Z",
+      "received_at": "2026-01-01T12:09:00Z",
+      "persisted_at": "2026-01-01T12:09:00Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.00",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.50",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.70",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-b",
+      "provider_id": "provider-b",
+      "feed_id": "feed-b",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-b-1",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:00:30Z",
+      "received_at": "2026-01-01T12:00:30Z",
+      "persisted_at": "2026-01-01T12:00:30Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.16",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.40",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.45",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-b",
+      "provider_id": "provider-b",
+      "feed_id": "feed-b",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-b-2",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:05:30Z",
+      "received_at": "2026-01-01T12:05:30Z",
+      "persisted_at": "2026-01-01T12:05:30Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.08",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.45",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.55",
+          "odds_format": "decimal"
+        }
+      ]
+    },
+    {
+      "source_id": "provider-b",
+      "provider_id": "provider-b",
+      "feed_id": "feed-b",
+      "adapter_version": "local-json/1",
+      "acquisition_id": "provider-b-3",
+      "data_origin": "synthetic",
+      "source_published_at": "2026-01-01T12:09:30Z",
+      "received_at": "2026-01-01T12:09:30Z",
+      "persisted_at": "2026-01-01T12:09:30Z",
+      "event_id": "synthetic-match-001",
+      "competition": "synthetic-league",
+      "home": "North FC",
+      "away": "South FC",
+      "market_type": "1x2",
+      "period": "full_time",
+      "status": "pregame",
+      "settlement": "regulation_only",
+      "line": null,
+      "quotes": [
+        {
+          "outcome": "home",
+          "odds_original": "2.05",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "draw",
+          "odds_original": "3.45",
+          "odds_format": "decimal"
+        },
+        {
+          "outcome": "away",
+          "odds_original": "3.60",
+          "odds_format": "decimal"
+        }
+      ]
+    }
+  ]
+}

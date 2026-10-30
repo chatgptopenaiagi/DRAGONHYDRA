@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form><fieldset name="import" label="COM_DRAGONHYDRA_IMPORT">
+  <field name="source" type="list" label="COM_DRAGONHYDRA_SOURCES" default="openfootball" required="true">
+    <option value="openfootball">OpenFootball public results</option>
+  </field>
+</fieldset></form>

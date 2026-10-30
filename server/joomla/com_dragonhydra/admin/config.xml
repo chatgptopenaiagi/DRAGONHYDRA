@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <fieldset name="connection" label="COM_DRAGONHYDRA_CONNECTION">
+    <field name="api_base" type="url" label="COM_DRAGONHYDRA_API_BASE" default="http://127.0.0.1:8731/dragon/api/v1" required="true" filter="url" />
+    <field name="bridge_secret_path" type="text" label="COM_DRAGONHYDRA_SECRET_PATH" description="COM_DRAGONHYDRA_SECRET_PATH_DESC" filter="string" />
+    <field name="dashboard_url" type="url" label="COM_DRAGONHYDRA_DASHBOARD_URL" default="http://127.0.0.1:8731/" filter="url" />
+  </fieldset>
+  <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL">
+    <field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" filter="rules" component="com_dragonhydra" section="component" />
+  </fieldset>
+</config>

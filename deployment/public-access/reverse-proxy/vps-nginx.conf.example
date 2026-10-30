@@ -1,0 +1,76 @@
+# Numeric-IP HTTP baseline. Replace VPS_PUBLIC_IP with the actual authorized IP.
+# No domain, certificate or redirect is required to open http://VPS_PUBLIC_IP/.
+# Add this actual IP to the Windows gateway's public Host allowlist too.
+# No Linux/VPS nginx execution has been claimed.
+# The VPS has no Joomla/database payload. It forwards to the existing Windows
+# allowlist gateway through an outbound SSH tunnel bound on VPS loopback only.
+
+upstream dragonhydra_windows_gateway {
+    server 127.0.0.1:18080;
+    keepalive 8;
+}
+
+log_format dragonhydra_public '$remote_addr - $request_method $uri $status $body_bytes_sent';
+
+server {
+    listen 80 default_server;
+    server_name _;
+    return 444;
+}
+server {
+    listen 80;
+    server_name VPS_PUBLIC_IP;
+    server_tokens off;
+    access_log /var/log/nginx/dragonhydra-access.log dragonhydra_public;
+    error_log /var/log/nginx/dragonhydra-error.log warn;
+    client_max_body_size 1k;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+    error_page 502 504 =503 @dragonhydra_unavailable;
+    location @dragonhydra_unavailable {
+        default_type text/plain;
+        return 503 'DRAGONHYDRA is reconnecting. Please reload shortly.';
+    }
+
+    # Kept on the VPS independently of the gateway for optional IP-certificate
+    # validation/renewal. Populate only actual ACME challenge files.
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/lib/dragonhydra/acme;
+        default_type text/plain;
+        limit_except GET HEAD { deny all; }
+        try_files $uri =404;
+    }
+
+    # Joomla administration, credentials and private runtime paths never enter
+    # the public forwarding surface. The Windows gateway owns the complete
+    # public read-only allowlist, including /sports and its API-backed pages.
+    location ~* ^/(?:administrator|api|cli|installation|tmp|logs|runtime|config|server|src|tests|deployment|\.git)(?:/|$) {
+        return 404;
+    }
+    location ~* (?:^|/)\.(?:env|ht|git|ssh) { return 404; }
+    location ~* \.(?:ini|sqlite3?|db|toml|log|bak|pem|key|zip|sql)$ { return 404; }
+    location / {
+        limit_except GET HEAD { deny all; }
+        proxy_pass http://dragonhydra_windows_gateway;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header Cookie "";
+        proxy_set_header Authorization "";
+        proxy_set_header CF-Connecting-IP "";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Dragon-User "";
+        proxy_set_header X-Dragon-Roles "";
+        proxy_set_header X-Dragon-Time "";
+        proxy_set_header X-Dragon-Nonce "";
+        proxy_set_header X-Dragon-Signature "";
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_connect_timeout 3s;
+        proxy_send_timeout 15s;
+        proxy_read_timeout 30s;
+        proxy_redirect off;
+        proxy_hide_header Set-Cookie;
+        proxy_intercept_errors on;
+    }
+}

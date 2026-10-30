@@ -1,5 +1,23 @@
 # DRAGONHYDRA local research laboratory
 
+The integrated `0.4.0-alpha.1` prerelease adds an authenticated server, reusable
+dashboard, Windows desktop client, Joomla administration and optional Android
+client connection. It remains experimental. The complete workstation installer,
+permanent VPS hosting, credentialed live feeds and local LLM are not included.
+
+Use the versioned release's `INSTALLATION.md` and artifact manifest to choose a
+download. The Python wheel requires Python 3.14; install its `server` extra for
+the HTTP service. `dragonhydra-server --port 18743 --state ./product-state
+--init-bridge` starts the optional server with bundled documented sample inputs.
+`dragonhydra-samples --directory ./samples` copies explicit CLI examples without
+requiring a development checkout. Pair a client using the generated local token;
+keep that token and the Joomla bridge secret private. Android localhost refers
+to the phone; remote connections need a configured trusted HTTPS endpoint.
+
+The source-locked release procedure is documented in
+[packaging/release/SOURCE-LOCK.md](packaging/release/SOURCE-LOCK.md). The older
+commands below describe the preserved engineering CLI and development checkout.
+
 Run from PowerShell 7 in this directory using Python 3.14:
 
 ```powershell

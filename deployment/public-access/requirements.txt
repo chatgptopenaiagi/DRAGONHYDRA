@@ -1,0 +1,5 @@
+# Tested with CPython 3.14. Install in a private virtual environment.
+-c requirements-lock.txt
+fastapi==0.162.0
+httpx==0.28.1
+uvicorn==0.42.0

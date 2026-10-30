@@ -4,12 +4,15 @@ import 'package:flutter/services.dart';
 import 'simulation.dart';
 import 'public_sources.dart';
 import 'connections.dart';
+import 'server_connection.dart';
 
 void main() => runApp(const DragonHydraApp());
 
 const crimson = Color(0xffea4c61);
 const electric = Color(0xff64c7ed);
 const panel = Color(0xff1c2430);
+const releaseSource = String.fromEnvironment('DRAGONHYDRA_SOURCE_SHA', defaultValue: 'unversioned development source');
+const releaseVersion = String.fromEnvironment('DRAGONHYDRA_VERSION', defaultValue: 'development');
 
 class DragonHydraApp extends StatelessWidget {
   const DragonHydraApp({super.key});
@@ -119,7 +122,8 @@ class HomePage extends StatelessWidget {
         label('Offline research companion'), const SizedBox(height: 10),
         const Text('Intelligence,\nin your pocket.', style: TextStyle(fontSize: 29, height: 1.12, fontWeight: FontWeight.w800)),
         const SizedBox(height: 12), const Text('Explore an archived football forecast, market prices and conditional simulations.', style: TextStyle(color: Colors.white70, height: 1.4)),
-        const SizedBox(height: 16), FilledButton.icon(onPressed: () => onNavigate(1), icon: const Icon(Icons.arrow_forward), label: const Text('Explore forecast'))
+        const SizedBox(height: 16), FilledButton.icon(onPressed: () => onNavigate(1), icon: const Icon(Icons.arrow_forward), label: const Text('Explore forecast')),
+        TextButton.icon(onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ServerConnectionPage())), icon: const Icon(Icons.dns_outlined), label: const Text('Connect to DRAGONHYDRA server'))
       ])),
       const SectionTitle('At a glance', caption: 'Bundled snapshot • no account required'),
       Panel(child: Column(children: [line('Data mode', 'Offline / archived'), line('Sports', 'Football'),
@@ -344,6 +348,11 @@ class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
   @override Widget build(BuildContext context) => Content(children: [
     const SectionTitle('Settings & connections'),
+    Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const Text('DRAGONHYDRA SERVER', style: TextStyle(fontWeight: FontWeight.w700)),
+      const Text('Browse the same canonical matches, teams and standings as desktop and Joomla.'),
+      FilledButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ServerConnectionPage())), child: const Text('Configure server address')),
+    ])),
     Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const Text('OPENAI INTELLIGENCE', style: TextStyle(fontWeight: FontWeight.w700)), const SizedBox(height: 8),
       const Text('Not connected. OpenAI Platform keys and Codex authentication are separate. A secure backend is required; no paid API request is made by this app.'),
       TextButton(onPressed: () => const CredentialVault().openUrl('https://platform.openai.com/api-keys'), child: const Text('OPEN OPENAI API DASHBOARD'))])),
@@ -352,6 +361,7 @@ class SettingsPage extends StatelessWidget {
     const Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('LOCAL STORAGE', style: TextStyle(fontWeight: FontWeight.w700)), SizedBox(height: 8),
       Text('The bundled sample is read-only. This alpha does not synchronize with the desktop database or run Python models on the phone.')])),
     const Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('ABOUT', style: TextStyle(fontWeight: FontWeight.w700)), SizedBox(height: 8),
-      Text('DRAGONHYDRA GENESIS-3 Android alpha\nOffline snapshot and research simulator')]))
+      Text('DRAGONHYDRA GENESIS-3 Android alpha\nOffline snapshot and research simulator'),
+      Text('Build version: $releaseVersion'), SelectableText('Source: $releaseSource')]))
   ]);
 }

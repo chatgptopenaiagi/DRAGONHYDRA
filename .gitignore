@@ -2,3 +2,6 @@ runtime/
 data/raw/
 __pycache__/
 *.pyc
+client/desktop/node_modules/
+client/desktop/src-tauri/target/
+build/

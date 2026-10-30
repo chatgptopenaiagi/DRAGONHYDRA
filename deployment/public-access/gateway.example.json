@@ -1,0 +1,6 @@
+{
+  "joomla_origin": "http://127.0.0.1:18732",
+  "api_endpoint_file": "../server-state/endpoint.json",
+  "bridge_secret_file": "../server-state/joomla-bridge.json",
+  "vps_public_ips": []
+}

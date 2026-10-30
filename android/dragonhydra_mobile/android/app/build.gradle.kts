@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // Established update identity; retain when building development upgrades.
         applicationId = "ai.dragonhydra.mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
@@ -31,8 +31,9 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // Development prereleases retain the existing Android Debug signer.
+            // This is not a production publisher identity. The release script
+            // verifies its fingerprint against the earlier published APK.
             signingConfig = signingConfigs.getByName("debug")
         }
     }

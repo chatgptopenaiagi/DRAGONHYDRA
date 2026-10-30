@@ -1,0 +1,2 @@
+-- Version 0.3.0 introduces the API-backed administration interface.
+-- No canonical sports schema or sports records are created in Joomla.

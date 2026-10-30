@@ -1,0 +1,14 @@
+{
+  "source_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+  "resolved_url": "https://football-data.co.uk/mmz4281/2526/E0.csv",
+  "source_id": "football-data-2025-26-E0.csv",
+  "source_published_at": null,
+  "captured_at": "2026-10-28T13:52:42.828086+00:00",
+  "persistence_acknowledged_at": "2026-10-28T13:52:42.828793+00:00",
+  "usable_at": "2026-10-28T13:52:42.828793+00:00",
+  "data_origin": "imported_historical",
+  "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+  "bytes": 203438,
+  "usage": "Private or academic research; consult source terms before training or redistribution.",
+  "terms_url": "https://www.football-data.co.uk/contact.php"
+}
