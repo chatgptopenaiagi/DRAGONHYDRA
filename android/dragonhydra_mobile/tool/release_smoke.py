@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--source-sha', required=True)
     parser.add_argument('--version-code', default='4')
+    parser.add_argument('--prior-install-dump', type=Path)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     app = 'ai.dragonhydra.mobile'
@@ -56,12 +57,21 @@ def main():
         raise ValueError('Refusing installation on a user device or unrelated emulator')
 
     def dump():
-        adb('shell', 'uiautomator', 'dump', '/sdcard/dragonhydra-release-ui.xml')
-        raw = adb('shell', 'cat', '/sdcard/dragonhydra-release-ui.xml')
-        return ET.fromstring(raw)
+        # During a cold start uiautomator may return exit zero before an XML file
+        # exists. Retry that tooling condition; a broken app still times out.
+        last = None
+        for _ in range(6):
+            try:
+                adb('shell', 'uiautomator', 'dump', '/sdcard/dragonhydra-release-ui.xml')
+                raw = adb('shell', 'cat', '/sdcard/dragonhydra-release-ui.xml')
+                return ET.fromstring(raw)
+            except (RuntimeError, ET.ParseError) as exc:
+                last = exc
+                time.sleep(0.5)
+        raise last
 
     def label(node):
-        return node.get('content-desc', '') + '\n' + node.get('text', '')
+        return node.get('content-desc', '') + '\n' + node.get('text', '') + '\n' + node.get('hint', '')
 
     def wait(text, timeout=30):
         deadline = time.monotonic() + timeout
@@ -106,18 +116,23 @@ def main():
         (args.output/(name+'.xml')).write_text(sanitized,encoding='utf-8')
 
     before = adb('shell','dumpsys','package',app)
+    baseline = args.prior_install_dump.read_text(encoding='utf-8-sig') if args.prior_install_dump else before
     installed=adb('install','-r',str(args.apk),timeout=120)
     if 'Success' not in installed:
         raise AssertionError('Final APK installation did not succeed')
     after=adb('shell','dumpsys','package',app)
     if 'versionCode='+args.version_code not in after:
         raise AssertionError('Installed versionCode differs from the release')
-    if 'firstInstallTime=' in before:
-        old_time=re.search(r'firstInstallTime=([^\r\n]+)',before).group(1)
+    if 'firstInstallTime=' in baseline:
+        old_time=re.search(r'firstInstallTime=([^\r\n]+)',baseline).group(1)
         new_time=re.search(r'firstInstallTime=([^\r\n]+)',after).group(1)
         if old_time!=new_time:
             raise AssertionError('Upgrade did not retain the existing package installation')
-        checks.append('Prior Android alpha upgraded in place with firstInstallTime preserved')
+        old_id=re.search(r'(?:appId|userId)=(\d+)',baseline)
+        new_id=re.search(r'(?:appId|userId)=(\d+)',after)
+        if old_id and new_id and old_id.group(1)!=new_id.group(1):
+            raise AssertionError('Existing Android package identity changed')
+        checks.append('Recorded existing installation retained firstInstallTime and Android package identity')
     checks.append('Final signed APK installed with expected versionCode')
     adb('shell','am','force-stop',app)
     adb('shell','am','start','-n',app+'/.MainActivity')
@@ -177,7 +192,12 @@ def main():
     wait('Settings & connections')
     for _ in range(5):
         tree=dump()
-        if args.source_sha in ET.tostring(tree,encoding='unicode'):
+        candidates=[n for n in tree.iter('node') if args.source_sha in label(n)]
+        visible=False
+        if candidates:
+            bounds=list(map(int,re.findall(r'\d+',candidates[-1].get('bounds',''))))
+            visible=len(bounds)==4 and bounds[1]>=100 and bounds[3]<=2300
+        if visible:
             break
         adb('shell','input','swipe','540','1800','540','650','350')
     else:

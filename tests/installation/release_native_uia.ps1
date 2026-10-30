@@ -49,9 +49,14 @@ function Snapshot([string]$Suffix){
 try{
     $app=Start-Process -FilePath $Binary -ArgumentList @('--state="'+$State+'"','--profile="'+$profile+'"') -PassThru
     $deadline=[DateTime]::UtcNow.AddSeconds(25)
-    do{Start-Sleep -Milliseconds 200;$app.Refresh()}while(-not $app.MainWindowHandle -and [DateTime]::UtcNow -lt $deadline)
-    if(-not $app.MainWindowHandle){throw 'Native application window did not appear.'}
-    $window=[System.Windows.Automation.AutomationElement]::FromHandle($app.MainWindowHandle)
+    $window=$null
+    do{
+        Start-Sleep -Milliseconds 200;$app.Refresh()
+        $handle=$app.MainWindowHandle
+        if($handle -ne [IntPtr]::Zero){try{$window=[System.Windows.Automation.AutomationElement]::FromHandle($handle)}catch{$window=$null}}
+    }while(-not $window -and [DateTime]::UtcNow -lt $deadline)
+    if(-not $window){throw 'Native application window did not appear.'}
+    try{$window.SetFocus()}catch{}
     if($Mode -eq 'unpaired' -or $Mode -eq 'rejected'){
         Wait-Named 'Connect to your server'|Out-Null
         Wait-Named 'Server address (optional when opened from your server)'|Out-Null
@@ -86,6 +91,11 @@ try{
         Invoke-Named '← Return to selected match'
         Wait-Named 'Open standings'|Out-Null
         $checks.Add(@{name='native-same-match-standings-and-return';passed=$true})
+        Invoke-Named 'Odds & chart'
+        Wait-Named 'Compatible odds & history'|Out-Null
+        Wait-Named 'No approved cross-source market mapping for this canonical event. Archive prices are kept separate.'|Out-Null
+        $checks.Add(@{name='native-missing-provider-odds-is-explicit';passed=$true})
+        Invoke-Named 'Overview'
         Invoke-Named 'View model probabilities'
         Wait-Named 'Explain this match'|Out-Null
         Invoke-Named 'Explain this match'
@@ -100,7 +110,7 @@ try{
     }
     Snapshot 'final'
     $result.passed=$true
-}catch{$result.error=$_.Exception.Message;throw}
+}catch{$result.error=$_.Exception.Message;try{if($window){Snapshot 'failure'}}catch{};throw}
 finally{
     if($app -and -not $app.HasExited){$app.CloseMainWindow()|Out-Null;if(-not $app.WaitForExit(15000)){$result.clean_exit=$false;$result.passed=$false;$result.error='Test-owned native client did not exit after CloseMainWindow.'}else{$result.clean_exit=($app.ExitCode -eq 0);$result.exit_code=$app.ExitCode}}
     $result.finished_at=[DateTime]::UtcNow.ToString('o')

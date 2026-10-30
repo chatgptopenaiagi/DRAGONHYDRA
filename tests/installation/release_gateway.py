@@ -65,10 +65,18 @@ def run():
         if action.startswith('Start'):
             command+=['-ConfigFile',str(package/'gateway.json'),'-Python',str(args.python.resolve()),'-Port','0']
         commands.append(command)
-        completed=subprocess.run(command,capture_output=True,text=True,timeout=35)
+        # Windows background children may inherit captured pipe handles even
+        # after their PowerShell launcher exits. File handles avoid waiting for
+        # a gateway process to close the launcher's stdout/stderr pipes.
+        stdout_path=work/('helper-'+str(len(commands))+'.stdout.log')
+        stderr_path=work/('helper-'+str(len(commands))+'.stderr.log')
+        with stdout_path.open('wb') as out, stderr_path.open('wb') as err:
+            completed=subprocess.run(command,stdout=out,stderr=err,timeout=35)
+        stdout_text=stdout_path.read_text(encoding='utf-8-sig')
+        stderr_text=stderr_path.read_text(encoding='utf-8-sig')
         if completed.returncode:
-            raise RuntimeError('Gateway helper failed: '+completed.stderr+completed.stdout)
-        return json.loads(completed.stdout)
+            raise RuntimeError('Gateway helper failed: '+stderr_text+stdout_text)
+        return json.loads(stdout_text)
     def api(method,path,**kwargs):
         response=client.request(method,server_url+'/dragon/api/v1'+path,headers={'Authorization':'Bearer '+token},**kwargs)
         response.raise_for_status()
