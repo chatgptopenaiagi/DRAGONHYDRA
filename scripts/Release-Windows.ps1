@@ -87,7 +87,9 @@ try{
             $env:CARGO_TARGET_DIR=Join-Path $WorkRoot 'tauri'
             $env:CARGO_NET_OFFLINE='true'
             $env:npm_config_cache=Join-Path $WorkspaceRoot 'runtime\scratch\npm-cache'
-            Run-Native 'desktop-npm-ci' 'C:\Program Files\nodejs\npm.cmd' @('ci','--offline','--no-audit','--no-fund') $desktop
+            # Reuse cached locked tarballs when present; a scoped cache miss may
+            # retrieve the exact integrity-locked build dependency from npm.
+            Run-Native 'desktop-npm-ci' 'C:\Program Files\nodejs\npm.cmd' @('ci','--prefer-offline','--fetch-retries=2','--fetch-timeout=30000','--no-audit','--no-fund') $desktop
             # A resource outside the source snapshot is an explicit controlled build
             # input, not a mutation to source or an uncontrolled live configuration.
             $resourceMap=@{};$resourceMap[$BuildInfoFile.Replace('\','/')]='BUILD-INFO.json'

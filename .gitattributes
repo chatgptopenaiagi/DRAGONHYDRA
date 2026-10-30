@@ -1,0 +1,8 @@
+# Acquisition hashes cover original bytes, including original line endings.
+data/raw/* -text
+src/dragonhydra/resources/data/raw/* -text
+# Resource mirrors must remain byte-identical through exports/worktrees.
+client/desktop/web/* -text
+src/dragonhydra/resources/web/* -text
+examples/*.json -text
+src/dragonhydra/resources/examples/* -text

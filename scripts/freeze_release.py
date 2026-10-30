@@ -15,10 +15,12 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
     parser.add_argument('--tag',default='v0.4.0-alpha.1')
+    parser.add_argument('--repair',action='store_true',help='Advance only this run-owned release branch with a repair commit')
     args=parser.parse_args();root=args.root.resolve();run=root/'build/release'/args.tag
     private=run/'private-evidence';private.mkdir(parents=True,exist_ok=True)
     state_path=run/'release-state.json'
-    if state_path.exists() and json.loads(state_path.read_text()).get('source_sha'):
+    old_state=json.loads(state_path.read_text()) if state_path.exists() else None
+    if old_state and old_state.get('source_sha') and not args.repair:
         raise SystemExit('Candidate is already frozen. Make an explicit new candidate for a source repair.')
     excluded={'__pycache__','node_modules','target','build','.dart_tool','.gradle','.kotlin','.cxx','gen'}
     selected=set()
@@ -43,7 +45,7 @@ def main():
         selected.add('deployment/public-access/vps/'+name)
     selected.add('deployment/public-access/tests/test_gateway.py')
     selected.add('deployment/public-access/tests/browser_public.py')
-    selected.update(('.gitignore','README.md','pyproject.toml','config/runtime/server-python314.lock.txt','docs/handover/INTEGRATED-BUILD-STATUS.md'))
+    selected.update(('.gitattributes','.gitignore','README.md','pyproject.toml','config/runtime/server-python314.lock.txt','docs/handover/INTEGRATED-BUILD-STATUS.md'))
     for name in ('openfootball-2025-26-en1.json','openfootball-2026-27-en1.json','football-data-2025-26-E0.csv'):
         selected.update(('data/raw/'+name,'data/raw/'+name+'.receipt.json'))
     files=sorted(selected)
@@ -57,12 +59,12 @@ def main():
             raw=path.read_bytes()
             if re.search(br'-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----\r?\n[A-Za-z0-9+/=]{48,}', raw):
                 raise RuntimeError('Private key found in selected source: '+name)
-    env=os.environ.copy();env['GIT_INDEX_FILE']=str(private/'release.index')
+    env=os.environ.copy();env['GIT_INDEX_FILE']=str(private/('release-repair.index' if args.repair else 'release.index'))
     def git(*argv,input=None):
         result=subprocess.run(['git',*argv],cwd=root,env=env,input=input,text=True,capture_output=True,encoding='utf-8',errors='replace')
         if result.returncode:raise RuntimeError('Git operation failed: '+str(argv[:2])+'\n'+result.stderr[-2000:])
         return result.stdout.strip()
-    parent=git('rev-parse','HEAD')
+    parent=old_state['source_sha'] if args.repair else git('rev-parse','HEAD')
     git('read-tree',parent)
     for offset in range(0,len(files),40):git('add','-f','--',*files[offset:offset+40])
     git('update-index','--chmod=+x','--','deployment/public-access/vps/install-gateway.sh')
@@ -71,7 +73,12 @@ def main():
     if not set(names)<=selected:raise RuntimeError('Temporary index contains unselected changes')
     tree=git('write-tree');sha=git('commit-tree',tree,'-p',parent,'-m',f'release: source-lock integrated {args.tag} prerelease')
     branch='release/'+args.tag
-    git('branch',branch,sha)
+    if args.repair:
+        if old_state.get('source_branch')!=branch or git('rev-parse','refs/heads/'+branch)!=parent:
+            raise RuntimeError('Repair does not own the expected release branch head')
+        git('update-ref','refs/heads/'+branch,sha,parent)
+    else:
+        git('branch',branch,sha)
     snapshot=run/'src'
     if snapshot.exists():raise RuntimeError('Snapshot already exists; do not overwrite another candidate')
     archive=private/'source.tar'

@@ -1,0 +1,4 @@
+# Build frontends are separate from installed application dependencies.
+build==1.4.0
+uv_build==0.12.7
+# Frozen Windows builds reuse the separately verified project PyInstaller6.22.3.
