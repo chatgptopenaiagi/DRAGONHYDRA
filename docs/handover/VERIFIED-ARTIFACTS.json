@@ -21,8 +21,8 @@
       "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
       "signing": "Unsigned / NotSigned",
       "build_scope": "557 source tests, 28 frozen groups, 710 kernel files, 68 source inputs; all 10,662 archive payload files verified.",
-      "installation_scope": "A6 not installed; no A6 LocalService, repair, clean-machine, reboot or uninstall claim.",
-      "runtime_scope": "Frozen package/3 count selection uses SYNTHETIC retained rows and one synthetic HTTP completion. Real Qwen proof is source API/worker only and selected F1/E1, not a count.",
+      "installation_scope": "Current-host installed: one guarded repair, retained1221records/461observations/context/pairing/ports/modelblank; preflight2/repair4/readchecks4 groups and independent audit passed. No clean-machine/reboot/native-OS-window claim.",
+      "runtime_scope": "Installed default/2 and exact-C1 /3 exports, one unconfigured UI fallback job/same-key replay, four input IDs/one parent citation; three owned SID19 loopback listeners and Joomla200. No new model/provider/settings action. Actual source Qwen remains F1/E1 only.",
       "source_identity": {
         "kind": "scoped_source_content_sha256",
         "sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
@@ -31,7 +31,9 @@
       },
       "evidence_references": [
         "dist/connections/workstation-a6/TEST-REPORT.json",
-        "dist/connections/workstation-a6/EXTRACTION-VERIFICATION.json"
+        "dist/connections/workstation-a6/EXTRACTION-VERIFICATION.json",
+        "build/workstation/evidence/provider-a6-readchecks/journey.json",
+        "build\\workstation\\evidence\\provider-a6-readchecks\\INDEPENDENT-ACCEPTANCE.json"
       ],
       "recommended_release_asset": true,
       "within_requested_2gb_limit": true,
@@ -293,5 +295,7 @@
       "server_digest": "sha256:a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
       "verified": true
     }
-  ]
+  ],
+  "updated_after_installed_acceptance": "2026-10-31T18:25:38.908135+00:00",
+  "publication_scope_note": "Existing uploaded JSON and other release assets retain their earlier publication-time bytes. This later Git inventory includes installed acceptance; any new upload uses a new asset name."
 }

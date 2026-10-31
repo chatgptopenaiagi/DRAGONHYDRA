@@ -8,19 +8,23 @@ and Joomla stack; see [current build status](docs/handover/INTEGRATED-BUILD-STAT
 Permanent VPS hosting and verified credentialed live feeds remain unfinished.
 The [optional offline-model source integration](docs/OFFLINE-AI.md) accepts
 structured sports packages and validates constrained source-fact selection;
-model-runtime packaging and unconstrained model analysis remain unfinished.
+Windows model-runtime packaging remains separate; Linux runtime-component proof
+is recorded in the concurrent handoff. The model selects supplied source facts.
 
 The current source adds real ingestion for Football-Data.co.uk, StatsBomb,
 nflverse, MoneyPuck and Cricsheet, plus four credentialed adapters with explicit
 missing-key handling. [Connector instructions and evidence](docs/CONNECTORS.md)
-describe coverage, configuration, scheduling and limits. The current A5 r2
-workstation installer under `dist/connections/workstation-a5-r2` was repaired into
-the isolated test workstation with all 1,221 records, pairing and ports retained.
-Its LocalService job ingested 4,407 StatsBomb event records and 50 source squad
-entries for the selected 2022 final, verified browser display and survived a
-service restart. Exact quote bindings and optional model settings are preserved.
-The installer remains unsigned. Source, frozen, installed and platform evidence
-are distinguished in its `INSTALLATION.md`; original A4/C7 artifacts are retained.
+describe coverage, configuration, scheduling and limits. The current A6
+workstation installer under `dist/connections/workstation-a6` was repaired once
+into the isolated test workstation with all 1,221 records, 461 observations,
+pairing, ports and model configuration retained. It preserves the earlier A5
+acquisition of 4,407 StatsBomb event records and 50 source squad entries.
+Installed Edge checks verified default package/2, explicit immutable-context
+package/3, one unconfigured fallback job and same-key replay. Independent checks
+verified the three owned loopback listeners and Joomla HTTP200. No new provider
+fetch or model inference occurred in this upgrade. The installer remains unsigned;
+clean-machine, reboot and native OS-window acceptance remain separate. Evidence
+is distinguished in its `INSTALLATION.md`; original A5/A4/C7 artifacts are retained.
 The [continuous progress note](docs/handover/CONTINUOUS-PROGRESS.md) records the
 latest verified increment and the next work.
 
@@ -28,8 +32,9 @@ The [migration preparation](docs/DATABASE-MIGRATION.md) retains a checked privat
 SQLite snapshot, typed rows, schema history, sequence marks and raw evidence;
 MariaDB authority is unchanged. Linux preparation is documented in
 [packaging/linux/README.md](packaging/linux/README.md); its wheel has passed a real
-Ubuntu core smoke test, while Linux server dependencies and VPS deployment remain
-separate setup steps.
+Ubuntu core smoke test. A separate packaging owner has verified A5-derived Linux
+R8 API/local-model components; see the concurrent handoff for their exact scope.
+Linux A6 preparation and permanent VPS deployment remain unfinished.
 
 Use the versioned release's `INSTALLATION.md` and artifact manifest to choose a
 download. The Python wheel requires Python 3.14; install its `server` extra for

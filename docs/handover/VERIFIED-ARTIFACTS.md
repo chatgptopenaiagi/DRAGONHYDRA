@@ -1,3 +1,8 @@
+Current continuation update: A6 has since been installed once and accepted on
+this host (preflight2/repair4/Edge-readchecks4 plus independent health audit).
+Its installer bytes/hash are unchanged. Old release inventory assets remain
+immutable publication-time snapshots; see the later Git JSON and installed proof.
+
 # Verified artifacts for preservation
 
 This inventory selects eight existing release-asset candidates, each below the requested 2 GB ceiling. Only these deliverable files were hashed. No build, installation, WSL launch, service action, Git operation or upload was performed. [Public-safe JSON manifest](VERIFIED-ARTIFACTS.json) contains exact paths, sizes, hashes and per-artifact proof scopes.

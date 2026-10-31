@@ -6,15 +6,16 @@ and a user-service template. It does not include a Linux Python interpreter,
 server dependencies, Joomla/MariaDB, local model weights or a desktop application.
 The current source is identified by its content hash; it is not a frozen release.
 
-The latest source preparation includes the bounded StatsBomb context parser and
-the Windows A5 r2 product code and dashboard. Existing Ubuntu Python 3.14.4
-reproduced all 4,407 retained event rows, both source squads and native pages from
-the wheel without provider HTTP or database writes. This supplements the four
-core CLI checks. These are parser/core proofs, separate from an installed API;
-the current system interpreter still lacks the four server dependencies below.
-Task receipts, archive hashes and exact source comparisons are retained under
-`build/linux`; use its latest explicit A5 r2 report rather than a historical
-source bundle when preparing another host.
+The current source includes the installed Windows A6 context/package/3 contract
+and dashboard. The preceding A5 r2 preparation wheel reproduced all4,407 retained
+event rows, both source squads and native pages under Ubuntu Python3.14.4 without
+provider HTTP or database writes, supplementing four core CLI cases. Those are
+historical parser/core proofs; inspect this bundle's actual report before claiming
+new validation. A separate owner has installed A5-derived R8 API/model components;
+their environment and scope are recorded in the concurrent handoff. Recheck and
+reuse compatible existing dependencies rather than assuming the earlier stock
+interpreter's missing-package result describes every environment. Task receipts,
+archive hashes and exact source comparisons are retained under `build/linux`.
 
 The supported application runtime is Python 3.14. Reuse an existing compatible
 environment containing the exact FastAPI, Uvicorn, OpenPyXL and tzdata versions

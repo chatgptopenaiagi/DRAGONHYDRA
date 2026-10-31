@@ -1,6 +1,25 @@
 # DRAGONHYDRA integrated build status
 
-Latest continuation: **A5 r2 is built, installed by repair and verified on this host**.
+Latest continuation: **A6 is built, installed by one repair and verified on this host**.
+Installer `dist/connections/workstation-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe`,
+64,359,085bytes, unsigned, SHA256
+`2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1`.
+Source557 tests,28frozen groups and11 installed-helper guards precede actual
+preflight2/repair4/Edge-readchecks4 passing groups. Independent installed audit
+passed, including exact receipts/downloads/data and all three owned LocalService
+listeners; Joomla returned200. Existing1,221records/461observations/context/raws/
+schema/pairing/ports/modelblank/C7 were retained. Only one expected UI fallback
+job/four events and normal auth lifecycle were added. No provider/model/settings
+action or extra restart occurred. Current SCM43476/kernel32276, SID19, API18746/
+Joomla18747/MariaDB18748; recheck before future actions. Receipt/audit:
+`build/workstation/evidence/provider-a6-readchecks/INDEPENDENT-ACCEPTANCE.json`.
+The existing A5 acquisition supplied4407events and24/26squad entries; A6 reused
+it. Actual source Qwen/F1 proof remains separate from installed unconfigured
+fallback and frozen SYNTHETIC count selection. No clean-machine/reboot/native
+OS-window/installed real-Qwen proof is implied. Earlier release assets retain
+their publication-time scopes; current local A6 reports carry the later proof.
+
+Earlier A5 r2 continuation (historical installed verification):
 Installer: `dist/connections/workstation-a5-r2/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe`,
 64,341,255 bytes, unsigned, SHA256
 `b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544`.

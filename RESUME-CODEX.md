@@ -8,9 +8,11 @@ highest-priority unfinished objective under UNENDLESS CODING MODE.
 This session owns `C:\xampp\DRAGONHYDRA`. The separate GENESIS DUAL-CODEX BRIDGE
 and its independent handoff are not changed by this checkpoint.
 
-A6 is built and archive-verified, NOT installed. The pending read-only A6
-preflight has NOT run. Do not start with installer execution or provider fetch.
-Preserve the running A5-r2 test workstation, original C7 instances and all data.
+A6 is now installed in the isolated test workstation: one guarded repair passed
+four groups after a two-group read-only preflight. Four installed browser/job
+checks and independent full-stack acceptance also passed. See current receipts.
+Do not repeat the installer or preflight into existing evidence directories.
+Preserve the running A6 test workstation and retained A5-r2 baseline artifacts, original C7 instances and all data.
 
 From PowerShell7:
 

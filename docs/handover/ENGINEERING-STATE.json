@@ -17,7 +17,7 @@
     "local_ai": "Default package/2; explicit immutable-C1 package/3; constrained supplied fact-ID selection with deterministic fallback"
   },
   "installed": {
-    "profile": "A5-r2",
+    "profile": "A6",
     "service": "DragonhydraProvidersA2Test",
     "account_sid": "S-1-5-19",
     "install_root": "build/workstation/test-install/provider-a2/application files",
@@ -41,14 +41,16 @@
       "away": 3
     },
     "model_configuration": "blank",
-    "fresh_health_checked_by_handover_writer": false,
-    "concurrent_activity": "Four later explanation/export jobs and 16 events have origin unproven; preserve them"
+    "fresh_health_checked_by_handover_writer": true,
+    "concurrent_activity": "Four later explanation/export jobs and 16 events have origin unproven; preserve them",
+    "scm_pid_last_verified": 43476,
+    "kernel_pid_last_verified": 32276
   },
   "a6": {
     "built": true,
     "archive_verified": true,
-    "installed": false,
-    "preflight_executed": false,
+    "installed": true,
+    "preflight_executed": true,
     "installer": "dist/connections/workstation-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
     "installer_bytes": 64359085,
     "installer_sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
@@ -66,7 +68,59 @@
     "signing": "NotSigned",
     "clean_machine_tested": false,
     "reboot_tested": false,
-    "new_count_selection_proof": "SYNTHETIC HTTP responder, not Qwen/provider acquisition"
+    "new_count_selection_proof": "SYNTHETIC HTTP responder, not Qwen/provider acquisition",
+    "preflight": {
+      "passed": true,
+      "groups": 2,
+      "applied": false,
+      "receipt": "build/workstation/evidence/provider-a6-preflight/journey.json",
+      "sha256": "46ddee4cdfd92c6a538a8de7aebe627a5022a6fb49111392db5524cc8de2d413",
+      "all_old_non_auth_rows_unchanged": true,
+      "new_jobs": 0,
+      "new_outbox_events": 0
+    },
+    "repair": {
+      "passed": true,
+      "groups": 4,
+      "receipt": "build/workstation/evidence/provider-a6-repair/journey.json",
+      "sha256": "4773216ba82d801ab0840a34987a186d5c35f9d4e70748e687f6a310cabde47e",
+      "installer_invocations": 1,
+      "installer_exit_code": 0,
+      "old_rows_preserved": true,
+      "readchecks_completed": true
+    },
+    "readchecks": {
+      "passed": true,
+      "groups": 4,
+      "receipt": "build/workstation/evidence/provider-a6-readchecks/journey.json",
+      "sha256": "a6c0089cbd268534021011b8d773a86ff81caafc96466a43b8a945eec9359ebd",
+      "job_id": "13c7611eb51343a38fcf219624b88b3f",
+      "new_jobs": 1,
+      "own_outbox_events": 4,
+      "model_inference": false,
+      "provider_acquisition": false,
+      "settings_changes": false,
+      "old_non_auth_rows_preserved": true,
+      "temporary_browser_profile_removed": true
+    },
+    "independent_installed_acceptance": {
+      "passed": true,
+      "receipt": "build\\workstation\\evidence\\provider-a6-readchecks\\INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "ce6484b1550944769ed7c5ab16aec9b459c235f5f50d50d6fc8c0589c6f87316",
+      "three_owned_loopback_listeners": true,
+      "joomla_http_status": 200,
+      "groups": 9
+    },
+    "installed_summary": {
+      "path": "docs\\handover\\verified-reports\\A6-INSTALLED-ACCEPTANCE-20261031.json",
+      "sha256": "4d752f5deed2c8289323b18569b5075c0ae13caaaf2271481b1a8c7f1544bcc9"
+    },
+    "local_sidecar_refresh": {
+      "passed": true,
+      "checks": 7,
+      "history": "build/connections/workstation-a6/report-history/pre-installed-20261031-r1",
+      "report_integrity_sha256": "c112924dd466463f7c2c8b2130bbb37e2bc9f503859355656453b25e552b5eda"
+    }
   },
   "next_action": {
     "phase": "prepared_read_only_preflight_only",
@@ -158,6 +212,7 @@
     "concurrent_packaging_supplement": "docs/handover/CONCURRENT-LINUX-PUBLICATION-VERIFICATION.json",
     "verified_distributable_and_recovery_payloads": 14
   },
-  "next_safe_command": "& 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' -NoProfile -File 'C:\\xampp\\DRAGONHYDRA\\docs\\handover\\commands\\preflight-a6.ps1'",
-  "next_safe_command_preconditions": "First read RESUME-CODEX.md, verify environment/artifacts/service ownership; preflight was NOT run in this session."
+  "next_safe_command": ".\\runtime\\server-env\\Scripts\\python.exe -B scripts\\build_linux_bundle.py --work build\\linux\\prep-20261031-a6 --verify-wsl",
+  "next_safe_command_preconditions": "Review NEXT-LINUX-A6.md, verify builder SHA and fresh output; no repeats of installed A6 phases.",
+  "continuation_status": "Installed A6 and independent acceptance complete; local sidecars refreshed with history. Commit/push owned metadata, then fresh Linux A6 preparation following current capability/ownership checks."
 }

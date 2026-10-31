@@ -1,3 +1,8 @@
+Historical preservation record: the statements below describe the publication
+checkpoint. A later continuation applied A6 once and passed installed acceptance;
+current runtime state is in ENGINEERING-STATE.json/SESSION-RESUME.md. Existing
+release asset bytes were not replaced to change their historical scope.
+
 # GENESIS continuity preservation
 
 Checkpoint:2026-10-31. Project:C:\xampp\DRAGONHYDRA.

@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "scope": "Recorded installed A6 acceptance on the current Windows host; whitelist summary of completed receipts, no new runtime actions.",
+  "verified_at": "2026-10-31T18:19:27.647555+00:00",
+  "artifact": {
+    "filename": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "bytes": 64359085,
+    "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+    "signing": "NotSigned"
+  },
+  "identity": {
+    "kernel_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+    "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+    "source_manifest_sha256": "110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de",
+    "ui_sha256": "02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053"
+  },
+  "phases": {
+    "preflight_groups": 2,
+    "repair_groups": 4,
+    "edge_readcheck_groups": 4,
+    "independent_passed": true,
+    "phase_counts_not_summed_as_unique_tests": true
+  },
+  "installer": {
+    "attempts": 1,
+    "pid": 49040,
+    "exit_code": 0,
+    "automatic_repeat": false,
+    "extra_explicit_service_restarts": 0
+  },
+  "recorded_service": {
+    "name": "DragonhydraProvidersA2Test",
+    "account": "NT AUTHORITY\\LocalService",
+    "sid": "S-1-5-19",
+    "scm_pid": 43476,
+    "kernel_pid": 32276,
+    "state": "Running"
+  },
+  "recorded_listeners": [
+    {
+      "role": "mariadb",
+      "address": "127.0.0.1",
+      "port": 18748,
+      "pid": 47572,
+      "sid": "S-1-5-19"
+    },
+    {
+      "role": "apache",
+      "address": "127.0.0.1",
+      "port": 18747,
+      "pid": 19416,
+      "sid": "S-1-5-19"
+    },
+    {
+      "role": "kernel",
+      "address": "127.0.0.1",
+      "port": 18746,
+      "pid": 32276,
+      "sid": "S-1-5-19"
+    }
+  ],
+  "retention": {
+    "records": 1221,
+    "connector_observations": 461,
+    "contexts": 1,
+    "context_id": "source_context:e0d23975cdb98ebbdbc1ec0c0882b4e58d981970805f6c2417c2c653c9eb918e",
+    "context_summary": {
+      "event_rows": 4407,
+      "squad_sizes": [
+        {
+          "team_id": 771,
+          "team_name": "France",
+          "entries": 24
+        },
+        {
+          "team_id": 779,
+          "team_name": "Argentina",
+          "entries": 26
+        }
+      ]
+    },
+    "retained_score": {
+      "home": 3,
+      "away": 3
+    },
+    "all_prior_non_auth_rows_schema_raw_preserved": true,
+    "pairing_ports_configuration_C7_preserved": true,
+    "model_configuration": "blank/not_configured",
+    "auth_sessions_before": 16,
+    "auth_sessions_after": 17
+  },
+  "installed_package3_job": {
+    "id": "13c7611eb51343a38fcf219624b88b3f",
+    "origin": "One installed Edge UI submission",
+    "status": "succeeded",
+    "attempts": 1,
+    "same_key_replay_same_job": true,
+    "result_kind": "deterministic",
+    "local_ai_code": "AI_NOT_CONFIGURED",
+    "observations": [
+      "The retained source labels this match as finished."
+    ],
+    "citation_alias": "E1",
+    "citations": 1,
+    "input_manifest": [
+      "dafb1c59cbaa4604cda8e6a2dbb92434c63e7001757b8cf9283d3d12650b1f9b",
+      "source_context:e0d23975cdb98ebbdbc1ec0c0882b4e58d981970805f6c2417c2c653c9eb918e",
+      "45485758976c4a5785ba98028d7989c5",
+      "fff5919107e448e5a357c00532a3173e"
+    ],
+    "package_sha256": "ed51900ac301e767177778cf5b15a7cf9a96cddd30f49b5fb5f0503083d9537f",
+    "new_jobs": 1,
+    "new_outbox_events": 4,
+    "other_jobs": 0,
+    "other_events": 0,
+    "model_inference": false,
+    "provider_acquisition": false
+  },
+  "downloaded_packages": {
+    "default-package.json": {
+      "bytes": 1376,
+      "sha256": "7c4b53dc348e321dd548ad5fd9ec52335416777dedb3e2ca03971b2af880446c"
+    },
+    "context-package.json": {
+      "bytes": 4037,
+      "sha256": "1358f6bcc072c1ad93c210d8f44650d0ff90975b8a7339bab28c2864da410efd"
+    }
+  },
+  "canonical_package_hashes": {
+    "default-package.json": "9c06a33b32a86bfdb05643e08405dd77a45f9818fdadabf67e567a1c2763e8fe",
+    "context-package.json": "ed51900ac301e767177778cf5b15a7cf9a96cddd30f49b5fb5f0503083d9537f"
+  },
+  "edge": {
+    "source_counts_visible": true,
+    "fallback_visible": true,
+    "temporary_profile_removed": true,
+    "page_errors": 0,
+    "blocked_requests": 0
+  },
+  "independent_full_stack": {
+    "three_loopback_listeners_owned_by_sid19": true,
+    "anonymous_joomla_GET_count": 1,
+    "joomla_status": 200,
+    "joomla_bytes_read": 7758,
+    "HTML_DRAGONHYDRA_Joomla_markers": true,
+    "response_body_retained": false,
+    "cookies_retained": false,
+    "scope": "Anonymous Joomla reachability only. Normal web session/cache lifecycle may occur; no SQL or unchanged-web-database claim after that GET."
+  },
+  "other_proof_scopes": {
+    "source_tests": 557,
+    "frozen_groups": 28,
+    "frozen_count_selection": "SYNTHETIC F3, three citations/four input IDs",
+    "actual_source_Qwen_selection": "F1/E1 only, one citation/four IDs; separate source API/worker proof"
+  },
+  "evidence_references": {
+    "preflight": {
+      "path": "build/workstation/evidence/provider-a6-preflight/journey.json",
+      "sha256": "46ddee4cdfd92c6a538a8de7aebe627a5022a6fb49111392db5524cc8de2d413"
+    },
+    "repair": {
+      "path": "build/workstation/evidence/provider-a6-repair/journey.json",
+      "sha256": "4773216ba82d801ab0840a34987a186d5c35f9d4e70748e687f6a310cabde47e"
+    },
+    "readchecks": {
+      "path": "build/workstation/evidence/provider-a6-readchecks/journey.json",
+      "sha256": "a6c0089cbd268534021011b8d773a86ff81caafc96466a43b8a945eec9359ebd"
+    },
+    "independent": {
+      "path": "build/workstation/evidence/provider-a6-readchecks/INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "ce6484b1550944769ed7c5ab16aec9b459c235f5f50d50d6fc8c0589c6f87316"
+    }
+  },
+  "limits": {
+    "native_OS_interaction_verified": false,
+    "clean_machine_tested": false,
+    "windows_reboot_tested": false,
+    "uninstall_tested": false,
+    "frozen_real_Qwen_inference_tested": false,
+    "installed_model_inference_tested": false,
+    "installer_network_instrumented": false,
+    "airgap_verified": false
+  },
+  "report_refresh_operations": {
+    "file_only": true,
+    "provider_requests": 0,
+    "API_requests": 0,
+    "model_inferences": 0,
+    "service_actions": 0,
+    "builds": 0,
+    "extract_or_full_payload_rescan": false,
+    "Git_or_publication": false
+  }
+}

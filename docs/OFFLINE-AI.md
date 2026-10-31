@@ -2,10 +2,12 @@
 
 The current source supports an explicit local-model action and structured sports
 packages. The standard explanation remains deterministic. Frozen releases and
-the original C7 installer remain separate. The installed A5-r2 workstation
-preserves the optional action, package path and persistent setup. Its current-host
-report is `dist/connections/workstation-a5-r2/TEST-REPORT.json`. The additional
-package/3 source contract below is newer than that frozen installer.
+the original C7 installer remain separate. The installed A6 workstation contains
+the optional action, package/3 path and persistent setup. Its current-host report
+is `dist/connections/workstation-a6/TEST-REPORT.json`. One repair and the installed
+Edge default/2, explicit/3 export, unconfigured fallback and idempotent replay
+checks passed with old data and model settings preserved. This upgrade performed
+no model inference or provider acquisition.
 
 In current source, open **Configure local model** in Analysis. Save the existing
 local runner's loopback endpoint and its password-field key. The running Windows
@@ -50,7 +52,7 @@ are trustworthy. The UI labels accepted output **LOCAL MODEL · SOURCE FACT
 SELECTION**. A source correction after job submission does not replace the
 package's original evidence reference.
 
-## Optional exact context package in source
+## Optional exact context package
 
 The programmatic constructor
 `local_ai.build_context_package(product, match_id, context_record_id)` explicitly
@@ -87,8 +89,10 @@ the context-count citation path. Analysis offers separate **Use local model with
 and **Export package with source counts** actions when verified context matches
 the displayed parent. Opening Analysis reads retained context only. Missing or
 changed context keeps the ordinary actions available; acquisition remains the
-separate explicit action in Statistics. The A5-r2 installer does not contain this
-source increment.
+separate explicit action in Statistics. A6 includes this contract; installed
+acceptance reused the existing real context without another acquisition. The
+one UI job returned the expected AI_NOT_CONFIGURED deterministic fallback with
+one parent citation and all four input IDs. Model configuration stayed blank.
 
 One actual existing Qwen/API probe passed in `qwen-api-r1/report.json`, with the
 3,167-byte real-retained package/3 (4,407 event rows, France24/Argentina26 and the

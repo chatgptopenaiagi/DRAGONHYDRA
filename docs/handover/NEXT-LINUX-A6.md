@@ -1,7 +1,8 @@
 # Linux A6 preparation contract
 
-2026-10-31. Pending installed-A6 acceptance and README/docs freeze. No Linux A6
-build, WSL launch, installation or download has occurred for this unit. Preserve
+2026-10-31. Installed A6 acceptance passed (2/4/4 phases plus independent audit).
+README/docs are being frozen for the next bundle. No Linux A6 build, WSL launch,
+installation or download has occurred for this unit. Preserve
 all prior archives. Reuse the unchanged `scripts/build_linux_bundle.py`
 (SHA1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e).
 
