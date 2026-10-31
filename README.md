@@ -1,5 +1,49 @@
 # DRAGONHYDRA local research laboratory
 
+The integrated `0.4.0-alpha.1` prerelease adds an authenticated server, reusable
+dashboard, Windows desktop client, Joomla administration and optional Android
+client connection. It remains experimental. The separately verified Windows
+workstation installer `0.4.1-dev.1` installs and starts the private server, client
+and Joomla stack; see [current build status](docs/handover/INTEGRATED-BUILD-STATUS.md).
+Permanent VPS hosting and verified credentialed live feeds remain unfinished.
+The [optional offline-model source integration](docs/OFFLINE-AI.md) accepts
+structured sports packages and validates constrained source-fact selection;
+model-runtime packaging and unconstrained model analysis remain unfinished.
+
+The current source adds real ingestion for Football-Data.co.uk, StatsBomb,
+nflverse, MoneyPuck and Cricsheet, plus four credentialed adapters with explicit
+missing-key handling. [Connector instructions and evidence](docs/CONNECTORS.md)
+describe coverage, configuration, scheduling and limits. The current A5 r2
+workstation installer under `dist/connections/workstation-a5-r2` was repaired into
+the isolated test workstation with all 1,221 records, pairing and ports retained.
+Its LocalService job ingested 4,407 StatsBomb event records and 50 source squad
+entries for the selected 2022 final, verified browser display and survived a
+service restart. Exact quote bindings and optional model settings are preserved.
+The installer remains unsigned. Source, frozen, installed and platform evidence
+are distinguished in its `INSTALLATION.md`; original A4/C7 artifacts are retained.
+The [continuous progress note](docs/handover/CONTINUOUS-PROGRESS.md) records the
+latest verified increment and the next work.
+
+The [migration preparation](docs/DATABASE-MIGRATION.md) retains a checked private
+SQLite snapshot, typed rows, schema history, sequence marks and raw evidence;
+MariaDB authority is unchanged. Linux preparation is documented in
+[packaging/linux/README.md](packaging/linux/README.md); its wheel has passed a real
+Ubuntu core smoke test, while Linux server dependencies and VPS deployment remain
+separate setup steps.
+
+Use the versioned release's `INSTALLATION.md` and artifact manifest to choose a
+download. The Python wheel requires Python 3.14; install its `server` extra for
+the HTTP service. `dragonhydra-server --port 18743 --state ./product-state
+--init-bridge` starts the optional server with bundled documented sample inputs.
+`dragonhydra-samples --directory ./samples` copies explicit CLI examples without
+requiring a development checkout. Pair a client using the generated local token;
+keep that token and the Joomla bridge secret private. Android localhost refers
+to the phone; remote connections need a configured trusted HTTPS endpoint.
+
+The source-locked release procedure is documented in
+[packaging/release/SOURCE-LOCK.md](packaging/release/SOURCE-LOCK.md). The older
+commands below describe the preserved engineering CLI and development checkout.
+
 Run from PowerShell 7 in this directory using Python 3.14:
 
 ```powershell

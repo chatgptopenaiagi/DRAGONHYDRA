@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+if [ -n "${DPKG_ROOT:-}" ] && [ "$DPKG_ROOT" != / ]; then exit 0; fi
+case "${1:-}" in
+  remove|deconfigure)
+    if [ -d /run/systemd/system ]; then deb-systemd-invoke stop dragonhydra-api.service; fi
+    ;;
+esac
+# User records and credentials are never deleted by this package script.

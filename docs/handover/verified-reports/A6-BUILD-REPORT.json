@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "verified_current_host",
+  "started_at": "2026-10-31T16:55:28.855380+00:00",
+  "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+  "source_manifest": "SOURCE-MANIFEST.json",
+  "python": "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+  "python_version": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "builder_packages": "C:\\xampp\\DRAGONHYDRA\\runtime\\genesis2-pyinstaller-builder",
+  "versions": {
+    "fastapi": "0.162.0",
+    "uvicorn": "0.42.0",
+    "tzdata": "2026.2",
+    "openpyxl": "3.1.5"
+  },
+  "required_context_inputs": [
+    "src/dragonhydra/local_ai.py",
+    "src/dragonhydra/local_ai_context.py",
+    "src/dragonhydra/local_ai_service.py",
+    "src/dragonhydra/api.py",
+    "src/dragonhydra/api_contracts.py",
+    "src/dragonhydra/jobs.py",
+    "src/dragonhydra/source_context.py",
+    "src/dragonhydra/connectors/statsbomb_context.py",
+    "src/dragonhydra/connectors/statsbomb_context_parser.py",
+    "src/dragonhydra/connectors/statsbomb_context_jobs.py",
+    "src/dragonhydra/connectors/statsbomb_context_view.py",
+    "src/dragonhydra/resources/web/app.js",
+    "src/dragonhydra/resources/web/index.html",
+    "src/dragonhydra/resources/web/style.css"
+  ],
+  "commands": [
+    {
+      "name": "pyinstaller",
+      "argv": [
+        "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "PyInstaller",
+        "--noconfirm",
+        "--distpath",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\dist",
+        "--workpath",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\pyinstaller",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\source\\packaging\\windows\\product-server.spec"
+      ],
+      "exit_code": 0,
+      "seconds": 26.371805,
+      "log": "pyinstaller.log"
+    },
+    {
+      "name": "frozen-server",
+      "argv": [
+        "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+        "-B",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\source\\tests\\installation\\frozen_server.py",
+        "--binary",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\dist\\DRAGONHYDRA-Server-x64\\DRAGONHYDRA-Server.exe",
+        "--output",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\frozen-server.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.7202,
+      "log": "frozen-server.log"
+    },
+    {
+      "name": "connector-payload",
+      "argv": [
+        "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+        "-B",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\source\\tests\\installation\\connector_payload.py",
+        "--binary",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\dist\\DRAGONHYDRA-Server-x64\\DRAGONHYDRA-Server.exe",
+        "--work",
+        "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\connector-check",
+        "--source-content-sha256",
+        "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4"
+      ],
+      "exit_code": 0,
+      "seconds": 5.562752,
+      "log": "connector-payload.log"
+    }
+  ],
+  "scope": "Unsigned development Windows x64 server; no installer replacement or clean-machine claim",
+  "payload": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\payload-20261031-a6\\dist\\DRAGONHYDRA-Server-x64",
+  "binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+  "payload_files": 710,
+  "finished_at": "2026-10-31T16:56:08.359963+00:00"
+}

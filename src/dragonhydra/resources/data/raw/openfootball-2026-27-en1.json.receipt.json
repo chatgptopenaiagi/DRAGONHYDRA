@@ -1,0 +1,12 @@
+{
+  "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+  "source_id": "openfootball-2026-27-en1.json",
+  "license": "CC0-1.0",
+  "captured_at": "2026-10-28T13:51:48.055200+00:00",
+  "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+  "usable_at": "2026-10-28T13:51:48.055956+00:00",
+  "source_published_at": null,
+  "data_origin": "imported_historical",
+  "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+  "bytes": 55359
+}

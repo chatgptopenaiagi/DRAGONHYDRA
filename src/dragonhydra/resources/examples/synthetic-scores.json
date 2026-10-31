@@ -1,0 +1,264 @@
+{
+  "records": [
+    {
+      "prediction": {
+        "event_id": "synthetic-score-1",
+        "competition": "synthetic-league",
+        "home": "Home 1",
+        "away": "Away 1",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "prediction-1",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "4cc288fb587c47b2ec4552cddbdde099cff1240fa52afc146d0f7f5fe0e0a7a0",
+        "source_raw": "{\"decision_cutoff\":\"2026-01-02T11:00:00+00:00\",\"model_version\":\"synthetic-scenario/1\",\"probabilities\":{\"away\":\"0.20\",\"draw\":\"0.25\",\"home\":\"0.55\"},\"scope\":{\"away\":\"Away 1\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-1\",\"home\":\"Home 1\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-02T11:00:00Z",
+        "received_at": "2026-01-02T11:00:00Z",
+        "persisted_at": "2026-01-02T11:00:00Z",
+        "usable_at": "2026-01-02T11:00:00Z",
+        "decision_cutoff": "2026-01-02T11:00:00+00:00",
+        "event_at": "2026-01-02T12:00:00+00:00",
+        "model_version": "synthetic-scenario/1",
+        "input_evidence": [
+          {
+            "evidence_id": "assumption-1",
+            "source_id": "synthetic-evaluation-fixture",
+            "source_hash": "fe6b159c1dd3aa14165220fbf16e91b237b355ee9ba750e16ee9829ab6d9a7e0",
+            "source_raw": "{\"event_id\":\"synthetic-score-1\",\"kind\":\"synthetic-assumption\"}",
+            "data_origin": "synthetic",
+            "source_published_at": "2026-01-02T10:59:00Z",
+            "received_at": "2026-01-02T10:59:00Z",
+            "persisted_at": "2026-01-02T10:59:00Z",
+            "usable_at": "2026-01-02T10:59:00Z"
+          }
+        ],
+        "probabilities": {
+          "home": "0.55",
+          "draw": "0.25",
+          "away": "0.20"
+        }
+      },
+      "outcome": {
+        "event_id": "synthetic-score-1",
+        "competition": "synthetic-league",
+        "home": "Home 1",
+        "away": "Away 1",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "outcome-1",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "828e70c3c4766261c185b5322993562150e730dcd89be12ef9b0b9c433862b27",
+        "source_raw": "{\"outcome\":\"home\",\"scope\":{\"away\":\"Away 1\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-1\",\"home\":\"Home 1\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-02T14:00:00Z",
+        "received_at": "2026-01-02T14:00:00Z",
+        "persisted_at": "2026-01-02T14:00:00Z",
+        "usable_at": "2026-01-02T14:00:00Z"
+      }
+    },
+    {
+      "prediction": {
+        "event_id": "synthetic-score-2",
+        "competition": "synthetic-league",
+        "home": "Home 2",
+        "away": "Away 2",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "prediction-2",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "241f93db1c8c9bda496d4fc5422d6e9242dbd36ce7a25c7220480ddf33b2ebf4",
+        "source_raw": "{\"decision_cutoff\":\"2026-01-03T11:00:00+00:00\",\"model_version\":\"synthetic-scenario/1\",\"probabilities\":{\"away\":\"0.20\",\"draw\":\"0.30\",\"home\":\"0.50\"},\"scope\":{\"away\":\"Away 2\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-2\",\"home\":\"Home 2\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-03T11:00:00Z",
+        "received_at": "2026-01-03T11:00:00Z",
+        "persisted_at": "2026-01-03T11:00:00Z",
+        "usable_at": "2026-01-03T11:00:00Z",
+        "decision_cutoff": "2026-01-03T11:00:00+00:00",
+        "event_at": "2026-01-03T12:00:00+00:00",
+        "model_version": "synthetic-scenario/1",
+        "input_evidence": [
+          {
+            "evidence_id": "assumption-2",
+            "source_id": "synthetic-evaluation-fixture",
+            "source_hash": "aa870aa46362d3ca2137c4489649e9178252fc9223517aca86594ba0d332b53d",
+            "source_raw": "{\"event_id\":\"synthetic-score-2\",\"kind\":\"synthetic-assumption\"}",
+            "data_origin": "synthetic",
+            "source_published_at": "2026-01-03T10:59:00Z",
+            "received_at": "2026-01-03T10:59:00Z",
+            "persisted_at": "2026-01-03T10:59:00Z",
+            "usable_at": "2026-01-03T10:59:00Z"
+          }
+        ],
+        "probabilities": {
+          "home": "0.50",
+          "draw": "0.30",
+          "away": "0.20"
+        }
+      },
+      "outcome": {
+        "event_id": "synthetic-score-2",
+        "competition": "synthetic-league",
+        "home": "Home 2",
+        "away": "Away 2",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "draw",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "outcome-2",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "34a7f51bb890a632fff98df0c9e33b51a7035d003962583bb78914b550618998",
+        "source_raw": "{\"outcome\":\"draw\",\"scope\":{\"away\":\"Away 2\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-2\",\"home\":\"Home 2\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"draw\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-03T14:00:00Z",
+        "received_at": "2026-01-03T14:00:00Z",
+        "persisted_at": "2026-01-03T14:00:00Z",
+        "usable_at": "2026-01-03T14:00:00Z"
+      }
+    },
+    {
+      "prediction": {
+        "event_id": "synthetic-score-3",
+        "competition": "synthetic-league",
+        "home": "Home 3",
+        "away": "Away 3",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "prediction-3",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "9b03b20414d447d6c4a13b41d6439975250ea8f5041c0f83d94b12173f571e0d",
+        "source_raw": "{\"decision_cutoff\":\"2026-01-04T11:00:00+00:00\",\"model_version\":\"synthetic-scenario/1\",\"probabilities\":{\"away\":\"0.35\",\"draw\":\"0.30\",\"home\":\"0.35\"},\"scope\":{\"away\":\"Away 3\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-3\",\"home\":\"Home 3\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-04T11:00:00Z",
+        "received_at": "2026-01-04T11:00:00Z",
+        "persisted_at": "2026-01-04T11:00:00Z",
+        "usable_at": "2026-01-04T11:00:00Z",
+        "decision_cutoff": "2026-01-04T11:00:00+00:00",
+        "event_at": "2026-01-04T12:00:00+00:00",
+        "model_version": "synthetic-scenario/1",
+        "input_evidence": [
+          {
+            "evidence_id": "assumption-3",
+            "source_id": "synthetic-evaluation-fixture",
+            "source_hash": "0c0e44d45b8d1f6a0743823ccaff8186ecd4a9e616d3802ba3f0539c6484ca4f",
+            "source_raw": "{\"event_id\":\"synthetic-score-3\",\"kind\":\"synthetic-assumption\"}",
+            "data_origin": "synthetic",
+            "source_published_at": "2026-01-04T10:59:00Z",
+            "received_at": "2026-01-04T10:59:00Z",
+            "persisted_at": "2026-01-04T10:59:00Z",
+            "usable_at": "2026-01-04T10:59:00Z"
+          }
+        ],
+        "probabilities": {
+          "home": "0.35",
+          "draw": "0.30",
+          "away": "0.35"
+        }
+      },
+      "outcome": {
+        "event_id": "synthetic-score-3",
+        "competition": "synthetic-league",
+        "home": "Home 3",
+        "away": "Away 3",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "away",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "outcome-3",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "c7f25ed5f1580ab5615df11276eeddb76bde2136a7ce2de39beccf9f403702fb",
+        "source_raw": "{\"outcome\":\"away\",\"scope\":{\"away\":\"Away 3\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-3\",\"home\":\"Home 3\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"away\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-04T14:00:00Z",
+        "received_at": "2026-01-04T14:00:00Z",
+        "persisted_at": "2026-01-04T14:00:00Z",
+        "usable_at": "2026-01-04T14:00:00Z"
+      }
+    },
+    {
+      "prediction": {
+        "event_id": "synthetic-score-4",
+        "competition": "synthetic-league",
+        "home": "Home 4",
+        "away": "Away 4",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "prediction-4",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "fc913ac33e5ded31900338f842ec041bed81ea180e142d5e1302c62ac5be3e3d",
+        "source_raw": "{\"decision_cutoff\":\"2026-01-05T11:00:00+00:00\",\"model_version\":\"synthetic-scenario/1\",\"probabilities\":{\"away\":\"0.30\",\"draw\":\"0.25\",\"home\":\"0.45\"},\"scope\":{\"away\":\"Away 4\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-4\",\"home\":\"Home 4\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-05T11:00:00Z",
+        "received_at": "2026-01-05T11:00:00Z",
+        "persisted_at": "2026-01-05T11:00:00Z",
+        "usable_at": "2026-01-05T11:00:00Z",
+        "decision_cutoff": "2026-01-05T11:00:00+00:00",
+        "event_at": "2026-01-05T12:00:00+00:00",
+        "model_version": "synthetic-scenario/1",
+        "input_evidence": [
+          {
+            "evidence_id": "assumption-4",
+            "source_id": "synthetic-evaluation-fixture",
+            "source_hash": "241b8d064a1a00fa06e3837417ce47c7a7e57493af2250779682bbf120eacb0b",
+            "source_raw": "{\"event_id\":\"synthetic-score-4\",\"kind\":\"synthetic-assumption\"}",
+            "data_origin": "synthetic",
+            "source_published_at": "2026-01-05T10:59:00Z",
+            "received_at": "2026-01-05T10:59:00Z",
+            "persisted_at": "2026-01-05T10:59:00Z",
+            "usable_at": "2026-01-05T10:59:00Z"
+          }
+        ],
+        "probabilities": {
+          "home": "0.45",
+          "draw": "0.25",
+          "away": "0.30"
+        }
+      },
+      "outcome": {
+        "event_id": "synthetic-score-4",
+        "competition": "synthetic-league",
+        "home": "Home 4",
+        "away": "Away 4",
+        "market_type": "1x2",
+        "period": "full_time",
+        "outcome": "home",
+        "line": null,
+        "status": "pregame",
+        "settlement": "regulation_only",
+        "evidence_id": "outcome-4",
+        "source_id": "synthetic-evaluation-fixture",
+        "source_hash": "aa48e6244dccf00c268384cdb42bcc41aecc0df40e48f12256046926d708ddf1",
+        "source_raw": "{\"outcome\":\"home\",\"scope\":{\"away\":\"Away 4\",\"competition\":\"synthetic-league\",\"event_id\":\"synthetic-score-4\",\"home\":\"Home 4\",\"line\":null,\"market_type\":\"1x2\",\"outcome\":\"home\",\"period\":\"full_time\",\"settlement\":\"regulation_only\",\"status\":\"pregame\"}}",
+        "data_origin": "synthetic",
+        "source_published_at": "2026-01-05T14:00:00Z",
+        "received_at": "2026-01-05T14:00:00Z",
+        "persisted_at": "2026-01-05T14:00:00Z",
+        "usable_at": "2026-01-05T14:00:00Z"
+      }
+    }
+  ]
+}

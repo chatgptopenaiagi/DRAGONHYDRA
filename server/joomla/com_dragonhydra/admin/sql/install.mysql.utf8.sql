@@ -1,0 +1,2 @@
+-- Canonical records, jobs and evidence are owned exclusively by the kernel.
+-- Joomla uses #__extensions.params and #__assets for configuration and ACL.

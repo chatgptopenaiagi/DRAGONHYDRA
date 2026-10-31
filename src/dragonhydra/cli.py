@@ -16,6 +16,11 @@ DEFAULT_DB = ROOT / 'runtime' / 'dragonhydra.sqlite3'
 SCOPE = research.SCOPE
 
 
+def _resource(*parts):
+    local = ROOT.joinpath(*parts)
+    return local if local.is_file() else Path(__file__).parent.joinpath('resources', *parts)
+
+
 def _cutoff(value):
     return market_store.utc(datetime.now(timezone.utc) if value == 'now' else value)
 
@@ -125,6 +130,8 @@ def _text(report):
 
 def main(argv=None):
     p=argparse.ArgumentParser(prog='dragon',description='Point-in-time market research')
+    from .build_meta import VERSION
+    p.add_argument('--version', action='version', version=VERSION)
     sub=p.add_subparsers(dest='command',required=True)
     demo=sub.add_parser('demo',help='run the reproducible synthetic market example')
     demo.add_argument('--db',type=Path,default=ROOT/'runtime'/'market-demo.sqlite3')
@@ -140,13 +147,13 @@ def main(argv=None):
     report.add_argument('--trials',type=int,default=1000); report.add_argument('--steps',type=int,default=20); report.add_argument('--seed',type=int,default=42)
     results=sub.add_parser('results',help='import and inspect public OpenFootball fixtures/results')
     results.add_argument('--db',type=Path,default=DEFAULT_DB)
-    results.add_argument('--file',type=Path,default=ROOT/'data'/'raw'/'openfootball-2025-26-en1.json')
-    results.add_argument('--receipt',type=Path,default=ROOT/'data'/'raw'/'openfootball-2025-26-en1.json.receipt.json')
+    results.add_argument('--file',type=Path,default=_resource('data','raw','openfootball-2025-26-en1.json'))
+    results.add_argument('--receipt',type=Path,default=_resource('data','raw','openfootball-2025-26-en1.json.receipt.json'))
     results.add_argument('--cutoff',default='now'); results.add_argument('--limit',type=int,default=5)
     results.add_argument('--format',choices=('text','json'),default='text')
     archive=sub.add_parser('archive',help='inspect real archived Football-Data price claims')
     archive.add_argument('--db',type=Path,default=DEFAULT_DB)
-    archive.add_argument('--file',type=Path,default=ROOT/'data'/'raw'/'football-data-2025-26-E0.csv')
+    archive.add_argument('--file',type=Path,default=_resource('data','raw','football-data-2025-26-E0.csv'))
     archive.add_argument('--event'); archive.add_argument('--cutoff',default='now')
     archive.add_argument('--probability',help='present-time hypothetical probability, between 0 and 1')
     archive.add_argument('--fraction',default='0.25'); archive.add_argument('--cap',default='0.02')
@@ -155,13 +162,13 @@ def main(argv=None):
     archive.add_argument('--seed',type=int,default=42)
     archive.add_argument('--format',choices=('text','json'),default='text')
     score=sub.add_parser('score',help='evaluate retained synthetic forecasts chronologically')
-    score.add_argument('--file',type=Path,default=ROOT/'examples'/'synthetic-scores.json')
+    score.add_argument('--file',type=Path,default=_resource('examples','synthetic-scores.json'))
     score.add_argument('--cutoff',default='2026-01-10T00:00:00Z')
     score.add_argument('--format',choices=('text','json'),default='text')
     forecast=sub.add_parser('forecast',help='current descriptive prior for an eligible future OpenFootball fixture')
     forecast.add_argument('--db',type=Path,default=DEFAULT_DB)
-    forecast.add_argument('--file',type=Path,default=ROOT/'data'/'raw'/'openfootball-2026-27-en1.json')
-    forecast.add_argument('--receipt',type=Path,default=ROOT/'data'/'raw'/'openfootball-2026-27-en1.json.receipt.json')
+    forecast.add_argument('--file',type=Path,default=_resource('data','raw','openfootball-2026-27-en1.json'))
+    forecast.add_argument('--receipt',type=Path,default=_resource('data','raw','openfootball-2026-27-en1.json.receipt.json'))
     forecast.add_argument('--event-date'); forecast.add_argument('--format',choices=('text','json'),default='text')
     watcher=sub.add_parser('watch',help='bounded polling of a local snapshot file')
     watcher.add_argument('--file',type=Path,required=True); watcher.add_argument('--db',type=Path,default=DEFAULT_DB)
@@ -353,8 +360,8 @@ def main(argv=None):
                 print('Final bankroll sample variance:',variance.get('value') or variance.get('reason'))
         return 0
     if args.command=='demo':
-        market_store.import_file(args.db,ROOT/'examples'/'synthetic-market.json',simulated=True)
-        imported=estimate_store.import_estimate(args.db,ROOT/'examples'/'synthetic-estimate.json',simulated=True)
+        market_store.import_file(args.db,_resource('examples','synthetic-market.json'),simulated=True)
+        imported=estimate_store.import_estimate(args.db,_resource('examples','synthetic-estimate.json'),simulated=True)
         cutoff=_cutoff('2026-01-01T12:10:00Z')
         estimate=estimate_store.get_estimate(args.db,imported['source_hash'],cutoff,simulated=True)
         result=_report(args.db,'synthetic-match-001',cutoff,estimate,replay_mode='STRICT_PIT_SIMULATED')

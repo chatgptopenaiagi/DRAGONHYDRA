@@ -1,0 +1,2 @@
+-- Retain all kernel sports data, evidence, vault material, jobs and model files.
+-- Joomla removes only this extension's own registration, presentation and ACL.

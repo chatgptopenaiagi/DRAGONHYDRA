@@ -1,0 +1,14 @@
+{
+  "tag": "v0.4.0-alpha.1",
+  "product_version": "0.4.0-alpha.1",
+  "python_version": "0.4.0a1",
+  "desktop_version": "0.4.0-alpha.1",
+  "windows_file_version": "0.4.0.0",
+  "android_version_name": "0.4.0-alpha.1",
+  "android_version_code": 4,
+  "joomla_version": "0.4.0-alpha.1",
+  "api_namespace": "/dragon/api/v1",
+  "schema_version": 1,
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "prerelease": true
+}

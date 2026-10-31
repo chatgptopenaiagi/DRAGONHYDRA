@@ -1,0 +1,18 @@
+[Unit]
+Description=DRAGONHYDRA private local sports research server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart="@PREFIX@/run-server.sh"
+WorkingDirectory=@PREFIX@
+Environment="DRAGONHYDRA_STATE=@STATE@"
+Environment="DRAGONHYDRA_PORT=@PORT@"
+UMask=0077
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=35
+
+[Install]
+WantedBy=default.target

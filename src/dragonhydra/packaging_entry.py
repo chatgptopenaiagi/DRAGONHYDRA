@@ -9,6 +9,9 @@ def workspace():
     explicit = os.environ.get('DRAGONHYDRA_HOME')
     if explicit:
         return Path(explicit).expanduser().resolve()
+    # An installed wheel must never find an unrelated checkout in an ancestor.
+    if 'site-packages' in Path(__file__).resolve().parts:
+        return Path.cwd().resolve()
     starts = (Path.cwd().resolve(), Path(sys.argv[0]).resolve().parent)
     visited = set()
     for start in starts:

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "host": "VPS_PUBLIC_IP",
+  "port": 22,
+  "user": "dragonhydra-tunnel",
+  "identity_file": null,
+  "known_hosts_file": null,
+  "gateway_host": "127.0.0.1",
+  "gateway_port": 18734,
+  "remote_listen_host": "127.0.0.1",
+  "remote_listen_port": 18080,
+  "public_hostname": null,
+  "notes": "Copy to target.json and supply an actual authorized VPS, service-account-readable private key and independently verified known_hosts file. No VPS was purchased or deployed."
+}

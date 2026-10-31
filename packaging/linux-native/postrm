@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+if [ -n "${DPKG_ROOT:-}" ] && [ "$DPKG_ROOT" != / ]; then exit 0; fi
+case "${1:-}" in
+  remove|purge)
+    # Purge ONLY this unit's helper bookkeeping/enablement links, never the
+    # package, retained database, configuration, pairing, or evidence files.
+    # Reinstallation applies the normal systemd enable preset afresh.
+    deb-systemd-helper purge dragonhydra-api.service >/dev/null
+    if [ -d /run/systemd/system ]; then systemctl daemon-reload; fi
+    ;;
+esac

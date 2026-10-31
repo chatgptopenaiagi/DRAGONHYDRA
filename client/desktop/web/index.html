@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>DRAGONHYDRA · Sports intelligence</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar" aria-label="Application navigation">
+    <a class="brand" href="#today"><span class="brand-icon" aria-hidden="true">D</span><span>DRAGONHYDRA<small>SPORTS INTELLIGENCE</small></span></a>
+    <div class="nav-heading">WORKSPACE</div>
+    <nav id="navigation" aria-label="Sports"></nav>
+    <div class="sidebar-bottom"><button id="administration" class="nav-item">Administration <span aria-hidden="true">↗</span></button><span class="environment">Local research workspace</span></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><span class="breadcrumb">Football <span>/</span> <span id="breadcrumb">Today</span></span><div class="service-indicator"><span class="dot" id="health-dot"></span><span id="service-state">Connecting</span><button id="refresh" class="icon-button" aria-label="Refresh current view" title="Refresh current view">↻</button></div></header>
+    <main id="main" tabindex="-1"><div class="loading" role="status">Opening your workspace…</div></main>
+    <footer>Evidence before opinion. <span id="footer-status">Source freshness is shown on each match.</span></footer>
+  </div>
+  <div id="notification" role="status" aria-live="polite" class="notification" hidden></div>
+  <dialog id="login-dialog" aria-labelledby="login-title"><form id="login-form"><p class="eyebrow">LOCAL CONNECTION</p><h2 id="login-title">Connect to your server</h2><p>Open DRAGONHYDRA from its launcher, or enter the local pairing token provided by your server administrator.</p><label for="server-address">Server address (optional when opened from your server)</label><input id="server-address" name="server" type="url" placeholder="http://127.0.0.1:8765/" autocomplete="off"><label for="pairing-token">Pairing token</label><input id="pairing-token" name="token" type="password" required autocomplete="off"><p id="login-error" class="error-text" role="alert"></p><button class="primary" type="submit">Connect</button></form></dialog>
+</body>
+</html>

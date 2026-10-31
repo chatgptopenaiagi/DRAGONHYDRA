@@ -1,0 +1,1 @@
+{"competition":{"id":2021,"code":"PL"},"matches":[{"id":440001,"utcDate":"2025-08-15T19:00:00Z","status":"FINISHED","season":{"id":2400,"startDate":"2025-08-01","endDate":"2026-05-31"},"homeTeam":{"id":10,"name":"Test Home"},"awayTeam":{"id":11,"name":"Test Away"},"score":{"duration":"REGULAR","fullTime":{"home":0,"away":2}},"matchday":1}]}

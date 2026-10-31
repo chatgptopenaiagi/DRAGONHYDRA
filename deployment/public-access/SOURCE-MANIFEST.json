@@ -1,0 +1,133 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5175,
+      "sha256": "47071c962e4bc416b97bb0f4fa3361c03d16455bddc8d3353cceac7bf382eb3f"
+    },
+    {
+      "path": "cloudflare\\README.md",
+      "bytes": 1906,
+      "sha256": "f24abcd095b105ca86d12ab5d599fae6962212dd409f3d3e6f51abe2cf78a430"
+    },
+    {
+      "path": "cloudflare\\REPORT.md",
+      "bytes": 3878,
+      "sha256": "851a0d21d637ead718cfb97ac5163ee5d61b77e785240f147c53d868088d2282"
+    },
+    {
+      "path": "reverse-proxy\\gateway.py",
+      "bytes": 13063,
+      "sha256": "d3cde93c165d28359518d0ae58484eae4df212ca17bffb4bc13aaa3a7847f625"
+    },
+    {
+      "path": "reverse-proxy\\site.css",
+      "bytes": 1444,
+      "sha256": "d921c932b01ef6c16ee2a9364a00b0da260a14b34d7ee254381bb83b5c3ae7ff"
+    },
+    {
+      "path": "reverse-proxy\\site.js",
+      "bytes": 6728,
+      "sha256": "cc7c17c240ad43a111b3832d88975b2e7c278758c9d61ffe735d82457f446f98"
+    },
+    {
+      "path": "reverse-proxy\\sports.html",
+      "bytes": 699,
+      "sha256": "f37eeb5f1a6c453cb7ac672b962e18cc57aa8190ebcc465ef446a67f091a22bc"
+    },
+    {
+      "path": "reverse-proxy\\vps-nginx-https-ip.conf.example",
+      "bytes": 2436,
+      "sha256": "e6802199343c4818be0d569812c6d8cecd7b6c0d2c11c0781afd79cc2f3a6683"
+    },
+    {
+      "path": "reverse-proxy\\vps-nginx.conf.example",
+      "bytes": 3058,
+      "sha256": "42c873c2c78d791fc3beae29a999dc0d154d8875265e491a409b48605c637e73"
+    },
+    {
+      "path": "scripts\\Install-Cloudflared.ps1",
+      "bytes": 3985,
+      "sha256": "2599f9f3603c15d43feadd4c3f293546a984b59986d69fe12be0034ada42d9a1"
+    },
+    {
+      "path": "scripts\\Register-DragonVpsTunnelTask.ps1",
+      "bytes": 2327,
+      "sha256": "2e6d9a9bdb7ec89cce711cb0791229b0a55bc09c8c25fac797e7d94327b7b0bf"
+    },
+    {
+      "path": "scripts\\Start-DragonVpsTunnel.ps1",
+      "bytes": 4832,
+      "sha256": "54a00a520a0e2f646349106fcba3bfc8d5332c5f6ba003127f56518f7b5ec786"
+    },
+    {
+      "path": "scripts\\Start-PublicGateway.ps1",
+      "bytes": 2280,
+      "sha256": "30af51cb1d2fe2159219d18c1c79a1aced87ed023ff84ef18406ce19a2c72079"
+    },
+    {
+      "path": "scripts\\Start-QuickTunnel.ps1",
+      "bytes": 3568,
+      "sha256": "650d16a517dbb850de0735bfca703b1d93969509893f687e5535bff315131588"
+    },
+    {
+      "path": "scripts\\Stop-PublicGateway.ps1",
+      "bytes": 744,
+      "sha256": "cb19a08dd3734767ffd8e55f63f93fa4e4fa1773d6432adfc924318985b48859"
+    },
+    {
+      "path": "scripts\\Stop-QuickTunnel.ps1",
+      "bytes": 1111,
+      "sha256": "085471181b48815bbd57f440b09670b9e0e1172042f0ff38771db01316247838"
+    },
+    {
+      "path": "scripts\\Test-DragonApacheRecovery.ps1",
+      "bytes": 7482,
+      "sha256": "351fe26fc2d8b3f6f24b1973b91b15828d8f0915af98e4eed9a0b8b27603ff36"
+    },
+    {
+      "path": "tests\\browser_public.py",
+      "bytes": 9174,
+      "sha256": "914e19c2428c8a43773fcfa7b48754e3aaa5969641536d66fde646e87a8a1a12"
+    },
+    {
+      "path": "tests\\test_gateway.py",
+      "bytes": 12351,
+      "sha256": "0f41cfb8cea5fc6cdb5e392bc986876be2d2cad0c925ba1c1ad996c5a229eb7a"
+    },
+    {
+      "path": "tunnel\\authorized_keys.example",
+      "bytes": 408,
+      "sha256": "9149fca7db5132fab8809958cb8fe7093132b6a9d0b78488e6ea09825cb36710"
+    },
+    {
+      "path": "tunnel\\sshd-dragonhydra.conf.example",
+      "bytes": 744,
+      "sha256": "c09330d350439453a9a44f3dbd8de99bf6c0077b9dc9a98b71c047654a4dff95"
+    },
+    {
+      "path": "vps\\install-gateway.sh",
+      "bytes": 6956,
+      "sha256": "f5a9bbce52abd3772561ddcb841c430a29afa2b1179d047cd2055dedeaed77fb"
+    },
+    {
+      "path": "vps\\README.md",
+      "bytes": 9529,
+      "sha256": "0c1d0b1d0afaf8d33e6aafd2056c0d48da69e74dc6840f1720265849640f456b"
+    },
+    {
+      "path": "vps\\render_vps.py",
+      "bytes": 3747,
+      "sha256": "595e06e2f327153e2a61c7fb0e87ccd951d3f6ab13dffd476c0471590cbc0bab"
+    },
+    {
+      "path": "vps\\REPORT.md",
+      "bytes": 3707,
+      "sha256": "60e999bd5ed19f0b2c1a7f2995d3f6c3e1232819d87c8f26456d70d108a4d9b2"
+    }
+  ],
+  "created_at": "2026-10-30T09:33:37.1790315Z",
+  "schema_version": 1,
+  "cloudflared_receipt": "cloudflare/install-receipt.json",
+  "scope": "Deployment source integrity; excludes mutable evidence, processes and logs"
+}

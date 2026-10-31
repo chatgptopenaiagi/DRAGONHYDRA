@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+# Isolated package-root validation must never manage the host's systemd.
+if [ -n "${DPKG_ROOT:-}" ] && [ "$DPKG_ROOT" != / ]; then exit 0; fi
+case "${1:-}" in
+  configure)
+    if [ -d /run/systemd/system ]; then
+      systemctl daemon-reload
+      deb-systemd-helper enable dragonhydra-api.service >/dev/null
+      deb-systemd-invoke start dragonhydra-api.service
+    fi
+    ;;
+esac

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+if [ -n "${DPKG_ROOT:-}" ] && [ "$DPKG_ROOT" != / ]; then exit 0; fi
+case "${1:-}" in
+  upgrade)
+    if [ -d /run/systemd/system ]; then
+      /usr/bin/python3 -I -S -B - upgrade <<'DRAGONHYDRA_ENDPOINT_HELPER'
+@@MANAGED_ENDPOINT@@
+DRAGONHYDRA_ENDPOINT_HELPER
+    fi
+    ;;
+esac

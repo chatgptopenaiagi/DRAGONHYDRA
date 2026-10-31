@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-10-31T17:12:13.549462+00:00",
+  "scope": "Lightweight sidecar identity/hash/link/scope verification; full new archive integrity is the separate extraction receipt.",
+  "artifact_sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+  "artifact_bytes": 64359085,
+  "source_tests": 557,
+  "frozen_groups": 28,
+  "evidence_references_verified": 11,
+  "markdown_links_verified": 7,
+  "reports": {
+    "INSTALLATION.md": "e37000de566fede58647fa58c1b58b78f210cd63e2d8ca5cad9daa52668f159c",
+    "TEST-REPORT.json": "debc511a7b0e9c9ab987487faec352de364a012d3f72cf272e6880a786e80eb7",
+    "ARTIFACT-SCOPE.json": "7ffbc3b4a345989b9a5180c1f9b4fdc739b433e8b228f19e5c7d2536f78414b6",
+    "EXTRACTION-VERIFICATION.json": "9f4570cfeab2d46a9d7ba38b18968995016c7185c0671a0011960a08203d9df1",
+    "BUILD-REPORT.json": "e754d7904720c67222233707c2d98b76d37e3d9fea83ce34d11d749c7b5a551b"
+  },
+  "installed_a6": false,
+  "source_real_qwen_fact": "F1",
+  "source_real_qwen_context_count_selected": false,
+  "frozen_count_selection_synthetic": true,
+  "current_working_source_match_required": false,
+  "full_payload_scan_repeated": false,
+  "provider_requests": 0,
+  "model_inferences": 0,
+  "service_actions": 0
+}

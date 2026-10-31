@@ -1,0 +1,5 @@
+# Replace ACTUAL_PUBLIC_KEY using the authorized Windows service identity's
+# public key, then install on the dedicated VPS account with strict permissions.
+# Do not copy a private key to the VPS. The paired sshd Match block limits this
+# key to remote TCP forwarding at one VPS loopback port.
+restrict,port-forwarding,permitlisten="127.0.0.1:18080" ssh-ed25519 ACTUAL_PUBLIC_KEY dragonhydra-outbound-tunnel

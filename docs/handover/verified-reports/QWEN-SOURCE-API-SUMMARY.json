@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "status": "API_CONSTRAINED_OFFLINE_INFERENCE_VERIFIED",
+  "source_unchanged": true,
+  "package": {
+    "context_record_id": "source_context:ee80300baae09fc55c61a5312abdc7553d072bcdd3c2e3dbf4ce13a2bb7466fe",
+    "context_summary": {
+      "event_rows": 4407,
+      "squad_sizes": [
+        {
+          "entries": 24,
+          "team_id": 771,
+          "team_name": "France"
+        },
+        {
+          "entries": 26,
+          "team_id": 779,
+          "team_name": "Argentina"
+        }
+      ]
+    },
+    "evidence_id": "3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9",
+    "grounding_verified_before_runtime": true,
+    "match_id": "4897236dbf6d5312ff576ee18d6f4c03355e083701b4510543f36c3ad1b101a1",
+    "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+    "schema_version": "sports-evidence-package/3",
+    "source_readonly": true
+  },
+  "startup_seconds": 4.385,
+  "request_seconds": 7.792,
+  "model_shutdown": {
+    "exit_code": 0,
+    "forced": false,
+    "method": "owned hidden console CTRL_C"
+  },
+  "api_shutdown": {
+    "exit_code": 0,
+    "forced": false,
+    "method": "authenticated owned API shutdown"
+  },
+  "key_removed": true,
+  "selected_fact_id": "F1",
+  "selected_context_fact": false,
+  "observations": [
+    "The retained source labels this match as finished."
+  ],
+  "citation_count": 1,
+  "input_ids": 4,
+  "scope": "Actual interactive SOURCE API/worker Qwen; F1 parent selection; not installed/frozen C1-count inference or air-gap proof."
+}

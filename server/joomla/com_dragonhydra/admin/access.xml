@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<access component="com_dragonhydra"><section name="component">
+  <action name="core.admin" title="JACTION_ADMIN" />
+  <action name="core.options" title="JACTION_OPTIONS" />
+  <action name="core.manage" title="JACTION_MANAGE" />
+  <action name="dragonhydra.import" title="COM_DRAGONHYDRA_PERMISSION_IMPORT" description="COM_DRAGONHYDRA_PERMISSION_IMPORT_DESC" />
+</section></access>

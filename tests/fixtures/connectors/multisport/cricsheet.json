@@ -1,0 +1,25 @@
+{
+  "_fixture_note": "Synthetic parser fixture, not an actual cricket match",
+  "meta": {"data_version": "1.3.0", "created": "2025-10-02", "revision": 2},
+  "info": {
+    "dates": ["2025-10-01"], "season": "2025/26", "balls_per_over": 6,
+    "event": {"name": "Synthetic Cricket Cup", "match_number": 1},
+    "teams": ["Example Island Red", "Example Island Blue"], "gender": "female",
+    "team_type": "club", "match_type": "T20", "venue": "Synthetic Test Ground",
+    "outcome": {"winner": "Example Island Blue", "by": {"wickets": 7}},
+    "players": {"Example Island Red": ["A Example"], "Example Island Blue": ["B Example"]}
+  },
+  "innings": [
+    {"team": "Example Island Red", "penalty_runs": {"pre": 5, "post": 1}, "overs": [
+      {"over": 0, "deliveries": [
+        {"actual_delivery": "0.1", "batter": "A Example", "bowler": "B Example", "runs": {"batter": 4, "extras": 0, "total": 4}},
+        {"actual_delivery": "0.2", "batter": "A Example", "bowler": "B Example", "runs": {"batter": 0, "extras": 0, "total": 0}, "wickets": [{"kind": "retired hurt", "player_out": "A Example"}]}
+      ]}
+    ]},
+    {"team": "Example Island Blue", "super_over": true, "target": {"runs": 11, "overs": 1}, "overs": [
+      {"over": 0, "deliveries": [
+        {"actual_delivery": "0.1", "batter": "B Example", "bowler": "A Example", "runs": {"batter": 6, "extras": 0, "total": 6}}
+      ]}
+    ]}
+  ]
+}

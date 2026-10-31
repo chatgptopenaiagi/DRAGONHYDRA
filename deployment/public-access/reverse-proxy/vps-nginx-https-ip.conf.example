@@ -1,0 +1,55 @@
+# Optional addition to the numeric-IP HTTP baseline; no domain is required.
+# Replace VPS_PUBLIC_IP with the same actual address. Enable only after obtaining
+# a valid certificate whose subjectAltName contains that exact IP address.
+# Keep the HTTP baseline's independent ACME webroot available for renewals.
+# upstream dragonhydra_windows_gateway and log_format are defined by the baseline.
+server {
+    listen 443 ssl default_server;
+    server_name _;
+    ssl_reject_handshake on;
+}
+server {
+    listen 443 ssl;
+    server_name VPS_PUBLIC_IP;
+    ssl_certificate /etc/letsencrypt/live/dragonhydra-ip/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dragonhydra-ip/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    server_tokens off;
+    access_log /var/log/nginx/dragonhydra-access.log dragonhydra_public;
+    error_log /var/log/nginx/dragonhydra-error.log warn;
+    client_max_body_size 1k;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+    error_page 502 504 =503 @dragonhydra_unavailable;
+    location @dragonhydra_unavailable {
+        default_type text/plain;
+        return 503 'DRAGONHYDRA is reconnecting. Please reload shortly.';
+    }
+    location ~* ^/(?:administrator|api|cli|installation|tmp|logs|runtime|config|server|src|tests|deployment|\.git)(?:/|$) { return 404; }
+    location ~* (?:^|/)\.(?:env|ht|git|ssh) { return 404; }
+    location ~* \.(?:ini|sqlite3?|db|toml|log|bak|pem|key|zip|sql)$ { return 404; }
+    location / {
+        limit_except GET HEAD { deny all; }
+        proxy_pass http://dragonhydra_windows_gateway;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header Cookie "";
+        proxy_set_header Authorization "";
+        proxy_set_header CF-Connecting-IP "";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Dragon-User "";
+        proxy_set_header X-Dragon-Roles "";
+        proxy_set_header X-Dragon-Time "";
+        proxy_set_header X-Dragon-Nonce "";
+        proxy_set_header X-Dragon-Signature "";
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_connect_timeout 3s;
+        proxy_send_timeout 15s;
+        proxy_read_timeout 30s;
+        proxy_redirect off;
+        proxy_hide_header Set-Cookie;
+        proxy_intercept_errors on;
+    }
+}

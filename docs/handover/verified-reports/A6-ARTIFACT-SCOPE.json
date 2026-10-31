@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "revision": "A6",
+  "artifact": {
+    "bytes": 64359085,
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\workstation-a6\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "signing_status": "NotSigned",
+    "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+    "filename": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe"
+  },
+  "kernel_binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+  "kernel_source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+  "artifact_source_binding": {
+    "source_manifest": {
+      "path": "build/connections/payload-20261031-a6/SOURCE-MANIFEST.json",
+      "sha256": "110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de"
+    },
+    "snapshot": "build/connections/payload-20261031-a6/source",
+    "files": 68,
+    "current_working_tree_required_to_match": false
+  },
+  "source_tests": 557,
+  "frozen_groups": 28,
+  "frozen_package3_verified": true,
+  "frozen_context_selection_is_synthetic": true,
+  "frozen_qwen_inference_tested": false,
+  "source_real_qwen_fact": "F1",
+  "source_real_qwen_context_count_selected": false,
+  "source_real_qwen_citations": 1,
+  "source_real_qwen_input_ids": 4,
+  "installed": false,
+  "installation_tested": false,
+  "localservice_a6_verified": false,
+  "installer_executed": false,
+  "clean_machine_tested": false,
+  "models_or_runner_bundled": false,
+  "provider_acquisition_during_packaging": false,
+  "airgap_verified": false,
+  "linux_a6_preparation_verified": false,
+  "vps_deployed": false,
+  "test_report_sha256": "debc511a7b0e9c9ab987487faec352de364a012d3f72cf272e6880a786e80eb7",
+  "installation_document_sha256": "e37000de566fede58647fa58c1b58b78f210cd63e2d8ca5cad9daa52668f159c"
+}

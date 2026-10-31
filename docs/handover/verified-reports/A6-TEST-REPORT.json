@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "artifact_revision": "A6",
+  "verified_at": "2026-10-31T17:11:10.897422+00:00",
+  "artifact": {
+    "bytes": 64359085,
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\workstation-a6\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "signing_status": "NotSigned",
+    "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+    "filename": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe"
+  },
+  "source_sha": null,
+  "source_identity_kind": "Scoped working-tree content SHA256; no release Git commit asserted",
+  "kernel_binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+  "kernel_source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+  "artifact_source_binding": {
+    "source_manifest": {
+      "path": "build/connections/payload-20261031-a6/SOURCE-MANIFEST.json",
+      "sha256": "110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de"
+    },
+    "snapshot": "build/connections/payload-20261031-a6/source",
+    "files": 68,
+    "current_working_tree_required_to_match": false
+  },
+  "verification_phases": {
+    "source": {
+      "passed": true,
+      "tests": 557,
+      "seconds": 107.891,
+      "receipt": {
+        "path": "build/connections/sports-package-3-20261031/SOURCE-ACCEPTANCE.json",
+        "sha256": "19be7082f0c60f0b9947ba4dced11aced2b8ff5e559b2472128bef12660a102a"
+      }
+    },
+    "frozen": {
+      "passed": true,
+      "groups": 28,
+      "baseline": 6,
+      "connector": 22,
+      "source_files": 68,
+      "payload_files": 710,
+      "package3_fixture": "Source-seeded SYNTHETIC retained three events and one squad entry per team; one synthetic HTTP completion through frozen worker.",
+      "selected_fact_id": "F3",
+      "citations": 3,
+      "input_ids": 4,
+      "completion_requests": 1,
+      "model_inference": false,
+      "provider_acquisition": false,
+      "all_old_rows_verified": 800,
+      "old_tables": 17,
+      "new_jobs": 2,
+      "correlated_outbox_additions": 8,
+      "cleanup_verified": true,
+      "receipt": {
+        "path": "build/connections/payload-20261031-a6/INTEGRITY-VERIFICATION.json",
+        "sha256": "d06218c4dc4e30a29d43d94d47463c05a1be38feb5f8f247e53f41bcc013e4e2"
+      }
+    },
+    "source_real_qwen": {
+      "passed": true,
+      "scope": "Interactive SOURCE API and durable worker with existing local Qwen; separate from frozen/installed runtime.",
+      "fact_id": "F1",
+      "selected_context_fact": false,
+      "citations": 1,
+      "input_ids": 4,
+      "package_bytes": 3167,
+      "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+      "event_rows_supplied": 4407,
+      "squad_entries_supplied": {
+        "France": 24,
+        "Argentina": 26
+      },
+      "airgap_verified": false,
+      "receipt": {
+        "path": "build/connections/sports-package-3-20261031/qwen-api-r1/report.json",
+        "sha256": "d1bd747110333c2c77c4d92db9aa5e2052f5f7a52d6ba27f7498999b752b4062"
+      },
+      "independent_acceptance": {
+        "path": "build/connections/sports-package-3-20261031/qwen-api-r1/INDEPENDENT-ACCEPTANCE.json",
+        "sha256": "e6821861f6ed4a7dcc4b5944f1267e9e76ef8b405c4238849b4f3e791f2c43d5"
+      }
+    },
+    "source_browser": {
+      "passed": true,
+      "groups": 8,
+      "model_selection": "SYNTHETIC; no Qwen",
+      "receipt": {
+        "path": "build/connections/sports-package-3-20261031/browser-r2/journey.json",
+        "sha256": "abc524a5b7a50eadb7abae7642b6826958bf39c1d71e507fd509708acff64e3d"
+      }
+    },
+    "archive": {
+      "passed": true,
+      "payload_files": 10662,
+      "payload_bytes": 284594776,
+      "additional_nsis_files": 7,
+      "extracted_not_executed": true,
+      "receipt": {
+        "path": "build/connections/workstation-a6/EXTRACTION-VERIFICATION.json",
+        "sha256": "9f4570cfeab2d46a9d7ba38b18968995016c7185c0671a0011960a08203d9df1"
+      }
+    }
+  },
+  "evidence": {
+    "source_acceptance": {
+      "path": "build/connections/sports-package-3-20261031/SOURCE-ACCEPTANCE.json",
+      "sha256": "19be7082f0c60f0b9947ba4dced11aced2b8ff5e559b2472128bef12660a102a"
+    },
+    "kernel_integrity": {
+      "path": "build/connections/payload-20261031-a6/INTEGRITY-VERIFICATION.json",
+      "sha256": "d06218c4dc4e30a29d43d94d47463c05a1be38feb5f8f247e53f41bcc013e4e2"
+    },
+    "frozen_base": {
+      "path": "build/connections/payload-20261031-a6/frozen-server.json",
+      "sha256": "fda056451acd57af8ff5c553b8220c9d13bd405d277b03534e27a6128e3eddb5"
+    },
+    "frozen_connector": {
+      "path": "build/connections/payload-20261031-a6/connector-check/verification.json",
+      "sha256": "0f8a7fc11da52249d042ab44bd6733e4c38818436b0cd9f9c3b8d2324d1982dc"
+    },
+    "archive": {
+      "path": "build/connections/workstation-a6/EXTRACTION-VERIFICATION.json",
+      "sha256": "9f4570cfeab2d46a9d7ba38b18968995016c7185c0671a0011960a08203d9df1"
+    },
+    "preparation": {
+      "path": "build/connections/workstation-a6/PREPARATION.json",
+      "sha256": "c3ef9b6b30ab4a06be44cf7ad3d5d81fa9a56424e37af0d3afef3fa50a3c0de4"
+    },
+    "source_manifest": {
+      "path": "build/connections/payload-20261031-a6/SOURCE-MANIFEST.json",
+      "sha256": "110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de"
+    },
+    "payload_manifest": {
+      "path": "build/connections/payload-20261031-a6/PAYLOAD-MANIFEST.json",
+      "sha256": "0535cb2ee0bee7016296d2768579a040f44b18d7248d0f56c2727d56ced71990"
+    },
+    "source_real_qwen": {
+      "path": "build/connections/sports-package-3-20261031/qwen-api-r1/report.json",
+      "sha256": "d1bd747110333c2c77c4d92db9aa5e2052f5f7a52d6ba27f7498999b752b4062"
+    },
+    "source_qwen_independent": {
+      "path": "build/connections/sports-package-3-20261031/qwen-api-r1/INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "e6821861f6ed4a7dcc4b5944f1267e9e76ef8b405c4238849b4f3e791f2c43d5"
+    },
+    "source_browser": {
+      "path": "build/connections/sports-package-3-20261031/browser-r2/journey.json",
+      "sha256": "abc524a5b7a50eadb7abae7642b6826958bf39c1d71e507fd509708acff64e3d"
+    }
+  },
+  "preservation": {
+    "old_installer_hashes": {
+      "dist/workstation/0.4.1-dev.1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe": "a2a1cde06f7a9fbc86e1e564dc5aabb8984368bcf2c2d919f2f492568bd67d97",
+      "dist/connections/workstation-a4/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe": "03941aacb8cc4a447f727ec8d5e1a00b6d4f810c0ebc59725c7a8cf7c19ac1ab",
+      "dist/connections/workstation-a5/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe": "90da11347eb052312166726c02d36c53f5545139f5717aca5425d1b69d29e901",
+      "dist/connections/workstation-a5-r2/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe": "b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544"
+    },
+    "old_stage_manifest_hashes": {
+      "build/workstation/0.4.1-dev.1/first-build/stage/PAYLOAD-MANIFEST.json": "c429a830b9f3f7a43a3c040b1d924d9c3de49a9a7d9cd2d279af5f2f336da25d",
+      "build/connections/workstation-a4/stage/PAYLOAD-MANIFEST.json": "bb67e58545b3ce927d187e327da86e9a7892f1160b10268bb41d9fc9513f03f1",
+      "build/connections/workstation-a5-r2/stage/PAYLOAD-MANIFEST.json": "7224f309fc5ba8312bf30415f01671c205ba9587539cfc301cfc59146a63b59b"
+    },
+    "old_stage_full_hash_scans_repeated": false,
+    "no_live_state_or_credentials_copied": true,
+    "existing_installations_changed": false
+  },
+  "installed": false,
+  "installation_tested": false,
+  "localservice_a6_verified": false,
+  "installer_executed": false,
+  "known_limits": {
+    "installer_signed": false,
+    "clean_machine_tested": false,
+    "windows_reboot_tested": false,
+    "a6_uninstall_tested": false,
+    "frozen_qwen_inference_tested": false,
+    "models_or_runner_bundled": false,
+    "airgap_verified": false,
+    "linux_a6_preparation_verified": false,
+    "linux_server_runtime_verified": false,
+    "vps_deployed": false,
+    "mariadb_application_backend_or_cutover": false,
+    "production_android_apk_claimed": false
+  },
+  "packaging_provider_requests": 0,
+  "packaging_model_inferences": 0,
+  "packaging_service_actions": 0
+}

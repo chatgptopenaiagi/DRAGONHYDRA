@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+prefix=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+exec /usr/bin/python3 -I -S -B "$prefix/bootstrap.py" "$@"

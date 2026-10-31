@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "primary": [
+    {"role":"desktop","target":"Windows x64","checks":["embedded-source","install","first-run-connection","navigation","analysis","export","clean-exit"]},
+    {"role":"server","target":"Windows x64","checks":["embedded-source","complete-onedir-extraction","private-python","health","import","team-standings","export","restart-retention"]},
+    {"role":"wheel","target":"Python >=3.14,<3.15","checks":["metadata-tags","payload-allowlist","non-editable-install","site-packages-binding","cli-import-report","server-resources","pip-check"]},
+    {"role":"android","target":"Android APK","checks":["embedded-source","version-code","signer-continuity","apksigner","device-install-upgrade","server-configuration","navigation","error-retry"]},
+    {"role":"joomla","target":"Joomla 6 / PHP 8.4","checks":["embedded-source","payload-allowlist","isolated-install","upgrade-config-retention","identity-ACL","job","canonical-match"]},
+    {"role":"gateway","target":"Python 3.14 deployment support","checks":["embedded-source","sanitized-allowlist","portable-config","isolated-start-stop","private-route-denial","read-only-api","origin-unavailable-feedback"]}
+  ],
+  "conditional": ["complete-workstation-installer","linux-native-packages","windows-x86","source-distribution"],
+  "publication": "Only passing payloads; explicit filenames; no PyPI; no replacing prior published assets."
+}

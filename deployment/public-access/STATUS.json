@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-30T09:33:37.0824027Z",
+  "phase_a": {
+    "public_health_status": 200,
+    "joomla_origin": "http://127.0.0.1:18732/",
+    "temporary": true,
+    "phone_carrier_test": "not run",
+    "gateway_pid": 27212,
+    "independent_api": "Jina Reader fetched actual JSON; total 760",
+    "apache_recovery": "passed",
+    "independent_html_fetch": "W3C Nu Validator fetched homepage",
+    "gateway": "http://127.0.0.1:18734",
+    "status": "verified_public_demonstration",
+    "independent_remote_render": "Jina Reader rendered homepage and actual sports matches",
+    "gateway_contract_tests": 13,
+    "windows_browser_public": "passed",
+    "url": "https://metallica-kevin-dangerous-limits.trycloudflare.com",
+    "tunnel_pid": 25368,
+    "public_paths": [
+      "/",
+      "/sports",
+      "/dragon/api/v1/matches"
+    ],
+    "server_sent_events": false
+  },
+  "phase_b": {
+    "status": "prepared_not_deployed",
+    "ssh_connection_started": false,
+    "windows_task_registered": false,
+    "vps_public_ip": null,
+    "missing": [
+      "Authorized VPS public IPv4 and setup access",
+      "Dedicated SSH forwarding identity",
+      "Independently verified SSH host entry",
+      "Service-account file permissions and backend boot readiness"
+    ],
+    "http_ip_baseline": "prepared",
+    "linux_nginx_sshd_executed": false,
+    "reboot_verified": false,
+    "trusted_ip_https": "optional; requires actual IP SAN certificate and tested automated renewal"
+  },
+  "preservation": {
+    "firewall_changed": false,
+    "observed_outbound_ip": "188.74.136.7",
+    "database_stopped": false,
+    "services": [
+      {
+        "Name": "NordUpdaterService",
+        "State": "Running",
+        "ProcessId": 14432
+      },
+      {
+        "Name": "nordvpn-service",
+        "State": "Running",
+        "ProcessId": 9348
+      },
+      {
+        "Name": "nordsec-threatprotection-service",
+        "State": "Running",
+        "ProcessId": 19272
+      }
+    ],
+    "codex_changed": false,
+    "vpn_settings_changed": false,
+    "nordvpn_expected_ip": "188.74.136.7",
+    "matches": true
+  },
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 51329,
+      "OwningProcess": 25368
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18734,
+      "OwningProcess": 27212
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18733,
+      "OwningProcess": 25436
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18732,
+      "OwningProcess": 19252
+    }
+  ],
+  "application_checkpoint": "docs/handover/INTEGRATED-BUILD-STATUS.md"
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+  <name>com_dragonhydra</name>
+  <author>DRAGONHYDRA</author>
+  <creationDate>2026-10</creationDate>
+  <version>0.4.0-alpha.1</version>
+  <description>COM_DRAGONHYDRA_XML_DESCRIPTION</description>
+  <namespace path="src">Dragonhydra\Component\Dragonhydra</namespace>
+  <scriptfile>script.php</scriptfile>
+  <install><sql><file driver="mysql" charset="utf8mb4">admin/sql/install.mysql.utf8.sql</file></sql></install>
+  <uninstall><sql><file driver="mysql" charset="utf8mb4">admin/sql/uninstall.mysql.utf8.sql</file></sql></uninstall>
+  <update><schemas><schemapath type="mysql">sql/updates/mysql</schemapath></schemas></update>
+  <administration>
+    <menu img="class:chart-line">COM_DRAGONHYDRA</menu>
+    <submenu>
+      <menu link="option=com_dragonhydra&amp;section=sources">COM_DRAGONHYDRA_SOURCES</menu>
+      <menu link="option=com_dragonhydra&amp;section=matches">COM_DRAGONHYDRA_MATCHES</menu>
+      <menu link="option=com_dragonhydra&amp;section=odds">COM_DRAGONHYDRA_ODDS</menu>
+      <menu link="option=com_dragonhydra&amp;section=models">COM_DRAGONHYDRA_MODELS</menu>
+      <menu link="option=com_dragonhydra&amp;section=research">COM_DRAGONHYDRA_RESEARCH</menu>
+      <menu link="option=com_dragonhydra&amp;section=databases">COM_DRAGONHYDRA_DATABASES</menu>
+      <menu link="option=com_dragonhydra&amp;section=system">COM_DRAGONHYDRA_SYSTEM</menu>
+    </submenu>
+    <files folder="admin">
+      <filename>access.xml</filename><filename>config.xml</filename>
+      <folder>services</folder><folder>src</folder><folder>tmpl</folder><folder>forms</folder><folder>sql</folder>
+    </files>
+    <languages folder="admin/language">
+      <language tag="en-GB">en-GB/com_dragonhydra.ini</language>
+      <language tag="en-GB">en-GB/com_dragonhydra.sys.ini</language>
+    </languages>
+  </administration>
+</extension>

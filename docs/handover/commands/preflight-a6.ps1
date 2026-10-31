@@ -1,0 +1,35 @@
+# Prepared only: ROOT must review before executing live read-only preflight.
+$a6PreflightArgs = @(
+    '-B',
+    'C:\xampp\DRAGONHYDRA\tests\installation\context_ai_workstation.py',
+    '--installer',
+    'C:\xampp\DRAGONHYDRA\dist\connections\workstation-a6\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe',
+    '--extraction',
+    'C:\xampp\DRAGONHYDRA\dist\connections\workstation-a6\EXTRACTION-VERIFICATION.json',
+    '--installer-sha256',
+    '2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1',
+    '--installer-bytes',
+    '64359085',
+    '--extraction-sha256',
+    '9f4570cfeab2d46a9d7ba38b18968995016c7185c0671a0011960a08203d9df1',
+    '--kernel-sha256',
+    '6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc',
+    '--source-content-sha256',
+    '886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4',
+    '--source-manifest-sha256',
+    '110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de',
+    '--ui-sha256',
+    '02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053',
+    '--service-name',
+    'DragonhydraProvidersA2Test',
+    '--install-root',
+    'C:\xampp\DRAGONHYDRA\build\workstation\test-install\provider-a2\application files',
+    '--state-root',
+    'C:\xampp\DRAGONHYDRA\build\workstation\test-install\provider-a2\state data',
+    '--phase',
+    'preflight',
+    '--output',
+    'C:\xampp\DRAGONHYDRA\build\workstation\evidence\provider-a6-preflight'
+)
+& 'C:\xampp\DRAGONHYDRA\runtime\server-env\Scripts\python.exe' @a6PreflightArgs
+exit $LASTEXITCODE

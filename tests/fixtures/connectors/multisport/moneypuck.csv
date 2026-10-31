@@ -1,0 +1,6 @@
+season,gameId,playerTeam,opposingTeam,home_or_away,gameDate,situation,goalsFor,goalsAgainst,playoffGame,xGoalsFor,xGoalsAgainst,shotsOnGoalFor,_fixture_note
+2025,2025020001,HOM,AWY,HOME,20251001,all,3.0,2.0,0,2.75,2.25,31,Synthetic parser fixture - not an actual game
+2025,2025020001,AWY,HOM,AWAY,20251001,all,2.0,3.0,0,2.25,2.75,25,Synthetic parser fixture - not an actual game
+2025,2025020001,HOM,AWY,HOME,20251001,5on5,1.0,1.0,0,1.25,1.10,20,Synthetic parser fixture - not an actual game
+2025,2025030001,HOM,AWY,HOME,20260501,all,0.0,1.0,1,1.75,1.25,21,Synthetic parser fixture - not an actual game
+2025,2025030001,AWY,HOM,AWAY,20260501,all,1.0,0.0,1,1.25,1.75,19,Synthetic parser fixture - not an actual game

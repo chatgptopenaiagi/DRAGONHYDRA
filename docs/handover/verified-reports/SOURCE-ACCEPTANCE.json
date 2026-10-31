@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-10-31T16:50:15.018458+00:00",
+  "scope": "Source package/3 exact grounding, explicit API/UI, synthetic count-selection acceptance and one real Qwen API-worker F1 selection; no frozen or installed package/3 claim",
+  "full_source_suite": {
+    "tests": 557,
+    "seconds": 107.891,
+    "exit_code": 0,
+    "log": "build/connections/sports-package-3-20261031/source-pre-a6-regression-r1.log",
+    "sha256": "f8d06dd1a26dee98fe21ba938da83ffe829b274f11cae314389c69e8dfdfe7c1",
+    "expected_negative_probe_case_logged": true
+  },
+  "receipts": {
+    "exact_reader": {
+      "path": "build/connections/context-record-reader-20261031/acceptance-r1/verification.json",
+      "sha256": "2e1426bed803f11e35338866b5330e11518dc94a7f163e4f3c667bed0bcb8040"
+    },
+    "package_core": {
+      "path": "build/connections/sports-package-3-20261031/acceptance-r1/verification.json",
+      "sha256": "ff52ccc0891d977b866e198e02479366bcb3eb403be0f845d9b48d8165f929cd"
+    },
+    "real_retained": {
+      "path": "build/connections/sports-package-3-20261031/retained-real-r1/verification.json",
+      "sha256": "6eb946cd76e3333cbdae84a8ded97dcf12e755d376467a64c283b88abe9465dc"
+    },
+    "api": {
+      "path": "build/connections/context-ai-api-20261031/verification.json",
+      "sha256": "a3a96ceb53debf62b2f4a8e5140c8fe256aaceb3250b1d1a37ba50d0a6bf49d2"
+    },
+    "browser": {
+      "path": "build/connections/sports-package-3-20261031/browser-r2/journey.json",
+      "sha256": "abc524a5b7a50eadb7abae7642b6826958bf39c1d71e507fd509708acff64e3d"
+    },
+    "qwen_api": {
+      "path": "build/connections/sports-package-3-20261031/qwen-api-r1/report.json",
+      "sha256": "d1bd747110333c2c77c4d92db9aa5e2052f5f7a52d6ba27f7498999b752b4062"
+    },
+    "qwen_independent": {
+      "path": "build/connections/sports-package-3-20261031/qwen-api-r1/INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "e6821861f6ed4a7dcc4b5944f1267e9e76ef8b405c4238849b4f3e791f2c43d5"
+    }
+  },
+  "source_sha": null,
+  "source_bindings": {
+    "src/dragonhydra/source_context.py": "03a1ac3a289451282bfd4c830fc4d7576d348ba81e91c43680d3f89c69b994b2",
+    "src/dragonhydra/local_ai.py": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6",
+    "src/dragonhydra/local_ai_context.py": "bfd544221bb972e2752c3d84a303d6c9aa55c9d9d07f15e2275a6cd1fb447aec",
+    "src/dragonhydra/local_ai_service.py": "e16c1603e0eb390519d61891d703304b2f6069af9aa2f4ee9b4908c6cfa57160",
+    "src/dragonhydra/api.py": "c1ecd21433c86039f2d68142a614f55e49dd1e032b977630617f6093f78048d3",
+    "src/dragonhydra/api_contracts.py": "56056b71b7cdd4892eb450dfa575e78dca26aa5516fa791fb3b1b02ef59a1f19",
+    "src/dragonhydra/jobs.py": "29674b298b16e7753357685dd45f8b1da2b6ee784e32c0c78515990ded3cd716",
+    "client/desktop/web/app.js": "02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053",
+    "src/dragonhydra/resources/web/app.js": "02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053",
+    "scripts/probe_local_ai.py": "9bbdbd871ab78e0c0d1c205ce205cdeedc9e06cde30e3d6c92d777e1dd48c045"
+  },
+  "qwen": {
+    "fact_id": "F1",
+    "selected_context_fact": false,
+    "citations": 1,
+    "input_ids": 4,
+    "source_unchanged": true,
+    "startup_seconds": 4.385,
+    "request_seconds": 7.792
+  },
+  "frozen_package3_verified": false,
+  "installed_package3_verified": false
+}

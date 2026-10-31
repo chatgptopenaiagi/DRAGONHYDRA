@@ -1,0 +1,3 @@
+Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HS,AS,HC,AC,B365H,B365D,B365A,B365CH,B365CD,B365CA,PSH,PSD,PSA,MaxH,AvgH,B365>2.5,B365<2.5,B365C>2.5,B365C<2.5
+E0,15/08/2025,20:00,Test Home,Test Away,2,1,H,0,12,5,4,2.1,3.4,3.5,2,3.5,3.7,2.2,3.3,3.4,9.99,7.77,1.8,2.1,1.9,2
+E0,16/08/2025,,Other Home,Other Away,,,,,,,,NaN,3.1,1.9,,,,,,,,,,,

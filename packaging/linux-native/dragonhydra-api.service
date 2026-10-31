@@ -1,0 +1,27 @@
+[Unit]
+Description=DRAGONHYDRA sports API
+After=network.target
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+DynamicUser=yes
+StateDirectory=dragonhydra-api
+StateDirectoryMode=0700
+Environment=DRAGONHYDRA_PORT=0
+Environment=DRAGONHYDRA_MANAGED_ENDPOINT=1
+EnvironmentFile=-/etc/dragonhydra/api.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/dragonhydra/api/bin/dragonhydra-server --state /var/lib/dragonhydra-api --port ${DRAGONHYDRA_PORT}
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=40
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target

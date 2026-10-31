@@ -22,6 +22,26 @@ from .. import market_store, public_results
 
 VERSION = 'cognitive-memory/1'
 OUTCOMES = ('home', 'draw', 'away')
+COGNITIVE_KINDS = ('model', 'prediction', 'outcome', 'task', 'evaluation', 'hypothesis')
+
+# Shared verbatim by the optional context migration profile. Keep these exact
+# table/trigger definitions compatible with existing cognitive databases.
+SCHEMA_SQL = '''
+    CREATE TABLE IF NOT EXISTS cognitive_records (
+      kind TEXT NOT NULL, record_id TEXT NOT NULL PRIMARY KEY, natural_key TEXT NOT NULL,
+      fingerprint TEXT NOT NULL, payload TEXT NOT NULL, UNIQUE(kind,natural_key));
+    CREATE TABLE IF NOT EXISTS cognitive_receipts (
+      record_id TEXT PRIMARY KEY REFERENCES cognitive_records(record_id),
+      received_at TEXT NOT NULL, persisted_at TEXT NOT NULL, usable_at TEXT NOT NULL);
+    CREATE TRIGGER IF NOT EXISTS cognitive_records_no_update BEFORE UPDATE ON cognitive_records
+      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END;
+    CREATE TRIGGER IF NOT EXISTS cognitive_records_no_delete BEFORE DELETE ON cognitive_records
+      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END;
+    CREATE TRIGGER IF NOT EXISTS cognitive_receipts_no_update BEFORE UPDATE ON cognitive_receipts
+      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END;
+    CREATE TRIGGER IF NOT EXISTS cognitive_receipts_no_delete BEFORE DELETE ON cognitive_receipts
+      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END;
+    '''
 
 
 def _now():
@@ -60,22 +80,7 @@ def _text(value, field):
 
 def _schema(db):
     db.execute('PRAGMA foreign_keys=ON')
-    db.executescript('''
-    CREATE TABLE IF NOT EXISTS cognitive_records (
-      kind TEXT NOT NULL, record_id TEXT NOT NULL PRIMARY KEY, natural_key TEXT NOT NULL,
-      fingerprint TEXT NOT NULL, payload TEXT NOT NULL, UNIQUE(kind,natural_key));
-    CREATE TABLE IF NOT EXISTS cognitive_receipts (
-      record_id TEXT PRIMARY KEY REFERENCES cognitive_records(record_id),
-      received_at TEXT NOT NULL, persisted_at TEXT NOT NULL, usable_at TEXT NOT NULL);
-    CREATE TRIGGER IF NOT EXISTS cognitive_records_no_update BEFORE UPDATE ON cognitive_records
-      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END;
-    CREATE TRIGGER IF NOT EXISTS cognitive_records_no_delete BEFORE DELETE ON cognitive_records
-      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END;
-    CREATE TRIGGER IF NOT EXISTS cognitive_receipts_no_update BEFORE UPDATE ON cognitive_receipts
-      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END;
-    CREATE TRIGGER IF NOT EXISTS cognitive_receipts_no_delete BEFORE DELETE ON cognitive_receipts
-      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END;
-    ''')
+    db.executescript(SCHEMA_SQL)
 
 
 def _probabilities(value):
@@ -241,12 +246,154 @@ def _existing(db, kind, natural_key):
                                  'received_at':row[2],'persisted_at':row[3],'usable_at':row[4]}
 
 
+def _revision_chain(db, kind, scope):
+    """Read and verify a complete scoped chain, without schema creation.
+
+    Revision allocation must call this while holding BEGIN IMMEDIATE. Unknown
+    kinds are excluded before decoding; a corrupt record in this kind fails
+    closed instead of silently selecting an earlier head.
+    """
+    rows = db.execute('''SELECT r.record_id,r.natural_key,r.fingerprint,r.payload,
+        c.received_at,c.persisted_at,c.usable_at FROM cognitive_records r
+        LEFT JOIN cognitive_receipts c ON c.record_id=r.record_id WHERE r.kind=?''', (kind,)).fetchall()
+    chain = []
+    for record_id, natural_key, fingerprint, raw, received, persisted, usable in rows:
+        try:
+            payload = json.loads(raw)
+        except (TypeError, ValueError):
+            raise ValueError('MEMORY_CONTENT_INVALID') from None
+        if not isinstance(payload, dict):
+            raise ValueError('MEMORY_CONTENT_INVALID')
+        if _hash(raw.encode('utf-8')) != fingerprint or _canonical(payload).decode('utf-8') != raw:
+            raise ValueError('MEMORY_CONTENT_HASH_MISMATCH')
+        expected_id = kind + ':' + _hash(_canonical([kind, natural_key, fingerprint]))
+        if record_id != expected_id:
+            raise ValueError('MEMORY_RECORD_ID_MISMATCH')
+        if payload.get('scope') != scope:
+            continue
+        revision = payload.get('revision')
+        if type(revision) is not int or revision < 1:
+            raise ValueError('MEMORY_REVISION_CHAIN_INVALID')
+        if natural_key != _hash(_canonical([scope, revision])):
+            raise ValueError('MEMORY_REVISION_KEY_MISMATCH')
+        if received is not None:
+            if (_time(received) != _time(payload['record_started_at']) or
+                    not _time(received) <= _time(persisted) <= _time(usable)):
+                raise ValueError('MEMORY_RECEIPT_CLOCK_INVALID')
+        elif persisted is not None or usable is not None:
+            raise ValueError('MEMORY_RECEIPT_INVALID')
+        chain.append({'record_id':record_id, 'record_content_hash':fingerprint, 'payload':payload,
+                      'received_at':received, 'persisted_at':persisted, 'usable_at':usable})
+    chain.sort(key=lambda item:item['payload']['revision'])
+    predecessor = None
+    predecessor_usable = None
+    for ordinal, item in enumerate(chain, 1):
+        body = item['payload']
+        if body['revision'] != ordinal or body.get('supersedes_record_id') != predecessor:
+            raise ValueError('MEMORY_REVISION_CHAIN_INVALID')
+        if item['received_at'] is None and ordinal != len(chain):
+            raise ValueError('MEMORY_PENDING_PREDECESSOR')
+        if item['usable_at'] is not None:
+            if predecessor_usable is not None and _time(item['usable_at']) < _time(predecessor_usable):
+                raise ValueError('MEMORY_RECEIPT_CLOCK_INVALID')
+            predecessor_usable = item['usable_at']
+        predecessor = item['record_id']
+    return chain
+
+
+def _revision_receipt(db, kind, scope, record_id, acknowledged, validate):
+    """Complete/recover a receipt after a prior durable record commit.
+
+    Another writer can recover the same record between the two commits. The
+    winner's immutable receipt is reused, including its original clocks.
+    """
+    try:
+        db.execute('BEGIN IMMEDIATE')
+        chain = _revision_chain(db, kind, scope)
+        for item in chain:
+            validate(db, item['payload'])
+        selected = next((item for item in chain if item['record_id'] == record_id), None)
+        if selected is None:
+            raise ValueError('MEMORY_RECORD_MISSING')
+        if selected['received_at'] is None:
+            received = selected['payload']['record_started_at']
+            if _time(acknowledged) < _time(received):
+                raise ValueError('CLOCK_MOVED_BACKWARDS')
+            predecessor = next((item for item in chain
+                                if item['record_id'] == selected['payload']['supersedes_record_id']), None)
+            if predecessor is not None and _time(acknowledged) < _time(predecessor['usable_at']):
+                raise ValueError('CLOCK_MOVED_BACKWARDS')
+            db.execute('INSERT INTO cognitive_receipts VALUES(?,?,?,?)',
+                       (record_id, received, acknowledged, acknowledged))
+            selected.update(received_at=received, persisted_at=acknowledged, usable_at=acknowledged)
+        db.commit()
+        receipt_acknowledged = _now()
+        if _time(receipt_acknowledged) < _time(selected['usable_at']):
+            raise ValueError('CLOCK_MOVED_BACKWARDS')
+    except Exception:
+        db.rollback()
+        raise
+    return {key:value for key,value in selected.items() if key != 'payload'} | {
+        'receipt_acknowledged_at':receipt_acknowledged}
+
+
+def _append_revision(db, kind, scope, body, semantic, validate):
+    """Append latest-head semantic revisions using the shared immutable store.
+
+    Schema initialization belongs to the caller, before this transaction. The
+    trusted validation callback must only read dependencies, with no network
+    or transaction changes. Both incoming and retained bindings are validated.
+    """
+    received = _now()
+    recovered = False
+    while True:
+        try:
+            db.execute('BEGIN IMMEDIATE')
+            chain = _revision_chain(db, kind, scope)
+            for item in chain:
+                validate(db, item['payload'])
+            head = chain[-1] if chain else None
+            revision = head['payload']['revision'] + 1 if head else 1
+            candidate = dict(body, scope=scope, revision=revision,
+                             supersedes_record_id=head['record_id'] if head else None,
+                             record_started_at=received)
+            validate(db, candidate)
+            if head and head['received_at'] is None:
+                # Do not advance past a durable but not yet receipted record.
+                db.commit()
+                _revision_receipt(db, kind, scope, head['record_id'], _now(), validate)
+                recovered = True
+                continue
+            if head and semantic(head['payload']) == semantic(candidate):
+                db.commit()
+                result = {key:value for key,value in head.items() if key != 'payload'}
+                result.update(duplicate=True, recovered=recovered, receipt_acknowledged_at=_now())
+                if _time(result['receipt_acknowledged_at']) < _time(head['usable_at']):
+                    raise ValueError('CLOCK_MOVED_BACKWARDS')
+                return result
+            raw = _canonical(candidate)
+            fingerprint = _hash(raw)
+            natural_key = _hash(_canonical([scope, revision]))
+            record_id = kind + ':' + _hash(_canonical([kind, natural_key, fingerprint]))
+            db.execute('INSERT INTO cognitive_records VALUES(?,?,?,?,?)',
+                       (kind, record_id, natural_key, fingerprint, raw.decode('utf-8')))
+            db.commit()
+            acknowledged = _now()
+        except Exception:
+            db.rollback()
+            raise
+        result = _revision_receipt(db, kind, scope, record_id, acknowledged, validate)
+        result.update(duplicate=False, recovered=recovered)
+        return result
+
+
 def _as_of(db, cutoff):
     cutoff = _utc(cutoff)
     _schema(db)
     rows = db.execute('''SELECT r.kind,r.record_id,r.payload,c.received_at,c.persisted_at,c.usable_at,r.fingerprint
       FROM cognitive_records r JOIN cognitive_receipts c ON r.record_id=c.record_id
-      WHERE c.received_at<=? AND c.persisted_at<=? AND c.usable_at<=?
+      WHERE r.kind IN ('model','prediction','outcome','task','evaluation','hypothesis')
+      AND c.received_at<=? AND c.persisted_at<=? AND c.usable_at<=?
       ORDER BY c.usable_at,r.record_id''', (cutoff,cutoff,cutoff)).fetchall()
     result = {'models':[], 'predictions':[], 'outcomes':[], 'research_tasks':[], 'evaluations':[], 'hypotheses':[]}
     names = {'model':'models','prediction':'predictions','outcome':'outcomes','task':'research_tasks',
@@ -579,7 +726,8 @@ def _resolve_evidence(db, evidence_id, cutoff):
     _schema(db)
     row = db.execute('''SELECT r.kind,r.record_id,r.payload,r.fingerprint,c.received_at,c.persisted_at,c.usable_at
         FROM cognitive_records r JOIN cognitive_receipts c ON r.record_id=c.record_id
-        WHERE r.record_id=? AND c.received_at<=? AND c.persisted_at<=? AND c.usable_at<=?''',
+        WHERE r.kind IN ('model','prediction','outcome','task','evaluation','hypothesis')
+        AND r.record_id=? AND c.received_at<=? AND c.persisted_at<=? AND c.usable_at<=?''',
         (evidence_id,cutoff,cutoff,cutoff)).fetchone()
     if row:
         kind,record_id,payload,fingerprint,received,persisted,usable=row

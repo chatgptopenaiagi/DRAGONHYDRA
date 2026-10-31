@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "project": "DRAGONHYDRA",
+  "created_at": "2026-10-31T17:27:40.719484+00:00",
+  "purpose": "Public-safe preservation inventory of existing deliverables; no build, installation or publication performed.",
+  "repository_reference": "chatgptopenaiagi/DRAGONHYDRA",
+  "release_tag_selected": null,
+  "candidate_release_assets": 8,
+  "requested_max_asset_bytes": 2000000000,
+  "candidate_total_bytes": 103527410,
+  "candidate_deliverable_hashes_verified_now": true,
+  "runtime_scope_policy": "Runtime/install claims are inherited from the named existing receipts; hashes were rechecked without launching the software.",
+  "artifacts": [
+    {
+      "id": "windows-workstation-a6",
+      "path": "dist/connections/workstation-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "release_asset_name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "version": "0.4.1-dev.1 / A6",
+      "kind": "Windows x64 unified workstation installer",
+      "bytes": 64359085,
+      "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+      "signing": "Unsigned / NotSigned",
+      "build_scope": "557 source tests, 28 frozen groups, 710 kernel files, 68 source inputs; all 10,662 archive payload files verified.",
+      "installation_scope": "A6 not installed; no A6 LocalService, repair, clean-machine, reboot or uninstall claim.",
+      "runtime_scope": "Frozen package/3 count selection uses SYNTHETIC retained rows and one synthetic HTTP completion. Real Qwen proof is source API/worker only and selected F1/E1, not a count.",
+      "source_identity": {
+        "kind": "scoped_source_content_sha256",
+        "sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+        "kernel_binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+        "git_commit": null
+      },
+      "evidence_references": [
+        "dist/connections/workstation-a6/TEST-REPORT.json",
+        "dist/connections/workstation-a6/EXTRACTION-VERIFICATION.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "linux-preparation-a5-r2",
+      "path": "build/linux/prep-20261031-a5-r2/dragonhydra-linux-dev-09822a188bd1.tar.gz",
+      "release_asset_name": "dragonhydra-linux-dev-09822a188bd1.tar.gz",
+      "version": "0.4.0-alpha.1 / A5 r2 preparation",
+      "kind": "Linux source-wheel preparation tar.gz",
+      "bytes": 294855,
+      "sha256": "dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562",
+      "signing": "Unsigned archive",
+      "build_scope": "70 source inputs; 60 product wheel files and 61 shared inputs match Windows A5 r2. This predates A6 package/3.",
+      "installation_scope": "No dependency installation, systemd activation or VPS deployment.",
+      "runtime_scope": "Existing Ubuntu Python 3.14.4 passed four CLI cases and retained parser 4,407 rows, squads 24/26 and native pages. Server preflight exited 2: fastapi, uvicorn, openpyxl and tzdata missing. No Linux API/server/model proof.",
+      "source_identity": {
+        "kind": "scoped_source_content_sha256",
+        "sha256": "09822a188bd19bf98ebb70619578634a87983a6666b206d1d89e64fd7e42e76c",
+        "git_commit": null
+      },
+      "evidence_references": [
+        "build/linux/prep-20261031-a5-r2/INTEGRITY-VERIFICATION.json",
+        "build/linux/prep-20261031-a5-r2/RETAINED-PARSER-VERIFICATION.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "python-wheel-a5-r2",
+      "path": "build/linux/prep-20261031-a5-r2/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "release_asset_name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "version": "0.4.0a1 / A5 r2 preparation",
+      "kind": "Python py3-none-any wheel",
+      "bytes": 290646,
+      "sha256": "c46f4d3903d965765b193cad215062ce0b72174863a833d3b57f54aba01c353e",
+      "signing": "Unsigned Python wheel",
+      "build_scope": "Current verified A5 r2 preparation wheel, 74 members; distinct from the older same-named v0.4.0-alpha.1 release wheel.",
+      "installation_scope": "Extracted-wheel tests only for this revision; no pip installation or complete server runtime claim.",
+      "runtime_scope": "Same limited Ubuntu CLI/retained-parser evidence as the preparation archive; Python >=3.14,<3.15. A6 package/3 is not included.",
+      "source_identity": {
+        "kind": "scoped_source_content_sha256",
+        "sha256": "09822a188bd19bf98ebb70619578634a87983a6666b206d1d89e64fd7e42e76c",
+        "git_commit": null
+      },
+      "evidence_references": [
+        "build/linux/prep-20261031-a5-r2/INTEGRITY-VERIFICATION.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "joomla-frozen-v040",
+      "path": "dist/releases/v0.4.0-alpha.1/assets/pkg_dragonhydra-0.4.0-alpha.1.zip",
+      "release_asset_name": "pkg_dragonhydra-0.4.0-alpha.1.zip",
+      "version": "0.4.0-alpha.1",
+      "kind": "Joomla 6 extension ZIP",
+      "bytes": 13526,
+      "sha256": "66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585",
+      "signing": "Unsigned archive",
+      "build_scope": "Frozen v0.4.0-alpha.1 extension package; web/database binaries are not included.",
+      "installation_scope": "Historical fresh and upgrade installation verified; not a new A6 installation.",
+      "runtime_scope": "Eight browser groups on Joomla 6.2.0 / PHP 8.4.27 / MariaDB 10.11.16; protected server bridge required.",
+      "source_identity": {
+        "kind": "frozen_release_git_commit",
+        "git_commit": "a1380545bd3bb225f400e7e328535ff692c0123a"
+      },
+      "evidence_references": [
+        "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json",
+        "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "android-frozen-v040",
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "release_asset_name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "version": "0.4.0-alpha.1",
+      "kind": "Android arm64 development APK",
+      "bytes": 17345938,
+      "sha256": "8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c",
+      "signing": "Android Debug development certificate; NOT production signed",
+      "build_scope": "Frozen version code 4, app ai.dragonhydra.mobile, ARM64-v8a; existing development signer retained.",
+      "installation_scope": "Historical install/update tested on API37 x86_64 emulator with ARM64 translation; physical device untested.",
+      "runtime_scope": "14 Flutter tests, analysis and nine native groups recorded. Production publisher identity is not configured.",
+      "source_identity": {
+        "kind": "frozen_release_git_commit",
+        "git_commit": "a1380545bd3bb225f400e7e328535ff692c0123a",
+        "development_certificate_sha256": "d77e623706f0146bc495904affe310cb492d67277ecf70b28455d1f5e138e419"
+      },
+      "evidence_references": [
+        "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json",
+        "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "server-frozen-v040",
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "release_asset_name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "version": "0.4.0-alpha.1",
+      "kind": "Standalone Windows x64 application server ZIP",
+      "bytes": 19295262,
+      "sha256": "ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467",
+      "signing": "Unsigned archive / NotSigned executable",
+      "build_scope": "Frozen v0.4.0-alpha.1 full private CPython 3.14.10 runtime. It is older than the A6 kernel.",
+      "installation_scope": "No standalone installer; extract the complete directory and use a private writable state.",
+      "runtime_scope": "Historical packaged startup, API, 760 retained records and Excel export verified; does not include later A6 package/3 work.",
+      "source_identity": {
+        "kind": "frozen_release_git_commit",
+        "git_commit": "a1380545bd3bb225f400e7e328535ff692c0123a"
+      },
+      "evidence_references": [
+        "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json",
+        "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "desktop-frozen-v040",
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+      "release_asset_name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+      "version": "0.4.0-alpha.1",
+      "kind": "Standalone Windows x64 desktop application installer",
+      "bytes": 1886742,
+      "sha256": "282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384",
+      "signing": "Unsigned / NotSigned",
+      "build_scope": "Frozen v0.4.0-alpha.1 desktop wrapper; server remains a separate requirement.",
+      "installation_scope": "Historical NSIS install and native launch verified; clean-machine untested.",
+      "runtime_scope": "Existing WebView2 and configured API required; historical native and browser journeys verified.",
+      "source_identity": {
+        "kind": "frozen_release_git_commit",
+        "git_commit": "a1380545bd3bb225f400e7e328535ff692c0123a"
+      },
+      "evidence_references": [
+        "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json",
+        "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    },
+    {
+      "id": "gateway-frozen-v040",
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+      "release_asset_name": "DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+      "version": "0.4.0-alpha.1",
+      "kind": "Public gateway support ZIP",
+      "bytes": 41356,
+      "sha256": "373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55",
+      "signing": "Unsigned archive",
+      "build_scope": "Frozen v0.4.0-alpha.1 gateway scripts/support; no private state or configured identity bundled.",
+      "installation_scope": "No new installation or permanent VPS deployment performed.",
+      "runtime_scope": "13 contract tests and six gateway groups recorded; private routes/mutations denied. Existing origins and deployment identity are external requirements.",
+      "source_identity": {
+        "kind": "frozen_release_git_commit",
+        "git_commit": "a1380545bd3bb225f400e7e328535ff692c0123a"
+      },
+      "evidence_references": [
+        "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json",
+        "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
+      ],
+      "recommended_release_asset": true,
+      "within_requested_2gb_limit": true
+    }
+  ],
+  "preserved_references": [
+    {
+      "path": "dist/connections/workstation-a5-r2/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64341255,
+      "sha256": "b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+      "scope": "Prior A5 r2 recorded installed/LocalService repair, retained StatsBomb context, Edge and exact restart. Not A6; no current live-state query performed.",
+      "recommended_release_asset": false
+    },
+    {
+      "path": "dist/workstation/0.4.1-dev.1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64104813,
+      "sha256": "a2a1cde06f7a9fbc86e1e564dc5aabb8984368bcf2c2d919f2f492568bd67d97",
+      "scope": "Original C7 workstation; preserved historical artifact.",
+      "recommended_release_asset": false
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 197523,
+      "sha256": "ddb011bd12a042baafc4fc78173f589d5a22079a2481c81de901634689cf4f7d",
+      "scope": "Older frozen-release wheel; same basename as A5 r2 but different contents. Do not replace this historical release asset.",
+      "recommended_release_asset": false
+    }
+  ],
+  "historical_manifests_preserved": [
+    "docs/handover/RELEASE-MANIFEST.json",
+    "dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json"
+  ],
+  "publication_scope": {
+    "only_explicit_listed_files": true,
+    "private_databases_configs_vaults_logs_tokens_keys_or_model_weights_included": false,
+    "artifact_uploads_performed": false,
+    "git_operations_performed": false,
+    "builds_performed": false,
+    "installations_performed": false,
+    "wsl_launched": false,
+    "services_changed": false
+  },
+  "limits": [
+    "A6 is unsigned and not installed; previous A5 r2 installation evidence does not transfer to A6.",
+    "Linux A5 r2 is preparation plus CLI/parser proof, not a ready API server and not A6 package/3.",
+    "The Android APK uses a development certificate; production signing remains unavailable.",
+    "Older standalone application/Joomla/gateway assets remain frozen at v0.4.0-alpha.1.",
+    "Publish under a separately chosen release/tag; preserve existing tagged assets and avoid same-name wheel replacement."
+  ]
+}

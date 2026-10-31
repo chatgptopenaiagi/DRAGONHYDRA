@@ -21,6 +21,8 @@ def prepare(db_path):
     imports = []
     for filename in FILES:
         path = ROOT / 'data' / 'raw' / filename
+        if not path.is_file():
+            path = Path(__file__).resolve().parents[1] / 'resources' / 'data' / 'raw' / filename
         receipt_path = path.with_suffix(path.suffix + '.receipt.json')
         if not path.exists() or not receipt_path.exists():
             continue
