@@ -3,6 +3,22 @@ checkpoint. A later continuation applied A6 once and passed installed acceptance
 current runtime state is in ENGINEERING-STATE.json/SESSION-RESUME.md. Existing
 release asset bytes were not replaced to change their historical scope.
 
+Later continuation checkpoint, 2026-10-31:
+
+- **LOCALLY SAVED:** installed-A6 receipts, final Linux A6 archive/wheel, four
+  Linux reports and exact verification helpers. Prior artifacts/evidence retained.
+- **GIT COMMITTED / GITHUB PUSHED:** installed-A6 checkpoint
+  `138cf476de31692687239e356c2391b01dfe13cf`; later Linux metadata follows on
+  the same continuity branch. Resolve HEAD and compare the remote before resuming.
+- **RELEASE UPLOADED:** installed summary is a new22nd asset on the original
+  preservation release, server digest/size verified. Old assets were preserved.
+  Linux A6 publication has its own receipt under docs/handover/verified-reports/;
+  do not substitute the old A5 wheel with the new same-named wheel.
+- **NOT COMPLETED:** Linux A6 server/runtime acceptance, MariaDB application
+  backend, VPS deployment, clean-machine/reboot acceptance and production signing.
+  Linux CLI/parser/contract parity is verified; four server dependencies are
+  absent only from the tested stock interpreter, separate from the R8 environment.
+
 # GENESIS continuity preservation
 
 Checkpoint:2026-10-31. Project:C:\xampp\DRAGONHYDRA.

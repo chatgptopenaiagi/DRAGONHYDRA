@@ -1,0 +1,90 @@
+{
+  "command": [
+    "C:\\Windows\\System32\\wsl.exe",
+    "--distribution",
+    "Ubuntu-26.04",
+    "--cd",
+    "/mnt/c/xampp/DRAGONHYDRA",
+    "--exec",
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "/mnt/c/xampp/DRAGONHYDRA/build/linux/prep-20261031-a6/retained-parser-smoke.py"
+  ],
+  "exit_code": 0,
+  "passed": true,
+  "helper_sha256": "c6e5876d2fa5e031eb78def11efeb057096bbee9a25fc1f1ba6fd3af347756d0",
+  "guard_sha256": "56f9a4b087d3a218d982d0f0c100612a8ec5465982fa96ea4d98981db92c2aec",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "python_executable": "/usr/bin/python3",
+  "wheel_module": "build/linux/prep-20261031-a6/linux-smoke/site-packages/dragonhydra/connectors/statsbomb_context_parser.py",
+  "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+  "retained_data_not_fresh_http": true,
+  "event_rows": 4407,
+  "squad_entries": {
+    "771": 24,
+    "779": 26
+  },
+  "event_types": 29,
+  "count_groups": 181,
+  "projection_sha256": "6a36c2bdb29ab890fae4e0e3b13764bdef9e60d36c8682029e72740f1ab59603",
+  "pages": [
+    {
+      "offset": 0,
+      "rows": 200,
+      "first_index": 1,
+      "last_index": 200
+    },
+    {
+      "offset": 2200,
+      "rows": 200,
+      "first_index": 2201,
+      "last_index": 2400
+    },
+    {
+      "offset": 4400,
+      "rows": 7,
+      "first_index": 4401,
+      "last_index": 4407
+    }
+  ],
+  "input_payloads": {
+    "events": {
+      "sha256": "a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35",
+      "bytes": 3757121
+    },
+    "lineups": {
+      "sha256": "2b00c4cbf027b36ae2ce99f183a0943c649bb5bdcb8324683a8603785beffed5",
+      "bytes": 28432
+    }
+  },
+  "input_files_unchanged": true,
+  "forbidden_attempts": 0,
+  "optional_server_packages_imported": {
+    "fastapi": false,
+    "uvicorn": false,
+    "openpyxl": false,
+    "tzdata": false
+  },
+  "guards": {
+    "forbidden_operation_attempts": 0,
+    "sqlite3_definitions_imported": true,
+    "settings_definitions_imported": false,
+    "vault_definitions_imported": false,
+    "optional_server_modules_imported": {
+      "fastapi": false,
+      "uvicorn": false,
+      "openpyxl": false,
+      "tzdata": false
+    },
+    "database_connected": false,
+    "grounding_run": false,
+    "API_started": false,
+    "worker_started": false,
+    "model_inference": false,
+    "services_changed": false
+  },
+  "server_runtime_verified": false,
+  "database_connected": false,
+  "service_activated": false
+}

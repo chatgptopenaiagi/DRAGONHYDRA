@@ -73,16 +73,24 @@ byte-identical. Never print private configuration or kernel tokens/vaults.
 
 Preservation and next action
 
-- Git branch continuity/genesis-20261031-a6; preserved commit6c93226522ad11af8b8daf5188121ff80a9d83eb.
-  Source checkpoint9d6a9ef... remains release target;21release assets verified.
-  Current continuation docs are not committed yet. Keep old release assets
+- Git branch continuity/genesis-20261031-a6; installed-A6 checkpoint pushed
+ 138cf476de31692687239e356c2391b01dfe13cf; earlier preserved6c932265... remains.
+  Source checkpoint9d6a9ef... remains old release target;22assets now verified.
+  New installed summary is a separate release asset; previous bytes retained. Keep old release assets
   immutable; publish any new installed summary under a NEW filename if needed.
-- Next: commit/push current owned metadata and later safe installed summary;
-  README/OFFLINE/handoff and local A6 sidecars are updated with history.
-  Do not rebuild or repeat the installer/model/provider jobs.
-- Then Linux A6 preparation can follow NEXT-LINUX-A6.md after docs freeze. Another
-  owner already has A5-derived Linux R8/API/model components; consult concurrent
-  metadata, recheck/reuse those capabilities and coordinate live-state ownership.
+- Linux A6 preparation COMPLETE: original builder once/exit0; source3319aed9...5804,
+  71inputs/61product/62commonWindowsA6/75wheelmembers. Actual Ubuntu3.14.4
+  fourCLI cases plus retained4407parser and SYNTHETIC package3 parity passed.
+  Archive303125B SHA2a1b7420...bee2; wheel298310B SHA021e07fd...3d09.
+  Final guard56f9a4...2aec denies DB/network/settings/inference/process actions;
+  final parser/contract reports and integritydcf44686...6c6b match. Prior guard
+  proofs preserved under supplemental-history, both final checks actually rerun.
+  No full rebuild repeat, sourceDB read/backup, provider/model/systemd/R8 action.
+  Four missing server dependencies describe STOCK interpreter only, not R8.
+  See LINUX-A6-CHECKPOINT.md; do not rerun into existing work. Next: checkpoint
+  owned evidence, then review NEXT-OBJECTIVES.md for a bounded provider-first
+  increment. Separate R8 owner is developing Linux native packaging scripts;
+  preserve their new files and coordinate before any integration.
 - MariaDB core16/context18 data staging/roundtrips passed; no app backend cutover.
   VPS target/trust, paid-source keys and Android publisher signing identity remain
   external limits. No clean-machine/reboot/production-signing/native-OS-close claim.

@@ -2,8 +2,8 @@
 
 Workspace C:\xampp\DRAGONHYDRA, branch continuity/genesis-20261031-a6.
 Preservation completed/pushed at6c93226522ad11af8b8daf5188121ff80a9d83eb with21
-immutable release assets; later installed-A6 continuation metadata is pending
-commit. Preserve independent PACKAGING-COORDINATION.md/source/bridge changes.
+immutable release assets. Installed-A6 metadata was then committed/pushed at
+138cf476de31692687239e356c2391b01dfe13cf; its separate22nd summary asset was verified. Preserve independent PACKAGING-COORDINATION.md/source/bridge changes.
 Read ENGINEERING-STATE.json and CONTINUOUS-PROGRESS.md before any action.
 
 ## Current installed result
@@ -40,22 +40,21 @@ no new application source was changed for this installed continuation.
 
 ## Exact next action
 
-Do NOT repeat preflight, repair or the one browser job; their output directories
-now exist and the target already runs A6. Complete local report/handoff update,
-commit/push only owned metadata and publish later installed evidence under NEW
-asset names if needed. Existing release asset bytes remain immutable snapshots.
-Then follow NEXT-LINUX-A6.md after docs freeze and current capability/ownership
-checks. Intended next engineering command (fresh output only):
+A6 repair/readchecks and Linux A6 preparation are COMPLETE. Do not repeat their
+commands into existing output directories. Read LINUX-A6-CHECKPOINT.md, current
+ENGINEERING-STATE.json and NEXT-OBJECTIVES.md. Next read-only engineering command:
 
 ```powershell
 Set-Location -LiteralPath 'C:\xampp\DRAGONHYDRA'
-.\runtime\server-env\Scripts\python.exe -B scripts\build_linux_bundle.py --work build\linux\prep-20261031-a6 --verify-wsl
+Get-Content -LiteralPath 'docs/handover/NEXT-OBJECTIVES.md'
 ```
 
-No Linux A6 build has run yet. Existing A5-derived Linux R8/API/model components
-belong to the independent packaging owner; recheck/reuse their capabilities,
-never overwrite their live profile or install redundant dependencies. Private
-runtime state/credentials remain local. Earlier detailed handoff is archived at
+Linux A6 now has actual Ubuntu3.14.4 four-case CLI, retained parser and SYNTHETIC
+package/3 contract parity. No server, database grounding or model inference was
+run. Stock interpreter server dependencies are missing; existing independently
+owned R8 has a separate environment. Coordinate before modifying that profile;
+reuse existing capabilities instead of installing redundant dependencies.
+Earlier detailed handoff remains archived at
 build/connections/workstation-a6/session-before-installed-a6-20261031.md.
 
 ## Accepted source behavior
@@ -80,10 +79,13 @@ Never print full `workstation.json`, pairing tokens, vault bodies or passwords. 
 
 ## Publication checkpoint
 
-Source9d6a9ef82f6f646ab020da5fb25969584e617299 is pushed on
-`continuity/genesis-20261031-a6`. Final metadata follows on that branch.
-Read PRESERVATION-REPORT.md and PUBLICATION-VERIFICATION.json. All11 release
-payloads were verified by GitHub server digests. A6 is still NOT installed.
-The committed safe preflight command copy is `docs/handover/commands/preflight-a6.ps1`
-and matches the originally prepared build/evidence script; it has NOT run.
-Do not execute it until the resume/environment/artifact/ownership checks pass.
+Repository https://github.com/chatgptopenaiagi/DRAGONHYDRA (private), branch
+continuity/genesis-20261031-a6. Source9d6a9ef82f6f646ab020da5fb25969584e617299
+and installed checkpoint138cf476de31692687239e356c2391b01dfe13cf are pushed.
+The original preservation release now has22 immutable assets. Its tag remains
+at the original source checkpoint. New Linux A6 artifacts require a separate
+release because the valid wheel filename overlaps the old A5 wheel. See
+verified-reports/ publication receipts; resolve current HEAD and compare remote.
+Private state, configs and credentials stay local. Independently modified
+PACKAGING-COORDINATION.md, linux-native scripts/tests, bridge files and source/
+are outside this owner's commit.

@@ -1,0 +1,363 @@
+{
+  "files": [
+    {
+      "bytes": 431,
+      "path": "config/runtime/server-python314.lock.txt",
+      "sha256": "e9a91820059c01cd2592f9b8ca716af646c705c6493e22a39f52276b23121cea"
+    },
+    {
+      "bytes": 368,
+      "path": "packaging/linux/dragonhydra.service.in",
+      "sha256": "4dc5f61aeda237b5e23c3f434cd485c461dd480757eb7d43f7691cbd08cda4be"
+    },
+    {
+      "bytes": 275,
+      "path": "packaging/linux/install.sh",
+      "sha256": "7a14fd822e159531999d976ef583376aac164f1c7bcff740fbd8f6bda068874b"
+    },
+    {
+      "bytes": 6178,
+      "path": "packaging/linux/preflight.py",
+      "sha256": "9fcd2e75c363c33e7c4836bd1edcb83a6100d1617b93d6888347f013125eae5f"
+    },
+    {
+      "bytes": 3295,
+      "path": "packaging/linux/README.md",
+      "sha256": "30c1f8149257b14202ec25279f4ae4375ed8279cd1ca8e027c85855a3502afae"
+    },
+    {
+      "bytes": 312,
+      "path": "packaging/linux/run-server.sh",
+      "sha256": "02aa9658a6f4177ea08fdd7cd8773908d62ab70f015fc2b09d2cbcde0af646b5"
+    },
+    {
+      "bytes": 413,
+      "path": "packaging/release/version.json",
+      "sha256": "7f89af9e162387995c48fcbfc9d1c0cc6c21b50d778f7822cdb89f45771883d1"
+    },
+    {
+      "bytes": 859,
+      "path": "pyproject.toml",
+      "sha256": "293338e6b7ff83b8f2100a5068a2b452bdbe2f35387ad3cb5c3484bdf43c3658"
+    },
+    {
+      "bytes": 10062,
+      "path": "README.md",
+      "sha256": "693feb9d1098faee48e6734883e63d7a7436948467d449e9d9f7e134b2dec455"
+    },
+    {
+      "bytes": 13751,
+      "path": "scripts/build_linux_bundle.py",
+      "sha256": "1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e"
+    },
+    {
+      "bytes": 45,
+      "path": "src/dragonhydra/__init__.py",
+      "sha256": "0bcd4a0201074f0b153bbfd456bbd353ea51a96dfeff1a51f7ccd8947b3284d0"
+    },
+    {
+      "bytes": 24872,
+      "path": "src/dragonhydra/api.py",
+      "sha256": "c1ecd21433c86039f2d68142a614f55e49dd1e032b977630617f6093f78048d3"
+    },
+    {
+      "bytes": 3171,
+      "path": "src/dragonhydra/api_contracts.py",
+      "sha256": "56056b71b7cdd4892eb450dfa575e78dca26aa5516fa791fb3b1b02ef59a1f19"
+    },
+    {
+      "bytes": 632,
+      "path": "src/dragonhydra/build_meta.py",
+      "sha256": "8e59d44978dad01835ff18d87113bf84350cfc1ececed2c0f8b6ec083a35244d"
+    },
+    {
+      "bytes": 27475,
+      "path": "src/dragonhydra/cli.py",
+      "sha256": "b4f924b85f65413240568c3f556f46f8c76f5c7341e9eeb8fd2e6de8ed9fd186"
+    },
+    {
+      "bytes": 48,
+      "path": "src/dragonhydra/cognition/__init__.py",
+      "sha256": "7992192172710200521ffa72af6aa50992fcee7328d2248208ff6bd561aa8c54"
+    },
+    {
+      "bytes": 5746,
+      "path": "src/dragonhydra/cognition/adaptation.py",
+      "sha256": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669"
+    },
+    {
+      "bytes": 14842,
+      "path": "src/dragonhydra/cognition/commands.py",
+      "sha256": "8d8516bd3666b515d205559b4b402254b294d210c227eb48911549991cbac840"
+    },
+    {
+      "bytes": 22891,
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "sha256": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f"
+    },
+    {
+      "bytes": 47928,
+      "path": "src/dragonhydra/cognition/memory.py",
+      "sha256": "7449c13798127748a6824b4685ab94ea842afd63ea527e135bb01a6f17a3f980"
+    },
+    {
+      "bytes": 23289,
+      "path": "src/dragonhydra/cognition/models.py",
+      "sha256": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06"
+    },
+    {
+      "bytes": 8890,
+      "path": "src/dragonhydra/cognition/research.py",
+      "sha256": "08287e52f91e8c698d8b79258e556957605f66fd23ae079566207610e2278a81"
+    },
+    {
+      "bytes": 13203,
+      "path": "src/dragonhydra/cognition/runtime.py",
+      "sha256": "9d6ee182b80c9d03f7746f5b884efbe33e8a361255f173a52876f0ec5b5bad3a"
+    },
+    {
+      "bytes": 445,
+      "path": "src/dragonhydra/connectors/__init__.py",
+      "sha256": "736f747eacf276124b99c055e2d803cd35cabc1b2ca16a429bda0ed76cfc125a"
+    },
+    {
+      "bytes": 9180,
+      "path": "src/dragonhydra/connectors/core.py",
+      "sha256": "3610559069a5fdb39f02eadc4f80642375c0dcab81da648f4165a28e481497a8"
+    },
+    {
+      "bytes": 30162,
+      "path": "src/dragonhydra/connectors/football.py",
+      "sha256": "3df70ba3365413f5cac9435c10817057675eea2c55adcb03f20445f17cb74bd0"
+    },
+    {
+      "bytes": 20463,
+      "path": "src/dragonhydra/connectors/multisport.py",
+      "sha256": "d01ec628c41f56744bb7f2959daac813cfe98b7a41638a283a531f092c5b4db2"
+    },
+    {
+      "bytes": 16966,
+      "path": "src/dragonhydra/connectors/research.py",
+      "sha256": "c5627e6199e2583e368d211a7289b7316f7321abb2c3a07bb353084caea0def8"
+    },
+    {
+      "bytes": 10758,
+      "path": "src/dragonhydra/connectors/service.py",
+      "sha256": "f5a74aeaa2776b5b0574ea1803065fd35c1554df9b7590502c72521ec27d87c4"
+    },
+    {
+      "bytes": 15878,
+      "path": "src/dragonhydra/connectors/statsbomb_context.py",
+      "sha256": "d66f53b14a23d0d165e442f0d9c8e1454d3ff9c44a131751f7be487d27d097b3"
+    },
+    {
+      "bytes": 18728,
+      "path": "src/dragonhydra/connectors/statsbomb_context_jobs.py",
+      "sha256": "89f11cf9b8ddb20bdb00802bb3e9720729e789077b2da9170dbbef9c271f4793"
+    },
+    {
+      "bytes": 10817,
+      "path": "src/dragonhydra/connectors/statsbomb_context_parser.py",
+      "sha256": "0a7a682e431715f5b4aacc7a25e839333bc4d4f84d17995f4cb259955b7e80e3"
+    },
+    {
+      "bytes": 6284,
+      "path": "src/dragonhydra/connectors/statsbomb_context_view.py",
+      "sha256": "9f76c202dce8e6d5a79d4d324580c3fb0865860b5752564b1d82472244177ee1"
+    },
+    {
+      "bytes": 25054,
+      "path": "src/dragonhydra/connectors/store.py",
+      "sha256": "2aad02a44dddf08502e03548e4e05203094f52c5d8ef73a32037396e6e283418"
+    },
+    {
+      "bytes": 3083,
+      "path": "src/dragonhydra/connectors/vault.py",
+      "sha256": "f833bba2aad66a7361c3da6eb97959fa240eff0e0963dbfb8799e4353c058824"
+    },
+    {
+      "bytes": 3965,
+      "path": "src/dragonhydra/estimate_store.py",
+      "sha256": "4541b96fc2475048dbd538460f2c89270d8aea19d14f7d7ba15b5bc9568660f4"
+    },
+    {
+      "bytes": 6371,
+      "path": "src/dragonhydra/football_data.py",
+      "sha256": "db42314be53d2ab4d161001c3496f217dc911b9d178be755a1c2ad43fa37bb7c"
+    },
+    {
+      "bytes": 27746,
+      "path": "src/dragonhydra/jobs.py",
+      "sha256": "29674b298b16e7753357685dd45f8b1da2b6ee784e32c0c78515990ded3cd716"
+    },
+    {
+      "bytes": 16886,
+      "path": "src/dragonhydra/local_ai.py",
+      "sha256": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6"
+    },
+    {
+      "bytes": 13826,
+      "path": "src/dragonhydra/local_ai_context.py",
+      "sha256": "bfd544221bb972e2752c3d84a303d6c9aa55c9d9d07f15e2275a6cd1fb447aec"
+    },
+    {
+      "bytes": 2633,
+      "path": "src/dragonhydra/local_ai_service.py",
+      "sha256": "e16c1603e0eb390519d61891d703304b2f6069af9aa2f4ee9b4908c6cfa57160"
+    },
+    {
+      "bytes": 6272,
+      "path": "src/dragonhydra/local_ai_settings.py",
+      "sha256": "529df95153f1145b755029e5f0975d011748faba51ad08ae54b92d15065ab2a6"
+    },
+    {
+      "bytes": 35203,
+      "path": "src/dragonhydra/mariadb_migration.py",
+      "sha256": "6e87a6b3c63832a73ebac9180bf8877bd62d91d9ef56a5566a81e88f6e5e5103"
+    },
+    {
+      "bytes": 22385,
+      "path": "src/dragonhydra/market_signals.py",
+      "sha256": "6cc6919afdee7f6fd170d5111917d4bbdd1d6d201e86be6df25b705f93120a43"
+    },
+    {
+      "bytes": 21158,
+      "path": "src/dragonhydra/market_store.py",
+      "sha256": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc"
+    },
+    {
+      "bytes": 22880,
+      "path": "src/dragonhydra/migration.py",
+      "sha256": "dea25a7f1492de3a0a808397713ba469e0970b23e4d53d89f9001e45b55696ca"
+    },
+    {
+      "bytes": 1309,
+      "path": "src/dragonhydra/packaging_entry.py",
+      "sha256": "fe12ca5e18f1dd210a3b98038f83860eff1d56f5285607225a2b2bf30f7c638c"
+    },
+    {
+      "bytes": 16137,
+      "path": "src/dragonhydra/product.py",
+      "sha256": "c53729474cc393b3bf62cbca901149f2ac8dee9584680a3687fe001a022d2a29"
+    },
+    {
+      "bytes": 18515,
+      "path": "src/dragonhydra/public_results.py",
+      "sha256": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f"
+    },
+    {
+      "bytes": 30883,
+      "path": "src/dragonhydra/research.py",
+      "sha256": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df"
+    },
+    {
+      "bytes": 203438,
+      "path": "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv",
+      "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62"
+    },
+    {
+      "bytes": 709,
+      "path": "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv.receipt.json",
+      "sha256": "de1c12c2241fd7a35bfb56994a254997539216f67ada57b5de05918e232dcb91"
+    },
+    {
+      "bytes": 108493,
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json",
+      "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1"
+    },
+    {
+      "bytes": 535,
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json.receipt.json",
+      "sha256": "ba3c81539f9e6068bb904d96f75b88051e6b6b2c309bab690f6053ffad040908"
+    },
+    {
+      "bytes": 55359,
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json",
+      "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2"
+    },
+    {
+      "bytes": 534,
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json.receipt.json",
+      "sha256": "6ab7c2dad2f88a7118e8ef6c3b55713f997b09d3056123df6d38b07b69a3c30e"
+    },
+    {
+      "bytes": 958,
+      "path": "src/dragonhydra/resources/examples/synthetic-estimate.json",
+      "sha256": "b36ccb38585e92d39efb9a67e32428d3351d6bd21a8641abf00cd3a27ae2e2fe"
+    },
+    {
+      "bytes": 6424,
+      "path": "src/dragonhydra/resources/examples/synthetic-market.json",
+      "sha256": "50630cb2f1b98a8efdc0a571f13ec1f446267716845728e4a1cc186c5a24377e"
+    },
+    {
+      "bytes": 12994,
+      "path": "src/dragonhydra/resources/examples/synthetic-scores.json",
+      "sha256": "bee6f470d7bc1a3d195d47b3292dd3d30dd8e14badef733f041af41b6366b208"
+    },
+    {
+      "bytes": 3888,
+      "path": "src/dragonhydra/resources/examples/synthetic-totals.json",
+      "sha256": "68c30b103c2eedf23d054a5cefae4641b08a29eb15be661a7676b869e1619492"
+    },
+    {
+      "bytes": 1263,
+      "path": "src/dragonhydra/resources/NOTICE.md",
+      "sha256": "f46681177b756cc89360d02f2ee0a7355c193916f6a503d0e0732e668e39ca8b"
+    },
+    {
+      "bytes": 51520,
+      "path": "src/dragonhydra/resources/web/app.js",
+      "sha256": "02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053"
+    },
+    {
+      "bytes": 265,
+      "path": "src/dragonhydra/resources/web/favicon.svg",
+      "sha256": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39"
+    },
+    {
+      "bytes": 2443,
+      "path": "src/dragonhydra/resources/web/index.html",
+      "sha256": "5825650304f572d45d6c21f898e4239a585a57ffc631cca2644cf26b702d441c"
+    },
+    {
+      "bytes": 14548,
+      "path": "src/dragonhydra/resources/web/style.css",
+      "sha256": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba"
+    },
+    {
+      "bytes": 1076,
+      "path": "src/dragonhydra/samples.py",
+      "sha256": "c1b191233f125ebd5f94a369835ecdd8e118d185bf114f1bec40652358936fd0"
+    },
+    {
+      "bytes": 13659,
+      "path": "src/dragonhydra/scenario.py",
+      "sha256": "63118fe4d762212adcb00f37b85d9677b1e8352bafbdb226e0af5ae4759070ce"
+    },
+    {
+      "bytes": 3704,
+      "path": "src/dragonhydra/server.py",
+      "sha256": "855c3e28d98d2aa7bad554aff2aff1683d0cb3a4e03565533b0a2fc0e869105b"
+    },
+    {
+      "bytes": 16613,
+      "path": "src/dragonhydra/source_context.py",
+      "sha256": "03a1ac3a289451282bfd4c830fc4d7576d348ba81e91c43680d3f89c69b994b2"
+    },
+    {
+      "bytes": 6506,
+      "path": "src/dragonhydra/tipsaudit.py",
+      "sha256": "0d1a4080cb18f2b304dfc517e9665b711176e429efd58669aec7f2495151eae1"
+    },
+    {
+      "bytes": 7441,
+      "path": "src/dragonhydra/watch.py",
+      "sha256": "97f16f7ea5a97dda3d53b02177f51bebc16599f37c6fc0db10f8bda3de9c3b99"
+    }
+  ],
+  "kind": "scoped_working_tree_snapshot",
+  "schema_version": 1,
+  "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+  "source_sha": null
+}

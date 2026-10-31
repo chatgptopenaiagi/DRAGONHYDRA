@@ -5,6 +5,15 @@ immutable publication-time snapshots; see the later Git JSON and installed proof
 
 # Verified artifacts for preservation
 
+Current continuation, 2026-10-31: A6 is now installed and accepted on the isolated
+test workstation (2/4/4 phase groups and independent9). Its EXE bytes are unchanged.
+Linux A6 preparation also passed actual Ubuntu CLI/parser/contract checks. Its
+archive is303125bytes, SHA256`2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2`;
+wheel298310bytes, SHA256`021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09`.
+See [current Linux checkpoint](LINUX-A6-CHECKPOINT.md) and the installed summary
+under verified-reports/. The inventory below remains a historical preservation
+snapshot; its former "not installed"/A5-only statements apply to that checkpoint.
+
 This inventory selects eight existing release-asset candidates, each below the requested 2 GB ceiling. Only these deliverable files were hashed. No build, installation, WSL launch, service action, Git operation or upload was performed. [Public-safe JSON manifest](VERIFIED-ARTIFACTS.json) contains exact paths, sizes, hashes and per-artifact proof scopes.
 
 The candidates intentionally span different verified revisions. **A6 is built and archive-tested, unsigned and not installed.** A5 r2 has earlier installed/LocalService evidence. The current Linux preparation is A5 r2, while the standalone desktop/server, Joomla, Android and gateway assets remain frozen at `v0.4.0-alpha.1`.

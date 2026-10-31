@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "scope": "Linux A6 preparation: core CLI, retained native parser and pure sports-evidence-package/3 contract parity.",
+  "linux_source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+  "windows_a6_source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+  "product_files_exact": 61,
+  "common_snapshot_inputs_exact": 62,
+  "archive": {
+    "bytes": 303125,
+    "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+  },
+  "wheel": {
+    "bytes": 298310,
+    "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+  },
+  "observed_python_version": "3.14.4",
+  "core_cli_cases": 4,
+  "retained_parser": {
+    "event_rows": 4407,
+    "team_squad_entry_counts": [
+      24,
+      26
+    ],
+    "event_types": 29,
+    "count_groups": 181,
+    "page_offsets": [
+      0,
+      2200,
+      4400
+    ]
+  },
+  "package3_pure_contract": {
+    "bytes": 3167,
+    "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+    "request_sha256": "014602fe24118d588f5826607977e29110e493f713ef6d08e401a23de30510e5",
+    "prompt_sha256": "7e83bfec751b59ab0a133fffcf154fe135d034016e7c624ec84ca114b882fb8a",
+    "synthetic_selection_output_sha256": "04d514665b6312ec94d478aafaeda05f5643d77eb8a6b4099b09311a7425f065",
+    "selection_is_synthetic": true,
+    "citations": 3,
+    "input_id_count": 4
+  },
+  "guard_sha256": "56f9a4b087d3a218d982d0f0c100612a8ec5465982fa96ea4d98981db92c2aec",
+  "bound_report_sha256": {
+    "INTEGRITY-VERIFICATION.json": "dcf44686da1288f663b48d83c2710f59a4c4f03e1d011926f1cb027e00086c6b",
+    "RETAINED-PARSER-VERIFICATION.json": "dadff2c823b8cba54d24b4df751e623cbf86b80ad3481af423b34c54d2c8ab3e",
+    "PACKAGE3-CONTRACT-VERIFICATION.json": "781fef347ddcea4d030e9445dc572a501740e0f8f3a6114de9f5f0d2757534da"
+  },
+  "limits": [
+    "No database/receipt grounding, API/server/worker startup, model inference, service activation or VPS deployment was performed by these Linux supplemental checks.",
+    "Missing FastAPI/Uvicorn/OpenPyXL/tzdata describe the stock interpreter preflight only, not another separately configured Linux runtime.",
+    "F3 contract selection is synthetic; prior source Qwen/API acceptance selected F1/E1.",
+    "Archive/wheel hashes identify artifacts; artifact bytes and sports datasets are not part of this curated public proof."
+  ]
+}

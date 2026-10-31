@@ -14,6 +14,12 @@ checks and independent full-stack acceptance also passed. See current receipts.
 Do not repeat the installer or preflight into existing evidence directories.
 Preserve the running A6 test workstation and retained A5-r2 baseline artifacts, original C7 instances and all data.
 
+Linux A6 preparation is also complete in build/linux/prep-20261031-a6. Do not
+rerun its builder or supplementals: read docs/handover/LINUX-A6-CHECKPOINT.md
+and its publication receipt. CLI/parser/package-contract parity passed; Linux
+A6 server/model/grounding acceptance remains unfinished. Coordinate with the
+independent Linux R8 owner before touching any installed Linux environment.
+
 From PowerShell7:
 
 ```powershell

@@ -1,5 +1,12 @@
 # Linux A6 preparation contract
 
+COMPLETED 2026-10-31. The command below ran ONCE, exit0. Do not rerun it into
+the existing work directory. Actual Ubuntu Python3.14.4 passed four CLI cases,
+retained native parsing and pure package/3 contract parity. Final reports and
+exact helper snapshots are preserved under verified-reports/LINUX-A6-* and
+commands/linux-a6/. See LINUX-A6-CHECKPOINT.md for hashes and evidence limits.
+The earlier plan below is retained as the executed contract, not a pending step.
+
 2026-10-31. Installed A6 acceptance passed (2/4/4 phases plus independent audit).
 README/docs are being frozen for the next bundle. No Linux A6 build, WSL launch,
 installation or download has occurred for this unit. Preserve

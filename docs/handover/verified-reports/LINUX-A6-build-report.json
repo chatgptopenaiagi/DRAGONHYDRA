@@ -1,0 +1,107 @@
+{
+  "artifact": {
+    "bytes": 303125,
+    "path": "build\\linux\\prep-20261031-a6\\dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+    "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+  },
+  "backend_executable": "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\uv-build.EXE",
+  "build_command": [
+    "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "build",
+    "--wheel",
+    "--no-isolation",
+    "--outdir",
+    "C:\\xampp\\DRAGONHYDRA\\build\\linux\\prep-20261031-a6\\wheel",
+    "C:\\xampp\\DRAGONHYDRA\\build\\linux\\prep-20261031-a6\\source"
+  ],
+  "build_exit_code": 0,
+  "build_version": "1.4.0",
+  "downloads": false,
+  "finished_at": "2026-10-31T18:31:53.953975+00:00",
+  "installations": false,
+  "limitations": [
+    "No authorized VPS target is configured.",
+    "Android production publisher identity is not configured."
+  ],
+  "linux": {
+    "cli_score_cases": 4,
+    "command": [
+      "C:\\Windows\\System32\\wsl.exe",
+      "--distribution",
+      "Ubuntu-26.04",
+      "--cd",
+      "/mnt/c/xampp/DRAGONHYDRA",
+      "--exec",
+      "/usr/bin/python3",
+      "-I",
+      "-B",
+      "/mnt/c/xampp/DRAGONHYDRA/build/linux/prep-20261031-a6/linux-smoke.py"
+    ],
+    "exit_code": 0,
+    "module": "/mnt/c/xampp/DRAGONHYDRA/build/linux/prep-20261031-a6/linux-smoke/site-packages/dragonhydra/__init__.py",
+    "passed": true,
+    "preflight": {
+      "applied": false,
+      "bundle_integrity": true,
+      "downloads": false,
+      "runtime": {
+        "dependencies": {
+          "fastapi": {
+            "available": false,
+            "required_version": "0.162.0"
+          },
+          "openpyxl": {
+            "available": false,
+            "required_version": "3.1.5"
+          },
+          "tzdata": {
+            "available": false,
+            "required_version": "2026.2"
+          },
+          "uvicorn": {
+            "available": false,
+            "required_version": "0.42.0"
+          }
+        },
+        "platform": "Linux",
+        "python": "3.14.4",
+        "python_compatible": true,
+        "python_executable": "/usr/bin/python3",
+        "ready": false
+      },
+      "schema_version": 1,
+      "service_activated": false,
+      "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+      "status": "requires_configuration"
+    },
+    "preflight_exit_code": 2,
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "python_executable": "/usr/bin/python3",
+    "server_runtime_verified": false,
+    "service_activated": false,
+    "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804"
+  },
+  "passed": true,
+  "python": "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+  "schema_version": 1,
+  "service_activated": false,
+  "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+  "started_at": "2026-10-31T18:31:34.257287+00:00",
+  "status": "linux_core_verified_server_requires_dependencies",
+  "uv_build_version": "0.12.7",
+  "wheel": {
+    "build": {
+      "api_namespace": "/dragon/api/v1",
+      "build_kind": "linux-preparation-snapshot",
+      "python_version": "0.4.0a1",
+      "schema_version": 1,
+      "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+      "source_sha": null,
+      "version": "0.4.0-alpha.1"
+    },
+    "members": 75,
+    "tag": "py3-none-any"
+  }
+}

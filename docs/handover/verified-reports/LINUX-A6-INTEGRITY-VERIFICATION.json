@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-10-31T18:38:00.988254+00:00",
+  "scope": "Linux A6 preparation plus actual Ubuntu CLI, retained native parser and pure package/3 contract parity; no database grounding, API/server/model/backend proof.",
+  "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+  "windows_a6_source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+  "snapshot_files_verified": 71,
+  "common_windows_manifest_files_identical": 62,
+  "wheel_package_files_verified": 61,
+  "wheel_members": 75,
+  "archive_files_verified": 9,
+  "bundle_manifest_files_verified": 8,
+  "artifact": {
+    "bytes": 303125,
+    "path": "build\\linux\\prep-20261031-a6\\dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+    "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+  },
+  "wheel": {
+    "filename": "dragonhydra-0.4.0a1-py3-none-any.whl",
+    "bytes": 298310,
+    "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+  },
+  "builder_unchanged_sha256": "1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e",
+  "linux_python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "linux_cli_cases": 4,
+  "dependency_preflight_exit_code": 2,
+  "missing_stock_interpreter_server_dependencies": [
+    "fastapi",
+    "openpyxl",
+    "tzdata",
+    "uvicorn"
+  ],
+  "retained_parser": {
+    "passed": true,
+    "event_rows": 4407,
+    "squads": {
+      "France": 24,
+      "Argentina": 26
+    },
+    "types": 29,
+    "count_groups": 181,
+    "projection_sha256": "6a36c2bdb29ab890fae4e0e3b13764bdef9e60d36c8682029e72740f1ab59603",
+    "pages": [
+      {
+        "offset": 0,
+        "rows": 200,
+        "first_index": 1,
+        "last_index": 200
+      },
+      {
+        "offset": 2200,
+        "rows": 200,
+        "first_index": 2201,
+        "last_index": 2400
+      },
+      {
+        "offset": 4400,
+        "rows": 7,
+        "first_index": 4401,
+        "last_index": 4407
+      }
+    ]
+  },
+  "package3_contract": {
+    "passed": true,
+    "package_bytes": 3167,
+    "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+    "request_sha256": "014602fe24118d588f5826607977e29110e493f713ef6d08e401a23de30510e5",
+    "prompt_sha256": "7e83bfec751b59ab0a133fffcf154fe135d034016e7c624ec84ca114b882fb8a",
+    "synthetic_f3_output_sha256": "04d514665b6312ec94d478aafaeda05f5643d77eb8a6b4099b09311a7425f065",
+    "citations": 3,
+    "input_ids": 4,
+    "selection_is_synthetic": true
+  },
+  "sqlite_definitions_imported": true,
+  "database_operations": 0,
+  "grounding_verified": false,
+  "API_started": false,
+  "worker_started": false,
+  "model_inference": false,
+  "service_activation": false,
+  "dependency_installs": false,
+  "downloads": false,
+  "VPS_deployed": false,
+  "source_database_read_or_backup": false,
+  "existing_R8_api_model_profile_touched": false,
+  "old_windows_full_scan_repeated": false,
+  "historical_linux_archives_preserved": {
+    "build/linux/prep-20261031-r2/dragonhydra-linux-dev-9f3d6e5ab108.tar.gz": "bda24964246f0cbc59ca096cd08558fcee77597d93980931dc8ee76c6f00fc7d",
+    "build/linux/prep-20261031-a5/dragonhydra-linux-dev-ac7e694e9e38.tar.gz": "be226f95e1e7c689e8c6fd60d646c77273bfeedd43550104215773d49536e115",
+    "build/linux/prep-20261031-a5-r2/dragonhydra-linux-dev-09822a188bd1.tar.gz": "dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562",
+    "build/linux/prep-20261031-a4/dragonhydra-linux-dev-dd3ab62ded51.tar.gz": "90d2a92de39ebc82c18f59e12b80dbf477cd217c5348917dd314bfb4a2d8f812"
+  },
+  "input_and_evidence_hashes": {
+    "SOURCE-MANIFEST.json": "c9194b477f1caa9d67c7f0fe3b439ac288053c7bb5ef3c0b11a01fb2dc961f18",
+    "build-report.json": "bf4dadd6bd8d5b4d98f99eb6ff5716d1db1e309644b8622912c6ee184dc31ce6",
+    "RETAINED-PARSER-VERIFICATION.json": "dadff2c823b8cba54d24b4df751e623cbf86b80ad3481af423b34c54d2c8ab3e",
+    "PACKAGE3-CONTRACT-VERIFICATION.json": "781fef347ddcea4d030e9445dc572a501740e0f8f3a6114de9f5f0d2757534da",
+    "wheel_guard.py": "56f9a4b087d3a218d982d0f0c100612a8ec5465982fa96ea4d98981db92c2aec",
+    "retained-parser-smoke.py": "c6e5876d2fa5e031eb78def11efeb057096bbee9a25fc1f1ba6fd3af347756d0",
+    "retained-package-contract-smoke.py": "903b74e6402ae9903211280e397dbf124f9e7ca86b22d74f5e19fef4159f573f"
+  },
+  "limits": [
+    "Missing dependencies describe the stock /usr/bin/python3 preflight, not the separate R8 owner vendored runtime.",
+    "The real prior Qwen/API-worker selection was source-only F1/E1; F3 here is a synthetic local contract call without inference.",
+    "No WSL service/process/configuration health or mutation probe was performed. Existing R8 ownership remains separate."
+  ]
+}

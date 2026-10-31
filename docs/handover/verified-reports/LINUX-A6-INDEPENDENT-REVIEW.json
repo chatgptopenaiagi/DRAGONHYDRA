@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "reviewed_at": "2026-10-31T18:41:00.397171+00:00",
+  "mode": "independent metadata/AST/ZIP-byte review only; no reviewed helper executed",
+  "bound_terminal_files": {
+    "INTEGRITY-VERIFICATION.json": "dcf44686da1288f663b48d83c2710f59a4c4f03e1d011926f1cb027e00086c6b",
+    "RETAINED-PARSER-VERIFICATION.json": "dadff2c823b8cba54d24b4df751e623cbf86b80ad3481af423b34c54d2c8ab3e",
+    "PACKAGE3-CONTRACT-VERIFICATION.json": "781fef347ddcea4d030e9445dc572a501740e0f8f3a6114de9f5f0d2757534da",
+    "build-report.json": "bf4dadd6bd8d5b4d98f99eb6ff5716d1db1e309644b8622912c6ee184dc31ce6",
+    "SOURCE-MANIFEST.json": "c9194b477f1caa9d67c7f0fe3b439ac288053c7bb5ef3c0b11a01fb2dc961f18",
+    "wheel_guard.py": "56f9a4b087d3a218d982d0f0c100612a8ec5465982fa96ea4d98981db92c2aec",
+    "retained-parser-smoke.py": "c6e5876d2fa5e031eb78def11efeb057096bbee9a25fc1f1ba6fd3af347756d0",
+    "retained-package-contract-smoke.py": "903b74e6402ae9903211280e397dbf124f9e7ca86b22d74f5e19fef4159f573f"
+  },
+  "windows_manifest_sha256": "110699237a7135eade0906145d7a5e0110300e14165fd7f5de9c955f545df6de",
+  "common_windows_inputs_exact": 62,
+  "windows_product_files_exact_in_wheel": 61,
+  "wheel_members": 75,
+  "tar_members": 9,
+  "final_guard_history_preserved": true,
+  "scope_assessment": "Reports substantiate actual stock-Ubuntu core/parser and pure package/3 contract checks only. F3 is synthetic selection, not model inference or database grounding.",
+  "no_new_execution": {
+    "build": true,
+    "parser": true,
+    "model": true,
+    "network": true,
+    "database": true,
+    "WSL": true,
+    "service": true
+  },
+  "public_proof_suggestion": "Publish only public-proof-candidate.json after root review. Exclude raw receipts, commands/logs, input manifests/acquisition IDs, parent/projection JSON, sports payloads, DB/state/auth/configuration, native R8 scripts/state, archives and wheel bytes from the curated proof set."
+}

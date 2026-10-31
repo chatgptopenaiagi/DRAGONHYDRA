@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "verified_at": "2026-10-31T18:34:42.326696+00:00",
+  "source_checkpoint": "138cf476de31692687239e356c2391b01dfe13cf",
+  "release": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
+  "asset": {
+    "name": "A6-INSTALLED-ACCEPTANCE-20261031.json",
+    "bytes": 6571,
+    "sha256": "4d752f5deed2c8289323b18569b5075c0ae13caaaf2271481b1a8c7f1544bcc9",
+    "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/A6-INSTALLED-ACCEPTANCE-20261031.json"
+  },
+  "old_assets_replaced": false,
+  "scope": "Later installed-A6 acceptance summary; historical preservation assets remain immutable."
+}

@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "checkpoint_date": "2026-10-31",
-  "reason": "User weekly budget preservation; no new engineering or service actions",
+  "reason": "Continuity checkpoint after installed A6 acceptance and Linux A6 preparation; private/live state retained locally",
   "workspace": "C:/xampp/DRAGONHYDRA",
   "git_observed_read_only": {
     "branch": "genesis3-android-alpha",
     "head": "7e04b4ca355cee0bc322b579146be348644c444c",
-    "note": "Root publication may advance HEAD after this checkpoint; no Git mutations by handover writer"
+    "note": "Historical initial discovery only; current branch/publication appears in continuity_publication"
   },
   "application_authority": "SQLite",
   "architecture": {
@@ -41,10 +41,11 @@
       "away": 3
     },
     "model_configuration": "blank",
-    "fresh_health_checked_by_handover_writer": true,
+    "fresh_health_checked_by_handover_writer": false,
     "concurrent_activity": "Four later explanation/export jobs and 16 events have origin unproven; preserve them",
     "scm_pid_last_verified": 43476,
-    "kernel_pid_last_verified": 32276
+    "kernel_pid_last_verified": 32276,
+    "health_evidence": "Independent installed acceptance: nine groups and exact owned listeners/Joomla HTTP200; recheck before mutations"
   },
   "a6": {
     "built": true,
@@ -123,15 +124,10 @@
     }
   },
   "next_action": {
-    "phase": "prepared_read_only_preflight_only",
-    "command_file": "build/workstation/evidence/provider-a6-helper-review/preflight-command.ps1",
-    "command_executed": false,
-    "helper": "tests/installation/context_ai_workstation.py",
-    "helper_sha256": "ddede711aef497282610cc7109f6190c57569e47076a8471b773b4da4b17c9fa",
-    "guard_tests_sha256": "c2ebfd91ef0c8ace5e132781be8f43b323f436a4a6dc99e0f6a5880d50866617",
-    "independent_static_review": "passed",
-    "repair_requires": "Passed reviewed preflight receipt plus exact SHA, separate --phase repair --apply and fresh output",
-    "readchecks_requires": "Passed reviewed repair receipt plus exact SHA, separate --phase readchecks --apply; only one UI fallback job and same-key replay"
+    "phase": "linux_a6_preparation_complete_review_next_objective",
+    "repeat_completed_phases": false,
+    "command": "Get-Content -LiteralPath 'docs/handover/NEXT-OBJECTIVES.md'",
+    "requires": "Review current ownership and existing capabilities before designing the next bounded increment; no live R8 actions in this preparation scope"
   },
   "actual_qwen_source_probe": {
     "receipt": "build/connections/sports-package-3-20261031/qwen-api-r1/report.json",
@@ -165,8 +161,8 @@
   },
   "pending_linux": {
     "contract": "docs/handover/NEXT-LINUX-A6.md",
-    "a6_built": false,
-    "requires_first": "Installed A6 acceptance and docs freeze",
+    "a6_built": true,
+    "requires_first": "CLI/parser/contract preparation complete; server integration still requires an explicit owned contract",
     "fresh_work": "build/linux/prep-20261031-a6",
     "server_dependencies_last_observed_missing": [
       "fastapi",
@@ -174,7 +170,7 @@
       "openpyxl",
       "tzdata"
     ],
-    "claim_limit": "Wheel CLI/parser/synthetic package contract only; no backend/API/model/VPS proof"
+    "claim_limit": "Actual Ubuntu CLI/parser/SYNTHETIC package contract only; no Linux A6 backend/API/grounding/model/VPS proof"
   },
   "blockers": [
     "Publisher Android keystore and expected certificate missing",
@@ -205,14 +201,114 @@
     "source_checkpoint_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
     "source_push_verified": true,
     "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
-    "asset_upload_verification": "PASSED:11 payloads, GitHub server SHA256/size matched",
+    "asset_upload_verification": "Original payloads and concurrent supplements verified by GitHub server SHA256/size; later installed summary verified separately",
     "private_state": "Retained locally; never staged/uploaded",
     "independent_changes": "Bridge handoff, separate legacy source repository and unrelated generated reports left untouched",
     "verification_receipt": "docs/handover/PUBLICATION-VERIFICATION.json",
     "concurrent_packaging_supplement": "docs/handover/CONCURRENT-LINUX-PUBLICATION-VERIFICATION.json",
-    "verified_distributable_and_recovery_payloads": 14
+    "verified_distributable_and_recovery_payloads": 14,
+    "latest_installed_checkpoint_commit": "138cf476de31692687239e356c2391b01dfe13cf",
+    "installed_summary_publication_receipt": "docs/handover/verified-reports/A6-INSTALLED-PUBLICATION-VERIFICATION-20261031.json",
+    "preservation_release_asset_count_after_installed_summary": 22
   },
-  "next_safe_command": ".\\runtime\\server-env\\Scripts\\python.exe -B scripts\\build_linux_bundle.py --work build\\linux\\prep-20261031-a6 --verify-wsl",
-  "next_safe_command_preconditions": "Review NEXT-LINUX-A6.md, verify builder SHA and fresh output; no repeats of installed A6 phases.",
-  "continuation_status": "Installed A6 and independent acceptance complete; local sidecars refreshed with history. Commit/push owned metadata, then fresh Linux A6 preparation following current capability/ownership checks."
+  "next_safe_command": "Get-Content -LiteralPath 'docs/handover/NEXT-OBJECTIVES.md'",
+  "next_safe_command_preconditions": "Completed A6 phases and Linux preparation must not be repeated; preserve independently owned Linux-native source, tests and live R8 profile",
+  "continuation_status": "Installed A6 acceptance pushed138cf476; Linux A6 preparation completed once, final parser/contract guards and hashes agree; checkpoint/publication metadata follows",
+  "linux_a6_preparation": {
+    "status": "passed_cli_parser_contract_server_unverified",
+    "work": "build/linux/prep-20261031-a6",
+    "original_builder_runs": 1,
+    "builder_exit_code": 0,
+    "builder_sha256": "1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e",
+    "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+    "source_inputs": 71,
+    "product_files": 61,
+    "common_windows_a6_inputs_identical": 62,
+    "wheel_members": 75,
+    "archive": {
+      "bytes": 303125,
+      "path": "build\\linux\\prep-20261031-a6\\dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+    },
+    "wheel": {
+      "filename": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+    },
+    "linux_python": "3.14.4",
+    "cli_cases": 4,
+    "retained_parser": {
+      "passed": true,
+      "event_rows": 4407,
+      "squads": {
+        "France": 24,
+        "Argentina": 26
+      },
+      "types": 29,
+      "count_groups": 181,
+      "projection_sha256": "6a36c2bdb29ab890fae4e0e3b13764bdef9e60d36c8682029e72740f1ab59603",
+      "pages": [
+        {
+          "offset": 0,
+          "rows": 200,
+          "first_index": 1,
+          "last_index": 200
+        },
+        {
+          "offset": 2200,
+          "rows": 200,
+          "first_index": 2201,
+          "last_index": 2400
+        },
+        {
+          "offset": 4400,
+          "rows": 7,
+          "first_index": 4401,
+          "last_index": 4407
+        }
+      ]
+    },
+    "package3_contract": {
+      "passed": true,
+      "package_bytes": 3167,
+      "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+      "request_sha256": "014602fe24118d588f5826607977e29110e493f713ef6d08e401a23de30510e5",
+      "prompt_sha256": "7e83bfec751b59ab0a133fffcf154fe135d034016e7c624ec84ca114b882fb8a",
+      "synthetic_f3_output_sha256": "04d514665b6312ec94d478aafaeda05f5643d77eb8a6b4099b09311a7425f065",
+      "citations": 3,
+      "input_ids": 4,
+      "selection_is_synthetic": true
+    },
+    "stock_server_preflight_exit_code": 2,
+    "stock_missing_dependencies": [
+      "fastapi",
+      "openpyxl",
+      "tzdata",
+      "uvicorn"
+    ],
+    "receipt": "docs/handover/verified-reports/LINUX-A6-INTEGRITY-VERIFICATION.json",
+    "receipt_sha256": "dcf44686da1288f663b48d83c2710f59a4c4f03e1d011926f1cb027e00086c6b",
+    "database_operations": 0,
+    "no_installation_or_service_actions": true,
+    "server_runtime_verified": false,
+    "model_inference": false,
+    "never_repeat_existing_build_output": true,
+    "independent_review": {
+      "passed": true,
+      "mode": "Read-only metadata/AST/ZIP comparison; no helper rerun",
+      "path": "docs/handover/verified-reports/LINUX-A6-INDEPENDENT-REVIEW.json",
+      "sha256": "637e54a0d5e0cd10105827f39c791e0b191a1e5d263206a9a02ab6d2ae7b7316"
+    }
+  },
+  "historical_prepared_a6_action": {
+    "phase": "prepared_read_only_preflight_only",
+    "command_file": "build/workstation/evidence/provider-a6-helper-review/preflight-command.ps1",
+    "command_executed": false,
+    "helper": "tests/installation/context_ai_workstation.py",
+    "helper_sha256": "ddede711aef497282610cc7109f6190c57569e47076a8471b773b4da4b17c9fa",
+    "guard_tests_sha256": "c2ebfd91ef0c8ace5e132781be8f43b323f436a4a6dc99e0f6a5880d50866617",
+    "independent_static_review": "passed",
+    "repair_requires": "Passed reviewed preflight receipt plus exact SHA, separate --phase repair --apply and fresh output",
+    "readchecks_requires": "Passed reviewed repair receipt plus exact SHA, separate --phase readchecks --apply; only one UI fallback job and same-key replay"
+  }
 }
