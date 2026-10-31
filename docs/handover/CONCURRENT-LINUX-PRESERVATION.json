@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "inventory_completed": true,
+  "observed_at": "2026-10-31T17:56:41.114310+00:00",
+  "purpose": "Preserve concurrently produced Linux deliverables using existing metadata only; no new runtime/install/model/service verification claimed.",
+  "coordination_file_left_untouched": true,
+  "metadata_sources": {
+    "dist/linux/native-kernel-20261031/CURRENT.json": {
+      "sha256": "16268445c606ece7bae22f59d87c0dd4d5fc04f3d3fde1c0b9376c8d58bf6980",
+      "bytes": 608,
+      "last_write_utc": "2026-10-31T17:19:29.287717+00:00"
+    },
+    "dist/linux/CURRENT-LOCAL-AI-SETUP.json": {
+      "sha256": "64de252eacb425505c14b5a04566bc8173a8a54a511dea872ebc100408c83f15",
+      "bytes": 756,
+      "last_write_utc": "2026-10-31T17:24:32.437069+00:00"
+    },
+    "build/connections/PACKAGING-STATUS.json": {
+      "sha256": "04d18ac844132347b1adb796c4c3e883f2fee4b4b48ebb32facfc67803513089",
+      "bytes": 11932,
+      "last_write_utc": "2026-10-31T17:32:40.273514+00:00"
+    },
+    "docs/handover/PACKAGING-COORDINATION.md": {
+      "sha256": "54dff12d2987eae67b352cfdc1f9d4571e5363f60b764640019c15ded34049b9",
+      "bytes": 35891,
+      "last_write_utc": "2026-10-31T17:39:05.603312+00:00"
+    },
+    "dist/linux/native-kernel-20261031/r8/ARTIFACT-MANIFEST.json": {
+      "sha256": "30629cfe8ffba92af5895dee7a814b438fbc957a183e0cf299d4110de4b05ac3",
+      "bytes": 4014,
+      "last_write_utc": "2026-10-31T17:09:29.493476+00:00"
+    },
+    "dist/linux/local-ai-20261031/ARTIFACT-MANIFEST.json": {
+      "sha256": "7fa4804d213009732ac8a35a3f38eb0d11b049a0ea77f19a595db399b4544ab0",
+      "bytes": 2480,
+      "last_write_utc": "2026-10-31T15:55:42.858388+00:00"
+    },
+    "dist/linux/local-ai-setup-20261031/ASSET-MANIFEST.json": {
+      "sha256": "1dba967c01f7b861ec3147b56bd9460a7412651cceff377e5c4dee3c19075cd2",
+      "bytes": 901,
+      "last_write_utc": "2026-10-31T17:16:14.460072+00:00"
+    },
+    "build/connections/evidence/final-linux-r8-public-audit.json": {
+      "sha256": "6b7a4ab0f243ab80e74fffadacd44e6662f72caf68645303a3733c716473dd77",
+      "bytes": 10908,
+      "last_write_utc": "2026-10-31T17:18:08.589921+00:00"
+    },
+    "build/connections/evidence/native-ai-package-audit.json": {
+      "sha256": "5c5a4ba9d1521d17121ef33f412b6e496c5bc9973ceeadb98e88e6a40b261df5",
+      "bytes": 4374,
+      "last_write_utc": "2026-10-31T15:59:29.658017+00:00"
+    },
+    "build/connections/evidence/local-ai-setup-package-audit.json": {
+      "sha256": "7a98775cc5d223cd5235d944e587c97898e41170f0c353c8b6d0b5390c2e4d72",
+      "bytes": 6073,
+      "last_write_utc": "2026-10-31T17:22:41.833503+00:00"
+    }
+  },
+  "artifacts": [
+    {
+      "id": "linux-api-r8",
+      "path": "dist/linux/native-kernel-20261031/r8/dragonhydra-api_0.4.0~alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+      "bytes": 2939100,
+      "sha256": "d8b741ee36921a536a4624e4c351f8f790c89b75e9bd2bea6127a72b865dd675",
+      "version": "0.4.0~alpha.1+dev20261031.r8.ac7e694e9e38-1",
+      "role": "Native Linux API component",
+      "signing": "unsigned development package",
+      "source_scope": {
+        "frozen_windows_application_origin": "7251f7fdded28f4f2af354313c0232a6d36cb8121d0eea746a9b3922b466566a",
+        "application_files": 60,
+        "origin_embedded": false,
+        "base_source": "ac7e694e9e3849fb98e68878f76ac6a376f572497d071040a4da1157a41bf8f8",
+        "effective_source": "1116ee30e64527c61207b6e753b71f69e37082549f76cf5e33e923d513c81158",
+        "disclosed_transform": "linux-listener-reuse-v1; server.py only",
+        "a6_package3_included": false
+      },
+      "observed_proof_scope": "Prior owner reports one installed R7-to-R8 systemd upgrade, 12 installed groups/760 retained records, 9 extracted groups, 11 retained replay groups (2140 observations/five sources, no HTTP), four empty-context-reader groups (64 parents), and seven optional-model milestones. Existing final public audit has 21 passed checks.",
+      "limits": [
+        "API component only; no complete Linux desktop/Joomla/PHP/MariaDB workstation.",
+        "No R8 fresh provider HTTP, host-browser, reboot, clean-machine or R8 remove/reinstall claim.",
+        "No 4407-event context import or A6 package/3 claim."
+      ],
+      "public_reports": [
+        "dist/linux/native-kernel-20261031/r8/ARTIFACT-MANIFEST.json",
+        "dist/linux/native-kernel-20261031/r8/TEST-REPORT.json",
+        "dist/linux/native-kernel-20261031/r8/INSTALLATION.md",
+        "dist/linux/native-kernel-20261031/r8/SOURCE-MANIFEST.json",
+        "dist/linux/native-kernel-20261031/r8/EFFECTIVE-SOURCE-MANIFEST.json",
+        "dist/linux/native-kernel-20261031/r8/INPUT-MANIFEST.json",
+        "dist/linux/native-kernel-20261031/r8/WINDOWS-APPLICATION-ORIGIN-SOURCE-MANIFEST.json"
+      ],
+      "file_hash_checked_during_inventory": true,
+      "under_2gb": true
+    },
+    {
+      "id": "linux-optional-runtime",
+      "path": "dist/linux/local-ai-20261031/dragonhydra-local-ai-runtime_0.7.0~dev+git2280f0f.cpu1-1_amd64.deb",
+      "bytes": 5956236,
+      "sha256": "a2f5e3a1e2e52f180479c572c3c27e5efd5934488062e754edc1535e5f33fe5a",
+      "version": "0.7.0~dev+git2280f0f.cpu1-1",
+      "role": "Optional Linux CPU local-inference runtime component",
+      "signing": "unsigned development package",
+      "source_scope": {
+        "upstream_commit": "2280f0fd163b03d4331d49e08460f66502e35854",
+        "upstream_source_content_sha256": "2dddb35e55982efd0eca045817319dfc2e64db3967273402cf1788f97241d184",
+        "target": "Ubuntu26.04.1 x86_64/WSL2",
+        "cpu_features": [
+          "sse4_2",
+          "f16c",
+          "fma",
+          "bmi2",
+          "avx",
+          "avx2"
+        ],
+        "os_dependencies": [
+          "libc6>=2.43",
+          "libstdc++6>=15.2",
+          "libgcc-s1",
+          "libgomp1"
+        ]
+      },
+      "observed_proof_scope": "Prior package audit records install/version/help/private-loader checks, identical-reference offline inference and R7 API proof. Newer packaging status and final R8 audit separately report installed-prefix model integration; no rerun performed here.",
+      "historical_manifest_installed_prefix_model_inference_tested": false,
+      "newer_owner_status_installed_prefix_inference_claimed": true,
+      "limits": [
+        "Unsigned optional CPU runtime only; weights, API, desktop, web stack and GPU runtime omitted.",
+        "No service autostart, clean-machine or reboot claim.",
+        "Older manifest flags and newer application-level receipts remain distinct; no new model verification performed."
+      ],
+      "public_reports": [
+        "dist/linux/local-ai-20261031/ARTIFACT-MANIFEST.json",
+        "dist/linux/local-ai-20261031/TEST-REPORT.json",
+        "dist/linux/local-ai-20261031/INSTALLATION.md",
+        "dist/linux/local-ai-20261031/PAYLOAD-MANIFEST.json",
+        "dist/linux/local-ai-20261031/RUNTIME-LINKS.json"
+      ],
+      "file_hash_checked_during_inventory": true,
+      "under_2gb": true
+    },
+    {
+      "id": "linux-optional-setup",
+      "path": "dist/linux/local-ai-setup-20261031/DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+      "bytes": 14484,
+      "sha256": "7552d02c1c12993ad315ad333b7dfae5d50939845251644eee5656c7784049f7",
+      "version": "0.4.1-dev.1",
+      "role": "Standalone optional administrator helper; not an installer or model runtime",
+      "signing": "Unsigned source helper archive",
+      "source_scope": {
+        "controller_sha256": "b81fc2d0d48b84cb930fec42f5ff49745859c06850c1e249c2245b2f34b8b0c9",
+        "target": "Ubuntu26.04.1 x86_64 / OS Python3.14",
+        "source_commit": null,
+        "matching_api_revision": 8
+      },
+      "observed_proof_scope": "Existing owner records 37 controller tests, seven native R8 integration milestones, four final archive checks and 11 archive-audit checks. Archive contains source/support only.",
+      "limits": [
+        "Not a native installer or runtime/model distribution.",
+        "Separate exact API/runtime and pinned model required; credentials are created later by explicit administration, not bundled.",
+        "Generic Linux credential storage is protected local root0600 plaintext, not a Windows DPAPI vault."
+      ],
+      "public_reports": [
+        "dist/linux/local-ai-setup-20261031/ASSET-MANIFEST.json",
+        "dist/linux/local-ai-setup-20261031/TEST-REPORT.json",
+        "dist/linux/local-ai-setup-20261031/INSTALLATION.md"
+      ],
+      "file_hash_checked_during_inventory": true,
+      "under_2gb": true
+    }
+  ],
+  "candidate_total_bytes": 8909820,
+  "setup_zip_scan": {
+    "regular_member_allowlist_passed": true,
+    "CRC_passed": true,
+    "members": [
+      {
+        "path": "INSTALLATION.md",
+        "bytes": 5754,
+        "sha256": "b6d7a64c3ad59ff50bfdff40d103403b1d9d842ae640d49bbf8be6b97213ac64"
+      },
+      {
+        "path": "MODEL-PROFILE.json",
+        "bytes": 1102,
+        "sha256": "9514c3b1279821d7a9690c5a6fa7d74d401d1ade0628c515ac7c1fdc664875ff"
+      },
+      {
+        "path": "SOURCE-IDENTITY.json",
+        "bytes": 1001,
+        "sha256": "b2abf121d983336dd888c442cae28aa904cc54bee948bf01e369fe9d6a23670e"
+      },
+      {
+        "path": "configure_local_ai.py",
+        "bytes": 34226,
+        "sha256": "b81fc2d0d48b84cb930fec42f5ff49745859c06850c1e249c2245b2f34b8b0c9"
+      }
+    ],
+    "active_env_or_credential_files": 0,
+    "literal_credential_or_private_key_pattern_findings": 0,
+    "credential_values_output": false,
+    "scope": "ZIP entries and bounded text scan only; no current protected environment/key/configuration file read."
+  },
+  "safe_base_source_snapshot_reference": {
+    "path": "build/linux/prep-20261031-a5/dragonhydra-linux-dev-ac7e694e9e38.tar.gz",
+    "previously_recorded_sha256": "be226f95e1e7c689e8c6fd60d646c77273bfeedd43550104215773d49536e115",
+    "scope": "Existing frozen base preparation; effective native R8 adds its disclosed Linux transform. No new snapshot created."
+  },
+  "inherited_audit_counts": {
+    "api_public": 21,
+    "runtime_public": 17,
+    "setup_public": 11
+  },
+  "operations": {
+    "candidate_file_hashes_checked": 3,
+    "new_runtime_verification": false,
+    "wsl_launches": 0,
+    "model_inferences": 0,
+    "service_actions": 0,
+    "api_requests": 0,
+    "private_env_key_config_reads": 0,
+    "builds": 0,
+    "installs": 0,
+    "git_operations": 0,
+    "uploads": 0
+  },
+  "publication_note": "These three hash-matched unsigned development components are additional candidates for root publication. Preserve their distinct source/runtime scopes and all existing manifests. Overall full Linux workstation verification remains incomplete."
+}

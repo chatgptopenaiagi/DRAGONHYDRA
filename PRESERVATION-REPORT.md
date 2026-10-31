@@ -52,3 +52,20 @@ Metadata-only publication commits follow the source checkpoint on the same branc
 resolve their final HEAD with `git rev-parse HEAD` and compare `git ls-remote origin
 refs/heads/continuity/genesis-20261031-a6`. Release tag remains pinned to source
 checkpoint9d6a9ef82f6f646ab020da5fb25969584e617299; it was not moved.
+
+## Concurrent component supplement
+
+Three later-discovered Linux component assets were also preserved and matched
+GitHub server digests: R8 API DEB, local-AI runtime DEB and setup ZIP. They total
+8,909,820bytes and retain the independent owner's A5-derived verification scope;
+no new Linux runtime test was performed. There are now14 verified distributable/
+recovery payloads plus metadata supplements. See CONCURRENT-LINUX-PRESERVATION
+and CONCURRENT-LINUX-PUBLICATION-VERIFICATION under docs/handover. GitHub
+normalized tilde to period in two DEB filenames; exact bytes/internal versions
+are unchanged and the supplemental receipt records actual download URLs.
+
+The independently modified PACKAGING-COORDINATION.md was left untouched;
+a byte-exact observed copy and provenance note are committed under
+docs/handover/concurrent. It may remain modified by its active owner.
+Earlier release metadata assets are immutable snapshots. The final report asset
+is PRESERVATION-REPORT-FINAL-20261031.md; no earlier asset bytes were replaced.

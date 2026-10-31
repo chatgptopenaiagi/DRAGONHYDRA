@@ -45,3 +45,11 @@ contract/parser parity. Actual Qwen evidence remains the SOURCE F1 selection.
 The prior Linux server preflight lacked fastapi/uvicorn/openpyxl/tzdata. Record
 the newly observed result; do not install dependencies, activate systemd or
 deploy a VPS as part of this preparation check.
+
+Preservation-time concurrent observation: another packaging session subsequently
+reported an installed Linux R8 API component and native local-AI runtime/setup.
+See CONCURRENT-LINUX-PRESERVATION.md/json and the observed coordination copy.
+These are separate A5-derived component proofs, not Linux A6 acceptance. Recheck
+and reuse their existing capabilities before adding dependencies, and coordinate
+ownership before touching their live API/model/profile. This preservation session
+did not start WSL, inspect private Linux environment files or change those services.

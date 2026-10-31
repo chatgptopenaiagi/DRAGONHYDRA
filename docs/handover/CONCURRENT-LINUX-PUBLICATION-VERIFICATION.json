@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "verified_at": "2026-10-31T18:02:33.100677+00:00",
+  "scope": "Concurrent owner component artifacts preserved; no new runtime or service action",
+  "payloads": 3,
+  "metadata": 1,
+  "assets": [
+    {
+      "original_filename": "dragonhydra-api_0.4.0~alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+      "github_filename": "dragonhydra-api_0.4.0.alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+      "path": "C:\\xampp\\DRAGONHYDRA\\dist\\linux\\native-kernel-20261031\\r8\\dragonhydra-api_0.4.0~alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+      "bytes": 2939100,
+      "sha256": "d8b741ee36921a536a4624e4c351f8f790c89b75e9bd2bea6127a72b865dd675",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/dragonhydra-api_0.4.0.alpha.1%2Bdev20261031.r8.ac7e694e9e38-1_amd64.deb"
+    },
+    {
+      "original_filename": "dragonhydra-local-ai-runtime_0.7.0~dev+git2280f0f.cpu1-1_amd64.deb",
+      "github_filename": "dragonhydra-local-ai-runtime_0.7.0.dev+git2280f0f.cpu1-1_amd64.deb",
+      "path": "C:\\xampp\\DRAGONHYDRA\\dist\\linux\\local-ai-20261031\\dragonhydra-local-ai-runtime_0.7.0~dev+git2280f0f.cpu1-1_amd64.deb",
+      "bytes": 5956236,
+      "sha256": "a2f5e3a1e2e52f180479c572c3c27e5efd5934488062e754edc1535e5f33fe5a",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/dragonhydra-local-ai-runtime_0.7.0.dev%2Bgit2280f0f.cpu1-1_amd64.deb"
+    },
+    {
+      "original_filename": "DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+      "github_filename": "DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+      "path": "C:\\xampp\\DRAGONHYDRA\\dist\\linux\\local-ai-setup-20261031\\DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+      "bytes": 14484,
+      "sha256": "7552d02c1c12993ad315ad333b7dfae5d50939845251644eee5656c7784049f7",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip"
+    },
+    {
+      "original_filename": "CONCURRENT-LINUX-PRESERVATION.json",
+      "github_filename": "CONCURRENT-LINUX-PRESERVATION.json",
+      "path": "C:\\xampp\\DRAGONHYDRA\\docs\\handover\\CONCURRENT-LINUX-PRESERVATION.json",
+      "bytes": 10883,
+      "sha256": "97a3a103421b5d48d772e5c1a85b30259929220307ca38b985978d35a3959384",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/CONCURRENT-LINUX-PRESERVATION.json"
+    }
+  ],
+  "filename_note": "GitHub normalized tilde to period in two DEB asset names; bytes and internal package versions are unchanged. Use the actual URLs recorded here.",
+  "no_existing_asset_overwrite": true
+}

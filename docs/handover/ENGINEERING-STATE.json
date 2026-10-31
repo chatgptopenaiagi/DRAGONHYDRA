@@ -154,7 +154,9 @@
     "asset_upload_verification": "PASSED:11 payloads, GitHub server SHA256/size matched",
     "private_state": "Retained locally; never staged/uploaded",
     "independent_changes": "Bridge handoff, separate legacy source repository and unrelated generated reports left untouched",
-    "verification_receipt": "docs/handover/PUBLICATION-VERIFICATION.json"
+    "verification_receipt": "docs/handover/PUBLICATION-VERIFICATION.json",
+    "concurrent_packaging_supplement": "docs/handover/CONCURRENT-LINUX-PUBLICATION-VERIFICATION.json",
+    "verified_distributable_and_recovery_payloads": 14
   },
   "next_safe_command": "& 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' -NoProfile -File 'C:\\xampp\\DRAGONHYDRA\\docs\\handover\\commands\\preflight-a6.ps1'",
   "next_safe_command_preconditions": "First read RESUME-CODEX.md, verify environment/artifacts/service ownership; preflight was NOT run in this session."
