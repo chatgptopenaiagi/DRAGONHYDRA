@@ -33,3 +33,17 @@ Keep these historical references unchanged:
 - [Frozen v0.4.0-alpha.1 manifest](../../dist/releases/v0.4.0-alpha.1/assets/ARTIFACT-MANIFEST.json) and [earlier engineering handover manifest](RELEASE-MANIFEST.json).
 
 The A5 r2 wheel has the same valid wheel filename as the older frozen-release wheel but a different hash. Preserve the existing tag/asset; use a separately chosen release rather than replacing its historical file. Only upload explicitly selected artifacts. Live state, private databases, configuration/vault files, tokens, keys, unreviewed logs and model weights are outside this inventory. No publication is claimed here.
+
+## Published preservation additions
+
+GitHub prerelease: https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6
+All11 payloads have server-side SHA256/size verification. The following preserve
+the known-working baseline and exact source/evidence; no new runtime test is implied.
+
+- `DRAGONHYDRA-A6-Recovery-20261031.zip` — 988209bytes; SHA256`a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d`; local`C:\xampp\DRAGONHYDRA\build\preservation\genesis-20261031\DRAGONHYDRA-A6-Recovery-20261031.zip`; https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-A6-Recovery-20261031.zip
+- `DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe` — 64341255bytes; SHA256`b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544`; local`C:\xampp\DRAGONHYDRA\build\preservation\genesis-20261031\DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe`; https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe
+- `DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip` — 344750bytes; SHA256`a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6`; local`C:\xampp\DRAGONHYDRA\build\preservation\genesis-20261031\DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip`; https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip
+
+The renamed A5-r2 installer retains exact verified installed bytes; its source ZIP
+contains67 immutable build inputs. A6 recovery contains68 source inputs and safe
+reports. Archives contain no private runtime configuration, credentials or live DB.

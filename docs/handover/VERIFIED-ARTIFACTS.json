@@ -262,5 +262,36 @@
   ],
   "workspace": "C:/xampp/DRAGONHYDRA",
   "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
-  "source_checkpoint_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299"
+  "source_checkpoint_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+  "release_assets_verified": true,
+  "publication_verification": "docs/handover/PUBLICATION-VERIFICATION.json",
+  "preservation_assets": [
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\preservation\\genesis-20261031\\DRAGONHYDRA-A6-Recovery-20261031.zip",
+      "name": "DRAGONHYDRA-A6-Recovery-20261031.zip",
+      "bytes": 988209,
+      "sha256": "a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-A6-Recovery-20261031.zip",
+      "server_digest": "sha256:a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d",
+      "verified": true
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\preservation\\genesis-20261031\\DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe",
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe",
+      "bytes": 64341255,
+      "sha256": "b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe",
+      "server_digest": "sha256:b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+      "verified": true
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\preservation\\genesis-20261031\\DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip",
+      "name": "DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip",
+      "bytes": 344750,
+      "sha256": "a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip",
+      "server_digest": "sha256:a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
+      "verified": true
+    }
+  ]
 }

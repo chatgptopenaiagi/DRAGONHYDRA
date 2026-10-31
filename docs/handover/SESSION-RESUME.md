@@ -68,3 +68,13 @@ Before engineering, consult `C:\Users\LOVE\.codex\machine-capabilities\SOFTWARE-
 Previously observed endpoints were source `http://127.0.0.1:56864`, frozen-A2 `http://127.0.0.1:58141`, C7 `http://127.0.0.1:18744`, and A2 installed `http://127.0.0.1:18746`. These are historical bindings, not fresh health checks. Re-read public endpoint metadata and verify PID, executable, creation time and ownership before any authorized action. Never kill by port or assume an old PID is current.
 
 Never print full `workstation.json`, pairing tokens, vault bodies or passwords. Use only the owner-readable **client** pairing metadata; kernel token/vault ACLs belong to LocalService/SYSTEM. No ownership/ACL takeover, credential rotation, model settings edit, ordinary provider resync, new context acquisition or additional restart belongs to the next readchecks phase.
+
+## Publication checkpoint
+
+Source9d6a9ef82f6f646ab020da5fb25969584e617299 is pushed on
+`continuity/genesis-20261031-a6`. Final metadata follows on that branch.
+Read PRESERVATION-REPORT.md and PUBLICATION-VERIFICATION.json. All11 release
+payloads were verified by GitHub server digests. A6 is still NOT installed.
+The committed safe preflight command copy is `docs/handover/commands/preflight-a6.ps1`
+and matches the originally prepared build/evidence script; it has NOT run.
+Do not execute it until the resume/environment/artifact/ownership checks pass.

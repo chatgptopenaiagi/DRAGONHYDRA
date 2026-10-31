@@ -11,7 +11,7 @@ Original branch genesis3-android-alpha and base commit
   execution occurred. Existing live services were not changed.
 - **GIT COMMITTED:** source checkpoint `9d6a9ef82f6f646ab020da5fb25969584e617299`; 435 changed source/handoff files committed, all 68 A6 build inputs byte-exact.
 - **GITHUB PUSHED:** source checkpoint remotely verified on `continuity/genesis-20261031-a6`.
-- **RELEASE UPLOADED:** new prerelease created; payload uploads/verification in progress. Release: https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6.
+- **RELEASE UPLOADED:** CONFIRMED:11 payloads uploaded; GitHub server SHA-256 and size match every local file. Release: https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6.
 - **NOT COMPLETED:** installed-A6 acceptance, Linux-A6 build, application MariaDB
   backend cutover, VPS deployment and publisher-signed Android. See
   docs/handover/NEXT-OBJECTIVES.md for exact blockers and next command.
@@ -37,3 +37,18 @@ Recovery archive: `build/preservation/genesis-20261031/DRAGONHYDRA-A6-Recovery-2
 Service-only observation during preservation: all three named services were Running;
 A2Test SCM PID39772, original C7 test SCM PID27080, default SCM PID37092.
 No service controls or project API/preflight commands were executed.
+
+Remote verification receipt: `docs/handover/PUBLICATION-VERIFICATION.json`.
+The new release preserves both A6 candidate and installed A5-r2 baseline under
+distinct filenames, both source snapshots, Linux preparation/wheel, historical
+Joomla/Android development/server/desktop/gateway deliverables.
+
+Intentionally uncommitted independent files remain untouched: the nested `source/`
+Git repository, bridge handoff, GENESIS-GIT-RECOVERY.txt and two generated
+deployment REPORT.md files. Private/generated paths remain local and ignored.
+
+Offline source bundle: 1715422bytes, SHA256`7d0c3a7abea5ef3d29816d7f0c10ce19ca7e8fc54d82bf16d0afe6021b356f99`.
+Metadata-only publication commits follow the source checkpoint on the same branch;
+resolve their final HEAD with `git rev-parse HEAD` and compare `git ls-remote origin
+refs/heads/continuity/genesis-20261031-a6`. Release tag remains pinned to source
+checkpoint9d6a9ef82f6f646ab020da5fb25969584e617299; it was not moved.
