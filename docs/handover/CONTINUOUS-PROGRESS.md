@@ -1,5 +1,14 @@
 # DRAGONHYDRA continuous checkpoint
 
+PRESERVATION OVERRIDE 2026-10-31: user weekly allowance6%; engineering stopped.
+Read RESUME-CODEX.md and PRESERVATION-REPORT.md first. Source checkpoint
+9d6a9ef82f6f646ab020da5fb25969584e617299 is pushed on
+continuity/genesis-20261031-a6. New development release:
+https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6.
+A6 remains NOT installed; pending live preflight was NEVER EXECUTED. Historical
+instructions below describe engineering direction, not permission to skip the
+preservation/resume checks. Private data/evidence retained locally, not uploaded.
+
 Updated 2026-10-31. Goal remains active; the user requested continuous autonomous
 engineering. Stay in this project, preserve existing instances/artifacts and
 continue without asking for a new prompt. Detailed prior progress is archived in

@@ -4,7 +4,7 @@
   "created_at": "2026-10-31T17:27:40.719484+00:00",
   "purpose": "Public-safe preservation inventory of existing deliverables; no build, installation or publication performed.",
   "repository_reference": "chatgptopenaiagi/DRAGONHYDRA",
-  "release_tag_selected": null,
+  "release_tag_selected": "genesis-continuity-20261031-a6",
   "candidate_release_assets": 8,
   "requested_max_asset_bytes": 2000000000,
   "candidate_total_bytes": 103527410,
@@ -34,7 +34,9 @@
         "dist/connections/workstation-a6/EXTRACTION-VERIFICATION.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\workstation-a6\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe"
     },
     {
       "id": "linux-preparation-a5-r2",
@@ -58,7 +60,9 @@
         "build/linux/prep-20261031-a5-r2/RETAINED-PARSER-VERIFICATION.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\build\\linux\\prep-20261031-a5-r2\\dragonhydra-linux-dev-09822a188bd1.tar.gz",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/dragonhydra-linux-dev-09822a188bd1.tar.gz"
     },
     {
       "id": "python-wheel-a5-r2",
@@ -81,7 +85,9 @@
         "build/linux/prep-20261031-a5-r2/INTEGRITY-VERIFICATION.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\build\\linux\\prep-20261031-a5-r2\\wheel\\dragonhydra-0.4.0a1-py3-none-any.whl",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/dragonhydra-0.4.0a1-py3-none-any.whl"
     },
     {
       "id": "joomla-frozen-v040",
@@ -104,7 +110,9 @@
         "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\releases\\v0.4.0-alpha.1\\assets\\pkg_dragonhydra-0.4.0-alpha.1.zip",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/pkg_dragonhydra-0.4.0-alpha.1.zip"
     },
     {
       "id": "android-frozen-v040",
@@ -128,7 +136,9 @@
         "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\releases\\v0.4.0-alpha.1\\assets\\DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk"
     },
     {
       "id": "server-frozen-v040",
@@ -151,7 +161,9 @@
         "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\releases\\v0.4.0-alpha.1\\assets\\DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip"
     },
     {
       "id": "desktop-frozen-v040",
@@ -174,7 +186,9 @@
         "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\releases\\v0.4.0-alpha.1\\assets\\DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe"
     },
     {
       "id": "gateway-frozen-v040",
@@ -197,7 +211,9 @@
         "dist/releases/v0.4.0-alpha.1/assets/TEST-REPORT.json"
       ],
       "recommended_release_asset": true,
-      "within_requested_2gb_limit": true
+      "within_requested_2gb_limit": true,
+      "absolute_path": "C:\\xampp\\DRAGONHYDRA\\dist\\releases\\v0.4.0-alpha.1\\assets\\DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+      "github_release_asset_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-continuity-20261031-a6/DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip"
     }
   ],
   "preserved_references": [
@@ -243,5 +259,8 @@
     "The Android APK uses a development certificate; production signing remains unavailable.",
     "Older standalone application/Joomla/gateway assets remain frozen at v0.4.0-alpha.1.",
     "Publish under a separately chosen release/tag; preserve existing tagged assets and avoid same-name wheel replacement."
-  ]
+  ],
+  "workspace": "C:/xampp/DRAGONHYDRA",
+  "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
+  "source_checkpoint_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299"
 }

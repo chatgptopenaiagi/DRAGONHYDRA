@@ -3,7 +3,11 @@
   "checkpoint_date": "2026-10-31",
   "reason": "User weekly budget preservation; no new engineering or service actions",
   "workspace": "C:/xampp/DRAGONHYDRA",
-  "git_observed_read_only": {"branch": "genesis3-android-alpha", "head": "7e04b4ca355cee0bc322b579146be348644c444c", "note": "Root publication may advance HEAD after this checkpoint; no Git mutations by handover writer"},
+  "git_observed_read_only": {
+    "branch": "genesis3-android-alpha",
+    "head": "7e04b4ca355cee0bc322b579146be348644c444c",
+    "note": "Root publication may advance HEAD after this checkpoint; no Git mutations by handover writer"
+  },
   "application_authority": "SQLite",
   "architecture": {
     "api_namespace": "/dragon/api/v1",
@@ -18,14 +22,24 @@
     "account_sid": "S-1-5-19",
     "install_root": "build/workstation/test-install/provider-a2/application files",
     "state_root": "build/workstation/test-install/provider-a2/state data",
-    "ports": {"api": 18746, "joomla": 18747, "mariadb": 18748},
+    "ports": {
+      "api": 18746,
+      "joomla": 18747,
+      "mariadb": 18748
+    },
     "records": 1221,
     "connector_observations": 461,
     "context_record_id": "source_context:e0d23975cdb98ebbdbc1ec0c0882b4e58d981970805f6c2417c2c653c9eb918e",
     "native_match_id": "3869685",
     "event_rows": 4407,
-    "squad_entries": {"France": 24, "Argentina": 26},
-    "score": {"home": 3, "away": 3},
+    "squad_entries": {
+      "France": 24,
+      "Argentina": 26
+    },
+    "score": {
+      "home": 3,
+      "away": 3
+    },
     "model_configuration": "blank",
     "fresh_health_checked_by_handover_writer": false,
     "concurrent_activity": "Four later explanation/export jobs and 16 events have origin unproven; preserve them"
@@ -70,7 +84,9 @@
     "passed": true,
     "package": "sports-evidence-package/3",
     "selected_fact": "F1",
-    "evidence_aliases": ["E1"],
+    "evidence_aliases": [
+      "E1"
+    ],
     "input_manifest_ids": 4,
     "selected_context_count_fact": false,
     "owned_processes_ports_keys_cleaned": true,
@@ -98,10 +114,47 @@
     "a6_built": false,
     "requires_first": "Installed A6 acceptance and docs freeze",
     "fresh_work": "build/linux/prep-20261031-a6",
-    "server_dependencies_last_observed_missing": ["fastapi", "uvicorn", "openpyxl", "tzdata"],
+    "server_dependencies_last_observed_missing": [
+      "fastapi",
+      "uvicorn",
+      "openpyxl",
+      "tzdata"
+    ],
     "claim_limit": "Wheel CLI/parser/synthetic package contract only; no backend/API/model/VPS proof"
   },
-  "blockers": ["Publisher Android keystore and expected certificate missing", "VPS target/trust missing", "Paid provider credentials absent", "Windows installer unsigned; clean-machine/reboot acceptance absent", "MariaDB application backend not implemented; staged migration only"],
-  "preserve": ["All prior handover notes and evidence", "Original C7/A4/A5 installers, stages and services", "All retained raw bytes, receipts, observations and contexts", "Concurrent ordinary activity; do not restore old backups over it", "Historical A5 and local_ai_workstation helper bytes"],
-  "prohibited_next_phase_actions": ["Print private configuration or credentials", "Read kernel pairing token/vault bodies or take ACL ownership", "Generate or rotate credentials", "Provider resync or new context acquisition", "Model/settings activation", "Extra explicit service restart", "Git reset/clean or unreviewed publication"]
+  "blockers": [
+    "Publisher Android keystore and expected certificate missing",
+    "VPS target/trust missing",
+    "Paid provider credentials absent",
+    "Windows installer unsigned; clean-machine/reboot acceptance absent",
+    "MariaDB application backend not implemented; staged migration only"
+  ],
+  "preserve": [
+    "All prior handover notes and evidence",
+    "Original C7/A4/A5 installers, stages and services",
+    "All retained raw bytes, receipts, observations and contexts",
+    "Concurrent ordinary activity; do not restore old backups over it",
+    "Historical A5 and local_ai_workstation helper bytes"
+  ],
+  "prohibited_next_phase_actions": [
+    "Print private configuration or credentials",
+    "Read kernel pairing token/vault bodies or take ACL ownership",
+    "Generate or rotate credentials",
+    "Provider resync or new context acquisition",
+    "Model/settings activation",
+    "Extra explicit service restart",
+    "Git reset/clean or unreviewed publication"
+  ],
+  "continuity_publication": {
+    "repository": "https://github.com/chatgptopenaiagi/DRAGONHYDRA",
+    "branch": "continuity/genesis-20261031-a6",
+    "source_checkpoint_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+    "source_push_verified": true,
+    "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
+    "asset_upload_verification": "pending",
+    "private_state": "Retained locally; never staged/uploaded",
+    "independent_changes": "Bridge handoff, separate legacy source repository and unrelated generated reports left untouched"
+  },
+  "next_safe_command": "& 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' -NoProfile -File 'C:\\xampp\\DRAGONHYDRA\\docs\\handover\\commands\\preflight-a6.ps1'",
+  "next_safe_command_preconditions": "First read RESUME-CODEX.md, verify environment/artifacts/service ownership; preflight was NOT run in this session."
 }
