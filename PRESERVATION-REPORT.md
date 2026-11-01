@@ -1,3 +1,10 @@
+2026-11-01: Linux A6 preservation is complete at the separate prerelease
+https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-linux-a6-20261031.
+All three assets match server SHA-256 and sizes. The historical release retains
+22 assets and the original A5 wheel. See
+docs/handover/verified-reports/LINUX-A6-PUBLICATION-VERIFICATION-20261101.json
+and docs/handover/RESUME-20261101.md for current environment limits.
+
 Historical preservation record: the statements below describe the publication
 checkpoint. A later continuation applied A6 once and passed installed acceptance;
 current runtime state is in ENGINEERING-STATE.json/SESSION-RESUME.md. Existing

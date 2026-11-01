@@ -1,5 +1,18 @@
 {
   "schema_version": 1,
+  "continuation_20261101": {
+    "handoff": "docs/handover/RESUME-20261101.md",
+    "initial_local_and_remote_head": "5cf69cb9ce4cb350f41cac10683903a8865a0d0b",
+    "artifact_hash_checks_passed": 30,
+    "completed_acceptance_repeated": false,
+    "linux_publication_complete": true,
+    "linux_publication_receipt": "docs/handover/verified-reports/LINUX-A6-PUBLICATION-VERIFICATION-20261101.json",
+    "linux_release_tag": "genesis-linux-a6-20261031",
+    "ubuntu_observed_state": "Stopped",
+    "linux_installed_runtime_gate": "Coordinate startup ownership: boot can activate separately owned R8 unit",
+    "service_observation": "Three SCM services Running as LocalService; expected loopback listeners present; process executable/SID unavailable to current token",
+    "next_independent_increment": "Isolated A6 wheel server acceptance harness with fresh state and existing dependencies"
+  },
   "checkpoint_date": "2026-10-31",
   "reason": "Continuity checkpoint after installed A6 acceptance and Linux A6 preparation; private/live state retained locally",
   "workspace": "C:/xampp/DRAGONHYDRA",

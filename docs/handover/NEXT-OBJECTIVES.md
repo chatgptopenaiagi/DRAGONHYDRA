@@ -1,5 +1,11 @@
 # Next objectives after the preservation checkpoint
 
+2026-11-01 continuation: Linux A6 publication is COMPLETE (three assets, exact
+GitHub server digests, separate `genesis-linux-a6-20261031` tag at `5cf69cb9`).
+Read `RESUME-20261101.md` and its publication receipt. Item 4's publication step
+must not be repeated. Ubuntu was observed stopped; installed R8 startup/ownership
+remains a gate. Prepare isolated server acceptance independently.
+
 Updated 2026-10-31. This file adds a current queue; preserve earlier design notes and evidence. Read `SESSION-RESUME.md` and `ENGINEERING-STATE.json` first. The preservation checkpoint is retained in Git history; a later guarded A6 repair/readcheck continuation passed.
 
 1. **Installed A6 acceptance is complete; do not repeat it.** Read the2/4/4 passing phase receipts and independent installed audit in ENGINEERING-STATE.json. The test workstation now runs A6, retains all1221records/461observations/C1/data, and added only one expected fallback job/four events plus auth lifecycle. Current model configuration remains blank. No provider/model/settings action or extra restart belongs to this completed unit.

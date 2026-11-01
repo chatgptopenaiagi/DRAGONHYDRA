@@ -1,5 +1,10 @@
 # Resume DRAGONHYDRA
 
+Latest continuation: read `docs/handover/RESUME-20261101.md` first. Linux A6
+publication is now server-digest verified under its own prerelease. A6 completed
+checks were not repeated. WSL was observed stopped; coordinate startup ownership
+before installed Linux work.
+
 Read this file, docs/handover/SESSION-RESUME.md, ENGINEERING-STATE.json,
 VERIFIED-ARTIFACTS.md, NEXT-OBJECTIVES.md and PRESERVATION-REPORT.md. Verify the
 repository, artifact hashes and current service ownership before resuming the
