@@ -7,6 +7,7 @@ fn build_information() -> serde_json::Value {
     serde_json::json!({
         "version": env!("CARGO_PKG_VERSION"),
         "source_sha": option_env!("DRAGONHYDRA_SOURCE_SHA").unwrap_or("unversioned-development"),
+        "source_content_sha256": option_env!("DRAGONHYDRA_SOURCE_CONTENT_SHA256").unwrap_or("unversioned-development"),
         "api_namespace": "/dragon/api/v1",
         "schema_version": 1,
         "architecture": "x86_64-pc-windows-msvc"
@@ -68,6 +69,9 @@ fn main() {
         .unwrap_or_else(|_| WebviewUrl::App("index.html?client=unpaired".into()));
     let profile = profile_path();
     tauri::Builder::default()
+        // The dashboard's target="_blank" links need an OS browser handoff;
+        // WebView2 does not open them without an explicit native integration.
+        .plugin(tauri_plugin_opener::init())
         .setup(move |app| {
             let mut window = WebviewWindowBuilder::new(app, "main", target)
                 .title("DRAGONHYDRA")

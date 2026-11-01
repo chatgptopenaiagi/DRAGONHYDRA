@@ -8,12 +8,15 @@
     "windows": [],
     "security": {
       "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:*; object-src 'none'; base-uri 'self'",
-      "capabilities": []
+      "capabilities": ["external-browser"]
     }
   },
   "bundle": {
     "active": true,
-    "resources": {"../../../packaging/genesis2/THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt"},
+    "resources": {
+      "../../../packaging/genesis2/THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt",
+      "../THIRD-PARTY-OPENER-NOTICES.txt": "THIRD-PARTY-OPENER-NOTICES.txt"
+    },
     "targets": ["nsis"],
     "shortDescription": "DRAGONHYDRA desktop API client",
     "longDescription": "Unsigned development client. Requires a configured DRAGONHYDRA server. This installer does not install Apache, PHP, Joomla, MariaDB or a local model.",
