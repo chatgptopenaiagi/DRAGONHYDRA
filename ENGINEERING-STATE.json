@@ -7,7 +7,7 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "release/core-next-20261101T1400Z",
-  "phase": "SOURCE_FREEZE_PENDING_INSTALLER_FACTORY",
+  "phase": "SOURCE_REFREEZE_AFTER_POSIX_ACCEPTANCE",
   "installation": "NOT_RUN",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -23,7 +23,7 @@
     "installed_candidate_browser": "NOT_RUN"
   },
   "publication": "NOT_RUN",
-  "next_objective": "Finish default installer profile factory, freeze source, build applications then installed candidate acceptance",
+  "next_objective": "Freeze repaired source; rebuild server/wheel/desktop/APK/Joomla; execute installed acceptance",
   "baseline_installation": {
     "status": "PASS",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -52,5 +52,8 @@
   },
   "version": "0.5.0-dev.1",
   "proposed_tag": "v0.5.0-dev.1-core-next",
-  "updated_utc": "2026-11-01T14:05:20.849856+00:00"
+  "updated_utc": "2026-11-01T14:34:11.905743+00:00",
+  "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
+  "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
+  "prior_artifacts": "LAB/attempts/source-03c6d82"
 }

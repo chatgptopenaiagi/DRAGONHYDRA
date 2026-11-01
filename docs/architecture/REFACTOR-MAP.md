@@ -38,3 +38,20 @@ Existing API, worker claim fencing, cognition, odds/scenario, local-AI and
 StatsBomb suites remain relevant. Only three inherited cookie fixtures changed
 to select their application's scoped cookie; their authorization assertions
 remain intact. Execution receipts and regression logs belong in the private lab.
+
+
+## Installed-runtime repair checkpoint
+
+The unpublished03c6d82 checkpoint passed Linux domain/HTTP/export/status checks,
+but its immediate graceful restart exposed POSIX TIME_WAIT binding. The selected
+A9 source already contains the verified packaging transformation
+`packaging/linux-native/server_patch.py` (`linux-listener-reuse-v1`). CORE NEXT
+promotes that existing fix into the shared server: POSIX SO_REUSEADDR, unchanged
+Windows SO_EXCLUSIVEADDRUSE, no SO_REUSEPORT, and preserved bind errno. The input
+A9 baseline lock remains immutable. A new source freeze rebuilds all application
+metadata and packages; the failed checkpoint/receipts are retained privately and
+no published tag was moved.
+
+Explicit local-model configuration writes also refresh the bounded cached AI
+configuration observation without inference. Counter batches retain separate
+sample/expiry timestamps, so successful ordinary reads do not renew old metrics.

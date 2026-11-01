@@ -3,6 +3,7 @@ from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -204,6 +205,29 @@ class ComposedAPITests(unittest.TestCase):
             self.assertEqual(detail[key], detail['observation'][key])
         for key in ('kind', 'responsibility', 'implemented_capabilities'):
             self.assertIn(key, detail)
+
+    @unittest.skipUnless(os.name == 'nt', 'Existing Windows DPAPI stored-key configuration')
+    def test_owner_ai_configuration_refreshes_cached_status_without_model_inference(self):
+        from dragonhydra import local_ai
+        from dragonhydra.local_ai_settings import URL_ENV, KEY_ENV
+        with patch.dict(os.environ, {URL_ENV: '', KEY_ENV: ''}), \
+             patch.object(local_ai, 'infer', side_effect=AssertionError('Configuration must not infer')) as infer:
+            response = self.client.put('/dragon/api/v1/local-model/configuration', json={
+                'endpoint': 'http://127.0.0.1:18990', 'credential': 'core-next-fixture-key-1234567890'})
+            self.assertEqual(response.status_code, 200)
+            self.assertTrue(response.json()['configured'])
+            detail = self.client.get('/dragon/api/v1/modules/ai').json()
+            self.assertEqual(detail['configuration_state'], 'CONFIGURED')
+            self.assertEqual(detail['runtime_state'], 'UNVERIFIED')
+            self.assertTrue(detail['observation']['metrics']['configured'])
+            response = self.client.put('/dragon/api/v1/local-model/configuration', json={
+                'endpoint': '', 'remove_credential': True})
+            self.assertEqual(response.status_code, 200)
+            self.assertFalse(response.json()['configured'])
+            detail = self.client.get('/dragon/api/v1/modules/ai').json()
+            self.assertEqual(detail['configuration_state'], 'NOT_CONFIGURED')
+            self.assertEqual(detail['runtime_state'], 'UNVERIFIED')
+            infer.assert_not_called()
 
     def test_unique_cookie_old_cookie_ignored_logout_revoke_only_own_installation(self):
         self.client.headers.clear()

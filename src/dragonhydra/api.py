@@ -227,7 +227,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     @router.put('/local-model/configuration', dependencies=[Depends(admin)])
     def configure_local_model(body: LocalModelInput):
         from .local_ai_settings import Settings
-        return Settings(product.state).configure(body.endpoint, body.credential, body.remove_credential)
+        result = Settings(product.state).configure(body.endpoint, body.credential, body.remove_credential)
+        product.kernel.registry.refresh('ai')
+        return result
 
     @router.get('/matches', response_model=MatchPage)
     def matches(date: str | None = None, timezone: str = 'UTC', competition: str | None = None,

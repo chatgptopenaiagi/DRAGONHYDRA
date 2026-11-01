@@ -2,6 +2,7 @@
 [CmdletBinding()]
 param([Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$SourceSha,
       [Parameter(Mandatory)][string]$WorkRoot,[Parameter(Mandatory)][string]$OutputRoot,
+      [string]$CargoCacheRoot,[string]$CargoCacheManifest,
       [string]$NodeModulesSource='C:\xampp\DRAGONHYDRA\client\desktop\node_modules')
 $ErrorActionPreference='Stop'
 $project=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -27,11 +28,18 @@ if(-not(Test-Path -LiteralPath $cache)){
 $cli=Join-Path $cache '@tauri-apps\cli\tauri.js'
 if(-not(Test-Path -LiteralPath $cli)){throw 'CORE_NEXT_EXISTING_TAURI_CLI_UNAVAILABLE'}
 New-Item -ItemType Directory -Force -Path $work,$output|Out-Null
+if($CargoCacheRoot){
+    $CargoCacheRoot=Assert-CoreNextOrdinaryPath $CargoCacheRoot $lab
+    if(-not $CargoCacheManifest){$CargoCacheManifest=Join-Path (Split-Path $CargoCacheRoot -Parent) 'cargo-dependency-cache.json'}
+    $CargoCacheManifest=Assert-CoreNextOrdinaryPath $CargoCacheManifest $lab
+    & (Join-Path $lab 'tools-env\Scripts\python.exe') -B (Join-Path $PSScriptRoot 'core_next_cargo_cache.py') copy --root $CargoCacheRoot --manifest $CargoCacheManifest --desktop $desktop --destination (Join-Path $work 'cargo-target')
+    if($LASTEXITCODE){throw 'CORE_NEXT_DEPENDENCY_CACHE_REUSE_REJECTED'}
+}
 $inputs=@('src-tauri/src/main.rs','src-tauri/src/client_state.rs','src-tauri/src/external_target.rs','src-tauri/tauri.conf.json','src-tauri/Cargo.toml','src-tauri/Cargo.lock','web/app.js','web/index.html','web/style.css','web/favicon.svg')
 $bindings=@($inputs|ForEach-Object {$p=Join-Path $desktop $_;[ordered]@{path=$_;sha256=(Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()}})
 $sourceText=$bindings|ConvertTo-Json -Depth 4 -Compress
 $sourceHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($sourceText))).ToLowerInvariant()
-$values=@{CARGO_TARGET_DIR=(Join-Path $work 'cargo-target');CARGO_NET_OFFLINE='true';npm_config_cache=(Join-Path $lab 'cache\npm');DRAGONHYDRA_SOURCE_SHA=$SourceSha;DRAGONHYDRA_SOURCE_CONTENT_SHA256=$sourceHash}
+$values=@{CARGO_TARGET_DIR=(Join-Path $work 'cargo-target');CARGO_NET_OFFLINE='true';npm_config_cache=(Join-Path $lab 'cache\npm');NODE_PATH=$cache;DRAGONHYDRA_SOURCE_SHA=$SourceSha;DRAGONHYDRA_SOURCE_CONTENT_SHA256=$sourceHash}
 $previous=@{};foreach($key in $values.Keys){$previous[$key]=[Environment]::GetEnvironmentVariable($key,'Process');[Environment]::SetEnvironmentVariable($key,$values[$key],'Process')}
 try{
     $vcvars='C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvars64.bat'
@@ -41,13 +49,17 @@ try{
     & 'C:\Windows\System32\cmd.exe' /d /c $runner 2>&1|Tee-Object -LiteralPath (Join-Path $work 'desktop-build.log')
     if($LASTEXITCODE){throw 'CORE_NEXT_NATIVE_DESKTOP_BUILD_FAILED'}
     $native=Join-Path $env:CARGO_TARGET_DIR 'x86_64-pc-windows-msvc\release\dragonhydra-desktop.exe'
-    $embedded=(& $native --build-info)|ConvertFrom-Json
-    if($LASTEXITCODE -ne 0 -or $embedded.product -cne 'DRAGONHYDRA CORE NEXT' -or $embedded.source_sha -cne $SourceSha -or $embedded.source_content_sha256 -cne $sourceHash -or $embedded.version -cne $config.version){throw 'CORE_NEXT_EMBEDDED_DESKTOP_IDENTITY_MISMATCH'}
+    $start=[Diagnostics.ProcessStartInfo]::new();$start.FileName=$native;$start.ArgumentList.Add('--build-info');$start.UseShellExecute=$false;$start.CreateNoWindow=$true;$start.RedirectStandardOutput=$true;$start.RedirectStandardError=$true
+    $probe=[Diagnostics.Process]::new();$probe.StartInfo=$start;$null=$probe.Start();$stdout=$probe.StandardOutput.ReadToEndAsync();$stderr=$probe.StandardError.ReadToEndAsync()
+    if(-not $probe.WaitForExit(15000)){$probe.Kill();throw 'CORE_NEXT_METADATA_PROBE_TIMEOUT'}
+    $embedded=$stdout.GetAwaiter().GetResult()|ConvertFrom-Json
+    $probeError=$stderr.GetAwaiter().GetResult()
+    if($probe.ExitCode -ne 0 -or $embedded.product -cne 'DRAGONHYDRA CORE NEXT' -or $embedded.source_sha -cne $SourceSha -or $embedded.source_content_sha256 -cne $sourceHash -or $embedded.version -cne $config.version){throw 'CORE_NEXT_EMBEDDED_DESKTOP_IDENTITY_MISMATCH'}
     Copy-Item -LiteralPath $native -Destination (Join-Path $output 'DRAGONHYDRA-Client.exe')
     $embedded|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'BUILD-INFO.json') -Encoding utf8
     Get-Content -LiteralPath (Join-Path $project 'packaging\genesis2\THIRD-PARTY-NOTICES.txt'),(Join-Path $desktop 'THIRD-PARTY-OPENER-NOTICES.txt')|Set-Content -LiteralPath (Join-Path $output 'THIRD-PARTY-NOTICES.txt') -Encoding utf8
     $files=@(Get-ChildItem -LiteralPath $output -File|ForEach-Object {@{path=$_.Name;bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}})
     @{schema_version=1;product='DRAGONHYDRA CORE NEXT';version=$config.version;source_sha=$SourceSha;files=$files}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'PAYLOAD-MANIFEST.json') -Encoding utf8
-    @{status='BUILT_METADATA_VERIFIED';source_sha=$SourceSha;source_files=$bindings;output=$output;native_gui_acceptance='NOT_RUN';original_installation_mutated=$false}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $work 'desktop-build.json') -Encoding utf8
+    @{status='BUILT_METADATA_VERIFIED';compilation='PASS';source_sha=$SourceSha;source_content_sha256=$sourceHash;source_files=$bindings;files=$files;output=$output;metadata_probe='Bounded redirected ProcessStartInfo wait';metadata_stderr=$probeError;node_path=$cache;cargo_cache_source=$CargoCacheRoot;native_gui_acceptance='NOT_RUN';original_installation_mutated=$false}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $work 'desktop-build.json') -Encoding utf8
     $output
 }finally{foreach($key in $previous.Keys){[Environment]::SetEnvironmentVariable($key,$previous[$key],'Process')}}

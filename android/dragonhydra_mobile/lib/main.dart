@@ -19,7 +19,7 @@ class DragonHydraApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'DRAGONHYDRA',
+    title: 'DRAGONHYDRA CORE NEXT',
     theme: ThemeData.dark(useMaterial3: true).copyWith(
       scaffoldBackgroundColor: const Color(0xff0d121a),
       colorScheme: const ColorScheme.dark(primary: crimson, secondary: electric, surface: panel),
@@ -57,7 +57,7 @@ class _ShellState extends State<Shell> {
         Expanded(child: Text(names[selected], style: const TextStyle(fontWeight: FontWeight.w700, letterSpacing: .2))) ])),
     drawer: Drawer(child: SafeArea(child: Column(children: [
       const Padding(padding: EdgeInsets.all(24), child: Row(children: [Icon(Icons.shield_moon, color: crimson, size: 36), SizedBox(width: 12),
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('DRAGONHYDRA', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)), Text('GENESIS-3 Android alpha', style: TextStyle(color: electric))])])),
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('DRAGONHYDRA CORE NEXT', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)), Text('CORE NEXT development prerelease', style: TextStyle(color: electric))])])),
       Expanded(child: ListView.builder(itemCount: names.length, itemBuilder: (context, i) => ListTile(
         leading: Icon(icons[i], color: selected == i ? crimson : null), title: Text(names[i]), selected: selected == i,
         onTap: () { setState(() => selected = i); Navigator.pop(context); }))),
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
         const Text('Intelligence,\nin your pocket.', style: TextStyle(fontSize: 29, height: 1.12, fontWeight: FontWeight.w800)),
         const SizedBox(height: 12), const Text('Explore an archived football forecast, market prices and conditional simulations.', style: TextStyle(color: Colors.white70, height: 1.4)),
         const SizedBox(height: 16), FilledButton.icon(onPressed: () => onNavigate(1), icon: const Icon(Icons.arrow_forward), label: const Text('Explore forecast')),
-        TextButton.icon(onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ServerConnectionPage())), icon: const Icon(Icons.dns_outlined), label: const Text('Connect to DRAGONHYDRA server'))
+        TextButton.icon(onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ServerConnectionPage())), icon: const Icon(Icons.dns_outlined), label: const Text('Connect to DRAGONHYDRA CORE NEXT server'))
       ])),
       const SectionTitle('At a glance', caption: 'Bundled snapshot • no account required'),
       Panel(child: Column(children: [line('Data mode', 'Offline / archived'), line('Sports', 'Football'),
@@ -312,7 +312,7 @@ class _GalaxyPageState extends State<GalaxyPage> {
   }
   @override Widget build(BuildContext context) {
     final providers = listOf(widget.registry['providers']);
-    return Content(children: [const SectionTitle('DRAGONHYDRA API Galaxy', caption: 'Provider catalog • connectivity is verified only by an actual response'),
+    return Content(children: [const SectionTitle('DRAGONHYDRA CORE NEXT API Galaxy', caption: 'Provider catalog • connectivity is verified only by an actual response'),
       ...providers.map((entry) { final p = mapOf(entry); final name = display(p['provider']);
         final id = display(p['id'], '');
         final key = id == 'statsbomb_open_data' || id == 'openfootball' ? id : null;
@@ -361,7 +361,7 @@ class SettingsPage extends StatelessWidget {
     const Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('LOCAL STORAGE', style: TextStyle(fontWeight: FontWeight.w700)), SizedBox(height: 8),
       Text('The bundled sample is read-only. This alpha does not synchronize with the desktop database or run Python models on the phone.')])),
     const Panel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text('ABOUT', style: TextStyle(fontWeight: FontWeight.w700)), SizedBox(height: 8),
-      Text('DRAGONHYDRA GENESIS-3 Android alpha\nOffline snapshot and research simulator'),
+      Text('DRAGONHYDRA CORE NEXT development prerelease\nOffline snapshot and research simulator'),
       Text('Build version: $releaseVersion'), SelectableText('Source: $releaseSource')]))
   ]);
 }

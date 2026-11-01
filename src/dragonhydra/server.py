@@ -82,10 +82,15 @@ def main():
     listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     if os.name == 'nt':
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+    elif sys.platform.startswith('linux'):
+        # Reuse the verified linux-listener-reuse-v1 repair from the A9 tooling.
+        # SO_REUSEPORT stays disabled: an active listener remains exclusive.
+        listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     try:
         listener.bind((args.host, args.port))
-    except OSError:
-        raise SystemExit('Configured product port is busy; no unrelated service was stopped. Use --port 0 to allocate a free port.') from None
+    except OSError as error:
+        listener.close()
+        raise SystemExit(f'Configured product port cannot bind [errno={error.errno}]: {error.strerror}; no unrelated service was stopped. Select an unused port in this CORE NEXT installation profile.') from None
     server = uvicorn.Server(uvicorn.Config(app, host=args.host, port=listener.getsockname()[1], access_log=False, log_level='info', timeout_graceful_shutdown=5))
     app.state.shutdown_callback = lambda: setattr(server, 'should_exit', True)
     endpoint = args.state / 'endpoint.json'

@@ -65,6 +65,14 @@ After a clean source commit, build candidate components using existing tools:
   -JoomlaPackagePath <lab-zip-with-matching.manifest.json>
 ```
 
+Desktop builds configure the isolated CLI cache through process-only NODE_PATH.
+The GUI-subsystem EXE metadata probe uses redirected ProcessStartInfo streams and
+a bounded wait. Optional `-CargoCacheRoot <previous-lab-cargo-target>` with its
+sealed `cargo-dependency-cache.json` sidecar copies only per-file-hash-validated
+dependencies into a fresh target. Rust version and Cargo.lock must match; own app
+binaries, fingerprints and build outputs are excluded. The resulting EXE must
+report the newly selected source commit and current source-content hash.
+
 The candidate builder requires new server/client payloads whose version, source
 commit, namespace, schema and file hashes match the explicit profile. Existing
 Apache/PHP/MariaDB/Joomla runtime files come from the verified A9 payload. Source
