@@ -1,3 +1,18 @@
+FRESH PACKAGING VERIFIED — 2026-11-01; primary still NOT DEPLOYED.
+Fresh source93c1138 build now supports explicit verified F4 client selection.
+Setup: dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/
+DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe,64854364B,
+SHA c217d0450595ed4c1a9548b5904ba71ce300077afa4250725f8f88c3a64c6460.
+Full10662file inspection/13recordedGitwrapperinputs PASS; same tested backend,
+client,Joomla and observer bytes. R4 untouched. Client/kernel/helper guards20+12+6
+PASS; helper also rejects receipt junction escapes and preserves old temp evidence.
+Fresh privacy21values/10676files/2227members zero; primaryread4groupsPASS,
+760records/pairing/config/ports/all4PIDs unchanged. Native UAC was not retried.
+Read existing SystemControlCenter handoff/report and FRESH-BUILD receipt.
+NEXT: owner ready for Windows elevation → fresh guarded primary upgrade once →
+new authenticated Control Center/workflow/idempotent deploy/scoped restart/native
+acceptance. No new primary UI screenshots or publication claim.
+
 # System Control Center — resumable partial checkpoint
 
 2026-11-01: IMPLEMENTED, BUILT, isolated EXECUTED/TESTED. **Primary NOT DEPLOYED**.

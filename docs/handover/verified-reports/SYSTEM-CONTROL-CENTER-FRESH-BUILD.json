@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:44:08.380784+00:00",
+  "status": "FRESH_PACKAGE_BUILT_FULLY_EXTRACTED_VERIFIED_NOT_INSTALLED",
+  "source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+  "build_root": "build/connections/system-control-center-20261101-fresh-r1",
+  "build_report": "build/connections/system-control-center-20261101-fresh-r1/BUILD-REPORT.json",
+  "artifact": {
+    "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "bytes": 64854364,
+    "sha256": "c217d0450595ed4c1a9548b5904ba71ce300077afa4250725f8f88c3a64c6460",
+    "version": "0.4.1-dev.1",
+    "signing_status": "NotSigned"
+  },
+  "fresh_build": {
+    "repackage_only": false,
+    "required_fresh_steps": [
+      "extract-server",
+      "extract-client",
+      "build-runtime",
+      "build-web",
+      "verified-provider-kernel",
+      "verified-desktop-client",
+      "build-installer"
+    ],
+    "client_staging_mode": "fresh_owned_build",
+    "fake_copied_stage_provenance": false,
+    "baseline_staging": null,
+    "baseline_payload_manifest_sha256": null,
+    "client_repair_staging_file_present": false,
+    "client_source_receipt": "build/connections/genesis-a8-client/verified-payload/CLIENT-BUILD.json",
+    "client_source_receipt_sha256": "179c8f9965a1cdf0eff5d06021ef61d88c2c54c351a257968dec2eb91a4e6e7e",
+    "client_files_verified": 3
+  },
+  "payload": {
+    "files": 10662,
+    "bytes": 286934973,
+    "manifest_sha256": "65e7d70dc3f8c1b883c795a9d51a61af062bb36adb2a3385d497510f0f27fc4b",
+    "all_staged_hashes_verified": true,
+    "all_extracted_sizes_and_hashes_verified": true,
+    "extraction": "build/system-control-center-20261101/fresh-installer-r1-extracted",
+    "extraction_exit_code": 0,
+    "extra_installer_support_files": [
+      "$PLUGINSDIR/Installer-Checks.ps1",
+      "$PLUGINSDIR/MicrosoftEdgeWebview2Setup.exe",
+      "$PLUGINSDIR/System.dll",
+      "$PLUGINSDIR/modern-wizard.bmp",
+      "$PLUGINSDIR/nsDialogs.dll",
+      "$PLUGINSDIR/nsExec.dll",
+      "Uninstall-Workstation.exe"
+    ]
+  },
+  "critical_inputs": [
+    {
+      "path": "server/DRAGONHYDRA-Server.exe",
+      "sha256": "3231c279aab1a3d8b3cbfe6c396dded8ced60e4fb15a42c0a04eb7144e2990a4",
+      "bytes": 8071343
+    },
+    {
+      "path": "client/DRAGONHYDRA-Client.exe",
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+      "bytes": 10078208
+    },
+    {
+      "path": "web/extension.zip",
+      "sha256": "d1c1fd8d35d281b20fc4ffef71fc18fd207b6608a90aa3df65bbe4cb7f671abc",
+      "bytes": 59919
+    },
+    {
+      "path": "workstation/Workstation.ps1",
+      "sha256": "bc184aae7f82acd72b62962ce94b1dbc69c97ae515ac011b34fd5339473ae5cc",
+      "bytes": 26331
+    }
+  ],
+  "wrapper_source_files_verified": 13,
+  "wrapper_source_files": [
+    {
+      "path": "scripts/Build-Workstation.ps1",
+      "sha256": "8b032ec1ba639390b549480f5a71a8f63419eaf8803fe9660becea69e94b47d3"
+    },
+    {
+      "path": "packaging/windows/workstation/KernelBuild.ps1",
+      "sha256": "0c3be33f34fd9d9d23c925cd5527bec426acd896024a1770839f0b193bdb1bf6"
+    },
+    {
+      "path": "packaging/windows/workstation/ClientBuild.ps1",
+      "sha256": "2b99ec44c949be9ad8142243b623f70a3e846c4b23d27024f4db11b31a38b7dd"
+    },
+    {
+      "path": "packaging/windows/workstation/installer.nsi",
+      "sha256": "3aac513453726b819cbd3dc74c8033bc4220ff104ea934d2af8a0b24b5a32493"
+    },
+    {
+      "path": "packaging/windows/workstation/README.md",
+      "sha256": "e440fd3b9e70554b76957691d038246d35b9c3296bc799959540d407e881825b"
+    },
+    {
+      "path": "packaging/windows/workstation/Workstation.ps1",
+      "sha256": "bc184aae7f82acd72b62962ce94b1dbc69c97ae515ac011b34fd5339473ae5cc"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraService.cs",
+      "sha256": "e32a90381de9f9144ffb7cfa5d94df2ed89bbc5328d342a0da039af4897efa2b"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraLauncher.cs",
+      "sha256": "cfd80aecf8d6fc09a4fae515fd3521ced2f471c006c599a855bad86437867cd5"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraAtomicFile.cs",
+      "sha256": "e171507f2f397b51604f15fcd4467153ab8b9f1cbf2437a8407c6b72373cd0ff"
+    },
+    {
+      "path": "packaging/windows/workstation/Build-Runtime.ps1",
+      "sha256": "28fef003b9d6e9a61feef52bf5da2dbf66ca4808939c26ef3e2d67ba7f462dfa"
+    },
+    {
+      "path": "packaging/windows/workstation/web/Build-WebPayload.ps1",
+      "sha256": "ec92e8babd54b9e69ab22dda13d102b4e4e6d2554b810e2d1d1073ca4fd05192"
+    },
+    {
+      "path": "packaging/windows/workstation/web/prepare_payload.py",
+      "sha256": "6a6c548c01245c9c8254bea891408c64b1c97ad9b469e50bacfc7e1fb0d1534a"
+    },
+    {
+      "path": "packaging/windows/workstation/web/manage.php",
+      "sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c"
+    }
+  ],
+  "kernel": {
+    "version": "0.4.0-alpha.1",
+    "source_content_sha256": "fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb",
+    "binary_sha256": "3231c279aab1a3d8b3cbfe6c396dded8ced60e4fb15a42c0a04eb7144e2990a4",
+    "unchanged_r4_files_verified": 710,
+    "registry_verification": {
+      "schema_version": 1,
+      "proof": "system-control-check/system-control-frozen.json",
+      "proof_sha256": "db816db88cdfd3d60eb0695f98f3dc1154fa783b0aad4607406b31cc320b1696",
+      "binary_sha256": "3231c279aab1a3d8b3cbfe6c396dded8ced60e4fb15a42c0a04eb7144e2990a4",
+      "source_content_sha256": "fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb",
+      "module_count": 18,
+      "kernel_build_root": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\system-control-center-20261101-kernel-r4",
+      "payload_manifest_sha256": "1815558249925a006e611d0c400ecab330a7c4906fb424432226779ecf83edbf",
+      "verification": "Existing frozen-binary receipt verified; package builder did not execute software or HTTP checks"
+    }
+  },
+  "client": {
+    "version": "0.4.0-alpha.1",
+    "architecture": "x86_64-pc-windows-msvc",
+    "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+    "binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+    "build_manifest_sha256": "179c8f9965a1cdf0eff5d06021ef61d88c2c54c351a257968dec2eb91a4e6e7e",
+    "baseline_staging": null,
+    "baseline_payload_manifest_sha256": null,
+    "staging_mode": "fresh_owned_build",
+    "verification": "Verified current-host desktop payload; exact source/payload hashes in CLIENT-BUILD.json; no clean-machine claim"
+  },
+  "joomla": {
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\system-control-center-r3\\pkg_dragonhydra-0.4.1-dev.3.zip",
+    "version": "0.4.1-dev.3",
+    "package_sha256": "d1c1fd8d35d281b20fc4ffef71fc18fd207b6608a90aa3df65bbe4cb7f671abc",
+    "bytes": 59919,
+    "source_sha": "4ad188f0f36b0cca13e574084a1ddd0a32cbcecb",
+    "manifest_sha256": "aeed5ba8620d55eb93396069fae4f21c6916de6332a4aeb584919bd05e4a3c9c",
+    "frontend_setup": "Idempotent supported Joomla Menu/table migration; original articles/menu records retained; sample module assignments excluded only on managed Home items",
+    "child_template": "cassiopeia_dragonhydra",
+    "verification": "Package input/hash verified; installation acceptance remains separate"
+  },
+  "verification_tool": "C:\\Program Files\\7-Zip\\7z.exe",
+  "verifier": "build/system-control-center-20261101/verify_fresh_installer_r1.py",
+  "verifier_sha256": "02de479440666ef6758a0c20769460adc353b401cfa4078c60fff398a6feb553",
+  "classification": {
+    "built": true,
+    "contents_verified": true,
+    "installer_executed": false,
+    "installed": false,
+    "services_changed": false,
+    "browser_actions_performed": false,
+    "fresh_machine_or_os_acceptance": false,
+    "published": false
+  },
+  "scope": "Fresh Windows packaging pipeline and full extracted-payload verification using previously verified R4 kernel, F4 client and Joomla dev.3; not installation, service startup or new GUI acceptance",
+  "limitations": [
+    "Existing primary upgrade remains unapplied after prior canceled Windows elevation.",
+    "Reused kernel/client runtime evidence remains separately scoped to their original verified current-host tests.",
+    "This verification did not execute any installer, control an installed service or perform browser/native acceptance."
+  ],
+  "wrapper_source_files_scope": "13 recorded wrapper inputs, not an exhaustive vendor/product inventory. Full kernel/client/web file inventories remain separately verified.",
+  "comparison_to_preserved_r4": {
+    "schema_version": 1,
+    "recorded_at": "2026-11-01T15:43:49.251442+00:00",
+    "status": "PASS_EXACT_DELTA_CLASSIFIED",
+    "source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+    "preserved_r4": "build/connections/system-control-center-20261101-workstation-r4/stage",
+    "fresh": "build/connections/system-control-center-20261101-fresh-r1/stage",
+    "r4_files": 10662,
+    "fresh_files": 10662,
+    "added": [],
+    "removed": [],
+    "unchanged_file_count": 10655,
+    "changed_file_count": 7,
+    "changes": [
+      {
+        "path": "INSTALLATION.md",
+        "before": {
+          "path": "INSTALLATION.md",
+          "bytes": 5261,
+          "sha256": "a2072c42afc9836d2019cc42ac0624c23a31e97a0a1883ce2160e9d080476f80"
+        },
+        "after": {
+          "path": "INSTALLATION.md",
+          "bytes": 7138,
+          "sha256": "e440fd3b9e70554b76957691d038246d35b9c3296bc799959540d407e881825b"
+        },
+        "reason": "Current canonical workstation installation documentation; exact fresh wrapper input is recorded."
+      },
+      {
+        "path": "WORKSTATION-BUILD.json",
+        "before": {
+          "path": "WORKSTATION-BUILD.json",
+          "bytes": 6543,
+          "sha256": "604f793c7a77cee0b7c82a411647d2a8c435c7a5cecf09969c0c1ff4467dd4c1"
+        },
+        "after": {
+          "path": "WORKSTATION-BUILD.json",
+          "bytes": 7395,
+          "sha256": "d31acb46884fb63e7f1585b78c438e14647483313d808033c0dcc090cfd677d0"
+        },
+        "reason": "Fresh source-input/registry-proof/client-staging provenance replaces the preserved repackage metadata."
+      },
+      {
+        "path": "web/README.md",
+        "before": {
+          "path": "web/README.md",
+          "bytes": 4693,
+          "sha256": "693fa23c274bc87b85dc6f5a14d1bdce313932a5de10b8333906552206ffbdde"
+        },
+        "after": {
+          "path": "web/README.md",
+          "bytes": 7184,
+          "sha256": "2c4d77bd98a65841d836ca9ba1a95fab44426f8f813aacd1dc06ddc4917324bb"
+        },
+        "reason": "Current canonical web documentation, separately compared byte-for-byte to the Git source checkpoint."
+      },
+      {
+        "path": "web/payload-manifest.json",
+        "before": {
+          "path": "web/payload-manifest.json",
+          "bytes": 2107419,
+          "sha256": "1236d8f50bbc70fd39afdc7fd512834a8ccecb7b38fd53922486c8d772492d63"
+        },
+        "after": {
+          "path": "web/payload-manifest.json",
+          "bytes": 2106664,
+          "sha256": "3dbb9f1e4d7f9ac31cdc551c799ada15eac8d1dcda40f9db7ad447b8a8a9d0af"
+        },
+        "reason": "Fresh generation records the README hash and current Joomla extension component instead of prior hook-refresh override metadata."
+      },
+      {
+        "path": "workstation/DragonhydraAtomicFile.dll",
+        "before": {
+          "path": "workstation/DragonhydraAtomicFile.dll",
+          "bytes": 5120,
+          "sha256": "fe65051a4e9a2e88bcccb61e486221d684d6c44aeec1e545ded6c2e1497ebd3e"
+        },
+        "after": {
+          "path": "workstation/DragonhydraAtomicFile.dll",
+          "bytes": 5120,
+          "sha256": "506c9aba26055c8e63cc80b74cf200515eeb0e613317fd7ac3a0acf8a98102a8"
+        },
+        "reason": "Fresh build-runtime compilation from the same recorded C# input; output bytes differ and were independently verified."
+      },
+      {
+        "path": "workstation/DragonhydraLauncher.exe",
+        "before": {
+          "path": "workstation/DragonhydraLauncher.exe",
+          "bytes": 10240,
+          "sha256": "e620af7a71c224391f052a1de3692cd6ebb88e69a67723b59b1009abe382e34f"
+        },
+        "after": {
+          "path": "workstation/DragonhydraLauncher.exe",
+          "bytes": 10240,
+          "sha256": "418151d5f6b2b1cb4695b27a96243b2736b77eeba8f43cafe2a72b786a34c031"
+        },
+        "reason": "Fresh build-runtime compilation from the same recorded C# input; output bytes differ and were independently verified."
+      },
+      {
+        "path": "workstation/DragonhydraService.exe",
+        "before": {
+          "path": "workstation/DragonhydraService.exe",
+          "bytes": 8704,
+          "sha256": "01f9eb413e61a6059bc700c1cda6edff95bf650c9686fe9377bbc6563a526812"
+        },
+        "after": {
+          "path": "workstation/DragonhydraService.exe",
+          "bytes": 8704,
+          "sha256": "7ed7d618ad5aaf72a243114499a6c75abf7a79eaec0fcfc80a518c11dfc8f34b"
+        },
+        "reason": "Fresh build-runtime compilation from the same recorded C# input; output bytes differ and were independently verified."
+      }
+    ],
+    "web": {
+      "file_entries": 9940,
+      "changed_entries": [
+        "README.md"
+      ],
+      "changed_top_level_metadata": [
+        "components",
+        "joomla_frontend_override",
+        "provisioning_hook"
+      ],
+      "vendor_runtime_and_joomla_base_file_drift": false,
+      "readme_source_path": "packaging/windows/workstation/web/README.md",
+      "readme_git_sha256": "2c4d77bd98a65841d836ca9ba1a95fab44426f8f813aacd1dc06ddc4917324bb",
+      "readme_equals_git_checkpoint": true
+    },
+    "recorded_wrapper_inputs_note": "The 13 recorded wrapper inputs are not an exhaustive vendor/product input inventory. Existing kernel/client/web manifests retain their own full file inventories.",
+    "unchanged_csharp_source_sha256": {
+      "packaging/windows/workstation/DragonhydraAtomicFile.cs": "e171507f2f397b51604f15fcd4467153ab8b9f1cbf2437a8407c6b72373cd0ff",
+      "packaging/windows/workstation/DragonhydraLauncher.cs": "cfd80aecf8d6fc09a4fae515fd3521ced2f471c006c599a855bad86437867cd5",
+      "packaging/windows/workstation/DragonhydraService.cs": "e32a90381de9f9144ffb7cfa5d94df2ed89bbc5328d342a0da039af4897efa2b"
+    },
+    "compiled_wrapper_runtime_acceptance": "NOT_RUN; compilation and extracted bytes verified only",
+    "comparison_verifier": "build/system-control-center-20261101/compare_fresh_to_r4.py",
+    "comparison_verifier_sha256": "818093e88314d472269ab2c2b4004eed83bac71d6dbd2ea1d4d0046fbc67126c",
+    "receipt": "build/system-control-center-20261101/evidence/fresh-vs-r4-stage-differences.json",
+    "receipt_sha256": "bb01914c9994033296a35fca5724311462a5cc3a8461c8b2b0ff66b77a2b5ae2"
+  }
+}

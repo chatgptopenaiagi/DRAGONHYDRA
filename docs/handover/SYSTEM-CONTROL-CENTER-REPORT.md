@@ -10,6 +10,18 @@ The earlier A9 release remains available at
 https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101.
 It does not contain this new increment. Its tag/assets were not changed.
 
+**Latest follow-up:** a separate fresh full workstation build succeeded from
+wrapper source `93c11388317b1aba31d2297fa82f2d3d44b78db1`. It selects the verified
+F4 client, unchanged R4 server and Joomla dev.3 explicitly. Preferred candidate:
+`dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe`,
+64,854,364 bytes, SHA-256
+`c217d0450595ed4c1a9548b5904ba71ce300077afa4250725f8f88c3a64c6460`.
+Full extraction verifies all 10,662 payload files and 13 recorded wrapper inputs
+against that Git snapshot. This proves fresh packaging, not installation. R4 and
+all historical packages remain preserved. See the
+[fresh build receipt](verified-reports/SYSTEM-CONTROL-CENTER-FRESH-BUILD.json) and
+[fresh package manifest](verified-reports/SYSTEM-CONTROL-CENTER-FRESH-ARTIFACTS.json).
+
 ## Target, baseline and ownership
 
 | Item | Established association |
@@ -45,6 +57,15 @@ Joomla package source: `4ad188f0f36b0cca13e574084a1ddd0a32cbcecb`.
 Later packaging guard, acceptance helpers and documentation do not change those
 runtime inputs. Resolve the final preservation commit from Git; do not substitute
 its hash for the binaries' recorded source identities.
+
+The fresh wrapper/client guard follow-up is in `93c1138`; the backend/Joomla
+snapshots above remain unchanged. Client/kernel/primary-helper suites passed
+20/12/6 tests respectively. The helper now supports only Verify (default), Upgrade
+and Restart. A concrete review found that its previous `finally` could write
+through a rejected output junction and could consume an existing fixed `.tmp`
+receipt. Both failures reproduced in copied fixtures; repaired paths validate
+write eligibility, recheck ancestors, use a unique CreateNew temporary file and
+no-overwrite final move. No host service/process operation belongs to these tests.
 
 - `src/dragonhydra/module_registry.py`: 18 typed definitions, validated dependency
   graph, operation/capability allowlists and separate fresh observations. It reads
@@ -194,7 +215,10 @@ $env:PYTHONPATH='src'
 
 ## Packages and reproducibility
 
-Final output directory: `dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4`.
+Preserved R4 output directory: `dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4`.
+Preferred fresh output: `dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1`;
+its manifest/checksums cover the new Setup and byte-identical reused Joomla/server
+ZIPs listed below. Versions and source identities of the reused ZIPs are unchanged.
 Versions describe actual internal metadata; filenames do not imply a new stable
 or major version. Everything is an unsigned development candidate.
 
@@ -227,10 +251,25 @@ The subsequent validation-only KernelBuild guard is source-tested and not
 retroactively claimed as the builder of these existing bytes.
 
 Fresh builds can now select a verified new kernel, but still extract the legacy
-A5 desktop unless using the established verified repackage/client override path.
-The current R4 repackage contains F4. A fresh kernel selection alone is not proof
-of repaired native external links. Clean-machine, OS reboot, signing and new
+A5 desktop before the explicit verified client override. The follow-up makes
+`-ClientBuildRoot` work for both a captured-new fresh directory and the original
+provenance-guarded repackage path. The fresh build actually executed this route,
+without fabricating an old copied-stage proof. A kernel selection alone is not
+proof of repaired native external links. Clean-machine, OS reboot, signing and new
 physical Android operation remain separate unverified gates.
+
+The fresh build took 271 seconds and executed extraction, .NET compilation, private
+web preparation and NSIS compilation with exit zero. Comparison with preserved R4:
+same 10,662 paths, 10,655 byte-identical, seven expected differences. These are
+INSTALLATION.md, WORKSTATION-BUILD.json, web/README.md, web/payload-manifest.json and
+the three recompiled .NET wrappers. The changed web README equals its Git93c1138
+blob; no vendor binary drift occurred. The fresh manifest records selected input
+proofs; registry verification binds the exact unchanged 18-module frozen server.
+
+Fresh privacy scan: 21 known values, 10,676 files, 2,227 archive members, zero
+matches. A new real read-only primary Verify passed four groups after this build;
+all 760 match ID/version pairs, pairing/configuration/ports and four service PIDs
+still equal the earlier baseline. No elevation or installation was retried.
 
 ## Backups, rollback and pending deployment
 
@@ -272,6 +311,7 @@ genuine Control Center, model/history display, CSRF/ACL, logout/fresh login,
 repeated supported component deployment and a scoped primary restart. Finally
 use `system_control_native_preflight.py` followed by real native shortcut/default
 browser acceptance. Do not retry a canceled elevation without owner readiness.
+Use the preferred fresh Setup/hash above; R4 remains a preserved alternative.
 
 ## Preservation
 

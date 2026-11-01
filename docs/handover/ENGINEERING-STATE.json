@@ -693,7 +693,7 @@
     "historical_assets_preserved": 59
   },
   "system_control_center_20261101": {
-    "updated_at": "2026-11-01T15:23:28.928108+00:00",
+    "updated_at": "2026-11-01T15:47:04.515738+00:00",
     "status": [
       "IMPLEMENTED",
       "BUILT",
@@ -752,7 +752,7 @@
     "artifact_manifest": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-ARTIFACTS.json",
     "report": "docs/handover/SYSTEM-CONTROL-CENTER-REPORT.md",
     "handoff": "docs/handover/SYSTEM-CONTROL-CENTER.md",
-    "next_action": "After owner readiness, refresh consistent baseline if stale; fixed-primary guarded R4 upgrade; genuine UI/workflow/idempotence/native checks and scoped restart",
+    "next_action": "After owner readiness, refresh private consistent backup if stale; fixed-primary guarded fresh candidate c217d045 upgrade once, then genuine Control Center/workflow/repeat-deployment/native/restart acceptance",
     "source_remote_status": "SOURCE_PUSH_VERIFIED: remote continuity/genesis-20261031-a6 matched preservation_source_commit; subsequent sanitized metadata checkpoint is separately verified by coordinator",
     "historical_release_assets_changed": false,
     "preservation_source_commit": "2529b173f0a20955b4db732b39de35d5e2bc2603",
@@ -767,6 +767,25 @@
       "next_independent_progress": "Explicit verified client selection for fresh builds and corrected primary-helper receipt guards; full fresh packaging acceptance follows"
     },
     "deployment_guard_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-DEPLOYMENT-GUARDS.json",
-    "fresh_packaging_acceptance": "PENDING_NEW_OWNED_OUTPUT; existing R4 unchanged"
+    "fresh_packaging_acceptance": "BUILT_AND_FULL_EXTRACTION_VERIFIED; not installed",
+    "preferred_installer": {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "version": "0.4.1-dev.1",
+      "source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+      "bytes": 64854364,
+      "sha256": "c217d0450595ed4c1a9548b5904ba71ce300077afa4250725f8f88c3a64c6460",
+      "primary_installed": false,
+      "published": false,
+      "provenance": "Fresh wrapper from recorded commit; independently versioned kernel/client/Joomla inputs recorded in BUILD-REPORT.json"
+    },
+    "fresh_artifact_manifest": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-FRESH-ARTIFACTS.json",
+    "fresh_build_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-FRESH-BUILD.json",
+    "fresh_wrapper_source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+    "latest_packaging_guard_tests": {
+      "client": 20,
+      "kernel": 12,
+      "primary_helper": 6
+    }
   }
 }

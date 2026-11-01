@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:47:04.515738+00:00",
+  "status": "PASS_UNCHANGED_PRIMARY",
+  "command": "system_control_install.ps1 -Phase Verify with fresh candidate c217d045...; no Apply",
+  "exit_code": 0,
+  "groups": 4,
+  "all760_id_version_pairs_preserved": true,
+  "pairing_file_preserved": true,
+  "joomla_configuration_preserved": true,
+  "ports_preserved": true,
+  "four_service_pids_preserved": true,
+  "primary_pid": 12904,
+  "other_pids": {
+    "default": 39364,
+    "provider": 23500,
+    "genesis_a8": 29480
+  },
+  "source_receipt": "build/system-control-center-20261101/evidence/primary-after-fresh-build.json",
+  "new_primary_registry": "404; unchanged installed old server, checked2026-11-01T15:28:49Z",
+  "uac_retry": false,
+  "new_primary_upgrade_applied": false
+}

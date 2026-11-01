@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:47:04.515738+00:00",
+  "status": "FRESH_BUILT_INSPECTED_NOT_INSTALLED",
+  "wrapper_source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+  "backend_source_commit": "8216126971be7aedeebe9213a5d42a00a244305f",
+  "backend_scoped_source_sha256": "fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb",
+  "assets": [
+    {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "version": "0.4.1-dev.1",
+      "source_commit": "93c11388317b1aba31d2297fa82f2d3d44b78db1",
+      "bytes": 64854364,
+      "sha256": "c217d0450595ed4c1a9548b5904ba71ce300077afa4250725f8f88c3a64c6460",
+      "primary_installed": false,
+      "published": false,
+      "provenance": "Fresh wrapper from recorded commit; independently versioned kernel/client/Joomla inputs recorded in BUILD-REPORT.json"
+    },
+    {
+      "name": "pkg_dragonhydra-0.4.1-dev.3.zip",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/pkg_dragonhydra-0.4.1-dev.3.zip",
+      "version": "0.4.1-dev.3",
+      "source_commit": "4ad188f0f36b0cca13e574084a1ddd0a32cbcecb",
+      "bytes": 59919,
+      "sha256": "d1c1fd8d35d281b20fc4ffef71fc18fd207b6608a90aa3df65bbe4cb7f671abc",
+      "primary_installed": false,
+      "published": false,
+      "provenance": "Unchanged previously verified package reused byte-for-byte"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-System-Control-Server-win-x64.zip",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/DRAGONHYDRA-0.4.0-alpha.1-System-Control-Server-win-x64.zip",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "8216126971be7aedeebe9213a5d42a00a244305f",
+      "bytes": 19558270,
+      "sha256": "9c15e196489d29b1569c64ebb61d57d9df13edaa2c2e0959e80e04017d4dc50e",
+      "primary_installed": false,
+      "published": false,
+      "provenance": "Unchanged previously verified package reused byte-for-byte"
+    }
+  ],
+  "full_installer_manifest_files_verified": 10662,
+  "recorded_wrapper_inputs_matching_git": 13,
+  "fresh_client_staging_mode": "fresh_owned_build",
+  "copied_stage_provenance_fabricated": false,
+  "reused_runtime_acceptance": "Exact unchanged server3231/clientf4/Joomla d1c1; earlier scoped tests retain their recorded limits",
+  "actual_new_primary_upgrade": "BLOCKED: canceled Windows elevation, no new retry",
+  "actual_new_primary_browser_restart_acceptance": "NOT_RUN",
+  "source_tests": {
+    "client_packaging": 20,
+    "kernel_packaging": 12,
+    "primary_helper": 6
+  },
+  "privacy_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-FRESH-PRIVACY.json",
+  "inspection_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-FRESH-BUILD.json",
+  "preserved_previous_candidate": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4",
+  "signing": "NotSigned; development candidate",
+  "clean_machine_tested": false,
+  "reboot_tested": false
+}
