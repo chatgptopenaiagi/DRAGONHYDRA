@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import tempfile
 import sys
+import subprocess
 import unittest
 from unittest.mock import patch
 from zipfile import ZipFile
@@ -83,6 +84,45 @@ class LinuxBundleTests(unittest.TestCase):
         for target in ('relative', str(self.directory / 'percent%path'), str(self.directory / 'line\nbreak'), self.directory.anchor):
             with self.subTest(target=target), self.assertRaises(ValueError):
                 preflight.safe_target(target)
+
+    def test_child_runtime_requires_available_dependency_imports(self):
+        missing = subprocess.CompletedProcess([], 0, json.dumps({'ready': False}), '')
+        with patch.object(preflight.subprocess, 'run', return_value=missing) as run:
+            with self.assertRaisesRegex(ValueError, 'INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE'):
+                preflight.inspect_installed_runtime(Path('/private/venv/bin/python'))
+        command = run.call_args.args[0]
+        self.assertEqual(command[:3], [str(Path('/private/venv/bin/python')), '-I', '-c'])
+        self.assertEqual(run.call_args.kwargs['timeout'], 30)
+
+    def test_child_probe_timeout_is_reported_as_failed_installation(self):
+        bundle, _, _ = self.fake_bundle()
+        output = io.StringIO()
+        arguments = ['preflight', '--bundle', str(bundle), '--prefix', str(self.directory / 'prefix'),
+                     '--state', str(self.directory / 'state'), '--apply']
+        with patch('sys.argv', arguments), \
+                patch.object(preflight, 'inspect_runtime', return_value={'ready': True}), \
+                patch.object(preflight, 'install', side_effect=subprocess.TimeoutExpired('child-probe', 30)), \
+                redirect_stdout(output):
+            result = preflight.main()
+        report = json.loads(output.getvalue())
+        self.assertEqual(result, 2)
+        self.assertEqual(report['status'], 'preflight_failed')
+        self.assertEqual(report['error']['type'], 'TimeoutExpired')
+        self.assertFalse(report['applied'])
+
+    @unittest.skipUnless(sys.platform.startswith('linux'), 'Linux installer contract')
+    def test_missing_child_dependencies_leave_no_application_launcher_or_state(self):
+        bundle, _, manifest = self.fake_bundle()
+        prefix, state = self.directory / 'partial-prefix', self.directory / 'new-state'
+        with patch.object(preflight.subprocess, 'run') as run, \
+                patch.object(preflight, 'inspect_installed_runtime',
+                             side_effect=ValueError('INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE')):
+            with self.assertRaisesRegex(ValueError, 'INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE'):
+                preflight.install(bundle, manifest, str(prefix), str(state), 18743)
+        self.assertEqual(run.call_count, 1)  # Only venv creation; no application install.
+        self.assertFalse(state.exists())
+        self.assertFalse((prefix / 'run-server.sh').exists())
+        self.assertFalse((prefix / 'dragonhydra.service').exists())
 
     def test_current_source_scope_includes_features_and_excludes_live_state(self):
         files = builder.collect_inputs(ROOT)

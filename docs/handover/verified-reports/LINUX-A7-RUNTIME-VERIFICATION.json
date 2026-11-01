@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "milestone": "GENESIS A7 VERIFIED CROSS-PLATFORM SERVER",
+  "passed": true,
+  "source_parent_commit": "060e1f549f66cd7239826c93695e01713e66ef18",
+  "branch": "continuity/genesis-20261031-a6",
+  "product_version": "0.4.0-alpha.1",
+  "release_tag": "genesis-linux-a7-20261101",
+  "publication_verified": false,
+  "a6_publication": "LINUX A6 PUBLICATION VERIFIED",
+  "a6_publication_receipt": "docs/handover/verified-reports/LINUX-A6-PUBLICATION-RECHECK-20261101.json",
+  "environment": {
+    "observed_at": "2026-11-01T08:47:02.3084518Z",
+    "windows_services": [
+      {
+        "Name": "DragonhydraProvidersA2Test",
+        "State": "Running",
+        "ProcessId": 23500,
+        "StartName": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "Name": "DragonhydraWorkstation",
+        "State": "Running",
+        "ProcessId": 22872,
+        "StartName": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "Name": "DragonhydraWorkstationTest",
+        "State": "Running",
+        "ProcessId": 22876,
+        "StartName": "NT AUTHORITY\\LocalService"
+      }
+    ],
+    "ubuntu_registered_vhdx": "D:\\WSL\\Ubuntu-26.04\\ext4.vhdx",
+    "ubuntu_vhdx_exists": false,
+    "ubuntu_start_exit_code": 1,
+    "ubuntu_error": "Wsl/Service/CreateInstance/MountDisk/ERROR_PATH_NOT_FOUND",
+    "docker_container_id": "b0beeb56defbe5d9e56b926f6bc144ded303824b6bb6f0c6960cccc615b00ce3",
+    "docker_image": "sha256:cd89c30eda26ee911a4611b18680086e0ea42e6f5f8cbe653d07fa7958c9cec8",
+    "docker_network": "none",
+    "docker_ports": {},
+    "docker_state": "running"
+  },
+  "python": "3.14.10",
+  "platform": "Docker Linux x86_64 Debian slim glibc2.41",
+  "runtime_uid": 10001,
+  "network": "none",
+  "host_ports_published": false,
+  "dependencies": {
+    "path": "docs/handover/commands/linux-a7/server-cp314-linux-x86_64.lock",
+    "bytes": 1727,
+    "sha256": "ae5a0c19ec94e188235728db94380dc5769c371faedad69f92fb70278b38a995"
+  },
+  "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+  "a6_product_files_byte_identical": 61,
+  "changed_bundle_inputs": [
+    "packaging/linux/README.md",
+    "packaging/linux/preflight.py"
+  ],
+  "artifacts": [
+    {
+      "path": "build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "bytes": 303125,
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298309,
+      "sha256": "8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871"
+    }
+  ],
+  "acceptance": {
+    "a6_retained_groups": 12,
+    "a7_retained_groups": 12,
+    "a6_fresh_groups": 7,
+    "a7_fresh_groups": 7,
+    "retained_snapshot_matches": 1204,
+    "distinct_connector_records": 444,
+    "separate_windows_workstation_previously_reported_matches": 1221,
+    "fresh_resource_import_matches": 760,
+    "fresh_repeat_insertions": 0,
+    "event_rows": 4407,
+    "squads": {
+      "France": 24,
+      "Argentina": 26
+    },
+    "api_http_statuses": [
+      200,
+      401,
+      404,
+      422
+    ],
+    "exports": [
+      "json",
+      "csv",
+      "xlsx"
+    ],
+    "restart_persistence": true
+  },
+  "cross_platform_comparison": {
+    "scope": "Same A6 wheel on separate Windows and Linux snapshots; current live workstation untouched",
+    "canonical_bytes_equal": true,
+    "differences": [],
+    "payload_sha256": "3bbb93ad7afbe1c4c4a2f952ddc351885ae111e43ab56ae942112e40279300ed",
+    "forecast_available": true,
+    "fixed_data_cutoff": "2026-10-31T23:59:59.000000Z"
+  },
+  "repair": {
+    "defect": "Parent venv dependencies passed preflight but were unavailable to child venv",
+    "original_false_success_reproduced": true,
+    "fixed_fail_closed": true,
+    "failure_code": "INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE",
+    "successful_child_runtime_and_server_import_verified": true
+  },
+  "diagnostic_failures_preserved": [
+    "bootstrap.py diagnostic queried nonexistent source_records after successful install; seed-recovery.py resumed without reinstall",
+    "runtime-r1 assumed1221 records; actual historical snapshot1204; owned cleanup exited0",
+    "fresh-runtime-r1 resource glob included receipt JSON; corrected before launching server",
+    "coordinator extra Linux unit run could not create scratch files on read-only repo; environment setup failure, separate correctly mounted focused run required; corrected final10/10 receipt now recorded"
+  ],
+  "limits": [
+    "Ubuntu VHDX unavailable; no Ubuntu/R8 acceptance",
+    "No systemd, reboot, host-browser, VPS or production deployment proof",
+    "No provider downloads or model inference in this acceptance",
+    "Historical A6 installer remains unchanged with documented parent-venv limitation"
+  ],
+  "next_objective": "Native Ubuntu/R8 acceptance after storage identity is restored by its owner; preserve isolated Docker environment meanwhile",
+  "receipts": [
+    {
+      "path": "docs/handover/verified-reports/LINUX-A6-RUNTIME-ACCEPTANCE-20261101.json",
+      "bytes": 8716,
+      "sha256": "6b8d758efd4e7cedf7f379db7d26275c83656e8c9cbfb0424e5e526a55cca11a"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-RUNTIME-ACCEPTANCE-20261101.json",
+      "bytes": 8600,
+      "sha256": "a33884fffc7ebbff8462c76c6c4a71fe56f4b915c28f894c44ca5d4167af4e0b"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A6-FRESH-STATE-20261101.json",
+      "bytes": 6403,
+      "sha256": "f8531ceaa0f20d42e2a67b0150a76d0b251011c2e1e24f1c0c94ad9f961a8733"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-FRESH-STATE-20261101.json",
+      "bytes": 6400,
+      "sha256": "3e234de58018631b3c142351c9a349946bcb9debd13ae7bfed86dae30f04c4e7"
+    },
+    {
+      "path": "docs/handover/verified-reports/A6-WINDOWS-CALCULATIONS-20261101.json",
+      "bytes": 42690,
+      "sha256": "0ef37db90bfd57dae420178648b7c84d9118222dae7f2aa652e66bd1e4143909"
+    },
+    {
+      "path": "docs/handover/verified-reports/A6-LINUX-CALCULATIONS-20261101.json",
+      "bytes": 42058,
+      "sha256": "56938480a8639fba2afb44469704b49e6f96b7ff780c3c6c772c26ba848b5f5b"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-INSTALLATION-20261101.json",
+      "bytes": 4407,
+      "sha256": "de11c6cfa4620063e0c110e4d7c62ac74bdbc014403c549d53c04c4a5463aef1"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-ENVIRONMENT-20261101.json",
+      "bytes": 1049,
+      "sha256": "2f509cbfbb90485e5e17b6ddb783fbf4bf9bc6f57180957c122a44f3fbe103c5"
+    }
+  ],
+  "focused_tests": {
+    "linux": {
+      "run": 10,
+      "passed": 10,
+      "skipped": 0
+    },
+    "windows": {
+      "run": 10,
+      "passed": 9,
+      "skipped": 1
+    },
+    "runtime_guards_linux": {
+      "run": 2,
+      "passed": 2
+    },
+    "receipt": {
+      "path": "docs/handover/verified-reports/LINUX-A7-FOCUSED-TESTS-20261101.json",
+      "bytes": 3570,
+      "sha256": "fba5b9891b9f554e176b27be19e55d3ffdbd7f886d6137516ed062d00ba2e136"
+    }
+  }
+}

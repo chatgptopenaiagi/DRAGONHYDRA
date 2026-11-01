@@ -69,6 +69,19 @@ def safe_target(value):
     return path.resolve()
 
 
+def inspect_installed_runtime(python):
+    """Check the child's real imports, independently of the calling venv."""
+    probe = subprocess.run(
+        [str(python), '-I', '-c',
+         "import json,runpy,sys; print(json.dumps(runpy.run_path(sys.argv[1])['inspect_runtime']()))",
+         str(Path(__file__).resolve())],
+        check=True, capture_output=True, text=True, timeout=30)
+    runtime = json.loads(probe.stdout)
+    if not runtime.get('ready'):
+        raise ValueError('INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE')
+    return runtime
+
+
 def install(bundle, manifest, prefix, state, port):
     """Explicit owned-prefix install; caller already verified runtime/integrity."""
     if os.name != 'posix' or platform.system() != 'Linux':
@@ -80,8 +93,12 @@ def install(bundle, manifest, prefix, state, port):
     prefix.mkdir(parents=True, mode=0o700)
     subprocess.run([sys.executable, '-m', 'venv', '--system-site-packages', str(prefix / 'venv')], check=True)
     python = prefix / 'venv/bin/python'
+    # A nested venv inherits base-system packages, not its parent's local sites.
+    # Check before installing the application or creating usable state/launchers.
+    runtime = inspect_installed_runtime(python)
     subprocess.run([str(python), '-m', 'pip', 'install', '--no-index', '--no-deps', str(bundle / manifest['wheel'])], check=True)
     subprocess.run([str(python), '-m', 'pip', 'check'], check=True)
+    subprocess.run([str(python), '-I', '-c', 'import dragonhydra.server'], check=True, timeout=30)
     launcher = prefix / 'run-server.sh'
     shutil.copyfile(bundle / 'run-server.sh', launcher)
     launcher.chmod(0o700)
@@ -92,7 +109,8 @@ def install(bundle, manifest, prefix, state, port):
     unit_path.write_text(unit, encoding='utf-8')
     unit_path.chmod(0o600)
     return {'prefix': str(prefix), 'state': str(state), 'unit': str(unit_path),
-            'service_activated': False, 'dependencies_downloaded': False}
+            'service_activated': False, 'dependencies_downloaded': False,
+            'runtime': runtime, 'server_import_verified': True}
 
 
 def main():
@@ -117,7 +135,7 @@ def main():
                     raise ValueError('EXPLICIT_PREFIX_AND_STATE_REQUIRED')
                 report['installation'] = install(bundle, manifest, args.prefix, args.state, args.port)
                 report.update(applied=True, status='installed_not_activated')
-    except (ValueError, KeyError, TypeError, OSError, subprocess.CalledProcessError) as error:
+    except (ValueError, KeyError, TypeError, OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
         report['status'] = 'preflight_failed'
         report['error'] = {'type': type(error).__name__, 'code': str(error) if isinstance(error, ValueError) else 'INSPECT_LOCAL_DIAGNOSTICS'}
     print(json.dumps(report, sort_keys=True))

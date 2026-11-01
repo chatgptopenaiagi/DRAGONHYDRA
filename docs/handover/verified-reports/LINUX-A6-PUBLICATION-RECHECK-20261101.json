@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "result": "LINUX A6 PUBLICATION VERIFIED",
+  "verified_at": "2026-11-01T08:38:33.6718900+00:00",
+  "repository": "https://github.com/chatgptopenaiagi/DRAGONHYDRA",
+  "initial_local_commit": "060e1f549f66cd7239826c93695e01713e66ef18",
+  "remote_branch_commit": "060e1f549f66cd7239826c93695e01713e66ef18",
+  "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-linux-a6-20261031",
+  "release_id": 430438995,
+  "tag": "genesis-linux-a6-20261031",
+  "tag_commit": "5cf69cb9ce4cb350f41cac10683903a8865a0d0b",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-11-01T09:01:30Z",
+  "assets": [
+    {
+      "path": "build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "name": "dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "bytes": 303125,
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2",
+      "server_digest": "sha256:2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2",
+      "asset_id": 697706275,
+      "verified": true,
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-linux-a6-20261031/dragonhydra-linux-dev-3319aed91dd0.tar.gz"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09",
+      "server_digest": "sha256:021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09",
+      "asset_id": 697706273,
+      "verified": true,
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-linux-a6-20261031/dragonhydra-0.4.0a1-py3-none-any.whl"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A6-INDEPENDENT-PUBLIC-SUMMARY.json",
+      "name": "LINUX-A6-INDEPENDENT-PUBLIC-SUMMARY.json",
+      "bytes": 2498,
+      "sha256": "6f6608a2c519ead01418093389655ed1a47bf48a0b0411ba9fa3d7c7d9b4c007",
+      "server_digest": "sha256:6f6608a2c519ead01418093389655ed1a47bf48a0b0411ba9fa3d7c7d9b4c007",
+      "asset_id": 697706276,
+      "verified": true,
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-linux-a6-20261031/LINUX-A6-INDEPENDENT-PUBLIC-SUMMARY.json"
+    }
+  ],
+  "historical_release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-continuity-20261031-a6",
+  "historical_asset_count": 22,
+  "historical_assets": [
+    {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64359085,
+      "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+      "server_digest": "sha256:2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+      "asset_id": 696033974,
+      "unchanged": true
+    },
+    {
+      "name": "dragonhydra-linux-dev-09822a188bd1.tar.gz",
+      "bytes": 294855,
+      "sha256": "dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562",
+      "server_digest": "sha256:dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562",
+      "asset_id": 696033972,
+      "unchanged": true
+    },
+    {
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 290646,
+      "sha256": "c46f4d3903d965765b193cad215062ce0b72174863a833d3b57f54aba01c353e",
+      "server_digest": "sha256:c46f4d3903d965765b193cad215062ce0b72174863a833d3b57f54aba01c353e",
+      "asset_id": 696033981,
+      "unchanged": true
+    },
+    {
+      "name": "pkg_dragonhydra-0.4.0-alpha.1.zip",
+      "bytes": 13526,
+      "sha256": "66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585",
+      "server_digest": "sha256:66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585",
+      "asset_id": 696033994,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "bytes": 17345938,
+      "sha256": "8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c",
+      "server_digest": "sha256:8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c",
+      "asset_id": 696034008,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19295262,
+      "sha256": "ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467",
+      "server_digest": "sha256:ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467",
+      "asset_id": 696034150,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+      "bytes": 1886742,
+      "sha256": "282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384",
+      "server_digest": "sha256:282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384",
+      "asset_id": 696034530,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+      "bytes": 41356,
+      "sha256": "373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55",
+      "server_digest": "sha256:373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55",
+      "asset_id": 696034580,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-A6-Recovery-20261031.zip",
+      "bytes": 988209,
+      "sha256": "a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d",
+      "server_digest": "sha256:a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d",
+      "asset_id": 696034770,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe",
+      "bytes": 64341255,
+      "sha256": "b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+      "server_digest": "sha256:b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+      "asset_id": 696044731,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip",
+      "bytes": 344750,
+      "sha256": "a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
+      "server_digest": "sha256:a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
+      "asset_id": 696044733,
+      "unchanged": true
+    },
+    {
+      "name": "VERIFIED-ARTIFACTS.json",
+      "bytes": 18466,
+      "sha256": "33f022c67bcc197c12a4046571e6f7713ca92cd60c68b5687635d617d056e9dc",
+      "server_digest": "sha256:33f022c67bcc197c12a4046571e6f7713ca92cd60c68b5687635d617d056e9dc",
+      "asset_id": 696063122,
+      "unchanged": true
+    },
+    {
+      "name": "PUBLICATION-VERIFICATION.json",
+      "bytes": 7327,
+      "sha256": "0e509663cc9c3d91029681ba3341969cd408b99ea71c5f797e97c42ab58ce307",
+      "server_digest": "sha256:0e509663cc9c3d91029681ba3341969cd408b99ea71c5f797e97c42ab58ce307",
+      "asset_id": 696063125,
+      "unchanged": true
+    },
+    {
+      "name": "PRESERVATION-REPORT.md",
+      "bytes": 3440,
+      "sha256": "a1fdf6bf3d03b86748b95ec7cba27f1e8017f35738a15b9115472a7d7cd28de2",
+      "server_digest": "sha256:a1fdf6bf3d03b86748b95ec7cba27f1e8017f35738a15b9115472a7d7cd28de2",
+      "asset_id": 696063123,
+      "unchanged": true
+    },
+    {
+      "name": "RESUME-CODEX.md",
+      "bytes": 1218,
+      "sha256": "1ef45c8ecf02f4f32fbaad4c95657530cfbdf6ba0459471e470525e9bc8781ba",
+      "server_digest": "sha256:1ef45c8ecf02f4f32fbaad4c95657530cfbdf6ba0459471e470525e9bc8781ba",
+      "asset_id": 696063127,
+      "unchanged": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 1272,
+      "sha256": "8488e8d506036bf81805637c038d091055202f58029fa836033010ccd987915f",
+      "server_digest": "sha256:8488e8d506036bf81805637c038d091055202f58029fa836033010ccd987915f",
+      "asset_id": 696063124,
+      "unchanged": true
+    },
+    {
+      "name": "dragonhydra-api_0.4.0.alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+      "bytes": 2939100,
+      "sha256": "d8b741ee36921a536a4624e4c351f8f790c89b75e9bd2bea6127a72b865dd675",
+      "server_digest": "sha256:d8b741ee36921a536a4624e4c351f8f790c89b75e9bd2bea6127a72b865dd675",
+      "asset_id": 696079511,
+      "unchanged": true
+    },
+    {
+      "name": "dragonhydra-local-ai-runtime_0.7.0.dev+git2280f0f.cpu1-1_amd64.deb",
+      "bytes": 5956236,
+      "sha256": "a2f5e3a1e2e52f180479c572c3c27e5efd5934488062e754edc1535e5f33fe5a",
+      "server_digest": "sha256:a2f5e3a1e2e52f180479c572c3c27e5efd5934488062e754edc1535e5f33fe5a",
+      "asset_id": 696079545,
+      "unchanged": true
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+      "bytes": 14484,
+      "sha256": "7552d02c1c12993ad315ad333b7dfae5d50939845251644eee5656c7784049f7",
+      "server_digest": "sha256:7552d02c1c12993ad315ad333b7dfae5d50939845251644eee5656c7784049f7",
+      "asset_id": 696079512,
+      "unchanged": true
+    },
+    {
+      "name": "CONCURRENT-LINUX-PRESERVATION.json",
+      "bytes": 10883,
+      "sha256": "97a3a103421b5d48d772e5c1a85b30259929220307ca38b985978d35a3959384",
+      "server_digest": "sha256:97a3a103421b5d48d772e5c1a85b30259929220307ca38b985978d35a3959384",
+      "asset_id": 696079508,
+      "unchanged": true
+    },
+    {
+      "name": "A6-INSTALLED-ACCEPTANCE-20261031.json",
+      "bytes": 6571,
+      "sha256": "4d752f5deed2c8289323b18569b5075c0ae13caaaf2271481b1a8c7f1544bcc9",
+      "server_digest": "sha256:4d752f5deed2c8289323b18569b5075c0ae13caaaf2271481b1a8c7f1544bcc9",
+      "asset_id": 696145834,
+      "unchanged": true
+    },
+    {
+      "name": "PRESERVATION-REPORT-FINAL-20261031.md",
+      "bytes": 4492,
+      "sha256": "3e895c91520833c376794dc67b687c134e11375f3e18b7b611b48198dcea5036",
+      "server_digest": "sha256:3e895c91520833c376794dc67b687c134e11375f3e18b7b611b48198dcea5036",
+      "asset_id": 696088560,
+      "unchanged": true
+    }
+  ],
+  "historical_baseline_sources": [
+    "docs/handover/PUBLICATION-VERIFICATION.json",
+    "build/preservation/genesis-20261031/FINAL-PUBLICATION-VERIFICATION.json",
+    "docs/handover/CONCURRENT-LINUX-PUBLICATION-VERIFICATION.json",
+    "docs/handover/verified-reports/A6-INSTALLED-PUBLICATION-VERIFICATION-20261031.json",
+    "build/preservation/genesis-20261031/PRESERVATION-REPORT-FINAL-20261031.md"
+  ],
+  "verification_method": "Existing authenticated GitHub CLI REST reads; local SHA-256; GitHub server asset digest and size; tag ref and remote branch commit",
+  "mutations_performed": false,
+  "scope": "Publication integrity only. No installation, historical tests, release changes, asset uploads or replacements."
+}

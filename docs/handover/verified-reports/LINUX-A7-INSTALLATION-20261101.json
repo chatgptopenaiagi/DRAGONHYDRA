@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "commands": [
+    {
+      "argv": [
+        "/bin/bash",
+        "/opt/dragonhydra-a7-acceptance/bundle/dragonhydra-linux-dev-8f170de1559b/install.sh",
+        "--prefix",
+        "/opt/dragonhydra-a7-acceptance/installed",
+        "--state",
+        "/opt/dragonhydra-a7-acceptance/state",
+        "--port",
+        "18763",
+        "--apply"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "service_activated": false,
+  "source_mounted_readonly": true,
+  "network": "none",
+  "installation": {
+    "applied": true,
+    "bundle_integrity": true,
+    "downloads": false,
+    "installation": {
+      "dependencies_downloaded": false,
+      "prefix": "/opt/dragonhydra-a7-acceptance/installed",
+      "runtime": {
+        "dependencies": {
+          "fastapi": {
+            "available": true,
+            "installed_version": "0.162.0",
+            "required_version": "0.162.0"
+          },
+          "openpyxl": {
+            "available": true,
+            "installed_version": "3.1.5",
+            "required_version": "3.1.5"
+          },
+          "tzdata": {
+            "available": true,
+            "installed_version": "2026.2",
+            "required_version": "2026.2"
+          },
+          "uvicorn": {
+            "available": true,
+            "installed_version": "0.42.0",
+            "required_version": "0.42.0"
+          }
+        },
+        "platform": "Linux",
+        "python": "3.14.10",
+        "python_compatible": true,
+        "python_executable": "/opt/dragonhydra-a7-acceptance/installed/venv/bin/python",
+        "ready": true
+      },
+      "server_import_verified": true,
+      "service_activated": false,
+      "state": "/opt/dragonhydra-a7-acceptance/state",
+      "unit": "/opt/dragonhydra-a7-acceptance/installed/dragonhydra.service"
+    },
+    "runtime": {
+      "dependencies": {
+        "fastapi": {
+          "available": true,
+          "installed_version": "0.162.0",
+          "required_version": "0.162.0"
+        },
+        "openpyxl": {
+          "available": true,
+          "installed_version": "3.1.5",
+          "required_version": "3.1.5"
+        },
+        "tzdata": {
+          "available": true,
+          "installed_version": "2026.2",
+          "required_version": "2026.2"
+        },
+        "uvicorn": {
+          "available": true,
+          "installed_version": "0.42.0",
+          "required_version": "0.42.0"
+        }
+      },
+      "platform": "Linux",
+      "python": "3.14.10",
+      "python_compatible": true,
+      "python_executable": "/usr/local/bin/python3",
+      "ready": true
+    },
+    "schema_version": 1,
+    "service_activated": false,
+    "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+    "status": "installed_not_activated"
+  },
+  "cancelled_copied_jobs": 0,
+  "source_before": {
+    "core.sqlite3": "8a8e4acf40765108125a9c6d2b7d60beb2e81f469a8da8a59c80141aa4d81023",
+    "raw/connectors/2b00c4cbf027b36ae2ce99f183a0943c649bb5bdcb8324683a8603785beffed5.payload": "2b00c4cbf027b36ae2ce99f183a0943c649bb5bdcb8324683a8603785beffed5",
+    "raw/connectors/a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35.payload": "a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35",
+    "raw/connectors/b9d7516dc9919a825f04c204ca85487958c8a2431e84140a48e944934661efc7.payload": "b9d7516dc9919a825f04c204ca85487958c8a2431e84140a48e944934661efc7",
+    "raw/connectors/e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa.payload": "e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa"
+  },
+  "source_after": {
+    "core.sqlite3": "8a8e4acf40765108125a9c6d2b7d60beb2e81f469a8da8a59c80141aa4d81023",
+    "raw/connectors/2b00c4cbf027b36ae2ce99f183a0943c649bb5bdcb8324683a8603785beffed5.payload": "2b00c4cbf027b36ae2ce99f183a0943c649bb5bdcb8324683a8603785beffed5",
+    "raw/connectors/a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35.payload": "a0b0036d50c10a4c8879d1ee9f24a7502ec2cfb264a61951c8d500dfc897ec35",
+    "raw/connectors/b9d7516dc9919a825f04c204ca85487958c8a2431e84140a48e944934661efc7.payload": "b9d7516dc9919a825f04c204ca85487958c8a2431e84140a48e944934661efc7",
+    "raw/connectors/e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa.payload": "e6cd42f5d8956d6aa30fb917ce8d4c3b3df1879a93f02f8feba820930a6971fa"
+  },
+  "runtime_uid": 10001,
+  "state_mode": "0700",
+  "database_mode": "0600"
+}

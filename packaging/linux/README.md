@@ -38,12 +38,37 @@ bash install.sh --prefix /absolute/private/dragonhydra --state /absolute/private
 The installer creates a venv that reuses the inspected interpreter's installed
 packages and installs only this wheel with `--no-index --no-deps`. It refuses an
 existing prefix, retains partial-install diagnostics, and changes no service.
+Python's `--system-site-packages` inherits the base interpreter's packages; it
+does not inherit dependencies installed only in a calling parent venv. The
+installer now verifies imports and exact versions in the newly created child,
+then verifies the installed server import before reporting success. A parent
+preflight can pass while the child fails with
+`INSTALLED_RUNTIME_DEPENDENCIES_UNAVAILABLE`. In that case no application wheel,
+launcher or state is created. The partial prefix remains for inspection; after
+providing compatible base dependencies, retry with a new prefix.
+
+For an isolated CPython3.14 Linux x86_64 runtime, the existing repository cache
+`runtime/linux-native/locked-wheels` contains the17 server wheels pinned by
+`build/linux/native-kernel-20261031/public-r4/requirements.lock`, including their
+SHA256 hashes. Install that server subset explicitly with `pip install
+--no-index --require-hashes --find-links <cache> -r <requirements.lock>` into the
+selected isolated base environment before running this installer. Do not alter
+another owner's environment. The bundle's `server-python314.lock.txt` records
+the broader development/verification environment; it additionally lists HTTP
+and browser test packages absent from the17-wheel server cache. Those packages
+are not required to start the server or run HTTP checks with Python's standard
+library. No dependency cache is embedded in this preparation bundle.
+
 It writes a reviewed user-systemd unit into the selected prefix; it neither
 registers nor activates it. To run manually after installation:
 
 ```sh
-DRAGONHYDRA_STATE=/absolute/private/dragonhydra-state /absolute/private/dragonhydra/run-server.sh
+DRAGONHYDRA_STATE=/absolute/private/dragonhydra-state DRAGONHYDRA_PORT=18753 /absolute/private/dragonhydra/run-server.sh
 ```
+
+Choose an unused dedicated loopback port. The installer's `--port` option
+configures its generated systemd unit; manual launches select their port with
+`DRAGONHYDRA_PORT` and otherwise default to18743.
 
 The API always binds `127.0.0.1`. Protect its generated pairing token. Public
 access requires separately authorized HTTPS and the existing read-only gateway;

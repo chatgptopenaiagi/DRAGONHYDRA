@@ -1,3 +1,24 @@
+# Latest continuation: GENESIS A7, 2026-11-01
+
+Linux A6 runtime acceptance is complete in Docker, not native Ubuntu. A7 fixes
+reproduced false installation success when only a parent venv has dependencies.
+Actual installed A6/A7:12 HTTP/retained/export/restart groups each; fresh-state
+7 groups each; Linux installer10/10 tests; Windows9pass+1Linuxskip. A6 numerical
+and JSON comparison on Windows/Linux is byte-identical, including an available
+four-model retained scheduled-fixture forecast. All61 product files match A6.
+Read LINUX-A7-RUNTIME.md and verified-reports/LINUX-A7-RUNTIME-VERIFICATION.json.
+New release/checkpoint status is in the separate publication receipt. No A6
+artifact or historical release replacement occurred. No provider/model request,
+Windows service mutation or live DB copy occurred. The historical stopped
+qwen-api-r1 snapshot/raws were mounted read-only and stayed hash-identical.
+
+Next: native Ubuntu acceptance requires the original unavailable VHDX/storage;
+current D: is removable ESD-ISO. Do not change drive identity or reinstall WSL.
+Dedicated Docker container and both installed states remain recoverable; use
+its recorded name and installed paths, not R8 or old live workstation PIDs.
+
+Earlier checkpoint follows unchanged.
+
 # Resume checkpoint — installed A6, 2026-10-31
 
 Workspace C:\xampp\DRAGONHYDRA, branch continuity/genesis-20261031-a6.

@@ -1,3 +1,21 @@
+# Updated priority queue: GENESIS A7 (2026-11-01)
+
+1. COMPLETED: Linux A6 publication and installed runtime acceptance in isolated
+   Docker; retained data, actual exports, restart and fresh import verified.
+2. COMPLETED: actual A6 Windows/Linux calculation/serialization comparison;
+   parent-venv installation defect reproduced, repaired, tested and A7 built once.
+3. Publication/checkpoint verification: read LINUX-A7-PUBLICATION-VERIFICATION-20261101.json.
+4. NEXT EXTERNAL GATE: restore access to the original Ubuntu VHDX through its
+   storage owner. Native Ubuntu/R8 acceptance then requires fresh ownership/state
+   observation; no existing service upgrade is implied. Current D: ESD-ISO is
+   unrelated media, not a target for automatic drive reassignment.
+5. After the native environment is available, verify the documented user service
+   and host-browser path on a dedicated profile. Reboot/clean-machine/full Linux
+   workstation, VPS trust, MariaDB cutover and production signing remain separate.
+
+Use LINUX-A7-RUNTIME.md and ENGINEERING-STATE.json for exact commands/evidence.
+Earlier objectives below are historical; completed A6 work must not be repeated.
+
 # Next objectives after the preservation checkpoint
 
 2026-11-01 continuation: Linux A6 publication is COMPLETE (three assets, exact

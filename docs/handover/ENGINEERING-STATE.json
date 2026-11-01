@@ -323,5 +323,43 @@
     "independent_static_review": "passed",
     "repair_requires": "Passed reviewed preflight receipt plus exact SHA, separate --phase repair --apply and fresh output",
     "readchecks_requires": "Passed reviewed repair receipt plus exact SHA, separate --phase readchecks --apply; only one UI fallback job and same-key replay"
+  },
+  "genesis_a7_20261101": {
+    "source_parent_commit": "060e1f549f66cd7239826c93695e01713e66ef18",
+    "branch": "continuity/genesis-20261031-a6",
+    "release_tag": "genesis-linux-a7-20261101",
+    "product_version": "0.4.0-alpha.1",
+    "publication": "pending_checkpoint_publication",
+    "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+    "status": [
+      "BUILT",
+      "INSTALLED",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED"
+    ],
+    "a6_publication": "VERIFIED; 3 assets exact; historical22 unchanged",
+    "runtime": "Docker Python3.14.10 Debian slim x86_64, networknone, UID10001; Ubuntu VHDX missing",
+    "retained_snapshot_matches": 1204,
+    "fresh_import_matches": 760,
+    "retained_acceptance_groups_each": 12,
+    "fresh_acceptance_groups_each": 7,
+    "windows_linux_a6_canonical_comparison_sha256": "3bbb93ad7afbe1c4c4a2f952ddc351885ae111e43ab56ae942112e40279300ed",
+    "repair": "Installed child interpreter now verifies dependencies before success; bounded probes; actual regression passed",
+    "runtime_report": "docs/handover/verified-reports/LINUX-A7-RUNTIME-VERIFICATION.json",
+    "installation_report": "docs/handover/LINUX-A7-RUNTIME.md",
+    "artifact_manifest": "docs/handover/verified-reports/LINUX-A7-ARTIFACT-MANIFEST.json",
+    "container_name": "dragonhydra-a6-acceptance-20261101-r1",
+    "installed_roots": [
+      "/opt/dragonhydra-a6-acceptance",
+      "/opt/dragonhydra-a7-acceptance"
+    ],
+    "next_action": "Restore original Ubuntu storage identity through its owner, then observe R8 ownership/state before native acceptance. Do not recreate distribution or alter current D: media.",
+    "limitations": [
+      "Ubuntu VHDX unavailable; no Ubuntu/R8 acceptance",
+      "No systemd, reboot, host-browser, VPS or production deployment proof",
+      "No provider downloads or model inference in this acceptance",
+      "Historical A6 installer remains unchanged with documented parent-venv limitation"
+    ]
   }
 }

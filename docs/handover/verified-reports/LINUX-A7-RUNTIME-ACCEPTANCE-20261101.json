@@ -1,0 +1,267 @@
+{
+  "started_at": "2026-11-01T08:44:59.085802+00:00",
+  "passed": true,
+  "scope": "Installed Python server, real retained snapshot, HTTP, exports and restart",
+  "python": "/opt/dragonhydra-a7-acceptance/installed/venv/bin/python",
+  "state": "/opt/dragonhydra-a7-acceptance/state",
+  "harness_sha256": "79eeca6f49b858f4328d063bfb696764771a93c82ad8450b181bd3fd3bf81f34",
+  "provider_acquisitions_requested": false,
+  "model_inference_requested": false,
+  "checks": [
+    {
+      "name": "startup_1",
+      "passed": true,
+      "endpoint": {
+        "url": "http://127.0.0.1:34823",
+        "pid": 154,
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "source_sha": null
+      },
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      }
+    },
+    {
+      "name": "health_and_error_contracts",
+      "passed": true,
+      "liveness_http": 200,
+      "unauthenticated_http": 401,
+      "missing_match_http": 404,
+      "invalid_limit_http": 422
+    },
+    {
+      "name": "retained_football",
+      "passed": true,
+      "records": 1204,
+      "match": {
+        "id": "4897236dbf6d5312ff576ee18d6f4c03355e083701b4510543f36c3ad1b101a1",
+        "version": "3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9",
+        "identity_version": 1,
+        "competition_id": "9380625a0dffaff85e30ccfe5ec9df45a31d683f1062220356609a233f770daa",
+        "competition": "FIFA World Cup 2022",
+        "season": "2022",
+        "home": {
+          "id": "3577f3f9ba3063fc6d69691f0f7ca088c97b8dc0225bdd1d939c21865623b0cc",
+          "name": "Argentina"
+        },
+        "away": {
+          "id": "5a36ebfaf868e171ca21a5d27a8e56c7ae3f0120e918303b3b1c6402106dfbd2",
+          "name": "France"
+        },
+        "event_date": "2022-12-18",
+        "kickoff_utc": null,
+        "time_precision": "local_time",
+        "status": "finished",
+        "score": {
+          "home": 3,
+          "away": 3
+        },
+        "source_id": "statsbomb",
+        "source_url": "https://github.com/statsbomb/open-data/raw/refs/heads/master/data/matches/43/106.json",
+        "evidence_id": "3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9",
+        "received_at": "2026-10-31T10:58:52.057899Z",
+        "usable_at": "2026-10-31T10:58:52.092204Z",
+        "data_state": "Historical",
+        "capabilities": {
+          "events": false,
+          "lineups": false,
+          "statistics": false,
+          "odds": false
+        },
+        "source_local_time": "17:00:00.000",
+        "record_kind": "historical_result",
+        "sport": "football",
+        "score_scope": "Provider match score; regulation, extra-time and shootout breakdown is not inferred."
+      }
+    },
+    {
+      "name": "package3_windows_comparison",
+      "passed": true,
+      "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+      "baseline": "Explicit baseline file",
+      "context_summary": {
+        "event_rows": 4407,
+        "squad_sizes": [
+          {
+            "team_id": 771,
+            "team_name": "France",
+            "entries": 24
+          },
+          {
+            "team_id": 779,
+            "team_name": "Argentina",
+            "entries": 26
+          }
+        ]
+      },
+      "default_schema": "sports-evidence-package/2"
+    },
+    {
+      "name": "retained_context_and_event_page",
+      "passed": true,
+      "context_record_id": "source_context:ee80300baae09fc55c61a5312abdc7553d072bcdd3c2e3dbf4ce13a2bb7466fe",
+      "total": 4407,
+      "offset": 4400,
+      "rows": 7
+    },
+    {
+      "name": "standings_calculation",
+      "passed": true,
+      "teams": 20,
+      "played_sum": 760,
+      "official": false,
+      "table_sha256": "1292c2f3db82d163580da329954fd3b978c2917a40fec043512d3010f6ab95d7"
+    },
+    {
+      "name": "deterministic_analysis",
+      "passed": true,
+      "job_id": "876867c69be143a8b9a68a021a2419d4",
+      "result": {
+        "kind": "deterministic",
+        "summary": "Argentina vs France: 3–3.",
+        "observations": [
+          "Source: FIFA World Cup 2022; source event date 2022-12-18.",
+          "Evidence became usable locally at 2026-10-31T10:58:52.092204Z.",
+          "No cross-provider odds mapping has been approved for this event."
+        ],
+        "evidence": [
+          {
+            "id": "3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9",
+            "url": "/dragon/api/v1/evidence/3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9",
+            "label": "Retained source record"
+          }
+        ],
+        "unknowns": [
+          "Exact UTC kickoff",
+          "Confirmed lineups and injuries",
+          "Contemporaneous compatible odds",
+          "This standard explanation is deterministic; local model use requires the separate optional action."
+        ],
+        "cutoff": "2026-11-01T08:45:01.468953Z",
+        "input_manifest": [
+          "3c4061086077375b28d9a482c9559a0e9f31c5310031ffc6eeb7df4e454cbdc9"
+        ],
+        "version": "evidence-summary/1"
+      }
+    },
+    {
+      "name": "real_exports",
+      "passed": true,
+      "items": [
+        {
+          "format": "json",
+          "job_id": "331d043ceca348a58f0c1455329b4b25",
+          "filename": "331d043ceca348a58f0c1455329b4b25.json",
+          "bytes": 2840,
+          "sha256": "3e44b0252c585e9329a3f7e9ad6812aca0a6472f890d53623a38137ee54007bc"
+        },
+        {
+          "format": "csv",
+          "job_id": "a24be1f157a84a449379c2a30810d8e3",
+          "filename": "a24be1f157a84a449379c2a30810d8e3.csv",
+          "bytes": 331,
+          "sha256": "81a7efea0dcad4d30b931ddf26aa417e79e1ef336ed22ab33a57c21210b191fa"
+        },
+        {
+          "format": "xlsx",
+          "job_id": "70eb36c42b9d4ba98b8769dbb7301c29",
+          "filename": "70eb36c42b9d4ba98b8769dbb7301c29.xlsx",
+          "bytes": 6212,
+          "sha256": "01c69c38f9386c5cda2cbc00a767c87fcad4742cfdc55a8b605ec17a3ce1bc05"
+        }
+      ]
+    },
+    {
+      "name": "shutdown_1",
+      "passed": true,
+      "exit_code": 0,
+      "endpoint_removed": true
+    },
+    {
+      "name": "startup_2",
+      "passed": true,
+      "endpoint": {
+        "url": "http://127.0.0.1:60655",
+        "pid": 165,
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "source_sha": null
+      },
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      }
+    },
+    {
+      "name": "restart_persistence",
+      "passed": true,
+      "records": 1204,
+      "match_id": "4897236dbf6d5312ff576ee18d6f4c03355e083701b4510543f36c3ad1b101a1",
+      "package_sha256": "60802e4502eac8a38e638d6711a302ac716d2711131c101ff221de87444a0aa6",
+      "durable_export_jobs": 3
+    },
+    {
+      "name": "shutdown_2",
+      "passed": true,
+      "exit_code": 0,
+      "endpoint_removed": true
+    }
+  ],
+  "processes": [
+    {
+      "pid": 154,
+      "command": [
+        "/opt/dragonhydra-a7-acceptance/installed/venv/bin/dragonhydra-server",
+        "--state",
+        "/opt/dragonhydra-a7-acceptance/state",
+        "--port",
+        "0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "pid": 165,
+      "command": [
+        "/opt/dragonhydra-a7-acceptance/installed/venv/bin/dragonhydra-server",
+        "--state",
+        "/opt/dragonhydra-a7-acceptance/state",
+        "--port",
+        "0"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "installed_environment": {
+    "python": "3.14.10 (main, Oct 28 2026, 01:59:47) [GCC 14.2.0]",
+    "executable": "/opt/dragonhydra-a7-acceptance/installed/venv/bin/python",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "module": "/opt/dragonhydra-a7-acceptance/installed/venv/lib/python3.14/site-packages/dragonhydra/__init__.py",
+    "build": {
+      "api_namespace": "/dragon/api/v1",
+      "build_kind": "linux-preparation-snapshot",
+      "python_version": "0.4.0a1",
+      "schema_version": 1,
+      "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+      "source_sha": null,
+      "version": "0.4.0-alpha.1"
+    },
+    "dependencies": {
+      "dragonhydra": "0.4.0a1",
+      "fastapi": "0.162.0",
+      "uvicorn": "0.42.0",
+      "openpyxl": "3.1.5",
+      "tzdata": "2026.2"
+    }
+  },
+  "finished_at": "2026-11-01T08:45:05.329711+00:00"
+}

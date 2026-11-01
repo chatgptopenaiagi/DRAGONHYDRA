@@ -98,3 +98,19 @@ Preservation and next action
 Detailed previous checkpoint archived in
 build/connections/workstation-a6/progress-before-installed-checkpoint-20261031.md.
 Earlier detailed notes, private evidence and all artifacts remain in place.
+
+## GENESIS A7 Linux runtime increment — 2026-11-01
+
+A6 publication3/3 and historical22 verified. Ubuntu start failed with missing
+D: VHDX; original distribution/R8 unchanged. Isolated Docker Python3.14.10,
+networknone, UID10001 reused17 hash-locked cached server wheels. A6 and A7 each
+passed12 retained HTTP/export/restart groups and7 fresh DB/import groups.
+Historical snapshot1204 matches differs from separate installed Windows1221;
+fresh import760, repeat0. Actual same A6 wheel Windows/Linux outputs compare
+byte-identical SHA3bbb93ad...300ed. All61 product source files unchanged.
+Reproduced parent-venv false install success; child dependency/import checks
+now fail closed. Linux10 tests pass; Windows9pass+1Linuxskip; harness2Linux
+guards pass. Helper table/count/glob and read-only test-mount mistakes remain
+as dated diagnostics, not product defects. New A7 build happened once because
+installer implementation changed. Full report LINUX-A7-RUNTIME.md; immutable
+publication proof is separate. Next native gate: original Ubuntu storage access.

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "path": "build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "bytes": 303125,
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298309,
+      "sha256": "8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871"
+    }
+  ],
+  "runtime_report": {
+    "path": "docs/handover/verified-reports/LINUX-A7-RUNTIME-VERIFICATION.json",
+    "bytes": 7697,
+    "sha256": "28170beae735b1251d82f316df3fc22b5e569eed0a038f68684a34909616fe4a"
+  },
+  "receipts": [
+    {
+      "path": "docs/handover/verified-reports/A6-LINUX-CALCULATIONS-20261101.json",
+      "bytes": 42058,
+      "sha256": "56938480a8639fba2afb44469704b49e6f96b7ff780c3c6c772c26ba848b5f5b"
+    },
+    {
+      "path": "docs/handover/verified-reports/A6-WINDOWS-CALCULATIONS-20261101.json",
+      "bytes": 42690,
+      "sha256": "0ef37db90bfd57dae420178648b7c84d9118222dae7f2aa652e66bd1e4143909"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A6-FRESH-STATE-20261101.json",
+      "bytes": 6403,
+      "sha256": "f8531ceaa0f20d42e2a67b0150a76d0b251011c2e1e24f1c0c94ad9f961a8733"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A6-RUNTIME-ACCEPTANCE-20261101.json",
+      "bytes": 8716,
+      "sha256": "6b8d758efd4e7cedf7f379db7d26275c83656e8c9cbfb0424e5e526a55cca11a"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-ENVIRONMENT-20261101.json",
+      "bytes": 1049,
+      "sha256": "2f509cbfbb90485e5e17b6ddb783fbf4bf9bc6f57180957c122a44f3fbe103c5"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-FOCUSED-TESTS-20261101.json",
+      "bytes": 3570,
+      "sha256": "fba5b9891b9f554e176b27be19e55d3ffdbd7f886d6137516ed062d00ba2e136"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-FRESH-STATE-20261101.json",
+      "bytes": 6400,
+      "sha256": "3e234de58018631b3c142351c9a349946bcb9debd13ae7bfed86dae30f04c4e7"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-INSTALLATION-20261101.json",
+      "bytes": 4407,
+      "sha256": "de11c6cfa4620063e0c110e4d7c62ac74bdbc014403c549d53c04c4a5463aef1"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-PARENT-VENV-REGRESSION-20261101.json",
+      "bytes": 8077,
+      "sha256": "ee89228c57d8845b3732296daf872e241132d8be5b02d9aa884e27c44df57fff"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-POSITIVE-INSTALL-20261101.json",
+      "bytes": 11165,
+      "sha256": "04d6249b8b6adcfd563b42ba8e05979ea6cb345d01a5c63acf916b6c93ca054f"
+    },
+    {
+      "path": "docs/handover/verified-reports/LINUX-A7-RUNTIME-ACCEPTANCE-20261101.json",
+      "bytes": 8600,
+      "sha256": "a33884fffc7ebbff8462c76c6c4a71fe56f4b915c28f894c44ca5d4167af4e0b"
+    }
+  ]
+}

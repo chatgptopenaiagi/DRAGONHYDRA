@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-11-01T08:47:02.3084518Z",
+  "windows_services": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 22872,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "StartName": "NT AUTHORITY\\LocalService"
+    }
+  ],
+  "ubuntu_registered_vhdx": "D:\\WSL\\Ubuntu-26.04\\ext4.vhdx",
+  "ubuntu_vhdx_exists": false,
+  "ubuntu_start_exit_code": 1,
+  "ubuntu_error": "Wsl/Service/CreateInstance/MountDisk/ERROR_PATH_NOT_FOUND",
+  "docker_container_id": "b0beeb56defbe5d9e56b926f6bc144ded303824b6bb6f0c6960cccc615b00ce3",
+  "docker_image": "sha256:cd89c30eda26ee911a4611b18680086e0ea42e6f5f8cbe653d07fa7958c9cec8",
+  "docker_network": "none",
+  "docker_ports": {},
+  "docker_state": "running"
+}

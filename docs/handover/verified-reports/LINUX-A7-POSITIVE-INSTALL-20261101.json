@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "steps": [
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--require-hashes",
+        "--find-links",
+        "/repo/runtime/linux-native/locked-wheels",
+        "-r",
+        "/repo/build/linux/native-kernel-20261031/public-r4/requirements.lock"
+      ],
+      "exit_code": 0,
+      "stdout": "Looking in links: /repo/runtime/linux-native/locked-wheels\nProcessing ./runtime/linux-native/locked-wheels/annotated_doc-0.0.5-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 2))\nProcessing ./runtime/linux-native/locked-wheels/annotated_types-0.8.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 3))\nProcessing ./runtime/linux-native/locked-wheels/anyio-4.15.1-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 4))\nProcessing ./runtime/linux-native/locked-wheels/click-8.5.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 5))\nProcessing ./runtime/linux-native/locked-wheels/et_xmlfile-2.0.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 6))\nProcessing ./runtime/linux-native/locked-wheels/fastapi-0.162.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 7))\nProcessing ./runtime/linux-native/locked-wheels/h11-0.16.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 8))\nProcessing ./runtime/linux-native/locked-wheels/idna-3.20-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 9))\nProcessing ./runtime/linux-native/locked-wheels/openpyxl-3.1.5-py2.py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 10))\nProcessing ./runtime/linux-native/locked-wheels/opentelemetry_api-1.45.2-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 11))\nProcessing ./runtime/linux-native/locked-wheels/pydantic-2.14.2-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 12))\nProcessing ./runtime/linux-native/locked-wheels/pydantic_core-2.50.2-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 13))\nProcessing ./runtime/linux-native/locked-wheels/starlette-1.10.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 14))\nProcessing ./runtime/linux-native/locked-wheels/typing_inspection-0.4.4-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 15))\nProcessing ./runtime/linux-native/locked-wheels/typing_extensions-4.16.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 16))\nProcessing ./runtime/linux-native/locked-wheels/tzdata-2026.2-py2.py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 17))\nProcessing ./runtime/linux-native/locked-wheels/uvicorn-0.42.0-py3-none-any.whl (from -r /repo/build/linux/native-kernel-20261031/public-r4/requirements.lock (line 18))\nInstalling collected packages: tzdata, typing_extensions, idna, h11, et_xmlfile, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic_core, opentelemetry-api, openpyxl, anyio, starlette, pydantic, fastapi\n\nSuccessfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 et_xmlfile-2.0.0 fastapi-0.162.0 h11-0.16.0 idna-3.20 openpyxl-3.1.5 opentelemetry-api-1.45.2 pydantic-2.14.2 pydantic_core-2.50.2 starlette-1.10.0 typing-inspection-0.4.4 typing_extensions-4.16.0 tzdata-2026.2 uvicorn-0.42.0\n",
+      "stderr": "WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "/repo/packaging/linux/preflight.py",
+        "--bundle",
+        "/repo/build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0",
+        "--prefix",
+        "/tmp/a7-good-install",
+        "--state",
+        "/tmp/a7-good-state",
+        "--apply"
+      ],
+      "exit_code": 0,
+      "stdout": "Processing ./build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0/dragonhydra-0.4.0a1-py3-none-any.whl\nInstalling collected packages: dragonhydra\nSuccessfully installed dragonhydra-0.4.0a1\nNo broken requirements found.\n{\"applied\": true, \"bundle_integrity\": true, \"downloads\": false, \"installation\": {\"dependencies_downloaded\": false, \"prefix\": \"/tmp/a7-good-install\", \"runtime\": {\"dependencies\": {\"fastapi\": {\"available\": true, \"installed_version\": \"0.162.0\", \"required_version\": \"0.162.0\"}, \"openpyxl\": {\"available\": true, \"installed_version\": \"3.1.5\", \"required_version\": \"3.1.5\"}, \"tzdata\": {\"available\": true, \"installed_version\": \"2026.2\", \"required_version\": \"2026.2\"}, \"uvicorn\": {\"available\": true, \"installed_version\": \"0.42.0\", \"required_version\": \"0.42.0\"}}, \"platform\": \"Linux\", \"python\": \"3.14.10\", \"python_compatible\": true, \"python_executable\": \"/tmp/a7-good-install/venv/bin/python\", \"ready\": true}, \"server_import_verified\": true, \"service_activated\": false, \"state\": \"/tmp/a7-good-state\", \"unit\": \"/tmp/a7-good-install/dragonhydra.service\"}, \"runtime\": {\"dependencies\": {\"fastapi\": {\"available\": true, \"installed_version\": \"0.162.0\", \"required_version\": \"0.162.0\"}, \"openpyxl\": {\"available\": true, \"installed_version\": \"3.1.5\", \"required_version\": \"3.1.5\"}, \"tzdata\": {\"available\": true, \"installed_version\": \"2026.2\", \"required_version\": \"2026.2\"}, \"uvicorn\": {\"available\": true, \"installed_version\": \"0.42.0\", \"required_version\": \"0.42.0\"}}, \"platform\": \"Linux\", \"python\": \"3.14.10\", \"python_compatible\": true, \"python_executable\": \"/usr/local/bin/python\", \"ready\": true}, \"schema_version\": 1, \"service_activated\": false, \"source_content_sha256\": \"3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804\", \"status\": \"installed_not_activated\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/a7-good-install/venv/bin/dragonhydra-server",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: dragonhydra-server [-h] [--host {127.0.0.1}] [--port PORT]\n                          [--state STATE] [--init-bridge] [--build-info]\n\nDRAGONHYDRA authenticated local server\n\noptions:\n  -h, --help          show this help message and exit\n  --host {127.0.0.1}\n  --port PORT\n  --state STATE\n  --init-bridge       Create a protected Joomla bridge secret only if missing\n  --build-info        Print embedded source/version identity and exit\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/a7-good-install/venv/bin/dragon",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: dragon [-h] [--version]\n              {demo,import,report,results,archive,score,forecast,watch,train,predict,evaluate,calibrate,memory,intelligence,research} ...\n\nPoint-in-time market research\n\npositional arguments:\n  {demo,import,report,results,archive,score,forecast,watch,train,predict,evaluate,calibrate,memory,intelligence,research}\n    demo                run the reproducible synthetic market example\n    import              import a local JSON/CSV snapshot\n    report              report a market at a cutoff\n    results             import and inspect public OpenFootball\n                        fixtures/results\n    archive             inspect real archived Football-Data price claims\n    score               evaluate retained synthetic forecasts chronologically\n    forecast            current descriptive prior for an eligible future\n                        OpenFootball fixture\n    watch               bounded polling of a local snapshot file\n    train               cognitive train using retained local evidence\n    predict             cognitive predict using retained local evidence\n    evaluate            cognitive evaluate using retained local evidence\n    calibrate           cognitive calibrate using retained local evidence\n    memory              cognitive memory using retained local evidence\n    intelligence        cognitive intelligence using retained local evidence\n    research            cognitive research using retained local evidence\n\noptions:\n  -h, --help            show this help message and exit\n  --version             show program's version number and exit\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/local/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/repo/tests",
+        "-p",
+        "test_linux_bundle.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_build_environment_uses_existing_interpreter_tools_without_carrying_provider_secrets (test_linux_bundle.LinuxBundleTests.test_build_environment_uses_existing_interpreter_tools_without_carrying_provider_secrets) ... ok\ntest_child_runtime_requires_available_dependency_imports (test_linux_bundle.LinuxBundleTests.test_child_runtime_requires_available_dependency_imports) ... ok\ntest_current_source_scope_includes_features_and_excludes_live_state (test_linux_bundle.LinuxBundleTests.test_current_source_scope_includes_features_and_excludes_live_state) ... ok\ntest_default_preflight_creates_no_prefix_or_state_and_never_installs (test_linux_bundle.LinuxBundleTests.test_default_preflight_creates_no_prefix_or_state_and_never_installs) ... ok\ntest_integrity_checker_rejects_tampered_artifact (test_linux_bundle.LinuxBundleTests.test_integrity_checker_rejects_tampered_artifact) ... ok\ntest_malicious_wheel_member_is_rejected_without_extraction (test_linux_bundle.LinuxBundleTests.test_malicious_wheel_member_is_rejected_without_extraction) ... ok\ntest_manifest_cannot_escape_bundle_or_repeat_a_file (test_linux_bundle.LinuxBundleTests.test_manifest_cannot_escape_bundle_or_repeat_a_file) ... ok\ntest_missing_child_dependencies_leave_no_application_launcher_or_state (test_linux_bundle.LinuxBundleTests.test_missing_child_dependencies_leave_no_application_launcher_or_state) ... ok\ntest_unsafe_install_targets_are_rejected (test_linux_bundle.LinuxBundleTests.test_unsafe_install_targets_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 1.341s\n\nOK\n"
+    }
+  ],
+  "python": "3.14.10 (main, Oct 28 2026, 01:59:47) [GCC 14.2.0]",
+  "network": "none"
+}

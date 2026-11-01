@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T08:46:44.1128537+00:00",
+  "completed_at": "2026-11-01T08:46:46.4467087+00:00",
+  "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+  "arguments": [
+    "run",
+    "--rm",
+    "--pull",
+    "never",
+    "--network",
+    "none",
+    "--name",
+    "dragonhydra-a7-focused-final-evidence",
+    "--mount",
+    "type=bind,source=C:\\xampp\\DRAGONHYDRA,target=/repo,readonly",
+    "--mount",
+    "type=bind,source=C:\\xampp\\DRAGONHYDRA\\build\\linux\\a7-installer-regression-20261101-r2\\scratch,target=/repo/runtime/scratch",
+    "--workdir",
+    "/repo",
+    "python:3.14-slim",
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_linux_bundle.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_build_environment_uses_existing_interpreter_tools_without_carrying_provider_secrets (test_linux_bundle.LinuxBundleTests.test_build_environment_uses_existing_interpreter_tools_without_carrying_provider_secrets) ... ok\ntest_child_probe_timeout_is_reported_as_failed_installation (test_linux_bundle.LinuxBundleTests.test_child_probe_timeout_is_reported_as_failed_installation) ... ok\ntest_child_runtime_requires_available_dependency_imports (test_linux_bundle.LinuxBundleTests.test_child_runtime_requires_available_dependency_imports) ... ok\ntest_current_source_scope_includes_features_and_excludes_live_state (test_linux_bundle.LinuxBundleTests.test_current_source_scope_includes_features_and_excludes_live_state) ... ok\ntest_default_preflight_creates_no_prefix_or_state_and_never_installs (test_linux_bundle.LinuxBundleTests.test_default_preflight_creates_no_prefix_or_state_and_never_installs) ... ok\ntest_integrity_checker_rejects_tampered_artifact (test_linux_bundle.LinuxBundleTests.test_integrity_checker_rejects_tampered_artifact) ... ok\ntest_malicious_wheel_member_is_rejected_without_extraction (test_linux_bundle.LinuxBundleTests.test_malicious_wheel_member_is_rejected_without_extraction) ... ok\ntest_manifest_cannot_escape_bundle_or_repeat_a_file (test_linux_bundle.LinuxBundleTests.test_manifest_cannot_escape_bundle_or_repeat_a_file) ... ok\ntest_missing_child_dependencies_leave_no_application_launcher_or_state (test_linux_bundle.LinuxBundleTests.test_missing_child_dependencies_leave_no_application_launcher_or_state) ... ok\ntest_unsafe_install_targets_are_rejected (test_linux_bundle.LinuxBundleTests.test_unsafe_install_targets_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 1.223s\n\nOK\n",
+  "source_hashes": [
+    {
+      "path": "packaging/linux/preflight.py",
+      "sha256": "c92fc26a33571393525e4e0ba718e96d8e3a3153e2c055e7d191f9772e79c5c1"
+    },
+    {
+      "path": "packaging/linux/README.md",
+      "sha256": "d074ff39fcb370fcca19dc11e8df0717f6a51feaf4d27db25c30fafbe94a887b"
+    },
+    {
+      "path": "tests/test_linux_bundle.py",
+      "sha256": "67aba8f4d85e7585d811e2c9063f525eafdf4739c5b60ea4b36d155ad4ebfb76"
+    },
+    {
+      "path": "docs/handover/commands/linux-a7/parent-venv-regression.py",
+      "sha256": "d80f7893a00c9cd4fdea8880b3eb309a7fd1a63adff97fbc1af979b8c682f8d1"
+    }
+  ],
+  "network": "none",
+  "repository_mount": "read-only",
+  "writable_mount": "runtime/scratch only",
+  "installation_repeated": false,
+  "scope": "Final focused source test run after timeout regression was added; no source changes or package rebuild."
+}

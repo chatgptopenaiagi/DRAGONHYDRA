@@ -1,3 +1,11 @@
+2026-11-01 GENESIS A7 continuation: A6 Linux publication re-verified, all3
+assets and historical22 unchanged. Installed A6 and repaired A7 each passed12
+retained-data HTTP groups plus7 fresh-state/import groups in isolated Docker.
+Actual same-wheel Windows/Linux numerical/JSON outputs are byte-identical.
+Read docs/handover/LINUX-A7-RUNTIME.md, LINUX-A7-ARTIFACT-MANIFEST.json and the
+separate LINUX-A7-PUBLICATION-VERIFICATION-20261101.json for checkpoint/upload
+status. A6 original bytes and all private/runtime/independent changes remain.
+
 2026-11-01: Linux A6 preservation is complete at the separate prerelease
 https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-linux-a6-20261031.
 All three assets match server SHA-256 and sizes. The historical release retains

@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-11-01T08:44:58.678633+00:00",
+  "passed": true,
+  "scope": "Fresh database initialization, bundled retained import and restart",
+  "python": "/opt/dragonhydra-a6-acceptance/installed/venv/bin/python",
+  "state": "/opt/dragonhydra-a6-acceptance/fresh-state-r2",
+  "runtime_uid": 10001,
+  "harness_sha256": "d60b22e5ba21cee74d5418201149bf8d1b449f094f9103599c14b376aa4b3cca",
+  "provider_acquisitions_requested": false,
+  "model_inference_requested": false,
+  "service_changes_requested": false,
+  "checks": [
+    {
+      "name": "startup_1",
+      "passed": true,
+      "endpoint": {
+        "url": "http://127.0.0.1:47219",
+        "pid": 143,
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "source_sha": null
+      },
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      }
+    },
+    {
+      "name": "fresh_database_initialized",
+      "passed": true,
+      "records_before": 0,
+      "authentication_http": 401
+    },
+    {
+      "name": "bundled_retained_import",
+      "passed": true,
+      "records": 760,
+      "job_id": "e094cde3e88942f8a25978b8ece1bc04",
+      "result": {
+        "imports": [
+          {
+            "acquisition_id": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+            "source_hash": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+            "duplicate": false,
+            "received_at": "2026-11-01T08:44:59.423665Z",
+            "persisted_at": "2026-11-01T08:44:59.439276Z",
+            "usable_at": "2026-11-01T08:44:59.439276Z",
+            "inserted": 380,
+            "result_count": 380,
+            "quarantined": 0,
+            "clock_mode": "operational"
+          },
+          {
+            "acquisition_id": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+            "source_hash": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+            "duplicate": false,
+            "received_at": "2026-11-01T08:44:59.463271Z",
+            "persisted_at": "2026-11-01T08:44:59.478471Z",
+            "usable_at": "2026-11-01T08:44:59.478471Z",
+            "inserted": 380,
+            "result_count": 50,
+            "quarantined": 0,
+            "clock_mode": "operational"
+          }
+        ],
+        "record_count": 760,
+        "inserted": 760,
+        "mode": "retained",
+        "matches_url": "/dragon/api/v1/matches",
+        "last_import": "2026-11-01T08:44:59.509890Z"
+      },
+      "records_sha256": "1ff2784ca377ba87fa03505d0f609ca9f389db011cc813f67e387e561bccbfe0",
+      "selected_match": {
+        "id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "version": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+        "identity_version": 1,
+        "competition_id": "964a93833ba98ebab53f41d26027217516906003ab4822f53d12e8d18f76b6a6",
+        "competition": "English Premier League 2026/27",
+        "season": "2026/27",
+        "home": {
+          "id": "c854c1d983c169591f7f9cd0edd242be66f33926e81695855e16298b21dc9637",
+          "name": "Liverpool FC"
+        },
+        "away": {
+          "id": "105765d760413bea1a437d0ca8b921b93a98a0671c762c092594e18d217135c9",
+          "name": "AFC Bournemouth"
+        },
+        "event_date": "2027-05-30",
+        "kickoff_utc": null,
+        "time_precision": "local_time",
+        "status": "scheduled",
+        "score": null,
+        "source_id": "openfootball-2026-27-en1.json",
+        "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+        "evidence_id": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+        "received_at": "2026-11-01T08:44:59.463271Z",
+        "usable_at": "2026-11-01T08:44:59.478471Z",
+        "data_state": "Scheduled",
+        "capabilities": {
+          "events": false,
+          "lineups": false,
+          "statistics": false,
+          "odds": false
+        },
+        "source_local_time": "16:00",
+        "record_kind": "scheduled",
+        "sport": "football",
+        "score_scope": "Retained source score; settlement scope must be checked separately."
+      }
+    },
+    {
+      "name": "shutdown_1",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "startup_2",
+      "passed": true,
+      "endpoint": {
+        "url": "http://127.0.0.1:54935",
+        "pid": 159,
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "source_sha": null
+      },
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      }
+    },
+    {
+      "name": "fresh_restart_persistence",
+      "passed": true,
+      "records": 760,
+      "records_sha256": "1ff2784ca377ba87fa03505d0f609ca9f389db011cc813f67e387e561bccbfe0",
+      "retained_job_id": "e094cde3e88942f8a25978b8ece1bc04",
+      "repeated_inserted": 0,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "name": "shutdown_2",
+      "passed": true,
+      "exit_code": 0
+    }
+  ],
+  "processes": [
+    {
+      "pid": 143,
+      "command": [
+        "/opt/dragonhydra-a6-acceptance/installed/run-server.sh"
+      ],
+      "exit_code": 0
+    },
+    {
+      "pid": 159,
+      "command": [
+        "/opt/dragonhydra-a6-acceptance/installed/run-server.sh"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "installed_environment": {
+    "python": "3.14.10 (main, Oct 28 2026, 01:59:47) [GCC 14.2.0]",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "module": "/opt/dragonhydra-a6-acceptance/installed/venv/lib/python3.14/site-packages/dragonhydra/__init__.py",
+    "build": {
+      "api_namespace": "/dragon/api/v1",
+      "build_kind": "linux-preparation-snapshot",
+      "python_version": "0.4.0a1",
+      "schema_version": 1,
+      "source_content_sha256": "3319aed91dd0bb8d74062ed2335f5817422615e30e51d11c3fc970f477de5804",
+      "source_sha": null,
+      "version": "0.4.0-alpha.1"
+    },
+    "bundled_sources": [
+      "openfootball-2026-27-en1.json",
+      "openfootball-2025-26-en1.json"
+    ]
+  },
+  "finished_at": "2026-11-01T08:45:01.321063+00:00"
+}

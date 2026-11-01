@@ -1,3 +1,17 @@
+# Latest: GENESIS A7 verified Linux runtime (2026-11-01)
+
+Read `docs/handover/LINUX-A7-RUNTIME.md` and the `genesis_a7_20261101` section
+of ENGINEERING-STATE.json first. A6 publication is verified. A6 and repaired A7
+both passed12 retained-data HTTP groups and7 fresh-state groups in isolated
+Docker. Actual same-wheel Windows/Linux calculations and JSON are byte-identical.
+Do not repeat completed A6 builds/install/browser acceptance. The older isolated
+snapshot has1204 matches; the separate Windows workstation's1221 remain distinct.
+Ubuntu cannot start because its registered D: VHDX is unavailable. Preserve R8,
+all three Windows services, independent packaging files and historical releases.
+Publication status is recorded in LINUX-A7-PUBLICATION-VERIFICATION-20261101.json.
+
+Earlier checkpoint follows unchanged.
+
 # Resume DRAGONHYDRA
 
 Latest continuation: read `docs/handover/RESUME-20261101.md` first. Linux A6
