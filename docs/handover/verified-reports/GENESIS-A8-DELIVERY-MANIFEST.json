@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "milestone": "GENESIS A8",
+  "verified_at": "2026-11-01T10:37:50.805224+00:00",
+  "local_delivery_verified": true,
+  "release_uploaded": false,
+  "client_source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+  "client_source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+  "artifacts": [
+    {
+      "filename": "BUILD-REPORT.json",
+      "path": "dist/windows/GENESIS-A8/BUILD-REPORT.json",
+      "bytes": 7790,
+      "sha256": "e7ef7cc1bdc57cd8f05af7f81bfbb86666fcea7f13a039f4542e50821478845d"
+    },
+    {
+      "filename": "DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+      "path": "dist/windows/GENESIS-A8/DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+      "bytes": 64769361,
+      "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+    },
+    {
+      "filename": "README-INSTALL.txt",
+      "path": "dist/windows/GENESIS-A8/README-INSTALL.txt",
+      "bytes": 5324,
+      "sha256": "d306b7cce43dd08680a8a3047f7ff007618dcab052e5b377bf80c349c990f085"
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "path": "dist/windows/GENESIS-A8/SHA256SUMS.txt",
+      "bytes": 367,
+      "sha256": "58a558ef862f426f0fdfda35b0805adb116ca92d3ca3eaa01120de19eb049799"
+    },
+    {
+      "filename": "TEST-REPORT.json",
+      "path": "dist/windows/GENESIS-A8/TEST-REPORT.json",
+      "bytes": 32514,
+      "sha256": "8eaf5910f4582e28f94a131faa15f2568541fff640bcaa1be381ad6842d3695c"
+    }
+  ],
+  "historical_artifacts_unchanged": [
+    {
+      "path": "dist/connections/workstation-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64359085,
+      "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1"
+    },
+    {
+      "path": "build/linux/prep-20261031-a5-r2/dragonhydra-linux-dev-09822a188bd1.tar.gz",
+      "bytes": 294855,
+      "sha256": "dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562"
+    },
+    {
+      "path": "build/linux/prep-20261031-a5-r2/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 290646,
+      "sha256": "c46f4d3903d965765b193cad215062ce0b72174863a833d3b57f54aba01c353e"
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/pkg_dragonhydra-0.4.0-alpha.1.zip",
+      "bytes": 13526,
+      "sha256": "66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585"
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "bytes": 17345938,
+      "sha256": "8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c"
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19295262,
+      "sha256": "ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467"
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+      "bytes": 1886742,
+      "sha256": "282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384"
+    },
+    {
+      "path": "dist/releases/v0.4.0-alpha.1/assets/DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+      "bytes": 41356,
+      "sha256": "373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "bytes": 303125,
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298309,
+      "sha256": "8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871"
+    }
+  ],
+  "client_source_inputs_current_match_build": 14,
+  "services_observed": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 39364,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    },
+    {
+      "Name": "DragonhydraGenesisA8Test",
+      "State": "Running",
+      "ProcessId": 17012,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" --name DragonhydraGenesisA8Test"
+    }
+  ],
+  "runtime_scope": "Current-host isolated Windows 11 x64 profile; no clean-machine/reboot/signing claim",
+  "public_evidence_snapshots": [
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-UPGRADE-VERIFICATION.json",
+      "sha256": "caa6b4bc67e518c3f76f376bff8e9810729101d4f6c24ca23eaf0d7eab05932e"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-NATIVE-VERIFICATION.json",
+      "sha256": "f7928cc3b0920760f0317714cd106b6bbd1509e37806ba8e8ac63b28330fed00"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-BARE-CLIENT-VERIFICATION.json",
+      "sha256": "d6be2f95708c01a7a280c3a6f36fd94dba59e20145715b9bc147ae98c9f20ebe"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-SERVICE-RESTART-VERIFICATION.json",
+      "sha256": "af130c864ddd97bbceae4a0ee882c60b89a9df9e8f3218b0ecf0bd9b72330cb9"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-POST-RESTART-VERIFICATION.json",
+      "sha256": "850907e37f85830628095b3dd5490cd4fc7e8fe4f8317091f4092e418a15c90d"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-DATABASE-VERIFICATION.json",
+      "sha256": "a40bf7355630294a27dbacd7295b86a41aa9ac9ef5ba7e365281ff071f0f7077"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-REGRESSION-VERIFICATION.json",
+      "sha256": "f2bcc5c8e0cb6adc50d05de03a85b6ee3d61e003602d6b5aaf2b25dc09cf5ebb"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-SOURCE-MANIFEST.json",
+      "sha256": "9d3e630eb7c7549da7dbd3edd2a14250c8e268cf2b6ee87271ad7f90db4c4b6f"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-COMPONENT-REUSE.json",
+      "sha256": "a01bbfaadfd648dca310057a53f894d7996b98ef71479dbbc685ff21779a0dd6"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-BUILD-REPORT.json",
+      "sha256": "e7ef7cc1bdc57cd8f05af7f81bfbb86666fcea7f13a039f4542e50821478845d"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-TEST-REPORT.json",
+      "sha256": "8eaf5910f4582e28f94a131faa15f2568541fff640bcaa1be381ad6842d3695c"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-README-INSTALL.txt",
+      "sha256": "d306b7cce43dd08680a8a3047f7ff007618dcab052e5b377bf80c349c990f085"
+    },
+    {
+      "path": "docs/handover/verified-reports/GENESIS-A8-SHA256SUMS.txt",
+      "sha256": "58a558ef862f426f0fdfda35b0805adb116ca92d3ca3eaa01120de19eb049799"
+    }
+  ]
+}

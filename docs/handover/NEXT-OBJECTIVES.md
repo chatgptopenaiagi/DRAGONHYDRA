@@ -1,3 +1,19 @@
+Current priority: GENESIS A8 WINDOWS (2026-11-01).
+
+1. COMPLETE: final five-file Windows delivery, full installer upgrade and native acceptance.
+   See GENESIS-A8-WINDOWS.md and verified-reports/GENESIS-A8-DELIVERY-MANIFEST.json.
+2. NEXT: validate this exact Setup on a separately authorized clean Windows 11 x64
+   installation; cover absent WebView2/prerequisites and OS reboot/service recovery.
+   Use dedicated snapshots/state/services. Existing active VMs have independent owners;
+   do not change their state or install into them without the required ownership scope.
+3. Publisher signing remains a separate gate requiring the authorized publisher identity.
+   Preserve this unsigned development installer and its actual hash; do not generate a
+   substitute identity. No arbitrary rebuild or Linux-only release belongs to this step.
+4. Historical Linux storage, Android publisher identity and VPS trust gates below remain
+   independent. Keep earlier A6/A7 packages, releases and private state unchanged.
+
+Earlier queues follow as historical context; current Windows priority takes precedence.
+
 Windows desktop external-link repair is COMPLETE and installed in the A6 provider-a2 client. Three actual installed browser-link checks and22 regressions passed; services/state/releases preserved. See the dedicated repair report. Earlier native Linux storage objective remains independent.
 
 A7 publication/checkpoint gate is COMPLETE: seven assets verified, original25 unchanged. See the publication receipt. Next unfinished native Linux gate remains original Ubuntu storage availability.

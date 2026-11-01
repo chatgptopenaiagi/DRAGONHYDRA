@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "phase": "smoke",
+  "mode": "bare",
+  "passed": true,
+  "started_at": "2026-11-01T10:27:13.951558+00:00",
+  "scope": "Actual installed Tauri native WebView2 with automatic application pairing",
+  "harness_sha256": "255b06d27194e67e625a5d18e73d89acdbf5a2002d3ce5764aa202be03b71aa8",
+  "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+  "binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+  "install_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files",
+  "state_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data",
+  "service_name": "DragonhydraGenesisA8Test",
+  "api_origin": "http://127.0.0.1:18749",
+  "checks": [
+    {
+      "name": "native_startup_automatic_pairing_1",
+      "passed": true,
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      },
+      "launch": {
+        "index": 1,
+        "port": 57811,
+        "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+        "method": "Actual installed client EXE without state arguments",
+        "client_process": {
+          "pid": 9636,
+          "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+          "creation_filetime": 134380024340809055,
+          "integrity_class": "Medium"
+        },
+        "listeners": [
+          {
+            "address": "127.0.0.1",
+            "port": 57811,
+            "pid": 19956
+          }
+        ],
+        "route": "http://127.0.0.1:18749/#today",
+        "automatic_pairing": true
+      }
+    },
+    {
+      "name": "retained_inventory_accessible_after_automatic_pairing",
+      "passed": true,
+      "records": 760
+    },
+    {
+      "name": "native_administration_default_browser_open",
+      "passed": true,
+      "expected_url": "http://127.0.0.1:18750/administrator/",
+      "default_browser": {
+        "progid": "MSEdgeHTM",
+        "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "process_name": "msedge.exe"
+      },
+      "browser_windows_before": [],
+      "browser_window_receipts": [
+        {
+          "hwnd": 263684,
+          "pid": 16964,
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+          "title": "DRAGONHYDRA - Administration and 23 more pages - Profile 1 - Microsoft​ Edge"
+        }
+      ],
+      "native_route_unchanged": true
+    }
+  ],
+  "processes": [
+    {
+      "index": 1,
+      "port": 57811,
+      "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+      "method": "Actual installed client EXE without state arguments",
+      "client_process": {
+        "pid": 9636,
+        "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+        "creation_filetime": 134380024340809055,
+        "integrity_class": "Medium"
+      },
+      "listeners": [
+        {
+          "address": "127.0.0.1",
+          "port": 57811,
+          "pid": 19956
+        }
+      ],
+      "route": "http://127.0.0.1:18749/#today",
+      "automatic_pairing": true
+    }
+  ],
+  "provider_api_acquisition_requested": false,
+  "model_requests_requested": false,
+  "credential_or_settings_writes_requested": false,
+  "service_controls_requested": false,
+  "blocked_requests": [],
+  "page_errors": [],
+  "persistence_snapshot": {
+    "records": 760,
+    "all_match_presentations_sha256": "189322cb0dfcc96db4ec3f8abf9a8bf676c95bc28220fd95a3673a82efce24cd",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "connection_settings_sha256": "71946e879389318a9f8c9eb1d32dd52d4ea03c76b8a4a71939ddf3fb8b4e4a98",
+    "pairing_file_sha256": "eb70501dfe96dc6faa19c585c97429eaf9255adae877cbbb308c888b5eec0a98",
+    "exports": []
+  },
+  "pairing_metadata_unchanged": true,
+  "cleanup": [
+    {
+      "pid": 9636,
+      "method": "Exact owned image and creation-time handle validation",
+      "terminated": true
+    }
+  ],
+  "finished_at": "2026-11-01T10:27:16.827841+00:00"
+}

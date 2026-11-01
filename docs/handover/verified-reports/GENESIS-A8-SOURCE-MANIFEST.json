@@ -1,0 +1,76 @@
+{
+  "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+  "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+  "files": [
+    {
+      "path": "client/desktop/src-tauri/build.rs",
+      "bytes": 35,
+      "sha256": "8af41c0062014fc594e4bb9899e60ee9930ab57d4cf0c73041ff557d6ec736e6"
+    },
+    {
+      "path": "client/desktop/src-tauri/capabilities/external-browser.json",
+      "bytes": 397,
+      "sha256": "1f111b7e827b9c659e49cf71aec022dffbc3045f15e6b4c04790cb29afca4739"
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.lock",
+      "bytes": 115838,
+      "sha256": "0703a3616c7b30ffc5eb1cea672225c42d14e981fcaccce20f6a0352c44b4c9e"
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.toml",
+      "bytes": 382,
+      "sha256": "6d2c173fed4c24f8f1fd9c53f28c5b4e52142b8582959509bed7de404a5d3c64"
+    },
+    {
+      "path": "client/desktop/src-tauri/src/client_state.rs",
+      "bytes": 9212,
+      "sha256": "ef8d15afc748494e23f4a6cf0b36bd8063809cef4230fb17010c27f502e48769"
+    },
+    {
+      "path": "client/desktop/src-tauri/src/external_target.rs",
+      "bytes": 2748,
+      "sha256": "092427c942305ad85b02d41333f66ea7a91277d23e6b18089b0fc5abf4870d9a"
+    },
+    {
+      "path": "client/desktop/src-tauri/src/main.rs",
+      "bytes": 5339,
+      "sha256": "019630fe61aacf2b1a55230537403a74b00d7842d13a11108afd66a5e66b9087"
+    },
+    {
+      "path": "client/desktop/src-tauri/tauri.conf.json",
+      "bytes": 1074,
+      "sha256": "83f4cc4fe576f66bb4bb1ed68ca06ef414d84550ed496c1cdaa5d3d9a1ca6aeb"
+    },
+    {
+      "path": "client/desktop/THIRD-PARTY-OPENER-NOTICES.txt",
+      "bytes": 401663,
+      "sha256": "38c6e8a07c3f9f115ff3fb73be999689cecea7e3eb6f7a3ec8fbe3b09cf729fd"
+    },
+    {
+      "path": "client/desktop/web/app.js",
+      "bytes": 51520,
+      "sha256": "02f41202e40b8ea85948e3a115e360b74d76ef7abad35b0ee5e1702a90bc9053"
+    },
+    {
+      "path": "client/desktop/web/favicon.svg",
+      "bytes": 265,
+      "sha256": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39"
+    },
+    {
+      "path": "client/desktop/web/index.html",
+      "bytes": 2443,
+      "sha256": "5825650304f572d45d6c21f898e4239a585a57ffc631cca2644cf26b702d441c"
+    },
+    {
+      "path": "client/desktop/web/style.css",
+      "bytes": 14548,
+      "sha256": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba"
+    },
+    {
+      "path": "packaging/genesis2/THIRD-PARTY-NOTICES.txt",
+      "bytes": 2206151,
+      "sha256": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T10:34:46.718092+00:00",
+  "finished_at": "2026-11-01T10:34:48.306514+00:00",
+  "command": [
+    "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_desktop_pairing",
+    "tests.test_desktop_popup",
+    "tests.test_genesis_a8_links"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_native_profile_selection_regressions (tests.test_desktop_pairing.DesktopPairingTests.test_native_profile_selection_regressions) ... ok\ntest_native_popup_url_policy (tests.test_desktop_popup.DesktopPopupTests.test_native_popup_url_policy) ... ok\ntest_all_ten_actual_dashboard_links_use_real_opener_and_retain_route (tests.test_genesis_a8_links.A8ProviderLinksTests.test_all_ten_actual_dashboard_links_use_real_opener_and_retain_route) ... ok\ntest_complete_rendered_registry_is_https_without_credentials (tests.test_genesis_a8_links.A8ProviderLinksTests.test_complete_rendered_registry_is_https_without_credentials) ... ok\ntest_unreviewed_credentials_and_non_https_destinations_are_rejected (tests.test_genesis_a8_links.A8ProviderLinksTests.test_unreviewed_credentials_and_non_https_destinations_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.421s\n\nOK\n",
+  "python_wrapper_tests": 5,
+  "executed_rust_pairing_cases": 7,
+  "executed_rust_popup_policy_cases": 3,
+  "provider_js_tests": 3,
+  "provider_destination_cases": 10,
+  "test_source_sha256": {
+    "tests/test_desktop_pairing.py": "08096c4f98bf26b670f93133a1d7618ee76471d0b4796a78956b9d54ded27881",
+    "tests/test_desktop_popup.py": "71c96069fe2abbe778ce485610ad0a9b63b8b33b0b33c2f4f31662644fbe1149",
+    "tests/test_genesis_a8_links.py": "cfc79275d5e78be7724501cadfdb152ed128123064d81485bdb77fae5dcc8e17",
+    "tests/installation/genesis_a8_links.py": "178839c6124b6204a0d62b048fa3e12a2ad2cfc63f9eb6cca757b4bfa34092e6"
+  }
+}

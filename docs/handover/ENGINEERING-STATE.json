@@ -421,5 +421,91 @@
       "Clean-machine/reboot/signing not part of this repair"
     ],
     "next_action": "Desktop link repair complete; retain backups and use the normal A6 shortcut. Native Linux storage gate remains independent."
+  },
+  "genesis_a8_windows": {
+    "status": [
+      "IMPLEMENTED",
+      "BUILT",
+      "INSTALLED",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED",
+      "LOCAL_DELIVERED"
+    ],
+    "objective": "Complete unified Windows workstation with all external links and automatic installed pairing",
+    "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+    "client_source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+    "client_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+    "candidate_build": "build/connections/genesis-a8-candidate-workstation",
+    "candidate_output": "dist/connections/genesis-a8-candidate",
+    "isolated_install": "build/workstation/test-install/genesis-a8/application files",
+    "isolated_state": "build/workstation/test-install/genesis-a8/state data",
+    "service_name": "DragonhydraGenesisA8Test",
+    "ports": {
+      "api": 18749,
+      "joomla": 18750,
+      "mariadb": 18751
+    },
+    "completed": [
+      "Original0f3a installer hash verified; fresh isolated full installation ready",
+      "Bare-client installed-state binding repaired; native popup browser opening repaired",
+      "New client built offline with pinned existing Tauri toolchain",
+      "Complete final Setup upgrade exited0; six verification groups passed",
+      "Actual official-shortcut native journey passed20 groups with all10 links and three exports",
+      "Actual bare installed EXE automatically paired; Administration in default browser; three groups passed",
+      "Only owned A8 service restarted; six groups passed; all760records and config/pairing retained",
+      "Post-service native launch/persistence passed2 groups including all3 durable exports/jobs",
+      "Focused regressions5wrappers passed:7native pairing,3native popup,3JS tests",
+      "Actual installed private PHP/PDO read-only MariaDB query returned42 and matching DB identity",
+      "Five delivery files and checksums verified;12 earlier artifact pins rehashed unchanged"
+    ],
+    "diagnostic": "Initial helper protected kernel-token read failed after installer exit0; corrected client-only verifier passed. First native full helper pagination selection failed; exact team search fixed helper and r2 passed. Failed receipts preserved locally; no extra product defects or credential changes.",
+    "pending": [
+      "Clean Windows 11 x64 VM/missing-prerequisite acceptance and OS reboot recovery",
+      "Publisher signing using existing authorized publisher identity when available"
+    ],
+    "next_commands": "Use the official installed A8 shortcut for current acceptance profile. Next validate this exact installer on a separately authorized clean Windows 11 x64 environment with before/after snapshots; do not operate independently managed VMs.",
+    "existing_services_preserved": true,
+    "existing_releases_preserved": true,
+    "linux_work_requested": false,
+    "verified_at": "2026-11-01T10:37:50.805224+00:00",
+    "artifact_publication": "Local five-file delivery; no new release uploaded; historical releases untouched",
+    "installer": {
+      "filename": "DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+      "path": "dist/windows/GENESIS-A8/DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+      "bytes": 64769361,
+      "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+    },
+    "delivery_directory": "dist/windows/GENESIS-A8",
+    "delivery_manifest": "docs/handover/verified-reports/GENESIS-A8-DELIVERY-MANIFEST.json",
+    "report": "docs/handover/GENESIS-A8-WINDOWS.md",
+    "preservation_checkpoint_resolution": "Git commit containing this A8 handoff; git log -1 -- docs/handover/GENESIS-A8-WINDOWS.md",
+    "current_branch": "continuity/genesis-20261031-a6",
+    "service_observed": {
+      "name": "DragonhydraGenesisA8Test",
+      "status": "Running",
+      "pid": 17012
+    },
+    "protected_services_observed": {
+      "DragonhydraWorkstation": 39364,
+      "DragonhydraWorkstationTest": 22876,
+      "DragonhydraProvidersA2Test": 23500,
+      "DragonhydraGenesisA8Test": 17012
+    },
+    "known_product_defects": [],
+    "limitations": [
+      "Current-host isolated acceptance only; no clean-machine/OS reboot result",
+      "Unsigned development build; WebView2 missing-runtime bootstrap needs internet",
+      "Finished retained-match analysis correctly abstained from absent prospective forecast",
+      "Actual XLSX UI and authenticated native-page downloads verified; Windows SaveAs not exercised",
+      "No provider-account login, new API keys, provider acquisition or model inference"
+    ]
+  },
+  "current_mission": {
+    "milestone": "GENESIS A8 Windows workstation",
+    "status": "VERIFIED_LOCAL_DELIVERY",
+    "report": "docs/handover/GENESIS-A8-WINDOWS.md",
+    "next_unfinished_objective": "Clean Windows 11 x64 prerequisites/reboot acceptance, then publisher signing with authorized identity",
+    "linux_next_gate_is_independent": true
   }
 }

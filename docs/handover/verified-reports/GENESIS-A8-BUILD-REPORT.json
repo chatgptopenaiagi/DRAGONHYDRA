@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "milestone": "GENESIS A8",
+  "recorded_at": "2026-11-01T10:35:53.125367+00:00",
+  "status": {
+    "built": true,
+    "installed": true,
+    "executed": true,
+    "tested": true,
+    "verified": true,
+    "local_delivery": true,
+    "release_uploaded": false,
+    "clean_machine_tested": false,
+    "os_reboot_tested": false,
+    "production_signed": false
+  },
+  "artifact": {
+    "filename": "DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\windows\\GENESIS-A8\\DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+    "bytes": 64769361,
+    "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa",
+    "signing_status": "NotSigned"
+  },
+  "declared_workstation_version": "0.4.1-dev.1",
+  "embedded_client_identity": {
+    "api_namespace": "/dragon/api/v1",
+    "architecture": "x86_64-pc-windows-msvc",
+    "schema_version": 1,
+    "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+    "source_sha": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+    "version": "0.4.0-alpha.1"
+  },
+  "client_binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+  "reused_server": {
+    "version": "0.4.0-alpha.1",
+    "build_kind": "connector-development-snapshot",
+    "source_sha": null,
+    "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+    "binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+    "payload_manifest_sha256": "0535cb2ee0bee7016296d2768579a040f44b18d7248d0f56c2727d56ced71990",
+    "source_manifest": "server/SOURCE-MANIFEST.json",
+    "verification": "private-runtime current-host smoke checks; no clean-machine claim",
+    "upstream_notices_sha256": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a"
+  },
+  "payload": {
+    "files": 10662,
+    "bytes": 286835655,
+    "manifest_sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83",
+    "component_reuse": {
+      "passed": true,
+      "unchanged_server_files": 711,
+      "unchanged_web_stack_files": 9941,
+      "changed_staged_files": [
+        "WORKSTATION-BUILD.json",
+        "client/BUILD-INFO.json",
+        "client/DRAGONHYDRA-Client.exe"
+      ],
+      "source_payload_files": 10662,
+      "candidate_payload_files": 10662
+    }
+  },
+  "components": [
+    "Tauri 2.12.5 / official opener 2.7.2 desktop",
+    "Frozen Python API server/worker and private dependencies",
+    "SQLite football-data persistence",
+    "Apache 2.4.65",
+    "PHP 8.4.27",
+    "MariaDB 10.11.16 (Joomla database)",
+    "Joomla 6.2.0 / existing DRAGONHYDRA extension",
+    "Windows LocalService wrapper",
+    "Native workstation launcher",
+    "Configuration templates / WebView2 bootstrapper"
+  ],
+  "build_pipeline": {
+    "client": "Existing cached Tauri CLI build --no-bundle --target x86_64-pc-windows-msvc -- --locked --offline",
+    "unified": "scripts/Build-Workstation.ps1 -RepackageOnly -BuildRoot build/connections/genesis-a8-candidate-workstation -ClientBuildRoot build/connections/genesis-a8-client/verified-payload -OutputRoot dist/connections/genesis-a8-candidate",
+    "raw_builder_report": {
+      "path": "build/connections/genesis-a8-candidate-workstation/BUILD-REPORT.json",
+      "sha256": "72475c031ea57adf44eaff39ab0b776ed7bc6a46daab446e0432e3eb94718c68"
+    },
+    "build_steps": [
+      {
+        "name": "verified-desktop-client",
+        "exit_code": 0,
+        "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+        "binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+        "files": 3
+      },
+      {
+        "name": "build-installer",
+        "executable": "C:\\Users\\LOVE\\AppData\\Local\\tauri\\NSIS\\makensis.exe",
+        "arguments": [
+          "/V3",
+          "/DSTAGE=C:\\xampp\\DRAGONHYDRA\\build\\connections\\genesis-a8-candidate-workstation\\stage",
+          "/DOUTPUT=C:\\xampp\\DRAGONHYDRA\\dist\\connections\\genesis-a8-candidate\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+          "/DPREREQUISITES=C:\\xampp\\DRAGONHYDRA\\build\\connections\\genesis-a8-candidate-workstation\\prerequisites",
+          "/DVERSION=0.4.1-dev.1",
+          "/DNUMERICVERSION=0.4.1.1",
+          "C:\\xampp\\DRAGONHYDRA\\packaging\\windows\\workstation\\installer.nsi"
+        ],
+        "exit_code": 0,
+        "seconds": 113.137,
+        "log": "build-installer-repackage-20261101-111559.log"
+      }
+    ],
+    "note": "Raw builder report is a build-time snapshot; this later report adds installation/runtime evidence. No server or web-stack rebuild."
+  },
+  "installation_acceptance": {
+    "scope": "Isolated installation on current Windows 11 x64 host; complete Setup upgrade",
+    "install_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files",
+    "state_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data",
+    "service": "DragonhydraGenesisA8Test",
+    "installer_arguments_executed": "/S /STATE=\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" /SERVICE=DragonhydraGenesisA8Test /D=C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files",
+    "installer_exit_code": 0,
+    "data_retained": true,
+    "independent_existing_services_unchanged": true
+  },
+  "evidence": {
+    "upgrade": {
+      "path": "build/workstation/evidence/genesis-a8/final-upgrade-r1.json",
+      "sha256": "caa6b4bc67e518c3f76f376bff8e9810729101d4f6c24ca23eaf0d7eab05932e"
+    },
+    "service_restart": {
+      "path": "build/workstation/evidence/genesis-a8/final-service-restart-r1.json",
+      "sha256": "af130c864ddd97bbceae4a0ee882c60b89a9df9e8f3218b0ecf0bd9b72330cb9"
+    },
+    "native_journey": {
+      "path": "build/workstation/evidence/genesis-a8/final-native-full-r2/verification.json",
+      "sha256": "f7928cc3b0920760f0317714cd106b6bbd1509e37806ba8e8ac63b28330fed00"
+    },
+    "bare_client": {
+      "path": "build/workstation/evidence/genesis-a8/final-bare-client-r1/verification.json",
+      "sha256": "d6be2f95708c01a7a280c3a6f36fd94dba59e20145715b9bc147ae98c9f20ebe"
+    },
+    "post_service_persistence": {
+      "path": "build/workstation/evidence/genesis-a8/final-post-service-persistence-r1/verification.json",
+      "sha256": "850907e37f85830628095b3dd5490cd4fc7e8fe4f8317091f4092e418a15c90d"
+    },
+    "database_select": {
+      "path": "build/workstation/evidence/genesis-a8/final-database-readonly-r1.json",
+      "sha256": "a40bf7355630294a27dbacd7295b86a41aa9ac9ef5ba7e365281ff071f0f7077"
+    },
+    "regressions": {
+      "path": "build/workstation/evidence/genesis-a8/final-focused-regressions-r1.json",
+      "sha256": "f2bcc5c8e0cb6adc50d05de03a85b6ee3d61e003602d6b5aaf2b25dc09cf5ebb"
+    },
+    "independent_review": {
+      "path": "docs/handover/verified-reports/GENESIS-A8-INDEPENDENT-PACKAGE-REVIEW.json",
+      "sha256": "a89b7dbba2066952cbcea8191b8d603b6074bc7727178afaa63370e62131b82c"
+    },
+    "component_reuse": {
+      "path": "build/connections/genesis-a8-client/COMPONENT-REUSE.json",
+      "sha256": "a01bbfaadfd648dca310057a53f894d7996b98ef71479dbbc685ff21779a0dd6"
+    }
+  },
+  "limitations": [
+    "Unsigned development package",
+    "No clean-machine or OS reboot acceptance",
+    "WebView2 installation requires internet if runtime is absent",
+    "SQLite remains application authority; no MariaDB application-backend cutover",
+    "No new GitHub release uploaded; historical releases untouched"
+  ]
+}

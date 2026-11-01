@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "reviewed_at": "2026-11-01T10:32:57.953161+00:00",
+  "review_type": "Independent read-only source, manifest, artifact-hash and executed-receipt review; no new application launches or service operations",
+  "installer": {
+    "path": "dist/connections/genesis-a8-candidate/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "bytes": 64769361,
+    "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+  },
+  "embedded_client_identity": {
+    "api_namespace": "/dragon/api/v1",
+    "architecture": "x86_64-pc-windows-msvc",
+    "schema_version": 1,
+    "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+    "source_sha": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+    "version": "0.4.0-alpha.1"
+  },
+  "critical_extracted_installed_components": [
+    {
+      "component": "client/DRAGONHYDRA-Client.exe",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/client/DRAGONHYDRA-Client.exe",
+        "bytes": 10078208,
+        "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/client/DRAGONHYDRA-Client.exe",
+        "bytes": 10078208,
+        "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "client/BUILD-INFO.json",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/client/BUILD-INFO.json",
+        "bytes": 300,
+        "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/client/BUILD-INFO.json",
+        "bytes": 300,
+        "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "client/THIRD-PARTY-NOTICES.txt",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/client/THIRD-PARTY-NOTICES.txt",
+        "bytes": 2607816,
+        "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/client/THIRD-PARTY-NOTICES.txt",
+        "bytes": 2607816,
+        "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "server/DRAGONHYDRA-Server.exe",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/server/DRAGONHYDRA-Server.exe",
+        "bytes": 8031282,
+        "sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/server/DRAGONHYDRA-Server.exe",
+        "bytes": 8031282,
+        "sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "workstation/DragonhydraLauncher.exe",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/workstation/DragonhydraLauncher.exe",
+        "bytes": 10240,
+        "sha256": "7e85208458057fe4c44d4ddbf4e70eedba87dbb1cafab573408a1aa4f08ee62b"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/workstation/DragonhydraLauncher.exe",
+        "bytes": 10240,
+        "sha256": "7e85208458057fe4c44d4ddbf4e70eedba87dbb1cafab573408a1aa4f08ee62b"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "WORKSTATION-BUILD.json",
+      "extracted": {
+        "path": "build/connections/genesis-a8-client/installer-extracted/WORKSTATION-BUILD.json",
+        "bytes": 5660,
+        "sha256": "9b19f7c54047cb909acc90a1947c60a911ea543b18492a8fc2f9d1b08790747b"
+      },
+      "installed": {
+        "path": "build/workstation/test-install/genesis-a8/application files/WORKSTATION-BUILD.json",
+        "bytes": 5660,
+        "sha256": "9b19f7c54047cb909acc90a1947c60a911ea543b18492a8fc2f9d1b08790747b"
+      },
+      "byte_identical": true
+    }
+  ],
+  "payload_manifests": [
+    {
+      "path": "build/connections/genesis-a8-candidate-workstation/stage/PAYLOAD-MANIFEST.json",
+      "bytes": 2245155,
+      "sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83"
+    },
+    {
+      "path": "build/connections/genesis-a8-client/installer-extracted/PAYLOAD-MANIFEST.json",
+      "bytes": 2245155,
+      "sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83"
+    },
+    {
+      "path": "build/workstation/test-install/genesis-a8/application files/PAYLOAD-MANIFEST.json",
+      "bytes": 2245155,
+      "sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83"
+    }
+  ],
+  "payload_manifests_byte_identical": true,
+  "component_reuse": {
+    "comparison_baseline": "build/connections/external-links-workstation-20261101/stage/PAYLOAD-MANIFEST.json",
+    "source_files": 10662,
+    "candidate_files": 10662,
+    "unchanged_server_files": 711,
+    "unchanged_web_stack_files": 9941,
+    "changed_staged_files": [
+      "WORKSTATION-BUILD.json",
+      "client/BUILD-INFO.json",
+      "client/DRAGONHYDRA-Client.exe"
+    ],
+    "evidence_scope": "Complete manifest-entry comparison, with exact staged/extracted/installed manifest digests; critical executable files independently rehashed"
+  },
+  "compiled_source_inputs": {
+    "manifest": {
+      "path": "build/connections/genesis-a8-client/SOURCE-MANIFEST.json",
+      "bytes": 2676,
+      "sha256": "9d3e630eb7c7549da7dbd3edd2a14250c8e268cf2b6ee87271ad7f90db4c4b6f"
+    },
+    "current_input_files_verified": 14,
+    "all_match_frozen_build_inputs": true
+  },
+  "full_installer_upgrade": {
+    "receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-upgrade-r1.json",
+      "bytes": 7160,
+      "sha256": "caa6b4bc67e518c3f76f376bff8e9810729101d4f6c24ca23eaf0d7eab05932e"
+    },
+    "passed": true,
+    "exit_code": 0,
+    "checks_passed": 6,
+    "records_before_after": 760,
+    "pairing_evidence_joomla_configuration_and_ports_preserved": true,
+    "joomla_http_status": 200,
+    "protected_services_before_equal_after": true,
+    "isolated_service_name": "DragonhydraGenesisA8Test",
+    "api_url": "http://127.0.0.1:18749",
+    "web_port": 18750,
+    "database_port": 18751
+  },
+  "native_acceptance": {
+    "receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-native-full-r2/verification.json",
+      "bytes": 36591,
+      "sha256": "f7928cc3b0920760f0317714cd106b6bbd1509e37806ba8e8ac63b28330fed00"
+    },
+    "passed": true,
+    "checks_passed": 20,
+    "actual_installed_executable_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+    "official_shortcut_launches_with_automatic_pairing": 2,
+    "token_injected_by_test": false,
+    "record_count": 760,
+    "provider_links_passed": 10,
+    "default_browser": {
+      "progid": "MSEdgeHTM",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      "process_name": "msedge.exe"
+    },
+    "page_errors": [],
+    "blocked_requests": [],
+    "application_restart_and_data_durable_job_export_persistence_verified": true,
+    "export_files": [
+      {
+        "format": "xlsx",
+        "file": {
+          "path": "build/workstation/evidence/genesis-a8/final-native-full-r2/exports/ecea75b608134261b48d284038bbdc17.xlsx",
+          "bytes": 6242,
+          "sha256": "6986b21304e202ca931deac8d0e9a650c4adc8e1be291e46d237499806ada3f5"
+        },
+        "re_download_after_restart_verified_by_native_receipt": true
+      },
+      {
+        "format": "json",
+        "file": {
+          "path": "build/workstation/evidence/genesis-a8/final-native-full-r2/exports/cf4d0cdab75d40afa7a2bc6d66eacbcf.json",
+          "bytes": 2972,
+          "sha256": "040a587fea42e6dd66d0a2ab08cef36240f162e06f3984fb5662af1e3c63e8b1"
+        },
+        "re_download_after_restart_verified_by_native_receipt": true
+      },
+      {
+        "format": "csv",
+        "file": {
+          "path": "build/workstation/evidence/genesis-a8/final-native-full-r2/exports/b2ae60471e4a40928ebab399adde0dad.csv",
+          "bytes": 379,
+          "sha256": "a80dc7ea6441d908dc81cdc7cdd58bf95623603047bd8ce6443e49b821ce85aa"
+        },
+        "re_download_after_restart_verified_by_native_receipt": true
+      }
+    ],
+    "analysis_scope": {
+      "standings_teams": 20,
+      "deterministic_explanation_job": "passed",
+      "finished_match_prediction_result": {
+        "available": false,
+        "reason": "No prospective forecast was retained for this finished match.",
+        "models": [],
+        "ensemble": null,
+        "expected_goals": null,
+        "cutoff": "2026-11-01T10:25:08.985648Z",
+        "interpretation": "Later results are never presented as a pre-match prediction."
+      },
+      "new_available_prospective_forecast_claimed": false
+    },
+    "native_download_scope": "Native Excel control plus authenticated native-page HTTP downloads; not native SaveAs automation",
+    "browser_link_scope": "Real native mouse clicks plus official opener interception, exact clicked URL and registered default-browser provider window receipts; all ten address bars were not separately inspected"
+  },
+  "diagnostics_preserved": {
+    "candidate_install_r1": "Installer exited0 and applied, but first verification helper attempted a kernel-only pairing file and was denied; later owner-readable client metadata verification succeeded",
+    "final_native_full_r1": "Helper timed out selecting a match card; corrected competition/team search in r2 passed without product repair"
+  },
+  "not_established_by_this_review": [
+    "Clean-machine or reboot operation",
+    "Production publisher signing",
+    "Provider account creation or API-key generation",
+    "Separate account-management links: none are currently exposed"
+  ],
+  "external_actions_performed_by_reviewer": false,
+  "review_history": [
+    {
+      "review_sha256": "22ef31fae5ea2f1eb30e2915234f3d35bcebf1aaf56bd3d358de3495fac9bf47",
+      "at": "2026-11-01T10:27:59.014438+00:00",
+      "historically_pending_then_resolved_by_supplement": [
+        "Administration button runtime browser opening not found in receipts reviewed so far; JoomlaHTTP200 is independently verified",
+        "Bare installed EXE startup receipt not yet found in reviewed evidence; official shortcut startup is verified twice"
+      ]
+    },
+    {
+      "review_sha256": "22d74950d2f5312c6ffc11e650c12af490a77db934eccdaa3411a6cd65a40540",
+      "at": "2026-11-01T10:28:35.535099+00:00",
+      "supplement": "Subsequent exact-owned-service restart, post-restart native persistence and bounded PDO_MYSQL SELECT evidence"
+    }
+  ],
+  "additional_runtime_evidence": {
+    "bare_installed_client_receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-bare-client-r1/verification.json",
+      "bytes": 4647,
+      "sha256": "d6be2f95708c01a7a280c3a6f36fd94dba59e20145715b9bc147ae98c9f20ebe"
+    },
+    "bare_startup_automatic_pairing_passed": true,
+    "bare_runtime_groups_passed": 3,
+    "corresponding_discovered_api_origin": "http://127.0.0.1:18749",
+    "retained_records_accessible": 760,
+    "administration_button_browser_receipt": {
+      "name": "native_administration_default_browser_open",
+      "passed": true,
+      "expected_url": "http://127.0.0.1:18750/administrator/",
+      "default_browser": {
+        "progid": "MSEdgeHTM",
+        "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "process_name": "msedge.exe"
+      },
+      "browser_windows_before": [],
+      "browser_window_receipts": [
+        {
+          "hwnd": 263684,
+          "pid": 16964,
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+          "title": "DRAGONHYDRA - Administration and 23 more pages - Profile 1 - Microsoft​ Edge"
+        }
+      ],
+      "native_route_unchanged": true
+    },
+    "separate_administration_probe_receipt": {
+      "path": "build/connections/a8-pairing-20261101/admin-probe-r2/verification.json",
+      "bytes": 983,
+      "sha256": "e8f04829d0e994144c1e2de237a5d9882b604d16f6267a3507b692355ea8e9c6"
+    },
+    "administration_probe_passed": true,
+    "application_remained_open_on_same_page": true,
+    "scope": "Actual installed client without state arguments, then actual Administration button to local owned Joomla URL; no Joomla login/password action"
+  },
+  "owned_service_restart": {
+    "receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-service-restart-r1.json",
+      "bytes": 6869,
+      "sha256": "af130c864ddd97bbceae4a0ee882c60b89a9df9e8f3218b0ecf0bd9b72330cb9"
+    },
+    "passed": true,
+    "checks_passed": 6,
+    "own_service_pid_changed": true,
+    "protected_services_unchanged": true,
+    "records_pairing_joomla_config_and_ports_preserved": true,
+    "post_restart_native_receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-post-service-persistence-r1/verification.json",
+      "bytes": 7384,
+      "sha256": "850907e37f85830628095b3dd5490cd4fc7e8fe4f8317091f4092e418a15c90d"
+    },
+    "post_restart_native_groups_passed": 2,
+    "actual_official_shortcut_repaired_client_automatic_pairing": true,
+    "retained_matches": 760,
+    "retained_export_downloads_verified": 3
+  },
+  "readonly_database_component": {
+    "receipt": {
+      "path": "build/workstation/evidence/genesis-a8/final-database-readonly-r1.json",
+      "bytes": 2048,
+      "sha256": "a40bf7355630294a27dbacd7295b86a41aa9ac9ef5ba7e365281ff071f0f7077"
+    },
+    "passed": true,
+    "scope": "Read-only SELECT through installed private PHP PDO_MYSQL to the owned A8 Joomla MariaDB database",
+    "php_executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\web\\php\\php.exe",
+    "php_sha256": "c40f0e55e8ee230673245e3ed4e21593b02b24b53cb1aebea85286731ae9b03d",
+    "helper": {
+      "path": "tests/installation/genesis_a8_database.php",
+      "bytes": 4507,
+      "sha256": "055b943790800d6660930207a4d7760bfc95ee58887d4aa47c4831a2bf1e5e77"
+    },
+    "exit_code": 0,
+    "server_version": "10.11.16-MariaDB",
+    "port": 18751,
+    "answer": 42,
+    "database_name_sha256": "b5ddc041f0a9fd9ee79be3d69b58e89cf8c1f30d7a8abe3852f2c6766b9686d3",
+    "selected_database_matches_owned_configuration": true,
+    "sql_statements_executed": 1,
+    "sql_mutations_requested": false,
+    "credentials_emitted": false,
+    "kernel_or_vault_read": false,
+    "application_football_backend_remains": "SQLite; no MariaDB application cutover claim"
+  }
+}

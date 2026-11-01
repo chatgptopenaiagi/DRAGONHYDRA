@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "phase": "persistence",
+  "mode": "shortcut",
+  "passed": true,
+  "started_at": "2026-11-01T10:30:31.989866+00:00",
+  "scope": "Actual installed Tauri native WebView2 with automatic application pairing",
+  "harness_sha256": "255b06d27194e67e625a5d18e73d89acdbf5a2002d3ce5764aa202be03b71aa8",
+  "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+  "binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+  "install_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files",
+  "state_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data",
+  "service_name": "DragonhydraGenesisA8Test",
+  "api_origin": "http://127.0.0.1:18749",
+  "checks": [
+    {
+      "name": "native_startup_automatic_pairing_1",
+      "passed": true,
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": null
+      },
+      "launch": {
+        "index": 1,
+        "port": 50927,
+        "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+        "method": "Actual official installed .lnk ShellExecute",
+        "shortcut": "C:\\Users\\Public\\Desktop\\DRAGONHYDRA Workstation - DragonhydraGenesisA8Test.lnk",
+        "binding": {
+          "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraLauncher.exe",
+          "arguments": "--state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\""
+        },
+        "client_process": {
+          "pid": 30316,
+          "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+          "creation_filetime": 134380026335774487,
+          "integrity_class": "Medium"
+        },
+        "listeners": [
+          {
+            "address": "127.0.0.1",
+            "port": 50927,
+            "pid": 27844
+          }
+        ],
+        "route": "http://127.0.0.1:18749/#today",
+        "automatic_pairing": true
+      }
+    },
+    {
+      "name": "restart_retains_matches_pairing_settings_durable_jobs_and_exports",
+      "passed": true,
+      "records": 760,
+      "exports": 3
+    }
+  ],
+  "processes": [
+    {
+      "index": 1,
+      "port": 50927,
+      "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+      "method": "Actual official installed .lnk ShellExecute",
+      "shortcut": "C:\\Users\\Public\\Desktop\\DRAGONHYDRA Workstation - DragonhydraGenesisA8Test.lnk",
+      "binding": {
+        "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraLauncher.exe",
+        "arguments": "--state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\""
+      },
+      "client_process": {
+        "pid": 30316,
+        "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\client\\DRAGONHYDRA-Client.exe",
+        "creation_filetime": 134380026335774487,
+        "integrity_class": "Medium"
+      },
+      "listeners": [
+        {
+          "address": "127.0.0.1",
+          "port": 50927,
+          "pid": 27844
+        }
+      ],
+      "route": "http://127.0.0.1:18749/#today",
+      "automatic_pairing": true
+    }
+  ],
+  "provider_api_acquisition_requested": false,
+  "model_requests_requested": false,
+  "credential_or_settings_writes_requested": false,
+  "service_controls_requested": false,
+  "blocked_requests": [],
+  "page_errors": [],
+  "persistence_snapshot": {
+    "records": 760,
+    "all_match_presentations_sha256": "189322cb0dfcc96db4ec3f8abf9a8bf676c95bc28220fd95a3673a82efce24cd",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "connection_settings_sha256": "71946e879389318a9f8c9eb1d32dd52d4ea03c76b8a4a71939ddf3fb8b4e4a98",
+    "pairing_file_sha256": "eb70501dfe96dc6faa19c585c97429eaf9255adae877cbbb308c888b5eec0a98",
+    "exports": [
+      {
+        "job_id": "ecea75b608134261b48d284038bbdc17",
+        "format": "xlsx",
+        "filename": "ecea75b608134261b48d284038bbdc17.xlsx",
+        "download_url": "/dragon/api/v1/exports/ecea75b608134261b48d284038bbdc17/download",
+        "bytes": 6242,
+        "sha256": "6986b21304e202ca931deac8d0e9a650c4adc8e1be291e46d237499806ada3f5"
+      },
+      {
+        "job_id": "cf4d0cdab75d40afa7a2bc6d66eacbcf",
+        "format": "json",
+        "filename": "cf4d0cdab75d40afa7a2bc6d66eacbcf.json",
+        "download_url": "/dragon/api/v1/exports/cf4d0cdab75d40afa7a2bc6d66eacbcf/download",
+        "bytes": 2972,
+        "sha256": "040a587fea42e6dd66d0a2ab08cef36240f162e06f3984fb5662af1e3c63e8b1"
+      },
+      {
+        "job_id": "b2ae60471e4a40928ebab399adde0dad",
+        "format": "csv",
+        "filename": "b2ae60471e4a40928ebab399adde0dad.csv",
+        "download_url": "/dragon/api/v1/exports/b2ae60471e4a40928ebab399adde0dad/download",
+        "bytes": 379,
+        "sha256": "a80dc7ea6441d908dc81cdc7cdd58bf95623603047bd8ce6443e49b821ce85aa"
+      }
+    ]
+  },
+  "selected_match": {
+    "id": "df19cc290a6a174e1715dbe9917cabad7dd878134d043cb3042f2b5b6c091c01",
+    "version": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+    "identity_version": 1,
+    "competition_id": "964a93833ba98ebab53f41d26027217516906003ab4822f53d12e8d18f76b6a6",
+    "competition": "English Premier League 2026/27",
+    "season": "2026/27",
+    "home": {
+      "id": "0ce26d443b8418644aa8f73db703186cb1985dedf9c4bd2519b44c8beca47c57",
+      "name": "Leeds United FC"
+    },
+    "away": {
+      "id": "89afe3a3b0cc8dcfa01930d7e76e23a38bb8887b6655f46efe4b857a28512959",
+      "name": "Crystal Palace FC"
+    },
+    "event_date": "2026-09-20",
+    "kickoff_utc": null,
+    "time_precision": "local_time",
+    "status": "finished",
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "source_id": "openfootball-2026-27-en1.json",
+    "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/en.1.json",
+    "evidence_id": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+    "received_at": "2026-11-01T10:08:23.611461Z",
+    "usable_at": "2026-11-01T10:08:23.627080Z",
+    "data_state": "Historical",
+    "capabilities": {
+      "events": false,
+      "lineups": false,
+      "statistics": false,
+      "odds": false
+    },
+    "source_local_time": "14:00",
+    "record_kind": "historical_result",
+    "sport": "football",
+    "score_scope": "Retained source score; settlement scope must be checked separately."
+  },
+  "pairing_metadata_unchanged": true,
+  "cleanup": [
+    {
+      "pid": 30316,
+      "method": "Exact owned image and creation-time handle validation",
+      "terminated": true
+    }
+  ],
+  "finished_at": "2026-11-01T10:30:35.452044+00:00"
+}

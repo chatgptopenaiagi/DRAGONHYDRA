@@ -141,3 +141,26 @@ and A6kernel6960 verified, all711server files unchanged. Full installer was not
 applied to live services. New artifacts/local/public-safe receipts retained;
 A6/A7 artifacts/hash pins and releases preserved. No provider acquisition,
 settings/vault changes or service controls. NativeLinux storage gate unchanged.
+
+## GENESIS A8 Windows unified workstation — 2026-11-01
+
+Reused source checkpoint9cbaa79 and official Tauri opener. New source5821b4d repairs
+bare installed EXE state selection and the reproduced Administration window.open path.
+Client f4e8fbae...c0617 built using cached locked/offline Tauri; unified Setup rebuilt
+only because the desktop changed. All711server/9941web-stack files unchanged. Final
+Setup64,769,361B SHA27b7b310...846fa was fully applied to owned isolated A8 profile,
+exit0. Upgrade6/native20/bare3/serviceRestart6/postrestart2groups passed. Actual
+shortcut auto-pairing,10normal provider clicks/defaultEdge/app route retained,760real
+retained matches, teams,20-team calculated standings, deterministic explanation and
+actualJSON/CSV/XLSX exports verified. Finishedmatch forecast correctly abstained.
+Three exports/durable jobs and all760match presentations/IDs/settings/pairing survived
+client and service restarts. Actualprivate PHP/PDO MariaDB read-only SELECT returned42;
+SQLite stays sports-data authority. All3older service PIDs remain23500/39364/22876;
+ownedA8Running17012. Five final delivery files/checksums now in dist/windows/GENESIS-A8.
+Focused final regressions5wrappers=7nativepairing+3nativepopup+3JS tests passed. Original
+helper ACL/pagination mistakes remain dated diagnostics; no credential/ACL replacement.
+Twelve historical artifact pins rehashed unchanged. No new GitHub release or Linux
+package. Durable report GENESIS-A8-WINDOWS.md and public-safe verified-reports/GENESIS-A8-*.
+NEXT: separately authorized clean Windows11 x64 prerequisites/reboot acceptance and
+publisher signing. Current-host isolated runtime is verified; clean-machine/reboot
+and production-signature claims are absent.

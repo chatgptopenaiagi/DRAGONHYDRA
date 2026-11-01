@@ -1,3 +1,22 @@
+GENESIS A8 WINDOWS: VERIFIED LOCAL DELIVERY (2026-11-01).
+Read docs/handover/GENESIS-A8-WINDOWS.md, genesis_a8_windows in ENGINEERING-STATE.json,
+and verified-reports/GENESIS-A8-DELIVERY-MANIFEST.json first. Complete Setup is
+ dist/windows/GENESIS-A8/DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe
+64,769,361 bytes; SHA25627b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa.
+Five requested delivery files/checksums are present. Embedded client source5821b4d;
+client SHA f4e8fbae...c0617. Resolve the later preservation commit from Git.
+Whole Setup upgrade exit0/6groups, actual shortcut journey20groups/all10links,
+bare installed EXE3groups, owned service restart6groups, native postrestart2groups
+passed. All760match presentations/IDs, settings/pairing and3exportjobs/files persist.
+Installed A8 profile: build/workstation/test-install/genesis-a8/{application files,state data};
+service DragonhydraGenesisA8Test, API18749/Joomla18750/MariaDB18751. Official installed
+shortcut pairs automatically. All3 older services and12 earlier artifact pins preserved.
+Do not rebuild/reinstall this completed acceptance or repeat Linux work. No new release uploaded.
+NEXT Windows gate: separately authorized clean Windows11 x64 VM, missing-prerequisite
+and OS-reboot recovery, then publisher signing with an authorized identity. Current-host
+isolated acceptance is complete; unsigned package/no clean-machine or reboot claim.
+Preserve earlier diagnostics, independent working files, services, databases and releases.
+
 Latest completed repair — Windows desktop external browser links (2026-11-01).
 Installed A6 provider-a2 client now uses official Tauri opener2.7.2; all three
 provider links opened default Edge from the ACTUAL installed EXE, while the

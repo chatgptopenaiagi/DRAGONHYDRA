@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "unchanged_server_files": 711,
+  "unchanged_web_stack_files": 9941,
+  "changed_staged_files": [
+    "WORKSTATION-BUILD.json",
+    "client/BUILD-INFO.json",
+    "client/DRAGONHYDRA-Client.exe"
+  ],
+  "source_payload_files": 10662,
+  "candidate_payload_files": 10662
+}

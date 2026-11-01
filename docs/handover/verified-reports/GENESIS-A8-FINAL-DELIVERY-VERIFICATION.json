@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T10:38:21.289263+00:00",
+  "review_type": "Independent agent read-only final-delivery review plus root checksum verification",
+  "directory": "C:\\xampp\\DRAGONHYDRA\\dist\\windows\\GENESIS-A8",
+  "files": [
+    {
+      "filename": "BUILD-REPORT.json",
+      "bytes": 7790,
+      "sha256": "e7ef7cc1bdc57cd8f05af7f81bfbb86666fcea7f13a039f4542e50821478845d"
+    },
+    {
+      "filename": "DRAGONHYDRA-GENESIS-A8-Windows-x64-Setup.exe",
+      "bytes": 64769361,
+      "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+    },
+    {
+      "filename": "README-INSTALL.txt",
+      "bytes": 5324,
+      "sha256": "d306b7cce43dd08680a8a3047f7ff007618dcab052e5b377bf80c349c990f085"
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "bytes": 367,
+      "sha256": "58a558ef862f426f0fdfda35b0805adb116ca92d3ca3eaa01120de19eb049799"
+    },
+    {
+      "filename": "TEST-REPORT.json",
+      "bytes": 32514,
+      "sha256": "8eaf5910f4582e28f94a131faa15f2568541fff640bcaa1be381ad6842d3695c"
+    }
+  ],
+  "exact_required_filenames": true,
+  "sha256sums_verified_entries": 4,
+  "self_hash_excluded": true,
+  "all_referenced_evidence_digests_match": true,
+  "source_and_reused_component_identity_distinguished": true,
+  "claims_supported_by_install_and_native_receipts": true,
+  "limits_explicit": [
+    "Unsigned development",
+    "Current-host isolated installation",
+    "No clean-machine or OS-reboot result",
+    "Missing WebView2 bootstrap requires internet"
+  ],
+  "runtime_repeated_by_reviewer": false,
+  "credentials_read_by_delivery_reviewer": false
+}

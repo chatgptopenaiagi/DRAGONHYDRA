@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "phase": "Restart",
+  "passed": true,
+  "applied": true,
+  "started_at": "2026-11-01T10:28:39.9761822Z",
+  "install_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files",
+  "state_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data",
+  "service_name": "DragonhydraGenesisA8Test",
+  "checks": [
+    {
+      "name": "verified-installer-and-protected-service-baseline",
+      "passed": true,
+      "details": {
+        "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+      }
+    },
+    {
+      "name": "exact-owned-service-stop-start",
+      "passed": true,
+      "details": {
+        "service": "DragonhydraGenesisA8Test"
+      }
+    },
+    {
+      "name": "localservice-api-joomla-mariadb-and-retained-data-ready",
+      "passed": true,
+      "details": {
+        "records": 760,
+        "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "evidence_version": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+        "pairing_file_sha256": "eb70501dfe96dc6faa19c585c97429eaf9255adae877cbbb308c888b5eec0a98",
+        "joomla_configuration_sha256": "fbbee28e076e6378365d2c6a9cd39fc82951b18b166d86bfafdf3fcede895812",
+        "api_url": "http://127.0.0.1:18749",
+        "joomla_http_status": 200,
+        "api_port": 18749,
+        "web_port": 18750,
+        "database_port": 18751,
+        "service_pid": 17012
+      }
+    },
+    {
+      "name": "official-shortcuts-target-corresponding-launcher-and-state",
+      "passed": true,
+      "details": {
+        "count": 2
+      }
+    },
+    {
+      "name": "records-evidence-pairing-joomla-config-and-ports-persisted",
+      "passed": true,
+      "details": {
+        "records": 760
+      }
+    },
+    {
+      "name": "all-three-existing-services-unchanged",
+      "passed": true,
+      "details": {
+        "services": [
+          "DragonhydraProvidersA2Test",
+          "DragonhydraWorkstation",
+          "DragonhydraWorkstationTest"
+        ]
+      }
+    }
+  ],
+  "scope": "One separate current-host Windows installation; not a clean-machine or reboot claim",
+  "unrelated_services_controlled": false,
+  "credentials_printed": false,
+  "installer": {
+    "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa",
+    "bytes": 64769361,
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\genesis-a8-candidate\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe"
+  },
+  "protected_services_before": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 39364,
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    }
+  ],
+  "administrator_token": true,
+  "before": {
+    "records": 760,
+    "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+    "evidence_version": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+    "pairing_file_sha256": "eb70501dfe96dc6faa19c585c97429eaf9255adae877cbbb308c888b5eec0a98",
+    "joomla_configuration_sha256": "fbbee28e076e6378365d2c6a9cd39fc82951b18b166d86bfafdf3fcede895812",
+    "api_url": "http://127.0.0.1:18749",
+    "joomla_http_status": 200,
+    "api_port": 18749,
+    "web_port": 18750,
+    "database_port": 18751,
+    "service_pid": 27080
+  },
+  "after": {
+    "records": 760,
+    "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+    "evidence_version": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+    "pairing_file_sha256": "eb70501dfe96dc6faa19c585c97429eaf9255adae877cbbb308c888b5eec0a98",
+    "joomla_configuration_sha256": "fbbee28e076e6378365d2c6a9cd39fc82951b18b166d86bfafdf3fcede895812",
+    "api_url": "http://127.0.0.1:18749",
+    "joomla_http_status": 200,
+    "api_port": 18749,
+    "web_port": 18750,
+    "database_port": 18751,
+    "service_pid": 17012
+  },
+  "shortcut_bindings": [
+    {
+      "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraLauncher.exe",
+      "path": "C:\\Users\\Public\\Desktop\\DRAGONHYDRA Workstation - DragonhydraGenesisA8Test.lnk",
+      "arguments": "--state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\""
+    },
+    {
+      "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraLauncher.exe",
+      "path": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\DRAGONHYDRA Workstation - DragonhydraGenesisA8Test\\DRAGONHYDRA Workstation.lnk",
+      "arguments": "--state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\""
+    }
+  ],
+  "protected_services_after": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 39364,
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    }
+  ],
+  "finished_at": "2026-11-01T10:28:50.0433331Z"
+}
