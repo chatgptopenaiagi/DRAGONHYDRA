@@ -9,9 +9,46 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tarfile
 import time
 from urllib.request import Request, urlopen
 from zipfile import ZipFile
+
+
+def source_ignores(source):
+    """Keep the public nested dependency lock while excluding runtime state."""
+    source = Path(source).resolve()
+    def ignored(directory, names):
+        relative = Path(directory).resolve().relative_to(source)
+        blocked = {'.git', '__pycache__', 'node_modules', '.dart_tool'}
+        if not relative.parts:
+            blocked.update(('runtime', 'build', 'dist'))
+        if relative.parts == ('config', 'runtime'):
+            return [name for name in names if name != 'server-python314.lock.txt']
+        return [name for name in names if name in blocked]
+    return ignored
+
+
+def inspect_sdist(path, build_info, lock_bytes):
+    prefix = 'dragonhydra-' + build_info['python_version']
+    with tarfile.open(path) as archive:
+        for member in archive.getmembers():
+            name = Path(member.name)
+            if name.is_absolute() or '..' in name.parts or member.issym() or member.islnk():
+                raise RuntimeError('Source archive contains an unsafe member')
+            if member.isfile() and (name.suffix in ('.sqlite3', '.db', '.dpapi', '.keystore', '.jks', '.pem', '.pyc')
+                                    or name.name in ('local-session.json', 'workstation.json', '.env')):
+                raise RuntimeError('Source archive contains forbidden runtime state')
+        embedded_lock = archive.extractfile(prefix + '/config/runtime/server-python314.lock.txt').read()
+        if embedded_lock != lock_bytes:
+            raise RuntimeError('Source archive dependency lock differs from frozen source')
+        embedded_build = json.loads(archive.extractfile(prefix + '/src/dragonhydra/build_info.json').read())
+        if embedded_build['source_sha'] != build_info['source_sha']:
+            raise RuntimeError('Source archive build identity differs')
+        return {'filename': path.name, 'bytes': path.stat().st_size,
+                'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                'members': len(archive.getmembers()),
+                'dependency_lock_sha256': hashlib.sha256(embedded_lock).hexdigest()}
 
 
 def main():
@@ -20,6 +57,8 @@ def main():
     parser.add_argument('--work',type=Path,required=True)
     parser.add_argument('--assets',type=Path,required=True)
     parser.add_argument('--build-info',type=Path,required=True)
+    parser.add_argument('--wheelhouse',type=Path,help='Existing local wheels only; disables package-index access')
+    parser.add_argument('--sdist',action='store_true',help='Also build and verify the source distribution and its public dependency lock')
     args=parser.parse_args()
     source,work,assets=args.source_root.resolve(),args.work.resolve(),args.assets.resolve()
     work.mkdir(parents=True,exist_ok=True);assets.mkdir(parents=True,exist_ok=True)
@@ -30,6 +69,11 @@ def main():
     for name in ('PYTHONPATH','PYTHONHOME','DRAGONHYDRA_HOME','VIRTUAL_ENV'):
         env.pop(name,None)
     env['PYTHONNOUSERSITE']='1';env['PIP_CACHE_DIR']=str(work/'pip-cache')
+    env['PATH']=str(Path(sys.executable).parent)+os.pathsep+env.get('PATH','')
+    if args.wheelhouse:
+        if not args.wheelhouse.resolve().is_dir():raise RuntimeError('Existing offline wheelhouse is unavailable')
+        env['PIP_NO_INDEX']='1';env['PIP_FIND_LINKS']=str(args.wheelhouse.resolve())
+        record['dependency_source']='Explicit existing local wheelhouse; package index disabled'
     def run(argv,cwd=None):
         tick=time.monotonic();r=subprocess.run(list(map(str,argv)),cwd=cwd or work,env=env,capture_output=True,text=True,encoding='utf-8',errors='replace')
         item={'argv':list(map(str,argv)),'exit_code':r.returncode,'duration_seconds':round(time.monotonic()-tick,3)}
@@ -40,8 +84,11 @@ def main():
     try:
         stage=work/'source'
         if stage.exists():raise RuntimeError('Wheel staging already exists; resume verified stage or select a fresh owned work directory')
-        shutil.copytree(source,stage,ignore=shutil.ignore_patterns('runtime','build','dist','__pycache__','node_modules','.dart_tool'))
+        shutil.copytree(source,stage,ignore=source_ignores(source))
         shutil.copyfile(args.build_info,stage/'src/dragonhydra/build_info.json')
+        lock=source/'config/runtime/server-python314.lock.txt'
+        if not lock.is_file():raise RuntimeError('Frozen source is missing the public server dependency lock')
+        if (stage/'config/runtime/server-python314.lock.txt').read_bytes()!=lock.read_bytes():raise RuntimeError('Source staging lost the public dependency lock')
         run([sys.executable,'-B','-m','build','--wheel','--no-isolation','--outdir',assets,stage])
         wheels=list(assets.glob('dragonhydra-*.whl'))
         if len(wheels)!=1:raise RuntimeError('Expected one wheel from this build')
@@ -57,6 +104,10 @@ def main():
             record['wheel_metadata']=metadata
             record['wheel_contents']=names
         record['checks'].append('Wheel metadata, generated tags, explicit resources, SHA and payload hygiene')
+        if args.sdist:
+            run([sys.executable,'-B','-m','build','--sdist','--no-isolation','--outdir',assets,stage])
+            record['source_archive']=inspect_sdist(assets/('dragonhydra-'+build_info['python_version']+'.tar.gz'),build_info,lock.read_bytes())
+            record['checks'].append('Source archive build identity, public dependency lock and runtime-state hygiene')
         venv=work/'installed-env';run([sys.executable,'-m','venv',venv])
         scripts=venv/('Scripts' if os.name=='nt' else 'bin');python=scripts/('python.exe' if os.name=='nt' else 'python')
         run([python,'-m','pip','install','-c',source/'config/runtime/server-python314.lock.txt',str(wheel)+'[server]'])

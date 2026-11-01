@@ -21,6 +21,6 @@ dragonhydra-samples = "dragonhydra.samples:main"
 
 [tool.uv.build-backend]
 module-name = "dragonhydra"
-source-include = ["tests/**", "examples/**", "docs/**", "dragon.py", "packaging/**", "scripts/build_checkpoint_archive.py"]
+source-include = ["tests/**", "examples/**", "docs/**", "dragon.py", "packaging/**", "scripts/build_checkpoint_archive.py", "config/runtime/server-python314.lock.txt"]
 source-exclude = ["/data", "/runtime", "/dist", "__pycache__", "*.pyc"]
 

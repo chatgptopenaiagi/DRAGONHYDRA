@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "release_name": "DRAGONHYDRA GENESIS A9",
+  "tag": "genesis-a9-20261101",
+  "classification": "development prerelease",
+  "component_versions": {
+    "windows_workstation": "0.4.1-dev.1",
+    "joomla": "0.4.1-dev.2",
+    "desktop": "0.4.0-alpha.1",
+    "server": "0.4.0-alpha.1",
+    "android": "0.4.0-alpha.1",
+    "android_version_code": 4,
+    "python": "0.4.0a1",
+    "linux_preparation": "GENESIS A7 / Python0.4.0a1"
+  },
+  "component_versions_are_independent": true,
+  "tag_commit": "Resolved from annotated release tag; exact artifact source commits are listed in RELEASE-MANIFEST.json"
+}

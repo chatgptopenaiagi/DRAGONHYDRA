@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "lane": "Windows unified workstation / MASTER release",
+  "status": "BUILT_CONTENTS_VERIFIED_INSTALLATION_PENDING",
+  "recorded_at": "2026-11-01T12:25:57.014445+00:00",
+  "source_head_at_discovery": "55997de0a3997a10d12c6271795289a5d147e1ab",
+  "built": true,
+  "installed": false,
+  "executed": false,
+  "tested": true,
+  "published": false,
+  "baseline": {
+    "build_root": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\genesis-a8-candidate-workstation",
+    "payload_manifest_sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83",
+    "payload_files": 10662,
+    "client": {
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+      "bytes": 10078208,
+      "rebuild_required": false
+    },
+    "server": {
+      "sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+      "bytes": 8031282,
+      "rebuild_required": false
+    },
+    "old_joomla_package_sha256": "66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585"
+  },
+  "selected_frontend": {
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\pkg_dragonhydra-0.4.1-dev.2.zip",
+    "bytes": 43686,
+    "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+    "version": "0.4.1-dev.2",
+    "source_sha": "55997de0a3997a10d12c6271795289a5d147e1ab"
+  },
+  "existing_tools": {
+    "powershell": "C:/Program Files/PowerShell/7/pwsh.exe",
+    "nsis": "C:/Users/LOVE/AppData/Local/tauri/NSIS/makensis.exe",
+    "nsis_version_current_probe": "3.13",
+    "seven_zip": "C:/Program Files/7-Zip/7z.exe",
+    "seven_zip_version_current_probe": "26.05",
+    "webview2_bootstrapper": {
+      "bytes": 1888976,
+      "sha256": "00c6e5a7413c37753bb92e176539dbf691a101846a622e00a9faec3f23e2816b",
+      "signature": "Valid Microsoft Corporation"
+    }
+  },
+  "planned_output": {
+    "build_root": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\master-release-20261101-workstation",
+    "output_root": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\master-release-20261101",
+    "build_filename": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "declared_workstation_version": "0.4.1-dev.1",
+    "numeric_file_version": "0.4.1.1",
+    "signing": "Unsigned development; no signing action authorized or required for this lane"
+  },
+  "confirmed_packaging_blocker": {
+    "scope": "Source path validation only; no assembler or service operation run",
+    "new_master_path_currently_rejected": true,
+    "message": "Provider kernel staging must be a new owned directory under build/connections; verified workstation staging is preserved.",
+    "reproduction": "Execute only the actual IfStatementAst guard from scripts/Build-Workstation.ps1 with the proposed master build path",
+    "repair_performed": false,
+    "resolved_by": "Used the existing approved build/connections lane; no path-validator source change",
+    "blocks_selected_path": false
+  },
+  "service_operations_performed": false,
+  "configuration_or_database_mutations_performed": false,
+  "previous_artifacts_preserved": true,
+  "source_checkpoint_ready": "4a08f873429e338d30031be321a0c63ccfe196a7",
+  "assembly_started_at": "2026-11-01T12:30:55.269255+00:00",
+  "standalone_desktop_artifacts": [
+    {
+      "filename": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "bytes": 10078208,
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+    },
+    {
+      "filename": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "bytes": 300,
+      "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+    },
+    {
+      "filename": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "bytes": 2607816,
+      "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6"
+    },
+    {
+      "filename": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "bytes": 1558,
+      "sha256": "f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011"
+    }
+  ],
+  "standalone_desktop_rebuilt": false,
+  "services_operated": false,
+  "finished_at": "2026-11-01T12:37:56.826846+00:00",
+  "source_files_match_preserved_checkpoint": true,
+  "artifact": {
+    "path": "dist/master-release-20261101/assets/DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+    "bytes": 64801813,
+    "sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a"
+  },
+  "raw_builder_artifact": {
+    "path": "dist/connections/master-release-20261101/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "bytes": 64801813,
+    "sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a"
+  },
+  "raw_builder_report": {
+    "path": "build/connections/master-release-20261101-workstation/BUILD-REPORT.json",
+    "bytes": 6414,
+    "sha256": "cb4a9f633ab70a405f2e072603137580fe886c8910e67194e1564a6c4626c9c1"
+  },
+  "payload_manifest": {
+    "path": "build/connections/master-release-20261101-workstation/stage/PAYLOAD-MANIFEST.json",
+    "bytes": 2245155,
+    "sha256": "a61b3981e8337547364460ccf1593eb5896901f4148e43913167f30498d552ef"
+  },
+  "payload_files": 10662,
+  "changed_staged_files": [
+    "web/extension.zip",
+    "web/manage.php",
+    "web/payload-manifest.json",
+    "WORKSTATION-BUILD.json"
+  ],
+  "unchanged_server_entries": 711,
+  "unchanged_client_entries": 3,
+  "critical_selective_extraction": [
+    {
+      "component": "client/DRAGONHYDRA-Client.exe",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/client/DRAGONHYDRA-Client.exe",
+        "bytes": 10078208,
+        "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/client/DRAGONHYDRA-Client.exe",
+        "bytes": 10078208,
+        "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "client/BUILD-INFO.json",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/client/BUILD-INFO.json",
+        "bytes": 300,
+        "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/client/BUILD-INFO.json",
+        "bytes": 300,
+        "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "server/DRAGONHYDRA-Server.exe",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/server/DRAGONHYDRA-Server.exe",
+        "bytes": 8031282,
+        "sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/server/DRAGONHYDRA-Server.exe",
+        "bytes": 8031282,
+        "sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "workstation/DragonhydraLauncher.exe",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/workstation/DragonhydraLauncher.exe",
+        "bytes": 10240,
+        "sha256": "7e85208458057fe4c44d4ddbf4e70eedba87dbb1cafab573408a1aa4f08ee62b"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/workstation/DragonhydraLauncher.exe",
+        "bytes": 10240,
+        "sha256": "7e85208458057fe4c44d4ddbf4e70eedba87dbb1cafab573408a1aa4f08ee62b"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "web/extension.zip",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/web/extension.zip",
+        "bytes": 43686,
+        "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/web/extension.zip",
+        "bytes": 43686,
+        "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "web/manage.php",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/web/manage.php",
+        "bytes": 23263,
+        "sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/web/manage.php",
+        "bytes": 23263,
+        "sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "web/payload-manifest.json",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/web/payload-manifest.json",
+        "bytes": 2107393,
+        "sha256": "c45b3a7313d19c7a0fa793c681ea6503687eb651e94ae696eceb618d7065780b"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/web/payload-manifest.json",
+        "bytes": 2107393,
+        "sha256": "c45b3a7313d19c7a0fa793c681ea6503687eb651e94ae696eceb618d7065780b"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "WORKSTATION-BUILD.json",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/WORKSTATION-BUILD.json",
+        "bytes": 6517,
+        "sha256": "dd9fcb0a8cf35a468dc749c5e6cd51fd3e7193a7e106a84b8e68ff22d9f1533a"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/WORKSTATION-BUILD.json",
+        "bytes": 6517,
+        "sha256": "dd9fcb0a8cf35a468dc749c5e6cd51fd3e7193a7e106a84b8e68ff22d9f1533a"
+      },
+      "byte_identical": true
+    },
+    {
+      "component": "PAYLOAD-MANIFEST.json",
+      "extracted": {
+        "path": "build/connections/master-release-20261101-workstation/installer-extracted/PAYLOAD-MANIFEST.json",
+        "bytes": 2245155,
+        "sha256": "a61b3981e8337547364460ccf1593eb5896901f4148e43913167f30498d552ef"
+      },
+      "staged": {
+        "path": "build/connections/master-release-20261101-workstation/stage/PAYLOAD-MANIFEST.json",
+        "bytes": 2245155,
+        "sha256": "a61b3981e8337547364460ccf1593eb5896901f4148e43913167f30498d552ef"
+      },
+      "byte_identical": true
+    }
+  ],
+  "frontend_package": {
+    "version": "0.4.1-dev.2",
+    "source_sha": "55997de0a3997a10d12c6271795289a5d147e1ab",
+    "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+  },
+  "effective_provisioning_hook_refreshed": true,
+  "source_build_and_package_versions_distinct": true,
+  "server_rebuilt": false,
+  "client_rebuilt": false,
+  "new_installation_acceptance": "Pending root-controlled isolated full-Setup acceptance",
+  "windows_installer_signature": "NotSigned",
+  "limitations": [
+    "No new installer installation/launch/runtime claim yet",
+    "No clean-machine or OS reboot claim",
+    "Milestone filename GENESIS-A9 retains actual declared workstation0.4.1-dev.1/fileversion0.4.1.1",
+    "Existing server/client payloads reused exactly; source manifests identify their earlier checkpoints"
+  ],
+  "contents_verification": {
+    "passed": true,
+    "extraction_exit_code": 0,
+    "archive_manifest_matches_stage": true,
+    "frontend_constituents_verified": true,
+    "baseline_a8_manifest_unchanged": true
+  },
+  "actual_file_metadata": {
+    "schema_version": 1,
+    "verified_at": "2026-11-01T12:38:29.5314836Z",
+    "file_version": "0.4.1.1",
+    "product_version": "0.4.1-dev.1",
+    "product_name": "DRAGONHYDRA Workstation",
+    "file_description": "Unsigned development complete workstation installer",
+    "signing_status": "NotSigned",
+    "installer_size": 64801813,
+    "installer_sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a"
+  },
+  "source_files_verified_against_checkpoint": 12,
+  "build_command": [
+    "C:/Program Files/PowerShell/7/pwsh.exe",
+    "-NoProfile",
+    "-File",
+    "scripts/Build-Workstation.ps1",
+    "-RepackageOnly",
+    "-BuildRoot",
+    "build/connections/master-release-20261101-workstation",
+    "-OutputRoot",
+    "dist/connections/master-release-20261101",
+    "-JoomlaPackagePath",
+    "dist/pkg_dragonhydra-0.4.1-dev.2.zip"
+  ],
+  "raw_builder_switch_scope": {
+    "refreshed_web_hook": false,
+    "meaning": "Explicit -RefreshWebHook switch was not supplied; -JoomlaPackagePath implicitly refreshed it. Actual refresh step and exact current hook hash are verified separately.",
+    "effective_refresh_web_hook": true,
+    "actual_manage_php_sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c"
+  },
+  "historical_a8_setup_sha256_unchanged": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa",
+  "installation_acceptance_pending_for_root": {
+    "profile": "DragonhydraGenesisA8Test",
+    "service_actions_by_this_lane": false,
+    "installer_sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+    "required_next": "Root-controlled exact full-Setup upgrade in isolated A8 profile; verify service ready, actual frontend Site login/data/exports, native shortcut pairing, and retained data/settings. Do not operate primary18740 or provider-a2."
+  },
+  "completed_build_prerequisites": [
+    "Root frontend checkpoint4a08f873429e338d30031be321a0c63ccfe196a7 received READY",
+    "Fresh verified A8 stage/prerequisite clone under the existing approved build/connections lane",
+    "RepackageOnly with verified frontend package8b639... and unchanged server/client",
+    "Critical archive extraction and all12 packaging-source hashes compared against preserved checkpoint",
+    "Prior A8 installer and stage manifest rehashed unchanged"
+  ]
+}

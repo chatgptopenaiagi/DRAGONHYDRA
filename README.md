@@ -1,169 +1,305 @@
-# DRAGONHYDRA local research laboratory
+# DRAGONHYDRA
 
-The integrated `0.4.0-alpha.1` prerelease adds an authenticated server, reusable
-dashboard, Windows desktop client, Joomla administration and optional Android
-client connection. It remains experimental. The separately verified Windows
-workstation installer `0.4.1-dev.1` installs and starts the private server, client
-and Joomla stack; see [current build status](docs/handover/INTEGRATED-BUILD-STATUS.md).
-Permanent VPS hosting and verified credentialed live feeds remain unfinished.
-The [optional offline-model source integration](docs/OFFLINE-AI.md) accepts
-structured sports packages and validates constrained source-fact selection;
-Windows model-runtime packaging remains separate; Linux runtime-component proof
-is recorded in the concurrent handoff. The model selects supplied source facts.
+**Sports intelligence with traceable data, explicit uncertainty and a local-first workspace.**
 
-The current source adds real ingestion for Football-Data.co.uk, StatsBomb,
-nflverse, MoneyPuck and Cricsheet, plus four credentialed adapters with explicit
-missing-key handling. [Connector instructions and evidence](docs/CONNECTORS.md)
-describe coverage, configuration, scheduling and limits. The current A6
-workstation installer under `dist/connections/workstation-a6` was repaired once
-into the isolated test workstation with all 1,221 records, 461 observations,
-pairing, ports and model configuration retained. It preserves the earlier A5
-acquisition of 4,407 StatsBomb event records and 50 source squad entries.
-Installed Edge checks verified default package/2, explicit immutable-context
-package/3, one unconfigured fallback job and same-key replay. Independent checks
-verified the three owned loopback listeners and Joomla HTTP200. No new provider
-fetch or model inference occurred in this upgrade. The installer remains unsigned;
-clean-machine, reboot and native OS-window acceptance remain separate. Evidence
-is distinguished in its `INSTALLATION.md`; original A5/A4/C7 artifacts are retained.
-The [continuous progress note](docs/handover/CONTINUOUS-PROGRESS.md) records the
-latest verified increment and the next work.
+[![Release](https://img.shields.io/badge/GENESIS-A9_development_prerelease-167d64)](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101)
+[![Python](https://img.shields.io/badge/Python-3.14-3776ab)](pyproject.toml)
+[![Joomla](https://img.shields.io/badge/Joomla-6-5091cd)](server/joomla/README.md)
 
-The [migration preparation](docs/DATABASE-MIGRATION.md) retains a checked private
-SQLite snapshot, typed rows, schema history, sequence marks and raw evidence;
-MariaDB authority is unchanged. Linux preparation is documented in
-[packaging/linux/README.md](packaging/linux/README.md); its wheel has passed a real
-Ubuntu core smoke test. A separate packaging owner has verified A5-derived Linux
-R8 API/local-model components; see the concurrent handoff for their exact scope.
-Linux A6 preparation and permanent VPS deployment remain unfinished.
+DRAGONHYDRA brings retained sports records, source evidence, statistical analysis and
+exports into one workspace. Browse matches, teams and competitions; inspect what an
+analysis used; keep unavailable information visible instead of inventing it.
 
-Use the versioned release's `INSTALLATION.md` and artifact manifest to choose a
-download. The Python wheel requires Python 3.14; install its `server` extra for
-the HTTP service. `dragonhydra-server --port 18743 --state ./product-state
---init-bridge` starts the optional server with bundled documented sample inputs.
-`dragonhydra-samples --directory ./samples` copies explicit CLI examples without
-requiring a development checkout. Pair a client using the generated local token;
-keep that token and the Joomla bridge secret private. Android localhost refers
-to the phone; remote connections need a configured trusted HTTPS endpoint.
+The Windows workstation combines a native desktop client, a private Python server,
+and a Joomla sports dashboard with administration. An Android client, Python
+packages and a Linux server preparation bundle provide additional access paths.
+This is an **unsigned/development prerelease**, with platform-specific verification
+and limitations recorded below. No production-stable readiness is claimed.
 
-The source-locked release procedure is documented in
-[packaging/release/SOURCE-LOCK.md](packaging/release/SOURCE-LOCK.md). The older
-commands below describe the preserved engineering CLI and development checkout.
+## Release downloads
 
-Run from PowerShell 7 in this directory using Python 3.14:
+[Open the GENESIS A9 release](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101).
+Download `SHA256SUMS.txt` and `RELEASE-MANIFEST.json` alongside your package.
 
-```powershell
-py -3.14 -B dragon.py archive
-py -3.14 -B dragon.py results
-py -3.14 -B dragon.py forecast
-py -3.14 -B dragon.py demo
-py -3.14 -B dragon.py score
-py -3.14 -B dragon.py train
-py -3.14 -B dragon.py predict
-py -3.14 -B dragon.py evaluate
-py -3.14 -B dragon.py calibrate
-py -3.14 -B dragon.py memory
-py -3.14 -B dragon.py intelligence
-py -3.14 -B dragon.py research
+| Download | Purpose and readiness |
+|---|---|
+| [Windows Workstation Setup](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe) | Complete x64 workstation: desktop, server, Joomla, private web/database runtimes, services and launcher. Development build. |
+| [Windows desktop EXE](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe) | Standalone native client; requires an existing paired server and WebView2. Download its accompanying notices/build information. |
+| [Android ARM64 APK](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk) | Fresh release-optimized, non-debuggable APK with the established **development certificate**. Fresh emulator install/start verified; connected pairing acceptance was stopped by the user and remains unverified. |
+| [Joomla extension ZIP](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/pkg_dragonhydra-0.4.1-dev.2.zip) | Native sports homepage, protected administration, server bridge, assets and Cassiopeia child template. Existing Joomla 6 upgrade/reapplication verified. |
+| [Windows server ZIP](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip) | Standalone frozen Python server and runtime. Fresh isolated HTTP/export/restart acceptance. |
+| [Python wheel](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1-py3-none-any.whl) | Python 3.14 application package; install the `server` extra for HTTP operation. |
+| [Python source distribution](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1.tar.gz) | Python packaging source; complete cross-platform source is also available from the tag. |
+| [Linux A7 preparation archive](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-linux-dev-8f170de1559b.tar.gz) | Reused immutable server preparation bundle. Python/dependencies required; historical Docker Linux runtime acceptance, **not native WSL/desktop acceptance**. |
+| [Complete developer source](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Source.zip) | Exact tagged source, tests, packaging, migrations and documentation; private runtime state excluded. |
+
+Component versions remain independent: workstation `0.4.1-dev.1`, Joomla
+`0.4.1-dev.2`, desktop/server/Android `0.4.0-alpha.1`, Python `0.4.0a1`.
+A9 is the integration milestone. The release manifest identifies each artifact's
+actual source commit, build mode, size, checksum and acceptance scope. Earlier
+verified binaries are explicitly identified; their embedded versions are not renamed.
+
+## Product features
+
+- **Browse retained sports data:** real match records, source-scoped teams,
+  competitions, scores, statuses and timestamps. Search, filters and pagination.
+- **Trace the evidence:** canonical/source identifiers, immutable observations,
+  receipt clocks and data availability limits.
+- **Use existing statistical analysis:** frequency, Poisson, recency, Elo and
+  ensemble outputs where eligible evidence exists. Predictions remain separate
+  from results; unsupported forecasts say unavailable.
+- **Export findings:** actual JSON, CSV and XLSX files, with protected ownership
+  and downloads through the server or Joomla bridge.
+- **Manage providers:** show configured status and retained import information;
+  protected administration controls supported adapters, keys and synchronization.
+  An adapter being present does not prove a live feed or configured account.
+- **Use Joomla natively:** responsive sports homepage, separate site login,
+  protected administration, accessible labels/focus and a Cassiopeia child template.
+- **Connect desktop/mobile clients:** local pairing for Windows and configurable
+  endpoint/pairing settings for Android. Android stores connection secrets through
+  its existing Keystore mechanism.
+- **Research and evaluate through Python:** point-in-time analysis, forecast and
+  evaluation/calibration commands remain available with their required inputs.
+  Full evaluation-history management is not implemented in the Joomla frontend.
+
+Optional local-language-model integration exists in source. No model weights,
+production model service, public HTTPS deployment or paid provider access is bundled
+or claimed operational by this release. Page browsing does not synchronize providers
+or start language-model jobs. Explicit Analysis navigation uses existing statistical
+calculations; explicit exports create only their supported export jobs.
+
+## System architecture
+
+```mermaid
+flowchart LR
+    W[Windows desktop] -->|Local pairing| API[Python intelligence API]
+    A[Android client] -->|Configured endpoint and pairing| API
+    B[Browser] --> J[Apache / PHP / Joomla]
+    J -->|Joomla session / server-side HMAC bridge| API
+    J --> JM[(MariaDB: Joomla accounts and presentation)]
+    API --> P[Retained data / analysis / forecasts / jobs / exports]
+    P --> S[(SQLite: authoritative sports store)]
+    P --> E[Retained raw evidence and source receipts]
+    C[Supported provider adapters] -->|Explicit authorized acquisition| P
 ```
 
-Use `--format json` on a report command for source records, clock fields, evidence
-IDs, hashes, transformations and configuration. `archive` accepts `--event` for
-an event identifier from `dragonhydra.football_data.list_events`; without one it
-selects the first fixture in the downloaded file. `forecast --event-date YYYY-MM-DD`
-selects an eligible future OpenFootball fixture on that date.
+Joomla owns accounts, permissions, presentation and extension configuration. Python
+owns canonical sports records, calculations and durable jobs. The reserved MariaDB
+sports schema is not a live replacement for SQLite. Browser code does not receive a
+privileged pairing token or bridge secret. Service/owner credentials stay outside
+the web root and outside distribution packages.
 
-The `archive` command imports one row of the downloaded Football-Data.co.uk CSV
-into the append-only local SQLite store. `B365` and `PS` are the source's column
-labels, not independently verified provider mappings. The source's pre-closing
-and closing-labelled values are reported as labelled differences; their individual
-quote times and synchronization are unknown, so they do not establish velocity or
-executable contemporaneous opportunities. Data attribution and usage terms:
-<https://www.football-data.co.uk/>, <https://www.football-data.co.uk/notes.txt>,
-<https://www.football-data.co.uk/contact.php>. The project records the exact file,
-source URL, capture clock and SHA-256 in `data/raw`.
+## Modules
 
-The same command calculates an illustrative present-time scenario from the
-archived B365 home price. The default probability is 0.55; pass a different
-assumption with `--probability 0.60`. `--fraction`, `--cap`, `--bankroll`,
-`--stake-fraction`, `--trials`, `--steps` and `--seed` configure the scenario.
-The report records whether the probability was the built-in example or supplied
-by the caller. It is not represented as a prediction made before the match. The
-simulation uses `--stake-fraction` independently of the calculated Kelly value.
+| Module | Responsibility | Source |
+|---|---|---|
+| Python application | API, records, connectors, models, research, jobs and exports | [`src/dragonhydra`](src/dragonhydra) |
+| Joomla component | Native site/admin MVC, bridge, templates, setup and permissions | [`server/joomla`](server/joomla) |
+| Desktop client | Tauri 2 shell, installed-profile pairing and external-browser opening | [`client/desktop`](client/desktop) |
+| Android client | Flutter UI, configurable endpoint and protected pairing storage | [`android/dragonhydra_mobile`](android/dragonhydra_mobile) |
+| Windows workstation | Installer, service, launcher and private runtime orchestration | [`packaging/windows/workstation`](packaging/windows/workstation) |
+| Linux preparation | Preflight, explicit installer and user-service template | [`packaging/linux`](packaging/linux) |
+| Build/release tooling | Source-locked platform packaging and verification | [`scripts`](scripts) |
+| Verification | Unit, transport, installed-runtime and browser acceptance | [`tests`](tests) |
 
-`results` imports the OpenFootball 2025/26 Premier League file; `forecast` imports
-the 2026/27 file and computes a smoothed descriptive frequency prior for a future
-fixture from eligible earlier same-source, same-competition results. The prior is
-an ephemeral calculation at actual run time, not a persisted historical forecast.
-OpenFootball data is CC0: <https://github.com/openfootball/football.json>.
+## Installation
 
-`demo` is a labelled synthetic clock example with six snapshots from two provider
-identities. It computes line changes, raw implied probabilities, overround,
-provider differences and a conditional expected-return, fractional Kelly and IID
-bankroll scenario from a synthetic probability assumption. `score` evaluates
-explicitly labelled synthetic historical forecasts with Brier and log loss.
+### Windows unified workstation
 
-The cognitive commands use the retained OpenFootball records. The forecast runs
-smoothed outcome-frequency, team-shrunk Poisson goals, recency-weighted frequency
-and Elo-style models. It reports the individual distributions, an ensemble,
-expected goals, likely scorelines, over/under 2.5 and both-teams-to-score estimates.
-Elo uses the frequency model's draw rate, so the models are not independent. When
-there is no eligible comparable operational evaluation, the ensemble uses equal
-weights. After at least 20 genuinely scored predictions per model for the same
-fixture cohort, retained cutoff-eligible Brier evidence can inform weights;
-corrected outcomes invalidate stale evaluation evidence.
+1. Download the Workstation Setup and checksum file from the release.
+2. Verify the checksum, close the client belonging to the installation being
+   upgraded, then run Setup and approve its Windows elevation request.
+3. Retain the existing installation/data/service identity on upgrades. Setup owns
+   its private service and chooses available **loopback** ports.
+4. Open **DRAGONHYDRA Workstation** from its official shortcut. The native launcher
+   waits for the corresponding server and supplies its existing pairing metadata.
+5. Open the matching **DRAGONHYDRA Administration** shortcut to access the local,
+   masked initial-credential handoff. Choose **Open Joomla**. Open that Joomla
+   origin's root homepage and use **Sign in to your workspace** for site access.
 
-`predict` and `intelligence` append actual model and prediction records. `memory`
-shows them; `memory --outcome-evidence-id ID` attaches a later eligible source
-result to an earlier prediction. `evaluate` scores such recorded forecasts and
-also reports a chronological present-knowledge holdout on the retained 2025/26
-data; the latter is a diagnostic computed now, not a historical strict replay.
-`calibrate` shows its binned forecast and outcome frequencies. `research` saves
-bounded tasks for measured gaps such as missing mapped quotes, stale results
-coverage and unscored operational forecasts. No neural model is claimed.
+Default locations are `C:\Program Files\DRAGONHYDRA` for binaries and
+`C:\ProgramData\DRAGONHYDRA` for mutable state. Custom profiles have their service
+name in the shortcut title. Do not assume another profile's port or credential is
+correct. The verified development homepage is `http://127.0.0.1:18740/`; other
+installations discover their own URL through their launcher/status configuration.
 
-## Local inputs
+Windows 11 x64 is the observed acceptance host. The package declares Windows 10+
+x64/.NET Framework 4.8 support. It reuses WebView2; Microsoft's bootstrapper needs
+internet if that runtime is missing. Setup is unsigned. Clean-machine and OS-reboot
+acceptance remain separate from the documented current-host tests.
 
-Import a user-supplied JSON or CSV snapshot and report an event:
+### Standalone Windows desktop
 
-```powershell
-py -3.14 -B dragon.py import --file examples\synthetic-totals.json --db runtime\market-demo.sqlite3 --synthetic-clock
-py -3.14 -B dragon.py report --db runtime\market-demo.sqlite3 --event synthetic-totals-001 --cutoff 2026-01-01T12:10:00Z --synthetic-clock
+Download the EXE and its adjacent build information/notices. It does not install or
+replace the server. Use an existing workstation's official launcher, or open the
+client's connection screen and pair it with your server. A bare installed client
+resolves its matching install marker; a portable client defaults to the standard
+workstation's owner-readable client metadata. Keep backend state and credentials.
+
+### Joomla extension
+
+Requires **Joomla 6**, PHP **8.3+** with cURL; the tested stack is Joomla 6.2/PHP8.4.27.
+Back up Joomla's database, menu/module/style records and component files first.
+Install `pkg_dragonhydra-0.4.1-dev.2.zip` using Joomla's extension installer. It
+installs its child template before the component and creates/reuses a native Home
+item without deleting sample articles or globally unpublishing modules.
+
+Configure the component's existing Options with the correct numeric-loopback API
+base and the protected bridge-secret **file path**. The secret must match that
+backend and remain readable only to the actual service identities. The unified
+workstation provisions this association automatically. Joomla site and administrator
+sessions remain distinct. See [component instructions](server/joomla/README.md).
+
+### Android
+
+The APK targets **ARM64**, Android **7.0 / API24 or newer** (target API36). Allow
+installation of this downloaded development APK through your normal Android owner
+workflow. It is release-optimized and non-debuggable, but uses the established
+**development signing identity**, not a publisher/Play Store certificate.
+
+Configure your own backend URL and pair privately. On a phone, localhost refers
+to that phone. Remote access requires your own trusted HTTPS endpoint; this release
+provides no public server. Development loopback/ADB routes are separate from normal
+remote deployment. Fresh emulator installation, cold launch and Home rendering were
+verified. Connected pairing/data navigation, upgrade and restart acceptance were
+not completed after native UI automation was stopped by the user.
+
+### Python server
+
+Requires Python **3.14** (`>=3.14,<3.15`). From the downloaded wheel directory:
+
+```sh
+python -m venv .venv
+# Activate .venv using your platform's normal activation command.
+python -m pip install "./dragonhydra-0.4.0a1-py3-none-any.whl[server]"
+dragonhydra-server --state ./dragonhydra-state --port 18743 --init-bridge
 ```
 
-JSON files contain a `snapshots` array; CSV files use one row per outcome. Each
-snapshot identifies source, provider, acquisition, event, participants,
-competition, market, period, status, settlement and original odds text/format.
-See `examples/synthetic-market.json` and `examples/synthetic-totals.json` for the
-shape. Operational imports record actual local receipt and commit acknowledgment;
-source-provided historical times cannot backdate system knowledge. The separate
-receipt transaction's precise visibility boundary has not yet been established,
-so operational reports identify themselves as `OPERATIONAL_AS_OF_RECEIPT` rather
-than claiming a fully verified retrospective replay.
+Choose an unused port. The server binds to127.0.0.1 and creates private local
+pairing/bridge state. Protect that state and use the generated pairing workflow;
+never publish the files or copy credentials into source. `dragonhydra-samples
+--directory ./samples` materializes documented public/synthetic CLI examples.
+The Windows server ZIP supplies its own frozen runtime and startup instructions.
 
-A local estimate file can be supplied with `report --estimate path.json`.
-Operational imports treat it as a user-supplied assumption at actual receipt time;
-synthetic replay requires `--synthetic-clock` and labelled synthetic evidence.
-`--fraction`, `--cap`, `--bankroll`, `--trials`, `--steps` and `--seed` configure
-the conditional scenario. The outputs are calculations under the stated probability
-and binary-settlement assumptions; pricing and model quality are not verified by
-the formulas.
+### Linux server preparation
 
-For bounded local updates, poll a JSON or CSV snapshot already inside the project:
+Extract the A7 archive, provide a compatible Python3.14 environment and its documented
+server dependencies, then inspect before installing:
 
-```powershell
-py -3.14 -B dragon.py watch --file examples\synthetic-market.json --db runtime\watch-demo.sqlite3 --iterations 2 --interval 0
+```sh
+python3 preflight.py --bundle .
+bash install.sh --prefix /absolute/private/dragonhydra --state /absolute/private/dragonhydra-state --apply
+DRAGONHYDRA_STATE=/absolute/private/dragonhydra-state DRAGONHYDRA_PORT=18753 /absolute/private/dragonhydra/run-server.sh
 ```
 
-The watcher reports each poll as it happens, skips unchanged bytes and imports
-changed acquisitions with actual receipt clocks. It stops at the requested
-iteration limit; reused acquisition IDs with different content are quarantined.
+Use a new prefix and dedicated port. The package installs no OS, Python interpreter,
+Joomla stack, model or desktop application. It verifies the installed child
+interpreter's dependencies and fails closed rather than reporting false success.
+Historical acceptance used isolated **Docker Linux**; native WSL/R8 ownership,
+systemd/reboot and Linux desktop deployment are not verified. See
+[Linux instructions](packaging/linux/README.md) and the release manifest's provenance.
 
-## Tests
+## Configuration and private data
 
-```powershell
-$env:PYTHONPATH = 'src'
-py -3.14 -B -m unittest discover -s tests -q
+- Use the owner-restricted first-run handoff for the initial Joomla administrator.
+  After changing the password, use the **current** Joomla password; the initial
+  handoff does not track later account changes.
+- Keep Joomla login, local pairing, bridge authentication and external provider
+  keys separate. None is a universal credential for another installation.
+- Enter provider keys only in the protected management UI. Provider accounts,
+  subscriptions, quotas and data terms remain the owner's responsibility.
+- Never commit `workstation.json`, `local-session.json`, bridge-secret contents,
+  browser profiles, runtime databases or signing keys. Examples use placeholders.
+- Password/provider/pairing changes use runtime configuration, not source edits or
+  application rebuilds. Do not rotate credentials just to resolve a wrong endpoint.
+
+## Quick start
+
+**For most Windows users:** install the unified workstation → open its official
+shortcut → obtain initial administrator access through the matching Administration
+shortcut → open that Joomla origin's homepage → sign in to the site → browse a
+retained match → open Analysis or Reports → export a file.
+
+The verified Joomla profile displayed **760 matches,40 source-scoped teams and two
+competitions** from its retained backend. These are dated acceptance observations,
+not hard-coded totals or a live-feed promise. Empty data and unavailable forecasts
+have explicit states. New installations may have different retained data.
+
+## Testing
+
+From an installed development Python3.14 environment:
+
+```sh
+python -m unittest -v tests.test_joomla_package tests.test_joomla_frontend_model tests.test_joomla_frontend_setup tests.test_joomla_frontend_templates tests.test_joomla_frontend_transport tests.test_joomla_frontend_menu_contract
 ```
 
-Tests use only project-owned files and databases under `runtime`; downloaded raw
-data and receipts remain under `data/raw`.
+The frontend passed17requirements through real Joomla site/admin sessions, search,
+filters, entity navigation, existing statistical outputs, three actual exports,
+logout/fresh login and desktop/narrow layouts. Empty/error states were tested with
+the actual templates in an isolated fixture without interrupting services.
+
+The initial browser receipt retains17successful assertions and an external-document
+timeout; its hash-linked continuation passes13remaining assertions. Provider-link
+checks verify actual new-tab destinations and workspace preservation using controlled
+external document responses, not remote provider uptime. See
+[frontend report](JOOMLA-FRONTEND-REPORT.md), [recovery report](JOOMLA-RECOVERY-REPORT.md)
+and [release report](docs/releases/DRAGONHYDRA-RELEASE-REPORT.md) for exact scopes.
+Earlier A6/A7/A8 tests are historical evidence, not automatically rerun against A9.
+
+## Development and reproducible builds
+
+Clone the repository or extract the exact tagged source. Use project-local isolated
+build state and the platform's existing toolchain; do not build from private runtime
+state. Python requirements are pinned in
+[`config/runtime/server-python314.lock.txt`](config/runtime/server-python314.lock.txt).
+
+- **Joomla:** `python scripts/build_joomla.py --output dist/pkg_dragonhydra-0.4.1-dev.2.zip --source-sha <full-source-commit>`.
+- **Windows workstation:** build the Joomla package, then use
+  `scripts/Build-Workstation.ps1`; a verified existing staging tree can use
+  `-RepackageOnly -JoomlaPackagePath <verified-extension.zip>`. Build roots must
+  satisfy the script's existing project ownership/path guards.
+- **Native desktop/server:** source-locked `scripts/Release-Windows.ps1` uses
+  explicit source, toolchain, work, artifact and build-info inputs. Tauri/Rust and
+  the Python frozen-runtime dependencies are separate build capabilities.
+- **Android:** `scripts/release_android.ps1` requires a clean frozen Git checkout,
+  explicit source SHA/version mapping, Flutter, JDK21 and the Android SDK. It uses
+  the existing development certificate; production preflight never silently
+  substitutes that identity.
+- **Python:** `python -m build` uses the pinned `uv_build` backend. The supported
+  release helper stages exact source/build metadata and checks an installed wheel
+  outside the source tree. See its recorded release commands.
+- **Linux:** `scripts/build_linux_bundle.py` and `packaging/linux` produce the
+  preparation layout. Read-only preflight and explicit installation are separate.
+
+[Module architecture](docs/handover/ARCHITECTURE.md),
+[CLI reference](docs/LEGACY-CLI-REFERENCE.md),
+[source-locking procedure](packaging/release/SOURCE-LOCK.md) and
+[release manifest](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RELEASE-MANIFEST.json)
+provide deeper detail. Large binaries belong to Release assets, not normal Git history.
+
+## Screenshots
+
+Actual authenticated Joomla workspace:
+
+![DRAGONHYDRA sports overview](docs/handover/verified-reports/JOOMLA-FRONTEND-DESKTOP.png)
+
+[Mobile-width workspace](docs/handover/verified-reports/JOOMLA-FRONTEND-MOBILE.png) ·
+[Retained match](docs/handover/verified-reports/JOOMLA-FRONTEND-MATCH.png).
+Screenshots contain no credential-entry forms or secret values.
+
+## Release notes and known limits
+
+GENESIS A9 consolidates the native Joomla frontend, existing administrator access,
+reader-authenticated bridge and exports; the repaired Windows browser-opening and
+installed-profile pairing; a newly built Android development APK; standalone server
+and Python packages; and immutable Linux A7 preparation with explicit provenance.
+
+Production signing/Android publisher identity, Android connected-session acceptance,
+public HTTPS hosting, verified paid/live-provider operation, clean-machine/OS reboot,
+Linux desktop/WSL and formal screen-reader/WCAG acceptance remain outside the verified
+scope. Statistical outputs are explicitly uncalibrated where the backend reports
+that limit. The component/child-template main-landmark consolidation is a documented
+accessibility follow-up. Private data and existing installations are preserved.
+
+See [CHANGELOG](CHANGELOG.md) and the release's platform reports for actual new tests,
+reused historical evidence, component versions and artifact checksums.

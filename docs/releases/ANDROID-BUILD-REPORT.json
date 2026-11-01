@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T12:37:57.801665+00:00",
+  "project": "DRAGONHYDRA",
+  "platform": "Android",
+  "status": "DEVELOPMENT_APK_BUILT_INSTALLED_AND_LAUNCHED; SERVER_PAIRING_BLOCKED",
+  "provenance": {
+    "source_commit": "4a08f873429e338d30031be321a0c63ccfe196a7",
+    "frozen_source_checkout": "build/master-release-20261101/source",
+    "canonical_source": "android/dragonhydra_mobile",
+    "build_script": "scripts/release_android.ps1",
+    "source_metadata_defines": [
+      "DRAGONHYDRA_SOURCE_SHA",
+      "DRAGONHYDRA_VERSION"
+    ],
+    "final_master_tag_checkpoint": "Assigned separately by the primary coordinator; code provenance above remains immutable"
+  },
+  "artifact": {
+    "path": "dist/master-release-20261101/assets/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+    "filename": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+    "bytes": 17345938,
+    "sha256": "d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1",
+    "application_id": "ai.dragonhydra.mobile",
+    "version_name": "0.4.0-alpha.1",
+    "version_code": 4,
+    "abi": "arm64-v8a",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "compile_sdk": 36,
+    "launch_activity": "ai.dragonhydra.mobile.MainActivity",
+    "application_label": "DRAGONHYDRA",
+    "android_debuggable": false,
+    "build_mode": "release-optimized"
+  },
+  "signing": {
+    "status": "Established development identity, not production publisher signed",
+    "certificate_sha256": "d77e623706f0146bc495904affe310cb492d67277ecf70b28455d1f5e138e419",
+    "apk_signature_verified": true,
+    "certificate_matches_established_earlier_alpha": true,
+    "publisher_identity_created_or_replaced": false,
+    "production_signing_available": false,
+    "production_preflight": {
+      "files_changed": false,
+      "build_started": false,
+      "apk_created": false,
+      "publisher_key_created": false,
+      "published": false,
+      "status": "requires_signing_configuration",
+      "missing_environment": [
+        "DRAGONHYDRA_ANDROID_KEYSTORE",
+        "DRAGONHYDRA_ANDROID_KEY_ALIAS",
+        "DRAGONHYDRA_ANDROID_STORE_PASSWORD",
+        "DRAGONHYDRA_ANDROID_KEY_PASSWORD",
+        "DRAGONHYDRA_ANDROID_CERT_SHA256"
+      ],
+      "message": "Existing publisher signing inputs and an independently confirmed public certificate have not been supplied."
+    }
+  },
+  "build_steps": [
+    {
+      "name": "Offline Flutter dependency restoration",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "Flutter analyze --no-pub",
+      "status": "PASS",
+      "exit_code": 0,
+      "issues": 0
+    },
+    {
+      "name": "Flutter test --no-pub",
+      "status": "PASS",
+      "exit_code": 0,
+      "cases": 14
+    },
+    {
+      "name": "Flutter build apk --release --target-platform android-arm64 --no-pub with exact source/version defines",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "apksigner verify and expected development certificate comparison",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "aapt package/version/ABI/SDK metadata and non-debuggable flag inspection",
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ],
+  "build_warning": "Existing SDK command tooling warned that its XML reader supports version3 while an SDK XML version4 was encountered. The build, manifest inspection and signature verification succeeded; no SDK/tool upgrade was attempted.",
+  "runtime": {
+    "device": "emulator-5562",
+    "avd": "GENESIS2_ANDROID_TEST",
+    "avd_path": "C:/Flutter-Verification/GENESIS2-20261025-183327/avd",
+    "emulator_launcher_pid": 25492,
+    "device_abi_list": [
+      "x86_64",
+      "arm64-v8a"
+    ],
+    "arm64_translation_executed": true,
+    "android_app_pid_at_observation": 3779,
+    "existing_emulators_before_start": 0,
+    "only_named_existing_avd_started": true,
+    "new_avd_created": false,
+    "userdata_cleared": false,
+    "fresh_install": {
+      "status": "PASS",
+      "exit_code": 0,
+      "method": "adb -s emulator-5562 install -r <this exact APK>; package absent before installation",
+      "result": "Performing Streamed Install / Success"
+    },
+    "cold_launch": {
+      "status": "PASS",
+      "exit_code": 0,
+      "command": "adb -s emulator-5562 shell am start -W -n ai.dragonhydra.mobile/ai.dragonhydra.mobile.MainActivity",
+      "launch_state": "COLD",
+      "result": "Status: ok",
+      "activity": "ai.dragonhydra.mobile/.MainActivity",
+      "total_time_ms": 6809,
+      "wait_time_ms": 6820
+    },
+    "native_home_render": {
+      "status": "PASS",
+      "method": "Computer-use native emulator screenshot inspection before user stop",
+      "observed": "DRAGONHYDRA Home / Offline research companion / Intelligence, in your pocket / configurable Connect to DRAGONHYDRA server action",
+      "screenshot_file": null,
+      "screenshot_publication": "The native Home screenshot was displayed by the computer-use tool. No on-disk screenshot was saved; no new capture was attempted after the user stop."
+    },
+    "server_pairing": {
+      "status": "BLOCKED",
+      "reason": "Computer Use reported the user stopped native UI automation using the physical Escape key while opening the server connection screen. All subsequent native UI input stopped.",
+      "connection_form_open_outcome": "Unknown; the interrupted click was not retried",
+      "pairing_token_entered": false,
+      "secret_in_command_arguments_clipboard_source_or_screenshots": false,
+      "temporary_gateway_or_authentication_bypass_used": false
+    },
+    "retained_backend_match_navigation": {
+      "status": "NOT_RUN",
+      "reason": "Depends on native mobile pairing; user-stopped UI acceptance did not reach this stage"
+    },
+    "upgrade_and_restart_persistence": {
+      "status": "NOT_RUN",
+      "reason": "Fresh installation was verified; no previous installed package existed in this test AVD and pairing did not complete"
+    },
+    "owned_emulator_final_state": "Left running/available as directed after the Computer Use stop; no subsequent UI input or emulator shutdown was attempted"
+  },
+  "endpoint_and_credential_design": {
+    "verification_scope": "Canonical source inspection plus current Flutter regression tests, not successful on-device pairing",
+    "configured_server_address": "Owner-configurable, no workstation address or pairing credential embedded",
+    "transport": "Remote HTTPS required; HTTP allowed only for explicit localhost/127.0.0.1/10.0.2.2 development forwarding",
+    "storage": "Existing Android Keystore-backed AES-GCM encrypted preferences",
+    "rotation_requires_source_edit_or_rebuild": false,
+    "source_contains_supplied_joomla_password_or_pairing_token": false
+  },
+  "classification": {
+    "built": true,
+    "signature_verified": true,
+    "installed": true,
+    "executed": true,
+    "native_launch_verified": true,
+    "private_server_pairing_verified": false,
+    "production_verified": false,
+    "published": false,
+    "historical_assets_replaced": false
+  },
+  "publication": "No Android asset was uploaded by this lane. Coordinator must retain development-signing and incomplete-pairing labels in any release.",
+  "evidence": [
+    {
+      "path": "build/master-release-20261101/android/discovery.json",
+      "sha256": "a4ba4c57704689b264339ff02093ecf2ec7a902ec50662874ed563d599208bf4"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/android-build.json",
+      "sha256": "d763e5b2bdfe14915d9f86666838df4b862c7e44e5bde4160e7e1002ca81141f"
+    },
+    {
+      "path": "build/master-release-20261101/android/device-install-r1.json",
+      "sha256": "f0ce03893ad98448ca88bad622e53e7818ee7b7f4487cad467eccc0b5a6dc7e3"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/analyze.txt",
+      "sha256": "053aa89b41014abe78c29979950970c17521644e7755f34e9a9bd3ec82ca5af6"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/flutter-tests.txt",
+      "sha256": "5e3eee2d8e4fb69ef440ea18b3b0f9a50a469b01d1260e08593b2640de8e794a"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/build-apk.txt",
+      "sha256": "249c98cac8c7fc66056cb25ba8064218f125210e8782137a1855a915b86fad1e"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/apk-signature.txt",
+      "sha256": "9f7e2f2b398585a40e18dfd1950af5563770bf5e3f64cddc3ba31be9f5017f03"
+    },
+    {
+      "path": "build/master-release-20261101/android/build/apk-badging.txt",
+      "sha256": "fb2d7e38a01fbbb60b00d8c6c35278a2429182c286f3a29c862f810e01f9f1ba"
+    }
+  ],
+  "next_action": "Respect the user-stopped Computer Use session. Resume native pairing only when explicitly authorized in a later turn; obtain an authorized publisher keystore/certificate configuration before claiming production signing."
+}

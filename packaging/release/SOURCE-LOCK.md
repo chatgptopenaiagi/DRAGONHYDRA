@@ -1,3 +1,25 @@
+# Source locking for GENESIS A9
+
+The current integration milestone uses docs/releases/GENESIS-A9-VERSION-MAP.json;
+component versions remain independent. The release manifest records exact per-asset
+source commits and unchanged-input evidence for reused binaries. A clean detached
+Git worktree or git archive prevents independent untracked development state from
+entering packages. The final source ZIP is created from the exact annotated tag.
+
+Build the Joomla package, standalone server/client, Android and Python packages only
+through their explicit source-locked pipelines. Keep all mutable build/runtime state
+outside the snapshot. Source code, constraints, tests and documentation are tracked;
+private databases, passwords, pairings, browser profiles, signing keys and caches are
+not. The public Python lock is narrowly tracked under config/runtime.
+
+The repository is currently public (verified through GitHub metadata for this
+release); no repository-visibility change is part of publication. Release creation
+uses a new owned draft/prerelease and preserves existing tags/assets. Remote IDs,
+sizes, digests and independent downloads must match before success is recorded.
+
+The notes below describe the earlier integrated-release process and remain
+historical where they mention a generated version.json or private repository.
+
 # Integrated release source
 
 The next prerelease uses the version mapping in `version.json`. A release source

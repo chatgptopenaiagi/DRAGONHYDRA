@@ -1,4 +1,7 @@
 runtime/
+!config/runtime/
+config/runtime/*
+!config/runtime/server-python314.lock.txt
 data/raw/
 __pycache__/
 *.pyc
