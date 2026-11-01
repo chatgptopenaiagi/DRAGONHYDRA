@@ -408,7 +408,7 @@ def _supervisor_receipt(state, at, process_id):
             success = _clock(item['last_success_at']) if item.get('last_success_at') else None
             if success and success > observed:
                 continue
-            if item['runtime_state'] == 'ready' and success and (observed-success).total_seconds() > 90:
+            if item['runtime_state'] == 'ready' and (success is None or (observed-success).total_seconds() > 90):
                 continue
             receipts[module_id] = (item['runtime_state'], observed, expires, metrics, success)
         return receipts, 'SUPERVISOR_OBSERVED', (observed, expires)

@@ -50,6 +50,7 @@ class ModuleRegistryTests(unittest.TestCase):
                     'evidence_expires_at': (observed+timedelta(seconds=ttl)).isoformat(),
                     'observations': {module_id: {
                         'runtime_state': 'ready', 'reason_code': 'PROBE_OK',
+                        'last_success_at': (observed-timedelta(seconds=1)).isoformat(),
                         'reason': 'secret=canary-must-not-be-projected',
                         'sanitized_metrics': {'pid': pid, 'probe_http_status': 200,
                                               'token': 'secret-canary', 'endpoint': 'private-canary'}}
@@ -144,11 +145,27 @@ class ModuleRegistryTests(unittest.TestCase):
         modules = self.modules()
         for key in ('web_server', 'administration', 'website', 'storage_mariadb', 'supervisor'):
             self.assertEqual(modules[key]['observation']['runtime_state'], 'ready', key)
+            self.assertEqual(modules[key]['observation']['last_success_at'], '2026-11-01T13:59:59.000000Z')
         encoded = json.dumps(self.result())
         self.assertNotIn('canary', encoded)
         self.assertNotIn(str(self.state), encoded)
         self.assertNotIn('18744', encoded)
         self.assertIn('not administrator authentication', modules['administration']['definition']['description'])
+
+    def test_supervisor_ready_requires_a_real_fresh_success_clock(self):
+        for missing, value in ((True, None), (False, None),
+                               (False, (self.at+timedelta(seconds=1)).isoformat()),
+                               (False, (self.at-timedelta(seconds=91)).isoformat())):
+            with self.subTest(missing=missing, value=value):
+                document = self.write_receipt()
+                if missing:
+                    document['observations']['web_server'].pop('last_success_at')
+                else:
+                    document['observations']['web_server']['last_success_at'] = value
+                (self.state.parent/'status.json').write_text(json.dumps(document), encoding='utf-8')
+                observation = self.modules()['web_server']['observation']
+                self.assertEqual(observation['runtime_state'], 'configured_unverified')
+                self.assertIsNone(observation['last_success_at'])
 
     def test_stale_evidence_never_remains_ready(self):
         self.write_receipt(seconds_ago=31)
