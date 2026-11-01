@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="package" method="upgrade">
-  <name>DRAGONHYDRA Administration</name><packagename>dragonhydra</packagename>
-  <author>DRAGONHYDRA</author><creationDate>2026-10</creationDate><version>0.4.0-alpha.1</version>
-  <description>Joomla administration for the DRAGONHYDRA sports kernel.</description>
+  <name>DRAGONHYDRA Sports Intelligence</name><packagename>dragonhydra</packagename>
+  <author>DRAGONHYDRA</author><creationDate>2026-11</creationDate><version>0.4.1-dev.2</version>
+  <description>Joomla sports intelligence workspace and administration for the existing DRAGONHYDRA kernel.</description>
   <blockChildUninstall>true</blockChildUninstall>
-  <files folder="constituents"><file type="component" id="com_dragonhydra">com_dragonhydra.zip</file></files>
+  <files folder="constituents">
+    <file type="template" id="cassiopeia_dragonhydra" client="site">tpl_cassiopeia_dragonhydra.zip</file>
+    <file type="component" id="com_dragonhydra">com_dragonhydra.zip</file>
+  </files>
 </extension>

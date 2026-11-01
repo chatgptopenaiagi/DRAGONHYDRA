@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" client="site" method="upgrade">
+  <name>cassiopeia_dragonhydra</name>
+  <version>0.4.1-dev.2</version>
+  <creationDate>2026-11</creationDate>
+  <author>DRAGONHYDRA</author>
+  <description>DRAGONHYDRA sports workspace child of the installed Joomla Cassiopeia template.</description>
+  <parent>cassiopeia</parent>
+  <files><filename>index.php</filename><filename>templateDetails.xml</filename></files>
+</extension>

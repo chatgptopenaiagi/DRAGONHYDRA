@@ -36,7 +36,7 @@ class JoomlaPackageTests(unittest.TestCase):
         package = ET.parse(SOURCE / 'pkg_dragonhydra.xml').getroot()
         self.assertEqual('package', package.get('type'))
         self.assertEqual('dragonhydra', package.findtext('packagename'))
-        self.assertEqual('com_dragonhydra', package.find('files/file').get('id'))
+        self.assertEqual(['cassiopeia_dragonhydra', 'com_dragonhydra'], [entry.get('id') for entry in package.findall('files/file')])
         component = ET.parse(SOURCE / 'com_dragonhydra/dragonhydra.xml').getroot()
         self.assertEqual('Dragonhydra\\Component\\Dragonhydra', component.findtext('namespace'))
         root = SOURCE / 'com_dragonhydra'
@@ -56,7 +56,7 @@ class JoomlaPackageTests(unittest.TestCase):
             second = builder.build(target)
             self.assertEqual(first['sha256'], second['sha256'])
             with zipfile.ZipFile(target) as package:
-                self.assertEqual({'pkg_dragonhydra.xml', 'constituents/com_dragonhydra.zip'}, set(package.namelist()))
+                self.assertEqual({'pkg_dragonhydra.xml', 'constituents/com_dragonhydra.zip', 'constituents/tpl_cassiopeia_dragonhydra.zip'}, set(package.namelist()))
                 with zipfile.ZipFile(io.BytesIO(package.read('constituents/com_dragonhydra.zip'))) as component:
                     self.assertIn('admin/services/provider.php', component.namelist())
                     self.assertIn('admin/src/Controller/ActionsController.php', component.namelist())

@@ -3,13 +3,22 @@
   <name>com_dragonhydra</name>
   <author>DRAGONHYDRA</author>
   <creationDate>2026-10</creationDate>
-  <version>0.4.0-alpha.1</version>
+  <version>0.4.1-dev.2</version>
   <description>COM_DRAGONHYDRA_XML_DESCRIPTION</description>
   <namespace path="src">Dragonhydra\Component\Dragonhydra</namespace>
   <scriptfile>script.php</scriptfile>
   <install><sql><file driver="mysql" charset="utf8mb4">admin/sql/install.mysql.utf8.sql</file></sql></install>
   <uninstall><sql><file driver="mysql" charset="utf8mb4">admin/sql/uninstall.mysql.utf8.sql</file></sql></uninstall>
   <update><schemas><schemapath type="mysql">sql/updates/mysql</schemapath></schemas></update>
+  <files folder="site">
+    <folder>src</folder><folder>tmpl</folder>
+  </files>
+  <languages folder="site/language">
+    <language tag="en-GB">en-GB/com_dragonhydra.ini</language>
+  </languages>
+  <media folder="media" destination="com_dragonhydra">
+    <filename>joomla.asset.json</filename><folder>css</folder>
+  </media>
   <administration>
     <menu img="class:chart-line">COM_DRAGONHYDRA</menu>
     <submenu>

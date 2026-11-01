@@ -91,4 +91,55 @@ final class ApiClient
         }
         return $data;
     }
+
+    /** Download only a completed, identity-owned export through the same signed bridge. */
+    public function download(string $path): array
+    {
+        if (!preg_match('~^/exports/([a-f0-9]{32})/download$~D', $path, $match)) {
+            throw new \RuntimeException('INVALID_EXPORT_DOWNLOAD');
+        }
+        $time = (string) time();
+        $nonce = bin2hex(random_bytes(16));
+        $signedPath = '/dragon/api/v1' . $path;
+        $response = '';
+        $filename = '';
+        $handle = curl_init(rtrim($this->base, '/') . $path);
+        curl_setopt_array($handle, [
+            CURLOPT_HTTPHEADER => [
+                'X-Dragon-User: ' . $this->user, 'X-Dragon-Roles: ' . $this->roles,
+                'X-Dragon-Time: ' . $time, 'X-Dragon-Nonce: ' . $nonce,
+                'X-Dragon-Signature: ' . self::signature($this->secret, 'GET', $signedPath, $time, $nonce, $this->user, $this->roles, ''),
+            ],
+            CURLOPT_CONNECTTIMEOUT => 3, CURLOPT_TIMEOUT => 15,
+            CURLOPT_FOLLOWLOCATION => false, CURLOPT_MAXREDIRS => 0,
+            CURLOPT_SSL_VERIFYPEER => true, CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_PROXY => '',
+            CURLOPT_HEADERFUNCTION => static function ($handle, string $line) use (&$filename): int {
+                if (preg_match('/^Content-Disposition:\s*attachment;\s*filename="?([a-f0-9]{32}\.(?:xlsx|json|csv))"?\s*$/iD', trim($line), $found)) {
+                    $filename = $found[1];
+                }
+                return strlen($line);
+            },
+            CURLOPT_WRITEFUNCTION => static function ($handle, string $part) use (&$response): int {
+                if (strlen($response) + strlen($part) > 8 * 1024 * 1024) {
+                    return 0;
+                }
+                $response .= $part;
+                return strlen($part);
+            },
+        ]);
+        $completed = curl_exec($handle);
+        $status = curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
+        curl_close($handle);
+        if ($completed === false) {
+            throw new \RuntimeException('EXPORT_DOWNLOAD_UNAVAILABLE');
+        }
+        if ($status !== 200 || !$filename || !str_starts_with($filename, $match[1] . '.')) {
+            throw new \RuntimeException('EXPORT_DOWNLOAD_NOT_READY_OR_DENIED');
+        }
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $types = ['json' => 'application/json', 'csv' => 'text/csv; charset=utf-8',
+                  'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+        return ['body' => $response, 'filename' => $filename, 'content_type' => $types[$extension]];
+    }
 }

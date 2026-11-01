@@ -27,4 +27,14 @@ final class Com_DragonhydraInstallerScript
         Factory::getApplication()->enqueueMessage('DRAGONHYDRA kernel databases, raw evidence, models and credentials have been retained.');
         return true;
     }
+
+    public function postflight($type, $parent): bool
+    {
+        if (!in_array($type, ['install', 'update', 'discover_install'], true)) {
+            return true;
+        }
+        require_once JPATH_ADMINISTRATOR . '/components/com_dragonhydra/src/Service/FrontendSetup.php';
+        \Dragonhydra\Component\Dragonhydra\Administrator\Service\FrontendSetup::apply();
+        return true;
+    }
 }
