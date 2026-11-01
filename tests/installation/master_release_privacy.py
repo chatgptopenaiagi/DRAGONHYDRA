@@ -51,9 +51,9 @@ def main():
                 for member in z:
                     if member.isfile():report['archive_members']+=1;inspect(z.extractfile(member).read(),label+'!'+member.name,depth+1)
     try:
-        files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
-        for name in filter(None,files):
-            data=subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT);inspect(data,'git:'+name);report['files']+=1
+        # One immutable Git snapshot avoids a process launch per source file.
+        snapshot=subprocess.check_output(['git','archive','--format=zip','HEAD'],cwd=ROOT)
+        inspect(snapshot,'git:HEAD');report['files']+=1
         for directory in (args.assets.resolve(),args.installer_extracted.resolve()):
             assert directory.is_dir()
             for path in sorted(directory.rglob('*')):
