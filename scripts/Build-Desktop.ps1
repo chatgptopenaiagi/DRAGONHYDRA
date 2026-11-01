@@ -1,33 +1,53 @@
 #requires -Version 7.0
 [CmdletBinding()]
-param([switch]$NoBundle)
+param([Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$SourceSha,
+      [Parameter(Mandatory)][string]$WorkRoot,[Parameter(Mandatory)][string]$OutputRoot,
+      [string]$NodeModulesSource='C:\xampp\DRAGONHYDRA\client\desktop\node_modules')
 $ErrorActionPreference='Stop'
-$projectRoot=Split-Path $PSScriptRoot -Parent
-$desktop=Join-Path $projectRoot 'client\desktop'
-$version=(Get-Content -LiteralPath (Join-Path $desktop 'src-tauri\tauri.conf.json') -Raw|ConvertFrom-Json).version
-if($version -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$'){throw 'The Tauri source version is invalid.'}
-$cargoTarget=Join-Path $projectRoot 'build\tauri'
-$oldTarget=$env:CARGO_TARGET_DIR
-$oldNpmCache=$env:npm_config_cache
-try {
-    $env:CARGO_TARGET_DIR=$cargoTarget
-    $env:npm_config_cache=Join-Path $projectRoot 'runtime\scratch\npm-cache'
-    New-Item -ItemType Directory -Path (Join-Path $projectRoot 'dist') -Force | Out-Null
-    Push-Location $desktop
-    try {
-        & npm.cmd ci --no-audit --no-fund
-        if ($LASTEXITCODE -ne 0) { throw 'Pinned Tauri CLI installation failed.' }
-        $buildArguments=@('run','build','--','--target','x86_64-pc-windows-msvc')
-        if($NoBundle){$buildArguments+='--no-bundle'}
-        $buildArguments+=@('--','--locked')
-        & npm.cmd @buildArguments
-        if ($LASTEXITCODE -ne 0) { throw 'Native Tauri build failed.' }
-    } finally { Pop-Location }
-    $native=Join-Path $cargoTarget 'x86_64-pc-windows-msvc\release\dragonhydra-desktop.exe'
-    Copy-Item -LiteralPath $native -Destination (Join-Path $projectRoot 'dist\DRAGONHYDRA-Client-x64.exe') -Force
-    if(-not $NoBundle){
-        $setup=Join-Path $cargoTarget ('x86_64-pc-windows-msvc\release\bundle\nsis\DRAGONHYDRA Client_'+$version+'_x64-setup.exe')
-        Copy-Item -LiteralPath $setup -Destination (Join-Path $projectRoot ('dist\DRAGONHYDRA-Client-'+$version+'-windows-x64-setup.exe')) -Force
-    }
-    & (Join-Path $projectRoot 'packaging\genesis2\Write-ClientManifest.ps1')
-} finally { $env:CARGO_TARGET_DIR=$oldTarget; $env:npm_config_cache=$oldNpmCache }
+$project=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+. (Join-Path $project 'packaging\windows\workstation\CoreNextProfile.ps1')
+$lab='C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
+$work=Assert-CoreNextOrdinaryPath $WorkRoot $lab;$output=Assert-CoreNextOrdinaryPath $OutputRoot $lab
+if(Test-Path -LiteralPath $output){throw 'CORE_NEXT_FRESH_DESKTOP_OUTPUT_REQUIRED'}
+$head=(& 'C:\Program Files\Git\cmd\git.exe' -C $project rev-parse HEAD).Trim()
+if($LASTEXITCODE -ne 0 -or $head -cne $SourceSha){throw 'CORE_NEXT_FROZEN_DESKTOP_SOURCE_REQUIRED'}
+& 'C:\Program Files\Git\cmd\git.exe' -C $project diff --quiet HEAD --
+if($LASTEXITCODE){throw 'CORE_NEXT_CLEAN_DESKTOP_SOURCE_REQUIRED'}
+$desktop=Join-Path $project 'client\desktop'
+$config=Get-Content -LiteralPath (Join-Path $desktop 'src-tauri\tauri.conf.json') -Raw|ConvertFrom-Json
+if($config.identifier -cne 'ai.dragonhydra.corenext.desktop' -or $config.version -cne '0.5.0-dev.1'){throw 'CORE_NEXT_DESKTOP_IDENTITY_REQUIRED'}
+$cache=Join-Path $lab 'tools\desktop-node_modules'
+if(-not(Test-Path -LiteralPath $cache)){
+    if($NodeModulesSource -ine (Join-Path $desktop 'node_modules') -and $NodeModulesSource -ine 'C:\xampp\DRAGONHYDRA\client\desktop\node_modules'){throw 'CORE_NEXT_UNREVIEWED_NODE_MODULE_SOURCE'}
+    $metadata=Get-Content -LiteralPath (Join-Path $NodeModulesSource '@tauri-apps\cli\package.json') -Raw|ConvertFrom-Json
+    if($metadata.version -cne '2.12.4'){throw 'CORE_NEXT_LOCKED_TAURI_CLI_REQUIRED'}
+    New-Item -ItemType Directory -Force -Path (Split-Path $cache -Parent)|Out-Null
+    Copy-Item -LiteralPath $NodeModulesSource -Destination $cache -Recurse
+}
+$cli=Join-Path $cache '@tauri-apps\cli\tauri.js'
+if(-not(Test-Path -LiteralPath $cli)){throw 'CORE_NEXT_EXISTING_TAURI_CLI_UNAVAILABLE'}
+New-Item -ItemType Directory -Force -Path $work,$output|Out-Null
+$inputs=@('src-tauri/src/main.rs','src-tauri/src/client_state.rs','src-tauri/src/external_target.rs','src-tauri/tauri.conf.json','src-tauri/Cargo.toml','src-tauri/Cargo.lock','web/app.js','web/index.html','web/style.css','web/favicon.svg')
+$bindings=@($inputs|ForEach-Object {$p=Join-Path $desktop $_;[ordered]@{path=$_;sha256=(Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()}})
+$sourceText=$bindings|ConvertTo-Json -Depth 4 -Compress
+$sourceHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($sourceText))).ToLowerInvariant()
+$values=@{CARGO_TARGET_DIR=(Join-Path $work 'cargo-target');CARGO_NET_OFFLINE='true';npm_config_cache=(Join-Path $lab 'cache\npm');DRAGONHYDRA_SOURCE_SHA=$SourceSha;DRAGONHYDRA_SOURCE_CONTENT_SHA256=$sourceHash}
+$previous=@{};foreach($key in $values.Keys){$previous[$key]=[Environment]::GetEnvironmentVariable($key,'Process');[Environment]::SetEnvironmentVariable($key,$values[$key],'Process')}
+try{
+    $vcvars='C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvars64.bat'
+    foreach($path in @($desktop,$cli,$vcvars)){if($path.IndexOfAny([char[]]'"%!&^|<>') -ge 0){throw 'CORE_NEXT_ORDINARY_BUILD_PATH_REQUIRED'}}
+    $runner=Join-Path $work 'build-desktop.cmd'
+    @('@echo off',('call "'+$vcvars+'" >nul'),'if errorlevel 1 exit /b %errorlevel%',('cd /d "'+$desktop+'"'),('"C:\Program Files\nodejs\node.exe" "'+$cli+'" build --no-bundle --target x86_64-pc-windows-msvc -- --locked --offline'),'exit /b %errorlevel%')|Set-Content -LiteralPath $runner -Encoding ascii
+    & 'C:\Windows\System32\cmd.exe' /d /c $runner 2>&1|Tee-Object -LiteralPath (Join-Path $work 'desktop-build.log')
+    if($LASTEXITCODE){throw 'CORE_NEXT_NATIVE_DESKTOP_BUILD_FAILED'}
+    $native=Join-Path $env:CARGO_TARGET_DIR 'x86_64-pc-windows-msvc\release\dragonhydra-desktop.exe'
+    $embedded=(& $native --build-info)|ConvertFrom-Json
+    if($LASTEXITCODE -ne 0 -or $embedded.product -cne 'DRAGONHYDRA CORE NEXT' -or $embedded.source_sha -cne $SourceSha -or $embedded.source_content_sha256 -cne $sourceHash -or $embedded.version -cne $config.version){throw 'CORE_NEXT_EMBEDDED_DESKTOP_IDENTITY_MISMATCH'}
+    Copy-Item -LiteralPath $native -Destination (Join-Path $output 'DRAGONHYDRA-Client.exe')
+    $embedded|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'BUILD-INFO.json') -Encoding utf8
+    Get-Content -LiteralPath (Join-Path $project 'packaging\genesis2\THIRD-PARTY-NOTICES.txt'),(Join-Path $desktop 'THIRD-PARTY-OPENER-NOTICES.txt')|Set-Content -LiteralPath (Join-Path $output 'THIRD-PARTY-NOTICES.txt') -Encoding utf8
+    $files=@(Get-ChildItem -LiteralPath $output -File|ForEach-Object {@{path=$_.Name;bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}})
+    @{schema_version=1;product='DRAGONHYDRA CORE NEXT';version=$config.version;source_sha=$SourceSha;files=$files}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'PAYLOAD-MANIFEST.json') -Encoding utf8
+    @{status='BUILT_METADATA_VERIFIED';source_sha=$SourceSha;source_files=$bindings;output=$output;native_gui_acceptance='NOT_RUN';original_installation_mutated=$false}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $work 'desktop-build.json') -Encoding utf8
+    $output
+}finally{foreach($key in $previous.Keys){[Environment]::SetEnvironmentVariable($key,$previous[$key],'Process')}}

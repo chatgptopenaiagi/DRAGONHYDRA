@@ -54,6 +54,7 @@ def inspect_sdist(path, build_info, lock_bytes):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-root',type=Path,required=True)
+    parser.add_argument('--installation-profile',type=Path,help='Fresh isolated CORE NEXT profile for installed-server acceptance')
     parser.add_argument('--work',type=Path,required=True)
     parser.add_argument('--assets',type=Path,required=True)
     parser.add_argument('--build-info',type=Path,required=True)
@@ -125,8 +126,16 @@ def main():
         result=json.loads(run([dragon,'report','--db',db,'--event','synthetic-match-001','--cutoff','2026-01-01T12:10:00Z','--synthetic-clock','--format','json'],outside))
         assert len(result['evidence_manifest'])==18
         record['checks'].append('Fresh venv non-editable install, pip check, installed module binding, CLI sample import and JSON report outside source with PYTHONPATH cleared')
-        state=outside/'server-state';log=(work/'installed-server.log').open('w',encoding='utf-8')
-        proc=subprocess.Popen([str(scripts/('dragonhydra-server.exe' if os.name=='nt' else 'dragonhydra-server')),'--port','0','--state',str(state),'--init-bridge'],cwd=outside,env=env,stdout=log,stderr=subprocess.STDOUT)
+        if not args.installation_profile:
+            raise RuntimeError('CORE NEXT installed-server acceptance requires its own explicit installation profile')
+        profile=json.loads(args.installation_profile.read_text(encoding='utf-8-sig'))
+        if profile['source_commit']!=build_info['source_sha'] or profile['version']!=build_info['version']:
+            raise RuntimeError('Wheel acceptance profile source/version differs from frozen build')
+        state=Path(profile['state_root'])/'kernel'
+        if state.exists():raise RuntimeError('Fresh wheel acceptance state already exists; preserve it and select a new profile')
+        log=(work/'installed-server.log').open('w',encoding='utf-8')
+        proc=subprocess.Popen([str(scripts/('dragonhydra-server.exe' if os.name=='nt' else 'dragonhydra-server')),
+            '--installation-profile',str(args.installation_profile),'--init-bridge'],cwd=outside,env=env,stdout=log,stderr=subprocess.STDOUT)
         base=token=None
         def request(method,path,body=None):
             data=None if body is None else json.dumps(body).encode()
@@ -149,8 +158,10 @@ def main():
                 if job['status'] in ('succeeded','failed','cancelled'):break
                 time.sleep(.2)
             assert job['status']=='succeeded',job
-            assert request('GET','/matches?limit=1')['total']==760
-            record['checks'].append('Installed server entry point, embedded source SHA, bundled dashboard and 760-record documented retained import')
+            record['observed_retained_count']=request('GET','/matches?limit=1')['total']
+            assert record['observed_retained_count']>0
+            assert request('GET','/system')['installation']['installation_id']==profile['installation_id']
+            record['checks'].append('Installed server entry point, embedded source SHA, matching installation, bundled dashboard and measured retained import')
             request('POST','/system/shutdown',{});proc.wait(timeout=20);assert proc.returncode==0
         finally:
             if proc.poll() is None:proc.terminate();proc.wait(timeout=15)

@@ -11,10 +11,19 @@ param(
     [string]$KernelBuildRoot,
     [string]$ClientBuildRoot,
     [string]$JoomlaPackagePath,
+    [string]$ProfilePath,
+    [string]$BaselinePayloadRoot,
+    [string]$ServerPayloadRoot,
     [string]$SevenZip = 'C:\Program Files\7-Zip\7z.exe',
     [string]$MakeNsis = (Join-Path $env:LOCALAPPDATA 'tauri\NSIS\makensis.exe')
 )
 $ErrorActionPreference = 'Stop'
+if($ProfilePath){
+    & (Join-Path $PSScriptRoot 'Build-CoreNextWorkstation.ps1') -ProfilePath $ProfilePath -BaselinePayloadRoot $BaselinePayloadRoot -BuildRoot $BuildRoot -OutputRoot $OutputRoot -ServerPayloadRoot $ServerPayloadRoot -ClientPayloadRoot $ClientBuildRoot -JoomlaPackagePath $JoomlaPackagePath -MakeNsis $MakeNsis
+    return
+}
+throw 'CORE_NEXT_PROFILE_REQUIRED: inherited original-release build defaults are disabled in this independent edition.'
+# Original release recipe retained below for source/evidence review only.
 Set-StrictMode -Version Latest
 if ($RefreshRuntime -and -not $RepackageOnly) { throw 'RefreshRuntime is an explicit repair step for an already verified staging tree.' }
 if ($RefreshWebHook -and -not $RepackageOnly) { throw 'RefreshWebHook is an explicit repair step for an already verified staging tree.' }

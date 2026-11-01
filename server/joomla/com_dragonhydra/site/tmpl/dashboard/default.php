@@ -71,7 +71,7 @@ $ready = $authenticated && ($health['status'] ?? '') === 'ready';
 <div class="dh-workspace" data-dragonhydra-workspace>
   <a class="dh-skip" href="#dh-main">Skip to sports workspace</a>
   <header class="dh-header">
-    <a class="dh-brand" href="<?= $escape($home) ?>" aria-label="DRAGONHYDRA overview"><span class="dh-brand-mark" aria-hidden="true">D</span><span>DRAGONHYDRA<small>SPORTS INTELLIGENCE</small></span></a>
+    <a class="dh-brand" href="<?= $escape($home) ?>" aria-label="DRAGONHYDRA CORE NEXT overview"><span class="dh-brand-mark" aria-hidden="true">D</span><span>DRAGONHYDRA<small>CORE NEXT · SPORTS INTELLIGENCE</small></span></a>
     <div class="dh-header-tools">
       <span class="dh-service <?= $ready ? 'is-ready' : '' ?>"><span aria-hidden="true"></span><?= $authenticated ? ($ready ? 'Backend available' : 'Backend unavailable') : 'Private local workspace' ?></span>
       <?php if ($signedIn): ?>

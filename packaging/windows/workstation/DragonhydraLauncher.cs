@@ -15,11 +15,24 @@ internal static class DragonhydraLauncher
     }
     private static string Quote(string value) { if(value.Contains("\"") || value.Contains("\n")) throw new ArgumentException(); return "\""+value.TrimEnd('\\')+"\""; }
     private static void Open(string url) { Process.Start(new ProcessStartInfo(url) { UseShellExecute=true }); }
+    private static void ValidateState()
+    {
+        var binding=Read("launcher.json");
+        string id=Convert.ToString(binding["installation_id"]);
+        if(!System.Text.RegularExpressions.Regex.IsMatch(id,@"^core-next-[a-f0-9]{32}$")) throw new InvalidOperationException("CORE NEXT identity required");
+        string expected=Path.Combine(@"C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles",id,"state");
+        if(!String.Equals(Path.GetFullPath(state),expected,StringComparison.OrdinalIgnoreCase)) throw new InvalidOperationException("CORE NEXT state required");
+        foreach(string path in new[]{state,Convert.ToString(binding["browser_user_data"])}) {
+            for(string walk=path;!String.IsNullOrEmpty(walk);walk=Path.GetDirectoryName(walk)) {
+                if(Directory.Exists(walk) && (File.GetAttributes(walk)&FileAttributes.ReparsePoint)!=0) throw new InvalidOperationException("CORE NEXT ordinary state required");
+            }
+        }
+    }
     [STAThread] public static void Main(string[] args)
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        state=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),"DRAGONHYDRA");
+        state=null;
         bool administration=false;
         for(int i=0;i<args.Length;i++)
         {
@@ -27,8 +40,10 @@ internal static class DragonhydraLauncher
             else if(args[i]=="--administration") administration=true;
             else { MessageBox.Show("Unsupported launcher option.","DRAGONHYDRA");return; }
         }
+        if(String.IsNullOrEmpty(state)) { MessageBox.Show("An explicit CORE NEXT installation state is required.","DRAGONHYDRA CORE NEXT");return; }
         try
         {
+            ValidateState();
             if(administration) { ShowAdministration();return; }
             using(var form=new Form { Text="Starting DRAGONHYDRA", Width=520, Height=185, StartPosition=FormStartPosition.CenterScreen, MaximizeBox=false })
             {
@@ -52,7 +67,10 @@ internal static class DragonhydraLauncher
                             timer.Stop();
                             string executable=Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","client","DRAGONHYDRA-Client.exe"));
                             var info=Read("launcher.json");
-                            string profile=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"DRAGONHYDRA",Convert.ToString(info["service_name"]),"WebView");
+                            string profile=Convert.ToString(info["browser_user_data"]);
+                            string installation=Convert.ToString(info["installation_id"]);
+                            string expectedRoot=Path.Combine(@"C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles",installation);
+                            if(!installation.StartsWith("core-next-") || !String.Equals(Path.GetFullPath(state),Path.Combine(expectedRoot,"state"),StringComparison.OrdinalIgnoreCase) || !String.Equals(Path.GetFullPath(profile),Path.Combine(expectedRoot,"browser"),StringComparison.OrdinalIgnoreCase)) throw new InvalidOperationException("CORE NEXT profile binding mismatch");
                             Process.Start(new ProcessStartInfo(executable,"--state "+Quote(Path.Combine(state,"client"))+" --profile "+Quote(profile)) { UseShellExecute=false });
                             form.Close();
                         }

@@ -73,7 +73,7 @@ class ContextAPITests(unittest.TestCase):
             db.execute('INSERT INTO product_sessions VALUES(?,?,?,?)',
                 (hashlib.sha256(cookie.encode()).hexdigest(),'fixture:reader','["reader"]',time.time()+600))
             db.commit()
-        self.client.cookies.set('dragon_session',cookie)
+        self.client.cookies.set(self.client.app.state.session_cookie_name,cookie)
         self.assertEqual(self.client.get(self.url).status_code,200)
         self.assertEqual(self.client.post(self.url,json={}).status_code,403)
 

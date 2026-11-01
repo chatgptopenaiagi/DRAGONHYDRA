@@ -7,10 +7,50 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "release/core-next-20261101T1400Z",
-  "phase": "BASELINE_AND_ISOLATION",
+  "phase": "SOURCE_FREEZE_PENDING_INSTALLER_FACTORY",
   "installation": "NOT_RUN",
-  "architecture": "NOT_RUN",
-  "control_center": "NOT_RUN",
+  "architecture": {
+    "status": "PASS_SOURCE_SCOPE",
+    "regression_tests": 208,
+    "mathematical_files_byte_identical": 5,
+    "candidate_baseline_semantic_groups": 33,
+    "differences": 0,
+    "cached_metric_correction": "Targeted tests passed; reads do not renew counter evidence"
+  },
+  "control_center": {
+    "status": "PASS_PHP_SOURCE_SCOPE",
+    "php_tests": 11,
+    "installed_candidate_browser": "NOT_RUN"
+  },
   "publication": "NOT_RUN",
-  "next_objective": "Lock verified baseline assets and establish independent profiles and characterization"
+  "next_objective": "Finish default installer profile factory, freeze source, build applications then installed candidate acceptance",
+  "baseline_installation": {
+    "status": "PASS",
+    "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
+    "service_name": "DragonhydraCoreNextbaselinea38169df1ac6",
+    "ports": {
+      "api": 18800,
+      "web": 18801,
+      "database": 18802
+    },
+    "evidence": "LAB/evidence/baseline-install-process-r2.json",
+    "genuine_browser": "PASS"
+  },
+  "candidate_installation": {
+    "status": "NOT_RUN",
+    "installation_id": "core-next-1263d03da53a4e70b46ef6c5369d26ef",
+    "service_name": "DragonhydraCoreNextcandidatef6c5369d26ef",
+    "ports": {
+      "api": 18810,
+      "web": 18811,
+      "database": 18812
+    }
+  },
+  "packages": {
+    "status": "NOT_RUN",
+    "reason": "Applications must rebuild from frozen clean source"
+  },
+  "version": "0.5.0-dev.1",
+  "proposed_tag": "v0.5.0-dev.1-core-next",
+  "updated_utc": "2026-11-01T14:05:20.849856+00:00"
 }

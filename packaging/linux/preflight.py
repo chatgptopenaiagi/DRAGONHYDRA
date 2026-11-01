@@ -143,4 +143,5 @@ def main():
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    print('Historical installer entry point disabled in CORE NEXT; use scripts/core_next/linux-server.sh with an explicit isolated installation profile.', file=sys.stderr)
+    raise SystemExit(64)

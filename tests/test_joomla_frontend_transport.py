@@ -4,14 +4,15 @@ import hashlib
 import hmac
 import http.server
 import json
+import os
 from pathlib import Path
 import subprocess
 import threading
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PHP = ROOT / 'build/workstation/test-install/application files/web/php/php.exe'
-INI = ROOT / 'build/workstation/test-install/state data/web-config/php.ini'
+PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', ROOT / 'build/workstation/test-install/application files/web/php/php.exe'))
+INI = Path(os.environ.get('DRAGONHYDRA_TEST_PHP_INI', PHP.parent / 'php.ini' if os.environ.get('DRAGONHYDRA_TEST_PHP') else ROOT / 'build/workstation/test-install/state data/web-config/php.ini'))
 CLIENT = ROOT / 'server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php'
 FIXTURE_SECRET = 'synthetic-export-transport-fixture-not-a-workstation-secret'
 JOB = 'a' * 32

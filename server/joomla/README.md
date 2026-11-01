@@ -1,4 +1,12 @@
-# DRAGONHYDRA Joomla sports workspace 0.4.1-dev.2
+# DRAGONHYDRA CORE NEXT Joomla workspace 0.5.0-dev.1
+
+CORE NEXT adds a registry-backed native administrator System Control Center.
+Read [the Control Center contract](../../docs/CORE-NEXT-CONTROL-CENTER.md) for its
+installation binding, read-only module views, observation states and acceptance
+scope. Provision `core_next_installation_id` alongside the isolated loopback API
+and protected bridge file. A different or missing installation identity blocks
+Control Center access and existing administrator mutations. No original backend
+or historical default port is used as fallback.
 
 Build from the development root:
 
@@ -7,7 +15,7 @@ py -3.14 -B scripts/build_joomla.py
 py -3.14 -B -m unittest discover -s tests -p test_joomla_package.py -v
 ```
 
-The resulting `dist/pkg_dragonhydra-0.4.1-dev.2.zip` contains the existing
+The resulting `dist/pkg_dragonhydra-0.5.0-dev.1.zip` contains the existing
 `com_dragonhydra` administrator component, its native Site workspace, scoped media,
 and the `cassiopeia_dragonhydra` child template. The package installs the child
 template first. Install through Joomla's extension installer on a **product-owned

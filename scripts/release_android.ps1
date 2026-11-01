@@ -7,17 +7,17 @@ param(
     [Parameter(Mandatory)][string]$ArtifactPath,
     [Parameter(Mandatory)][string]$Version,
     [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$SourceSha,
-    [int]$VersionCode=4
+    [int]$VersionCode=5
 )
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath($WorkspaceRoot)
 $sourcePath=[IO.Path]::GetFullPath($SourceRoot)
 $workPath=[IO.Path]::GetFullPath($WorkRoot)
 $artifact=[IO.Path]::GetFullPath($ArtifactPath)
-$allowedRoot=[IO.Path]::GetFullPath($projectRoot)+[IO.Path]::DirectorySeparatorChar
-foreach($path in @($sourcePath,$workPath,$artifact)){
-    if(-not $path.StartsWith($allowedRoot,[StringComparison]::OrdinalIgnoreCase)){throw 'Release work must remain within this project.'}
-}
+. (Join-Path $projectRoot 'packaging\windows\workstation\CoreNextProfile.ps1')
+if($sourcePath -ine 'C:\xampp\DRAGONHYDRA-CORE-NEXT'){throw 'CORE_NEXT_ANDROID_SOURCE_REQUIRED'}
+$null=Assert-CoreNextOrdinaryPath $workPath 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
+$null=Assert-CoreNextOrdinaryPath $artifact 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
 $flutter='C:\flutter\bin\flutter.bat'
 $javaRoot='C:\Program Files\Android\openjdk\jdk-21.0.8'
 $sdk='C:\Users\LOVE\AppData\Local\Android\Sdk'
@@ -75,12 +75,12 @@ try{
     if($LASTEXITCODE -ne 0){throw 'Android package metadata inspection failed.'}
     $badging|Set-Content -LiteralPath (Join-Path $workPath 'apk-badging.txt')
     $packageLine=@($badging|Where-Object {$_ -match '^package:'})[0]
-    if($packageLine -notmatch "name='ai.dragonhydra.mobile'" -or $packageLine -notmatch "versionCode='$VersionCode'" -or $packageLine -notmatch ("versionName='"+[regex]::Escape($Version)+"'")){
+    if($packageLine -notmatch "name='ai.dragonhydra.corenext.mobile'" -or $packageLine -notmatch "versionCode='$VersionCode'" -or $packageLine -notmatch ("versionName='"+[regex]::Escape($Version)+"'")){
         throw 'Final APK application/update identity or embedded version does not match the release.'
     }
     if(Test-Path -LiteralPath $artifact){throw 'An output APK already exists; refusing implicit replacement.'}
     Copy-Item -LiteralPath $built -Destination $artifact
-    $result=[ordered]@{schema_version=1;status='BUILT_SIGNATURE_VERIFIED';source_sha=$SourceSha;version=$Version;version_code=$VersionCode;application_id='ai.dragonhydra.mobile';abi='arm64-v8a';build_mode='release-optimized';signing_status='development signed with existing Android Debug identity';certificate_sha256=$expectedSigner;production_signing_available=$false;artifact=$artifact;bytes=(Get-Item -LiteralPath $artifact).Length;sha256=(Get-FileHash -LiteralPath $artifact -Algorithm SHA256).Hash.ToLowerInvariant();started_at=$started.ToString('o');finished_at=[DateTime]::UtcNow.ToString('o');install_test='required before publication';source_metadata_defines=@('DRAGONHYDRA_SOURCE_SHA','DRAGONHYDRA_VERSION')}
+    $result=[ordered]@{schema_version=1;status='BUILT_SIGNATURE_VERIFIED';source_sha=$SourceSha;version=$Version;version_code=$VersionCode;application_id='ai.dragonhydra.corenext.mobile';abi='arm64-v8a';build_mode='release-optimized';signing_status='development signed with existing Android Debug identity';certificate_sha256=$expectedSigner;production_signing_available=$false;artifact=$artifact;bytes=(Get-Item -LiteralPath $artifact).Length;sha256=(Get-FileHash -LiteralPath $artifact -Algorithm SHA256).Hash.ToLowerInvariant();started_at=$started.ToString('o');finished_at=[DateTime]::UtcNow.ToString('o');install_test='required before publication';source_metadata_defines=@('DRAGONHYDRA_SOURCE_SHA','DRAGONHYDRA_VERSION')}
     $result|ConvertTo-Json -Depth 5|Set-Content -LiteralPath (Join-Path $workPath 'android-build.json')
     $result|ConvertTo-Json -Depth 5
 }finally{

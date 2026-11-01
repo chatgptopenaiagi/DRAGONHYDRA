@@ -251,7 +251,7 @@ class ContextAIAPITests(unittest.TestCase):
                 (hashlib.sha256(token.encode()).hexdigest(),'fixture:reader',json.dumps(['reader']),time.time()+600))
             db.commit()
         self.client.headers.pop('Authorization')
-        self.client.cookies.set('dragon_session',token)
+        self.client.cookies.set(self.app.state.session_cookie_name,token)
         reader = self.post(key='shared-spelling')
         self.assertEqual(reader.status_code,202)
         self.assertNotEqual(reader.json()['id'],owner['id'])

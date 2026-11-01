@@ -28,6 +28,9 @@ Uri validateServerAddress(String address) {
     );
   }
   final local = const ['127.0.0.1', 'localhost', '10.0.2.2'].contains(uri.host);
+  if (local && uri.port < 18800) {
+    throw const ServerFailure('Select this CORE NEXT installation\'s isolated server port.');
+  }
   if (uri.scheme != 'https' && !(uri.scheme == 'http' && local)) {
     throw const ServerFailure(
       'Remote servers require HTTPS. HTTP is limited to local development forwarding.',
@@ -89,20 +92,38 @@ Future<Map<String, dynamic>> _request(
 }
 
 class DragonServer {
-  DragonServer(String address, {this.token = '', ServerTransport? transport})
+  DragonServer(String address, {this.token = '', this.expectedInstallationId = '', ServerTransport? transport})
     : root = validateServerAddress(address),
       _transport = transport ?? _request;
   final Uri root;
   final String token;
+  final String expectedInstallationId;
+  bool _identified = false;
+  String? verifiedInstallationId;
   final ServerTransport _transport;
   static const api = '/dragon/api/v1';
 
-  Future<Map<String, dynamic>> get(String path) =>
+  Future<Map<String, dynamic>> _raw(String path) =>
       _transport(root.resolve('$api$path'), {
         HttpHeaders.acceptHeader: 'application/json',
         if (token.trim().isNotEmpty)
           HttpHeaders.authorizationHeader: 'Bearer ${token.trim()}',
       });
+  Future<Map<String, dynamic>> get(String path) async {
+    if (!_identified) {
+      final system = await _raw('/system');
+      final identity = system['installation'];
+      if (identity is! Map || identity['product'] != 'DRAGONHYDRA CORE NEXT' ||
+          identity['edition'] != 'CORE NEXT' || identity['installation_id'] is! String ||
+          !RegExp(r'^core-next-[a-f0-9]{32}$').hasMatch(identity['installation_id'] as String) ||
+          (expectedInstallationId.isNotEmpty && identity['installation_id'] != expectedInstallationId)) {
+        throw const ServerFailure('This address does not identify the selected CORE NEXT installation.');
+      }
+      _identified = true;
+      verifiedInstallationId = identity['installation_id'] as String;
+    }
+    return _raw(path);
+  }
 
   Future<Map<String, dynamic>> matches() async {
     final data = await get('/matches?limit=25');

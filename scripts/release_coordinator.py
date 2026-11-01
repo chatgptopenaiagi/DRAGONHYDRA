@@ -43,6 +43,8 @@ class Coordinator:
         os.replace(temp,self.path)
 
     def command(self, argv, cwd=None, capture=True):
+        if argv and argv[0] in ('git','gh'):
+            argv=[getattr(self,argv[0]+'_executable',argv[0]),*argv[1:]]
         result=subprocess.run(argv,cwd=cwd or self.root,text=True,encoding='utf-8',errors='replace',capture_output=capture)
         if result.returncode:
             raise RuntimeError(f'Command failed ({result.returncode}): {argv[0:3]}\n{(result.stderr or "")[-3000:]}')
@@ -124,12 +126,12 @@ class Coordinator:
             raise RuntimeError('Remote annotated tag does not peel to frozen source')
         return assets
 
-    def publish(self):
+    def publish(self, *, draft_only=False):
         files=self.files();repo=self.state['repository'];tag=self.state['tag']
         remote_tags=self.command(['git','ls-remote','origin',f'refs/tags/{tag}^{{}}'])
         if not remote_tags.strip() or remote_tags.split()[0]!=self.state['source_sha']:
             raise RuntimeError('Push and verify the exact annotated source tag before staging a draft')
-        result=subprocess.run(['gh','api',f'repos/{repo}/releases/tags/{tag}'],capture_output=True,text=True)
+        result=subprocess.run([getattr(self,'gh_executable','gh'),'api',f'repos/{repo}/releases/tags/{tag}'],capture_output=True,text=True)
         if result.returncode:
             if '404' not in result.stderr:
                 raise RuntimeError('Unable to inspect release; do not infer absence')
@@ -155,6 +157,9 @@ class Coordinator:
         if remote['body'].replace('\r\n','\n').strip()!=(self.assets/'RELEASE-NOTES.md').read_text().replace('\r\n','\n').strip():
             raise RuntimeError('Draft notes differ from finalized immutable notes')
         self.state['publication']['draft_verified_at']=now();self.save()
+        if draft_only:
+            self.state['publication']['status']='OWNED_DRAFT_ASSETS_VERIFIED';self.save()
+            print(json.dumps({'status':self.state['publication']['status'],'url':remote['html_url']}));return
         self.gh('release','edit',tag,'--repo',repo,'--draft=false','--prerelease','--latest=false')
         remote=self.release();self.verify_remote(remote,files)
         if remote['draft']:

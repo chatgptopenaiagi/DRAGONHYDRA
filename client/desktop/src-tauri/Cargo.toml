@@ -1,7 +1,7 @@
 [package]
 name = "dragonhydra-desktop"
-version = "0.4.0-alpha.1"
-description = "DRAGONHYDRA native dashboard client"
+version = "0.5.0-dev.1"
+description = "DRAGONHYDRA CORE NEXT native dashboard client"
 edition = "2021"
 
 [build-dependencies]

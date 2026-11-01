@@ -24,6 +24,6 @@ final class Kernel
             $secret = is_array($record) && is_string($record['secret'] ?? null) ? $record['secret'] : '';
         }
         $roles = $user->authorise('dragonhydra.import', 'com_dragonhydra') ? 'admin' : 'reader';
-        return new ApiClient((string) $params->get('api_base', 'http://127.0.0.1:8731/dragon/api/v1'), $secret, 'joomla:' . (int) $user->id, $roles);
+        return new ApiClient((string) $params->get('api_base', ''), $secret, 'joomla:' . (int) $user->id, $roles);
     }
 }

@@ -39,8 +39,8 @@ def secure_equal(value: str, expected: str):
 
 
 def create_app(state: Path, *, local_token: str | None = None, bridge_secret: str | None = None,
-               start_worker=True, source_root=ROOT):
-    product = Product(state, source_root)
+               start_worker=True, source_root=ROOT, kernel_config=None, engine_adapters=None):
+    product = Product(state, source_root, kernel_config=kernel_config, engine_adapters=engine_adapters)
     jobs = Jobs(product)
     token_path = product.state / 'local-session.json'
     if local_token is None:
@@ -53,14 +53,22 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
 
     @asynccontextmanager
     async def lifespan(app):
+        product.kernel.start()
         if start_worker:
             jobs.start()
-        yield
-        jobs.close()
+        try:
+            yield
+        finally:
+            jobs.close()
+            product.kernel.stop()
 
     app = FastAPI(title='DRAGONHYDRA Application API', version=VERSION, lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.product, app.state.jobs = product, jobs
+    app.state.kernel = product.kernel
+    session_cookie_name = 'dragon_core_next_'+hashlib.sha256(
+        product.kernel.config.installation_id.encode()).hexdigest()[:24]
+    app.state.session_cookie_name = session_cookie_name
     app.state.shutdown_callback = None
     app.state.stopping = False
 
@@ -117,7 +125,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
         auth = request.headers.get('authorization', '')
         if auth.startswith('Bearer ') and secure_equal(auth[7:], local_token):
             return {'user': 'local:owner', 'roles': ['admin']}
-        cookie = request.cookies.get('dragon_session')
+        cookie = request.cookies.get(session_cookie_name)
         if cookie:
             with closing(product.connect()) as db:
                 row = db.execute('SELECT user,roles FROM product_sessions WHERE token_hash=? AND expires>?', (hashlib.sha256(cookie.encode()).hexdigest(), time.time())).fetchone()
@@ -163,7 +171,8 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
 
     @app.get(API+'/health/live')
     def live():
-        return {'status': 'alive', 'product': 'DRAGONHYDRA'}
+        return {'status': 'alive', 'product': 'DRAGONHYDRA CORE NEXT',
+                'installation': product.kernel.identity()}
 
     @app.post(API+'/session')
     def session(body: SessionInput, response: Response):
@@ -174,8 +183,19 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
             db.execute('DELETE FROM product_sessions WHERE expires<?', (time.time(),))
             db.execute('INSERT INTO product_sessions VALUES(?,?,?,?)', (hashlib.sha256(session_token.encode()).hexdigest(), 'local:owner', '["admin"]', time.time()+12*3600))
             db.commit()
-        response.set_cookie('dragon_session', session_token, httponly=True, samesite='strict', max_age=12*3600, path='/')
+        response.set_cookie(session_cookie_name, session_token, httponly=True, samesite='strict', max_age=12*3600, path='/')
         return {'user': 'local:owner', 'roles': ['admin'], 'expires_in': 12*3600, 'network_mode': 'loopback-only'}
+
+    @router.post('/session/logout')
+    def logout(request: Request, response: Response, user=Depends(principal)):
+        cookie = request.cookies.get(session_cookie_name)
+        if cookie:
+            with closing(product.connect()) as db:
+                db.execute('DELETE FROM product_sessions WHERE token_hash=?',
+                           (hashlib.sha256(cookie.encode()).hexdigest(),))
+                db.commit()
+        response.delete_cookie(session_cookie_name, path='/', httponly=True, samesite='strict')
+        return {'signed_out': True, 'installation_id': product.kernel.config.installation_id}
 
     @router.get('/health/ready', response_model=Health)
     def ready():
@@ -235,8 +255,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     @router.get('/matches/{match_id}/analysis-package')
     def analysis_package(match_id: str, context_record_id: str | None = Query(
             default=None, pattern=r'^source_context:[a-f0-9]{64}$')):
-        return (build_context_package(product, match_id, context_record_id)
-                if context_record_id is not None else build_package(product, match_id))
+        return product.kernel.execute('ai', 'package', match_id, context_record_id)
 
     @router.get('/matches/{match_id}/source-context')
     def retained_source_context(match_id: str):
@@ -378,9 +397,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
             replay = jobs.replay_local_context(user['user'], key, match_id, body.context_record_id)
             if replay is not None:
                 return replay
-            package = build_context_package(product, match_id, body.context_record_id)
+            package = product.kernel.execute('ai', 'package', match_id, body.context_record_id)
         else:
-            package = build_package(product, match_id)
+            package = product.kernel.execute('ai', 'package', match_id)
         return jobs.submit('local_explanation', {'package': package}, user['user'], key)
 
     @router.post('/exports', status_code=202, response_model=Job)
@@ -424,6 +443,14 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     def evidence(evidence_id: str):
         return product.evidence(evidence_id)
 
+    @router.get('/modules')
+    def modules():
+        return product.kernel.modules()
+
+    @router.get('/modules/{module_id}')
+    def module(module_id: str):
+        return product.kernel.module(module_id)
+
     @router.get('/system')
     def system():
         config = product.state / 'product.json'
@@ -432,6 +459,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
         return {'status': 'ready', 'backend': 'sqlite', 'version': VERSION, 'build': build_info(),
                 'administration_url': settings.get('administration_url'),
                 'ai': local_ai['status'], 'local_ai': local_ai, 'network_mode': 'loopback-only',
+                'installation': product.kernel.identity(), 'modules_summary': product.kernel.summary(),
                 'capabilities': {'public_import': True, 'xlsx_export': True, 'joomla_bridge': bool(bridge_secret),
                                  'live_provider': False, 'mariadb': False, 'local_llm': local_ai['configured']}}
 

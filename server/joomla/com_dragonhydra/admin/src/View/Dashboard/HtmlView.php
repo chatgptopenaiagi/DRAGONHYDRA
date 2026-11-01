@@ -8,10 +8,12 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Dragonhydra\Component\Dragonhydra\Administrator\Service\Kernel;
+use Dragonhydra\Component\Dragonhydra\Administrator\Model\ControlCenterModel;
 
 final class HtmlView extends BaseHtmlView
 {
-    public string $section = 'sources';
+    public string $section = 'overview';
+    public array $center = [];
     public array $data = [];
     public ?string $error = null;
     public bool $canImport = false;
@@ -26,40 +28,39 @@ final class HtmlView extends BaseHtmlView
         if (!$user->authorise('core.manage', 'com_dragonhydra')) {
             throw new \RuntimeException('JERROR_ALERTNOAUTHOR', 403);
         }
-        ToolbarHelper::title(Text::_('COM_DRAGONHYDRA'), 'chart-line');
+        ToolbarHelper::title('DRAGONHYDRA CORE NEXT · System Control Center', 'chart-line');
         if ($user->authorise('core.options', 'com_dragonhydra')) {
             ToolbarHelper::preferences('com_dragonhydra');
         }
-        $section = $app->input->getCmd('section', 'sources');
-        $this->section = in_array($section, ['sources','matches','odds','models','research','databases','system','jobs'], true) ? $section : 'sources';
+        $this->section = ControlCenterModel::section($app->input->getCmd('section', 'overview'));
         $this->canImport = $user->authorise('dragonhydra.import', 'com_dragonhydra');
         $this->probe = (array) $app->getUserState('com_dragonhydra.last_probe', []);
-        $url = (string) ComponentHelper::getParams('com_dragonhydra')->get('dashboard_url', 'http://127.0.0.1:8731/');
+        $url = (string) ComponentHelper::getParams('com_dragonhydra')->get('dashboard_url', '');
         $parts = parse_url($url);
-        if ($parts && in_array($parts['scheme'] ?? '', ['http', 'https'], true) && !isset($parts['user']) && !isset($parts['pass'])) {
+        if ($parts && in_array($parts['scheme'] ?? '', ['http', 'https'], true)
+            && in_array($parts['host'] ?? '', ['127.0.0.1', '[::1]'], true)
+            && !in_array((int) ($parts['port'] ?? 0), range(18740, 18751), true)
+            && !isset($parts['user']) && !isset($parts['pass'])) {
             $this->dashboardUrl = $url;
         }
         try {
             $api = Kernel::client();
-            if ($this->section === 'sources') {
-                $this->data = $api->request('GET', '/connections');
-            } elseif ($this->section === 'matches') {
-                $id = $app->input->getCmd('match_id', '');
-                $offset = max(0, $app->input->getInt('offset', 0));
-                $this->data = $id ? ['match' => $api->request('GET', '/matches/' . rawurlencode($id))]
-                    : $api->request('GET', '/matches?limit=50&offset=' . $offset);
-            } elseif ($this->section === 'jobs') {
-                $this->jobId = $app->input->getCmd('job_id', '');
-                if (!$this->jobId) {
-                    throw new \RuntimeException('Choose an import from Data sources to open its job.');
-                }
-                $this->data = $api->request('GET', '/jobs/' . rawurlencode($this->jobId));
-            } else {
-                $this->data = $api->request('GET', '/system');
-            }
+            $expectedId = (string) ComponentHelper::getParams('com_dragonhydra')->get('core_next_installation_id', '');
+            $this->center = (new ControlCenterModel($expectedId))->build([
+                'section'=>$this->section, 'module'=>$app->input->getString('module', ''),
+                'match_id'=>$app->input->getString('match_id', ''), 'job_id'=>$app->input->getString('job_id', ''),
+                'offset'=>$app->input->getInt('offset', 0),
+            ], true, static fn(string $path): array => $api->request('GET', $path));
+            $this->data = $this->center['data'];
+            $this->jobId = $this->center['job_id'];
+            $this->error = $this->center['error'];
         } catch (\RuntimeException $error) {
-            $this->error = $error->getMessage();
+            $this->error = 'The CORE NEXT backend is unavailable. Check this installation’s protected bridge and retry.';
         }
+        $this->getDocument()->setTitle('CORE NEXT · System Control Center');
+        $assets = $this->getDocument()->getWebAssetManager();
+        $assets->getRegistry()->addExtensionRegistryFile('com_dragonhydra');
+        $assets->useStyle('com_dragonhydra.control-center');
         parent::display($tpl);
     }
 }

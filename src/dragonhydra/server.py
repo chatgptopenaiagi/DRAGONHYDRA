@@ -24,15 +24,31 @@ def protect(path):
 def main():
     parser = argparse.ArgumentParser(description='DRAGONHYDRA authenticated local server')
     parser.add_argument('--host', choices=['127.0.0.1'], default='127.0.0.1')
-    parser.add_argument('--port', type=int, default=18743)
-    parser.add_argument('--state', type=Path, default=Path('runtime/product'))
+    parser.add_argument('--port', type=int, default=None)
+    parser.add_argument('--state', type=Path)
+    parser.add_argument('--installation-profile', type=Path, help='Explicit isolated CORE NEXT installation profile')
     parser.add_argument('--init-bridge', action='store_true', help='Create a protected Joomla bridge secret only if missing')
     parser.add_argument('--build-info', action='store_true', help='Print embedded source/version identity and exit')
     args = parser.parse_args()
     if args.build_info:
         print(json.dumps(build_info(), sort_keys=True))
         return
-    args.state = args.state.resolve()
+    from .installation_profile import load_binding, kernel_configuration, isolated_environment
+    try:
+        profile, args.state = load_binding(args.state, args.installation_profile)
+        if args.port is not None and args.port != profile['ports']['api']:
+            raise ValueError('CORE_NEXT_SERVER_PORT_MISMATCH')
+        args.port = profile['ports']['api']
+        embedded_source = build_info().get('source_sha')
+        if embedded_source and embedded_source != profile['source_commit']:
+            raise ValueError('CORE_NEXT_SERVER_BUILD_MISMATCH')
+    except (OSError, ValueError, KeyError):
+        raise SystemExit('CORE NEXT installation binding unavailable or invalid; no fallback backend was selected.') from None
+    # Adapter credential names are inherited, but this edition receives only its
+    # explicitly scoped environment. No original application's defaults leak in.
+    bound_environment = isolated_environment(os.environ)
+    os.environ.clear()
+    os.environ.update(bound_environment)
     args.state.mkdir(parents=True, exist_ok=True)
     # OS lock, not a PID file guess: a second launcher cannot create another worker for this state.
     lock = (args.state / 'server.lock').open('a+b')
@@ -59,7 +75,7 @@ def main():
             pass
     from .api import create_app
     import uvicorn
-    app = create_app(args.state)
+    app = create_app(args.state, kernel_config=kernel_configuration(profile))
     protect(args.state / 'local-session.json')
     if (args.state / 'joomla-bridge.json').exists():
         protect(args.state / 'joomla-bridge.json')

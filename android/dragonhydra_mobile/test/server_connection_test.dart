@@ -7,6 +7,7 @@ import 'package:dragonhydra_mobile/server_connection.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   const channel = MethodChannel('ai.dragonhydra.mobile/connections');
+  final identity = {'installation': {'product':'DRAGONHYDRA CORE NEXT','edition':'CORE NEXT','installation_id':'core-next-${'a' * 32}'}};
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(channel, (_) async => null);
@@ -20,13 +21,14 @@ void main() {
       validateServerAddress('https://sports.example.test').host,
       'sports.example.test',
     );
-    expect(validateServerAddress('http://127.0.0.1:18743').port, 18743);
+    expect(validateServerAddress('http://127.0.0.1:18810').port, 18810);
     for (final value in [
       'http://192.168.1.2',
       'https://user:secret@example.test',
       'https://example.test/private',
       'https://example.test/?token=secret',
       'file:///private',
+      'http://127.0.0.1:18743',
     ]) {
       expect(
         () => validateServerAddress(value),
@@ -40,6 +42,7 @@ void main() {
       'https://sports.example.test',
       token: 'test-only',
       transport: (uri, headers) async {
+        if (uri.path.endsWith('/system')) return identity;
         expect(uri.path, '/dragon/api/v1/matches');
         expect(uri.queryParameters['limit'], '25');
         expect(headers['authorization'], 'Bearer test-only');
@@ -49,7 +52,7 @@ void main() {
     expect((await server.matches())['total'], 0);
     final bad = DragonServer(
       'https://sports.example.test',
-      transport: (_, _) async => {
+      transport: (uri, _) async => uri.path.endsWith('/system') ? identity : {
         'items': [{}],
         'total': 1,
       },
@@ -61,13 +64,14 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: ServerConnectionPage(
-          transport: (_, _) async {
+          transport: (uri, _) async {
             calls++;
             if (calls == 1) {
               throw const ServerFailure(
                 'Server unavailable. Check address and retry.',
               );
             }
+            if (uri.path.endsWith('/system')) return identity;
             return {'items': [], 'total': 0};
           },
         ),
@@ -85,7 +89,7 @@ void main() {
     await tester.tap(find.text('Retry server'));
     await tester.pumpAndSettle();
     expect(find.textContaining('Connected: 0 of 0'), findsOneWidget);
-    expect(calls, 2);
+    expect(calls, 3);
   });
   testWidgets('same canonical server match opens team and standings', (
     tester,
@@ -100,6 +104,7 @@ void main() {
         home: ServerConnectionPage(
           transport: (uri, _) async {
             paths.add(uri.path);
+            if (uri.path.endsWith('/system')) return identity;
             if (uri.path.endsWith('/matches')) {
               return {
                 'items': [
@@ -165,5 +170,18 @@ void main() {
       paths,
       contains('/dragon/api/v1/competitions/$competition/standings'),
     );
+  });
+  test('original or differently paired backend rejected before match request', () async {
+    for (final installed in [
+      {'product':'DRAGONHYDRA','edition':'original','installation_id':'core-next-${'a' * 32}'},
+      {'product':'DRAGONHYDRA CORE NEXT','edition':'CORE NEXT','installation_id':'core-next-${'b' * 32}'},
+    ]) {
+      final requests=<String>[];
+      final server=DragonServer('http://127.0.0.1:18810',expectedInstallationId:'core-next-${'a' * 32}',transport:(uri,_) async {
+        requests.add(uri.path);return {'installation':installed};
+      });
+      await expectLater(server.matches(),throwsA(isA<ServerFailure>()));
+      expect(requests,['/dragon/api/v1/system']);
+    }
   });
 }

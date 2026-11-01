@@ -5,6 +5,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
+use Joomla\CMS\Component\ComponentHelper;
 use Dragonhydra\Component\Dragonhydra\Administrator\Service\Kernel;
 
 final class ActionsController extends BaseController
@@ -17,6 +18,12 @@ final class ActionsController extends BaseController
         $user = $this->app->getIdentity();
         if (!$user->authorise('core.manage', 'com_dragonhydra') || !$user->authorise('dragonhydra.import', 'com_dragonhydra')) {
             throw new \RuntimeException('JERROR_ALERTNOAUTHOR', 403);
+        }
+        $expected = (string) ComponentHelper::getParams('com_dragonhydra')->get('core_next_installation_id', '');
+        $registry = Kernel::client()->request('GET', '/modules');
+        if ($expected === '' || ($registry['installation']['product'] ?? '') !== 'DRAGONHYDRA CORE NEXT'
+            || ($registry['installation']['installation_id'] ?? '') !== $expected) {
+            throw new \RuntimeException('CORE_NEXT_INSTALLATION_MISMATCH', 403);
         }
     }
 

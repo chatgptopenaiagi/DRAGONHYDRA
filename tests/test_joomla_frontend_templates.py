@@ -1,10 +1,11 @@
 """Render the actual Joomla templates in isolated no-backend PHP fixtures."""
 from pathlib import Path
+import os
 import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PHP = ROOT / 'build/workstation/test-install/application files/web/php/php.exe'
+PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', ROOT / 'build/workstation/test-install/application files/web/php/php.exe'))
 FIXTURE = ROOT / 'tests/installation/joomla_frontend_render_fixture.php'
 
 

@@ -1,8 +1,13 @@
 {
   "name": "dragonhydra-desktop",
-  "version": "0.4.0-alpha.1",
+  "version": "0.5.0-dev.1",
   "private": true,
-  "description": "DRAGONHYDRA shared dashboard and minimal native client",
-  "scripts": {"build": "tauri build", "dev": "tauri dev"},
-  "devDependencies": {"@tauri-apps/cli": "2.12.4"}
+  "description": "DRAGONHYDRA CORE NEXT native client",
+  "scripts": {
+    "build": "tauri build",
+    "dev": "tauri dev"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.4"
+  }
 }

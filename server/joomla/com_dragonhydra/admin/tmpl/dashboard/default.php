@@ -6,21 +6,27 @@ use Joomla\CMS\Router\Route;
 
 $escape = static fn($value): string => htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 $route = static fn(string $query): string => Route::_('index.php?option=com_dragonhydra&' . $query, false);
-$sections = ['sources'=>'SOURCES','matches'=>'MATCHES','odds'=>'ODDS','models'=>'MODELS','research'=>'RESEARCH','databases'=>'DATABASES','system'=>'SYSTEM'];
+$sections = ['overview'=>'Overview', 'infrastructure'=>'Infrastructure', 'sources'=>'Data sources', 'matches'=>'Matches', 'odds'=>'Odds', 'prediction'=>'Predictions', 'ai'=>'AI', 'memory'=>'Memory', 'evaluation'=>'Evaluation', 'modules'=>'All modules'];
 $json = static fn($value): string => htmlspecialchars(json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$installation = $this->center['installation'] ?? [];
 ?>
-<div class="container-fluid dragonhydra-administration">
-  <p><?= Text::_('COM_DRAGONHYDRA_INTRO') ?></p>
-  <nav class="nav nav-pills gap-2 mb-4" aria-label="DRAGONHYDRA administration sections">
+<div class="container-fluid dragonhydra-administration dhcn-control-center" data-core-next-control-center>
+  <a class="dhcn-skip" href="#dhcn-main">Skip to Control Center</a>
+  <header class="dhcn-hero"><div><span class="dhcn-edition">ISOLATED DEVELOPMENT EDITION</span><h1>DRAGONHYDRA <span>CORE NEXT</span></h1><p>System Control Center</p></div><div class="dhcn-build"><span>Build <?= $escape($installation['build_id'] ?? 'Not verified') ?></span><span>Version <?= $escape($installation['version'] ?? '0.5.0-dev.1') ?></span></div></header>
+  <section class="dhcn-identity" aria-label="Verified installation identity"><span><strong>Installation</strong> <code><?= $escape($installation['installation_id'] ?? 'Unverified — backend access blocked') ?></code></span><span><strong>Environment</strong> <?= $escape($installation['environment_id'] ?? 'Not verified') ?></span><span><strong>Source</strong> <code><?= $escape(isset($installation['source_commit']) ? substr((string) $installation['source_commit'], 0, 12) : 'Not reported') ?></code></span></section>
+  <nav class="dhcn-navigation" aria-label="CORE NEXT Control Center sections">
     <?php foreach ($sections as $key => $language): ?>
-      <a class="nav-link<?= $this->section === $key ? ' active' : '' ?>" <?= $this->section === $key ? 'aria-current="page"' : '' ?> href="<?= $escape($route('section=' . $key)) ?>"><?= Text::_('COM_DRAGONHYDRA_' . $language) ?></a>
+      <a <?= $this->section === $key ? 'aria-current="page"' : '' ?> href="<?= $escape($route('section=' . $key)) ?>"><?= $escape($language) ?></a>
     <?php endforeach; ?>
   </nav>
+  <main id="dhcn-main" tabindex="-1">
   <?php if ($this->error): ?>
     <div class="alert alert-warning" role="alert"><strong><?= Text::_('COM_DRAGONHYDRA_REQUEST_FAILED') ?></strong> <?= $escape($this->error) ?>
       <p class="mt-2 mb-0"><?= Text::_('COM_DRAGONHYDRA_RECOVERY') ?></p>
     </div>
     <a class="btn btn-primary" href="<?= $escape($route('section=' . $this->section . ($this->jobId ? '&job_id=' . rawurlencode($this->jobId) : ''))) ?>"><?= Text::_('COM_DRAGONHYDRA_RETRY') ?></a>
+  <?php elseif (!in_array($this->section, ['sources','matches','jobs'], true)): ?>
+    <?php require __DIR__ . '/control-center.php'; ?>
   <?php elseif ($this->section === 'sources'): ?>
     <h2><?= Text::_('COM_DRAGONHYDRA_SOURCES') ?></h2>
     <p><?= Text::_('COM_DRAGONHYDRA_SOURCE_FLOW') ?></p>
@@ -85,15 +91,6 @@ $json = static fn($value): string => htmlspecialchars(json_encode($value, JSON_P
       <?php if (($this->data['status'] ?? '') === 'succeeded'): ?><a class="btn btn-success" href="<?= $escape($route('section=matches')) ?>">View imported matches</a><?php endif; ?></div>
     <?php if ($this->canImport && in_array($this->data['status'] ?? '', ['queued','running'], true)): ?><form method="post" action="<?= $escape($route('task=actions.cancel')) ?>"><input type="hidden" name="job_id" value="<?= $escape($this->jobId) ?>"><button class="btn btn-outline-danger" type="submit">Cancel import</button><?= HTMLHelper::_('form.token') ?></form><?php endif; ?>
     <details><summary>Job result and retained evidence references</summary><pre><?= $json($this->data) ?></pre></details>
-  <?php else: ?>
-    <h2><?= Text::_('COM_DRAGONHYDRA_' . $sections[$this->section]) ?></h2>
-    <?php if ($this->section === 'odds'): ?><p>Provider/feed mappings and market snapshots remain kernel-owned. The public OpenFootball results connector supplies no odds. Open a match in the dashboard to inspect only compatible retained markets and their freshness.</p>
-    <?php elseif ($this->section === 'models'): ?><p>The existing kernel provides frequency, Poisson, recency, Elo and ensemble forecasts. Match analysis uses eligible evidence. Local LLM installation, training and inference administration are not enabled in this extension version.</p>
-    <?php elseif ($this->section === 'research'): ?><p>Kernel CLI research memory remains available. Editing tasks from Joomla is not enabled in this extension version. Use match analysis to review retained evidence and missing information.</p>
-    <?php elseif ($this->section === 'databases'): ?><p>Canonical writes belong to the kernel. This Joomla extension does not edit sports tables or connect Joomla to SQL Server. External SQL Server/PostgreSQL publication is not enabled in this extension version.</p>
-    <?php elseif ($this->section === 'system'): ?><p>Current API status and selected storage backend are reported below. Database cutover, backup restoration and service installation require separate verified product tooling.</p><?php endif; ?>
-    <dl class="row"><dt class="col-sm-3">Kernel status</dt><dd class="col-sm-9"><?= $escape($this->data['status'] ?? 'Unknown') ?></dd><dt class="col-sm-3">Selected backend</dt><dd class="col-sm-9"><?= $escape($this->data['backend'] ?? 'Not reported') ?></dd></dl>
-    <?php if ($this->dashboardUrl): ?><a class="btn btn-primary" href="<?= $escape($this->dashboardUrl) ?>" target="_blank" rel="noopener">Open DRAGONHYDRA dashboard</a><?php endif; ?>
-    <details class="mt-3"><summary>System diagnostics</summary><pre><?= $json($this->data) ?></pre></details>
   <?php endif; ?>
+  </main>
 </div>

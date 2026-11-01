@@ -3,7 +3,7 @@
   <name>com_dragonhydra</name>
   <author>DRAGONHYDRA</author>
   <creationDate>2026-10</creationDate>
-  <version>0.4.1-dev.2</version>
+  <version>0.5.0-dev.1</version>
   <description>COM_DRAGONHYDRA_XML_DESCRIPTION</description>
   <namespace path="src">Dragonhydra\Component\Dragonhydra</namespace>
   <scriptfile>script.php</scriptfile>
@@ -22,13 +22,16 @@
   <administration>
     <menu img="class:chart-line">COM_DRAGONHYDRA</menu>
     <submenu>
+      <menu link="option=com_dragonhydra&amp;section=overview">COM_DRAGONHYDRA_CONTROL_CENTER</menu>
+      <menu link="option=com_dragonhydra&amp;section=infrastructure">COM_DRAGONHYDRA_INFRASTRUCTURE</menu>
       <menu link="option=com_dragonhydra&amp;section=sources">COM_DRAGONHYDRA_SOURCES</menu>
       <menu link="option=com_dragonhydra&amp;section=matches">COM_DRAGONHYDRA_MATCHES</menu>
       <menu link="option=com_dragonhydra&amp;section=odds">COM_DRAGONHYDRA_ODDS</menu>
+      <menu link="option=com_dragonhydra&amp;section=prediction">COM_DRAGONHYDRA_PREDICTION</menu>
       <menu link="option=com_dragonhydra&amp;section=models">COM_DRAGONHYDRA_MODELS</menu>
       <menu link="option=com_dragonhydra&amp;section=research">COM_DRAGONHYDRA_RESEARCH</menu>
-      <menu link="option=com_dragonhydra&amp;section=databases">COM_DRAGONHYDRA_DATABASES</menu>
-      <menu link="option=com_dragonhydra&amp;section=system">COM_DRAGONHYDRA_SYSTEM</menu>
+      <menu link="option=com_dragonhydra&amp;section=evaluation">COM_DRAGONHYDRA_EVALUATION</menu>
+      <menu link="option=com_dragonhydra&amp;section=modules">COM_DRAGONHYDRA_MODULES</menu>
     </submenu>
     <files folder="admin">
       <filename>access.xml</filename><filename>config.xml</filename>

@@ -3,12 +3,24 @@
 param(
     [Parameter(Mandatory)][ValidateSet('Install','Run','Stop','Uninstall','Status')][string]$Action,
     [string]$InstallRoot,
-    [string]$StateRoot=(Join-Path $env:ProgramData 'DRAGONHYDRA'),
-    [ValidatePattern('^Dragonhydra[A-Za-z0-9_-]{0,60}$')][string]$ServiceName='DragonhydraWorkstation',
+    [string]$StateRoot,
+    [ValidatePattern('^Dragonhydra[A-Za-z0-9_-]{0,60}$')][string]$ServiceName,
     [string]$OwnerSid,
+    [string]$ProfilePath,
+    [string]$SeedSnapshot,
+    [ValidatePattern('^[a-f0-9]{64}$')][string]$SeedSnapshotSha256,
     [int]$StartupTimeout=300
 )
 $ErrorActionPreference='Stop'
+if($PSVersionTable.PSVersion.Major -eq 5){$env:PSModulePath=Join-Path $PSHOME 'Modules'}
+. (Join-Path $PSScriptRoot 'CoreNextProfile.ps1')
+if(-not $ProfilePath){if(-not $StateRoot){throw 'CORE_NEXT_EXPLICIT_PROFILE_REQUIRED'};$ProfilePath=Join-Path (Split-Path -Path $StateRoot -Parent) 'installation-profile.json'}
+$coreProfile=Read-CoreNextProfile $ProfilePath -CheckService
+foreach($key in @('InstallRoot','StateRoot','ServiceName')){
+    $field=@{InstallRoot='install_root';StateRoot='state_root';ServiceName='service_name'}[$key]
+    if($PSBoundParameters.ContainsKey($key) -and (Get-Variable $key -ValueOnly) -ine $coreProfile.$field){throw 'CORE_NEXT_EXPLICIT_BINDING_MISMATCH'}
+    Set-Variable -Name $key -Value $coreProfile.$field
+}
 if($PSVersionTable.PSVersion.Major -eq 5){
     # An installer launched by PowerShell 7 inherits its PSModulePath, unlike a
     # direct powershell.exe invocation. Load only this host's Windows modules;
@@ -185,6 +197,7 @@ if($Action -eq 'Install'){
     }
     if(Test-Path -LiteralPath $configFile){
         $script:cfg=Read-Json $configFile
+        Assert-CoreNextConfig $script:cfg $coreProfile
         if($script:cfg.install_root -ne $InstallRoot -or $script:cfg.service_name -ne $ServiceName){throw 'Retained state belongs to a different installation; no authority was changed.'}
         $OwnerSid=$script:cfg.owner_sid
     }else{
@@ -192,18 +205,36 @@ if($Action -eq 'Install'){
         if(Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){throw 'Requested service name already exists; it was not changed.'}
         New-Item -ItemType Directory -Path $StateRoot -Force|Out-Null
         Protect-Directory $StateRoot $OwnerSid
-        $apiPort=Free-Port 18743 @();$webPort=Free-Port 18740 @($apiPort);$dbPort=Free-Port 18741 @($apiPort,$webPort)
-        $script:cfg=[pscustomobject][ordered]@{schema_version=1;product_version='0.4.1-dev.1';install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;owner_sid=$OwnerSid;api_port=$apiPort;web_port=$webPort;database_port=$dbPort;api_base=('http://127.0.0.1:'+$apiPort+'/dragon/api/v1');bridge_secret_path=(Join-Path $StateRoot 'kernel\joomla-bridge.json');root_password=(Random-Secret);db_name='dragonhydra_admin';db_user='dragonhydra_admin';db_password=(Random-Secret);core_db_name='dragonhydra_core';core_db_user='dragonhydra_core';core_db_password=(Random-Secret);admin_user='dragonadmin';admin_password=(Random-Secret);admin_email='administrator@dragonhydra.invalid';site_name='DRAGONHYDRA';kernel_backend='sqlite';optional_ai=@{enabled=$false;runtime='llama.cpp';endpoint='http://127.0.0.1:18746';model_directory=(Join-Path $StateRoot 'models');status='optional_not_installed'};analytics=@{authority='kernel';external_sql_server='optional_not_configured';external_postgresql='optional_not_configured';xlsx_export=$true}}
+        $apiPort=[int]$coreProfile.ports.api;$webPort=[int]$coreProfile.ports.web;$dbPort=[int]$coreProfile.ports.database
+        foreach($port in @($apiPort,$webPort,$dbPort)){Assert-FreePort $port}
+        $script:cfg=[pscustomobject][ordered]@{schema_version=1;product_version='0.4.1-dev.1';install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;owner_sid=$OwnerSid;api_port=$apiPort;web_port=$webPort;database_port=$dbPort;api_base=('http://127.0.0.1:'+$apiPort+'/dragon/api/v1');bridge_secret_path=(Join-Path $StateRoot 'kernel\joomla-bridge.json');root_password=(Random-Secret);db_name='dragonhydra_admin';db_user='dragonhydra_admin';db_password=(Random-Secret);core_db_name='dragonhydra_core';core_db_user='dragonhydra_core';core_db_password=(Random-Secret);admin_user='dragonadmin';admin_password=(Random-Secret);admin_email='administrator@dragonhydra.invalid';site_name='DRAGONHYDRA';kernel_backend='sqlite';optional_ai=@{enabled=$false;runtime='llama.cpp';endpoint=$null;model_directory=(Join-Path $StateRoot 'models');status='optional_not_installed'};analytics=@{authority='kernel';external_sql_server='optional_not_configured';external_postgresql='optional_not_configured';xlsx_export=$true}}
+        foreach($key in @('product','edition','installation_id','environment_id','browser_user_data','cookie_name','joomla_session_suffix','build_id','source_commit','version')){$script:cfg|Add-Member -NotePropertyName $key -NotePropertyValue $coreProfile.$key -Force}
+        $script:cfg|Add-Member -NotePropertyName profile_path -NotePropertyValue $ProfilePath -Force
+        $script:cfg.db_name=$coreProfile.database.admin_schema;$script:cfg.db_user=$coreProfile.database.admin_user
+        $script:cfg.core_db_name=$coreProfile.database.core_schema;$script:cfg.core_db_user=$coreProfile.database.core_user
+        $script:cfg.site_name='DRAGONHYDRA CORE NEXT'
+        $script:cfg.product_version=$coreProfile.version
+        Assert-CoreNextConfig $script:cfg $coreProfile
         Save-Json $script:cfg $configFile
     }
     Protect-Directory $StateRoot $OwnerSid
     Protect-Binaries $InstallRoot
     $null=Owned-Service
     foreach($folder in @('kernel','client','models')){New-Item -ItemType Directory -Force -Path (Join-Path $StateRoot $folder)|Out-Null}
-    Save-Json @{administration_url=('http://127.0.0.1:'+$script:cfg.web_port+'/administrator/')} (Join-Path $StateRoot 'kernel\product.json')
+    if($SeedSnapshot -or $SeedSnapshotSha256){
+        if(-not $SeedSnapshot -or -not $SeedSnapshotSha256){throw 'CORE_NEXT_SEED_PATH_AND_HASH_REQUIRED'}
+        $seed=Assert-CoreNextOrdinaryPath $SeedSnapshot (Join-Path $coreProfile.lab_root 'snapshots')
+        if(-not(Test-Path -LiteralPath $seed -PathType Leaf) -or (Get-FileHash -LiteralPath $seed -Algorithm SHA256).Hash.ToLowerInvariant() -cne $SeedSnapshotSha256){throw 'CORE_NEXT_SEED_HASH_MISMATCH'}
+        $target=Join-Path $StateRoot 'kernel\core.sqlite3'
+        if(Test-Path -LiteralPath $target){throw 'CORE_NEXT_SEED_CANNOT_REPLACE_EXISTING_DATABASE'}
+        Copy-Item -LiteralPath $seed -Destination $target
+        if((Get-FileHash -LiteralPath $target -Algorithm SHA256).Hash.ToLowerInvariant() -cne $SeedSnapshotSha256){throw 'CORE_NEXT_SEED_COPY_HASH_MISMATCH'}
+        Save-Json @{source=$seed;sha256=$SeedSnapshotSha256;installation_id=$coreProfile.installation_id;provider_schedules='disabled';credentials_copied=$false} (Join-Path $StateRoot 'kernel\seed-snapshot.json')
+    }
+    Save-Json @{administration_url=('http://127.0.0.1:'+$script:cfg.web_port+'/administrator/');product=$coreProfile.product;edition=$coreProfile.edition;installation_id=$coreProfile.installation_id;environment_id=$coreProfile.environment_id;build_id=$coreProfile.build_id;source_commit=$coreProfile.source_commit;version=$coreProfile.version;profile_path=$ProfilePath;state_root=$StateRoot;install_root=$InstallRoot} (Join-Path $StateRoot 'kernel\product.json')
     Save-Json @{username=$script:cfg.admin_user;password=$script:cfg.admin_password;url=('http://127.0.0.1:'+$script:cfg.web_port+'/administrator/')} (Join-Path $StateRoot 'first-run.json')
-    Save-Json @{service_name=$ServiceName} (Join-Path $StateRoot 'launcher.json')
-    Save-Json @{install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;product='DRAGONHYDRA Workstation'} (Join-Path $InstallRoot 'workstation-installed.json')
+    Save-Json @{service_name=$ServiceName;installation_id=$coreProfile.installation_id;browser_user_data=$coreProfile.browser_user_data;profile_path=$ProfilePath} (Join-Path $StateRoot 'launcher.json')
+    Save-Json @{install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;product=$coreProfile.product;installation_id=$coreProfile.installation_id;profile_path=$ProfilePath} (Join-Path $InstallRoot 'workstation-installed.json')
     $service=Owned-Service
     if(-not $service){
         $image=(Quote (Join-Path $InstallRoot 'workstation\DragonhydraService.exe'))+' --state '+(Quote $StateRoot)+' --name '+$ServiceName
@@ -232,6 +263,7 @@ if($Action -eq 'Install'){
 
 if(-not(Test-Path -LiteralPath $configFile)){throw 'This directory has no owned workstation configuration.'}
 $script:cfg=Read-Json $configFile
+Assert-CoreNextConfig $script:cfg $coreProfile
 if($script:cfg.state_root -ne $StateRoot){throw 'State ownership mismatch.'}
 if($InstallRoot -and [IO.Path]::GetFullPath($InstallRoot).TrimEnd('\') -ne $script:cfg.install_root){throw 'Installation ownership mismatch.'}
 $ServiceName=$script:cfg.service_name

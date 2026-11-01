@@ -6,7 +6,7 @@ import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PHP = ROOT / 'build/workstation/test-install/application files/web/php/php.exe'
+PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', ROOT / 'build/workstation/test-install/application files/web/php/php.exe'))
 MODEL = ROOT / 'server/joomla/com_dragonhydra/site/src/Model/WorkspaceModel.php'
 KERNEL = ROOT / 'server/joomla/com_dragonhydra/site/src/Service/Kernel.php'
 

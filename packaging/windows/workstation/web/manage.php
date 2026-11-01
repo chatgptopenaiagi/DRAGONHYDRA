@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit(1); }
 ini_set('display_errors', '0');
+require_once __DIR__ . '/CoreNextProfile.php';
 
 function output(array $value): void {
     echo json_encode($value, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES) . "\n";
@@ -33,6 +34,7 @@ function pathValue(mixed $value): string {
 }
 function configuration(string $path): array {
     $cfg = jsonFile($path);
+    $cfg = coreNextProfile($cfg);
     foreach (['install_root', 'state_root', 'bridge_secret_path'] as $key) { $cfg[$key] = pathValue($cfg[$key] ?? null); }
     $cfg['payload'] = $cfg['install_root'] . '/web';
     if (!samePath(__DIR__, $cfg['payload'])) { throw new RuntimeException('PAYLOAD_LOCATION_MISMATCH'); }
@@ -108,7 +110,7 @@ function prepare(array $cfg): void {
         'date.timezone=UTC', 'memory_limit=256M', 'max_execution_time=120', 'max_input_time=120',
         'upload_max_filesize=64M', 'post_max_size=64M', 'display_errors=Off', 'log_errors=On',
         'error_log="' . $logs . '/php-error.log"', 'error_reporting=E_ALL', 'expose_php=Off',
-        'session.use_strict_mode=1', 'session.cookie_httponly=1', 'session.cookie_samesite=Lax',
+        'session.use_strict_mode=1', 'session.cookie_httponly=1', 'session.cookie_samesite=Lax', 'session.name=' . $cfg['cookie_name'],
         'session.save_path="' . $cfg['web_sessions'] . '"', 'sys_temp_dir="' . $cfg['web_temp'] . '"',
         'upload_tmp_dir="' . $cfg['web_temp'] . '"',
     ];
@@ -242,6 +244,29 @@ function install(array $cfg, string $configPath): void {
     output(['action' => 'install', 'installed' => true, 'core_created' => !$coreInstalled, 'extension_updated' => $changed, 'extension_package_sha256' => $hash]);
 }
 function configure(array $cfg, string $configPath): void {
+    $joomlaConfiguration = $cfg['site'] . '/configuration.php';
+    require_once $joomlaConfiguration;
+    $site = new \JConfig();
+    if ($site->db !== $cfg['db_name'] || $site->user !== $cfg['db_user'] || $site->host !== '127.0.0.1:' . $cfg['database_port']) {
+        throw new RuntimeException('CORE_NEXT_JOOMLA_DATABASE_BINDING_MISMATCH');
+    }
+    if (isset($site->core_next_installation_id) && $site->core_next_installation_id !== $cfg['installation_id']) {
+        throw new RuntimeException('CORE_NEXT_JOOMLA_SESSION_BINDING_MISMATCH');
+    }
+    if (!isset($site->core_next_installation_id)) {
+        // Keep Joomla's separate Site/Administrator class seeds; bind its fresh
+        // random secret to this installation once, then retain it on repairs.
+        $site->secret = hash_hmac('sha256', $cfg['joomla_session_suffix'], $site->secret);
+        $site->core_next_installation_id = $cfg['installation_id'];
+        $site->core_next_session_suffix = $cfg['joomla_session_suffix'];
+        $site->cookie_domain = ''; $site->cookie_path = '/';
+        $text = "<?php\nclass JConfig {\n";
+        foreach (get_object_vars($site) as $key => $value) {
+            if (!preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/D', $key)) { throw new RuntimeException('INVALID_JOOMLA_CONFIGURATION_PROPERTY'); }
+            $text .= 'public $' . $key . ' = ' . var_export($value, true) . ";\n";
+        }
+        writeAtomic($joomlaConfiguration, $text . "}\n");
+    }
     $db = appConnection($cfg); $record = extensionRecord($db);
     if (!$record) { throw new RuntimeException('DRAGONHYDRA_EXTENSION_MISSING'); }
     if (!is_file($cfg['bridge_secret_path'])) { throw new RuntimeException('KERNEL_IDENTITY_BRIDGE_MISSING'); }
@@ -250,6 +275,7 @@ function configure(array $cfg, string $configPath): void {
     $params = json_decode($record['params'], true, 64, JSON_THROW_ON_ERROR) ?: [];
     $params['api_base'] = $cfg['api_base']; $params['bridge_secret_path'] = $cfg['bridge_secret_path'];
     $params['dashboard_url'] = 'http://127.0.0.1:' . $cfg['api_port'] . '/';
+    $params['core_next_installation_id'] = $cfg['installation_id'];
     $encoded = json_encode($params, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES);
     $statement = $db->prepare("UPDATE dh_extensions SET params=? WHERE element='com_dragonhydra' AND type='component'");
     $statement->bind_param('s', $encoded); $statement->execute();

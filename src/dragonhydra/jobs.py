@@ -316,28 +316,7 @@ class Jobs:
                 self.stop.wait(0.2)
 
     def execute(self, job):
-        kind, payload = job['kind'], job['payload']
-        if kind == 'import_public':
-            return self.import_public(job['id'], payload.get('mode', 'retained'), job['attempts'])
-        if kind == 'explanation':
-            return self.product.explanation(payload['match_id'])
-        if kind == 'local_explanation':
-            from .local_ai_service import explain
-            return explain(self.product, payload['package'], lambda: self.check(job['id'], job['attempts']))
-        if kind == 'statsbomb_context':
-            from .connectors.statsbomb_context_jobs import run
-            def require_context_claim(db, job_id, claim):
-                current = self.require_claim(db, job_id, claim)
-                if self.stop.is_set():
-                    raise Interrupted()
-                return current
-            return run(self.product, job, lambda: self.check(job['id'], job['attempts']), require_context_claim)
-        if kind == 'export':
-            return self.export(job)
-        if kind in ('connector_test', 'connector_sync'):
-            return self.providers.run(payload['provider'], 'sync' if kind == 'connector_sync' else 'test',
-                                      lambda: self.check(job['id'], job['attempts']), job['id'])
-        raise ValueError('UNSUPPORTED_JOB_KIND')
+        return self.product.kernel.dispatch_job(self, job)
 
     def import_public(self, job_id, mode, claim=None):
         imports = []

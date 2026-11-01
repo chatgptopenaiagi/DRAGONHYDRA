@@ -7,14 +7,17 @@ Unicode true
 !ifndef STAGE
 !error "Build with scripts/Build-Workstation.ps1."
 !endif
-Name "DRAGONHYDRA Workstation ${VERSION}"
+!ifndef SOURCE_COMMIT
+!error "CORE NEXT requires the frozen release source commit."
+!endif
+Name "DRAGONHYDRA CORE NEXT ${VERSION}"
 OutFile "${OUTPUT}"
-InstallDir "$PROGRAMFILES64\DRAGONHYDRA"
+InstallDir "$PROGRAMFILES64\DRAGONHYDRA CORE NEXT"
 RequestExecutionLevel admin
 SetCompressor /SOLID lzma
 SetCompressorDictSize 64
 VIProductVersion "${NUMERICVERSION}"
-VIAddVersionKey "ProductName" "DRAGONHYDRA Workstation"
+VIAddVersionKey "ProductName" "DRAGONHYDRA CORE NEXT Workstation"
 VIAddVersionKey "ProductVersion" "${VERSION}"
 VIAddVersionKey "FileVersion" "${NUMERICVERSION}"
 VIAddVersionKey "FileDescription" "Unsigned development complete workstation installer"
@@ -28,9 +31,18 @@ Var Parameters
 Var Result
 Var PsExe
 Var CheckScript
+Var ProfilePath
+Var SeedSnapshot
+Var SeedSnapshotSha256
+Var SeedArgs
+Var ShortcutName
+Var UninstallId
+Var InstallationId
+Var InitialInstallRoot
+Var ProfileArgs
 !define MUI_ABORTWARNING
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Open DRAGONHYDRA Workstation"
+!define MUI_FINISHPAGE_RUN_TEXT "Open DRAGONHYDRA CORE NEXT"
 !define MUI_FINISHPAGE_RUN_FUNCTION "LaunchWorkstation"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
@@ -72,9 +84,16 @@ Function .onInit
         !insertmacro Fail "Install Microsoft .NET Framework 4.8 before running this installer."
     ${EndIf}
     SetShellVarContext all
-    StrCpy $StateRoot "$APPDATA\DRAGONHYDRA"
-    StrCpy $ServiceName "DragonhydraWorkstation"
+    StrCpy $StateRoot ""
+    StrCpy $ServiceName ""
     ${GetParameters} $Parameters
+    ${GetOptions} $Parameters "/PROFILE=" $ProfilePath
+    ${GetOptions} $Parameters "/SEED=" $SeedSnapshot
+    ${GetOptions} $Parameters "/SEEDHASH=" $SeedSnapshotSha256
+    StrCpy $SeedArgs ""
+    ${If} $SeedSnapshot != ""
+        StrCpy $SeedArgs '-SeedSnapshot "$SeedSnapshot" -SeedSnapshotSha256 "$SeedSnapshotSha256"'
+    ${EndIf}
     ${GetOptions} $Parameters "/STATE=" $0
     ${If} $0 != ""
         StrCpy $StateRoot $0
@@ -90,6 +109,42 @@ Function .onInit
     ; This NSIS stub is 32-bit. Sysnative selects 64-bit PowerShell from both
     ; the UI and installation worker threads, without per-thread redirection.
     StrCpy $PsExe "$WINDIR\Sysnative\WindowsPowerShell\v1.0\powershell.exe"
+    InitPluginsDir
+    SetOutPath "$PLUGINSDIR"
+    File /oname=Installer-Checks.ps1 "${STAGE}\workstation\Installer-Checks.ps1"
+    File /oname=CoreNextProfile.ps1 "${STAGE}\workstation\CoreNextProfile.ps1"
+    StrCpy $CheckScript "$PLUGINSDIR\Installer-Checks.ps1"
+    StrCpy $ProfileArgs ""
+    ${If} $ProfilePath != ""
+        StrCpy $ProfileArgs '-ProfilePath "$ProfilePath"'
+    ${EndIf}
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$CheckScript" -Action SelectProfile $ProfileArgs -ReleaseVersion "${VERSION}" -ReleaseSourceCommit "${SOURCE_COMMIT}" -OutputBindings "$PLUGINSDIR\core-next-selected.ini"'
+    Pop $Result
+    ${If} $Result != 0
+        !insertmacro Fail "The CORE NEXT installation profile could not be selected safely. No product service was changed."
+    ${EndIf}
+    StrCpy $InitialInstallRoot $INSTDIR
+    ReadINIStr $INSTDIR "$PLUGINSDIR\core-next-selected.ini" "Profile" "InstallRoot"
+    ${If} $InitialInstallRoot != "$PROGRAMFILES64\DRAGONHYDRA CORE NEXT"
+    ${AndIf} $InitialInstallRoot != $INSTDIR
+        !insertmacro Fail "The requested binary directory differs from the selected CORE NEXT profile."
+    ${EndIf}
+    ReadINIStr $ProfilePath "$PLUGINSDIR\core-next-selected.ini" "Profile" "ProfilePath"
+    ReadINIStr $0 "$PLUGINSDIR\core-next-selected.ini" "Profile" "StateRoot"
+    ${If} $StateRoot != ""
+    ${AndIf} $StateRoot != $0
+        !insertmacro Fail "The requested state directory differs from the selected CORE NEXT profile."
+    ${EndIf}
+    StrCpy $StateRoot $0
+    ReadINIStr $0 "$PLUGINSDIR\core-next-selected.ini" "Profile" "ServiceName"
+    ${If} $ServiceName != ""
+    ${AndIf} $ServiceName != $0
+        !insertmacro Fail "The requested service differs from the selected CORE NEXT profile."
+    ${EndIf}
+    StrCpy $ServiceName $0
+    ReadINIStr $ShortcutName "$PLUGINSDIR\core-next-selected.ini" "Profile" "ShortcutName"
+    ReadINIStr $UninstallId "$PLUGINSDIR\core-next-selected.ini" "Profile" "UninstallId"
+    ReadINIStr $InstallationId "$PLUGINSDIR\core-next-selected.ini" "Profile" "InstallationId"
 FunctionEnd
 
 Function CheckWebView
@@ -131,14 +186,15 @@ Section "Complete workstation" SEC_MAIN
     InitPluginsDir
     SetOutPath "$PLUGINSDIR"
     File /oname=Installer-Checks.ps1 "${STAGE}\workstation\Installer-Checks.ps1"
+    File /oname=CoreNextProfile.ps1 "${STAGE}\workstation\CoreNextProfile.ps1"
     StrCpy $CheckScript "$PLUGINSDIR\Installer-Checks.ps1"
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$CheckScript" -Action Validate -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$CheckScript" -Action Validate -ReleaseVersion "${VERSION}" -ReleaseSourceCommit "${SOURCE_COMMIT}" -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "Installation ownership or path checks failed. Existing files, services, and shortcuts were preserved. See installation details."
     ${EndIf}
     IfFileExists "$INSTDIR\workstation-installed.json" 0 fresh
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Stop -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Stop -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "The owned workstation service could not be stopped safely; no replacement files were copied."
@@ -148,29 +204,33 @@ fresh:
     SetOutPath "$INSTDIR"
     DetailPrint "Extracting the private workstation payload."
     SetDetailsPrint textonly
-    File /r "${STAGE}\*"
+    File /r /x "installer.ini" /x "CORE-NEXT-PAYLOAD.json" "${STAGE}\*"
     SetDetailsPrint both
     DetailPrint "Payload extracted; initializing the owned workstation service."
-    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "Identity" "DRAGONHYDRA Workstation v1"
+    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "Identity" "DRAGONHYDRA CORE NEXT v1"
     WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "InstallRoot" "$INSTDIR"
     WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "StateRoot" "$StateRoot"
     WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "ServiceName" "$ServiceName"
     WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "Version" "${VERSION}"
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Install -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "InstallationId" "$InstallationId"
+    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "ProfilePath" "$ProfilePath"
+    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "ShortcutName" "$ShortcutName"
+    WriteINIStr "$INSTDIR\workstation\installer.ini" "Product" "UninstallId" "$UninstallId"
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Install $SeedArgs -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "Workstation initialization failed. Inspect private diagnostics in $StateRoot and retry this installer. User data was retained."
     ${EndIf}
     WriteUninstaller "$INSTDIR\Uninstall-Workstation.exe"
-    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName" "DisplayName" "DRAGONHYDRA Workstation$ShortcutSuffix"
-    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName" "DisplayVersion" "${VERSION}"
-    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName" "InstallLocation" "$INSTDIR"
-    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName" "UninstallString" '$\"$INSTDIR\Uninstall-Workstation.exe$\"'
-    WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName" "NoModify" 1
-    CreateDirectory "$SMPROGRAMS\DRAGONHYDRA Workstation$ShortcutSuffix"
-    CreateShortcut "$DESKTOP\DRAGONHYDRA Workstation$ShortcutSuffix.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot"'
-    CreateShortcut "$SMPROGRAMS\DRAGONHYDRA Workstation$ShortcutSuffix\DRAGONHYDRA Workstation.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot"'
-    CreateShortcut "$SMPROGRAMS\DRAGONHYDRA Workstation$ShortcutSuffix\DRAGONHYDRA Administration.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot" --administration'
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId" "DisplayName" "$ShortcutName"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId" "DisplayVersion" "${VERSION}"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId" "InstallLocation" "$INSTDIR"
+    WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId" "UninstallString" '$\"$INSTDIR\Uninstall-Workstation.exe$\"'
+    WriteRegDWORD HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId" "NoModify" 1
+    CreateDirectory "$SMPROGRAMS\$ShortcutName"
+    CreateShortcut "$DESKTOP\$ShortcutName.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot"'
+    CreateShortcut "$SMPROGRAMS\$ShortcutName\DRAGONHYDRA CORE NEXT.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot"'
+    CreateShortcut "$SMPROGRAMS\$ShortcutName\DRAGONHYDRA CORE NEXT Administration.lnk" "$INSTDIR\workstation\DragonhydraLauncher.exe" '--state "$StateRoot" --administration'
     SetErrorLevel 0
 SectionEnd
 
@@ -184,8 +244,12 @@ Function un.onInit
     SetRegView 64
     SetShellVarContext all
     StrCpy $PsExe "$WINDIR\Sysnative\WindowsPowerShell\v1.0\powershell.exe"
+    ReadINIStr $ProfilePath "$INSTDIR\workstation\installer.ini" "Product" "ProfilePath"
     ReadINIStr $StateRoot "$INSTDIR\workstation\installer.ini" "Product" "StateRoot"
     ReadINIStr $ServiceName "$INSTDIR\workstation\installer.ini" "Product" "ServiceName"
+    ReadINIStr $ShortcutName "$INSTDIR\workstation\installer.ini" "Product" "ShortcutName"
+    ReadINIStr $UninstallId "$INSTDIR\workstation\installer.ini" "Product" "UninstallId"
+    ReadINIStr $InstallationId "$INSTDIR\workstation\installer.ini" "Product" "InstallationId"
     StrCpy $ShortcutSuffix ""
     ${If} $ServiceName != "DragonhydraWorkstation"
         StrCpy $ShortcutSuffix " - $ServiceName"
@@ -193,22 +257,22 @@ Function un.onInit
 FunctionEnd
 
 Section "Uninstall"
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Installer-Checks.ps1" -Action ValidateUninstall -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Installer-Checks.ps1" -Action ValidateUninstall -ReleaseVersion "${VERSION}" -ReleaseSourceCommit "${SOURCE_COMMIT}" -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "Uninstall ownership checks failed. No services or product files were removed."
     ${EndIf}
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Uninstall -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Workstation.ps1" -Action Uninstall -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "The exact owned service could not be removed safely. Product files and user data were retained."
     ${EndIf}
-    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Installer-Checks.ps1" -Action RemoveShortcuts -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
+    nsExec::ExecToLog '"$PsExe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$INSTDIR\workstation\Installer-Checks.ps1" -Action RemoveShortcuts -ReleaseVersion "${VERSION}" -ReleaseSourceCommit "${SOURCE_COMMIT}" -ProfilePath "$ProfilePath" -InstallRoot "$INSTDIR" -StateRoot "$StateRoot" -ServiceName "$ServiceName"'
     Pop $Result
     ${If} $Result != 0
         !insertmacro Fail "Shortcut ownership checks failed; retained product files can be inspected safely."
     ${EndIf}
-    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DRAGONHYDRAWorkstation-$ServiceName"
+    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$UninstallId"
     SetOutPath "$TEMP"
     ; ValidateUninstall has resolved the absolute owned target and state separation.
     ClearErrors

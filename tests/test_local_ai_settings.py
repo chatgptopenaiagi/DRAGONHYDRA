@@ -144,7 +144,7 @@ class SettingsAPITests(unittest.TestCase):
         with closing(self.product.connect()) as db:
             db.execute('INSERT INTO product_sessions VALUES(?,?,?,?)', (hashlib.sha256(cookie.encode()).hexdigest(), 'fixture:reader', '["reader"]', time.time()+60))
             db.commit()
-        self.client.cookies.set('dragon_session', cookie)
+        self.client.cookies.set(self.app.state.session_cookie_name, cookie)
         self.assertEqual(self.client.get(self.path).status_code, 403)
         self.assertEqual(self.client.put(self.path, json={'endpoint': ''}).status_code, 403)
         self.assertFalse((self.product.state/'local-ai.json').exists())

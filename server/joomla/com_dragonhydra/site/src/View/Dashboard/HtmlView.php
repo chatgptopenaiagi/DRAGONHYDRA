@@ -26,7 +26,7 @@ final class HtmlView extends BaseHtmlView
         $this->workspace['permission_denied'] = !$user->guest && !Kernel::canRead($user);
         $this->workspace['user_name'] = $user->guest ? '' : (string) $user->username;
         $this->workspace['itemid'] = $input->getInt('Itemid', 0);
-        $this->getDocument()->setTitle('DRAGONHYDRA · Sports intelligence');
+        $this->getDocument()->setTitle('DRAGONHYDRA CORE NEXT · Sports intelligence');
         $assets = $this->getDocument()->getWebAssetManager();
         $assets->getRegistry()->addExtensionRegistryFile('com_dragonhydra');
         $assets->useStyle('com_dragonhydra.workspace');

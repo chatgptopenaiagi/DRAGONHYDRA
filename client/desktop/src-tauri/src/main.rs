@@ -1,6 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::{env, fs, path::PathBuf, net::{SocketAddr, TcpStream}, time::Duration};
+use std::{env, fs, io::{Read, Write}, path::PathBuf, net::{SocketAddr, TcpStream}, time::Duration};
 use tauri::{Manager, WebviewUrl, WebviewWindowBuilder};
 use tauri_plugin_opener::OpenerExt;
 mod client_state;
@@ -13,7 +13,8 @@ fn build_information() -> serde_json::Value {
         "source_content_sha256": option_env!("DRAGONHYDRA_SOURCE_CONTENT_SHA256").unwrap_or("unversioned-development"),
         "api_namespace": "/dragon/api/v1",
         "schema_version": 1,
-        "architecture": "x86_64-pc-windows-msvc"
+        "architecture": "x86_64-pc-windows-msvc",
+        "product": "DRAGONHYDRA CORE NEXT", "edition": "CORE NEXT", "identifier": "ai.dragonhydra.corenext.desktop"
     })
 }
 
@@ -34,9 +35,25 @@ fn connection(state: PathBuf) -> Result<tauri::Url, String> {
         return Err("Local pairing is invalid".to_string());
     }
     let port = url.port_or_known_default().ok_or("Endpoint port is missing")?;
+    if port < 18800 { return Err("CORE NEXT requires its isolated endpoint".into()); }
     let address = SocketAddr::from(([127, 0, 0, 1], port));
-    TcpStream::connect_timeout(&address, Duration::from_secs(2))
+    let mut connection = TcpStream::connect_timeout(&address, Duration::from_secs(2))
         .map_err(|_| "The configured local server is unavailable".to_string())?;
+    connection.set_read_timeout(Some(Duration::from_secs(3))).map_err(|_| "Identity timeout unavailable")?;
+    connection.set_write_timeout(Some(Duration::from_secs(3))).map_err(|_| "Identity timeout unavailable")?;
+    let request = format!("GET /dragon/api/v1/system HTTP/1.1\r\nHost: 127.0.0.1:{port}\r\nAuthorization: Bearer {token}\r\nConnection: close\r\n\r\n");
+    connection.write_all(request.as_bytes()).map_err(|_| "CORE NEXT identity check failed")?;
+    let mut response = String::new();
+    connection.take(1_048_576).read_to_string(&mut response).map_err(|_| "CORE NEXT identity response unavailable")?;
+    let (headers, body) = response.split_once("\r\n\r\n").ok_or("CORE NEXT identity response invalid")?;
+    if !headers.lines().next().is_some_and(|line| line.contains(" 200 ")) { return Err("CORE NEXT identity rejected".into()); }
+    let identity: serde_json::Value = serde_json::from_str(body).map_err(|_| "CORE NEXT identity response invalid")?;
+    let instance = &identity["installation"];
+    let expected = state.parent().and_then(std::path::Path::parent).and_then(std::path::Path::file_name)
+        .and_then(|value| value.to_str()).ok_or("CORE NEXT instance directory missing")?;
+    if instance["product"] != "DRAGONHYDRA CORE NEXT" || instance["edition"] != "CORE NEXT" || instance["installation_id"] != expected {
+        return Err("CORE NEXT server identity differs from this installation".into());
+    }
     url.set_path("/");
     url.set_query(None);
     url.set_fragment(Some(&format!("token={token}")));
@@ -45,8 +62,8 @@ fn connection(state: PathBuf) -> Result<tauri::Url, String> {
 
 fn state_path() -> Result<PathBuf, String> {
     let executable = env::current_exe().ok();
-    let program_data = PathBuf::from(env::var("PROGRAMDATA").unwrap_or_else(|_| "/var/lib".to_string()));
-    client_state::select(env::args().skip(1), executable.as_deref(), &program_data)
+    let lab = PathBuf::from(r"C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB");
+    client_state::select(env::args().skip(1), executable.as_deref(), &lab)
 }
 
 fn profile_path() -> Option<PathBuf> {
@@ -91,7 +108,7 @@ fn main() {
                     }
                     tauri::webview::NewWindowResponse::Deny
                 })
-                .title("DRAGONHYDRA")
+                .title("DRAGONHYDRA CORE NEXT")
                 .inner_size(1280.0, 860.0)
                 .min_inner_size(720.0, 520.0);
             if let Some(directory) = profile {

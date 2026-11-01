@@ -60,7 +60,7 @@ android {
 
     defaultConfig {
         // Established update identity; retain when building development upgrades.
-        applicationId = "ai.dragonhydra.mobile"
+        applicationId = "ai.dragonhydra.corenext.mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

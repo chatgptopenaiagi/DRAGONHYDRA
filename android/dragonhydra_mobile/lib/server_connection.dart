@@ -18,6 +18,7 @@ class ServerConnectionPage extends StatefulWidget {
 class _ServerConnectionPageState extends State<ServerConnectionPage> {
   final address = TextEditingController();
   final token = TextEditingController();
+  final installation = TextEditingController();
   final vault = const CredentialVault();
   bool loading = false;
   String? error, status;
@@ -34,9 +35,11 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
     try {
       final savedAddress = await vault.read('dragonhydra_server_url');
       final savedToken = await vault.read('dragonhydra_server_token');
+      final savedInstallation = await vault.read('core_next_installation_id');
       if (!mounted) return;
       address.text = savedAddress ?? '';
       token.text = savedToken ?? '';
+      installation.text = savedInstallation ?? '';
     } catch (_) {
       // The offline app remains usable when no platform vault is available.
     }
@@ -46,6 +49,7 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
   void dispose() {
     address.dispose();
     token.dispose();
+    installation.dispose();
     super.dispose();
   }
 
@@ -59,11 +63,15 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
       final selected = DragonServer(
         address.text,
         token: token.text,
+        expectedInstallationId: installation.text.trim(),
         transport: widget.transport,
       );
       final data = await selected.matches();
       try {
         await vault.save('dragonhydra_server_url', selected.root.toString());
+        if (installation.text.trim().isNotEmpty) {
+          await vault.save('core_next_installation_id', installation.text.trim());
+        }
         if (token.text.trim().isEmpty) {
           await vault.remove('dragonhydra_server_token');
         } else {
@@ -78,7 +86,7 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
         server = selected;
         matches = data['items'] as List;
         status ??=
-            'Connected: ${matches.length} of ${data['total']} retained matches.';
+            'Connected: ${matches.length} of ${data['total']} retained matches. Installation: ${selected.verifiedInstallationId}';
       });
     } on ServerFailure catch (failure) {
       if (mounted) {
@@ -103,7 +111,7 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('DRAGONHYDRA server')),
+    appBar: AppBar(title: const Text('DRAGONHYDRA CORE NEXT server')),
     body: ListView(
       padding: const EdgeInsets.all(18),
       children: [
@@ -124,6 +132,12 @@ class _ServerConnectionPageState extends State<ServerConnectionPage> {
             labelText: 'Server address',
             hintText: 'https://your-server-address',
           ),
+        ),
+        const SizedBox(height: 10),
+        TextField(
+          key: const Key('installation-id'), controller: installation,
+          autocorrect: false,
+          decoration: const InputDecoration(labelText: 'Installation ID (optional exact pairing)'),
         ),
         const SizedBox(height: 10),
         TextField(

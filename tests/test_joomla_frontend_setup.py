@@ -3,6 +3,7 @@ import importlib.util
 import io
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 import subprocess
@@ -13,7 +14,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'server/joomla'
-PHP = ROOT / 'build/workstation/test-install/application files/web/php/php.exe'
+PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', ROOT / 'build/workstation/test-install/application files/web/php/php.exe'))
 SETUP = SOURCE / 'com_dragonhydra/admin/src/Service/FrontendSetup.php'
 
 
@@ -167,7 +168,7 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
                       "$accepted=Get-VerifiedFrontendPackage " + quote(package) + ";"
                       "[IO.File]::AppendAllText(" + quote(package) + ",'tamper');"
                       "$rejected=$false;try{Get-VerifiedFrontendPackage " + quote(package) + "|Out-Null}catch{$rejected=$true};"
-                      "@{accepted=($accepted.version -eq '0.4.1-dev.2');tampered_rejected=$rejected}|ConvertTo-Json")
+                      "@{accepted=($accepted.version -eq '0.5.0-dev.1');tampered_rejected=$rejected}|ConvertTo-Json")
             result = subprocess.run(['C:/Program Files/PowerShell/7/pwsh.exe', '-NoProfile', '-Command', script],
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)

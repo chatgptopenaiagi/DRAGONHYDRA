@@ -2,6 +2,8 @@
 [CmdletBinding()]
 param([Parameter(Mandatory)][string]$OutputRoot)
 $ErrorActionPreference='Stop'
+. (Join-Path $PSScriptRoot 'CoreNextProfile.ps1')
+$OutputRoot=Assert-CoreNextOrdinaryPath $OutputRoot 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
 $compiler=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 if(-not(Test-Path -LiteralPath $compiler)){throw 'The existing .NET Framework x64 compiler is unavailable.'}
 New-Item -ItemType Directory -Path $OutputRoot -Force|Out-Null
@@ -15,4 +17,5 @@ foreach($name in @('DragonhydraService','DragonhydraLauncher')){
     if($LASTEXITCODE -ne 0){throw "$name compilation failed."}
 }
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Workstation.ps1') -Destination $OutputRoot
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'CoreNextProfile.ps1') -Destination $OutputRoot
 'Compiled native SCM service host and interactive launcher against installed .NET Framework.'

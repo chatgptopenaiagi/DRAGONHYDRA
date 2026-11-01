@@ -67,7 +67,7 @@ pub fn select(args: impl IntoIterator<Item = String>, executable: Option<&Path>,
                     let recorded_state = binding.get("StateRoot").ok_or("Installation state is missing")?;
                     let recorded_root = PathBuf::from(recorded_root);
                     let state = PathBuf::from(recorded_state);
-                    if binding.get("Identity").map(String::as_str) != Some("DRAGONHYDRA Workstation v1")
+                    if binding.get("Identity").map(String::as_str) != Some("DRAGONHYDRA CORE NEXT v1")
                         || !recorded_root.is_absolute() || !state.is_absolute() {
                         return Err("Installation binding is invalid".into());
                     }
@@ -84,7 +84,8 @@ pub fn select(args: impl IntoIterator<Item = String>, executable: Option<&Path>,
             }
         }
     }
-    Ok(program_data.join("DRAGONHYDRA").join("client"))
+    let _ = program_data;
+    Err("CORE NEXT requires its explicit state or corresponding installation marker".into())
 }
 
 #[cfg(test)]
@@ -121,9 +122,9 @@ mod tests {
     }
 
     #[test]
-    fn bare_executable_uses_public_client_pairing_directory() {
+    fn bare_executable_requires_explicit_profile() {
         let base = std::env::temp_dir();
-        assert_eq!(select(Vec::new(), None, &base).unwrap(), base.join("DRAGONHYDRA/client"));
+        assert!(select(Vec::new(), None, &base).is_err());
     }
     #[test]
     fn explicit_state_remains_exact_for_both_argument_forms() {
@@ -135,7 +136,7 @@ mod tests {
     #[test]
     fn installed_executable_selects_its_own_state_even_before_pairing_exists() {
         let f = Fixture::new(); let state = f.0.join("state with spaces");
-        f.marker("DRAGONHYDRA Workstation v1", &f.0.join("installed"), &state);
+        f.marker("DRAGONHYDRA CORE NEXT v1", &f.0.join("installed"), &state);
         assert_eq!(select(Vec::new(), Some(&f.exe()), &f.0).unwrap(), state.join("client"));
         assert!(!state.exists());
     }
@@ -144,9 +145,9 @@ mod tests {
         let f = Fixture::new(); let state = f.0.join("private state");
         f.marker("another application", &f.0.join("installed"), &state);
         assert!(select(Vec::new(), Some(&f.exe()), &f.0).is_err());
-        f.marker("DRAGONHYDRA Workstation v1", &f.0, &state);
+        f.marker("DRAGONHYDRA CORE NEXT v1", &f.0, &state);
         assert!(select(Vec::new(), Some(&f.exe()), &f.0).is_err());
-        f.marker("DRAGONHYDRA Workstation v1", &f.0.join("installed"), Path::new("relative state"));
+        f.marker("DRAGONHYDRA CORE NEXT v1", &f.0.join("installed"), Path::new("relative state"));
         assert!(select(Vec::new(), Some(&f.exe()), &f.0).is_err());
     }
     #[test]
@@ -158,14 +159,14 @@ mod tests {
     #[test]
     fn metadata_in_working_directory_does_not_rebind_a_portable_executable() {
         let f = Fixture::new();
-        f.marker("DRAGONHYDRA Workstation v1", &f.0.join("installed"), &f.0.join("other state"));
-        assert_eq!(select(Vec::new(), Some(&f.0.join("portable.exe")), &f.0).unwrap(), f.0.join("DRAGONHYDRA/client"));
+        f.marker("DRAGONHYDRA CORE NEXT v1", &f.0.join("installed"), &f.0.join("other state"));
+        assert!(select(Vec::new(), Some(&f.0.join("portable.exe")), &f.0).is_err());
     }
     #[cfg(windows)]
     #[test]
     fn windows_ini_unicode_state_path_is_preserved() {
         let f = Fixture::new(); let state = f.0.join("state \u{0394}");
-        let text = format!("[Product]\r\nIdentity=DRAGONHYDRA Workstation v1\r\nInstallRoot={}\r\nStateRoot={}\r\n",
+        let text = format!("[Product]\r\nIdentity=DRAGONHYDRA CORE NEXT v1\r\nInstallRoot={}\r\nStateRoot={}\r\n",
                            f.0.join("installed").display(), state.display());
         let bytes: Vec<u8> = std::iter::once(0xfeffu16).chain(text.encode_utf16())
             .flat_map(u16::to_le_bytes).collect();
