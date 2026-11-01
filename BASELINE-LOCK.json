@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "remote": "https://github.com/chatgptopenaiagi/DRAGONHYDRA.git",
+  "release_tag": "genesis-a9-20261101",
+  "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101",
+  "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+  "release_classification": "published development prerelease",
+  "locked_utc": "2026-11-01T13:22:54.1134086Z",
+  "artifacts": [
+    {
+      "name": "ANDROID-BUILD-REPORT.json",
+      "bytes": 9057,
+      "sha256": "f67ccc58bcebf75793ab8c91901f1038d1e77e9fd35058a1d12249a551269f28",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/ANDROID-BUILD-REPORT.json",
+      "asset_id": "RA_kwDOUp_CEM4poEnn",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "bytes": 17345938,
+      "sha256": "d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "asset_id": "RA_kwDOUp_CEM4poEns",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "bytes": 300,
+      "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "asset_id": "RA_kwDOUp_CEM4poEnr",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "bytes": 2607816,
+      "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "asset_id": "RA_kwDOUp_CEM4poEnv",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "bytes": 1558,
+      "sha256": "f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "asset_id": "RA_kwDOUp_CEM4poEnq",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "bytes": 10078208,
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "asset_id": "RA_kwDOUp_CEM4poEoW",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19953545,
+      "sha256": "46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "asset_id": "RA_kwDOUp_CEM4poEoV",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip"
+    },
+    {
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 301616,
+      "sha256": "ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "asset_id": "RA_kwDOUp_CEM4poEos",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\dragonhydra-0.4.0a1-py3-none-any.whl"
+    },
+    {
+      "name": "dragonhydra-0.4.0a1.tar.gz",
+      "bytes": 2046747,
+      "sha256": "81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1.tar.gz",
+      "asset_id": "RA_kwDOUp_CEM4poEpo",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\dragonhydra-0.4.0a1.tar.gz"
+    },
+    {
+      "name": "DRAGONHYDRA-GENESIS-A9-Source.zip",
+      "bytes": 3000651,
+      "sha256": "13d6eaee8d9ba136fd5ba2174d979f7823a7e117bda44f47163ed9b69ef1fed8",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Source.zip",
+      "asset_id": "RA_kwDOUp_CEM4poEvH",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-GENESIS-A9-Source.zip"
+    },
+    {
+      "name": "DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+      "bytes": 64801813,
+      "sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+      "asset_id": "RA_kwDOUp_CEM4poE2I",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe"
+    },
+    {
+      "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "asset_id": "RA_kwDOUp_CEM4poE6Q",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\dragonhydra-linux-dev-8f170de1559b.tar.gz"
+    },
+    {
+      "name": "GENESIS-A9-RELEASE-NOTES.md",
+      "bytes": 6484,
+      "sha256": "f4f60b3b824dfede8491d9c87e4913f3365a5af6a0386439dff7968e1602b6f5",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/GENESIS-A9-RELEASE-NOTES.md",
+      "asset_id": "RA_kwDOUp_CEM4poE7q",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\GENESIS-A9-RELEASE-NOTES.md"
+    },
+    {
+      "name": "JOOMLA-FRONTEND-REPORT.md",
+      "bytes": 16968,
+      "sha256": "46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/JOOMLA-FRONTEND-REPORT.md",
+      "asset_id": "RA_kwDOUp_CEM4poE8o",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\JOOMLA-FRONTEND-REPORT.md"
+    },
+    {
+      "name": "pkg_dragonhydra-0.4.1-dev.2.zip",
+      "bytes": 43686,
+      "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/pkg_dragonhydra-0.4.1-dev.2.zip",
+      "asset_id": "RA_kwDOUp_CEM4poE8r",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\pkg_dragonhydra-0.4.1-dev.2.zip"
+    },
+    {
+      "name": "README-INSTALL.txt",
+      "bytes": 10560,
+      "sha256": "f6fd37409c61f91c602f538d27041a2ee415367d28afcf8fa1cef871bb8aea68",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/README-INSTALL.txt",
+      "asset_id": "RA_kwDOUp_CEM4poE9R",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\README-INSTALL.txt"
+    },
+    {
+      "name": "RELEASE-MANIFEST.json",
+      "bytes": 25636,
+      "sha256": "9d4dac86133f6303c64bc51256fa03ba2722d331305a9c87e42fcf44ecb4d869",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RELEASE-MANIFEST.json",
+      "asset_id": "RA_kwDOUp_CEM4poIUz",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\RELEASE-MANIFEST.json"
+    },
+    {
+      "name": "RUNTIME-BUILD-REPORT.json",
+      "bytes": 22065,
+      "sha256": "b7b1e399da7bd96264498acdb227cada875385d1fb301ac2a0eee5107d4c3758",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RUNTIME-BUILD-REPORT.json",
+      "asset_id": "RA_kwDOUp_CEM4poE9x",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 2067,
+      "sha256": "c9d932084eef666fad706781ba1f81eca522470e23e5a464354fe3f84d15bfc7",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/SHA256SUMS.txt",
+      "asset_id": "RA_kwDOUp_CEM4poIU0",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\SHA256SUMS.txt"
+    },
+    {
+      "name": "TEST-REPORT.json",
+      "bytes": 6727,
+      "sha256": "92493764355717bd08e136682f5c67d4eb0bb07e59489c61f2817a3e36fdb786",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/TEST-REPORT.json",
+      "asset_id": "RA_kwDOUp_CEM4poE-c",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\TEST-REPORT.json"
+    },
+    {
+      "name": "WINDOWS-BUILD-REPORT.json",
+      "bytes": 16698,
+      "sha256": "70c27dc935f27e03cc7935e09d89be0a5cbe8e99d5eea007ab3ad5a9e81aec5b",
+      "url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/WINDOWS-BUILD-REPORT.json",
+      "asset_id": "RA_kwDOUp_CEM4poIU1",
+      "verified_local_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\baseline-assets\\WINDOWS-BUILD-REPORT.json"
+    }
+  ],
+  "acceptance_evidence": [
+    "docs/releases/DRAGONHYDRA-RELEASE-REPORT.md",
+    "docs/handover/verified-reports/GENESIS-A9-PUBLICATION-VERIFICATION.json",
+    "docs/handover/verified-reports/GENESIS-A9-WINDOWS-UPGRADE.json",
+    "docs/handover/verified-reports/GENESIS-A9-WINDOWS-HTTP.json",
+    "JOOMLA-FRONTEND-REPORT.md"
+  ],
+  "evidence_reference_root": "C:\\xampp\\DRAGONHYDRA",
+  "evidence_reference_commit": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
+  "toolchain_locks": [
+    "config/runtime/server-python314.lock.txt",
+    "client/desktop/src-tauri/Cargo.lock",
+    "client/desktop/package-lock.json",
+    "android/dragonhydra_mobile/pubspec.lock"
+  ],
+  "known_limitations": [
+    "Windows unsigned; prior isolated upgrade/HTTP acceptance, not clean Windows/reboot certification",
+    "Android build/install/cold Home verified; connected pairing not verified",
+    "Linux archive historical Docker proof only",
+    "Component binaries have differing explicit source provenance; see release manifest"
+  ],
+  "selection_reason": "Latest published coherent Windows unified workstation with native Joomla frontend, shared Python backend and installed/HTTP acceptance; Linux-only increments are not selected",
+  "explicit_post_release_code_additions": [],
+  "independent_object_storage": true,
+  "preferred_e_available": false
+}

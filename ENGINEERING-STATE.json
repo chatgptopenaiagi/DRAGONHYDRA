@@ -1,0 +1,16 @@
+{
+  "edition": "DRAGONHYDRA CORE NEXT",
+  "mission_started": "2026-11-01",
+  "source_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT",
+  "lab_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB",
+  "preferred_e_available": false,
+  "baseline_tag": "genesis-a9-20261101",
+  "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+  "branch": "release/core-next-20261101T1400Z",
+  "phase": "BASELINE_AND_ISOLATION",
+  "installation": "NOT_RUN",
+  "architecture": "NOT_RUN",
+  "control_center": "NOT_RUN",
+  "publication": "NOT_RUN",
+  "next_objective": "Lock verified baseline assets and establish independent profiles and characterization"
+}
