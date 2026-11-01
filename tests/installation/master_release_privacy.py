@@ -9,6 +9,7 @@ import argparse
 import base64
 from datetime import datetime, timezone
 import io
+import gzip
 import json
 from pathlib import Path
 import subprocess
@@ -38,6 +39,7 @@ def main():
     report={'schema_version':1,'passed':False,'started_at':datetime.now(timezone.utc).isoformat(),'known_private_values_compared':len(values),'secrets_or_fingerprints_emitted':False,'ui_input_used':False,'files':0,'archive_members':0,'uncompressed_bytes_inspected':0,'matches':[],'scope':'Known values from four existing profiles and owner DPAPI login; explicit artifacts, recursive ZIP/tar content, full NSIS extraction, tracked HEAD files. Screenshots previously visually sanitized.'}
     def inspect(data,label,depth=0):
         assert depth<8,'Unexpected archive nesting'
+        report['last_inspected_member']=label
         report['uncompressed_bytes_inspected']+=len(data)
         if any(pattern in data for pattern in patterns): report['matches'].append(label)
         if is_zipfile(io.BytesIO(data)):
@@ -47,9 +49,16 @@ def main():
                         assert member.file_size<512*1024*1024
                         report['archive_members']+=1;inspect(z.read(member),label+'!'+member.filename,depth+1)
         elif data[:2]==b'\x1f\x8b':
-            with tarfile.open(fileobj=io.BytesIO(data),mode='r:gz') as z:
-                for member in z:
-                    if member.isfile():report['archive_members']+=1;inspect(z.extractfile(member).read(),label+'!'+member.name,depth+1)
+            unpacked=gzip.decompress(data)
+            try:
+                z=tarfile.open(fileobj=io.BytesIO(unpacked),mode='r:')
+            except tarfile.ReadError:
+                # Flutter APK NOTICES.Z is gzip text, not a tar archive.
+                report['archive_members']+=1;inspect(unpacked,label+'!gzip-content',depth+1)
+            else:
+                with z:
+                    for member in z:
+                        if member.isfile():report['archive_members']+=1;inspect(z.extractfile(member).read(),label+'!'+member.name,depth+1)
     try:
         # One immutable Git snapshot avoids a process launch per source file.
         snapshot=subprocess.check_output(['git','archive','--format=zip','HEAD'],cwd=ROOT)
