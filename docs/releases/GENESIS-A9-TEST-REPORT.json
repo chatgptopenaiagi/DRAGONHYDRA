@@ -99,6 +99,18 @@
       "status": "NOT_RUN",
       "observed": "No new A9Linuxbuild/runtime or nativeWSL/desktop/systemd/reboot claim",
       "evidence_or_command": "docs/releases/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "id": "FULL_INSTALLER_CONTENTS",
+      "status": "PASS",
+      "observed": "All10662manifested payload members rehashed after full NSIS extraction",
+      "evidence_or_command": "docs/handover/verified-reports/GENESIS-A9-FULL-PAYLOAD.json"
+    },
+    {
+      "id": "PREPUBLICATION_PRIVACY",
+      "status": "PASS",
+      "observed": "21known privatevalues,10692files,3475decompressedarchive members,zero matches; actual tagged source/metadata finalscan follows",
+      "evidence_or_command": "docs/handover/verified-reports/GENESIS-A9-PREPUBLICATION-PRIVACY.json"
     }
   ],
   "known_failures_resolved": [
@@ -111,6 +123,11 @@
       "category": "Packaging source",
       "initial": "Public pinned lock ignored by root runtime/ pattern and recursive staging runtime exclusion",
       "repair": "Exact public-lock Git exception, nested-path preserving source staging,sdist inclusion/privacy regressions"
+    },
+    {
+      "category": "Release scan harness",
+      "initial": "Relative filesystem path conversion then gzip-text treated as tar archive",
+      "repair": "Resolve explicit scan roots; decompress gzip text including Flutter NOTICES.Z; full actual asset scan passes; failed receipts preserved locally"
     }
   ],
   "publication_verification": "Separate coordinator remote verification receipt; no upload success inferred from local build report"

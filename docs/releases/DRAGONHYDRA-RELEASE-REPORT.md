@@ -108,3 +108,15 @@ outputs stay explicit.
 3. Verify exact WindowsSetup on a separately authorized cleanmachine andOSreboot.
 4. Scope frontend screen-reader/main-landmark and broader accessibility review.
 5. Verify native Linux ownership/runtime only when its isolated environment is available.
+
+## Final prepublication local gate
+
+Every one of the **10,662** installer payload members was extracted and checked
+against the payload manifest (sizes and SHA-256). The known-value privacy scan
+passed against21private values across10,692files and3,475decompressed archive
+members, including the full NSIS extraction. Zero matches. Two scan-harness issues
+(relative paths and gzip text versus tar) were fixed; failed receipts remain local.
+See the sanitized `GENESIS-A9-FULL-PAYLOAD.json` and
+`GENESIS-A9-PREPUBLICATION-PRIVACY.json` receipts. The final tagged-source archive
+and completed metadata receive a final scan before upload. Remote publication and
+public download verification remain a separate gate.

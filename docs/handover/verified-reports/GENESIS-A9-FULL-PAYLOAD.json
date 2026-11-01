@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "installer_sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+  "installer_manifest_members_sha256_verified": 10662,
+  "raw_receipt": "build/master-release-20261101/full-artifact-inspection.json",
+  "scope": "Every installer payload member after full NSIS extraction. Final complete-source archive receives separate exact-tag verification."
+}

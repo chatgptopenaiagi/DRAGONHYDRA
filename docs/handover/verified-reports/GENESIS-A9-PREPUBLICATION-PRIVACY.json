@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T13:02:59.043400+00:00",
+  "known_private_values_compared": 21,
+  "secrets_or_fingerprints_emitted": false,
+  "ui_input_used": false,
+  "files": 10692,
+  "archive_members": 3475,
+  "uncompressed_bytes_inspected": 515496577,
+  "matches": [],
+  "scope": "Known values from four existing profiles and owner DPAPI login; explicit artifacts, recursive ZIP/tar content, full NSIS extraction, tracked HEAD files. Screenshots previously visually sanitized.",
+  "last_inspected_member": "build\\master-release-20261101\\installer-full-scan\\WORKSTATION-BUILD.json",
+  "finished_at": "2026-11-01T13:03:07.061910+00:00"
+}
