@@ -111,7 +111,59 @@ function Close-OwnedClient {
 }
 function Status([string]$stage,[string]$errorCode='') {
     $script:phase=$stage
-    Save-Json ([ordered]@{stage=$stage;updated_at=[DateTime]::UtcNow.ToString('o');service_name=$script:cfg.service_name;api_url=('http://127.0.0.1:'+$script:cfg.api_port);joomla_url=('http://127.0.0.1:'+$script:cfg.web_port);backend='sqlite';admin_database='MariaDB';optional_ai='not_configured';error=$errorCode;processes=@($script:children|ForEach-Object {@{role=$_.Role;pid=$_.Process.Id}})}) (Join-Path $StateRoot 'status.json')
+    $observed=[DateTime]::UtcNow
+    Save-Json ([ordered]@{schema_version=2;observer='workstation-supervisor';stage=$stage;updated_at=$observed.ToString('o');observed_at=$observed.ToString('o');evidence_expires_at=$observed.AddSeconds(30).ToString('o');service_name=$script:cfg.service_name;api_url=('http://127.0.0.1:'+$script:cfg.api_port);joomla_url=('http://127.0.0.1:'+$script:cfg.web_port);backend='sqlite';admin_database='MariaDB';error=$errorCode;processes=@($script:children|ForEach-Object {@{role=$_.Role;pid=$_.Process.Id}});observations=$(if($stage -eq 'ready'){$script:runtimeObservations}else{@{}})}) (Join-Path $StateRoot 'status.json')
+}
+function Module-Observation([bool]$Healthy,[string]$Code,[string]$Reason,$Metrics) {
+    [ordered]@{runtime_state=$(if($Healthy){'ready'}else{'degraded'});reason_code=$Code;reason=$Reason;sanitized_metrics=$Metrics;last_success_at=$(if($Healthy){[DateTime]::UtcNow.ToString('o')}else{$null});evidence_reference=('supervisor:'+$Code.ToLowerInvariant())}
+}
+function Read-OnlyHttp([string]$Url,[bool]$Authenticated=$false) {
+    # Only exact configured loopback origins are accepted; redirects are refused.
+    $api='http://127.0.0.1:'+$script:cfg.api_port
+    $web='http://127.0.0.1:'+$script:cfg.web_port
+    if($Url -notin @(($api+'/dragon/api/v1/health/ready'),($web+'/'),($web+'/administrator/'))){throw 'OBSERVATION_URL_NOT_ALLOWLISTED'}
+    $headers=@{}
+    if($Authenticated){
+        if($Url -ne ($api+'/dragon/api/v1/health/ready')){throw 'OBSERVATION_CREDENTIAL_ORIGIN_DENIED'}
+        $token=(Read-Json (Join-Path $StateRoot 'kernel\local-session.json')).token
+        $headers.Authorization='Bearer '+$token
+    }
+    if(-not $script:observationWebSession){$script:observationWebSession=New-Object Microsoft.PowerShell.Commands.WebRequestSession}
+    Invoke-WebRequest -UseBasicParsing -Uri $Url -Method Get -Headers $headers -WebSession $script:observationWebSession -MaximumRedirection 0 -TimeoutSec 2
+}
+function Runtime-Observations {
+    # Monitoring reuses the owning supervisor. It never imports, submits a job,
+    # calls a provider/model, changes configuration or controls another service.
+    $apiOk=$false;$siteOk=$false;$adminOk=$false;$dbSocket=$false;$kernelPid=0
+    try{
+        $owned=@($script:children|Where-Object {$_.Role -eq 'kernel' -and -not $_.Process.HasExited})
+        $endpoint=Read-Json (Join-Path $StateRoot 'kernel\endpoint.json')
+        if($owned.Count -eq 1 -and [int]$endpoint.pid -eq $owned[0].Process.Id -and $endpoint.url -eq ('http://127.0.0.1:'+$script:cfg.api_port)){
+            $kernelPid=[int]$endpoint.pid
+            $health=Read-OnlyHttp ($endpoint.url+'/dragon/api/v1/health/ready') $true
+            $body=$health.Content|ConvertFrom-Json
+            $apiOk=($health.StatusCode -eq 200 -and $body.status -eq 'ready' -and $body.backend -eq 'sqlite')
+        }
+    }catch{} # Never publish a raw HTTP error or credential-bearing exception.
+    try{
+        $site=Read-OnlyHttp ('http://127.0.0.1:'+$script:cfg.web_port+'/')
+        $siteOk=($site.StatusCode -eq 200 -and $site.Content -match 'dragonhydra-workspace')
+    }catch{}
+    try{
+        $admin=Read-OnlyHttp ('http://127.0.0.1:'+$script:cfg.web_port+'/administrator/')
+        $adminOk=($admin.StatusCode -eq 200 -and $admin.Content -match 'mod-login-username')
+    }catch{}
+    $client=New-Object Net.Sockets.TcpClient
+    try{$task=$client.ConnectAsync('127.0.0.1',[int]$script:cfg.database_port);$dbSocket=($task.Wait(500) -and $client.Connected)}catch{}finally{$client.Dispose()}
+    $metrics=@{pid=$kernelPid;port=[int]$script:cfg.api_port}
+    [ordered]@{
+        api_server=(Module-Observation $apiOk $(if($apiOk){'API_SQLITE_READ_SUCCEEDED'}else{'API_HEALTH_UNVERIFIED'}) 'Configured API identity and authenticated SQLite readiness query.' $metrics)
+        web_server=(Module-Observation $siteOk $(if($siteOk){'JOOMLA_SITE_RESPONDED'}else{'JOOMLA_SITE_UNVERIFIED'}) 'Configured loopback Apache/PHP route returned the native Joomla workspace shell.' @{port=[int]$script:cfg.web_port})
+        website=(Module-Observation $siteOk $(if($siteOk){'JOOMLA_SITE_RESPONDED'}else{'JOOMLA_SITE_UNVERIFIED'}) 'Anonymous branded shell responds; private-data access requires its own Joomla session.' @{})
+        administration=(Module-Observation $adminOk $(if($adminOk){'JOOMLA_LOGIN_RESPONDED'}else{'JOOMLA_LOGIN_UNVERIFIED'}) 'Administrator login route responds; this probe does not prove owner authentication.' @{})
+        storage_mariadb=(Module-Observation ($dbSocket -and $siteOk) $(if($dbSocket -and $siteOk){'JOOMLA_DATABASE_ROUTE_RESPONDED'}else{'JOOMLA_DATABASE_UNVERIFIED'}) 'Database port accepts connections and the Joomla database-backed site responds; not a full schema audit.' @{port=[int]$script:cfg.database_port;port_accepts_connections=$dbSocket})
+        supervisor=(Module-Observation $true 'OWNED_SUPERVISOR_HEARTBEAT' 'Owning supervisor checked its managed child processes; no unrelated service was controlled.' @{pid=$PID;managed_processes=$script:children.Count})
+    }
 }
 function Web([string]$operation) {
     $php=Join-Path $script:cfg.install_root 'web\php\php.exe'
@@ -298,9 +350,16 @@ try{
         Start-Sleep -Milliseconds 500
         if($i -eq 239){throw 'Initial sample import timed out.'}
     }
+    $script:runtimeObservations=Runtime-Observations
     Status 'ready'
+    $nextObservation=[DateTime]::UtcNow.AddSeconds(15)
     while(-not(Test-Path -LiteralPath $stopFile)){
         foreach($entry in $script:children){if($entry.Process.HasExited){throw ('Managed component exited: '+$entry.Role)}}
+        if([DateTime]::UtcNow -ge $nextObservation){
+            $script:runtimeObservations=Runtime-Observations
+            Status 'ready'
+            $nextObservation=[DateTime]::UtcNow.AddSeconds(15)
+        }
         Start-Sleep -Seconds 1
     }
     Status 'stopping'
