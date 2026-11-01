@@ -211,8 +211,9 @@ The unchanged F4 client is 10,078,208 bytes, SHA-256
 
 Full NSIS extraction verified all 10,662 staged payload files. The standalone ZIP
 passed CRC and all 710 payload sizes/hashes (713 members including documentation).
-The known-private-value scan inspected 21 values, 10,674 files and 1,342 archive
-members before deployment: zero matches. This is a scoped known-value scan,
+The final known-private-value scan inspected 21 values, 10,678 files and 2,223
+archive members at 15:21 UTC: zero matches. This includes the committed source,
+standalone ZIP and fully extracted installer. This is a scoped known-value scan,
 not a claim to detect every possible secret. Private runtime state is excluded.
 
 Build workflow: `scripts/build_connector_server.py --work <fresh-owned-kernel>`;
@@ -278,5 +279,7 @@ Task-owned source/tests/sanitized receipts are kept in the existing Git workflow
 Independent `PACKAGING-COORDINATION.md`, public-access reports, Linux helper work,
 nested `source/` repository and unrelated untracked files remain outside staging.
 Binary candidates remain local release-style assets, not normal Git blobs.
-Final source push status is recorded in `SYSTEM-CONTROL-CENTER.md` and the existing
-engineering state only after remote comparison. No new GitHub release was made.
+Preservation source `2529b173f0a20955b4db732b39de35d5e2bc2603` was pushed to
+`continuity/genesis-20261031-a6`; a fresh remote comparison returned that exact
+commit. The later sanitized publication-receipt checkpoint is separately
+verified. No new GitHub release or binary upload was made.

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:23:28.928108+00:00",
+  "status": "SOURCE_PUSH_VERIFIED",
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "branch": "continuity/genesis-20261031-a6",
+  "local_commit": "2529b173f0a20955b4db732b39de35d5e2bc2603",
+  "remote_commit": "2529b173f0a20955b4db732b39de35d5e2bc2603",
+  "command": "git push origin HEAD:refs/heads/continuity/genesis-20261031-a6; git ls-remote --heads origin continuity/genesis-20261031-a6",
+  "push_exit_code": 0,
+  "remote_read_exit_code": 0,
+  "binary_assets_uploaded": false,
+  "primary_deployed": false,
+  "historical_release_assets_modified": false,
+  "independent_changes_staged": false,
+  "subsequent_metadata_checkpoint": "Use Git log and coordinator final remote verification; this receipt proves the source checkpoint above"
+}

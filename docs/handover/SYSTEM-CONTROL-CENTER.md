@@ -66,7 +66,7 @@ invented. Pairing/data/history/idempotency survive isolated process restart.
 Latest Joomla source/harness27PASS; earlier45broader batch separate/overlapping.
 Final packaging/helper/supervisor29PASS includes actualPS7+PS5.1 observer functions.
 Existing desktop source5PASS. Full10662installerfiles and710standalonepayloadmembers
-verified. Known-private-value scan21values/10674files/1342members zero before apply.
+verified. Final known-private-value scan21values/10678files/2223members zero; no apply.
 
 New installed Control Center URL is intended, **not yet verified/installed**:
 http://127.0.0.1:18740/administrator/index.php?option=com_dragonhydra&section=control
@@ -95,6 +95,7 @@ NOT_RUN. No new real installed Control Center screenshot exists.
 8. Update A–N matrix/report/state on actual evidence; publish only accurately
    scoped packages. Preserve independent files and historical A9 assets.
 
-Local preservation commits are discoverable with `git log`; remote push must be
-verified explicitly before claiming it. This task is not complete while primary
+Preservation source2529b173f0a20955b4db732b39de35d5e2bc2603 was pushed; a fresh
+remote branch comparison returned that exact commit. Later sanitized metadata
+updates are separately checkpointed; use `git log` for final HEAD. This task is not complete while primary
 deployment, authenticated new Control Center and required integration are unverified.

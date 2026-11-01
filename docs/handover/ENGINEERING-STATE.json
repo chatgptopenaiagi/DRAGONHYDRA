@@ -693,7 +693,7 @@
     "historical_assets_preserved": 59
   },
   "system_control_center_20261101": {
-    "updated_at": "2026-11-01T15:17:26.043276+00:00",
+    "updated_at": "2026-11-01T15:23:28.928108+00:00",
     "status": [
       "IMPLEMENTED",
       "BUILT",
@@ -753,7 +753,9 @@
     "report": "docs/handover/SYSTEM-CONTROL-CENTER-REPORT.md",
     "handoff": "docs/handover/SYSTEM-CONTROL-CENTER.md",
     "next_action": "After owner readiness, refresh consistent baseline if stale; fixed-primary guarded R4 upgrade; genuine UI/workflow/idempotence/native checks and scoped restart",
-    "source_remote_status": "Pending final task-owned checkpoint push; inspect Git rather than infer publication",
-    "historical_release_assets_changed": false
+    "source_remote_status": "SOURCE_PUSH_VERIFIED: remote continuity/genesis-20261031-a6 matched preservation_source_commit; subsequent sanitized metadata checkpoint is separately verified by coordinator",
+    "historical_release_assets_changed": false,
+    "preservation_source_commit": "2529b173f0a20955b4db732b39de35d5e2bc2603",
+    "privacy_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-PRIVACY.json"
   }
 }

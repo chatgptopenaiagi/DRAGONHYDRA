@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T15:21:34.792555+00:00",
+  "known_private_values_compared": 21,
+  "secrets_or_fingerprints_emitted": false,
+  "ui_input_used": false,
+  "files": 10678,
+  "archive_members": 2223,
+  "uncompressed_bytes_inspected": 439949523,
+  "matches": [],
+  "scope": "Known values from four existing profiles and owner DPAPI login; explicit artifacts, recursive ZIP/tar content, full NSIS extraction, tracked HEAD files. Screenshots previously visually sanitized.",
+  "last_inspected_member": "build\\system-control-center-20261101\\installer-r4-extracted\\WORKSTATION-BUILD.json",
+  "finished_at": "2026-11-01T15:21:44.011845+00:00",
+  "source_commit_scanned": "2529b173f0a20955b4db732b39de35d5e2bc2603",
+  "staged_source_receipt": "build/system-control-center-20261101/evidence/staged-source-privacy.json",
+  "post_scan_changes": "Sanitized counts and source-preservation metadata only; package bytes unchanged"
+}
