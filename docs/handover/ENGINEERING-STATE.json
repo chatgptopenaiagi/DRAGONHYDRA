@@ -378,7 +378,7 @@
       0,
       0
     ],
-    "container_resume_command": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe start dragonhydra-a6-acceptance-20261101-r1",
+    "container_resume_command": "& 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe' start dragonhydra-a6-acceptance-20261101-r1",
     "capability_observation": "C:/Users/LOVE/.codex/machine-capabilities/evidence/dragonhydra-a7-20261101/registry-refresh.json",
     "final_environment_receipt": "docs/handover/verified-reports/LINUX-A7-FINAL-ENVIRONMENT-20261101.json"
   }
