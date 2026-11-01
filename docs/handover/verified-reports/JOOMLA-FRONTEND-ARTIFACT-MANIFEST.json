@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-11-01T12:19:19.778953+00:00",
+  "scope": "Selected public-safe Joomla frontend source/evidence and local distributable identities; no private runtime state",
+  "package_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+  "files": [
+    {
+      "path": "JOOMLA-FRONTEND-REPORT.md",
+      "bytes": 16968,
+      "sha256": "46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5"
+    },
+    {
+      "path": "dist/pkg_dragonhydra-0.4.1-dev.2.zip",
+      "bytes": 43686,
+      "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+    },
+    {
+      "path": "dist/pkg_dragonhydra-0.4.1-dev.2.manifest.json",
+      "bytes": 859,
+      "sha256": "220a07044d070d165ea4f854f85c33267d11d61a37ba58b63a46244bd4d9b720"
+    },
+    {
+      "path": "dist/pkg_dragonhydra-0.4.1-dev.2.SHA256SUMS.txt",
+      "bytes": 208,
+      "sha256": "ccbf5feb1d481b988a90ed3c714bb8ee76dd4eedda9a3d0aa7045fff75f08293"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-ACCEPTANCE-MATRIX.json",
+      "bytes": 16240,
+      "sha256": "8dbcd94beae31469f719b1c7c594f34e451ed8e135236dbe574897e8c7c976a0"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-ANONYMOUS.png",
+      "bytes": 54216,
+      "sha256": "6a49e49faa86dafcde4a1fbaf2adf36518a33fb34cca96e5450c61055f7b2f64"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-BACKUP-MANIFEST.json",
+      "bytes": 3006,
+      "sha256": "467fb72571b1f065c2bb5d3405b81c086f6411f1863570c6a7c9b7bb888ca8b2"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "bytes": 9900,
+      "sha256": "f50f24383d113aa414d9f458a0922ab4e773301c6ad46b7df796f161ba030de2"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "bytes": 9657,
+      "sha256": "4ab03da91cc49c943ce5d2794bf48ca4b1ada8009a8e650c3718fcd9c7a640dc"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-CREDENTIAL-PURPOSE.json",
+      "bytes": 322,
+      "sha256": "46b7c7c48f8aa2c28222edebb4c42e8600bfe4ab1931fab20b26531fc151e659"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-CREDENTIAL-VERIFICATION.json",
+      "bytes": 785,
+      "sha256": "a3f419a83679990c88a650ec2935750649191f353e6438c3feed445d099f5f2e"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-DEPLOYMENT-REPEAT.json",
+      "bytes": 1287,
+      "sha256": "2cf76352289428490dffae37aa7b0987ad676fd4d709be5bc254b52582e90141"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-DEPLOYMENT.json",
+      "bytes": 1287,
+      "sha256": "2fc81f3238f5a4d7e6cc6e8cb5158c075301d6b9eae00060101d545c94ac12bf"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-DESKTOP.png",
+      "bytes": 180129,
+      "sha256": "ebb34114e86e8776be5d0161475d07e9cf0662914b17c7b9209dc1eb44c4285e"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-FINAL-PRESERVATION.json",
+      "bytes": 4272,
+      "sha256": "00fe76474e8e725712be5001cf6d22286ad8534d9f8c7c0682fc09382cc0b8b1"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-FOCUSED-TESTS.json",
+      "bytes": 7370,
+      "sha256": "339044b4e25f86c3f75b01336ee2c969da33019d3108dc0b33284129dd06ae52"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-IDEMPOTENCE.json",
+      "bytes": 1639,
+      "sha256": "759cd18ae8023cf0674d527344f58100b00ffe43bd3b7d7c06b38aca7e95d924"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-INSTALLED-WEB-UPDATE.json",
+      "bytes": 8650,
+      "sha256": "e85dab7d7f00e2b40ecda605a68402338a101e4c0809899cd4f54d82560fdf84"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-ISOLATED-STATES.json",
+      "bytes": 2800,
+      "sha256": "3a66f1d6df9025e0fc306d199a092ea1f5c51300ceb03ff7960c8a7a75dbee7b"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-MATCH.png",
+      "bytes": 161385,
+      "sha256": "15a8456be9b71cf96b6db2e42dce72f420c861bdcc9ec0c92e3840375df6c278"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-MOBILE.png",
+      "bytes": 149422,
+      "sha256": "a1ac49a81609ba9dab85cb49a461ae1b04d7acda8de51921419eed2c826ff144"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-PACKAGE-VERIFICATION.json",
+      "bytes": 778,
+      "sha256": "959cf1e0fe5b25086f300d966e591298bd7acfac21b75d4a32ec6cfc8f1e5a01"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-PRESENTATION-AFTER.json",
+      "bytes": 62931,
+      "sha256": "b4a91bdb8d663c6939092bb40f556646e4743ae734ebcdc68a641465627070d7"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-PRESENTATION-BEFORE.json",
+      "bytes": 61241,
+      "sha256": "f1c87a9dfe0e5d198894cec84e6d5be3dc9e9def1e1ddf3633019127065da4c2"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-PRESENTATION-FINAL.json",
+      "bytes": 62931,
+      "sha256": "b08622a8ef0393cdf9d157cb2101fb56a5a4a3b52ccb22e65cbfd65aa7accc03"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-REPAIR-INPUT-VERIFICATION.json",
+      "bytes": 1145,
+      "sha256": "7b8b4e163caf965687ca779d41af35bf1fb1592696ef33614d3e7a96b48be7f2"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-ROLLBACK-PLAN.json",
+      "bytes": 2074,
+      "sha256": "c6be30de2ab0f976f6bf74cd5b62b48448b5abbacf259dae74417133c10e02c4"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-SECRET-SCAN.json",
+      "bytes": 462,
+      "sha256": "cb461b42d62d5faf0a5c1abcacdc0d4f055911c4c118fc6b9ca98fb1221fd97c"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-WEB-HOOK-CORRECTION.json",
+      "bytes": 756,
+      "sha256": "dea7405d992c55d4df76edf90d76de191f85fe12c05d04e403284597875f1980"
+    },
+    {
+      "path": "docs/handover/verified-reports/JOOMLA-FRONTEND-MENU-SEMANTICS.json",
+      "bytes": 1714,
+      "sha256": "688c2ab58831aac818fe8d5d10acab3caa276b925a6bf1a10f9e41bb2d0b1fd8"
+    }
+  ]
+}

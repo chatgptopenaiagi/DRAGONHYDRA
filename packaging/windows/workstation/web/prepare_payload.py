@@ -12,6 +12,8 @@ import json
 import shutil
 import struct
 import zipfile
+import io
+import xml.etree.ElementTree as ET
 from pathlib import Path, PurePosixPath
 
 
@@ -157,7 +159,113 @@ def verified_zip(path: Path, expected: str) -> zipfile.ZipFile:
     return archive
 
 
+def joomla_extension_metadata(path: Path) -> dict:
+    """Bind the current provisioner to a frontend-capable component package."""
+    with zipfile.ZipFile(path) as package:
+        if set(package.namelist()) != {'pkg_dragonhydra.xml', 'constituents/com_dragonhydra.zip',
+                                       'constituents/tpl_cassiopeia_dragonhydra.zip'}:
+            raise ValueError('The current workstation hook requires the sports-workspace package and its child template')
+        manifest = ET.fromstring(package.read('pkg_dragonhydra.xml'))
+        version = manifest.findtext('version')
+        if [item.get('id') for item in manifest.findall('files/file')] != ['cassiopeia_dragonhydra', 'com_dragonhydra']:
+            raise ValueError('The Joomla child template must install before component Home setup')
+        with zipfile.ZipFile(io.BytesIO(package.read('constituents/com_dragonhydra.zip'))) as component:
+            required = {'admin/src/Service/FrontendSetup.php', 'site/src/Controller/DisplayController.php',
+                        'site/tmpl/dashboard/default.php', 'media/joomla.asset.json', 'media/css/workspace.css'}
+            if not required.issubset(component.namelist()):
+                raise ValueError('The selected Joomla package does not contain the required native frontend')
+            component_xml = ET.fromstring(component.read('dragonhydra.xml'))
+            if component_xml.findtext('version') != version:
+                raise ValueError('Joomla component and package versions disagree')
+        with zipfile.ZipFile(io.BytesIO(package.read('constituents/tpl_cassiopeia_dragonhydra.zip'))) as template:
+            child = ET.fromstring(template.read('templateDetails.xml'))
+            if child.findtext('version') != version or child.findtext('parent') != 'cassiopeia':
+                raise ValueError('The workspace child-template identity is inconsistent')
+    return {'version': version, 'sha256': digest(path), 'child_template': 'cassiopeia_dragonhydra',
+            'frontend_setup': 'Idempotent Joomla-native Home/module/template setup; no kernel database changes'}
+
+
+def frontend_hook_metadata(manifest: dict) -> dict:
+    """Bind current hook metadata while retaining the previous verified identity."""
+    updated = json.loads(json.dumps(manifest))
+    hooks = [row for row in updated['files'] if row['path'] == 'manage.php']
+    if len(hooks) != 1:
+        raise ValueError('The web payload must identify exactly one provisioning hook')
+    updated['frontend_refresh'].setdefault('baseline_provisioning_hook', updated.get('provisioning_hook'))
+    updated['provisioning_hook'] = {'path': 'manage.php', 'sha256': hooks[0]['sha256'],
+        'source': 'Current workstation frontend provisioning source; exact file hash recorded',
+        'refresh': 'Verified frontend package/hook refresh; runtime binaries unchanged'}
+    return updated
+
+
+def refresh_payload(source: Path, destination: Path, extension: Path) -> dict:
+    """Reuse a complete verified immutable web payload; replace presentation inputs only."""
+    source, destination, extension = source.resolve(), destination.resolve(), extension.resolve()
+    project = Path(__file__).resolve().parents[4]
+    if not destination.is_relative_to(project / 'build'):
+        raise ValueError('Refreshed web payloads must remain under the project build directory')
+    if source == destination or source in destination.parents or destination in source.parents:
+        raise ValueError('The verified baseline and new web payload must be separate trees')
+    if destination.exists() and any(destination.iterdir()):
+        raise ValueError('A fresh destination is required; earlier payloads remain immutable')
+    extension_info = joomla_extension_metadata(extension)
+    manifest_path = source / 'payload-manifest.json'
+    old = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
+    if old.get('architecture') != 'x64' or old.get('platform') != 'windows':
+        raise ValueError('Expected the verified Windows x64 web payload')
+    expected_files = set()
+    for row in old['files']:
+        relative = PurePosixPath(row['path'])
+        candidate = (source / relative).resolve()
+        if (relative.is_absolute() or '..' in relative.parts or '\\' in row['path']
+                or not candidate.is_relative_to(source) or not candidate.is_file()
+                or candidate.stat().st_size != row['bytes'] or digest(candidate) != row['sha256']):
+            raise ValueError('Verified baseline web payload integrity check failed')
+        expected_files.add(candidate)
+    source_items = list(source.rglob('*'))
+    if any(item.is_symlink() or item.is_junction() for item in source_items):
+        raise ValueError('The immutable web payload must not contain filesystem links')
+    actual_files = {item.resolve() for item in source_items if item.is_file()}
+    if actual_files != expected_files | {manifest_path.resolve()}:
+        raise ValueError('Unexpected files exist in the baseline immutable web payload')
+    baseline_manifest_sha = digest(manifest_path)
+    shutil.copytree(source, destination, dirs_exist_ok=True)
+    shutil.copyfile(extension, destination / 'extension.zip')
+    helper_root = Path(__file__).resolve().parent
+    for name in ('manage.php', 'README.md'):
+        shutil.copyfile(helper_root / name, destination / name)
+    updated = json.loads(json.dumps(old))
+    changed = {'extension.zip', 'manage.php', 'README.md'}
+    for row in updated['files']:
+        if row['path'] in changed:
+            file = destination / row['path']
+            row['bytes'], row['sha256'] = file.stat().st_size, digest(file)
+    if changed - {row['path'] for row in updated['files']}:
+        raise ValueError('The baseline does not include the expected provisioning inputs')
+    updated['components']['joomla_extension'] = extension_info
+    updated['frontend_refresh'] = {
+        'baseline_manifest_sha256': baseline_manifest_sha,
+        'baseline_payload': str(source), 'changed_files': sorted(changed),
+        'reused_runtime_files': len(updated['files']) - len(changed),
+        'python_server_or_client_rebuilt': False,
+        'installation_acceptance': 'Not established by payload preparation',
+    }
+    updated = frontend_hook_metadata(updated)
+    (destination / 'payload-manifest.json').write_text(json.dumps(updated, indent=2) + '\n', encoding='utf-8')
+    for row in updated['files']:
+        file = destination / row['path']
+        if file.stat().st_size != row['bytes'] or digest(file) != row['sha256']:
+            raise ValueError('Refreshed payload verification failed')
+    return {'prepared': True, 'reused_verified_runtime': True, 'files': len(updated['files']),
+            'changed_files': sorted(changed), 'extension': extension_info,
+            'baseline_manifest_sha256': baseline_manifest_sha,
+            'manifest_sha256': digest(destination / 'payload-manifest.json'),
+            'source_sha': old['source_sha'], 'installed': False,
+            'clean_machine_tested': False}
+
+
 def assemble(args: argparse.Namespace) -> dict:
+    extension = joomla_extension_metadata(args.extension)
     destination = args.destination.resolve()
     if destination.exists() and any(destination.iterdir()):
         raise ValueError("Destination must be absent or empty; existing payloads are never overwritten")
@@ -224,6 +332,7 @@ def assemble(args: argparse.Namespace) -> dict:
                     "upstream": "https://downloads.php.net/~windows/releases/php-8.4.27-1-Win32-vs17-x64.zip"},
             "joomla": {"version": "6.2.0", "archive_sha256": JOOMLA_SHA256,
                        "upstream": "https://downloads.joomla.org/cms/joomla6/6-2-0/Joomla_6-2-0-Stable-Full_Package.zip?format=zip"},
+            "joomla_extension": extension,
         },
         "runtime_binding": {"php_handler": "apache2handler", "php_thread_safety": True,
                             "bind_address": "127.0.0.1", "minimum_os": "Windows 10 x64",
@@ -240,14 +349,22 @@ def assemble(args: argparse.Namespace) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--destination", type=Path, required=True)
-    parser.add_argument("--apache-root", type=Path, required=True)
-    parser.add_argument("--mariadb-root", type=Path, required=True)
-    parser.add_argument("--php-zip", type=Path, required=True)
-    parser.add_argument("--joomla-zip", type=Path, required=True)
+    parser.add_argument("--reuse-payload", type=Path)
+    parser.add_argument("--apache-root", type=Path)
+    parser.add_argument("--mariadb-root", type=Path)
+    parser.add_argument("--php-zip", type=Path)
+    parser.add_argument("--joomla-zip", type=Path)
     parser.add_argument("--extension", type=Path, required=True)
-    parser.add_argument("--source-sha", required=True)
-    parser.add_argument("--version", required=True)
+    parser.add_argument("--source-sha")
+    parser.add_argument("--version")
     args = parser.parse_args()
+    if args.reuse_payload:
+        if any((args.apache_root, args.mariadb_root, args.php_zip, args.joomla_zip, args.source_sha, args.version)):
+            parser.error('Reuse reads unchanged runtime provenance from its verified baseline; do not supply replacement runtime inputs')
+        print(json.dumps(refresh_payload(args.reuse_payload, args.destination, args.extension), indent=2))
+        return
+    if not all((args.apache_root, args.mariadb_root, args.php_zip, args.joomla_zip, args.source_sha, args.version)):
+        parser.error('A new runtime assembly requires explicit roots, pinned archives, source SHA and version')
     if len(args.source_sha) != 40 or any(c not in "0123456789abcdef" for c in args.source_sha):
         parser.error("--source-sha must be a full lowercase Git SHA")
     print(json.dumps(assemble(args), indent=2))

@@ -1,3 +1,12 @@
+Current Joomla frontend mission COMPLETE (2026-11-01).
+
+Nativehomepage18740+associatedAPI18744 verified17/17, package0.4.1-dev.2installed and
+cachedrepairinputsupdated. Read JOOMLA-FRONTEND-REPORT.md. Do not repeat recovery,
+resetcredentials, rebuildPython/client or repointprofiles. Owner uses normalSiteLogin.
+Next scoped improvement: screen-reader/landmark audit (component/childtemplate main
+landmarks), broader accessible navigation checks. Future complete Windowsinstaller
+acceptance is independent; inspect existing capability/ownership before infrastructure.
+
 Current Windows Joomla recovery: COMPLETE (2026-11-01).
 
 18/18 required checks passed on the original18740 profile and its actual18744backend.

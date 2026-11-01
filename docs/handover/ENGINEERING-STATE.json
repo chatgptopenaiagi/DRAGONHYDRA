@@ -502,10 +502,10 @@
     ]
   },
   "current_mission": {
-    "milestone": "Existing Windows Joomla owner access and integration",
-    "status": "VERIFIED",
-    "report": "JOOMLA-RECOVERY-REPORT.md",
-    "next_unfinished_objective": "Owner normal use/optional owner-selected credential change; previous clean Windows A8/reboot/signing gates remain independent"
+    "milestone": "Joomla-native sports intelligence homepage",
+    "status": "VERIFIED_LOCAL_DELIVERY",
+    "report": "JOOMLA-FRONTEND-REPORT.md",
+    "next_unfinished_objective": "Screen-reader/landmark audit; separate Windows installer clean-machine/reboot acceptance remains independent"
   },
   "joomla_recovery_20261101": {
     "status": [
@@ -571,5 +571,85 @@
     ],
     "next_action": "Owner uses primary-profile Administration launcher masked handoff and Open Joomla; no additional repair/rebuild is indicated",
     "verified_at": "2026-11-01T11:05:12.651945+00:00"
+  },
+  "joomla_frontend_20261101": {
+    "status": [
+      "IMPLEMENTED",
+      "BUILT",
+      "INSTALLED",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED",
+      "LOCAL_DELIVERED"
+    ],
+    "report": "JOOMLA-FRONTEND-REPORT.md",
+    "verified_at": "2026-11-01T12:14:10.485699+00:00",
+    "starting_checkpoint": "1c983cfa0886b65ed2afb0892f259643b4a3ffc7",
+    "package_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+    "latest_checkpoint_resolution": "Git commit containing JOOMLA-FRONTEND-REPORT.md",
+    "service": "DragonhydraWorkstationTest",
+    "state_root": "build/workstation/test-install/state data",
+    "homepage": "http://127.0.0.1:18740/",
+    "api_base": "http://127.0.0.1:18744/dragon/api/v1",
+    "home_menu_id": 142,
+    "previous_home_id": 101,
+    "template_style_id": 13,
+    "template": "cassiopeia_dragonhydra",
+    "component_version": "0.4.1-dev.2",
+    "package": "dist/pkg_dragonhydra-0.4.1-dev.2.zip",
+    "package_bytes": 43686,
+    "package_sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+    "web_payload": "build/joomla-frontend-20261101/web-payload",
+    "web_manifest_sha256": "f54572ad63f2f6a7b8467a4fc96c8fad72d203357e57d958641fca517b884304",
+    "installed_web_inputs_refreshed": true,
+    "installed_web_guards_passed": 15,
+    "server_client_binaries_unchanged": true,
+    "services_restarted": false,
+    "all_four_service_pids_unchanged": true,
+    "dynamic_observed_totals": {
+      "matches": 760,
+      "source_scoped_teams": 40,
+      "competitions": 2
+    },
+    "acceptance_requirements_passed": 17,
+    "browser_evidence": {
+      "first_recorded_passes": 17,
+      "first_receipt_status": "FAIL external-document timeout, preserved",
+      "continuation_passed": true,
+      "continuation_checks": 13,
+      "same_package_source": true,
+      "new_exports_total": 3
+    },
+    "focused_tests": 36,
+    "isolated_browser_state_checks": 7,
+    "privacy_scan_passed": true,
+    "login": "Normal separate Joomla Site session, owner current password; protected views require existing core.manage",
+    "supplied_value_role": "Identified as stored generated initial admin password; not used for service auth",
+    "credentials_embedded": false,
+    "password_reset": false,
+    "private_backups": "build/joomla-frontend-20261101/private-backup",
+    "new_windows_installer_built": false,
+    "source_workstation_inputs_updated": true,
+    "historical_releases_untouched": true,
+    "limitations": [
+      "Provider handoff destinations verified with controlled external document responses; remote provider availability not claimed",
+      "No clean-machine, OS reboot or restore-drill acceptance",
+      "No formal screen-reader/WCAG audit; nested main-landmark semantic follow-up",
+      "Unsigned development extension; no GitHub release upload"
+    ],
+    "next_action": "Open homepage, use Sign in with owner current Joomla password; next engineering follow-up is screen-reader/landmark audit and separate future Windows installer acceptance",
+    "menu_semantic_assertion_review": {
+      "passed": true,
+      "regressions": 7,
+      "receipt": "docs/handover/verified-reports/JOOMLA-FRONTEND-MENU-SEMANTICS.json",
+      "unknown_writer_not_claimed": true,
+      "unrelated_menus_articles_preserved": true
+    }
+  },
+  "master_release_20261101": {
+    "status": "DISCOVERING_AFTER_FRONTEND_CHECKPOINT",
+    "frontend_menu_issue": "Precisely resolved semantic comparison with7regressions andactualDBproof",
+    "platform_builds_started": false,
+    "candidate_classification": "prerelease; componentversionsandearlierbinaryprovenanceexplicit"
   }
 }

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T12:18:27.639984+00:00",
+  "all_four_services_identical_before_after": true,
+  "services_after": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 39364,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 12904,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    },
+    {
+      "Name": "DragonhydraGenesisA8Test",
+      "State": "Running",
+      "ProcessId": 17012,
+      "StartName": "NT AUTHORITY\\LocalService",
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" --name DragonhydraGenesisA8Test"
+    }
+  ],
+  "all_retained_sports_configuration_fingerprints_equal": true,
+  "snapshot": {
+    "records": 760,
+    "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+    "provider_record_counts": {
+      "api-football": 0,
+      "the-odds-api": 0,
+      "sportmonks": 0,
+      "football-data-org": 0,
+      "football-data-couk": 0,
+      "openfootball": 760,
+      "statsbomb": 0,
+      "nflverse": 0,
+      "moneypuck": 0,
+      "cricsheet": 0
+    },
+    "configuration_sha256": {
+      "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+      "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+      "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+      "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+      "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+      "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+    }
+  },
+  "articles": 11,
+  "modules": 48,
+  "menu_count": 55,
+  "site_home_id": 142,
+  "child_style_id": 13,
+  "owner_identity_groups_and_bridge_params_unchanged": true,
+  "post_repeat_home_parameter_observation": {
+    "changes": [
+      {
+        "id": 142,
+        "changed_fields": [
+          "params_sha256"
+        ],
+        "before_params_sha256": "af2118b4c20d872289f099434451063d5f9e925db914d44f068eed490c0e042f",
+        "after_params_sha256": "3777e3d9a481008dacf49fe941728c967fecdc262aa936875ed1f70d197e829a"
+      }
+    ],
+    "essential_dashboard_title_class_and_heading_flag_verified": true,
+    "detail": "Final Home142 JSON contains native menu-form fields and omits the unused internal marker. Exact writer not established; core Home/link/style/visibility/title/class remain correct. No overwrite was performed. This is later than the successful exact reapplication check."
+  },
+  "original_a8_installer_unchanged": {
+    "bytes": 64769361,
+    "sha256": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa"
+  },
+  "expected_export_jobs_created": 3,
+  "services_restarted": false
+}

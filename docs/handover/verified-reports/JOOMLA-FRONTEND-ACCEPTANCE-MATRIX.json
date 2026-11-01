@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T12:07:36.925738+00:00",
+  "requirements": 17,
+  "pass_count": 17,
+  "checks": [
+    {
+      "id": "01",
+      "expected": "Root homepage uses DRAGONHYDRA, not sample blog",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:32.392327+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "root_homepage_uses_native_component_and_preserves_anonymous_privacy",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:32.392327+00:00"
+      }
+    },
+    {
+      "id": "02",
+      "expected": "Home item and child-template assignments correct",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:52:04.073418+00:00",
+      "action": "Supported Joomla package reapplication and read-only DB snapshots",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-IDEMPOTENCE.json",
+      "observation": {
+        "passed": true,
+        "home_id": 142,
+        "template_style": 13
+      }
+    },
+    {
+      "id": "03",
+      "expected": "Owner signs in normally to protected site workspace",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:35.489133+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "genuine_separate_joomla_site_login",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:35.489133+00:00",
+        "username": "dragonadmin",
+        "backend_token_injected": false
+      }
+    },
+    {
+      "id": "04",
+      "expected": "Anonymous users cannot read private data or mutate exports",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:41.926383+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "logged_out_export_download_is_denied",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:41.926383+00:00",
+        "http_status": 403
+      }
+    },
+    {
+      "id": "05",
+      "expected": "Totals/records equal the correct associated backend",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:35.547576+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "dashboard_totals_match_corresponding_backend",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:35.547576+00:00",
+        "totals": {
+          "total_matches": 760,
+          "total_teams": 40,
+          "total_competitions": 2
+        }
+      }
+    },
+    {
+      "id": "06",
+      "expected": "Retained match source identity and timestamps verified",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:39.365725+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "retained_match_source_ids_timestamps_and_identity_match_backend",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:39.365725+00:00",
+        "match": {
+          "id": "df19cc290a6a174e1715dbe9917cabad7dd878134d043cb3042f2b5b6c091c01",
+          "source_id": "openfootball-2026-27-en1.json",
+          "evidence_id": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+          "version": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+          "event_date": "2026-09-20",
+          "home": {
+            "id": "0ce26d443b8418644aa8f73db703186cb1985dedf9c4bd2519b44c8beca47c57",
+            "name": "Leeds United FC"
+          },
+          "away": {
+            "id": "89afe3a3b0cc8dcfa01930d7e76e23a38bb8887b6655f46efe4b857a28512959",
+            "name": "Crystal Palace FC"
+          },
+          "status": "finished"
+        }
+      }
+    },
+    {
+      "id": "07",
+      "expected": "Search, filters, pagination and entity navigation work",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:38.772821+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "search_competition_status_and_limit_use_actual_retained_filters",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:38.772821+00:00",
+        "total": 5
+      }
+    },
+    {
+      "id": "08",
+      "expected": "Existing analysis and unavailable states are honest",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:41.934311+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "existing_scheduled_analysis_matches_backend",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:41.934311+00:00",
+        "available": true,
+        "probabilities": [
+          "39.2%",
+          "30.4%",
+          "30.4%"
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "expected": "JSON, CSV and XLSX exports are actual valid downloads",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:50.167348+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-DATA-VERIFICATION.json",
+      "observation": {
+        "name": "actual_frontend_xlsx_export_download",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:48:50.167348+00:00",
+        "artifact": {
+          "format": "xlsx",
+          "job_id": "e4fec67cdfc545c4839fd8a720e20670",
+          "owner": "joomla:476",
+          "filename": "DRAGONHYDRA-e4fec67cdfc545c4839fd8a720e20670.xlsx",
+          "bytes": 6159,
+          "sha256": "bcde155a912358d2b12abb2b243deadd27ade930b10c637b740ddb1b58f5af7d",
+          "download_href": "/index.php?task=actions.download&job_id=e4fec67cdfc545c4839fd8a720e20670"
+        }
+      }
+    },
+    {
+      "id": "10",
+      "expected": "Provider links open correct new tabs and preserve workspace",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:37.412007+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "provider_registration_documentation_open_new_tabs_and_preserve_workspace",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:37.412007+00:00",
+        "destinations": [
+          {
+            "href": "https://www.api-football.com/documentation_v3",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://the-odds-api.com/liveapi/guides/v4/",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://docs.sportmonks.com/v3/endpoints-and-entities/endpoints/fixtures",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://docs.football-data.org/general/v4/index.html",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://www.football-data.co.uk/",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://github.com/openfootball/football.json",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://github.com/statsbomb/open-data",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://github.com/nflverse/nflverse-data",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://moneypuck.com/data.htm",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          },
+          {
+            "href": "https://cricsheet.org/downloads/",
+            "browser_popup_received_target": true,
+            "workspace_unchanged": true
+          }
+        ],
+        "external_document_transport": "controlled"
+      }
+    },
+    {
+      "id": "11",
+      "expected": "Existing administrator login/component still work",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:39.516390+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "existing_administrator_and_component_still_authenticate_and_render",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:39.516390+00:00"
+      }
+    },
+    {
+      "id": "12",
+      "expected": "Empty, errors and backend-unavailable states render in isolation",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:49:46.635603+00:00",
+      "action": "Isolated actual-template browser check",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-ISOLATED-STATES.json",
+      "observation": {
+        "passed": true,
+        "scenarios": 6,
+        "mobile_check": true,
+        "production_services_stopped": false
+      }
+    },
+    {
+      "id": "13",
+      "expected": "Desktop/narrow layouts and keyboard navigation are usable",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.786742+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "narrow_390px_layout_has_no_document_overflow",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:40.786742+00:00"
+      }
+    },
+    {
+      "id": "14",
+      "expected": "No supplied credentials or private keys in browser/public artifacts",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.999464+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "rendered_html_scripts_and_browser_storage_omit_private_values",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:40.999464+00:00",
+        "local_script_bundles_checked": 3,
+        "local_storage_entries": 0,
+        "session_storage_entries": 0,
+        "private_value_matches": 0
+      }
+    },
+    {
+      "id": "15",
+      "expected": "Retained data/provider settings/pairing/other profiles preserved",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:46.000194+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "records_provider_settings_pairing_and_config_preserved",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:46.000194+00:00",
+        "snapshot": {
+          "records": 760,
+          "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+          "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+          "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+          "provider_record_counts": {
+            "api-football": 0,
+            "the-odds-api": 0,
+            "sportmonks": 0,
+            "football-data-org": 0,
+            "football-data-couk": 0,
+            "openfootball": 760,
+            "statsbomb": 0,
+            "nflverse": 0,
+            "moneypuck": 0,
+            "cricsheet": 0
+          },
+          "configuration_sha256": {
+            "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+            "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+            "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+            "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+            "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+            "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+          }
+        }
+      }
+    },
+    {
+      "id": "16",
+      "expected": "Reload, logout and fresh login preserve expected access",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:45.451898+00:00",
+      "action": "Actual deployed browser/session verification",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-BROWSER-CONTINUATION.json",
+      "observation": {
+        "name": "fresh_browser_login_reopens_real_workspace",
+        "status": "PASS",
+        "verified_at": "2026-11-01T11:51:45.451898+00:00",
+        "previous_context_closed": true,
+        "imported_storage_state": false
+      }
+    },
+    {
+      "id": "17",
+      "expected": "Redeployment creates no duplicate presentation or data records",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:52:04.073418+00:00",
+      "action": "Supported Joomla package reapplication and read-only DB snapshots",
+      "exit_code": 0,
+      "evidence": "docs/handover/verified-reports/JOOMLA-FRONTEND-IDEMPOTENCE.json",
+      "observation": {
+        "passed": true,
+        "home_id": 142,
+        "template_style": 13
+      }
+    }
+  ],
+  "browser_evidence_chain": {
+    "initial_receipt_passed": false,
+    "initial_successful_checks": 17,
+    "initial_failure": "External provider document readiness timeout; preserved raw failed status",
+    "continuation_passed": true,
+    "continuation_checks": 13,
+    "previous_receipt_digest_verified": true,
+    "scope": "Only successful recorded assertions combine; raw failed receipt is never rewritten as passed"
+  },
+  "external_link_scope": "Real anchor clicks and new browser tabs at exact configured HTTPS addresses; external document transport is controlled to avoid provider/network variability. Remote provider availability is not asserted.",
+  "isolated_states_scope": "Real component templates in isolated PHP fixture; no production outage",
+  "package_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+  "installed_cached_input_update": {
+    "status": "VERIFIED",
+    "guards_passed": 15,
+    "receipt": "docs/handover/verified-reports/JOOMLA-FRONTEND-INSTALLED-WEB-UPDATE.json",
+    "official_management_install_exit_code": 0
+  },
+  "supplied_value_purpose": "Stored generated initial administrator-password field; not used for service authentication",
+  "final_secret_scan": "docs/handover/verified-reports/JOOMLA-FRONTEND-SECRET-SCAN.json"
+}

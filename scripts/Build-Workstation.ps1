@@ -10,6 +10,7 @@ param(
     [switch]$RefreshWebHook,
     [string]$KernelBuildRoot,
     [string]$ClientBuildRoot,
+    [string]$JoomlaPackagePath,
     [string]$SevenZip = 'C:\Program Files\7-Zip\7z.exe',
     [string]$MakeNsis = (Join-Path $env:LOCALAPPDATA 'tauri\NSIS\makensis.exe')
 )
@@ -30,7 +31,7 @@ foreach ($path in @($BuildRoot,$OutputRoot)) {
     if (-not $path.StartsWith($project+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'Build and output directories must remain inside the project.' }
     if ($path.StartsWith((Join-Path $project 'dist\releases')+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'Immutable release directories cannot be workstation outputs.' }
 }
-if ($KernelBuildRoot -or $ClientBuildRoot) {
+if ($KernelBuildRoot -or $ClientBuildRoot -or ($JoomlaPackagePath -and $RepackageOnly)) {
     if (-not $BuildRoot.StartsWith((Join-Path $project 'build\connections')+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'Provider kernel staging must be a new owned directory under build/connections; verified workstation staging is preserved.' }
     if (Test-Path -LiteralPath (Join-Path $OutputRoot ('DRAGONHYDRA-'+$Version+'-Workstation-win-x64-Setup.exe'))) { throw 'A provider-enabled candidate never overwrites a previous installer. Choose a fresh output directory.' }
     if ($KernelBuildRoot) {
@@ -58,9 +59,25 @@ function Native([string]$Name,[string]$Executable,[string[]]$Arguments) {
 }
 function Hash([string]$Path) { (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant() }
 function WriteJson($Value,[string]$Path) { [IO.File]::WriteAllText($Path,($Value | ConvertTo-Json -Depth 20),[Text.UTF8Encoding]::new($false)) }
+function Get-VerifiedFrontendPackage([string]$Path) {
+    $Path = [IO.Path]::GetFullPath($Path)
+    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { throw 'Build the canonical Joomla frontend package first using scripts/build_joomla.py, or provide -JoomlaPackagePath.' }
+    $receiptPath = [IO.Path]::ChangeExtension($Path,'.manifest.json')
+    if (-not (Test-Path -LiteralPath $receiptPath -PathType Leaf)) { throw 'The Joomla frontend package needs its matching builder manifest.' }
+    $receipt = Get-Content -LiteralPath $receiptPath -Raw | ConvertFrom-Json
+    $expectedVersion = ([xml](Get-Content -LiteralPath (Join-Path $project 'server\joomla\pkg_dragonhydra.xml') -Raw)).extension.version
+    if (-not $receipt.built -or $receipt.version -ne $expectedVersion -or -not ($receipt.PSObject.Properties.Name -contains 'frontend_setup') -or $receipt.child_template_files -lt 2 -or $receipt.sha256 -ne (Hash $Path) -or $receipt.bytes -ne (Get-Item -LiteralPath $Path).Length) { throw 'Joomla frontend artifact identity or SHA-256 does not match its builder manifest.' }
+    [ordered]@{path=$Path;version=$receipt.version;package_sha256=$receipt.sha256;bytes=$receipt.bytes;source_sha=$receipt.source_sha;manifest_sha256=(Hash $receiptPath);frontend_setup=$receipt.frontend_setup;child_template='cassiopeia_dragonhydra';verification='Package input/hash verified; installation acceptance remains separate'}
+}
 $kernelOverride = $null
 $clientOverride = $null
+$joomlaOverride = $null
 . (Join-Path $project 'packaging\windows\workstation\ClientBuild.ps1')
+if (-not $RepackageOnly -and -not $JoomlaPackagePath) {
+    $joomlaVersion = ([xml](Get-Content -LiteralPath (Join-Path $project 'server\joomla\pkg_dragonhydra.xml') -Raw)).extension.version
+    $JoomlaPackagePath = Join-Path $project ('dist\pkg_dragonhydra-'+$joomlaVersion+'.zip')
+}
+if ($JoomlaPackagePath) { $joomlaOverride = Get-VerifiedFrontendPackage $JoomlaPackagePath }
 $sourceSha = 'a1380545bd3bb225f400e7e328535ff692c0123a'
 $manifest = Get-Content -LiteralPath (Join-Path $ReleaseRoot 'ARTIFACT-MANIFEST.json') -Raw | ConvertFrom-Json
 if ($manifest.source_sha -ne $sourceSha) { throw 'The immutable inner-component source does not match the verified release.' }
@@ -76,6 +93,8 @@ if ($RepackageOnly) {
     $oldInfo = Get-Content -LiteralPath (Join-Path $stage 'WORKSTATION-BUILD.json') -Raw | ConvertFrom-Json
     if ($oldInfo.PSObject.Properties.Name -contains 'kernel_override') { $kernelOverride = $oldInfo.kernel_override }
     if ($oldInfo.PSObject.Properties.Name -contains 'client_override') { $clientOverride = $oldInfo.client_override }
+    if (-not $joomlaOverride -and $oldInfo.PSObject.Properties.Name -contains 'joomla_frontend_override') { $joomlaOverride = $oldInfo.joomla_frontend_override }
+    if ($RefreshWebHook -and -not $joomlaOverride) { throw 'The current frontend-aware provisioning hook requires the matching -JoomlaPackagePath when upgrading a pre-frontend staging copy.' }
     if ($oldInfo.product -ne 'DRAGONHYDRA Workstation' -or $oldInfo.version -ne $Version -or $oldInfo.inner_components[0].source_sha -ne $sourceSha) { throw 'Staging ownership/version does not match this build.' }
     $oldInventory = Get-Content -LiteralPath (Join-Path $stage 'PAYLOAD-MANIFEST.json') -Raw | ConvertFrom-Json
     foreach ($entry in $oldInventory.files) {
@@ -102,7 +121,7 @@ if ($RepackageOnly) {
         $pwsh = (Get-Process -Id $PID).Path
         Native 'refresh-runtime' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\Build-Runtime.ps1'),'-OutputRoot',(Join-Path $stage 'workstation'))
     }
-    if ($RefreshWebHook) {
+    if ($RefreshWebHook -or $JoomlaPackagePath) {
         $webManifestPath = Join-Path $stage 'web\payload-manifest.json'
         $webManifest = Get-Content -LiteralPath $webManifestPath -Raw | ConvertFrom-Json
         if ($webManifest.source_sha -ne $sourceSha -or $webManifest.product_version -ne $Version -or $webManifest.architecture -ne 'x64') { throw 'The staged private web payload has incompatible provenance.' }
@@ -113,6 +132,17 @@ if ($RepackageOnly) {
         $hookEntries[0].sha256 = Hash $hookPath
         $hookEntries[0].bytes = (Get-Item -LiteralPath $hookPath).Length
         $webManifest | Add-Member -NotePropertyName provisioning_hook -NotePropertyValue ([ordered]@{path='manage.php';sha256=$hookEntries[0].sha256;source='workstation working-tree source recorded in WORKSTATION-BUILD.json';refresh='explicit verified hook-only repair; binary payload unchanged'}) -Force
+        if ($JoomlaPackagePath) {
+            $extensionEntries = @($webManifest.files | Where-Object path -EQ 'extension.zip')
+            $extensionPath = Join-Path $stage 'web\extension.zip'
+            if ($extensionEntries.Count -ne 1 -or (Hash $extensionPath) -ne $extensionEntries[0].sha256) { throw 'The prior Joomla extension does not match the verified private-web manifest.' }
+            Copy-Item -LiteralPath $joomlaOverride.path -Destination $extensionPath -Force
+            $extensionEntries[0].sha256 = Hash $extensionPath
+            $extensionEntries[0].bytes = (Get-Item -LiteralPath $extensionPath).Length
+            if ($extensionEntries[0].sha256 -ne $joomlaOverride.package_sha256) { throw 'Joomla frontend package changed while staging.' }
+            $webManifest | Add-Member -NotePropertyName joomla_frontend_override -NotePropertyValue $joomlaOverride -Force
+            $steps.Add([ordered]@{name='verified-joomla-frontend-package';exit_code=0;sha256=$joomlaOverride.package_sha256;bytes=$joomlaOverride.bytes;version=$joomlaOverride.version;full_web_payload_rebuilt=$false;server_or_client_rebuilt=$false})
+        }
         WriteJson $webManifest $webManifestPath
         $steps.Add([ordered]@{name='refresh-web-hook';exit_code=0;path='web/manage.php';sha256=$hookEntries[0].sha256;bytes=$hookEntries[0].bytes;full_web_payload_rebuilt=$false})
     }
@@ -160,7 +190,7 @@ Copy-Item -LiteralPath $client -Destination (Join-Path $stage 'client\DRAGONHYDR
 foreach ($name in @('BUILD-INFO.json','THIRD-PARTY-NOTICES.txt')) { Copy-Item -LiteralPath (Join-Path $clientExtract $name) -Destination (Join-Path $stage 'client') }
 $pwsh = (Get-Process -Id $PID).Path
 Native 'build-runtime' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\Build-Runtime.ps1'),'-OutputRoot',(Join-Path $stage 'workstation'))
-Native 'build-web' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\web\Build-WebPayload.ps1'),'-OutputRoot',(Join-Path $stage 'web'),'-ExtensionPath',(Join-Path $ReleaseRoot 'pkg_dragonhydra-0.4.0-alpha.1.zip'),'-SourceSha',$sourceSha,'-Version',$Version)
+Native 'build-web' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\web\Build-WebPayload.ps1'),'-OutputRoot',(Join-Path $stage 'web'),'-ExtensionPath',$joomlaOverride.path,'-SourceSha',$sourceSha,'-Version',$Version)
 }
 
 # This generated, PS5-compatible helper is extracted before copying any product files.
@@ -240,6 +270,7 @@ $sourceInventory = @($sourceFiles | ForEach-Object { [ordered]@{path=$_.Replace(
 $buildInfo = [ordered]@{schema_version=1;product='DRAGONHYDRA Workstation';version=$Version;windows_file_version='0.4.1.1';release_state='unsigned_development_build_not_published';wrapper_source='working_tree_file_hashes';wrapper_source_files=$sourceInventory;inner_components=$components;api_namespace='/dragon/api/v1';kernel_schema_version=1;kernel_backend='sqlite';joomla_database='MariaDB';optional_local_ai='not_included';webview2_strategy='reuse existing runtime; official Microsoft online bootstrapper only when missing';webview2_bootstrapper=@{url=$bootstrapperUrl;sha256=(Hash $bootstrapper);bytes=(Get-Item $bootstrapper).Length;signature=$signature.Status.ToString();signer=$signature.SignerCertificate.Subject};platform='Windows 10 or later AMD64';prerequisites=@('.NET Framework 4.8','Internet only when WebView2 is missing')}
 $buildInfo['kernel_override'] = $kernelOverride
 $buildInfo['client_override'] = $clientOverride
+$buildInfo['joomla_frontend_override'] = $joomlaOverride
 if ($kernelOverride) {
     foreach ($component in $components) {
         $component['installed_payload'] = -not $component.filename.EndsWith('-Server-win-x64.zip')
@@ -251,6 +282,14 @@ if ($clientOverride) {
         if ($component.filename.EndsWith('-Desktop-win-x64-Setup.exe')) {
             $component['installed_payload'] = $false
             $component['role'] = 'Immutable baseline input; installed desktop replaced by the separately verified client_override'
+        }
+    }
+}
+if ($joomlaOverride) {
+    foreach ($component in $components) {
+        if ($component.filename.StartsWith('pkg_dragonhydra-')) {
+            $component['installed_payload'] = $false
+            $component['role'] = 'Immutable baseline input; installed Joomla replaced by separately identified joomla_frontend_override'
         }
     }
 }
@@ -275,6 +314,7 @@ foreach($entry in $inventory){$payloadBytes += [long]$entry.bytes}
 $report=[ordered]@{schema_version=1;built=$true;installed=$false;launched=$false;installation_tested=$false;clean_machine_tested=$false;version=$Version;inner_release_sha=$sourceSha;reused_verified_payload=[bool]$RepackageOnly;refreshed_web_hook=[bool]$RefreshWebHook;started_at=$started.ToString('o');finished_at=[DateTime]::UtcNow.ToString('o');artifact=@{filename=[IO.Path]::GetFileName($output);path=$output;bytes=(Get-Item $output).Length;sha256=(Hash $output);signing_status=$finalSignature.Status.ToString()};source_files=$sourceInventory;payload_files=$inventory.Count;payload_bytes=$payloadBytes;steps=$steps}
 $report['kernel_override'] = $kernelOverride
 $report['client_override'] = $clientOverride
+$report['joomla_frontend_override'] = $joomlaOverride
 WriteJson $report (Join-Path $BuildRoot 'BUILD-REPORT.json')
 Copy-Item -LiteralPath (Join-Path $BuildRoot 'BUILD-REPORT.json') -Destination (Join-Path $OutputRoot 'BUILD-REPORT.json')
 Write-Output ($report|ConvertTo-Json -Depth 4)

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T12:25:59.099201+00:00",
+  "original_assertion": "site_menus_same=false compared parameter serialization bytes",
+  "exact_difference": {
+    "home_id": 142,
+    "added_native_default_fields": [
+      "menu-anchor_css",
+      "menu-anchor_title",
+      "menu-meta_description",
+      "menu_icon_css",
+      "menu_image",
+      "menu_image_css",
+      "menu_show",
+      "menu_text",
+      "page_heading",
+      "robots"
+    ],
+    "removed_fields": [
+      "dragonhydra_workspace_home"
+    ],
+    "retained_visible_field_values_unchanged": true,
+    "native_fields_equal_known_defaults": true
+  },
+  "strict_checks_retained": [
+    "Same site menu IDs/count and all non-parameter fields",
+    "All unrelated site-menu parameter hashes identical",
+    "Home title/class/heading values identical",
+    "No unknown/non-default parameter changes ignored",
+    "Original articles byte-fingerprints identical",
+    "Exactly55menus; Home142/style13 remaincorrect"
+  ],
+  "actual_writer": "Not established; exact transformation is native-menu-form defaults plus loss of an unused undeclared internal marker",
+  "conclusion": "Expected presentation-parameter normalization, not missing records or unintended menu modification. Comparison now checks exact semantic values rather than JSON serialization alone.",
+  "regression_tests": 7,
+  "regression_rejects": [
+    "Visible title change",
+    "Native visibility change",
+    "Unrelated menu edit",
+    "Duplicate menu",
+    "Unknown changed parameter",
+    "Unexpected marker value"
+  ],
+  "source": "tests/installation/joomla_frontend_menu_contract.py"
+}

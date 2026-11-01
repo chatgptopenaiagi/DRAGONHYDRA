@@ -1,3 +1,22 @@
+JOOMLA SPORTS HOMEPAGE VERIFIED (2026-11-01).
+Read JOOMLA-FRONTEND-REPORT.md and joomla_frontend_20261101 in ENGINEERING-STATE.json.
+PrimaryJoomla18740 nowrunsnativecom_dragonhydra frontend; associatedAPI18744 unchanged.
+17/17frontendrequirementsPASS: normal SEPARATESiteLogin, real760matches/40source-scoped
+teams/2competitions,search/filters/pagination/entities/analysis/3actualexports,guestdenial,
+logout/freshlogin/mobile+keyboard. Browser17successfulchecks preservedinrawfailedr1
+(externaldocumenttimeout),13PASS hashlinkedcontinuation. Isolatedstates7/units36pass.
+Home142/childstyle13(cassiopeia_dragonhydra), originalHome101/11articles/48modules retained.
+Package dist/pkg_dragonhydra-0.4.1-dev.2.zip 43686B SHA8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49.
+Embeddedsource55997de. Installedwebinputs+outermanifestsrefreshed15guards; officialmanage
+install0/newpackagestamp; server/client/all4servicePIDs unchanged, no servicerestart.
+Use homepage Signin with current ownerJoomla password; oldinitialfirst-run handoff may
+be stale after ownerpasswordchange. Supplied'token' identifiedasstoredgeneratedinitial
+adminpassword, NOT used forserviceauth. Nosecretsinsource/browser/publicpackage; finalscanPASS.
+Privatebackups/DPAPIacceptancecreds stay build/joomla-frontend-20261101/private-backup.
+Do not reinstall/reset/repoint/repeatcompletedrecovery, providerfetch or modeljob.
+Next: normalowneruse; scoped screen-reader/landmark audit. HistoricalWindowsA8/Linux
+and clean-machine/reboot/signing gates are separate. Resolve preservationcommitinGit.
+
 2026-11-01: original Windows Joomla access and integration VERIFIED.
 18/18 requirements passed; read JOOMLA-RECOVERY-REPORT.md. Existing owner account476/
 dragonadmin and masked Administration launcher work; no reset, reinstall or product/

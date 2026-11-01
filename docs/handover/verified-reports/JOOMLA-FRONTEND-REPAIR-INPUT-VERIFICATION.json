@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T12:11:38.579615+00:00",
+  "finished_at": "2026-11-01T12:11:39.993187+00:00",
+  "scope": "Official refreshed installed-web install action, existing Joomla core retained; updates verified package stamp through its normal supported installer",
+  "command": [
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\php\\php.exe",
+    "-c",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\php.ini",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\manage.php",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\workstation.json",
+    "install"
+  ],
+  "exit_code": 0,
+  "result": {
+    "action": "install",
+    "installed": true,
+    "core_created": false,
+    "extension_updated": true,
+    "extension_package_sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+  },
+  "services_restarted": false,
+  "password_or_pairing_changes_requested": false,
+  "raw_errors_or_credentials_emitted": false
+}

@@ -1,6 +1,6 @@
 # Private workstation web stack
 
-This payload adds the Joomla administration runtime to the unified Windows x64
+This payload adds the Joomla sports workspace and administration runtime to the unified Windows x64
 workstation installer. It contains a private Apache 2.4.65, PHP 8.4.27 TS VS17 x64,
 MariaDB 10.11.16 and a pristine Joomla 6.2.0 distribution. Existing XAMPP services,
 sites, configuration and data are never copied or changed. The Python kernel
@@ -57,6 +57,45 @@ After database readiness, call the same PHP hook with `provision`, `install`, an
 when its package hash changes, and retains existing extension settings.
 `configure` merges the selected API and identity-bridge references into those
 settings without creating demonstration accounts or modifying default ACLs.
+It then invokes the installed component's idempotent `FrontendSetup::apply()` through
+the matching Joomla CLI bootstrap. Later repair therefore retains the native
+workspace Home and child-template assignment rather than restoring sample content.
+The `_configure-frontend` child performs only Joomla presentation setup and does not
+read bridge contents, rotate credentials, create sports records or activate providers.
+
+The current provisioner requires the frontend-capable extension package with its
+Cassiopeia child template. `Build-WebPayload.ps1` defaults to the canonical package
+version declared in `server/joomla/pkg_dragonhydra.xml`; build it with
+`scripts/build_joomla.py` first. `prepare_payload.py` validates the actual package,
+component/site files and child-template manifest, then records their version/hash in
+the web payload manifest. A historical administrator-only ZIP is not silently
+substituted for the current workspace package.
+
+To prepare only the affected presentation/provisioning inputs while reusing an
+already verified immutable web runtime, use a **new** project-local build directory:
+
+```powershell
+& '.\runtime\server-env\Scripts\python.exe' `
+  '.\packaging\windows\workstation\web\prepare_payload.py' `
+  --reuse-payload '<verified-baseline-web-payload>' `
+  --destination '<project>\build\<new-web-payload>' `
+  --extension '<built-pkg_dragonhydra-0.4.1-dev.2.zip>'
+```
+
+This verifies every original payload file and rejects unexpected files/links before
+copying. It replaces only `extension.zip`, `manage.php` and this README, rehashes the
+new tree, and preserves the original runtime provenance. It changes no installed
+site or service and rebuilds no Python server/client. The resulting manifest is a
+payload-integrity claim, not fresh installation or clean-machine acceptance.
+
+Fresh `Build-Workstation.ps1` builds now select the same current frontend package;
+`-JoomlaPackagePath` supplies an explicit matching builder-manifest/hash-verified
+alternative. For a new isolated copy of verified staging, `-RepackageOnly` with that
+parameter refreshes the extension and matching hook and records
+`joomla_frontend_override`. A repackage without a new package retains its actual old
+identity; it cannot claim a frontend it does not contain. Refreshing the current hook
+over a pre-frontend baseline requires the matching package. Historical installers,
+release assets and independently installed sites are not rewritten by source changes.
 
 Start Apache using `web/apache/bin/httpd.exe -d <install_root>/web/apache -f
 <state_root>/web-config/httpd.conf`; first validate it with the same arguments plus

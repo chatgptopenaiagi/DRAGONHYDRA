@@ -181,3 +181,21 @@ bridge copy denied and no content/ACL changed. Failed helper probes preserved se
 Public receipts/screenshots/docs committed with report JOOMLA-RECOVERY-REPORT.md.
 No rebuild/newrelease/paidfetch/modelrun. Owner window left open. Next normalowneruse;
 optional ownerpasswordchange; prior A8 clean-machine/reboot/signing gates independent.
+
+## Joomla native sports homepage — 2026-11-01
+
+Source57cc6bd +55997de implements SiteMVC/readerHMAC/exporttransport/nativeassets and
+Cassiopeiachildtemplate. Supportedinstaller Home142/style13; keepsHome101/articles11/
+modules48. ActualCLIpostflightbyrefinsertfailurefixed/regression; honesthealthybackend
+missingrecordlabel fixed. All17requirementsPASS: realSiteSession,760matches/40scopedteams/
+2competitions, filters/entities/analysis,3validJSONCSVXLSXfiles, adminpreserved, CSRF/guest
+controls, logout/freshEdge, desktop+390px/focus/nosecrets. R1has17PASS thenexternaldoc
+Timeout; hashlinkedr2has13PASS, controlledremotehandoffscopeexplicit. Isolated7/units36.
+Finalpkg43686B SHA8b639f...02a49. Verifiedwebreuse9940entries/currenthookmanifestf54572...
+84304. Installed6fileupdate15guards+officialmanagementinstall0 preserveall4PIDs,
+server/clientbytes/ACLs. Data/provider/pairing/configunchanged;3exportjobs expected.
+Suppliedpasswordverified; supplied'token'matchesstoredinitialadminpassword, unusedforAPI.
+Finalsecretscan6distinctvalues/7pages/3scripts/66source-reportfiles/40archivemembersPASS.
+PrivateconsistentSQL+files/cachedinputs backups andDPAPItestcredentialslocalonly.
+No newWindowsSetup/server/clientbuildorLinuxrelease. Report JOOMLA-FRONTEND-REPORT.md.
+NEXT: normalowneruse; screen-reader/landmarkaudit. Older platformgatesindependent.

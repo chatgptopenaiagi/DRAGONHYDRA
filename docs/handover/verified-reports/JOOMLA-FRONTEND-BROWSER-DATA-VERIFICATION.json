@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "passed": false,
+  "started_at": "2026-11-01T11:48:30.276825+00:00",
+  "scope": "Actual installed Joomla website and real Microsoft Edge site/administrator sessions",
+  "origin": "http://127.0.0.1:18740",
+  "backend": "http://127.0.0.1:18744/dragon/api/v1",
+  "helper_sha256": "9d8139a8d75ce6d7125567269bb243f544156431cfe911960b6330b01cff01e7",
+  "checks": [
+    {
+      "name": "root_homepage_uses_native_component_and_preserves_anonymous_privacy",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:32.392327+00:00"
+    },
+    {
+      "name": "anonymous_assets_and_storage_contain_no_private_credentials",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:32.641391+00:00",
+      "local_script_bundles_checked": 3,
+      "local_storage_entries": 0,
+      "session_storage_entries": 0,
+      "private_value_matches": 0
+    },
+    {
+      "name": "genuine_separate_joomla_site_login",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:35.489133+00:00",
+      "username": "dragonadmin",
+      "backend_token_injected": false
+    },
+    {
+      "name": "dashboard_totals_match_corresponding_backend",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:35.547576+00:00",
+      "totals": {
+        "total_matches": 760,
+        "total_teams": 40,
+        "total_competitions": 2
+      }
+    },
+    {
+      "name": "authenticated_reload_retains_site_session",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:36.553749+00:00"
+    },
+    {
+      "name": "match_pagination_is_real_and_changes_records",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:37.564877+00:00"
+    },
+    {
+      "name": "search_competition_status_and_limit_use_actual_retained_filters",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:38.772821+00:00",
+      "total": 5
+    },
+    {
+      "name": "retained_match_source_ids_timestamps_and_identity_match_backend",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:39.365725+00:00",
+      "match": {
+        "id": "df19cc290a6a174e1715dbe9917cabad7dd878134d043cb3042f2b5b6c091c01",
+        "source_id": "openfootball-2026-27-en1.json",
+        "evidence_id": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+        "version": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+        "event_date": "2026-09-20",
+        "home": {
+          "id": "0ce26d443b8418644aa8f73db703186cb1985dedf9c4bd2519b44c8beca47c57",
+          "name": "Leeds United FC"
+        },
+        "away": {
+          "id": "89afe3a3b0cc8dcfa01930d7e76e23a38bb8887b6655f46efe4b857a28512959",
+          "name": "Crystal Palace FC"
+        },
+        "status": "finished"
+      }
+    },
+    {
+      "name": "source_scoped_team_navigation_and_existing_form",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:40.043901+00:00",
+      "matches": 38
+    },
+    {
+      "name": "competition_navigation_and_calculated_standings",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:40.653665+00:00",
+      "rows": 20
+    },
+    {
+      "name": "finished_match_forecast_unavailability_is_honest",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:41.120455+00:00",
+      "reason": "No prospective forecast was retained for this finished match."
+    },
+    {
+      "name": "existing_scheduled_analysis_matches_backend",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:41.934311+00:00",
+      "available": true,
+      "probabilities": [
+        "39.2%",
+        "30.4%",
+        "30.4%"
+      ]
+    },
+    {
+      "name": "actual_frontend_json_export_download",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:44.808762+00:00",
+      "artifact": {
+        "format": "json",
+        "job_id": "31150c69deab402e9ab148b1a95d885c",
+        "owner": "joomla:476",
+        "filename": "DRAGONHYDRA-31150c69deab402e9ab148b1a95d885c.json",
+        "bytes": 2566,
+        "sha256": "b7c25b12b4f8984ab03dde32550e6e9176223fbd6fac5b0acc9f8c9ae1641272",
+        "download_href": "/index.php?task=actions.download&job_id=31150c69deab402e9ab148b1a95d885c"
+      }
+    },
+    {
+      "name": "actual_frontend_csv_export_download",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:47.237198+00:00",
+      "artifact": {
+        "format": "csv",
+        "job_id": "482e667857814fbfbe49abdd4ff24ba7",
+        "owner": "joomla:476",
+        "filename": "DRAGONHYDRA-482e667857814fbfbe49abdd4ff24ba7.csv",
+        "bytes": 379,
+        "sha256": "6be9f875c60c49d28192ca77f8cc3265c1369cf216897fc0c251fb91014f57fe",
+        "download_href": "/index.php?task=actions.download&job_id=482e667857814fbfbe49abdd4ff24ba7"
+      }
+    },
+    {
+      "name": "actual_frontend_xlsx_export_download",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:50.167348+00:00",
+      "artifact": {
+        "format": "xlsx",
+        "job_id": "e4fec67cdfc545c4839fd8a720e20670",
+        "owner": "joomla:476",
+        "filename": "DRAGONHYDRA-e4fec67cdfc545c4839fd8a720e20670.xlsx",
+        "bytes": 6159,
+        "sha256": "bcde155a912358d2b12abb2b243deadd27ade930b10c637b740ddb1b58f5af7d",
+        "download_href": "/index.php?task=actions.download&job_id=e4fec67cdfc545c4839fd8a720e20670"
+      }
+    },
+    {
+      "name": "authenticated_export_without_joomla_csrf_is_denied",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:50.339890+00:00",
+      "http_status": 403
+    },
+    {
+      "name": "connections_show_actual_provider_status_without_admin_actions",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:48:50.659012+00:00",
+      "providers": 10
+    }
+  ],
+  "page_errors": [],
+  "forbidden_requests": [],
+  "exports": [
+    {
+      "format": "json",
+      "job_id": "31150c69deab402e9ab148b1a95d885c",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-31150c69deab402e9ab148b1a95d885c.json",
+      "bytes": 2566,
+      "sha256": "b7c25b12b4f8984ab03dde32550e6e9176223fbd6fac5b0acc9f8c9ae1641272",
+      "download_href": "/index.php?task=actions.download&job_id=31150c69deab402e9ab148b1a95d885c"
+    },
+    {
+      "format": "csv",
+      "job_id": "482e667857814fbfbe49abdd4ff24ba7",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-482e667857814fbfbe49abdd4ff24ba7.csv",
+      "bytes": 379,
+      "sha256": "6be9f875c60c49d28192ca77f8cc3265c1369cf216897fc0c251fb91014f57fe",
+      "download_href": "/index.php?task=actions.download&job_id=482e667857814fbfbe49abdd4ff24ba7"
+    },
+    {
+      "format": "xlsx",
+      "job_id": "e4fec67cdfc545c4839fd8a720e20670",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-e4fec67cdfc545c4839fd8a720e20670.xlsx",
+      "bytes": 6159,
+      "sha256": "bcde155a912358d2b12abb2b243deadd27ade930b10c637b740ddb1b58f5af7d",
+      "download_href": "/index.php?task=actions.download&job_id=e4fec67cdfc545c4839fd8a720e20670"
+    }
+  ],
+  "credentials_logged": false,
+  "backend_credential_inserted_in_browser": false,
+  "provider_sync_or_inference_requested": false,
+  "screenshots": [
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\browser-r1\\anonymous-homepage.png",
+      "sha256": "6a49e49faa86dafcde4a1fbaf2adf36518a33fb34cca96e5450c61055f7b2f64",
+      "scope": "Component-only; no credential-entry form"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\browser-r1\\authenticated-overview-desktop.png",
+      "sha256": "ebb34114e86e8776be5d0161475d07e9cf0662914b17c7b9209dc1eb44c4285e",
+      "scope": "Component-only; no credential-entry form"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\browser-r1\\retained-match.png",
+      "sha256": "15a8456be9b71cf96b6db2e42dce72f420c861bdcc9ec0c92e3840375df6c278",
+      "scope": "Component-only; no credential-entry form"
+    }
+  ],
+  "baseline": {
+    "records": 760,
+    "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+    "provider_record_counts": {
+      "api-football": 0,
+      "the-odds-api": 0,
+      "sportmonks": 0,
+      "football-data-org": 0,
+      "football-data-couk": 0,
+      "openfootball": 760,
+      "statsbomb": 0,
+      "nflverse": 0,
+      "moneypuck": 0,
+      "cricsheet": 0
+    },
+    "configuration_sha256": {
+      "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+      "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+      "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+      "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+      "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+      "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+    }
+  },
+  "failure_class": "TimeoutError",
+  "failure_stage": "connections",
+  "error_sha256": "62e26224c25e087bb06f77b0a9d0194bbbe89a38b8b61683bdde57339f065ea1",
+  "raw_error_or_credentials_logged": false,
+  "finished_at": "2026-11-01T11:49:07.133013+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T11:49:43.564673+00:00",
+  "scope": "Isolated actual-template fixture only; not a stopped or modified production backend",
+  "production_services_modified": false,
+  "credentials_loaded": false,
+  "command": [
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\php\\php.exe",
+    "-c",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\php.ini",
+    "-S",
+    "127.0.0.1:51123",
+    "C:\\xampp\\DRAGONHYDRA\\tests\\installation\\joomla_frontend_render_fixture.php"
+  ],
+  "checks": [
+    {
+      "name": "empty",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\empty.png",
+      "sha256": "ebd1998408879175f325cb36e5035e996e2449303c46cacb31d9ea05a66b5e0b"
+    },
+    {
+      "name": "backend_unavailable",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\backend_unavailable.png",
+      "sha256": "88fb89bbdca56e41365a02777e38776a87d7a5a51bc6ccaf2fd2be288a3e04d6"
+    },
+    {
+      "name": "unavailable_record",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\unavailable_record.png",
+      "sha256": "f70e82014d3720ebdd34e4e840b1518c142069d02e709ca592a3db86b1e145ba"
+    },
+    {
+      "name": "noanalysis",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\noanalysis.png",
+      "sha256": "47bdb4c3cb5ff6df9c7effa5dfdea12f755ce2ab1bb66e90d664dcc034711c10"
+    },
+    {
+      "name": "anonymous",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\anonymous.png",
+      "sha256": "b1c1c85a5deec571ba71f2d32d79947a882a473399bc6d3ffc8fa32db3fd143b"
+    },
+    {
+      "name": "permission_denied",
+      "status": "PASS",
+      "http_status": 200,
+      "screenshot": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\isolated-states-r1\\permission_denied.png",
+      "sha256": "0e0769e3be924fb28633c12dedfc7bb9a5cac086872e53a602566ff3ead41d22"
+    },
+    {
+      "name": "mobile_failure_state_usable",
+      "status": "PASS",
+      "width": {
+        "page": 390,
+        "viewport": 390
+      }
+    }
+  ],
+  "page_errors": [],
+  "owned_fixture_process_stopped": true,
+  "finished_at": "2026-11-01T11:49:46.635603+00:00"
+}

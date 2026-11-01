@@ -126,12 +126,19 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
             for name, data in contents.items():
                 (old / name).write_bytes(data)
                 rows.append({'path': name, 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
+            old_hook_hash = hashlib.sha256(contents['manage.php']).hexdigest()
             (old / 'payload-manifest.json').write_text(json.dumps({'platform': 'windows', 'architecture': 'x64',
-                'source_sha': 'a' * 40, 'files': rows, 'components': {}}), encoding='utf-8')
+                'source_sha': 'a' * 40, 'files': rows, 'components': {},
+                'provisioning_hook': {'path': 'manage.php', 'sha256': old_hook_hash}}), encoding='utf-8')
             result = prep.refresh_payload(old, temp / 'new', package)
             self.assertTrue(result['prepared'])
             self.assertEqual((temp / 'new/runtime.bin').read_bytes(), contents['runtime.bin'])
             self.assertEqual((old / 'manage.php').read_bytes(), contents['manage.php'])
+            refreshed = json.loads((temp / 'new/payload-manifest.json').read_text())
+            current_hook_hash = hashlib.sha256((temp / 'new/manage.php').read_bytes()).hexdigest()
+            self.assertEqual(refreshed['provisioning_hook']['sha256'], current_hook_hash)
+            self.assertEqual(refreshed['frontend_refresh']['baseline_provisioning_hook']['sha256'], old_hook_hash)
+            self.assertEqual(prep.frontend_hook_metadata(refreshed), refreshed)
             with self.assertRaises(ValueError):
                 prep.refresh_payload(old, temp / 'new', package)
             (old / 'runtime.bin').write_bytes(b'tampered')
@@ -165,6 +172,27 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout), {'accepted': True, 'tampered_rejected': True})
+
+    @unittest.skipUnless(Path('C:/Program Files/PowerShell/7/pwsh.exe').is_file(), 'Selected PowerShell 7 required')
+    def test_combined_override_provenance_never_marks_old_extensions_installed(self):
+        script = r"""
+$ErrorActionPreference='Stop'
+$source=Get-Content -LiteralPath $args[0] -Raw
+$begin=$source.IndexOf("$"+"buildInfo['kernel_override'] = $"+'kernelOverride')
+$end=$source.IndexOf('WriteJson $buildInfo', $begin)
+if($begin -lt 0 -or $end -lt $begin){throw 'Missing build provenance block'}
+$buildInfo=@{};$kernelOverride=@{checked=$true};$clientOverride=@{checked=$true};$joomlaOverride=@{checked=$true}
+$components=@([ordered]@{filename='DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip'},[ordered]@{filename='DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe'},[ordered]@{filename='pkg_dragonhydra-0.4.0-alpha.1.zip'})
+Invoke-Expression $source.Substring($begin,$end-$begin)
+@{all_baseline_components_replaced=(@($components|Where-Object installed_payload).Count -eq 0);frontend_role_recorded=$components[2].role.Contains('joomla_frontend_override')}|ConvertTo-Json
+"""
+        scratch = ROOT / 'runtime/scratch'; scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='frontend-provenance-', dir=scratch) as temporary:
+            helper = Path(temporary) / 'check.ps1'; helper.write_text(script, encoding='utf-8')
+            result = subprocess.run(['C:/Program Files/PowerShell/7/pwsh.exe', '-NoProfile', '-File', str(helper),
+                                     str(ROOT / 'scripts/Build-Workstation.ps1')], capture_output=True, text=True, timeout=30)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout), {'all_baseline_components_replaced': True, 'frontend_role_recorded': True})
 
 
 if __name__ == '__main__':

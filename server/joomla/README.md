@@ -1,4 +1,4 @@
-# DRAGONHYDRA Joomla administration 0.3.0
+# DRAGONHYDRA Joomla sports workspace 0.4.1-dev.2
 
 Build from the development root:
 
@@ -7,7 +7,45 @@ py -3.14 -B scripts/build_joomla.py
 py -3.14 -B -m unittest discover -s tests -p test_joomla_package.py -v
 ```
 
-The resulting `dist/pkg_dragonhydra-0.3.0.zip` contains the administrator component `com_dragonhydra`. Install it through Joomla's extension installer on a **product-owned Joomla 6 instance**. This builder does not alter or install into an existing XAMPP site. PHP cURL is required. PHP 8.5 CLI lint is distinct from testing the required packaged Apache/PHP 8.4 integration.
+The resulting `dist/pkg_dragonhydra-0.4.1-dev.2.zip` contains the existing
+`com_dragonhydra` administrator component, its native Site workspace, scoped media,
+and the `cassiopeia_dragonhydra` child template. The package installs the child
+template first. Install through Joomla's extension installer on a **product-owned
+Joomla 6 instance**, after preserving that site's active Home, menu/module/template
+records and deployed files. The builder changes no installed site. PHP cURL is
+required. CLI lint is distinct from testing the selected Apache/PHP web runtime.
+
+The component postflight calls its `FrontendSetup::apply()` migration. It uses
+Joomla's Menu table to create or reuse one DRAGONHYDRA Home for each applicable
+language and assign the installed child-template style to those Home items only.
+Original menu items and articles remain. Published site modules retain their
+published state and assignments on every other page; the migration removes positive
+assignments to the managed Home or adds negative exclusions for all-page modules.
+Applying again reuses the same Home/style/extension identities and creates no sports
+records. The new child overrides only its own index; Joomla core and Cassiopeia
+parent files remain unchanged.
+
+The Site view's anonymous output is a branded sign-in shell. Protected workspace
+data requires a genuine Joomla Site session and existing component read permission;
+an Administrator session is not assumed to be shared. The PHP bridge reads its
+protected secret server-side. No pairing token or administrator password belongs in
+HTML, JavaScript, links, browser storage or package inputs. Owner credential rotation
+therefore does not require source edits or rebuilds. Overview and browsing pages perform retained-data reads. Explicit Analysis navigation
+uses existing statistical calculations; it does not submit provider imports or
+language-model jobs. Existing export requests are explicit
+Joomla POST-token-protected actions. Administration retains its separate permission
+and session boundary.
+
+For a manually verified extension installation, the same migration can be reapplied
+after bootstrapping that exact Joomla instance and loading
+`administrator/components/com_dragonhydra/src/Service/FrontendSetup.php`. Its return
+value identifies managed Home/style IDs and assignment changes. Back up first; do
+not run it against a different instance because another loopback API responds.
+
+Rollback uses the matching pre-deployment database-consistent backup for Home/menu/
+module/template/extension records and the corresponding backed-up component/template
+files. No generic uninstall or live storage-directory copy is a verified rollback.
+The kernel's sports database remains outside this presentation migration.
 
 Set the component's Options to the recorded kernel loopback endpoint and an absolute path to the protected bridge-secret file. The file contains the same UTF-8 secret as the kernel's bridge configuration (at least 32 bytes). Keep it outside the web root and grant read permission only to the actual product web and kernel service identities. Back it up using the product's protected configuration recovery procedure. Component params store the **file path**, never secret bytes. Installer provisioning and service-account file permissions still require whole-product installation evidence.
 

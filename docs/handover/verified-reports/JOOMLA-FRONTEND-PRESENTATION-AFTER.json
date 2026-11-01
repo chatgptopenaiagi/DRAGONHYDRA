@@ -1,0 +1,1816 @@
+{
+    "schema_version": 1,
+    "passed": true,
+    "verified_at": "2026-11-01T11:50:52+00:00",
+    "service": "DragonhydraWorkstationTest",
+    "web_port": 18740,
+    "api_port": 18744,
+    "menus": [
+        {
+            "id": 1,
+            "title": "Menu_Item_Root",
+            "alias": "root",
+            "menutype": "",
+            "link": "",
+            "type": "",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 0,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 2,
+            "title": "com_banners",
+            "alias": "Banners",
+            "menutype": "main",
+            "link": "index.php?option=com_banners",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 3,
+            "title": "com_banners",
+            "alias": "Banners",
+            "menutype": "main",
+            "link": "index.php?option=com_banners&view=banners",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 2,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 4,
+            "title": "com_banners_categories",
+            "alias": "Categories",
+            "menutype": "main",
+            "link": "index.php?option=com_categories&view=categories&extension=com_banners",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 2,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 5,
+            "title": "com_banners_clients",
+            "alias": "Clients",
+            "menutype": "main",
+            "link": "index.php?option=com_banners&view=clients",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 2,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 6,
+            "title": "com_banners_tracks",
+            "alias": "Tracks",
+            "menutype": "main",
+            "link": "index.php?option=com_banners&view=tracks",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 2,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 7,
+            "title": "com_contact",
+            "alias": "Contacts",
+            "menutype": "main",
+            "link": "index.php?option=com_contact",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 8,
+            "title": "com_contact_contacts",
+            "alias": "Contacts",
+            "menutype": "main",
+            "link": "index.php?option=com_contact&view=contacts",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 7,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 9,
+            "title": "com_contact_categories",
+            "alias": "Categories",
+            "menutype": "main",
+            "link": "index.php?option=com_categories&view=categories&extension=com_contact",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 7,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 10,
+            "title": "com_newsfeeds",
+            "alias": "News Feeds",
+            "menutype": "main",
+            "link": "index.php?option=com_newsfeeds",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 11,
+            "title": "com_newsfeeds_feeds",
+            "alias": "Feeds",
+            "menutype": "main",
+            "link": "index.php?option=com_newsfeeds&view=newsfeeds",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 10,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 12,
+            "title": "com_newsfeeds_categories",
+            "alias": "Categories",
+            "menutype": "main",
+            "link": "index.php?option=com_categories&view=categories&extension=com_newsfeeds",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 10,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 13,
+            "title": "com_finder",
+            "alias": "Smart Search",
+            "menutype": "main",
+            "link": "index.php?option=com_finder",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 14,
+            "title": "com_tags",
+            "alias": "Tags",
+            "menutype": "main",
+            "link": "index.php?option=com_tags&view=tags",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 15,
+            "title": "com_associations",
+            "alias": "Multilingual Associations",
+            "menutype": "main",
+            "link": "index.php?option=com_associations&view=associations",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 16,
+            "title": "mod_menu_fields",
+            "alias": "Contact Custom Fields",
+            "menutype": "main",
+            "link": "index.php?option=com_fields&context=com_contact.contact",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 7,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 17,
+            "title": "mod_menu_fields_group",
+            "alias": "Contact Custom Fields Group",
+            "menutype": "main",
+            "link": "index.php?option=com_fields&view=groups&context=com_contact.contact",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 7,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 18,
+            "title": "com_finder_index",
+            "alias": "Smart-Search-Index",
+            "menutype": "main",
+            "link": "index.php?option=com_finder&view=index",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 13,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 19,
+            "title": "com_finder_maps",
+            "alias": "Smart-Search-Maps",
+            "menutype": "main",
+            "link": "index.php?option=com_finder&view=maps",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 13,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 20,
+            "title": "com_finder_filters",
+            "alias": "Smart-Search-Filters",
+            "menutype": "main",
+            "link": "index.php?option=com_finder&view=filters",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 13,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 21,
+            "title": "com_finder_searches",
+            "alias": "Smart-Search-Searches",
+            "menutype": "main",
+            "link": "index.php?option=com_finder&view=searches",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 1,
+            "parent_id": 13,
+            "template_style_id": 0,
+            "access": 0,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 101,
+            "title": "Home",
+            "alias": "home",
+            "menutype": "mainmenu",
+            "link": "index.php?option=com_content&view=featured",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "6840d295cf3846286bb0d0f90267d10b34ce976bcad6887ff269364258e32d90"
+        },
+        {
+            "id": 110,
+            "title": "Blog",
+            "alias": "blog",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=category&layout=blog&id=8",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "4d031d9d9de80a55784ead7f7f4993efe5a32a7dc55d424a7b2401f482917053"
+        },
+        {
+            "id": 111,
+            "title": "Help",
+            "alias": "help",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=category&layout=blog&id=9",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "9e4ffc085db98cc7ec55528a358fc6efa2203edd9088dbe6ca9c6b000c40beaf"
+        },
+        {
+            "id": 112,
+            "title": "Login",
+            "alias": "login",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_users&view=login",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 5,
+            "params_sha256": "159ce41b157745d410a4506c1f0f60184946e6a6e19d1825e4bf1b08e5d7a3c6"
+        },
+        {
+            "id": 113,
+            "title": "Logout",
+            "alias": "logout",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_users&view=login&layout=logout&task=user.menulogout",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 2,
+            "params_sha256": "1c9e480118617a5f680eaf68c596e54a14f93fdd4c5f7a5ecacca8ba222f9060"
+        },
+        {
+            "id": 114,
+            "title": "Sample Layouts",
+            "alias": "sample-layouts",
+            "menutype": "0main-menu-blog",
+            "link": "",
+            "type": "heading",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "ff414ec824fca335eb953265e5f2538422cfc5f5f9cb6514a5e620236b1be348"
+        },
+        {
+            "id": 115,
+            "title": "Typography",
+            "alias": "typography",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=11&catid=11",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "7d2845fa8792d73a64745f227042976cbc098bdaa82909f300f8b405616ae20d"
+        },
+        {
+            "id": 116,
+            "title": "Create a Post",
+            "alias": "create-a-post",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_content&view=form&layout=edit",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 3,
+            "params_sha256": "1495afc9eb9b15cda6649d05b18c6da8a51e25572c1262a6604586d7f156c9f1"
+        },
+        {
+            "id": 117,
+            "title": "Working on Your Site",
+            "alias": "working-on-your-site",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_content&view=article&id=2",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "bce165d7942975dd6b484f3022644ca4981505770984c410ecfca5bde48240b7"
+        },
+        {
+            "id": 118,
+            "title": "Site Administrator",
+            "alias": "site-administrator",
+            "menutype": "1special-menu",
+            "link": "administrator",
+            "type": "url",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 3,
+            "params_sha256": "6f6a031dc0ede41a6e3c2ee91801e1556d2770225cf58b663c6672efea4ed9f6"
+        },
+        {
+            "id": 119,
+            "title": "Change Password",
+            "alias": "change-password",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_users&view=profile&layout=edit",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 2,
+            "params_sha256": "bce165d7942975dd6b484f3022644ca4981505770984c410ecfca5bde48240b7"
+        },
+        {
+            "id": 120,
+            "title": "Log out",
+            "alias": "log-out",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_users&view=login",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "b74ce17892f658f21a794f0ca40bde6a631391c24246e6c7368aa0ce3152e5d2"
+        },
+        {
+            "id": 121,
+            "title": "Login",
+            "alias": "login-1",
+            "menutype": "2bottom-menu",
+            "link": "index.php?Itemid=",
+            "type": "alias",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 5,
+            "params_sha256": "18b8b08450427d68ca795f7b3451c85315e4d01d4e8f4ff91d58d0b7b801a28d"
+        },
+        {
+            "id": 122,
+            "title": "Logout",
+            "alias": "logout-1",
+            "menutype": "2bottom-menu",
+            "link": "index.php?Itemid=",
+            "type": "alias",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 2,
+            "params_sha256": "9e36ee27ae9af36734025590c4c0b7fe0432d0595a95aef8f0d75ccc616609e7"
+        },
+        {
+            "id": 123,
+            "title": "Search",
+            "alias": "search",
+            "menutype": "2bottom-menu",
+            "link": "index.php?option=com_finder&view=search",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "f136b55ec406791fb0496d1ee64ea205e02b752d2ff1d1493826b7c4a21c65be"
+        },
+        {
+            "id": 124,
+            "title": "Site Settings",
+            "alias": "site-settings",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_config&view=config",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 116,
+            "template_style_id": 0,
+            "access": 6,
+            "params_sha256": "bce165d7942975dd6b484f3022644ca4981505770984c410ecfca5bde48240b7"
+        },
+        {
+            "id": 125,
+            "title": "Template Settings",
+            "alias": "template-settings",
+            "menutype": "1special-menu",
+            "link": "index.php?option=com_config&view=templates",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 116,
+            "template_style_id": 0,
+            "access": 6,
+            "params_sha256": "bce165d7942975dd6b484f3022644ca4981505770984c410ecfca5bde48240b7"
+        },
+        {
+            "id": 126,
+            "title": "Blog",
+            "alias": "blog",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=category&layout=blog&id=8",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 114,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "ab10a99748d3c464065691f42efd6188d3a455694468cb0f76c800ec7da29209"
+        },
+        {
+            "id": 127,
+            "title": "Category List",
+            "alias": "category-list",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=category&id=8",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 114,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "83f49546000ff08a5b84ec02a622bca3c54ec38ee795e1efcc2d04e2874ddb64"
+        },
+        {
+            "id": 128,
+            "title": "Articles",
+            "alias": "articles",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=category&layout=blog&id=10",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 114,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "efad6806a6a29224f47873930fa622d88d61f8bc2d5f897bf1687e69073b7e28"
+        },
+        {
+            "id": 129,
+            "title": "About your home page",
+            "alias": "about-your-home-page",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=4",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 111,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "0141fb7a2055beee1ee0c59fb99be98c6350054c363c4d4e8d414a891135d2a3"
+        },
+        {
+            "id": 130,
+            "title": "Workflows",
+            "alias": "workflows",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=10",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 111,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "0141fb7a2055beee1ee0c59fb99be98c6350054c363c4d4e8d414a891135d2a3"
+        },
+        {
+            "id": 131,
+            "title": "Millions",
+            "alias": "millions",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=7",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 128,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "4c87f09e6beb2c832ade264b0a254b0409b153d05813cde14f0095cd6b1481d0"
+        },
+        {
+            "id": 132,
+            "title": "Love",
+            "alias": "love",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=8",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 128,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "4c87f09e6beb2c832ade264b0a254b0409b153d05813cde14f0095cd6b1481d0"
+        },
+        {
+            "id": 133,
+            "title": "Joomla",
+            "alias": "joomla",
+            "menutype": "0main-menu-blog",
+            "link": "index.php?option=com_content&view=article&id=9",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 128,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "4c87f09e6beb2c832ade264b0a254b0409b153d05813cde14f0095cd6b1481d0"
+        },
+        {
+            "id": 142,
+            "title": "DRAGONHYDRA",
+            "alias": "dragonhydra-workspace",
+            "menutype": "mainmenu",
+            "link": "index.php?option=com_dragonhydra&view=dashboard",
+            "type": "component",
+            "home": 1,
+            "published": 1,
+            "language": "*",
+            "client_id": 0,
+            "parent_id": 1,
+            "template_style_id": 13,
+            "access": 1,
+            "params_sha256": "af2118b4c20d872289f099434451063d5f9e925db914d44f068eed490c0e042f"
+        },
+        {
+            "id": 151,
+            "title": "COM_DRAGONHYDRA",
+            "alias": "com-dragonhydra",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 1,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 152,
+            "title": "COM_DRAGONHYDRA_SOURCES",
+            "alias": "com-dragonhydra-sources",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=sources",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 153,
+            "title": "COM_DRAGONHYDRA_MATCHES",
+            "alias": "com-dragonhydra-matches",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=matches",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 154,
+            "title": "COM_DRAGONHYDRA_ODDS",
+            "alias": "com-dragonhydra-odds",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=odds",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 155,
+            "title": "COM_DRAGONHYDRA_MODELS",
+            "alias": "com-dragonhydra-models",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=models",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 156,
+            "title": "COM_DRAGONHYDRA_RESEARCH",
+            "alias": "com-dragonhydra-research",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=research",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 157,
+            "title": "COM_DRAGONHYDRA_DATABASES",
+            "alias": "com-dragonhydra-databases",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=databases",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        {
+            "id": 158,
+            "title": "COM_DRAGONHYDRA_SYSTEM",
+            "alias": "com-dragonhydra-system",
+            "menutype": "main",
+            "link": "index.php?option=com_dragonhydra&section=system",
+            "type": "component",
+            "home": 0,
+            "published": 1,
+            "language": "",
+            "client_id": 1,
+            "parent_id": 151,
+            "template_style_id": 0,
+            "access": 1,
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+    ],
+    "modules": [
+        {
+            "id": 1,
+            "title": "Main Menu",
+            "module": "mod_menu",
+            "position": "sidebar-right",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "4892afff0e19383c5eff4b3b477114f9cca578aa472660d7b099be5b39be7571",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 2,
+            "title": "Login",
+            "module": "mod_login",
+            "position": "login",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 3,
+            "title": "Popular Articles",
+            "module": "mod_popular",
+            "position": "cpanel",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "175f3a2e1ce736b67dc892adb1700d5c8bf339deb8940943920e860c91531029",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 4,
+            "title": "Recently Added Articles",
+            "module": "mod_latest",
+            "position": "cpanel",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "c8882344cd49aba6406d4287938962c765702eff43a684b3219ae3868d0c9eaf",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 8,
+            "title": "Toolbar",
+            "module": "mod_toolbar",
+            "position": "toolbar",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 9,
+            "title": "Notifications",
+            "module": "mod_quickicon",
+            "position": "icon",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e1c46db2889301e4f7cf0396df59f10aa4010f9632eab4ee73bc31a22f9e7d1b",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 10,
+            "title": "Logged-in Users",
+            "module": "mod_logged",
+            "position": "cpanel",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "36f26f0276253247508d9382923124a9fc3a7bfd855fa37e4caf484b6c79940d",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 12,
+            "title": "Admin Menu",
+            "module": "mod_menu",
+            "position": "menu",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "cb33e30480faede1439766ffc54f37b8f38cde6277b6fc8a3297cade39517cca",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 15,
+            "title": "Title",
+            "module": "mod_title",
+            "position": "title",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 16,
+            "title": "Login Form",
+            "module": "mod_login",
+            "position": "sidebar-right",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "1e53535fd4abf506f0d1a8342849a15eb38763aabe25e62dd98a1ee500e40794",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 17,
+            "title": "Breadcrumbs",
+            "module": "mod_breadcrumbs",
+            "position": "breadcrumbs",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "3e79fb94e817ec22d76ee8eafc55b9be2a491c7d570868ceac32a6a3b0dc42d4",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 79,
+            "title": "Multilanguage status",
+            "module": "mod_multilangstatus",
+            "position": "status",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "71dd5f028dd94eb857bdd4ff5fcd94cc28a0fc44a6852bd51ecc51994b1af917",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 86,
+            "title": "Joomla Version",
+            "module": "mod_version",
+            "position": "status",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "71dd5f028dd94eb857bdd4ff5fcd94cc28a0fc44a6852bd51ecc51994b1af917",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 87,
+            "title": "Sample Data",
+            "module": "mod_sampledata",
+            "position": "cpanel",
+            "published": 1,
+            "access": 6,
+            "client_id": 1,
+            "params_sha256": "a9c78f3d4ec290fd5c2982c2bb1cdebf01c9b26e28761e8652a7886fa547cc3c",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 88,
+            "title": "Latest Actions",
+            "module": "mod_latestactions",
+            "position": "cpanel",
+            "published": 1,
+            "access": 6,
+            "client_id": 1,
+            "params_sha256": "a9c78f3d4ec290fd5c2982c2bb1cdebf01c9b26e28761e8652a7886fa547cc3c",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 89,
+            "title": "Privacy Dashboard",
+            "module": "mod_privacy_dashboard",
+            "position": "cpanel",
+            "published": 1,
+            "access": 6,
+            "client_id": 1,
+            "params_sha256": "a9c78f3d4ec290fd5c2982c2bb1cdebf01c9b26e28761e8652a7886fa547cc3c",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 90,
+            "title": "Login Support",
+            "module": "mod_loginsupport",
+            "position": "sidebar",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "397fcfecc8f4f075f29bf93050713f4ee5de245d3ebb4afca93b7a5998203b83",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 91,
+            "title": "System Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-system",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "31b92103816bfc7755a5eeb94f7762260acff61374174e69c33b135865128b08",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 92,
+            "title": "Content Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-content",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "87d8d829c5282f77a68b6d1c5454525b55af458222c70701e1ad338357d363d1",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 93,
+            "title": "Menus Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-menus",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "b5f96a6ab66d7e11502096c46ad4b802612fefea9ab98b28aaf42549e9df9c16",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 94,
+            "title": "Components Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-components",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "64507330589c9f24e6ce2d454bd548e480b66e77f47781d812a888981a945f3e",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 95,
+            "title": "Users Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-users",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "29a55dba905618acab96e2c1132bfa2e8bbeeb3b51271465ffd0f4a6050ac243",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 96,
+            "title": "Popular Articles",
+            "module": "mod_popular",
+            "position": "cpanel-content",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "175f3a2e1ce736b67dc892adb1700d5c8bf339deb8940943920e860c91531029",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 97,
+            "title": "Recently Added Articles",
+            "module": "mod_latest",
+            "position": "cpanel-content",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "c8882344cd49aba6406d4287938962c765702eff43a684b3219ae3868d0c9eaf",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 98,
+            "title": "Logged-in Users",
+            "module": "mod_logged",
+            "position": "cpanel-users",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "36f26f0276253247508d9382923124a9fc3a7bfd855fa37e4caf484b6c79940d",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 99,
+            "title": "Frontend Link",
+            "module": "mod_frontend",
+            "position": "status",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 100,
+            "title": "Messages",
+            "module": "mod_messages",
+            "position": "status",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 101,
+            "title": "Post Install Messages",
+            "module": "mod_post_installation_messages",
+            "position": "status",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 102,
+            "title": "User Status",
+            "module": "mod_user",
+            "position": "status",
+            "published": 1,
+            "access": 3,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 103,
+            "title": "Site",
+            "module": "mod_quickicon",
+            "position": "icon",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "caf52767bf0d8708aa580bbb2d98b7e946cfb7ce38a57c97b4a5eacdf6827475",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 104,
+            "title": "System",
+            "module": "mod_quickicon",
+            "position": "icon",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "655f56882f40a4f251e531c77b5f6e6d089212d7da8071e3316652cea540e322",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 105,
+            "title": "3rd Party",
+            "module": "mod_quickicon",
+            "position": "icon",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "22184f85f11fc0d2f0ac8c2f12d86121e2a83dc91ed1874850a1aeacb255b172",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 106,
+            "title": "Help Dashboard",
+            "module": "mod_submenu",
+            "position": "cpanel-help",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "7cdded86b34a76e9271baa9ddc30a65f4733004a5e0d048c323536f79fd0b65d",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 107,
+            "title": "Privacy Requests",
+            "module": "mod_privacy_dashboard",
+            "position": "cpanel-privacy",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "ed42b27d29de656a83109a63de312544f56beefa87ca3667af1a062e3bd5e3d3",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 108,
+            "title": "Privacy Status",
+            "module": "mod_privacy_status",
+            "position": "cpanel-privacy",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "ed42b27d29de656a83109a63de312544f56beefa87ca3667af1a062e3bd5e3d3",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 109,
+            "title": "Guided Tours",
+            "module": "mod_guidedtours",
+            "position": "status",
+            "published": 1,
+            "access": 1,
+            "client_id": 1,
+            "params_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 110,
+            "title": "Main Menu Blog",
+            "module": "mod_menu",
+            "position": "menu",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "0469d969cfde4cfbaaec409af9d8b9f9dfad46d562fdbb9ecac792b0a9e8dfd9",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 111,
+            "title": "Special Menu",
+            "module": "mod_menu",
+            "position": "sidebar-right",
+            "published": 1,
+            "access": 3,
+            "client_id": 0,
+            "params_sha256": "1866904d3f51a890a39adfdaa5bdd6599e5b548e0a91a72874cee05ed7d95729",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 112,
+            "title": "Syndication",
+            "module": "mod_syndicate",
+            "position": "sidebar-right",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "2be2943582148f3c9e52267f461463bb975d4e39bbada7b2abe11de47daec02d",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 113,
+            "title": "Archived Articles",
+            "module": "mod_articles",
+            "position": "sidebar-right",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "52d2150f9855745fb0694cdfdaa0bee46e8d7855a048ee17f2e933d3f0491766",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 114,
+            "title": "Latest Posts",
+            "module": "mod_articles",
+            "position": "top-a",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "78ab3c041525be995744d165d787f8a5dcf1870afd5b3ff1b0727fd152d510aa",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 115,
+            "title": "Older Posts",
+            "module": "mod_articles",
+            "position": "bottom-b",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "d9ff276f0bdcc5efc86279b741190d38b0c471a181914c039d240826f6604f62",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 116,
+            "title": "Bottom Menu",
+            "module": "mod_menu",
+            "position": "footer",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "a588dbd05e80d2e8328df2570b68c6a0e1bd82c19926d020736dfa70eaa6b491",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 117,
+            "title": "Search",
+            "module": "mod_finder",
+            "position": "search",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "8268a954ecad8c25610b45f46b88a158853cc1599fa77a342bedb8a8950b686c",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 118,
+            "title": "Image",
+            "module": "mod_custom",
+            "position": "banner",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "37e981495b93f27c556a39d15b673f22bbafaa513313a7ddc2e420f407361150",
+            "content_sha256": "2db3751ca62cd45d99acd9dcce7fbba95fa4d85f481d0bd0725a69d6c4127b3b"
+        },
+        {
+            "id": 119,
+            "title": "Popular Tags",
+            "module": "mod_tags_popular",
+            "position": "bottom-b",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "88c60478582bf6dd021a8196ee22f686a5aaea8fe6b6506c80df1c1be9c0b56f",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 120,
+            "title": "Similar Items",
+            "module": "mod_tags_similar",
+            "position": "bottom-b",
+            "published": 1,
+            "access": 1,
+            "client_id": 0,
+            "params_sha256": "83e66e33763d214e81d97c53bd3dd5e7475c32e6e1bd7962d920343a74992ff7",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 121,
+            "title": "Site Information",
+            "module": "mod_stats_admin",
+            "position": "cpanel",
+            "published": 1,
+            "access": 6,
+            "client_id": 1,
+            "params_sha256": "fe939e1d7749dba3b0232d78db0315f5e7e56c421b58a9f574f8569916331c93",
+            "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+    ],
+    "module_assignments": [
+        {
+            "moduleid": 2,
+            "menuid": 0
+        },
+        {
+            "moduleid": 3,
+            "menuid": 0
+        },
+        {
+            "moduleid": 4,
+            "menuid": 0
+        },
+        {
+            "moduleid": 6,
+            "menuid": 0
+        },
+        {
+            "moduleid": 7,
+            "menuid": 0
+        },
+        {
+            "moduleid": 8,
+            "menuid": 0
+        },
+        {
+            "moduleid": 9,
+            "menuid": 0
+        },
+        {
+            "moduleid": 10,
+            "menuid": 0
+        },
+        {
+            "moduleid": 12,
+            "menuid": 0
+        },
+        {
+            "moduleid": 14,
+            "menuid": 0
+        },
+        {
+            "moduleid": 15,
+            "menuid": 0
+        },
+        {
+            "moduleid": 16,
+            "menuid": -142
+        },
+        {
+            "moduleid": 16,
+            "menuid": -112
+        },
+        {
+            "moduleid": 17,
+            "menuid": -142
+        },
+        {
+            "moduleid": 17,
+            "menuid": 0
+        },
+        {
+            "moduleid": 79,
+            "menuid": 0
+        },
+        {
+            "moduleid": 86,
+            "menuid": 0
+        },
+        {
+            "moduleid": 87,
+            "menuid": 0
+        },
+        {
+            "moduleid": 88,
+            "menuid": 0
+        },
+        {
+            "moduleid": 89,
+            "menuid": 0
+        },
+        {
+            "moduleid": 90,
+            "menuid": 0
+        },
+        {
+            "moduleid": 91,
+            "menuid": 0
+        },
+        {
+            "moduleid": 92,
+            "menuid": 0
+        },
+        {
+            "moduleid": 93,
+            "menuid": 0
+        },
+        {
+            "moduleid": 94,
+            "menuid": 0
+        },
+        {
+            "moduleid": 95,
+            "menuid": 0
+        },
+        {
+            "moduleid": 96,
+            "menuid": 0
+        },
+        {
+            "moduleid": 97,
+            "menuid": 0
+        },
+        {
+            "moduleid": 98,
+            "menuid": 0
+        },
+        {
+            "moduleid": 99,
+            "menuid": 0
+        },
+        {
+            "moduleid": 100,
+            "menuid": 0
+        },
+        {
+            "moduleid": 101,
+            "menuid": 0
+        },
+        {
+            "moduleid": 102,
+            "menuid": 0
+        },
+        {
+            "moduleid": 103,
+            "menuid": 0
+        },
+        {
+            "moduleid": 104,
+            "menuid": 0
+        },
+        {
+            "moduleid": 105,
+            "menuid": 0
+        },
+        {
+            "moduleid": 106,
+            "menuid": 0
+        },
+        {
+            "moduleid": 107,
+            "menuid": 0
+        },
+        {
+            "moduleid": 108,
+            "menuid": 0
+        },
+        {
+            "moduleid": 109,
+            "menuid": 0
+        },
+        {
+            "moduleid": 110,
+            "menuid": -142
+        },
+        {
+            "moduleid": 110,
+            "menuid": 0
+        },
+        {
+            "moduleid": 111,
+            "menuid": -142
+        },
+        {
+            "moduleid": 111,
+            "menuid": 0
+        },
+        {
+            "moduleid": 112,
+            "menuid": -142
+        },
+        {
+            "moduleid": 112,
+            "menuid": 0
+        },
+        {
+            "moduleid": 113,
+            "menuid": -142
+        },
+        {
+            "moduleid": 113,
+            "menuid": 0
+        },
+        {
+            "moduleid": 114,
+            "menuid": 101
+        },
+        {
+            "moduleid": 115,
+            "menuid": -142
+        },
+        {
+            "moduleid": 115,
+            "menuid": 0
+        },
+        {
+            "moduleid": 116,
+            "menuid": -142
+        },
+        {
+            "moduleid": 116,
+            "menuid": 0
+        },
+        {
+            "moduleid": 117,
+            "menuid": -142
+        },
+        {
+            "moduleid": 117,
+            "menuid": 0
+        },
+        {
+            "moduleid": 118,
+            "menuid": 101
+        },
+        {
+            "moduleid": 119,
+            "menuid": -142
+        },
+        {
+            "moduleid": 119,
+            "menuid": 0
+        },
+        {
+            "moduleid": 120,
+            "menuid": -142
+        },
+        {
+            "moduleid": 120,
+            "menuid": 0
+        },
+        {
+            "moduleid": 121,
+            "menuid": 0
+        }
+    ],
+    "template_styles": [
+        {
+            "id": 10,
+            "template": "atum",
+            "client_id": 1,
+            "home": "1",
+            "title": "Atum - Default",
+            "params_sha256": "347c002dc811a37540e604711e2ce96b3da15336de94fab4ae79a1975d4fa56b"
+        },
+        {
+            "id": 11,
+            "template": "cassiopeia",
+            "client_id": 0,
+            "home": "1",
+            "title": "Cassiopeia - Default",
+            "params_sha256": "32c4fc19d238e2634b3d4f22307936a3324840060af29b3b4d247750a1766ffc"
+        },
+        {
+            "id": 12,
+            "template": "cassiopeia_extended",
+            "client_id": 0,
+            "home": "0",
+            "title": "Cassiopeia Extended - Default",
+            "params_sha256": "b09af9a280eb88b678fb5bcf2b347b7cfe0f3b6f62ef1178e7ebfbb1fc92734d"
+        },
+        {
+            "id": 13,
+            "template": "cassiopeia_dragonhydra",
+            "client_id": 0,
+            "home": "0",
+            "title": "JLIB_INSTALLER_DEFAULT_STYLE",
+            "params_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        }
+    ],
+    "component": [
+        {
+            "extension_id": 252,
+            "element": "com_dragonhydra",
+            "enabled": 1,
+            "client_id": 1,
+            "params_sha256": "2f00a445ae76bb33a812468004815694708ddd8ca0d97b60c16ff86c8761d9ce",
+            "version": "0.4.1-dev.2"
+        }
+    ],
+    "articles": [
+        {
+            "id": 1,
+            "title": "About",
+            "state": 1,
+            "catid": 9,
+            "intro_sha256": "bf2464ae37bf41e69485acf761031deb2e675c5d04def1a8f714059f28f87151",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 2,
+            "title": "Working on Your Site",
+            "state": 1,
+            "catid": 9,
+            "intro_sha256": "5b2cc646f48346cb5343f75c874f022e32415e9fd9113a2206a99c647305a499",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 3,
+            "title": "Welcome to your blog",
+            "state": 1,
+            "catid": 8,
+            "intro_sha256": "a9211f64d6e0117634ba4d3c2153e98a4bc6def83fa83ade77c69e16688783b8",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 4,
+            "title": "About your home page",
+            "state": 1,
+            "catid": 8,
+            "intro_sha256": "7f4542f6e5dbdd606bbfb5a87f57ae840a1ce77ead83769e16ad5ce72fae1d87",
+            "body_sha256": "4484d0694b7a746852c881e75a7e92bf592fe8ae0c29a859cbc618a330f27430"
+        },
+        {
+            "id": 5,
+            "title": "Your Modules",
+            "state": 1,
+            "catid": 8,
+            "intro_sha256": "083682495fcb5b4ef35f33e17d4a7cb32d08ffe14bee53a4902c1b8ade7a89db",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 6,
+            "title": "Your Template",
+            "state": 1,
+            "catid": 8,
+            "intro_sha256": "3d3087042def85d6ce715137a1705640c167872cd79f5167059cd945d7aff6db",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 7,
+            "title": "Millions",
+            "state": 1,
+            "catid": 10,
+            "intro_sha256": "2bf1733aea7d18040c2852f5013f28c1a5e1aaa42a4c8c665b5560df43ea4554",
+            "body_sha256": "a4330ce144b611ebb7e15ad2b4c1041d2d2f3c0e0f2727749be8ecbb3feb1bec"
+        },
+        {
+            "id": 8,
+            "title": "Love",
+            "state": 1,
+            "catid": 10,
+            "intro_sha256": "a98028a6ae7ee6748eddb136d342f3d155a721c5f9ce8bda27c682a211853873",
+            "body_sha256": "f0b0a9645eee7958639c336fa3df1b13104b98e18bedd18a50a35fff577786c2"
+        },
+        {
+            "id": 9,
+            "title": "Joomla",
+            "state": 1,
+            "catid": 10,
+            "intro_sha256": "6b50f79caac24169db5746b8c9cf0b53c96b4dccfbaf1ad2de50cbfefaece15a",
+            "body_sha256": "a222f777e1985c1e5e38a30627b3539553ac756f2bb1bbb58e47b7117cf28a2d"
+        },
+        {
+            "id": 10,
+            "title": "Workflows",
+            "state": 1,
+            "catid": 9,
+            "intro_sha256": "8a92128c9374c16e911721ef36467ae0502b86a0f7a55e2f9fbd127cdf992611",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "id": 11,
+            "title": "Typography",
+            "state": 1,
+            "catid": 11,
+            "intro_sha256": "b157c099116852b525d3943cb156e1b15fb6082559709c99e7e032a0e596f6b8",
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+    ],
+    "user_identity_fingerprints": [
+        {
+            "id": 476,
+            "username": "dragonadmin",
+            "block": 0,
+            "password_fingerprint": "3d8cbba3d067b4b91b32dbc4c039b4646caf9dab1b51c47902e304b786e09e65"
+        }
+    ],
+    "user_groups": [
+        {
+            "user_id": 476,
+            "group_id": 8
+        }
+    ],
+    "secrets_emitted": false,
+    "database_mutation": false
+}

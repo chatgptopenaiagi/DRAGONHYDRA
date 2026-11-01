@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T11:51:20.790501+00:00",
+  "scope": "Actual installed Joomla website and real Microsoft Edge site/administrator sessions",
+  "origin": "http://127.0.0.1:18740",
+  "backend": "http://127.0.0.1:18744/dragon/api/v1",
+  "helper_sha256": "013004bd74c4f20b359b81d01cf21f2d0ffdd182da5a8772008bc001d1bef532",
+  "checks": [
+    {
+      "name": "fresh_site_login_for_remaining_acceptance",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:24.862400+00:00"
+    },
+    {
+      "name": "connections_show_actual_provider_status_without_admin_actions",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:25.235992+00:00",
+      "providers": 10
+    },
+    {
+      "name": "provider_registration_documentation_open_new_tabs_and_preserve_workspace",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:37.412007+00:00",
+      "destinations": [
+        {
+          "href": "https://www.api-football.com/documentation_v3",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://the-odds-api.com/liveapi/guides/v4/",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://docs.sportmonks.com/v3/endpoints-and-entities/endpoints/fixtures",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://docs.football-data.org/general/v4/index.html",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://www.football-data.co.uk/",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://github.com/openfootball/football.json",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://github.com/statsbomb/open-data",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://github.com/nflverse/nflverse-data",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://moneypuck.com/data.htm",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        },
+        {
+          "href": "https://cricsheet.org/downloads/",
+          "browser_popup_received_target": true,
+          "workspace_unchanged": true
+        }
+      ],
+      "external_document_transport": "controlled"
+    },
+    {
+      "name": "existing_administrator_and_component_still_authenticate_and_render",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:39.516390+00:00"
+    },
+    {
+      "name": "desktop_layout_has_no_document_overflow",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.159367+00:00"
+    },
+    {
+      "name": "keyboard_navigation_reaches_visible_control",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.176160+00:00"
+    },
+    {
+      "name": "narrow_390px_layout_has_no_document_overflow",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.786742+00:00"
+    },
+    {
+      "name": "rendered_html_scripts_and_browser_storage_omit_private_values",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:40.999464+00:00",
+      "local_script_bundles_checked": 3,
+      "local_storage_entries": 0,
+      "session_storage_entries": 0,
+      "private_value_matches": 0
+    },
+    {
+      "name": "actual_site_logout_restores_private_anonymous_shell",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:41.629411+00:00"
+    },
+    {
+      "name": "logged_out_export_download_is_denied",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:41.926383+00:00",
+      "http_status": 403
+    },
+    {
+      "name": "fresh_browser_login_reopens_real_workspace",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:45.451898+00:00",
+      "previous_context_closed": true,
+      "imported_storage_state": false
+    },
+    {
+      "name": "records_provider_settings_pairing_and_config_preserved",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:46.000194+00:00",
+      "snapshot": {
+        "records": 760,
+        "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+        "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+        "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+        "provider_record_counts": {
+          "api-football": 0,
+          "the-odds-api": 0,
+          "sportmonks": 0,
+          "football-data-org": 0,
+          "football-data-couk": 0,
+          "openfootball": 760,
+          "statsbomb": 0,
+          "nflverse": 0,
+          "moneypuck": 0,
+          "cricsheet": 0
+        },
+        "configuration_sha256": {
+          "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+          "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+          "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+          "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+          "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+          "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+        }
+      }
+    },
+    {
+      "name": "no_blocking_browser_errors_or_unapproved_mutations",
+      "status": "PASS",
+      "verified_at": "2026-11-01T11:51:46.000864+00:00",
+      "javascript_errors": 0
+    }
+  ],
+  "page_errors": [],
+  "forbidden_requests": [],
+  "exports": [
+    {
+      "format": "json",
+      "job_id": "31150c69deab402e9ab148b1a95d885c",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-31150c69deab402e9ab148b1a95d885c.json",
+      "bytes": 2566,
+      "sha256": "b7c25b12b4f8984ab03dde32550e6e9176223fbd6fac5b0acc9f8c9ae1641272",
+      "download_href": "/index.php?task=actions.download&job_id=31150c69deab402e9ab148b1a95d885c"
+    },
+    {
+      "format": "csv",
+      "job_id": "482e667857814fbfbe49abdd4ff24ba7",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-482e667857814fbfbe49abdd4ff24ba7.csv",
+      "bytes": 379,
+      "sha256": "6be9f875c60c49d28192ca77f8cc3265c1369cf216897fc0c251fb91014f57fe",
+      "download_href": "/index.php?task=actions.download&job_id=482e667857814fbfbe49abdd4ff24ba7"
+    },
+    {
+      "format": "xlsx",
+      "job_id": "e4fec67cdfc545c4839fd8a720e20670",
+      "owner": "joomla:476",
+      "filename": "DRAGONHYDRA-e4fec67cdfc545c4839fd8a720e20670.xlsx",
+      "bytes": 6159,
+      "sha256": "bcde155a912358d2b12abb2b243deadd27ade930b10c637b740ddb1b58f5af7d",
+      "download_href": "/index.php?task=actions.download&job_id=e4fec67cdfc545c4839fd8a720e20670"
+    }
+  ],
+  "credentials_logged": false,
+  "backend_credential_inserted_in_browser": false,
+  "provider_sync_or_inference_requested": false,
+  "screenshots": [
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\browser-r2\\authenticated-overview-mobile.png",
+      "sha256": "a1ac49a81609ba9dab85cb49a461ae1b04d7acda8de51921419eed2c826ff144",
+      "scope": "Component-only; no credential-entry form"
+    }
+  ],
+  "continued_from": {
+    "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-frontend-20261101\\evidence\\browser-r1\\verification.json",
+    "sha256": "4ab03da91cc49c943ce5d2794bf48ca4b1ada8009a8e650c3718fcd9c7a640dc",
+    "previous_passed_checks": 17,
+    "scope": "Earlier successful data/export checks retained separately, not re-executed or counted in this receipt"
+  },
+  "baseline": {
+    "records": 760,
+    "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+    "provider_record_counts": {
+      "api-football": 0,
+      "the-odds-api": 0,
+      "sportmonks": 0,
+      "football-data-org": 0,
+      "football-data-couk": 0,
+      "openfootball": 760,
+      "statsbomb": 0,
+      "nflverse": 0,
+      "moneypuck": 0,
+      "cricsheet": 0
+    },
+    "configuration_sha256": {
+      "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+      "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+      "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+      "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+      "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+      "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+    }
+  },
+  "external_link_scope": "Real anchor clicks and new browser tabs at exact configured HTTPS addresses; external document transport is controlled to avoid provider/network variability. Remote provider availability is not asserted.",
+  "external_link_progress": {
+    "index": 9,
+    "href": "https://cricsheet.org/downloads/"
+  },
+  "stage": "complete",
+  "finished_at": "2026-11-01T11:51:46.001317+00:00"
+}

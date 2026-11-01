@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T11:59:18.359381+00:00",
+  "scope": "Unpublished web payload metadata correction only; no installed files or services changed",
+  "previous_manifest_sha256": "2da0ad9e1e3f3fa8ecd4064df951472473c193707db0268880887068828b8749",
+  "final_manifest_sha256": "f54572ad63f2f6a7b8467a4fc96c8fad72d203357e57d958641fca517b884304",
+  "verified_payload_files": 9940,
+  "package_bytes_unchanged": true,
+  "current_hook_sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c",
+  "baseline_hook_sha256": "375ab1e98293eae329c6ab16748e977debccbc7dd84dfde4897740f1cd1cd39a",
+  "source_script_sha256": "6a6c548c01245c9c8254bea891408c64b1c97ad9b469e50bacfc7e1fb0d1534a"
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T11:52:04.073418+00:00",
+  "repeat_install_exit_code": 0,
+  "idempotence_checks": {
+    "modules": true,
+    "module_assignments": true,
+    "template_styles": true,
+    "component": true,
+    "articles": true,
+    "user_identity_fingerprints": true,
+    "user_groups": true,
+    "site_menu_ids_and_settings": true,
+    "administrator_menu_semantics_and_count": true
+  },
+  "administrator_menu_row_ids": "Joomla standard extension upgrade regenerates administrator menu IDs; same8links and parent semantics/count, no duplicates",
+  "original_home_id": 101,
+  "active_home": {
+    "id": 142,
+    "title": "DRAGONHYDRA",
+    "alias": "dragonhydra-workspace",
+    "menutype": "mainmenu",
+    "link": "index.php?option=com_dragonhydra&view=dashboard",
+    "type": "component",
+    "home": 1,
+    "published": 1,
+    "language": "*",
+    "client_id": 0,
+    "parent_id": 1,
+    "template_style_id": 13,
+    "access": 1,
+    "params_sha256": "af2118b4c20d872289f099434451063d5f9e925db914d44f068eed490c0e042f"
+  },
+  "articles_preserved": 11,
+  "modules_preserved": 48,
+  "owner_identity_and_groups_unchanged": true,
+  "bridge_component_parameters_unchanged": true,
+  "menu_counts": {
+    "before": 54,
+    "first": 55,
+    "repeat": 55
+  },
+  "template_style_counts": {
+    "before": 3,
+    "first": 4,
+    "repeat": 4
+  },
+  "diagnostic": "Initial comparison of all menu IDs failed because Joomla legitimately regenerates administrator menu row IDs during upgrade; siteHome142 and all semantic menu settings are stable."
+}

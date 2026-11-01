@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T11:50:50.867146+00:00",
+  "scope": "Original DragonhydraWorkstationTest Joomla CLI supported package install/upgrade",
+  "package": "C:\\xampp\\DRAGONHYDRA\\dist\\joomla\\frontend-20261101-r2\\pkg_dragonhydra-0.4.1-dev.2.zip",
+  "bytes": 43686,
+  "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+  "source_sha": "55997de0a3997a10d12c6271795289a5d147e1ab",
+  "command": [
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\php\\php.exe",
+    "-c",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\php.ini",
+    "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\site\\cli\\joomla.php",
+    "extension:install",
+    "--path=C:\\xampp\\DRAGONHYDRA\\dist\\joomla\\frontend-20261101-r2\\pkg_dragonhydra-0.4.1-dev.2.zip",
+    "--no-interaction",
+    "--no-ansi"
+  ],
+  "service_restart_requested": false,
+  "exit_code": 0,
+  "stdout": "\nInstall Extension\n=================\n\n [OK] Extension installed successfully.                                                                                \n\n",
+  "stderr": "",
+  "finished_at": "2026-11-01T11:50:52.206118+00:00"
+}

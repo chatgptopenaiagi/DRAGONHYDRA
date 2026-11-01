@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T11:44:19.149670+00:00",
+  "target_service": "DragonhydraWorkstationTest",
+  "site": "build/workstation/test-install/state data/site",
+  "api_base": "http://127.0.0.1:18744/dragon/api/v1",
+  "backup": "build/joomla-frontend-20261101/private-backup",
+  "backup_receipt": "build/joomla-frontend-20261101/evidence/backup-r1.json",
+  "original_home_id": 101,
+  "original_home_link": "index.php?option=com_content&view=featured",
+  "planned_changes": [
+    "Install compatible child-template and upgraded com_dragonhydra through Joomla CLI extension installer",
+    "Create/reuse native Home item and assign child-template",
+    "Exclude existing sample modules only from the new Home menu assignments",
+    "Retain original menu/articles/modules for rollback",
+    "Retain existing component API/bridge parameters"
+  ],
+  "not_changed": [
+    "Python server/runtime",
+    "SQLite sports database",
+    "provider configuration",
+    "pairing/bridge credentials",
+    "other profiles/ports/services",
+    "Joomla core/vendor"
+  ],
+  "rollback_before_change": [
+    "Preserve any newer owner edits and take a fresh protected backup first.",
+    "Use only the original target service/controller; stop it for a database/file restore.",
+    "Restore original Joomla SQL snapshot using matching private MariaDB client and protected stdin/defaults credentials; do not restore into other schemas/instances or SQLite.",
+    "Restore backed-up administrator component/configuration files; quarantine only newly added site component/child-template files under this task backup after checking exact workspace containment.",
+    "Retain original Cassiopeia core files and return default Home101/settings/module assignments/template-style records from the matching backup.",
+    "Start only target service and verify original root/login/component against backup baselines."
+  ],
+  "rollback_executed": false,
+  "deployment_reapply_goal": "Same Home/template/module IDs and no data or identity changes"
+}

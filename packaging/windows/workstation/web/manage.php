@@ -241,7 +241,7 @@ function install(array $cfg, string $configPath): void {
     }
     output(['action' => 'install', 'installed' => true, 'core_created' => !$coreInstalled, 'extension_updated' => $changed, 'extension_package_sha256' => $hash]);
 }
-function configure(array $cfg): void {
+function configure(array $cfg, string $configPath): void {
     $db = appConnection($cfg); $record = extensionRecord($db);
     if (!$record) { throw new RuntimeException('DRAGONHYDRA_EXTENSION_MISSING'); }
     if (!is_file($cfg['bridge_secret_path'])) { throw new RuntimeException('KERNEL_IDENTITY_BRIDGE_MISSING'); }
@@ -253,6 +253,9 @@ function configure(array $cfg): void {
     $encoded = json_encode($params, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES);
     $statement = $db->prepare("UPDATE dh_extensions SET params=? WHERE element='com_dragonhydra' AND type='component'");
     $statement->bind_param('s', $encoded); $statement->execute();
+    // Reapply the extension's own idempotent Home/template migration on repair.
+    // This child bootstraps the matching Joomla installation, not an arbitrary site.
+    runChild($cfg, [__FILE__, $configPath, '_configure-frontend'], 'frontend-configure');
     output(['action' => 'configure', 'configured' => true, 'api_base' => $cfg['api_base'], 'configuration_sha256' => hash('sha256', $encoded)]);
 }
 function status(array $cfg): void {
@@ -281,9 +284,25 @@ try {
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     if ($action === 'provision') { provision($cfg); }
     elseif ($action === 'install') { install($cfg, $configPath); }
-    elseif ($action === 'configure') { configure($cfg); }
+    elseif ($action === 'configure') { configure($cfg, $configPath); }
     elseif ($action === 'status') { status($cfg); }
     elseif ($action === 'shutdown') { $db = rootConnection($cfg); $db->query('SHUTDOWN'); output(['action' => 'shutdown', 'shutdown_requested' => true]); }
+    elseif ($action === '_configure-frontend') {
+        if (!is_file($cfg['site'] . '/configuration.php')) { throw new RuntimeException('JOOMLA_CONFIGURATION_MISSING'); }
+        define('_JEXEC', 1); define('JPATH_BASE', $cfg['site']);
+        require_once JPATH_BASE . '/includes/defines.php';
+        require_once JPATH_BASE . '/includes/framework.php';
+        $container = \Joomla\CMS\Factory::getContainer();
+        $container->alias('session', 'session.cli')
+            ->alias(\Joomla\CMS\Session\Session::class, 'session.cli')
+            ->alias(\Joomla\Session\Session::class, 'session.cli')
+            ->alias(\Joomla\Session\SessionInterface::class, 'session.cli');
+        \Joomla\CMS\Factory::$application = $container->get(\Joomla\Console\Application::class);
+        $setup = JPATH_ADMINISTRATOR . '/components/com_dragonhydra/src/Service/FrontendSetup.php';
+        if (!is_file($setup)) { throw new RuntimeException('WORKSPACE_FRONTEND_SETUP_MISSING'); }
+        require_once $setup;
+        output(['action' => 'configure-frontend', 'frontend' => \Dragonhydra\Component\Dragonhydra\Administrator\Service\FrontendSetup::apply()]);
+    }
     elseif ($action === '_install-core') {
         if (is_file($cfg['site'] . '/configuration.php')) { output(['already_installed' => true]); exit; }
         $options = ['site-name' => $cfg['site_name'], 'admin-user' => 'DRAGONHYDRA Administrator',

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)][string]$OutputRoot,
-    [Parameter(Mandatory)][string]$ExtensionPath,
+    [string]$ExtensionPath,
     [Parameter(Mandatory)][string]$SourceSha,
     [Parameter(Mandatory)][string]$Version,
     [string]$ApacheRoot = 'C:\xampp\apache',
@@ -11,6 +11,11 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..\..\..'))
+if (-not $ExtensionPath) {
+    $componentVersion = ([xml](Get-Content -LiteralPath (Join-Path $project 'server\joomla\pkg_dragonhydra.xml') -Raw)).extension.version
+    $ExtensionPath = Join-Path $project ('dist\pkg_dragonhydra-'+$componentVersion+'.zip')
+}
+if (-not (Test-Path -LiteralPath $ExtensionPath -PathType Leaf)) { throw 'Build scripts/build_joomla.py first, or supply the verified current frontend package with -ExtensionPath.' }
 if (-not $PhpArchive) { $PhpArchive = Join-Path $project 'runtime\scratch\joomla-integration\downloads\php-8.4.27-1-Win32-vs17-x64.zip' }
 if (-not $JoomlaArchive) { $JoomlaArchive = Join-Path $project 'runtime\scratch\joomla-integration\downloads\Joomla_6-2-0-Stable-Full_Package.zip' }
 $arguments = @('-3.14', '-B', (Join-Path $PSScriptRoot 'prepare_payload.py'),

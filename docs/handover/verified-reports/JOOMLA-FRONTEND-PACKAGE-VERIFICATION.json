@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "built": true,
+  "installed": true,
+  "executed": true,
+  "tested": true,
+  "verified": true,
+  "published": false,
+  "package": "C:\\xampp\\DRAGONHYDRA\\dist\\pkg_dragonhydra-0.4.1-dev.2.zip",
+  "bytes": 43686,
+  "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+  "component_version": "0.4.1-dev.2",
+  "embedded_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+  "installation_scope": "Existing primary Joomla6.2/PHP8.4.27 site supportedCLIupgrade; samepackage reapplication passedsemanticidempotence",
+  "new_windows_installer_built": false,
+  "fresh_workstation_install_tested": false,
+  "os_reboot_tested": false,
+  "signed": false,
+  "verified_at": "2026-11-01T12:04:21.668053+00:00"
+}
