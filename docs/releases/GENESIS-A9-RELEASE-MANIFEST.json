@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "release": "DRAGONHYDRA GENESIS A9",
+  "tag": "genesis-a9-20261101",
+  "classification": "development prerelease",
+  "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+  "metadata_source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+  "assembled_at": "2026-11-01T13:12:25.920377+00:00",
+  "version_policy": "Independent original component versions retained; milestone filename does not alter embedded versions. Null source SHA records original content-addressed snapshot honestly.",
+  "assets": [
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "ANDROID-BUILD-REPORT.json",
+      "bytes": 9057,
+      "sha256": "f67ccc58bcebf75793ab8c91901f1038d1e77e9fd35058a1d12249a551269f28",
+      "artifact_prepared_at": "2026-11-01T12:37:57.803650+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "platform": "Android arm64-v8a",
+      "version": "0.4.0-alpha.1+4",
+      "source_commit": "4a08f873429e338d30031be321a0c63ccfe196a7",
+      "build_configuration": "Flutter release-optimized; non-debuggable; SDK36",
+      "dependencies": [
+        "Android API24+",
+        "Owner-provided trusted backend URL/pairing"
+      ],
+      "installation": "Sideload through owner-authorized Android workflow; configure own endpoint",
+      "test_results": [
+        "Flutter analyze0issues;14testsPASS",
+        "APK identity/signature/ABI verified",
+        "Fresh emulator install Success; cold launch Statusok; Home rendered"
+      ],
+      "known_limitations": [
+        "Established AndroidDebug development certificate; not production publisher signed",
+        "Pairing BLOCKED by user-stopped UI; connected navigation/upgrade/persistence NOT_RUN",
+        "Observed emulator is API37 x86_64 with ARM64 translation, not physical ARM64 acceptance"
+      ],
+      "signing": "development certificate SHA256 d77e623706f0146bc495904affe310cb492d67277ecf70b28455d1f5e138e419",
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "bytes": 17345938,
+      "sha256": "d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1",
+      "artifact_prepared_at": "2026-11-01T12:32:32.671374+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk"
+    },
+    {
+      "platform": "Windows desktop support",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+      "build_configuration": "Unchanged adjacent support file",
+      "dependencies": [],
+      "installation": "Keep alongside standalone EXE",
+      "test_results": [
+        "Content SHA verified"
+      ],
+      "known_limitations": [
+        "Companion file, not executable"
+      ],
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "bytes": 300,
+      "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4",
+      "artifact_prepared_at": "2026-11-01T10:15:02.517949+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json"
+    },
+    {
+      "platform": "Windows desktop support",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+      "build_configuration": "Unchanged adjacent support file",
+      "dependencies": [],
+      "installation": "Keep alongside standalone EXE",
+      "test_results": [
+        "Content SHA verified"
+      ],
+      "known_limitations": [
+        "Companion file, not executable"
+      ],
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "bytes": 2607816,
+      "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6",
+      "artifact_prepared_at": "2026-11-01T10:15:59.171630+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt"
+    },
+    {
+      "platform": "Windows desktop support",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+      "build_configuration": "Unchanged adjacent support file",
+      "dependencies": [],
+      "installation": "Keep alongside standalone EXE",
+      "test_results": [
+        "Content SHA verified"
+      ],
+      "known_limitations": [
+        "Companion file, not executable"
+      ],
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "bytes": 1558,
+      "sha256": "f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011",
+      "artifact_prepared_at": "2026-11-01T12:30:55.247844+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt"
+    },
+    {
+      "platform": "Windows x64",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+      "build_configuration": "Immutable existing Tauri2 release executable",
+      "dependencies": [
+        "WebView2",
+        "Paired DRAGONHYDRA server"
+      ],
+      "installation": "Use matching workstation launcher or local connection/pairing screen",
+      "test_results": [
+        "Current SHA equality",
+        "Earlier A8 native links, bare-launch pairing, navigation/exports/restart acceptance"
+      ],
+      "known_limitations": [
+        "Earlier native UI evidence not rerun for A9",
+        "Unsigned; standalone EXE does not install backend"
+      ],
+      "signing": "unsigned",
+      "source_content_sha256": "2c6b0607cf7d1638787f6858a29258eac1a8bd89b20c437afcba8e8ee9beeae4",
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "bytes": 10078208,
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+      "artifact_prepared_at": "2026-11-01T10:14:14.236193+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe"
+    },
+    {
+      "platform": "Windows x64",
+      "version": "0.4.0-alpha.1",
+      "source_commit": null,
+      "build_configuration": "Existing immutable frozen A6 payload710files plus external startup/provenance docs",
+      "dependencies": [
+        "Windows x64; Python runtime bundled"
+      ],
+      "installation": "Extract all files; follow included README-STARTUP.txt; run DRAGONHYDRA-Server-x64/DRAGONHYDRA-Server.exe with private dedicated --state and --port",
+      "test_results": [
+        "All710payload files and ZIP members rehashed",
+        "Fresh6groupsPASS;owned-state restart5groupsPASS;760retained and XLSX preserved"
+      ],
+      "known_limitations": [
+        "Original snapshot did not embed Git SHA; scoped source content is authoritative",
+        "No Joomla/web stack in standalone server ZIP"
+      ],
+      "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+      "source_compatibility": "68source inputs/61product Python files byte-identical to current source",
+      "signing": "unsigned",
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19953545,
+      "sha256": "46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b",
+      "artifact_prepared_at": "2026-11-01T12:31:12.698540+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip"
+    },
+    {
+      "platform": "All supported source",
+      "version": "GENESIS A9",
+      "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "build_configuration": "git archive exact release commit",
+      "dependencies": [],
+      "installation": "Extract; follow platform build instructions and public dependency lock",
+      "test_results": [
+        "Git tree path/content equality",
+        "Archive privacy scan; no runtime state"
+      ],
+      "known_limitations": [
+        "Runtime binaries/dependencies downloaded separately"
+      ],
+      "signing": "Git tag identity; no signing claim",
+      "name": "DRAGONHYDRA-GENESIS-A9-Source.zip",
+      "bytes": 3000651,
+      "sha256": "13d6eaee8d9ba136fd5ba2174d979f7823a7e117bda44f47163ed9b69ef1fed8",
+      "artifact_prepared_at": "2026-11-01T13:04:13.064052+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Source.zip"
+    },
+    {
+      "platform": "Windows x64",
+      "version": "0.4.1-dev.1",
+      "source_commit": "4a08f873429e338d30031be321a0c63ccfe196a7",
+      "build_configuration": "RepackageOnly; explicit verified Joomla frontend ZIP; unchanged A8 desktop and A6 server",
+      "dependencies": [
+        "Windows10+ x64 declared; Windows11 x64 observed",
+        ".NET Framework4.8",
+        "WebView2 (bootstrapper online if absent)"
+      ],
+      "installation": "Run Setup, retain matching data/service identity on upgrade; official launcher pairs corresponding local server",
+      "test_results": [
+        "10662 payload entries inspected",
+        "Full isolated current-host upgrade exit0:6guards",
+        "6genuine site/admin HTTP checks;760retained; pairing/config/ports preserved;3unrelated PIDs unchanged"
+      ],
+      "known_limitations": [
+        "Unsigned",
+        "No clean-machine/OS reboot or new native-client UI run"
+      ],
+      "component_sources": {
+        "joomla": "55997de0a3997a10d12c6271795289a5d147e1ab",
+        "desktop": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+        "server": {
+          "embedded_source_commit": null,
+          "scoped_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4"
+        }
+      },
+      "signing": "unsigned",
+      "name": "DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+      "bytes": 64801813,
+      "sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+      "artifact_prepared_at": "2026-11-01T12:36:42.841180+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "GENESIS-A9-RELEASE-NOTES.md",
+      "bytes": 6484,
+      "sha256": "f4f60b3b824dfede8491d9c87e4913f3365a5af6a0386439dff7968e1602b6f5",
+      "artifact_prepared_at": "2026-11-01T12:54:59.468482+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/GENESIS-A9-RELEASE-NOTES.md"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "JOOMLA-FRONTEND-REPORT.md",
+      "bytes": 16968,
+      "sha256": "46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5",
+      "artifact_prepared_at": "2026-11-01T12:27:31.517499+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/JOOMLA-FRONTEND-REPORT.md"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "README-INSTALL.txt",
+      "bytes": 10560,
+      "sha256": "f6fd37409c61f91c602f538d27041a2ee415367d28afcf8fa1cef871bb8aea68",
+      "artifact_prepared_at": "2026-11-01T12:54:59.468482+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/README-INSTALL.txt"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "RUNTIME-BUILD-REPORT.json",
+      "bytes": 22065,
+      "sha256": "b7b1e399da7bd96264498acdb227cada875385d1fb301ac2a0eee5107d4c3758",
+      "artifact_prepared_at": "2026-11-01T12:56:04.502283+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "TEST-REPORT.json",
+      "bytes": 6727,
+      "sha256": "92493764355717bd08e136682f5c67d4eb0bb07e59489c61f2817a3e36fdb786",
+      "artifact_prepared_at": "2026-11-01T13:03:48.983932+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/TEST-REPORT.json"
+    },
+    {
+      "platform": "Documentation/evidence",
+      "version": "GENESIS A9",
+      "source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+      "build_configuration": "Sanitized report snapshot",
+      "dependencies": [],
+      "installation": "Read alongside release manifest",
+      "test_results": [
+        "Known-secret content scan"
+      ],
+      "known_limitations": [
+        "Build-time reports retain prepublication flags; remote receipt is separate"
+      ],
+      "name": "WINDOWS-BUILD-REPORT.json",
+      "bytes": 16698,
+      "sha256": "70c27dc935f27e03cc7935e09d89be0a5cbe8e99d5eea007ab3ad5a9e81aec5b",
+      "artifact_prepared_at": "2026-11-01T13:11:17.140791+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/WINDOWS-BUILD-REPORT.json"
+    },
+    {
+      "platform": "Python3.14",
+      "version": "0.4.0a1",
+      "source_commit": "46ba85c091230213189ffed679294b80019841a2",
+      "build_configuration": "uv_build0.12.7 wheel",
+      "dependencies": [
+        "Python>=3.14,<3.15",
+        "server extra; public pinned lock"
+      ],
+      "installation": "Install wheel[server] in isolated venv; dragonhydra-server --state <private-dir> --port <unused-port> --init-bridge",
+      "test_results": [
+        "Fresh isolated install; pipcheck;CLI and API checks",
+        "Fresh runtime + owned restart; sdist rebuild verified (see RUNTIME-BUILD-REPORT)"
+      ],
+      "known_limitations": [
+        "No interpreter bundled",
+        "No new Linux runtime proof for this newly generated metadata wheel"
+      ],
+      "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+      "signing": "not digitally signed",
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 301616,
+      "sha256": "ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792",
+      "artifact_prepared_at": "2026-11-01T12:47:21.559086+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1-py3-none-any.whl"
+    },
+    {
+      "platform": "Python3.14",
+      "version": "0.4.0a1",
+      "source_commit": "46ba85c091230213189ffed679294b80019841a2",
+      "build_configuration": "uv_build0.12.7 source distribution",
+      "dependencies": [
+        "Python>=3.14,<3.15",
+        "server extra; public pinned lock"
+      ],
+      "installation": "Install wheel[server] in isolated venv; dragonhydra-server --state <private-dir> --port <unused-port> --init-bridge",
+      "test_results": [
+        "Fresh isolated install; pipcheck;CLI and API checks",
+        "Fresh runtime + owned restart; sdist rebuild verified (see RUNTIME-BUILD-REPORT)"
+      ],
+      "known_limitations": [
+        "No interpreter bundled",
+        "No new Linux runtime proof for this newly generated metadata wheel"
+      ],
+      "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+      "signing": "not digitally signed",
+      "name": "dragonhydra-0.4.0a1.tar.gz",
+      "bytes": 2046747,
+      "sha256": "81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4",
+      "artifact_prepared_at": "2026-11-01T12:47:26.724736+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1.tar.gz"
+    },
+    {
+      "platform": "Linux server preparation / Python3.14",
+      "version": "GENESIS A7 / Python0.4.0a1",
+      "source_commit": "2ca96e94213cc6f516b6963052ef68ff1948af94",
+      "build_configuration": "Reused immutable verified A7 archive; not rebuilt or renamed",
+      "dependencies": [
+        "Linux Python3.14 and matching server dependencies"
+      ],
+      "installation": "Read preflight.py/install.sh; use new private prefix/state; explicit --apply",
+      "test_results": [
+        "Current archive hash +61product source files byte-identical",
+        "Earlier Docker Linux runtime12retained+7fresh and installer dependency gates10"
+      ],
+      "known_limitations": [
+        "No new A9 Linux run",
+        "No native WSL, desktop, DEB/RPM/AppImage, systemd/reboot acceptance",
+        "Contained historical wheel differs from new A9 wheel metadata"
+      ],
+      "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+      "signing": "not digitally signed",
+      "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+      "artifact_prepared_at": "2026-11-01T08:44:13.238877+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-linux-dev-8f170de1559b.tar.gz"
+    },
+    {
+      "platform": "Joomla6 / PHP8.3+",
+      "version": "0.4.1-dev.2",
+      "source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+      "build_configuration": "Native site/admin package + HMAC Python-backend integration + Cassiopeia child template; no separate Joomla REST component shipped",
+      "dependencies": [
+        "Joomla6",
+        "PHP8.3+ curl",
+        "Associated Python API and protected matching bridge file"
+      ],
+      "installation": "Joomla extension installer; workstation provisions endpoint/bridge; separate site login",
+      "test_results": [
+        "Primary existing Joomla6.2 upgrade/reapply idempotent",
+        "17frontend requirements;7isolated states;semantic menus7regressions",
+        "New installer-profile genuine site/admin/retained-match checks"
+      ],
+      "known_limitations": [
+        "Unsigned development extension",
+        "No arbitrary external proxy",
+        "Formal screen-reader/main-landmark audit pending"
+      ],
+      "signing": "unsigned",
+      "name": "pkg_dragonhydra-0.4.1-dev.2.zip",
+      "bytes": 43686,
+      "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+      "artifact_prepared_at": "2026-11-01T11:47:55.301355+00:00",
+      "build_timestamp_utc": null,
+      "build_timestamp_note": "Actual lane command/build timestamps are retained in associated platform report; artifact_prepared_at is not asserted as compiler time",
+      "download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/pkg_dragonhydra-0.4.1-dev.2.zip"
+    }
+  ]
+}

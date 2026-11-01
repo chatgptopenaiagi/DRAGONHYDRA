@@ -2,6 +2,10 @@
 
 ## GENESIS A9 — 2026-11-01 — development prerelease
 
+Published and verified: [genesis-a9-20261101](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101).
+Source `2e6520d5b6a7874881e5de85dbb6ececaef11d8f`;21assets, all public bytes verified;
+8historical releases/59assets unchanged. Metadata clarification revision2 changed no software binaries or tagged source.
+
 - Added a Joomla-native sports homepage and seven protected workspace sections,
   with a Cassiopeia child template and scoped responsive assets.
 - Reused Joomla site/admin authentication and the existing server-side HMAC bridge;

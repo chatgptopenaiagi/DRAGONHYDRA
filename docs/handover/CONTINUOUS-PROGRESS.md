@@ -1,3 +1,22 @@
+GENESIS A9 RELEASE PUBLISHED AND REMOTELY VERIFIED (2026-11-01).
+Release: https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101
+Tag: genesis-a9-20261101; source: 2e6520d5b6a7874881e5de85dbb6ececaef11d8f.
+21assets verified: Windows unified/desktop,AndroidARM64development,Joomla,server,
+wheel+sdist,LinuxA7 preparation,exactsource and support/evidence/checksums.
+Read docs/releases/DRAGONHYDRA-RELEASE-REPORT.md and genesis_a9_release state.
+All21anonymous public downloads passed; bothGitHubsource formats672Gitblobsequal.
+Metadata clarification revision2 freshly downloaded;18unchanged package downloads
+rehashed withsameassetIDs/digests. All8olderreleases/59assets unchanged.
+47focused tests; Windows fullisolatedupgrade6+authenticatedHTTP6;760recordspreserved.
+Android14tests/freshinstall/coldHomePASS; pairingBLOCKED userEscape. NO nativeUI input.
+PythonS2fresh4+7groups/sdistidenticalwheel; frozenserver6+5; LinuxhistoricalDockeronly.
+All4servicesRunning; protectedPIDs12904/23500/39364 unchanged; isolatedA8PID29480.
+Finalprivacy21values/10692files/3480members zero. No secret/runtime state distributed.
+Repositorylanding continuity/genesis-20261031-a6; independenthistoricalmain preserved.
+Privatebackup build/master-release-20261101/private-a8-backup remainslocalrestricted.
+Next: separatelyowned cleanWindows/reboot/signing; authorizedAndroidpairing; accessibility.
+Do not repeat recovery,reset credentials,repointprofiles or replacehistoricalassets.
+
 
 2026-11-01 GENESIS A9 master release assembly: frontend4a08 checkpoint preserved; Windows full isolated upgrade6 +authenticatedHTTP6;47unitregressions;Androidfresh14tests/install/coldlaunch;Python4+7/server6+5;immutableLinuxA7 historicalonly. Publication pending. See docs/releases/DRAGONHYDRA-RELEASE-REPORT.md.
 

@@ -653,18 +653,23 @@
     "candidate_classification": "prerelease; componentversionsandearlierbinaryprovenanceexplicit"
   },
   "genesis_a9_release": {
-    "updated_at": "2026-11-01T12:57:32.967905+00:00",
+    "updated_at": "2026-11-01T13:16:32.466302+00:00",
     "tag": "genesis-a9-20261101",
     "classification": "development prerelease",
-    "source_commit": "Resolve annotated tag after preservation commit; per-artifact sources remain independent",
+    "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
     "python_source_commit": "46ba85c091230213189ffed679294b80019841a2",
     "status": [
       "BUILT",
       "INSTALLED_CURRENT_HOST_UPGRADE",
       "EXECUTED",
-      "TESTED"
+      "TESTED",
+      "VERIFIED",
+      "SOURCE_PUSH_VERIFIED",
+      "TAG_PUSH_VERIFIED",
+      "PUBLISHED",
+      "PUBLIC_DOWNLOAD_HASH_VERIFIED"
     ],
-    "published": false,
+    "published": true,
     "frontend_checkpoint": "4a08f873429e338d30031be321a0c63ccfe196a7",
     "windows_upgrade_checks": 6,
     "windows_authenticated_http_checks": 6,
@@ -675,6 +680,16 @@
     "report": "docs/releases/DRAGONHYDRA-RELEASE-REPORT.md",
     "artifacts": "dist/master-release-20261101/assets",
     "private_backup": "build/master-release-20261101/private-a8-backup",
-    "next_action": "Privacy/complete-source validation, push exact source/tag, publish explicit assets, download and rehash, compare historical releases"
+    "next_action": "Separately owned clean Windows/reboot acceptance and authorized publisher inputs; resume Android UI pairing only after renewed authorization. Preserve complete published artifacts and source tag.",
+    "metadata_source_commit": "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9",
+    "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101",
+    "release_id": 430590555,
+    "published_at": "2026-11-01T13:09:12Z",
+    "asset_count": 21,
+    "publication_receipt": "docs/handover/verified-reports/GENESIS-A9-PUBLICATION-VERIFICATION.json",
+    "manifest": "docs/releases/GENESIS-A9-RELEASE-MANIFEST.json",
+    "checksums": "docs/releases/GENESIS-A9-SHA256SUMS.txt",
+    "historical_releases_preserved": 8,
+    "historical_assets_preserved": 59
   }
 }

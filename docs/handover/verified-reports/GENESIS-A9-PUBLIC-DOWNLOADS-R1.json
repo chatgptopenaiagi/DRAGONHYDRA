@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T13:09:34.959079+00:00",
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "tag": "genesis-a9-20261101",
+  "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+  "checks": [
+    {
+      "name": "published_development_prerelease",
+      "status": "PASS"
+    },
+    {
+      "name": "remote_tag_exact_source_commit",
+      "status": "PASS",
+      "remote_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f"
+    },
+    {
+      "name": "exact_asset_names_and_count",
+      "status": "PASS",
+      "count": 21
+    },
+    {
+      "name": "all_remote_asset_sizes_and_sha256_digests",
+      "status": "PASS",
+      "count": 21
+    },
+    {
+      "name": "all_anonymous_public_asset_downloads_rehashed",
+      "status": "PASS",
+      "count": 21
+    },
+    {
+      "name": "automatic_github_zip_and_tar_exact_tagged_source",
+      "status": "PASS",
+      "files": 672
+    },
+    {
+      "name": "all_historical_release_assets_unchanged",
+      "status": "PASS",
+      "releases": 8,
+      "assets": 59
+    }
+  ],
+  "downloads": [
+    {
+      "name": "ANDROID-BUILD-REPORT.json",
+      "bytes": 9057,
+      "sha256": "f67ccc58bcebf75793ab8c91901f1038d1e77e9fd35058a1d12249a551269f28"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "bytes": 17345938,
+      "sha256": "d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "bytes": 300,
+      "sha256": "2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "bytes": 2607816,
+      "sha256": "c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "bytes": 1558,
+      "sha256": "f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "bytes": 10078208,
+      "sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617"
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19953545,
+      "sha256": "46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b"
+    },
+    {
+      "name": "DRAGONHYDRA-GENESIS-A9-Source.zip",
+      "bytes": 3000651,
+      "sha256": "13d6eaee8d9ba136fd5ba2174d979f7823a7e117bda44f47163ed9b69ef1fed8"
+    },
+    {
+      "name": "DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+      "bytes": 64801813,
+      "sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a"
+    },
+    {
+      "name": "GENESIS-A9-RELEASE-NOTES.md",
+      "bytes": 6484,
+      "sha256": "f4f60b3b824dfede8491d9c87e4913f3365a5af6a0386439dff7968e1602b6f5"
+    },
+    {
+      "name": "JOOMLA-FRONTEND-REPORT.md",
+      "bytes": 16968,
+      "sha256": "46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5"
+    },
+    {
+      "name": "README-INSTALL.txt",
+      "bytes": 10560,
+      "sha256": "f6fd37409c61f91c602f538d27041a2ee415367d28afcf8fa1cef871bb8aea68"
+    },
+    {
+      "name": "RELEASE-MANIFEST.json",
+      "bytes": 25490,
+      "sha256": "5eceadae5606e6768be0ae7805cce3282b62c1c71950624a2b57bd22d6d60f94"
+    },
+    {
+      "name": "RUNTIME-BUILD-REPORT.json",
+      "bytes": 22065,
+      "sha256": "b7b1e399da7bd96264498acdb227cada875385d1fb301ac2a0eee5107d4c3758"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 2067,
+      "sha256": "5fdac4acd1e083700fd0bbc05ee772916bf48db2f47a64e17c5a21715ab5ff7a"
+    },
+    {
+      "name": "TEST-REPORT.json",
+      "bytes": 6727,
+      "sha256": "92493764355717bd08e136682f5c67d4eb0bb07e59489c61f2817a3e36fdb786"
+    },
+    {
+      "name": "WINDOWS-BUILD-REPORT.json",
+      "bytes": 15485,
+      "sha256": "49b5b3a3472d23c5237edfa118d273610261f22706c2751500b743e1d52e9dbe"
+    },
+    {
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 301616,
+      "sha256": "ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792"
+    },
+    {
+      "name": "dragonhydra-0.4.0a1.tar.gz",
+      "bytes": 2046747,
+      "sha256": "81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4"
+    },
+    {
+      "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    },
+    {
+      "name": "pkg_dragonhydra-0.4.1-dev.2.zip",
+      "bytes": 43686,
+      "sha256": "8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49"
+    },
+    {
+      "name": "GITHUB-AUTOMATIC-SOURCE.zip",
+      "bytes": 3023051,
+      "sha256": "f953a59d8e02b751740cd01e255767d73ea3cb3320d338e70bc0570c68a20979",
+      "git_blob_equal_files": 672
+    },
+    {
+      "name": "GITHUB-AUTOMATIC-SOURCE.tar.gz",
+      "bytes": 2565085,
+      "sha256": "abf74e12036963c186f8642990922c690b81e51fac79c0e8d3e50f62893d4b90",
+      "git_blob_equal_files": 672
+    }
+  ],
+  "release_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101",
+  "release_id": 430590555,
+  "published_at": "2026-11-01T13:09:12Z",
+  "assets": [
+    {
+      "id": 698370535,
+      "name": "ANDROID-BUILD-REPORT.json",
+      "size": 9057,
+      "digest": "sha256:f67ccc58bcebf75793ab8c91901f1038d1e77e9fd35058a1d12249a551269f28",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "id": 698370540,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+      "size": 17345938,
+      "digest": "sha256:d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk"
+    },
+    {
+      "id": 698370539,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+      "size": 300,
+      "digest": "sha256:2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json"
+    },
+    {
+      "id": 698370543,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+      "size": 2607816,
+      "digest": "sha256:c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt"
+    },
+    {
+      "id": 698370538,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+      "size": 1558,
+      "digest": "sha256:f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt"
+    },
+    {
+      "id": 698370582,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+      "size": 10078208,
+      "digest": "sha256:f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe"
+    },
+    {
+      "id": 698370581,
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "size": 19953545,
+      "digest": "sha256:46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip"
+    },
+    {
+      "id": 698370604,
+      "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "size": 301616,
+      "digest": "sha256:ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1-py3-none-any.whl"
+    },
+    {
+      "id": 698370664,
+      "name": "dragonhydra-0.4.0a1.tar.gz",
+      "size": 2046747,
+      "digest": "sha256:81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-0.4.0a1.tar.gz"
+    },
+    {
+      "id": 698371015,
+      "name": "DRAGONHYDRA-GENESIS-A9-Source.zip",
+      "size": 3000651,
+      "digest": "sha256:13d6eaee8d9ba136fd5ba2174d979f7823a7e117bda44f47163ed9b69ef1fed8",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Source.zip"
+    },
+    {
+      "id": 698371464,
+      "name": "DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+      "size": 64801813,
+      "digest": "sha256:51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe"
+    },
+    {
+      "id": 698371728,
+      "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "size": 304065,
+      "digest": "sha256:a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/dragonhydra-linux-dev-8f170de1559b.tar.gz"
+    },
+    {
+      "id": 698371818,
+      "name": "GENESIS-A9-RELEASE-NOTES.md",
+      "size": 6484,
+      "digest": "sha256:f4f60b3b824dfede8491d9c87e4913f3365a5af6a0386439dff7968e1602b6f5",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/GENESIS-A9-RELEASE-NOTES.md"
+    },
+    {
+      "id": 698371880,
+      "name": "JOOMLA-FRONTEND-REPORT.md",
+      "size": 16968,
+      "digest": "sha256:46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/JOOMLA-FRONTEND-REPORT.md"
+    },
+    {
+      "id": 698371883,
+      "name": "pkg_dragonhydra-0.4.1-dev.2.zip",
+      "size": 43686,
+      "digest": "sha256:8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/pkg_dragonhydra-0.4.1-dev.2.zip"
+    },
+    {
+      "id": 698371921,
+      "name": "README-INSTALL.txt",
+      "size": 10560,
+      "digest": "sha256:f6fd37409c61f91c602f538d27041a2ee415367d28afcf8fa1cef871bb8aea68",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/README-INSTALL.txt"
+    },
+    {
+      "id": 698371928,
+      "name": "RELEASE-MANIFEST.json",
+      "size": 25490,
+      "digest": "sha256:5eceadae5606e6768be0ae7805cce3282b62c1c71950624a2b57bd22d6d60f94",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RELEASE-MANIFEST.json"
+    },
+    {
+      "id": 698371953,
+      "name": "RUNTIME-BUILD-REPORT.json",
+      "size": 22065,
+      "digest": "sha256:b7b1e399da7bd96264498acdb227cada875385d1fb301ac2a0eee5107d4c3758",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "id": 698371961,
+      "name": "SHA256SUMS.txt",
+      "size": 2067,
+      "digest": "sha256:5fdac4acd1e083700fd0bbc05ee772916bf48db2f47a64e17c5a21715ab5ff7a",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/SHA256SUMS.txt"
+    },
+    {
+      "id": 698371996,
+      "name": "TEST-REPORT.json",
+      "size": 6727,
+      "digest": "sha256:92493764355717bd08e136682f5c67d4eb0bb07e59489c61f2817a3e36fdb786",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/TEST-REPORT.json"
+    },
+    {
+      "id": 698372003,
+      "name": "WINDOWS-BUILD-REPORT.json",
+      "size": 15485,
+      "digest": "sha256:49b5b3a3472d23c5237edfa118d273610261f22706c2751500b743e1d52e9dbe",
+      "browser_download_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/genesis-a9-20261101/WINDOWS-BUILD-REPORT.json"
+    }
+  ],
+  "finished_at": "2026-11-01T13:11:26.921687+00:00"
+}

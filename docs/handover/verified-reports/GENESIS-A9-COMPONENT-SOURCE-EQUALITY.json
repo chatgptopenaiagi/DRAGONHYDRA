@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "components": [
+    {
+      "component": "android/dragonhydra_mobile",
+      "artifact_source_commit": "4a08f873429e338d30031be321a0c63ccfe196a7",
+      "release_source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "tree_object_identical": true,
+      "tree_object": "9bec4452ea71c6f33e2adbd438acce2377da4e83"
+    },
+    {
+      "component": "client/desktop",
+      "artifact_source_commit": "5821b4d54a199f73ccd943215117dcfa8e38ea4b",
+      "release_source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "tree_object_identical": true,
+      "tree_object": "f41b5c790a5aa6e267f6252bb8e47889025ef23b"
+    },
+    {
+      "component": "server/joomla/com_dragonhydra",
+      "artifact_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+      "release_source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "tree_object_identical": true,
+      "tree_object": "fac5aa18c5fe3dd51d87885d0b9e4446e2ac4672"
+    },
+    {
+      "component": "server/joomla/tpl_cassiopeia_dragonhydra",
+      "artifact_source_commit": "55997de0a3997a10d12c6271795289a5d147e1ab",
+      "release_source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "tree_object_identical": true,
+      "tree_object": "48583cf77e9fa789d7c3be12771a362938359d6d"
+    }
+  ],
+  "joomla_parent_directory_note": "Full server/joomla tree differs only by README.md documentation; package source subtrees are compared explicitly"
+}

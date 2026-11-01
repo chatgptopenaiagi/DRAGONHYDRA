@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+  "source_archive_git_blob_equal_files": 672,
+  "manifest_payload_and_report_files": 19,
+  "checksummed_files": 20,
+  "release_assets": 21
+}

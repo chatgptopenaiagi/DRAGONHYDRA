@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "timestamp": "2026-11-01T13:14:40.5332127Z",
+  "services": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 39364,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 12904,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraGenesisA8Test",
+      "State": "Running",
+      "ProcessId": 29480,
+      "StartName": "NT AUTHORITY\\LocalService"
+    }
+  ],
+  "three_protected_service_pids_unchanged": true,
+  "only_A8_installer_upgrade_changed_owning_pid": true
+}
