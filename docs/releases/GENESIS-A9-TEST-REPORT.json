@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T12:56:50.180350+00:00",
+  "classification": "Development prerelease with explicitly bounded platform limits",
+  "historical_evidence_not_claimed_rerun": true,
+  "tests": [
+    {
+      "id": "FRONTEND_MENU",
+      "status": "PASS",
+      "observed": "55menus: only owned Home142 native-default normalization; unrelated menus/articles preserved;7negative regressions; repeated deployment idempotent",
+      "evidence_or_command": "docs/handover/verified-reports/JOOMLA-FRONTEND-MENU-SEMANTICS.json"
+    },
+    {
+      "id": "FRONTEND_ACCEPTANCE",
+      "status": "PASS",
+      "observed": "17required criteria; actual site/admin sessions,760matches,40teams,2competitions; JSON/CSV/XLSX;7isolated states. Earlier raw external timeout is preserved with successful hash-linked continuation.",
+      "evidence_or_command": "JOOMLA-FRONTEND-REPORT.md"
+    },
+    {
+      "id": "REGRESSION",
+      "status": "PASS",
+      "observed": "47focused tests: Joomla packaging/model/setup/templates/transport/menu plus4runtime-packaging/PID regressions; command exit0",
+      "evidence_or_command": "python -B -m unittest -q tests.test_runtime_release_inputs tests.test_joomla_package tests.test_joomla_frontend_model tests.test_joomla_frontend_setup tests.test_joomla_frontend_templates tests.test_joomla_frontend_transport tests.test_joomla_frontend_menu_contract"
+    },
+    {
+      "id": "WINDOWS_PAYLOAD",
+      "status": "PASS",
+      "observed": "10662payload paths; critical9extracted entries match; unchanged A8desktop/A6server; new Joomla extension/hook verified",
+      "evidence_or_command": "docs/releases/WINDOWS-BUILD-REPORT.json"
+    },
+    {
+      "id": "WINDOWS_UPGRADE",
+      "status": "PASS",
+      "observed": "Full installer exit0,6guards;760records+representative version/pairing/config/ports retained;3protectedPIDsunchanged",
+      "evidence_or_command": "docs/handover/verified-reports/GENESIS-A9-WINDOWS-UPGRADE.json"
+    },
+    {
+      "id": "WINDOWS_JOOMLA_HTTP",
+      "status": "PASS",
+      "observed": "6checks: real site/admin login,CSRF,cookies,sessionnavigation,newhome,realretainedbackendmatch",
+      "evidence_or_command": "docs/handover/verified-reports/GENESIS-A9-WINDOWS-HTTP.json"
+    },
+    {
+      "id": "WINDOWS_NEW_NATIVE_UI",
+      "status": "NOT_RUN",
+      "observed": "Unchanged client f4e8... retains earlier A8 native links/pairing evidence; no new UI input after user stop",
+      "evidence_or_command": "docs/releases/WINDOWS-BUILD-REPORT.json"
+    },
+    {
+      "id": "WINDOWS_CLEAN_MACHINE_REBOOT",
+      "status": "NOT_RUN",
+      "observed": "Current-host isolated upgrade is not clean-machine or OS-reboot acceptance",
+      "evidence_or_command": "docs/releases/WINDOWS-BUILD-REPORT.json"
+    },
+    {
+      "id": "ANDROID_BUILD",
+      "status": "PASS",
+      "observed": "Fresh ARM64 release-optimized APK from4a08; analyze0issues,14tests,APKmetadata/ABI/signature verified",
+      "evidence_or_command": "docs/releases/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "id": "ANDROID_INSTALL_LAUNCH",
+      "status": "PASS",
+      "observed": "Fresh owned emulator install Success,coldlaunch Statusok,nativeHome rendered;API37x86_64withARM64translation",
+      "evidence_or_command": "docs/releases/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "id": "ANDROID_CONNECTED_PAIRING",
+      "status": "BLOCKED",
+      "observed": "User stopped nativeUI with Escape; no further input or secretentry; connecteddata/upgrade/persistence NOT_RUN",
+      "evidence_or_command": "docs/releases/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "id": "ANDROID_PRODUCTION_SIGNING",
+      "status": "BLOCKED",
+      "observed": "Five existing publisher-keystore/certificate inputs unavailable; APK explicitly establisheddevelopment signed",
+      "evidence_or_command": "docs/releases/ANDROID-BUILD-REPORT.json"
+    },
+    {
+      "id": "WINDOWS_SERVER",
+      "status": "PASS",
+      "observed": "Immutable710filepayload rehashed; actual portableEXE fresh6groups and retained-state restart5groups;760matches/XLSX/normalexit0",
+      "evidence_or_command": "docs/releases/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "id": "PYTHON_WHEEL_SDIST",
+      "status": "PASS",
+      "observed": "Offline freshisolatedinstall/CLI/API4groups; fresh760import+restart7groups; sdist rebuild byte-identicalwheel;publiclockincluded",
+      "evidence_or_command": "docs/releases/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "id": "LINUX_ARTIFACT_INTEGRITY",
+      "status": "PASS",
+      "observed": "ExactimmutableA7archive+61productfiles byte-identical current; earlier Docker12retained+7fresh evidence retained",
+      "evidence_or_command": "docs/releases/RUNTIME-BUILD-REPORT.json"
+    },
+    {
+      "id": "LINUX_NEW_NATIVE_ACCEPTANCE",
+      "status": "NOT_RUN",
+      "observed": "No new A9Linuxbuild/runtime or nativeWSL/desktop/systemd/reboot claim",
+      "evidence_or_command": "docs/releases/RUNTIME-BUILD-REPORT.json"
+    }
+  ],
+  "known_failures_resolved": [
+    {
+      "category": "Test harness",
+      "initial": "Windows venv redirector child PID differs from launcher PID",
+      "repair": "Windows ancestry ownership check; POSIX exactPID retained;focused negative regression"
+    },
+    {
+      "category": "Packaging source",
+      "initial": "Public pinned lock ignored by root runtime/ pattern and recursive staging runtime exclusion",
+      "repair": "Exact public-lock Git exception, nested-path preserving source staging,sdist inclusion/privacy regressions"
+    }
+  ],
+  "publication_verification": "Separate coordinator remote verification receipt; no upload success inferred from local build report"
+}

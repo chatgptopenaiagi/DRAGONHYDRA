@@ -1,3 +1,6 @@
+
+2026-11-01 GENESIS A9 master release assembly: frontend4a08 checkpoint preserved; Windows full isolated upgrade6 +authenticatedHTTP6;47unitregressions;Androidfresh14tests/install/coldlaunch;Python4+7/server6+5;immutableLinuxA7 historicalonly. Publication pending. See docs/releases/DRAGONHYDRA-RELEASE-REPORT.md.
+
 # DRAGONHYDRA continuous checkpoint
 
 Updated 2026-10-31. Goal remains active. Preservation completed before this

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T12:50:42.134582+00:00",
+  "scope": "HTTP against isolated A8 installation after full A9 installer upgrade, not new native-client UI acceptance",
+  "origin": "http://127.0.0.1:18750",
+  "backend": "http://127.0.0.1:18749/dragon/api/v1",
+  "checks": [
+    {
+      "name": "new_native_home_and_anonymous_private_data_protection",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_site_login_csrf_and_cookie",
+      "status": "PASS"
+    },
+    {
+      "name": "genuine_site_login_backend_totals",
+      "status": "PASS",
+      "total": 760
+    },
+    {
+      "name": "real_retained_record_via_joomla",
+      "status": "PASS",
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "backend_record_sha256": "772c5ccbd7f5c45b164f67b03cd55da42ef70abec0428d8ef6a560757e7e4d7e"
+    },
+    {
+      "name": "genuine_admin_login_component_bridge",
+      "status": "PASS"
+    },
+    {
+      "name": "subsequent_authenticated_navigation",
+      "status": "PASS"
+    }
+  ],
+  "secrets_logged": false,
+  "provider_requests": false,
+  "finished_at": "2026-11-01T12:50:54.185626+00:00"
+}

@@ -651,5 +651,30 @@
     "frontend_menu_issue": "Precisely resolved semantic comparison with7regressions andactualDBproof",
     "platform_builds_started": false,
     "candidate_classification": "prerelease; componentversionsandearlierbinaryprovenanceexplicit"
+  },
+  "genesis_a9_release": {
+    "updated_at": "2026-11-01T12:57:32.967905+00:00",
+    "tag": "genesis-a9-20261101",
+    "classification": "development prerelease",
+    "source_commit": "Resolve annotated tag after preservation commit; per-artifact sources remain independent",
+    "python_source_commit": "46ba85c091230213189ffed679294b80019841a2",
+    "status": [
+      "BUILT",
+      "INSTALLED_CURRENT_HOST_UPGRADE",
+      "EXECUTED",
+      "TESTED"
+    ],
+    "published": false,
+    "frontend_checkpoint": "4a08f873429e338d30031be321a0c63ccfe196a7",
+    "windows_upgrade_checks": 6,
+    "windows_authenticated_http_checks": 6,
+    "regressions_passed": 47,
+    "retained_records": 760,
+    "android_pairing": "BLOCKED by user Escape; no more native UI",
+    "linux": "Immutable A7 reused; historical Docker only",
+    "report": "docs/releases/DRAGONHYDRA-RELEASE-REPORT.md",
+    "artifacts": "dist/master-release-20261101/assets",
+    "private_backup": "build/master-release-20261101/private-a8-backup",
+    "next_action": "Privacy/complete-source validation, push exact source/tag, publish explicit assets, download and rehash, compare historical releases"
   }
 }

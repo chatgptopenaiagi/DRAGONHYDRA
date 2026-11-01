@@ -51,7 +51,9 @@ verified binaries are explicitly identified; their embedded versions are not ren
 - **Export findings:** actual JSON, CSV and XLSX files, with protected ownership
   and downloads through the server or Joomla bridge.
 - **Manage providers:** show configured status and retained import information;
-  protected administration controls supported adapters, keys and synchronization.
+  the existing protected desktop/API management interface controls keys and supported
+  synchronization. Joomla administration provides bridge options and supported
+  import/capability actions.
   An adapter being present does not prove a live feed or configured account.
 - **Use Joomla natively:** responsive sports homepage, separate site login,
   protected administration, accessible labels/focus and a Cassiopeia child template.

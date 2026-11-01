@@ -1,3 +1,18 @@
+GENESIS A9 MASTER RELEASE: LOCAL ACCEPTANCE COMPLETE; PUBLICATION PENDING (2026-11-01).
+Read docs/releases/DRAGONHYDRA-RELEASE-REPORT.md and genesis_a9_release in the existing state.
+Intended tag genesis-a9-20261101, development prerelease; do not overwrite prior releases.
+Frontend checkpoint 4a08f87 resolved menu normalization, preserved original content and
+idempotence. Windows Setup64801813B SHA51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a:
+full isolated A8 upgrade6guards +6genuine site/admin HTTP checks pass;760records,
+pairing/config/ports retained;3other servicePIDs unchanged. A8 owned service now29480.
+Python wheel/sdist source46ba85c; isolated4+7groups, identical sdist-wheel rebuild;
+frozen unchanged server6+5groups. LinuxA7 reused, historical Docker scope only.
+Android fresh ARM64 dev-signed APK built/tested14/install/cold Home passed; pairing
+BLOCKED user Escape. No more native UI input until renewed authorization.
+47focused regressionsPASS. Private backup build/master-release-20261101/private-a8-backup.
+Next executable action: finish privacy/archive/source checks, push/tag, publish explicit
+assets and remotely verify all downloads/digests; update this status only on evidence.
+
 JOOMLA SPORTS HOMEPAGE VERIFIED (2026-11-01).
 Read JOOMLA-FRONTEND-REPORT.md and joomla_frontend_20261101 in ENGINEERING-STATE.json.
 PrimaryJoomla18740 nowrunsnativecom_dragonhydra frontend; associatedAPI18744 unchanged.

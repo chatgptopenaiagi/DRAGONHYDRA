@@ -12,9 +12,21 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('runtime_release_builder', ROOT / 'scripts/release_wheel.py')
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
+runtime_spec = importlib.util.spec_from_file_location('runtime_fresh_acceptance', ROOT / 'scripts/verify_linux_fresh_runtime.py')
+runtime = importlib.util.module_from_spec(runtime_spec)
+runtime_spec.loader.exec_module(runtime)
 
 
 class RuntimeReleaseInputsTests(unittest.TestCase):
+    def test_windows_owned_child_endpoint_is_accepted_without_relaxing_posix(self):
+        self.assertTrue(runtime.owned_endpoint_pid(100, 100, windows=False))
+        self.assertTrue(runtime.owned_endpoint_pid(100, 101, windows=True, parents={101: 100}))
+        self.assertTrue(runtime.owned_endpoint_pid(100, 102, windows=True, parents={102: 101, 101: 100}))
+        self.assertFalse(runtime.owned_endpoint_pid(100, 101, windows=False, parents={101: 100}))
+        self.assertFalse(runtime.owned_endpoint_pid(100, 103, windows=True, parents={103: 999}))
+        self.assertFalse(runtime.owned_endpoint_pid(100, 103, windows=True, parents={103: 104, 104: 103}))
+        self.assertFalse(runtime.owned_endpoint_pid(100, True, windows=True, parents={}))
+
     def test_real_source_staging_keeps_public_lock_but_excludes_private_runtime(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory); source = base/'original'; stage = base/'staged'

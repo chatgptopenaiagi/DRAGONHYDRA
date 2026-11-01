@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "lane": "Server, Python distributions and Linux runtime reuse",
+  "status": "VERIFIED_CURRENT_WINDOWS_HOST_WITH_HISTORICAL_LINUX_PROOF",
+  "passed": true,
+  "recorded_at": "2026-11-01T12:56:04.343694+00:00",
+  "published": false,
+  "source_checkpoints": {
+    "S1_frontend_and_windows_wrapper": "4a08f873429e338d30031be321a0c63ccfe196a7",
+    "S2_python_packaging": "46ba85c091230213189ffed679294b80019841a2",
+    "frozen_windows_payload": "Content-locked A6 snapshot, original embedded source_sha null",
+    "historical_linux_publication": "2ca96e94213cc6f516b6963052ef68ff1948af94"
+  },
+  "declared_versions": {
+    "server_api": "0.4.0-alpha.1",
+    "python": "0.4.0a1",
+    "requires_python": ">=3.14,<3.15",
+    "wheel_tag": "py3-none-any",
+    "note": "MASTER is an integration release identifier; no unsupported synchronized component-version bump was made"
+  },
+  "environment": {
+    "python_executable": "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+    "python_version": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.29695-SP0",
+    "build": "1.4.0",
+    "uv_build": "0.12.7",
+    "global_dependencies_installed": false,
+    "dependency_downloads": false
+  },
+  "artifacts": [
+    {
+      "filename": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "path": "dist/master-release-20261101/assets/DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+      "bytes": 19953545,
+      "sha256": "46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b"
+    },
+    {
+      "filename": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "path": "dist/master-release-20261101/assets/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 301616,
+      "sha256": "ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792"
+    },
+    {
+      "filename": "dragonhydra-0.4.0a1.tar.gz",
+      "path": "dist/master-release-20261101/assets/dragonhydra-0.4.0a1.tar.gz",
+      "bytes": 2046747,
+      "sha256": "81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4"
+    },
+    {
+      "filename": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "path": "dist/master-release-20261101/assets/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    }
+  ],
+  "windows_server": {
+    "built_now": false,
+    "reused_payload": true,
+    "packaged_now": true,
+    "immutable_payload_files": 710,
+    "archive_members": 712,
+    "payload_members_rehashed_after_archive": true,
+    "binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+    "original_source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+    "external_wrapper_docs": [
+      "README-STARTUP.txt",
+      "PROVENANCE.json"
+    ],
+    "internal_build_metadata_changed": false,
+    "acceptance": {
+      "first_run_groups": 6,
+      "same_fresh_state_restart_groups": 5,
+      "fresh_retained_records": 760,
+      "private_cpython_loaded_from_payload": true,
+      "OS_only_path": true,
+      "canonical_match_team_standings": true,
+      "real_xlsx_file_and_job_retained_after_restart": true,
+      "fresh_pairing_identity_retained": true,
+      "normal_shutdown_exit_codes": [
+        0,
+        0
+      ]
+    },
+    "scope": "New owned state only; no existing workstation/database/provider configuration or service changed",
+    "clean_machine_tested": false,
+    "production_signing": false
+  },
+  "python_distributions": {
+    "built_from_S2_git_export": true,
+    "source_root": "build/master-release-20261101/runtime/frozen-source-s2",
+    "embedded_metadata": {
+      "schema_version": 1,
+      "version": "0.4.0-alpha.1",
+      "python_version": "0.4.0a1",
+      "source_sha": "46ba85c091230213189ffed679294b80019841a2",
+      "api_namespace": "/dragon/api/v1",
+      "build_kind": "master-release-frozen-source",
+      "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4"
+    },
+    "metadata_source_content_hash_scope": "Compatibility pointer to the unchanged A6 68-input server manifest; full Python packaging source is pinned by S2 Git SHA. It is not the hash of all source-distribution files.",
+    "wheel_status": [
+      "BUILT",
+      "INSTALLED_NON_EDITABLY",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED"
+    ],
+    "sdist_status": [
+      "BUILT",
+      "CONTENTS_VERIFIED",
+      "WHEEL_REBUILD_VERIFIED"
+    ],
+    "wheel_first_acceptance_groups": 4,
+    "fresh_database_restart_groups": 7,
+    "installed_module_binding": {
+      "module": "C:\\xampp\\DRAGONHYDRA\\build\\master-release-20261101\\runtime\\wheel-verification-s2\\installed-env\\Lib\\site-packages\\dragonhydra\\__init__.py",
+      "build": {
+        "schema_version": 1,
+        "version": "0.4.0-alpha.1",
+        "python_version": "0.4.0a1",
+        "source_sha": "46ba85c091230213189ffed679294b80019841a2",
+        "api_namespace": "/dragon/api/v1",
+        "build_kind": "master-release-frozen-source",
+        "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4"
+      }
+    },
+    "fresh_runtime": {
+      "records_imported": 760,
+      "repeat_inserted": 0,
+      "all_record_presentations_persisted": true,
+      "sqlite_integrity": "ok",
+      "foreign_key_check": "pass",
+      "normal_shutdown_exit_codes": [
+        0,
+        0
+      ],
+      "windows_endpoint_ownership": "Native descendant check permits Windows venv redirectors; POSIX exact-PID requirement retained"
+    },
+    "sdist_rebuilt_wheel_byte_identical": true,
+    "source_archive_contains_public_lock": true,
+    "direct_sdist_pip_install_separately_run": false,
+    "reproduction_method": "Safely extracted final sdist and rebuilt its wheel with the existing pinned backend; output bytes equal the independently fresh-installed final wheel",
+    "dependency_constraint": {
+      "path": "config/runtime/server-python314.lock.txt",
+      "sha256": "e9a91820059c01cd2592f9b8ca716af646c705c6493e22a39f52276b23121cea",
+      "version_pins": 23
+    },
+    "offline_cached_server_wheels": [
+      {
+        "filename": "annotated_doc-0.0.5-py3-none-any.whl",
+        "bytes": 5302,
+        "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+        "source": "runtime\\linux-native\\locked-wheels\\annotated_doc-0.0.5-py3-none-any.whl"
+      },
+      {
+        "filename": "annotated_types-0.8.0-py3-none-any.whl",
+        "bytes": 13427,
+        "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+        "source": "runtime\\linux-native\\locked-wheels\\annotated_types-0.8.0-py3-none-any.whl"
+      },
+      {
+        "filename": "anyio-4.15.1-py3-none-any.whl",
+        "bytes": 132079,
+        "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+        "source": "runtime\\linux-native\\locked-wheels\\anyio-4.15.1-py3-none-any.whl"
+      },
+      {
+        "filename": "click-8.5.0-py3-none-any.whl",
+        "bytes": 125251,
+        "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+        "source": "runtime\\linux-native\\locked-wheels\\click-8.5.0-py3-none-any.whl"
+      },
+      {
+        "filename": "et_xmlfile-2.0.0-py3-none-any.whl",
+        "bytes": 18059,
+        "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+        "source": "runtime\\linux-native\\locked-wheels\\et_xmlfile-2.0.0-py3-none-any.whl"
+      },
+      {
+        "filename": "fastapi-0.162.0-py3-none-any.whl",
+        "bytes": 148912,
+        "sha256": "3785963de305dd09912426cb81f2d230fce98ab3521cdfe97265c8d14983128c",
+        "source": "runtime\\linux-native\\locked-wheels\\fastapi-0.162.0-py3-none-any.whl"
+      },
+      {
+        "filename": "h11-0.16.0-py3-none-any.whl",
+        "bytes": 37515,
+        "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+        "source": "runtime\\linux-native\\locked-wheels\\h11-0.16.0-py3-none-any.whl"
+      },
+      {
+        "filename": "idna-3.20-py3-none-any.whl",
+        "bytes": 69583,
+        "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+        "source": "runtime\\linux-native\\locked-wheels\\idna-3.20-py3-none-any.whl"
+      },
+      {
+        "filename": "openpyxl-3.1.5-py2.py3-none-any.whl",
+        "bytes": 250910,
+        "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+        "source": "runtime\\linux-native\\locked-wheels\\openpyxl-3.1.5-py2.py3-none-any.whl"
+      },
+      {
+        "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+        "bytes": 60335,
+        "sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
+        "source": "runtime\\linux-native\\locked-wheels\\opentelemetry_api-1.45.2-py3-none-any.whl"
+      },
+      {
+        "filename": "pydantic-2.14.2-py3-none-any.whl",
+        "bytes": 490403,
+        "sha256": "7efbf7507b937931cd32a5755acb00ea1cf5ccb1d4e8067a5850d5069e382118",
+        "source": "runtime\\linux-native\\locked-wheels\\pydantic-2.14.2-py3-none-any.whl"
+      },
+      {
+        "filename": "starlette-1.10.0-py3-none-any.whl",
+        "bytes": 80571,
+        "sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+        "source": "runtime\\linux-native\\locked-wheels\\starlette-1.10.0-py3-none-any.whl"
+      },
+      {
+        "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+        "bytes": 45571,
+        "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+        "source": "runtime\\linux-native\\locked-wheels\\typing_extensions-4.16.0-py3-none-any.whl"
+      },
+      {
+        "filename": "typing_inspection-0.4.4-py3-none-any.whl",
+        "bytes": 14750,
+        "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+        "source": "runtime\\linux-native\\locked-wheels\\typing_inspection-0.4.4-py3-none-any.whl"
+      },
+      {
+        "filename": "tzdata-2026.2-py2.py3-none-any.whl",
+        "bytes": 349321,
+        "sha256": "bbe9af844f658da81a5f95019480da3a89415801f6cc966806612cc7169bffe7",
+        "source": "runtime\\linux-native\\locked-wheels\\tzdata-2026.2-py2.py3-none-any.whl"
+      },
+      {
+        "filename": "uvicorn-0.42.0-py3-none-any.whl",
+        "bytes": 68830,
+        "sha256": "96c30f5c7abe6f74ae8900a70e92b85ad6613b745d4879eb9b16ccad15645359",
+        "source": "runtime\\linux-native\\locked-wheels\\uvicorn-0.42.0-py3-none-any.whl"
+      },
+      {
+        "filename": "pydantic_core-2.50.2-cp314-cp314-win_amd64.whl",
+        "bytes": 2253407,
+        "sha256": "b62c89545d21d930c333208fd548e7b4f262228ba3a322fd75c987a75ab11f31",
+        "source": "build\\release\\v0.4.0-alpha.1\\work\\wheel-release\\pip-cache\\http-v2\\e\\b\\6\\1\\8\\eb618e485a0390b4a1db8e2f8dd7249bd51c05f32b4084052b416f82.body"
+      }
+    ],
+    "offline_install_note": "17 existing public wheels, including exact cp314 Windows Pydantic core; no network index or global install"
+  },
+  "linux_runtime": {
+    "schema_version": 1,
+    "reused": true,
+    "rebuilt": false,
+    "renamed": false,
+    "copied_at": "2026-11-01T12:36:12.972444+00:00",
+    "artifact": "C:\\xampp\\DRAGONHYDRA\\dist\\master-release-20261101\\assets\\dragonhydra-linux-dev-8f170de1559b.tar.gz",
+    "bytes": 304065,
+    "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+    "contained_wheel": {
+      "filename": "dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298309,
+      "sha256": "8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871",
+      "embedded_identity": {
+        "api_namespace": "/dragon/api/v1",
+        "build_kind": "linux-preparation-snapshot",
+        "python_version": "0.4.0a1",
+        "schema_version": 1,
+        "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
+        "source_sha": null,
+        "version": "0.4.0-alpha.1"
+      }
+    },
+    "current_product_files_byte_identical": 61,
+    "historical_publication_source_commit": "2ca96e94213cc6f516b6963052ef68ff1948af94",
+    "historical_execution": "A7 actual isolated Docker Python3.14.10 Linux x86_64/glibc2.41 UID10001;12retained plus7fresh import/restart groups; not re-executed for MASTER",
+    "historical_runtime_report": "docs/handover/verified-reports/LINUX-A7-RUNTIME-VERIFICATION.json",
+    "historical_runtime_report_sha256": "28170beae735b1251d82f316df3fc22b5e569eed0a038f68684a34909616fe4a",
+    "limitations": [
+      "No new Linux build/install/runtime executed in this lane",
+      "No WSL/R8/desktop/systemd/reboot/clean-machine claim",
+      "The current MASTER wheel has a distinct build identity; Linux proof here belongs to the unchanged A7 archive/wheel and identical61productfiles",
+      "Python3.14 and matching platform server dependencies are required; no self-contained Linux desktop or DEB/RPM/AppImage is claimed"
+    ],
+    "provider_acquisitions_or_model_requests": false
+  },
+  "source_comparison": {
+    "windows_a6": {
+      "historical_manifest": "build/connections/payload-20261031-a6/SOURCE-MANIFEST.json",
+      "historical_scoped_inputs": 68,
+      "product_inputs": 61,
+      "all_product_bytes_match_s2": true,
+      "nonproduct_input_differences_from_s2": [],
+      "content_identity": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4"
+    },
+    "linux_a7": {
+      "historical_manifest": "build/linux/prep-20261101-a7/SOURCE-MANIFEST.json",
+      "historical_scoped_inputs": 71,
+      "product_inputs": 61,
+      "all_product_bytes_match_s2": true,
+      "nonproduct_input_differences_from_s2": [
+        "pyproject.toml",
+        "README.md"
+      ],
+      "content_identity": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c"
+    }
+  },
+  "commands_executed": {
+    "python_build_and_install": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "build/master-release-20261101/runtime/frozen-source-s2/scripts/release_wheel.py",
+      "--source-root",
+      "build/master-release-20261101/runtime/frozen-source-s2",
+      "--work",
+      "build/master-release-20261101/runtime/wheel-verification-s2",
+      "--assets",
+      "dist/master-release-20261101/assets",
+      "--build-info",
+      "build/master-release-20261101/runtime/build-info-s2.json",
+      "--wheelhouse",
+      "build/master-release-20261101/runtime/wheelhouse",
+      "--sdist"
+    ],
+    "fresh_python_restart": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "scripts/verify_linux_fresh_runtime.py",
+      "--python",
+      "build/master-release-20261101/runtime/wheel-verification-s2/installed-env/Scripts/python.exe",
+      "--state",
+      "build/master-release-20261101/runtime/wheel-fresh-state-r2",
+      "--output",
+      "build/master-release-20261101/runtime/wheel-fresh-runtime-r2"
+    ],
+    "standalone_frozen": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "tests/installation/frozen_server.py",
+      "--binary",
+      "build/master-release-20261101/runtime/server-package/DRAGONHYDRA-Server-x64/DRAGONHYDRA-Server.exe",
+      "--output",
+      "build/master-release-20261101/runtime/windows-frozen-acceptance.json"
+    ],
+    "sdist_wheel_rebuild": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "-m",
+      "build",
+      "--wheel",
+      "--no-isolation",
+      "--outdir",
+      "build/master-release-20261101/runtime/sdist-rebuilt-wheel",
+      "build/master-release-20261101/runtime/sdist-extracted/dragonhydra-0.4.0a1"
+    ]
+  },
+  "repairs": [
+    {
+      "kind": "Source packaging reproducibility",
+      "failure": "The public server constraint was absent from clean Git exports because runtime/ also ignored config/runtime; staging also dropped nested runtime directories",
+      "repair": "Whitelist only the public constraint in Git, include it in sdist, preserve it in source staging while excluding private siblings; add explicit offline wheelhouse/sdist verification modes",
+      "source_checkpoint": "46ba85c091230213189ffed679294b80019841a2",
+      "verification": "Fresh S2 Git export, offline non-editable install, sdist lock check and byte-identical wheel rebuild pass"
+    },
+    {
+      "kind": "Windows-only test harness ownership",
+      "failure": "The POSIX exact-PID assertion rejected a valid child Python process created by the Windows venv redirector before any import",
+      "repair": "Native read-only process ancestry permits only descendants of the live owned Windows launcher, retains POSIX exact-PID contract, rejects unrelated/cyclic/invalid PIDs",
+      "source_files": [
+        "scripts/verify_linux_fresh_runtime.py",
+        "tests/test_runtime_release_inputs.py"
+      ],
+      "verification": "Focused regression and actual fresh Windows startup/import/restart run pass; no application/wheel rebuild needed"
+    }
+  ],
+  "focused_regressions": {
+    "command": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "tests.test_runtime_release_inputs"
+    ],
+    "passed": 4,
+    "scope": "Real source staging/public lock privacy, source archive identity/private-state rejection, Windows-only descendant ownership and preserved POSIX equality"
+  },
+  "preserved_diagnostics": [
+    {
+      "path": "build/master-release-20261101/runtime/wheel-verification/wheel-verification.json",
+      "result": "Wheel built; verification failed before dependency install because clean S1 export lacked the public lock. Unpublished S1 wheel retained under runtime/attempt-s1."
+    },
+    {
+      "path": "build/master-release-20261101/runtime/wheel-fresh-runtime/verification.json",
+      "result": "Initial extra fresh-runtime helper failed before import on Windows PID assumption; failed receipt retained rather than relabeled."
+    },
+    {
+      "path": "build/master-release-20261101/runtime/windows-restart-helper-diagnostic-r1.json",
+      "result": "Restart probe initially queried jobs instead of product_jobs, failed before launch, then corrected. Not an application defect."
+    }
+  ],
+  "evidence": {
+    "windows_package": {
+      "path": "build/master-release-20261101/runtime/windows-package.json",
+      "sha256": "4caaf00342379920bccc4628a71129d66b7e2b0ccbdb57845e62de546265af5a"
+    },
+    "windows_startup": {
+      "path": "build/master-release-20261101/runtime/windows-frozen-acceptance.json",
+      "sha256": "edcd2d2749cdd28f3cd1e4429cb71848542a7e2da383354777c630026ce1296b"
+    },
+    "windows_restart": {
+      "path": "build/master-release-20261101/runtime/windows-restart-acceptance.json",
+      "sha256": "47d99ee65aea3fa92c4eaedd9458891058507f6a12f4f36a6ba23e199f3396be"
+    },
+    "python_wheel": {
+      "path": "build/master-release-20261101/runtime/wheel-verification-s2/wheel-verification.json",
+      "sha256": "1c1d7888bc2dd7270f983327a9d8769dc8dfb4439bef22dcf268089a54de1cb7"
+    },
+    "python_fresh_restart": {
+      "path": "build/master-release-20261101/runtime/wheel-fresh-runtime-r2/verification.json",
+      "sha256": "feef57a67154d62d79c3d792cd933f746f37971014b297f5b63e3272cb09997f"
+    },
+    "sdist_rebuild": {
+      "path": "build/master-release-20261101/runtime/sdist-reproduction.json",
+      "sha256": "7d0aa21e7f3897fd6f5d157aaf487d90eed642a0f8ed0f9843d36d9b28ab87fd"
+    },
+    "linux_reuse": {
+      "path": "build/master-release-20261101/runtime/linux-reuse.json",
+      "sha256": "12c37c49e3b9baadd292a3152b7d3f6e3feef0f7f8496d668eb95b5678e87014"
+    },
+    "cached_wheels": {
+      "path": "build/master-release-20261101/runtime/CACHE-MANIFEST.json",
+      "sha256": "833ca0d227ce17a6f3e610774a2024c82565cf17e92bb55a126ecd7b11f7bf48"
+    },
+    "failed_s1_verifier": {
+      "path": "build/master-release-20261101/runtime/wheel-verification/wheel-verification.json",
+      "sha256": "e8cf36b53fd1eb25197842ca62200b05390e9642e7347adf32e2c75c23dbab5c"
+    },
+    "failed_windows_pid_probe": {
+      "path": "build/master-release-20261101/runtime/wheel-fresh-runtime/verification.json",
+      "sha256": "ad96bbaebeb6dd9e5882891e7ada110b1a7f052050bf13d280a906366995d0f5"
+    },
+    "failed_windows_restart_table_probe": {
+      "path": "build/master-release-20261101/runtime/windows-restart-helper-diagnostic-r1.json",
+      "sha256": "69057cee6154ab6a0d58ff28443b30c496ff64cd1012e9056e270b6075b4f250"
+    }
+  },
+  "privacy_and_scope": {
+    "existing_live_databases_copied": false,
+    "personal_or_live_provider_data_used": false,
+    "credentials_packaged": false,
+    "paid_or_provider_acquisition_requested": false,
+    "model_inference_requested": false,
+    "Windows_services_changed": false,
+    "operating_systems_reinstalled_or_updated": false,
+    "historical_artifacts_replaced": false
+  },
+  "limitations": [
+    "Current-host Windows isolated execution, not clean-machine or OS-reboot acceptance",
+    "Linux execution evidence is historical A7 Docker Linux x86_64/glibc2.41/Python3.14.10; no new Linux installation/WSL/R8/desktop/systemd proof",
+    "The new S2 wheel is tagged cross-platform, but current fresh installation execution in this lane is Windows; unchanged61productfiles support historical Linux compatibility, not a new Linux runtime claim",
+    "Source distribution was rebuilt to byte-identical installed wheel; separate pip isolated-backend source install was not run",
+    "Unsigned development artifacts; publication verification belongs to root coordinator"
+  ]
+}

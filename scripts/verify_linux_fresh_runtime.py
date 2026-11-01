@@ -36,6 +36,59 @@ def utc():
     return datetime.now(timezone.utc).isoformat()
 
 
+def windows_parent_pids():
+    """Read process ancestry without changing or terminating any process."""
+    import ctypes
+    from ctypes import wintypes
+    class Entry(ctypes.Structure):
+        _fields_ = [('dwSize', wintypes.DWORD), ('cntUsage', wintypes.DWORD),
+                    ('th32ProcessID', wintypes.DWORD), ('th32DefaultHeapID', ctypes.c_size_t),
+                    ('th32ModuleID', wintypes.DWORD), ('cntThreads', wintypes.DWORD),
+                    ('th32ParentProcessID', wintypes.DWORD), ('pcPriClassBase', wintypes.LONG),
+                    ('dwFlags', wintypes.DWORD), ('szExeFile', wintypes.WCHAR * 260)]
+    library = ctypes.WinDLL('kernel32', use_last_error=True)
+    library.CreateToolhelp32Snapshot.argtypes = [wintypes.DWORD, wintypes.DWORD]
+    library.CreateToolhelp32Snapshot.restype = wintypes.HANDLE
+    library.Process32FirstW.argtypes = [wintypes.HANDLE, ctypes.POINTER(Entry)]
+    library.Process32NextW.argtypes = [wintypes.HANDLE, ctypes.POINTER(Entry)]
+    library.CloseHandle.argtypes = [wintypes.HANDLE]
+    handle = library.CreateToolhelp32Snapshot(0x02, 0)
+    if handle == wintypes.HANDLE(-1).value:
+        raise OSError('Owned process ancestry could not be inspected')
+    entry = Entry(); entry.dwSize = ctypes.sizeof(entry)
+    parents = {}
+    try:
+        found = library.Process32FirstW(handle, ctypes.byref(entry))
+        while found:
+            parents[int(entry.th32ProcessID)] = int(entry.th32ParentProcessID)
+            found = library.Process32NextW(handle, ctypes.byref(entry))
+    finally:
+        library.CloseHandle(handle)
+    return parents
+
+
+def owned_endpoint_pid(launcher_pid, endpoint_pid, *, windows=None, parents=None):
+    """Windows venv redirectors may own a child; POSIX keeps exact PID checks."""
+    if not isinstance(endpoint_pid, int) or isinstance(endpoint_pid, bool) or endpoint_pid <= 0:
+        return False
+    if endpoint_pid == launcher_pid:
+        return True
+    if not (os.name == 'nt' if windows is None else windows):
+        return False
+    parents = windows_parent_pids() if parents is None else parents
+    visited = set()
+    for _ in range(8):
+        if endpoint_pid in visited:
+            return False
+        visited.add(endpoint_pid)
+        endpoint_pid = parents.get(endpoint_pid, 0)
+        if endpoint_pid == launcher_pid:
+            return True
+        if not endpoint_pid:
+            return False
+    return False
+
+
 def run(args):
     python = str(args.python.absolute())  # Preserve venv symlinks.
     state, output = args.state.absolute(), args.output.absolute()
@@ -94,10 +147,13 @@ def run(args):
             try:
                 endpoint = json.loads((state/'endpoint.json').read_text())
                 parsed = urlsplit(endpoint['url'])
-                require(endpoint['pid'] == process.pid and parsed.scheme == 'http'
+                require(owned_endpoint_pid(process.pid, endpoint['pid']) and parsed.scheme == 'http'
                         and parsed.hostname == '127.0.0.1' and parsed.port
                         and not parsed.username and not parsed.password and not parsed.path
                         and not parsed.query and not parsed.fragment, 'Endpoint is not owned loopback')
+                report['processes'][-1]['endpoint_pid'] = endpoint['pid']
+                report['processes'][-1]['ownership_verification'] = ('exact launcher PID' if endpoint['pid'] == process.pid
+                                                                   else 'Windows descendant of the live owned launcher')
                 base = endpoint['url']
                 token = json.loads((state/'local-session.json').read_text())['token']
                 health = request('/health/ready')

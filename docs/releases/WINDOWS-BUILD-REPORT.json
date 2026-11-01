@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "lane": "Windows unified workstation / MASTER release",
-  "status": "BUILT_CONTENTS_VERIFIED_INSTALLATION_PENDING",
+  "status": "BUILT_INSTALLED_EXECUTED_TESTED_VERIFIED_CURRENT_HOST_UPGRADE",
   "recorded_at": "2026-11-01T12:25:57.014445+00:00",
   "source_head_at_discovery": "55997de0a3997a10d12c6271795289a5d147e1ab",
   "built": true,
-  "installed": false,
-  "executed": false,
+  "installed": true,
+  "executed": true,
   "tested": true,
   "published": false,
   "baseline": {
@@ -317,5 +317,28 @@
     "RepackageOnly with verified frontend package8b639... and unchanged server/client",
     "Critical archive extraction and all12 packaging-source hashes compared against preserved checkpoint",
     "Prior A8 installer and stage manifest rehashed unchanged"
-  ]
+  ],
+  "installation_acceptance": {
+    "installer_exit_code": 0,
+    "upgrade_groups_passed": 6,
+    "http_groups_passed": 6,
+    "retained_records": 760,
+    "previous_service_pid": 17012,
+    "current_service_pid": 29480,
+    "protected_three_service_pids_unchanged": true,
+    "fresh_native_client_ui_rerun": false,
+    "native_client_same_sha_as_prior_A8_acceptance": true,
+    "scope": "Full installer upgrade into isolated A8 current-host profile, genuine site/admin HTTP sessions and retained backend match; not clean-machine, native UI rerun or OS reboot acceptance",
+    "private_consistent_backup": "build/master-release-20261101/private-a8-backup",
+    "receipts": [
+      {
+        "path": "docs/handover/verified-reports/GENESIS-A9-WINDOWS-UPGRADE.json",
+        "sha256": "d64379d6a8e767870c5da54d01de85157aa30166f16716e23306ed7edc3277fd"
+      },
+      {
+        "path": "docs/handover/verified-reports/GENESIS-A9-WINDOWS-HTTP.json",
+        "sha256": "1148caa7a0ee08da631d665c1878dabb3597697a94b94f66efbed0c5b8402331"
+      }
+    ]
+  }
 }
