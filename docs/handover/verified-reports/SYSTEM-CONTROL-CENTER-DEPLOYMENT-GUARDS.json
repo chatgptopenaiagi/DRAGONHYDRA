@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:28:23.305327+00:00",
+  "scope": "Copied temporary project and mocked service/process control; no installed operation",
+  "original_source": "f45c459ded940a5aeded8c111f76370eb4fd4e10",
+  "original_behavior_detected": true,
+  "original_expected_negative_subcases": 2,
+  "original_unexpected_errors": 0,
+  "repaired_tests": {
+    "count": 6,
+    "exit_code": 0,
+    "seconds": 5.094
+  },
+  "harness_correction": "Outer fixture PowerShell must propagate helper LASTEXITCODE and stop on parameter-binding errors; initial wrapper exit0 was a harness defect, not product success",
+  "unsupported_phases_now_rejected": [
+    "Install",
+    "Preflight"
+  ],
+  "supported_phases": [
+    "Verify",
+    "Upgrade",
+    "Restart"
+  ],
+  "process_service_mutations": 0,
+  "additional_confirmed_failures": [
+    "Rejected output junction still received a finally receipt",
+    "Existing fixed .tmp evidence was overwritten and moved"
+  ],
+  "repairs": [
+    "Output-write eligibility established only after ordinary-ancestor validation",
+    "Receipt write revalidates ancestors, uses unique CreateNew temporary file and no-overwrite final move",
+    "Supported helper phases narrowed to Verify/Upgrade/Restart"
+  ],
+  "client_fresh_build_followup": {
+    "status": "SOURCE_TESTED_FULL_FRESH_PACKAGE_PENDING",
+    "client_tests": 20,
+    "client_tests_seconds": 15.858,
+    "kernel_tests": 12,
+    "kernel_tests_seconds": 20.481,
+    "actual_f4_input_readonly_verified": true,
+    "client_path": "build/connections/genesis-a8-client/verified-payload",
+    "client_binary_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+    "source_unchanged_during_future_build_required": true
+  },
+  "file_hashes": {
+    "scripts/Build-Workstation.ps1": "8b032ec1ba639390b549480f5a71a8f63419eaf8803fe9660becea69e94b47d3",
+    "packaging/windows/workstation/ClientBuild.ps1": "2b99ec44c949be9ad8142243b623f70a3e846c4b23d27024f4db11b31a38b7dd",
+    "packaging/windows/workstation/README.md": "e440fd3b9e70554b76957691d038246d35b9c3296bc799959540d407e881825b",
+    "tests/installation/system_control_install.ps1": "8cf0398fa09a488722552fd38a5d5121442ff317e8a77217ed229def269080d4",
+    "tests/test_system_control_install_guard.py": "4fb3e3f4ebc6c578ed559a3f090814b64e600287863605d5b674374caddab052",
+    "tests/test_workstation_client_override.py": "0a6bfa7a80137929767e576151bda1aca7a864213e2d62a9dae5a2322ae0c5df"
+  }
+}

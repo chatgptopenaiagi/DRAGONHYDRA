@@ -756,6 +756,17 @@
     "source_remote_status": "SOURCE_PUSH_VERIFIED: remote continuity/genesis-20261031-a6 matched preservation_source_commit; subsequent sanitized metadata checkpoint is separately verified by coordinator",
     "historical_release_assets_changed": false,
     "preservation_source_commit": "2529b173f0a20955b4db732b39de35d5e2bc2603",
-    "privacy_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-PRIVACY.json"
+    "privacy_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-PRIVACY.json",
+    "last_continuation_audit": {
+      "observed_at": "2026-11-01T15:28:49.753289+00:00",
+      "goal_turn_with_same_elevation_blocker": 2,
+      "primary_health_http": 200,
+      "primary_registry_http": 404,
+      "new_uac_prompt_running": false,
+      "elevation_retried": false,
+      "next_independent_progress": "Explicit verified client selection for fresh builds and corrected primary-helper receipt guards; full fresh packaging acceptance follows"
+    },
+    "deployment_guard_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-DEPLOYMENT-GUARDS.json",
+    "fresh_packaging_acceptance": "PENDING_NEW_OWNED_OUTPUT; existing R4 unchanged"
   }
 }

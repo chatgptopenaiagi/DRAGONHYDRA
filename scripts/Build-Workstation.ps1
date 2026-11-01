@@ -18,7 +18,6 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 if ($RefreshRuntime -and -not $RepackageOnly) { throw 'RefreshRuntime is an explicit repair step for an already verified staging tree.' }
 if ($RefreshWebHook -and -not $RepackageOnly) { throw 'RefreshWebHook is an explicit repair step for an already verified staging tree.' }
-if ($ClientBuildRoot -and -not $RepackageOnly) { throw 'A client override requires an isolated copy of a verified staging tree and RepackageOnly.' }
 $project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 if ($Version -ne '0.4.1-dev.1') { throw 'This development build has an explicit 0.4.1-dev.1 version contract.' }
 if (-not $BuildRoot) { $BuildRoot = Join-Path $project ('build\workstation\'+$Version+'\'+(Get-Date -Format 'yyyyMMdd-HHmmss')) }
@@ -70,6 +69,7 @@ $kernelOverride = $null
 $clientOverride = $null
 $joomlaOverride = $null
 $kernelBuild = $null
+$clientBuild = $null
 $kernelRegistryProof = $null
 . (Join-Path $project 'packaging\windows\workstation\ClientBuild.ps1')
 . (Join-Path $project 'packaging\windows\workstation\KernelBuild.ps1')
@@ -79,6 +79,7 @@ if (-not $RepackageOnly -and -not $JoomlaPackagePath) {
 }
 if ($JoomlaPackagePath) { $joomlaOverride = Get-VerifiedFrontendPackage $JoomlaPackagePath }
 if ($KernelBuildRoot) { $kernelBuild = Get-VerifiedKernelBuild -Root $KernelBuildRoot -ProjectRoot $project -StagingRoot $BuildRoot }
+if ($ClientBuildRoot) { $clientBuild = Get-VerifiedClientBuild -Root $ClientBuildRoot -ProjectRoot $project -StagingRoot $BuildRoot }
 if (-not $RepackageOnly) {
     $kernelRegistryProof = Assert-FrontendKernelCompatibility -FrontendVersion $(if($joomlaOverride){$joomlaOverride.version}else{$null}) -KernelBuild $kernelBuild
 }
@@ -106,24 +107,10 @@ if ($RepackageOnly) {
         if (-not $path.StartsWith($stage+'\',[StringComparison]::OrdinalIgnoreCase) -or (Hash $path) -ne $entry.sha256) { throw "Previously staged payload integrity failed: $($entry.path)" }
     }
     if (@(Get-ChildItem -LiteralPath $stage -File -Recurse).Count -ne $oldInventory.files.Count+1) { throw 'Unexpected files were added to the verified staging tree.' }
+    if ($clientBuild) { $null = Get-VerifiedClientStagingCopy -Root $BuildRoot -ProjectRoot $project }
     $kernelRegistryProof = Assert-FrontendKernelCompatibility -FrontendVersion $(if($joomlaOverride){$joomlaOverride.version}else{$null}) -KernelBuild $kernelBuild -InheritedOverride $kernelOverride -Stage $stage -ProjectRoot $project -StagingRoot $BuildRoot
     if ($kernelOverride -and $kernelRegistryProof -and -not $kernelBuild) { $kernelOverride.registry_verification = $kernelRegistryProof }
     New-Item -ItemType Directory -Path $OutputRoot -Force | Out-Null
-    if ($ClientBuildRoot) {
-        # Validate the complete old staging inventory above before replacing any
-        # client bytes. Server, vault, settings and services are never operated.
-        $stagingCopy = Get-VerifiedClientStagingCopy -Root $BuildRoot -ProjectRoot $project
-        $clientBuild = Get-VerifiedClientBuild -Root $ClientBuildRoot -ProjectRoot $project -StagingRoot $BuildRoot
-        $clientTarget = Join-Path $stage 'client'
-        if (-not (Test-Path -LiteralPath $clientTarget -PathType Container) -or (Get-Item -LiteralPath $clientTarget -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) { throw 'The verified client staging directory is unavailable.' }
-        foreach ($entry in $clientBuild.manifest.files) {
-            $targetFile = Join-Path $clientTarget $entry.path
-            Copy-Item -LiteralPath (Join-Path $clientBuild.root $entry.path) -Destination $targetFile -Force
-            if ((Hash $targetFile) -ne $entry.sha256 -or (Get-Item -LiteralPath $targetFile).Length -ne $entry.bytes) { throw 'Client payload changed during staging.' }
-        }
-        $clientOverride = [ordered]@{version=$clientBuild.manifest.version;architecture=$clientBuild.manifest.architecture;source_content_sha256=$clientBuild.manifest.source_content_sha256;binary_sha256=(Hash (Join-Path $clientTarget 'DRAGONHYDRA-Client.exe'));build_manifest_sha256=$clientBuild.manifest_sha256;baseline_staging=$stagingCopy.source_build_root;baseline_payload_manifest_sha256=$stagingCopy.payload_manifest_sha256;verification='Verified current-host desktop repair; exact source/payload hashes in CLIENT-BUILD.json; no clean-machine claim'}
-        $steps.Add([ordered]@{name='verified-desktop-client';exit_code=0;source_content_sha256=$clientOverride.source_content_sha256;binary_sha256=$clientOverride.binary_sha256;files=$clientBuild.manifest.files.Count})
-    }
     if ($RefreshRuntime) {
         $pwsh = (Get-Process -Id $PID).Path
         Native 'refresh-runtime' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\Build-Runtime.ps1'),'-OutputRoot',(Join-Path $stage 'workstation'))
@@ -178,6 +165,12 @@ if ($kernelBuild) {
     # this one verified replacement path; immutable release inputs stay intact.
     $kernelOverride = Set-VerifiedKernelPayload -KernelBuild $kernelBuild -BuildRoot $BuildRoot -Stage $stage -RegistryProof $kernelRegistryProof
     $steps.Add([ordered]@{name='verified-provider-kernel';exit_code=0;source_content_sha256=$kernelOverride.source_content_sha256;binary_sha256=$kernelOverride.binary_sha256;files=$kernelBuild.inventory.files.Count})
+}
+if ($clientBuild) {
+    # Preserve the legacy immutable extraction check above, then apply only an
+    # explicitly verified desktop selection on either supported staging lane.
+    $clientOverride = Set-VerifiedClientPayload -ClientBuild $clientBuild -BuildRoot $BuildRoot -Stage $stage -RepackageOnly:$RepackageOnly
+    $steps.Add([ordered]@{name='verified-desktop-client';exit_code=0;source_content_sha256=$clientOverride.source_content_sha256;binary_sha256=$clientOverride.binary_sha256;files=$clientBuild.manifest.files.Count})
 }
 
 # This generated, PS5-compatible helper is extracted before copying any product files.

@@ -1,7 +1,7 @@
 ﻿#requires -Version 7.0
 [CmdletBinding()]
 param(
-    [ValidateSet('Preflight','Install','Verify','Restart','Upgrade')][string]$Phase='Preflight',
+    [ValidateSet('Verify','Restart','Upgrade')][string]$Phase='Verify',
     [Parameter(Mandatory)][string]$Installer,
     [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{64}$')][string]$ExpectedInstallerSha256,
     [Parameter(Mandatory)][string]$Output,
@@ -18,6 +18,7 @@ $ServiceName='DragonhydraWorkstationTest'
 $ExpectedService='"'+(Join-Path $InstallRoot 'workstation\DragonhydraService.exe')+'" --state "'+$StateRoot+'" --name '+$ServiceName
 $ProtectedNames=@('DragonhydraProvidersA2Test','DragonhydraWorkstation','DragonhydraGenesisA8Test')
 $Checks=[Collections.Generic.List[object]]::new()
+$CanWriteReceipt=$false
 $Report=[ordered]@{schema_version=1;phase=$Phase;passed=$false;applied=$false;started_at=[DateTime]::UtcNow.ToString('o');
     install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;checks=$Checks;
     scope='Existing fixed primary workstation on this host; not a clean-machine or reboot claim';
@@ -51,11 +52,11 @@ function OrdinaryAncestors([string]$Path) {
 function OwnedService {
     $service=Get-CimInstance Win32_Service -Filter "Name='$ServiceName'"
     if(-not $service -or $service.PathName -cne $ExpectedService -or $service.StartName -ine 'NT AUTHORITY\LocalService'){
-        throw 'EXACT_A8_SERVICE_BINDING_REQUIRED'
+        throw 'EXACT_PRIMARY_SERVICE_BINDING_REQUIRED'
     }
     $cfg=ReadJson (Join-Path $StateRoot 'workstation.json')
     if($cfg.install_root -cne $InstallRoot -or $cfg.state_root -cne $StateRoot -or $cfg.service_name -cne $ServiceName){
-        throw 'EXACT_A8_STATE_OWNERSHIP_REQUIRED'
+        throw 'EXACT_PRIMARY_STATE_OWNERSHIP_REQUIRED'
     }
     $ports=@([int]$cfg.api_port,[int]$cfg.web_port,[int]$cfg.database_port)
     if(@($ports | Sort-Object -Unique).Count -ne 3 -or @($ports | Where-Object {$_ -lt 1024 -or $_ -gt 65535}).Count){throw 'INVALID_ASSIGNED_PORTS'}
@@ -72,17 +73,17 @@ function Ready([int]$Timeout=360) {
         try{
             $owned=OwnedService
             $status=ReadJson (Join-Path $StateRoot 'status.json')
-            if($status.stage -eq 'failed'){throw 'A8_SERVICE_REPORTED_FAILED'}
+            if($status.stage -eq 'failed'){throw 'PRIMARY_SERVICE_REPORTED_FAILED'}
             if($owned.service.State -eq 'Running' -and $status.stage -eq 'ready'){
                 $health=Api $owned '/health/ready'
                 if($health.status -eq 'ready'){return $owned}
             }
         }catch{
-            if($_.Exception.Message -eq 'A8_SERVICE_REPORTED_FAILED'){throw}
+            if($_.Exception.Message -eq 'PRIMARY_SERVICE_REPORTED_FAILED'){throw}
         }
         Start-Sleep -Milliseconds 500
     }while([DateTime]::UtcNow -lt $deadline)
-    throw 'A8_READY_DEADLINE_EXPIRED_INSPECT_PRIVATE_STATUS'
+    throw 'PRIMARY_READY_DEADLINE_EXPIRED_INSPECT_PRIVATE_STATUS'
 }
 function Snapshot($Owned) {
     $page=Api $Owned '/matches?limit=1'
@@ -119,7 +120,7 @@ function ShortcutProof {
         (Join-Path ([Environment]::GetFolderPath('CommonPrograms')) ('DRAGONHYDRA Workstation - '+$ServiceName+'\DRAGONHYDRA Workstation.lnk')))
     $result=@()
     foreach($path in $candidates){
-        if(-not(Test-Path -LiteralPath $path)){throw 'OFFICIAL_A8_SHORTCUT_MISSING'}
+        if(-not(Test-Path -LiteralPath $path)){throw 'OFFICIAL_PRIMARY_SHORTCUT_MISSING'}
         $shortcut=$shell.CreateShortcut($path)
         if($shortcut.TargetPath -cne (Join-Path $InstallRoot 'workstation\DragonhydraLauncher.exe') -or $shortcut.Arguments -cne ('--state "'+$StateRoot+'"')){throw 'OFFICIAL_SHORTCUT_BINDING_DIFFERS'}
         $result+=@{path=$path;target=$shortcut.TargetPath;arguments=$shortcut.Arguments}
@@ -131,9 +132,11 @@ try{
     $Installer=[IO.Path]::GetFullPath($Installer)
     $Output=[IO.Path]::GetFullPath($Output)
     if(-not $Installer.StartsWith((Join-Path $Project 'dist')+'\',[StringComparison]::OrdinalIgnoreCase) -or [IO.Path]::GetExtension($Installer) -ine '.exe'){throw 'EXPLICIT_PROJECT_DIST_INSTALLER_REQUIRED'}
-    if(-not $Output.StartsWith((Join-Path $Project 'build\system-control-center-20261101\evidence')+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'FRESH_OWNED_A8_EVIDENCE_REQUIRED'}
+    if(-not $Output.StartsWith((Join-Path $Project 'build\system-control-center-20261101\evidence')+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'FRESH_OWNED_PRIMARY_EVIDENCE_REQUIRED'}
+    OrdinaryAncestors $Output
     if(Test-Path -LiteralPath $Output){throw 'PRESERVE_EXISTING_RECEIPT'}
-    foreach($path in @($Installer,$InstallRoot,$StateRoot,$Output)){OrdinaryAncestors $path}
+    $CanWriteReceipt=$true
+    foreach($path in @($Installer,$InstallRoot,$StateRoot)){OrdinaryAncestors $path}
     if((Hash $Installer) -cne $ExpectedInstallerSha256){throw 'INSTALLER_HASH_MISMATCH'}
     $Report.installer=@{path=$Installer;bytes=(Get-Item -LiteralPath $Installer).Length;sha256=$ExpectedInstallerSha256}
     $beforeProtected=@(ProtectedServices)
@@ -141,13 +144,7 @@ try{
     AddCheck 'verified-installer-and-protected-service-baseline' @{sha256=$ExpectedInstallerSha256}
     $isAdmin=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
     $Report.administrator_token=$isAdmin
-    if($Phase -in @('Preflight','Install')){
-        if(Test-Path -LiteralPath $InstallRoot){throw 'FRESH_A8_INSTALL_ROOT_REQUIRED'}
-        if(Test-Path -LiteralPath $StateRoot){throw 'FRESH_A8_STATE_ROOT_REQUIRED'}
-        if(Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){throw 'A8_SERVICE_ALREADY_EXISTS'}
-        AddCheck 'fresh-isolated-installation-contract' @{service=$ServiceName;ports='Runtime allocates distinct unused loopback ports from its configured ranges'}
-    }
-    if($Phase -in @('Install','Upgrade','Restart')){
+    if($Phase -in @('Upgrade','Restart')){
         if(-not $Apply){throw 'EXPLICIT_APPLY_REQUIRED'}
         if(-not $isAdmin){throw 'ADMINISTRATOR_TOKEN_REQUIRED'}
     }
@@ -163,7 +160,7 @@ try{
         $beforeSnapshot=Snapshot $beforeOwned
         $Report.before=$beforeSnapshot
     }
-    if($Phase -in @('Install','Upgrade')){
+    if($Phase -eq 'Upgrade'){
         $arguments='/S /STATE="'+$StateRoot+'" /SERVICE='+$ServiceName+' /D='+$InstallRoot
         $Report.installer_arguments=$arguments
         # The fixed service name and disjoint binary/data paths are the only
@@ -186,7 +183,7 @@ try{
         $Report.applied=$true
         AddCheck 'exact-owned-service-stop-start' @{service=$ServiceName}
     }
-    if($Phase -ne 'Preflight'){
+    if($Phase -in @('Verify','Upgrade','Restart')){
         $owned=Ready
         $afterSnapshot=Snapshot $owned
         $Report.after=$afterSnapshot
@@ -221,12 +218,28 @@ try{
     $Report.error=@{type=$_.Exception.GetType().Name;message=$_.Exception.Message}
 }finally{
     $Report.finished_at=[DateTime]::UtcNow.ToString('o')
-    if($Output -and -not(Test-Path -LiteralPath $Output) -and $Output.StartsWith((Join-Path $Project 'build\system-control-center-20261101\evidence')+'\',[StringComparison]::OrdinalIgnoreCase)){
-        $parent=Split-Path -Path $Output -Parent
-        New-Item -ItemType Directory -Path $parent -Force | Out-Null
-        $temporary=$Output+'.tmp'
-        [IO.File]::WriteAllText($temporary,($Report | ConvertTo-Json -Depth 12),[Text.UTF8Encoding]::new($false))
-        [IO.File]::Move($temporary,$Output)
+    if($CanWriteReceipt -and -not(Test-Path -LiteralPath $Output)){
+        try{
+            # A rejected output must never become writable again through finally.
+            # Recheck after creating parents and immediately before the final move.
+            OrdinaryAncestors $Output
+            $parent=Split-Path -Path $Output -Parent
+            New-Item -ItemType Directory -Path $parent -Force | Out-Null
+            OrdinaryAncestors $Output
+            $temporary=$Output+'.'+[Guid]::NewGuid().ToString('N')+'.tmp'
+            OrdinaryAncestors $temporary
+            $stream=[IO.FileStream]::new($temporary,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+            try{
+                $bytes=[Text.UTF8Encoding]::new($false).GetBytes(($Report | ConvertTo-Json -Depth 12))
+                $stream.Write($bytes,0,$bytes.Length)
+                $stream.Flush($true)
+            }finally{$stream.Dispose()}
+            OrdinaryAncestors $Output
+            [IO.File]::Move($temporary,$Output)
+        }catch{
+            $Report.receipt_write_error='SAFE_RECEIPT_WRITE_FAILED_NO_OVERWRITE'
+            $Report.passed=$false
+        }
     }
 }
 Write-Output ($Report | ConvertTo-Json -Depth 12)
