@@ -96,7 +96,11 @@ final class SystemModules
                 'outcome_records','evaluation_records','table_count','configured','core_store_ready','api_version',
                 'probe_http_status','listener_present','authenticated','component_enabled','root_is_component','pid'];
             foreach ((array) ($observation['sanitized_metrics'] ?? []) as $key => $value) {
-                if (in_array($key, $safeMetrics, true) && is_scalar($value)) { $metrics[$key] = is_bool($value) ? ($value ? 'Yes' : 'No') : self::text($value, 160); }
+                if ($key === 'service_name') {
+                    if (is_string($value) && preg_match('/^Dragonhydra[A-Za-z0-9_-]{0,60}$/D', $value)) { $metrics[$key] = $value; }
+                } elseif (in_array($key, $safeMetrics, true) && is_scalar($value)) {
+                    $metrics[$key] = is_bool($value) ? ($value ? 'Yes' : 'No') : self::text($value, 160);
+                }
             }
             $required = ($definition['required_for_core'] ?? false) === true;
             $module = ['id' => $moduleId, 'name' => self::text($definition['display_name'] ?? $moduleId, 180),

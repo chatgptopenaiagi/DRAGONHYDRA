@@ -45,6 +45,7 @@ class ModuleRegistryTests(unittest.TestCase):
     def write_receipt(self, *, seconds_ago=0, ttl=30, pid=1234, url='http://127.0.0.1:18744'):
         observed = self.at-timedelta(seconds=seconds_ago)
         document = {'schema_version': 2, 'observer': 'workstation-supervisor',
+                    'service_name': 'DragonhydraWorkstationTest',
                     'api_url': url, 'joomla_url': 'http://127.0.0.1:18740',
                     'observed_at': observed.isoformat(),
                     'evidence_expires_at': (observed+timedelta(seconds=ttl)).isoformat(),
@@ -146,11 +147,34 @@ class ModuleRegistryTests(unittest.TestCase):
         for key in ('web_server', 'administration', 'website', 'storage_mariadb', 'supervisor'):
             self.assertEqual(modules[key]['observation']['runtime_state'], 'ready', key)
             self.assertEqual(modules[key]['observation']['last_success_at'], '2026-11-01T13:59:59.000000Z')
+        self.assertEqual(modules['supervisor']['observation']['sanitized_metrics']['service_name'], 'DragonhydraWorkstationTest')
+        for key, module in modules.items():
+            if key != 'supervisor':
+                self.assertNotIn('service_name', module['observation']['sanitized_metrics'])
         encoded = json.dumps(self.result())
         self.assertNotIn('canary', encoded)
         self.assertNotIn(str(self.state), encoded)
         self.assertNotIn('18744', encoded)
         self.assertIn('not administrator authentication', modules['administration']['definition']['description'])
+
+    def test_service_identity_is_allowlisted_and_only_projected_on_supervisor(self):
+        from dragonhydra.module_registry import Observation
+        from pydantic import ValidationError
+        for name in ('DragonhydraInvalid;secret=private-canary', 'C:/private-canary', 1234):
+            document = self.write_receipt()
+            document['service_name'] = name
+            (self.state.parent/'status.json').write_text(json.dumps(document), encoding='utf-8')
+            result = self.result()
+            self.assertNotIn('service_name', self.modules(result)['supervisor']['observation']['sanitized_metrics'])
+            self.assertNotIn('private-canary', json.dumps(result))
+        self.write_receipt()
+        for module_id, value in (('supervisor', 'DragonhydraInvalid;command'), ('supervisor', 1234),
+                                 ('api_server', 'DragonhydraWorkstationTest')):
+            observation = self.modules()['supervisor']['observation']
+            observation['module_id'] = module_id
+            observation['sanitized_metrics']['service_name'] = value
+            with self.assertRaises(ValidationError):
+                Observation.model_validate(observation)
 
     def test_supervisor_ready_requires_a_real_fresh_success_clock(self):
         for missing, value in ((True, None), (False, None),

@@ -45,6 +45,7 @@ METRIC_KEYS = frozenset({
     'evaluation_records', 'table_count', 'configured', 'core_store_ready',
     'api_version', 'probe_http_status', 'listener_present', 'authenticated',
     'component_enabled', 'root_is_component', 'pid',
+    'service_name',
 })
 # A definition cannot promote a roadmap label into an implemented capability.
 # Each admitted claim has an owning source reference, and calculation claims
@@ -337,6 +338,11 @@ class Observation(Schema):
         if set(self.sanitized_metrics) - METRIC_KEYS:
             raise ValueError('UNKNOWN_METRIC')
         for key, value in self.sanitized_metrics.items():
+            if key == 'service_name':
+                if (self.module_id != 'supervisor' or not isinstance(value, str) or
+                        not re.fullmatch(r'Dragonhydra[A-Za-z0-9_-]{0,60}', value)):
+                    raise ValueError('UNSAFE_SERVICE_IDENTITY')
+                continue
             if isinstance(value, float) and not math.isfinite(value):
                 raise ValueError('NONFINITE_METRIC')
             if isinstance(value, str) and (key != 'api_version' or value != VERSION):
@@ -402,8 +408,12 @@ def _supervisor_receipt(state, at, process_id):
             if not isinstance(metrics, dict):
                 continue
             metrics = {key: value for key, value in metrics.items()
-                       if key in METRIC_KEYS and isinstance(value, (bool, int, float))
+                       if key in METRIC_KEYS and key != 'service_name' and isinstance(value, (bool, int, float))
                        and (not isinstance(value, float) or math.isfinite(value))}
+            service_name = data.get('service_name')
+            if (module_id == 'supervisor' and isinstance(service_name, str) and
+                    re.fullmatch(r'Dragonhydra[A-Za-z0-9_-]{0,60}', service_name)):
+                metrics['service_name'] = service_name
             # Interpret only known state, never echo producer free text/errors.
             success = _clock(item['last_success_at']) if item.get('last_success_at') else None
             if success and success > observed:

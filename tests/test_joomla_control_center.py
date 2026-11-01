@@ -88,6 +88,15 @@ class JoomlaControlCenterTests(unittest.TestCase):
         self.assertIn('Associated backend build', rendered)
         self.assertIn('data-backend-build="source_sha">Not reported', rendered)
 
+    def test_supervisor_service_name_accepts_only_the_bounded_product_identity(self):
+        legitimate = registry()
+        legitimate['modules'][0]['observation']['sanitized_metrics']['service_name'] = 'DragonhydraWorkstationTest'
+        self.assertEqual(self.project(legitimate)['modules']['data_engine']['metrics']['service_name'], 'DragonhydraWorkstationTest')
+        for value in ('OtherService','Dragonhydra<script>','Dragonhydra\nInjected','Dragonhydra'+'a'*61,42):
+            invalid=registry()
+            invalid['modules'][0]['observation']['sanitized_metrics']['service_name']=value
+            self.assertNotIn('service_name',self.project(invalid)['modules']['data_engine']['metrics'])
+
     def test_expired_ready_evidence_becomes_unverified_without_changing_implementation(self):
         result = self.project(registry([module(expires='2026-01-01T00:00:01Z')]))
         item = result['modules']['data_engine']
