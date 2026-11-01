@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
   "name": "com_dragonhydra",
-  "version": "0.4.1-dev.1",
+  "version": "0.4.1-dev.3",
   "description": "Scoped DRAGONHYDRA Joomla sports workspace styles",
   "license": "GPL-2.0-or-later",
   "assets": [
@@ -9,6 +9,12 @@
       "name": "com_dragonhydra.workspace",
       "type": "style",
       "uri": "com_dragonhydra/workspace.css",
+      "version": "auto"
+    },
+    {
+      "name": "com_dragonhydra.control",
+      "type": "style",
+      "uri": "com_dragonhydra/control.css",
       "version": "auto"
     }
   ]

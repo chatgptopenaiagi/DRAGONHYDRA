@@ -6,6 +6,7 @@ use Joomla\CMS\MVC\Controller\BaseController;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Dragonhydra\Component\Dragonhydra\Administrator\Service\Kernel;
+use Dragonhydra\Component\Dragonhydra\Administrator\Service\SystemWorkflow;
 
 final class ActionsController extends BaseController
 {
@@ -60,6 +61,26 @@ final class ActionsController extends BaseController
             $this->setRedirect(Route::_('index.php?option=com_dragonhydra&section=jobs&job_id=' . rawurlencode($id), false), 'Cancellation requested.');
         } catch (\RuntimeException $error) {
             $this->setRedirect(Route::_('index.php?option=com_dragonhydra&section=jobs&job_id=' . rawurlencode($id), false), $error->getMessage(), 'error');
+        }
+    }
+
+    public function forecast(): void { $this->workflow('forecasts'); }
+    public function evaluate(): void { $this->workflow('evaluations'); }
+
+    private function workflow(string $operation): void
+    {
+        $this->guard();
+        $id = SystemWorkflow::matchId($this->input->post->getString('match_id', ''));
+        $key = $this->input->post->getString('command_key', '');
+        $expected = (string) $this->app->getUserState(SystemWorkflow::slot($id, $operation), '');
+        try {
+            $api = Kernel::client();
+            $job = SystemWorkflow::submit(fn($method,$path,$payload,$command) => $api->request($method,$path,$payload,$command), $id, $operation, $key, $expected);
+            $this->setRedirect(Route::_('index.php?option=com_dragonhydra&section=jobs&job_id=' . $job['id'], false),
+                'Workflow command submitted. Job completion and retained result availability are reported separately.');
+        } catch (\RuntimeException $error) {
+            $this->setRedirect(Route::_('index.php?option=com_dragonhydra&section=control&match_id=' . $id, false),
+                'Workflow command submission could not be confirmed. Retry with the same command key to reuse its existing job, or review backend status.', 'error');
         }
     }
 }

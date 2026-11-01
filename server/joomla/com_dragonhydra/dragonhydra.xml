@@ -3,7 +3,7 @@
   <name>com_dragonhydra</name>
   <author>DRAGONHYDRA</author>
   <creationDate>2026-10</creationDate>
-  <version>0.4.1-dev.2</version>
+  <version>0.4.1-dev.3</version>
   <description>COM_DRAGONHYDRA_XML_DESCRIPTION</description>
   <namespace path="src">Dragonhydra\Component\Dragonhydra</namespace>
   <scriptfile>script.php</scriptfile>
@@ -22,6 +22,7 @@
   <administration>
     <menu img="class:chart-line">COM_DRAGONHYDRA</menu>
     <submenu>
+      <menu link="option=com_dragonhydra&amp;section=control">COM_DRAGONHYDRA_CONTROL</menu>
       <menu link="option=com_dragonhydra&amp;section=sources">COM_DRAGONHYDRA_SOURCES</menu>
       <menu link="option=com_dragonhydra&amp;section=matches">COM_DRAGONHYDRA_MATCHES</menu>
       <menu link="option=com_dragonhydra&amp;section=odds">COM_DRAGONHYDRA_ODDS</menu>

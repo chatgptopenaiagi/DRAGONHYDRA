@@ -8,6 +8,8 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Dragonhydra\Component\Dragonhydra\Administrator\Service\Kernel;
+use Dragonhydra\Component\Dragonhydra\Administrator\Service\SystemModules;
+use Dragonhydra\Component\Dragonhydra\Administrator\Service\SystemWorkflow;
 
 final class HtmlView extends BaseHtmlView
 {
@@ -18,6 +20,11 @@ final class HtmlView extends BaseHtmlView
     public array $probe = [];
     public string $dashboardUrl = '';
     public string $jobId = '';
+    public array $control = [];
+    public array $workflow = [];
+    public ?string $workflowError = null;
+    public string $workflowMatchId = '';
+    public array $workflowKeys = [];
 
     public function display($tpl = null): void
     {
@@ -31,7 +38,7 @@ final class HtmlView extends BaseHtmlView
             ToolbarHelper::preferences('com_dragonhydra');
         }
         $section = $app->input->getCmd('section', 'sources');
-        $this->section = in_array($section, ['sources','matches','odds','models','research','databases','system','jobs'], true) ? $section : 'sources';
+        $this->section = in_array($section, ['control','sources','matches','odds','models','research','databases','system','jobs'], true) ? $section : 'sources';
         $this->canImport = $user->authorise('dragonhydra.import', 'com_dragonhydra');
         $this->probe = (array) $app->getUserState('com_dragonhydra.last_probe', []);
         $url = (string) ComponentHelper::getParams('com_dragonhydra')->get('dashboard_url', 'http://127.0.0.1:8731/');
@@ -41,7 +48,32 @@ final class HtmlView extends BaseHtmlView
         }
         try {
             $api = Kernel::client();
-            if ($this->section === 'sources') {
+            if ($this->section === 'control') {
+                $this->control = SystemModules::load(
+                    fn(string $path): array => $api->request('GET', $path),
+                    $app->input->getCmd('group', ''),
+                    $app->input->getCmd('status', ''),
+                    $app->input->getCmd('module_id', '')
+                );
+                try {
+                    $this->control['backend_build'] = SystemModules::buildIdentity($api->request('GET', '/system'));
+                } catch (\RuntimeException $error) {
+                    $this->control['backend_build'] = SystemModules::buildIdentity([]);
+                }
+                $this->workflowMatchId = $app->input->getString('match_id', '');
+                if ($this->workflowMatchId !== '') {
+                    try {
+                        $this->workflow = SystemWorkflow::load(fn(string $path): array => $api->request('GET', $path), $this->workflowMatchId);
+                        if ($this->canImport) {
+                            foreach (['forecasts','evaluations'] as $operation) {
+                                $this->workflowKeys[$operation] = SystemWorkflow::formKey($app, $this->workflowMatchId, $operation);
+                            }
+                        }
+                    } catch (\RuntimeException $error) {
+                        $this->workflowError = 'Retained workflow history is not available for this match. Choose an existing supported retained match or retry when the backend is available.';
+                    }
+                }
+            } elseif ($this->section === 'sources') {
                 $this->data = $api->request('GET', '/connections');
             } elseif ($this->section === 'matches') {
                 $id = $app->input->getCmd('match_id', '');
@@ -58,7 +90,14 @@ final class HtmlView extends BaseHtmlView
                 $this->data = $api->request('GET', '/system');
             }
         } catch (\RuntimeException $error) {
-            $this->error = $error->getMessage();
+            $this->error = $this->section === 'control'
+                ? 'The module registry could not be read through this installation\'s protected bridge. Retry or review the connection in Options. No module state was changed.'
+                : $error->getMessage();
+        }
+        if ($this->section === 'control') {
+            $assets = $this->getDocument()->getWebAssetManager();
+            $assets->getRegistry()->addExtensionRegistryFile('com_dragonhydra');
+            $assets->useStyle('com_dragonhydra.control');
         }
         parent::display($tpl);
     }

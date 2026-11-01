@@ -74,7 +74,7 @@ class JoomlaPackageTests(unittest.TestCase):
         self.assertIn("Session::checkToken('post')", controller)
         self.assertIn("authorise('core.manage'", controller)
         self.assertIn("authorise('dragonhydra.import'", controller)
-        self.assertEqual(3, controller.count('$this->guard();'))
+        self.assertEqual(4, controller.count('$this->guard();'))
         self.assertNotIn('shell_exec', controller)
         self.assertNotIn('exec(', controller)
 

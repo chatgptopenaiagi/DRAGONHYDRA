@@ -60,7 +60,7 @@ def build(destination=None, *, source_root=None, source_sha=None):
     destination.write_bytes(payload)
     receipt = {'artifact': str(destination.resolve()), 'bytes': len(payload),
                'sha256': hashlib.sha256(payload).hexdigest(), 'version': version, 'source_sha': source_sha,
-               'target': 'Joomla 6 sports workspace and administrator component with Cassiopeia child template; PHP >=8.3 with curl',
+               'target': 'Joomla 6 sports workspace, protected System Control Center and administrator component with Cassiopeia child template; PHP >=8.3 with curl',
                'signing': 'unsigned development extension', 'built': True,
                'installed': False, 'installation_test': 'not run by package builder',
                'payload_files': len(entries), 'child_template_files': len(template_entries),

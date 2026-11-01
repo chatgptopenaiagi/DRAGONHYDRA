@@ -36,7 +36,7 @@ final class ApiClient
         return hash_hmac('sha256', implode("\n", [$method, $path, $time, $nonce, $user, $roles, hash('sha256', $body)]), $secret);
     }
 
-    public function request(string $method, string $path, ?array $payload = null): array
+    public function request(string $method, string $path, ?array $payload = null, ?string $idempotencyKey = null): array
     {
         if (!in_array($method, ['GET', 'POST'], true) || !preg_match('~^/[A-Za-z0-9_/?=&%.,:-]+$~D', $path)
             || str_contains($path, '..') || str_starts_with($path, '//')) {
@@ -52,6 +52,13 @@ final class ApiClient
             'X-Dragon-Time: ' . $time, 'X-Dragon-Nonce: ' . $nonce,
             'X-Dragon-Signature: ' . self::signature($this->secret, $method, $signedPath, $time, $nonce, $this->user, $this->roles, $body),
         ];
+        if ($idempotencyKey !== null) {
+            if ($method !== 'POST' || !preg_match('~^/matches/[a-f0-9]{64}/(?:forecasts|evaluations)$~D', $path)
+                || !preg_match('/^[a-f0-9]{32}$/D', $idempotencyKey)) {
+                throw new \RuntimeException('INVALID_WORKFLOW_COMMAND');
+            }
+            $headers[] = 'Idempotency-Key: ' . $idempotencyKey;
+        }
         $response = '';
         $handle = curl_init(rtrim($this->base, '/') . $path);
         curl_setopt_array($handle, [

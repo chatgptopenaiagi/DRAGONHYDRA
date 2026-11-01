@@ -1,4 +1,4 @@
-# DRAGONHYDRA Joomla sports workspace 0.4.1-dev.2
+# DRAGONHYDRA Joomla sports workspace 0.4.1-dev.3
 
 Build from the development root:
 
@@ -7,13 +7,32 @@ py -3.14 -B scripts/build_joomla.py
 py -3.14 -B -m unittest discover -s tests -p test_joomla_package.py -v
 ```
 
-The resulting `dist/pkg_dragonhydra-0.4.1-dev.2.zip` contains the existing
+The resulting `dist/pkg_dragonhydra-0.4.1-dev.3.zip` contains the existing
 `com_dragonhydra` administrator component, its native Site workspace, scoped media,
 and the `cassiopeia_dragonhydra` child template. The package installs the child
 template first. Install through Joomla's extension installer on a **product-owned
 Joomla 6 instance**, after preserving that site's active Home, menu/module/template
 records and deployed files. The builder changes no installed site. PHP cURL is
 required. CLI lint is distinct from testing the selected Apache/PHP web runtime.
+
+The administrator navigation includes **System Control Center** at
+`administrator/index.php?option=com_dragonhydra&section=control`. Existing
+`core.manage` permission is required before the server-side identity bridge is
+opened. Its single `GET /system/modules` reads the associated kernel's module
+registry. Refresh never imports provider data, submits a job or starts a model.
+The interface separates implementation, configuration and installation-specific
+runtime observations, displays UTC evidence expiry, and demotes expired readiness
+to unverified. Group/status filters and module details are views of that snapshot;
+Joomla creates no independent status database. Only known existing product read
+pages become operation links. CLI, internal and unmapped operations have explicit
+unavailable explanations. A selected-match retained workflow panel reads stored
+model, prediction, outcome and evaluation IDs, with cutoff, uncertainty and scope.
+The two explicit forecast/evaluation forms require existing Import permission and
+a Joomla POST CSRF token. A session-owned, operation-scoped idempotency key reuses
+the durable job on repeated submission. Finished matches have no prospective
+forecast form. A completed evaluation job with a pending result is labeled pending
+and never presented as evidence of predictive performance. Options and existing
+action permissions remain unchanged; no configuration values or secret-bearing raw registry dump is rendered.
 
 The component postflight calls its `FrontendSetup::apply()` migration. It uses
 Joomla's Menu table to create or reuse one DRAGONHYDRA Home for each applicable

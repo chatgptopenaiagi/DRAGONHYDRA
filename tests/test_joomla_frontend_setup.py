@@ -167,7 +167,7 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
                       "$accepted=Get-VerifiedFrontendPackage " + quote(package) + ";"
                       "[IO.File]::AppendAllText(" + quote(package) + ",'tamper');"
                       "$rejected=$false;try{Get-VerifiedFrontendPackage " + quote(package) + "|Out-Null}catch{$rejected=$true};"
-                      "@{accepted=($accepted.version -eq '0.4.1-dev.2');tampered_rejected=$rejected}|ConvertTo-Json")
+                      "@{accepted=($accepted.version -eq '0.4.1-dev.3');tampered_rejected=$rejected}|ConvertTo-Json")
             result = subprocess.run(['C:/Program Files/PowerShell/7/pwsh.exe', '-NoProfile', '-Command', script],
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
