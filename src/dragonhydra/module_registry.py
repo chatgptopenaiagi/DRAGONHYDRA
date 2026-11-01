@@ -32,6 +32,9 @@ RuntimeState = Literal['not_implemented', 'installed_not_configured',
                        'unavailable', 'not_applicable']
 STATES = ('not_implemented', 'installed_not_configured', 'configured_unverified',
           'ready', 'degraded', 'unavailable', 'not_applicable')
+COGNITIVE_TABLES = frozenset({'cognitive_records', 'cognitive_receipts'})
+COGNITIVE_TRIGGERS = frozenset({'cognitive_records_no_update', 'cognitive_records_no_delete',
+                              'cognitive_receipts_no_update', 'cognitive_receipts_no_delete'})
 CONFIGURATION_REFERENCES = frozenset({
     'product.sqlite', 'product.retained_evidence', 'product.jobs', 'product.worker',
     'product.local_ai', 'product.provider_settings', 'workstation.observer',
@@ -430,13 +433,17 @@ def _supervisor_receipt(state, at, process_id):
 
 def _store_observation(path, *, deadline_seconds=.25):
     """No Product/Store constructors, schema initialization or read-write open."""
-    metrics, tables = {}, set()
+    metrics, tables, cognitive_schema = {}, set(), 'unknown'
     try:
         deadline = time.monotonic() + deadline_seconds
         with closing(sqlite3.connect(Path(path).resolve().as_uri()+'?mode=ro', uri=True, timeout=.1)) as db:
             db.execute('PRAGMA query_only=ON')
             db.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
-            tables = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+            schema = list(db.execute("SELECT name,type FROM sqlite_master WHERE type IN ('table','trigger')"))
+            tables = {name for name, kind in schema if kind == 'table'}
+            triggers = {name for name, kind in schema if kind == 'trigger'}
+            cognitive_schema = ('complete' if COGNITIVE_TABLES <= tables and COGNITIVE_TRIGGERS <= triggers else
+                                'incomplete' if (COGNITIVE_TABLES & tables or COGNITIVE_TRIGGERS & triggers) else 'absent')
             metrics['table_count'] = len(tables)
             metrics['core_store_ready'] = ('product_schema' in tables and
                 db.execute('SELECT version FROM product_schema').fetchone() == (1,))
@@ -444,9 +451,9 @@ def _store_observation(path, *, deadline_seconds=.25):
             for table, metric in (('public_fixture_records', 'retained_fixture_versions'),
                                   ('connector_observations', 'connector_observations'),
                                   ('raw_sources', 'raw_documents'), ('cognitive_records', 'cognitive_records')):
-                if table in tables:
+                if table in tables and (table != 'cognitive_records' or cognitive_schema == 'complete'):
                     metrics[metric] = db.execute('SELECT COUNT(*) FROM '+table).fetchone()[0]
-            if 'cognitive_records' in tables:
+            if cognitive_schema == 'complete':
                 for kind, count in db.execute("SELECT kind,COUNT(*) FROM cognitive_records WHERE kind IN ('prediction','outcome','evaluation') GROUP BY kind"):
                     metrics[kind+'_records'] = count
             if 'connector_settings' in tables:
@@ -455,10 +462,10 @@ def _store_observation(path, *, deadline_seconds=.25):
                 counts = dict(db.execute("SELECT status,COUNT(*) FROM product_jobs WHERE status IN ('queued','running') GROUP BY status"))
                 metrics.update(queued_jobs=counts.get('queued', 0), running_jobs=counts.get('running', 0))
                 metrics['stale_running_jobs'] = db.execute("SELECT COUNT(*) FROM product_jobs WHERE status='running' AND (lease_until IS NULL OR lease_until<?)", (time.time(),)).fetchone()[0]
-            return tables, metrics, 'STORE_READABLE'
+            return tables, metrics, 'STORE_READABLE', cognitive_schema
     except (OSError, sqlite3.Error, ValueError):
         # Raw database exceptions can contain private paths; only a fixed reason escapes.
-        return tables, metrics, 'STORE_READ_UNAVAILABLE'
+        return tables, metrics, 'STORE_READ_UNAVAILABLE', 'unknown'
 
 
 def snapshot(product, jobs, *, at=None, process_id=None, role='reader'):
@@ -469,7 +476,7 @@ def snapshot(product, jobs, *, at=None, process_id=None, role='reader'):
     process_id = os.getpid() if process_id is None else process_id
     state = Path(product.state)
     installation_id = 'local-'+hashlib.sha256(str(state.resolve()).encode()).hexdigest()[:16]
-    tables, metrics, store_reason = _store_observation(product.db_path)
+    tables, metrics, store_reason, cognitive_schema = _store_observation(product.db_path)
     store_ok = store_reason == 'STORE_READABLE' and metrics.get('core_store_ready', False)
     receipts, supervisor_reason, supervisor_clocks = _supervisor_receipt(state, at, process_id)
     expires = at + timedelta(seconds=30)
@@ -530,16 +537,28 @@ def snapshot(product, jobs, *, at=None, process_id=None, role='reader'):
     for module_id in ('odds_engine', 'prediction_engine'):
         observe(module_id, 'configured_unverified' if data_ok else 'unavailable', 'EXECUTION_NOT_REQUESTED',
                 'Implemented calculation entry points are available; status refresh did not run a calculation or assert a successful model result.', refs=['definition:implemented-operations'])
-    has_memory = store_ok and {'cognitive_records', 'cognitive_receipts'} <= tables
-    observe('memory_engine', 'ready' if has_memory else 'installed_not_configured',
-            'COGNITIVE_STORE_READABLE' if has_memory else 'COGNITIVE_SCHEMA_NOT_INITIALIZED',
-            'Existing cognitive record tables are readable; immutability and prediction validity are verified by separate workflow tests.' if has_memory else
-            'Cognitive memory is implemented but this installation has not initialized its schema; a read does not create it.',
-            configuration='configured' if has_memory else 'not_configured',
+    has_memory = store_ok and cognitive_schema == 'complete'
+    if not store_ok:
+        memory_state, memory_configuration = 'unavailable', 'unknown'
+        memory_reason = 'STORE_READ_UNAVAILABLE' if store_reason != 'STORE_READABLE' else 'STORE_SCHEMA_UNVERIFIED'
+        memory_explanation = 'The application store could not be verified; cognitive configuration or absence cannot be inferred.'
+    elif cognitive_schema == 'incomplete':
+        memory_state, memory_configuration, memory_reason = 'unavailable', 'invalid', 'COGNITIVE_STORE_INCOMPLETE'
+        memory_explanation = 'The cognitive schema is incomplete: both tables and all four immutable-record triggers are required. Status did not repair it.'
+    elif has_memory:
+        memory_state, memory_configuration, memory_reason = 'ready', 'configured', 'COGNITIVE_STORE_READABLE'
+        memory_explanation = 'Both cognitive tables and all four immutable-record triggers are present; record validity is verified by separate workflow tests.'
+    else:
+        memory_state, memory_configuration, memory_reason = 'installed_not_configured', 'not_configured', 'COGNITIVE_SCHEMA_NOT_INITIALIZED'
+        memory_explanation = 'Cognitive memory is implemented but this installation has not initialized its schema; a read does not create it.'
+    observe('memory_engine', memory_state, memory_reason, memory_explanation,
+            configuration=memory_configuration,
             values={key: metrics[key] for key in ('cognitive_records', 'prediction_records', 'outcome_records', 'evaluation_records') if key in metrics}, refs=['sqlite:cognitive-schema-guard'])
-    observe('evaluation_engine', 'configured_unverified' if has_memory else 'installed_not_configured', 'EVALUATION_NOT_REQUESTED',
+    observe('evaluation_engine', 'configured_unverified' if has_memory else memory_state,
+            'EVALUATION_NOT_REQUESTED' if has_memory else memory_reason,
             'Evaluation is implemented. This status read did not attach outcomes, score forecasts, or claim a performance result.',
-            configuration='configured' if has_memory else 'not_configured', values={'evaluation_records': metrics.get('evaluation_records', 0)}, refs=['definition:observed-evaluation'])
+            configuration=memory_configuration,
+            values={'evaluation_records': metrics.get('evaluation_records', 0)} if has_memory else {}, refs=['definition:observed-evaluation'])
     try:
         from .local_ai_settings import Settings
         configured = bool(Settings(state).public()['configured'])
@@ -554,12 +573,21 @@ def snapshot(product, jobs, *, at=None, process_id=None, role='reader'):
         observe(module_id, 'configured_unverified', 'CLIENT_SESSION_NOT_OBSERVED',
                 'The client implementation exists; this API has no current evidence of an installed, running, paired client.',
                 configuration='unknown', refs=['definition:client-implementation'])
-    schedules = metrics.get('enabled_schedules', 0)
-    observe('scheduler', ('ready' if worker_alive else 'unavailable') if schedules else 'not_applicable',
-            'SCHEDULE_DISPATCHER_OBSERVED' if schedules else 'NO_ENABLED_SCHEDULES',
-            'Enabled schedules exist and the existing worker state was inspected without running them.' if schedules else
-            'No enabled provider schedules are present; no schedule was created or dispatched.',
-            configuration='configured' if schedules else 'not_required', values={'enabled_schedules': schedules, 'worker_alive': worker_alive}, refs=['sqlite:schedule-configuration', 'runtime:existing-worker-thread'])
+    if not store_ok:
+        observe('scheduler', 'unavailable', 'STORE_READ_UNAVAILABLE' if store_reason != 'STORE_READABLE' else 'STORE_SCHEMA_UNVERIFIED',
+                'The application store could not be verified; enabled schedules or their absence cannot be inferred.',
+                configuration='unknown', values={'worker_alive': worker_alive}, refs=['sqlite:schedule-configuration'])
+    elif 'enabled_schedules' not in metrics:
+        observe('scheduler', 'installed_not_configured', 'SCHEDULER_SCHEMA_NOT_INITIALIZED',
+                'Schedule configuration storage is absent; no schedule was created or dispatched.',
+                configuration='not_configured', values={'worker_alive': worker_alive}, refs=['sqlite:schedule-configuration'])
+    else:
+        schedules = metrics['enabled_schedules']
+        observe('scheduler', ('ready' if worker_alive else 'unavailable') if schedules else 'not_applicable',
+                'SCHEDULE_DISPATCHER_OBSERVED' if schedules else 'NO_ENABLED_SCHEDULES',
+                'Enabled schedules exist and the existing worker state was inspected without running them.' if schedules else
+                'No enabled provider schedules are present; no schedule was created or dispatched.',
+                configuration='configured' if schedules else 'not_required', values={'enabled_schedules': schedules, 'worker_alive': worker_alive}, refs=['sqlite:schedule-configuration', 'runtime:existing-worker-thread'])
     # A process can answer while one of its essential dependencies has failed.
     # Keep its direct evidence, but do not present the dependent module as ready.
     for _ in range(len(DEFINITIONS.modules)):

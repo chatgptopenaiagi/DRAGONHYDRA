@@ -191,6 +191,46 @@ class ModuleRegistryTests(unittest.TestCase):
                 self.assertEqual(observation['runtime_state'], 'configured_unverified')
                 self.assertIsNone(observation['last_success_at'])
 
+    def test_unknown_or_missing_supervisor_schema_is_not_trusted(self):
+        for version in (None, 1, 3):
+            with self.subTest(version=version):
+                document = self.write_receipt()
+                if version is None:
+                    document.pop('schema_version')
+                else:
+                    document['schema_version'] = version
+                (self.state.parent/'status.json').write_text(json.dumps(document), encoding='utf-8')
+                observation = self.modules()['supervisor']['observation']
+                self.assertEqual(observation['runtime_state'], 'configured_unverified')
+                self.assertEqual(observation['reason_code'], 'SUPERVISOR_UNVERIFIED')
+
+    def test_memory_requires_complete_immutable_schema_without_read_repair(self):
+        from dragonhydra.cognition import memory
+        from dragonhydra.module_registry import COGNITIVE_TABLES, COGNITIVE_TRIGGERS
+        with closing(sqlite3.connect(self.product.db_path)) as db:
+            db.executescript(memory.SCHEMA_SQL)
+            schema = {(name, kind) for name, kind in db.execute("SELECT name,type FROM sqlite_master WHERE name LIKE 'cognitive_%'")}
+        self.assertTrue({(name, 'table') for name in COGNITIVE_TABLES} <= schema)
+        self.assertTrue({(name, 'trigger') for name in COGNITIVE_TRIGGERS} <= schema)
+        self.assertEqual(self.modules()['memory_engine']['observation']['runtime_state'], 'ready')
+        for name in sorted(COGNITIVE_TRIGGERS):
+            with closing(sqlite3.connect(self.product.db_path)) as db:
+                db.execute('DROP TRIGGER '+name)
+            result = self.result()
+            observation = self.modules(result)['memory_engine']['observation']
+            self.assertEqual(observation['runtime_state'], 'unavailable')
+            self.assertEqual(observation['reason_code'], 'COGNITIVE_STORE_INCOMPLETE')
+            self.assertEqual(self.modules(result)['evaluation_engine']['observation']['runtime_state'], 'unavailable')
+            self.assertEqual(result['core_state'], 'ready')
+            with closing(sqlite3.connect(self.product.db_path)) as db:
+                self.assertIsNone(db.execute("SELECT 1 FROM sqlite_master WHERE name=?", (name,)).fetchone())
+                db.executescript(memory.SCHEMA_SQL)
+        with closing(sqlite3.connect(self.product.db_path)) as db:
+            db.execute('DROP TABLE cognitive_receipts')
+        self.assertEqual(self.modules()['memory_engine']['observation']['reason_code'], 'COGNITIVE_STORE_INCOMPLETE')
+        with closing(sqlite3.connect(self.product.db_path)) as db:
+            self.assertIsNone(db.execute("SELECT 1 FROM sqlite_master WHERE name='cognitive_receipts'").fetchone())
+
     def test_stale_evidence_never_remains_ready(self):
         self.write_receipt(seconds_ago=31)
         for key in ('web_server', 'administration', 'website', 'storage_mariadb', 'supervisor'):
@@ -252,6 +292,13 @@ class ModuleRegistryTests(unittest.TestCase):
         self.assertEqual(self.modules(result)['storage_sqlite']['observation']['runtime_state'], 'unavailable')
         self.assertNotEqual(result['core_state'], 'ready')
         self.assertNotIn('secret-canary', json.dumps(result))
+        for module_id in ('memory_engine', 'evaluation_engine', 'scheduler'):
+            observation = self.modules(result)[module_id]['observation']
+            self.assertEqual(observation['runtime_state'], 'unavailable')
+            self.assertEqual(observation['configuration_state'], 'unknown')
+            self.assertEqual(observation['reason_code'], 'STORE_READ_UNAVAILABLE')
+            self.assertNotIn('enabled_schedules', observation['sanitized_metrics'])
+            self.assertNotIn('evaluation_records', observation['sanitized_metrics'])
 
     def test_administrator_operations_are_not_available_to_reader(self):
         for role, expected in (('reader', False), ('admin', True)):
