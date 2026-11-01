@@ -10,6 +10,14 @@ The earlier A9 release remains available at
 https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101.
 It does not contain this new increment. Its tag/assets were not changed.
 
+Goal status is now **BLOCKED**, after three consecutive goal turns with the same
+Windows elevation prerequisite. Fresh primary evidence still shows health200,
+new registry404 and unchanged old server bytes; no native consent/build process
+or completed upgrade receipt exists. All independent required work is preserved.
+The owner must be ready to approve a new elevation prompt before coherent primary
+deployment and the remaining installed acceptance can proceed. See the blocked
+audit receipt; this is not a declaration of complete recovery/integration.
+
 **Latest follow-up:** a separate fresh full workstation build succeeded from
 wrapper source `93c11388317b1aba31d2297fa82f2d3d44b78db1`. It selects the verified
 F4 client, unchanged R4 server and Joomla dev.3 explicitly. Preferred candidate:

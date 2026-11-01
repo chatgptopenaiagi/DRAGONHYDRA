@@ -1,3 +1,14 @@
+BLOCKED — OWNER WINDOWS ELEVATION REQUIRED, 2026-11-01.
+Goal status blocked after the same canceled-elevation prerequisite persisted
+through3goalturns. Current primary health200 but new modules route404; old server
+bytes/servicePIDs unchanged. No consent/build process or upgrade receipt exists.
+All independent required source/build/package work is preserved; no new UAC retry.
+Preferred fresh Setup c217d045.../64854364B; source+receipts4c3853e pushed/verified.
+Owner next interaction: indicate readiness for a NEW native elevation prompt.
+Then approve fixed-primary upgrade, verify actual new UI/workflow/repeatdeploy/
+native pairing-links and scoped restart. Full goal remains incomplete.
+Read docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BLOCKED-AUDIT.json.
+
 FRESH PACKAGING VERIFIED — 2026-11-01; primary still NOT DEPLOYED.
 Fresh source93c1138 build now supports explicit verified F4 client selection.
 Setup: dist/windows/SYSTEM-CONTROL-CENTER-20261101-fresh-r1/

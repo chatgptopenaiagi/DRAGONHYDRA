@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "recorded_at": "2026-11-01T15:19:44.096052+00:00",
-  "status": "PARTIAL_PRIMARY_DEPLOYMENT_BLOCKED",
+  "status": "BLOCKED_OWNER_WINDOWS_ELEVATION",
   "checks": [
     {
       "id": "A",
@@ -142,7 +142,7 @@
       "id": "L",
       "status": "BLOCKED",
       "expected": "Real supported workflow reaches Joomla and persistent result",
-      "observed": "Frozen real data\u2192forecast\u2192history\u2192restart PASS; actual new Joomla display NOT_RUN; later real outcome unavailable",
+      "observed": "Frozen real data→forecast→history→restart PASS; actual new Joomla display NOT_RUN; later real outcome unavailable",
       "command_or_action": "Frozen workflow; installed selected-match browser workflow not executed",
       "recorded_at": "2026-11-01T15:19:44.096052+00:00",
       "exit_code": null,
@@ -188,9 +188,10 @@
     "retry_attempted": false
   },
   "remaining": [
-    "Owner-approved elevation for fixed-primary R4 upgrade",
+    "Owner-approved elevation for fixed-primary preferred fresh candidate c217d045 upgrade",
     "Authenticated Control Center and real displayed workflow",
     "Repeat supported Joomla deployment with menu/content comparison",
     "Scoped primary restart and repaired native client acceptance"
-  ]
+  ],
+  "blocked_audit_receipt": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BLOCKED-AUDIT.json"
 }
