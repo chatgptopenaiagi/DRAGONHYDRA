@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T09:23:56.859183+00:00",
+  "observed_by": "Primary engineering coordinator /root",
+  "source": "Coordinator message after actual Windows Computer Use screenshot inspection",
+  "browser": "Microsoft Edge",
+  "registered_default_https_browser_progid": "MSEdgeHTM",
+  "browser_hwnd": 525844,
+  "api_football_visual_addressbar_url": "https://www.api-football.com/documentation_v3#section/Introduction",
+  "api_football_default_browser_visual_confirmation": true,
+  "other_provider_addressbars_visually_confirmed": false,
+  "other_provider_visual_limit": "Concurrent user input/minimized browser prevented separate addressbar screenshots; no interference or bypass attempted.",
+  "all_three_native_click_and_default_browser_window_receipts": "fixed-r4/verification.json",
+  "scope": "API-football exact final addressbar visually observed; other two exact native clicked URLs plus registered default browser titles separately recorded.",
+  "screenshot_artifact": "Displayed directly by Computer Use; no local screenshot file or byte hash available; none fabricated."
+}

@@ -381,5 +381,45 @@
     "container_resume_command": "& 'C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe' start dragonhydra-a6-acceptance-20261101-r1",
     "capability_observation": "C:/Users/LOVE/.codex/machine-capabilities/evidence/dragonhydra-a7-20261101/registry-refresh.json",
     "final_environment_receipt": "docs/handover/verified-reports/LINUX-A7-FINAL-ENVIRONMENT-20261101.json"
+  },
+  "windows_desktop_external_links_20261101": {
+    "completed": true,
+    "source_commit": "391150787611433d9ad6d665fc52269214cd4637",
+    "source_content_sha256": "64df2084eabfe0ae35a1551e0969603ad15f4b7b6b9d8799368fcd3d2f728d94",
+    "framework": "Tauri2.12.5; official opener2.7.2",
+    "status": [
+      "IMPLEMENTED",
+      "BUILT",
+      "INSTALLED",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED"
+    ],
+    "artifact_publication": "Local deliverables; existing A6/A7 GitHub releases unmodified",
+    "installed_profile": "DragonhydraProvidersA2Test A6 client-only repair",
+    "installed_client": "build/workstation/test-install/provider-a2/application files/client/DRAGONHYDRA-Client.exe",
+    "client_sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f",
+    "client_exe": "dist/connections/external-links-20261101/DRAGONHYDRA-Client-x64.exe",
+    "unified_installer": "dist/connections/external-links-workstation-20261101/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "unified_installer_sha256": "0f3a4aa6bcedfd29d37cb790f61d466e98e6a62a235af6b945055f28db83e135",
+    "actual_installed_provider_clicks_passed": 3,
+    "default_browser": "Microsoft Edge (MSEdgeHTM)",
+    "regression_tests_passed": 22,
+    "connection_settings_counts_pairing_unchanged": true,
+    "services_unchanged": {
+      "DragonhydraProvidersA2Test": 23500,
+      "DragonhydraWorkstation": 16848,
+      "DragonhydraWorkstationTest": 22876
+    },
+    "unchanged_packaged_a6_server_files": 711,
+    "backup": "build/connections/external-links-20261101/installed-client-backup-r1",
+    "report": "docs/handover/WINDOWS-DESKTOP-EXTERNAL-LINK-REPAIR-20261101.md",
+    "receipt": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-VERIFICATION-20261101.json",
+    "remaining_limitations": [
+      "Existing provider documentation destinations preserved",
+      "Full unified installer was built/extracted; applied only guarded client update",
+      "Clean-machine/reboot/signing not part of this repair"
+    ],
+    "next_action": "Desktop link repair complete; retain backups and use the normal A6 shortcut. Native Linux storage gate remains independent."
   }
 }

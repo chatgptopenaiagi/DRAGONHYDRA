@@ -1,1 +1,1 @@
-{}
+{"external-browser":{"identifier":"external-browser","description":"Allow the paired loopback dashboard to open web links in the default browser.","remote":{"urls":["http://127.0.0.1:*"]},"local":true,"windows":["main"],"permissions":[{"identifier":"opener:allow-open-url","allow":[{"url":"https://*"},{"url":"http://*"}]}]}}

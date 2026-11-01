@@ -1,3 +1,5 @@
+Windows desktop external-link repair is COMPLETE and installed in the A6 provider-a2 client. Three actual installed browser-link checks and22 regressions passed; services/state/releases preserved. See the dedicated repair report. Earlier native Linux storage objective remains independent.
+
 A7 publication/checkpoint gate is COMPLETE: seven assets verified, original25 unchanged. See the publication receipt. Next unfinished native Linux gate remains original Ubuntu storage availability.
 
 # Updated priority queue: GENESIS A7 (2026-11-01)

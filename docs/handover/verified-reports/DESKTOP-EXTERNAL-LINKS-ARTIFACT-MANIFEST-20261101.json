@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_commit": "391150787611433d9ad6d665fc52269214cd4637",
+  "artifacts": [
+    {
+      "path": "dist/connections/external-links-20261101/DRAGONHYDRA-Client-x64.exe",
+      "bytes": 10046464,
+      "sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f"
+    },
+    {
+      "path": "dist/connections/external-links-20261101/DRAGONHYDRA-Client-ExternalLinks-windows-x64-setup.exe",
+      "bytes": 2334424,
+      "sha256": "c14c9975acde78ed0568ec6ab082ba763ba0e65bcb358c81e76cf903ca38e175"
+    },
+    {
+      "path": "dist/connections/external-links-workstation-20261101/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64757781,
+      "sha256": "0f3a4aa6bcedfd29d37cb790f61d466e98e6a62a235af6b945055f28db83e135"
+    }
+  ]
+}

@@ -124,3 +124,20 @@ state retained (idle sleep exit137). Final Windows3SCM Running. Scoped machine
 registry observation marks Ubuntu route unavailable and Docker runtime proof;
 authoritative inventory/derived data unchanged, earlier evidence preserved.
 Next external gate remains original Ubuntu VHDX/storage availability.
+
+## Windows desktop external browser repair — 2026-11-01
+
+Original installed17b557... client reproduced3nonfunctional links. Official
+Tauri2.12.5 opener2.7.2+main-loopbackHTTP(S)capability repairs them without
+dashboard/backend changes. Source3911507/content64df2084...28d94 compiled
+new client557837ee...1b84f; actual portable, standaloneNSIS payload and finally
+ACTUAL installed A6 EXE each passed3native link checks to defaultEdge. APIfootball
+addressbar additionally observed; all3browserwindow receipts and unchanged
+Connections/settings/counts/pairing verified. Guarded UAC-approved client-only
+transaction backed up5files, updated metadata coherently, preserved effective
+ACLs and all3servicePIDs23500/16848/22876. Regressions3+12+7=22 passed.
+Unified installer64757781B/SHA0f3a4aa6...e135; selectively extractedclient557
+and A6kernel6960 verified, all711server files unchanged. Full installer was not
+applied to live services. New artifacts/local/public-safe receipts retained;
+A6/A7 artifacts/hash pins and releases preserved. No provider acquisition,
+settings/vault changes or service controls. NativeLinux storage gate unchanged.

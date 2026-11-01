@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "objective": "Installed Windows desktop external browser link repair",
+  "source_commit": "391150787611433d9ad6d665fc52269214cd4637",
+  "source_content_sha256": "64df2084eabfe0ae35a1551e0969603ad15f4b7b6b9d8799368fcd3d2f728d94",
+  "framework": {
+    "tauri": "2.12.5",
+    "opener": "2.7.2",
+    "rust": "1.99.1",
+    "tauri_cli": "2.12.4"
+  },
+  "root_cause": "Native Tauri client had no external opener integration or URL-opening capability; WebView2 target=_blank requests were silently handled",
+  "repair": "Official Tauri opener initialization plus main-window loopback-origin HTTP(S)-only capability; dashboard/backend unchanged",
+  "status": [
+    "IMPLEMENTED",
+    "BUILT",
+    "INSTALLED",
+    "EXECUTED",
+    "TESTED",
+    "VERIFIED"
+  ],
+  "artifact_publication": "Local deliverables; no GitHub release or historical asset mutation",
+  "artifacts": [
+    {
+      "path": "dist/connections/external-links-20261101/DRAGONHYDRA-Client-x64.exe",
+      "bytes": 10046464,
+      "sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f"
+    },
+    {
+      "path": "dist/connections/external-links-20261101/DRAGONHYDRA-Client-ExternalLinks-windows-x64-setup.exe",
+      "bytes": 2334424,
+      "sha256": "c14c9975acde78ed0568ec6ab082ba763ba0e65bcb358c81e76cf903ca38e175"
+    },
+    {
+      "path": "dist/connections/external-links-workstation-20261101/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64757781,
+      "sha256": "0f3a4aa6bcedfd29d37cb790f61d466e98e6a62a235af6b945055f28db83e135"
+    }
+  ],
+  "original_artifacts_verified_unchanged": [
+    {
+      "path": "build/linux/prep-20261031-a6/dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+      "bytes": 303125,
+      "sha256": "2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2"
+    },
+    {
+      "path": "build/linux/prep-20261031-a6/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298310,
+      "sha256": "021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/dragonhydra-linux-dev-8f170de1559b.tar.gz",
+      "bytes": 304065,
+      "sha256": "a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a"
+    },
+    {
+      "path": "build/linux/prep-20261101-a7/wheel/dragonhydra-0.4.0a1-py3-none-any.whl",
+      "bytes": 298309,
+      "sha256": "8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871"
+    },
+    {
+      "path": "dist/connections/workstation-a6/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64359085,
+      "sha256": "2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1"
+    }
+  ],
+  "native_acceptance": {
+    "original_failure_reproduced": true,
+    "portable_provider_checks": 3,
+    "client_installer_payload_provider_checks": 3,
+    "actual_installed_executable_provider_checks": 3,
+    "default_browser": {
+      "progid": "MSEdgeHTM",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+      "process_name": "msedge.exe"
+    },
+    "expected_urls": [
+      {
+        "provider": "the-odds-api",
+        "url": "https://the-odds-api.com/liveapi/guides/v4/"
+      },
+      {
+        "provider": "sportmonks",
+        "url": "https://docs.sportmonks.com/v3/endpoints-and-entities/endpoints/fixtures"
+      },
+      {
+        "provider": "api-football",
+        "url": "https://www.api-football.com/documentation_v3"
+      }
+    ],
+    "browser_evidence": "Real native anchor click prevented by official opener, expected URL, registered default Edge provider window receipt; no new browser process required",
+    "api_football_addressbar_independently_observed": true,
+    "other_two_addressbars_separately_inspected": false,
+    "native_app_remained_open_and_route_unchanged": true,
+    "connection_settings_unchanged": true,
+    "pairing_and_endpoint_unchanged": true,
+    "retained_record_counts_unchanged": true,
+    "process_cleanup": "Only owned test processes after checks; no close caused by provider clicks"
+  },
+  "regression_tests": {
+    "external_link_tests": 3,
+    "guarded_client_packaging_tests": 12,
+    "installed_repair_transaction_tests": 7,
+    "passed": 22
+  },
+  "installed_repair": {
+    "applied": true,
+    "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files",
+    "backup": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\external-links-20261101\\installed-client-backup-r1",
+    "replaced_files": [
+      "client/BUILD-INFO.json",
+      "client/DRAGONHYDRA-Client.exe",
+      "client/THIRD-PARTY-NOTICES.txt",
+      "WORKSTATION-BUILD.json",
+      "PAYLOAD-MANIFEST.json"
+    ],
+    "services_before": [
+      {
+        "Name": "DragonhydraProvidersA2Test",
+        "State": "Running",
+        "ProcessId": 23500,
+        "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+      },
+      {
+        "Name": "DragonhydraWorkstation",
+        "State": "Running",
+        "ProcessId": 16848,
+        "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+      },
+      {
+        "Name": "DragonhydraWorkstationTest",
+        "State": "Running",
+        "ProcessId": 22876,
+        "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+      }
+    ],
+    "services_after": [
+      {
+        "Name": "DragonhydraProvidersA2Test",
+        "State": "Running",
+        "ProcessId": 23500,
+        "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+      },
+      {
+        "Name": "DragonhydraWorkstation",
+        "State": "Running",
+        "ProcessId": 16848,
+        "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+      },
+      {
+        "Name": "DragonhydraWorkstationTest",
+        "State": "Running",
+        "ProcessId": 22876,
+        "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+      }
+    ],
+    "services_controlled": false,
+    "state_data_or_vault_accessed": false,
+    "permissions_preserved": true
+  },
+  "unified_installer": {
+    "built": true,
+    "selectively_extracted_and_verified": true,
+    "new_client_sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f",
+    "unchanged_server_files": 711,
+    "changed_staged_files": [
+      "WORKSTATION-BUILD.json",
+      "client/BUILD-INFO.json",
+      "client/DRAGONHYDRA-Client.exe",
+      "client/THIRD-PARTY-NOTICES.txt"
+    ],
+    "full_installer_applied": false,
+    "server_exe_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc"
+  },
+  "limitations": [
+    "Existing provider link destinations were preserved; they currently target provider documentation",
+    "No provider API acquisition, account creation or new API key generation requested",
+    "No full workstation reinstall, clean-machine, reboot or production-signing claim"
+  ],
+  "diagnostics": [
+    "Initial build shell used desktop cwd with project-relative paths; aborted before final corrected source-pinned build",
+    "Browser process-only observer missed existing Edge reuse; replaced with real browser window receipts",
+    "Tauri invoke is read-only; rejected instrumentation assumption was corrected without changing application code"
+  ],
+  "receipts": [
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-CLIENT-INSTALLER-20261101.json",
+      "bytes": 5544,
+      "sha256": "6cfe4c8db38766cc49845370dc8878cc89ba5616d0bc2041b9484d91a1afdc32"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-INSTALLED-ACCEPTANCE-20261101.json",
+      "bytes": 5780,
+      "sha256": "48044ef52571bdb3f38cfb9ccb3d6c11e8e95a10bc7af6990f7daf93105080fa"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-INSTALLED-REPAIR-20261101.json",
+      "bytes": 3756,
+      "sha256": "5249c4f0adf4a58f4eccc60ed37b4020d9753e82f4b854a3f22609b1ab171298"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-ORIGINAL-20261101.json",
+      "bytes": 5138,
+      "sha256": "10270adb27484329cc44daffdea810997b2d0c1b7ec775e364f82ecd20cc72ed"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-REPAIRED-20261101.json",
+      "bytes": 5419,
+      "sha256": "3c189e21ded8175af7531e265491db4202ee5c3e8822f551eaa39cfa5fe136c0"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-UNIFIED-BUILD-20261101.json",
+      "bytes": 5403,
+      "sha256": "f7c0988df7572b8a20091ef0da62854b1a2e4184cb5dfa2a4fbbbbdedc47329a"
+    },
+    {
+      "path": "docs/handover/verified-reports/DESKTOP-EXTERNAL-LINKS-VISUAL-20261101.json",
+      "bytes": 1132,
+      "sha256": "9a55436ae3ae0d38b577c9b483262a66b20182d09799dabb9c107560fa725d65"
+    }
+  ]
+}

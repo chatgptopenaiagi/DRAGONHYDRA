@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "built": true,
+  "installed": false,
+  "launched": false,
+  "installation_tested": false,
+  "clean_machine_tested": false,
+  "version": "0.4.1-dev.1",
+  "inner_release_sha": "a1380545bd3bb225f400e7e328535ff692c0123a",
+  "reused_verified_payload": true,
+  "refreshed_web_hook": false,
+  "started_at": "2026-11-01T09:23:42.3852693Z",
+  "finished_at": "2026-11-01T09:28:10.8208655Z",
+  "artifact": {
+    "path": "C:\\xampp\\DRAGONHYDRA\\dist\\connections\\external-links-workstation-20261101\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "filename": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+    "bytes": 64757781,
+    "signing_status": "NotSigned",
+    "sha256": "0f3a4aa6bcedfd29d37cb790f61d466e98e6a62a235af6b945055f28db83e135"
+  },
+  "source_files": [
+    {
+      "path": "scripts/Build-Workstation.ps1",
+      "sha256": "9836bd7af2f3a2a140ef1fbeb91b49928202c9bbf1a8e6dad0ce9367f4438363"
+    },
+    {
+      "path": "packaging/windows/workstation/ClientBuild.ps1",
+      "sha256": "82137dd4d9d4fd9880f527134e8930347c3abc4de5594243b8218261e5fa2c66"
+    },
+    {
+      "path": "packaging/windows/workstation/installer.nsi",
+      "sha256": "3aac513453726b819cbd3dc74c8033bc4220ff104ea934d2af8a0b24b5a32493"
+    },
+    {
+      "path": "packaging/windows/workstation/README.md",
+      "sha256": "a2072c42afc9836d2019cc42ac0624c23a31e97a0a1883ce2160e9d080476f80"
+    },
+    {
+      "path": "packaging/windows/workstation/Workstation.ps1",
+      "sha256": "e3255c0b90c0b4be31987478f6cf63cf231448e655f80839a35e8f22e60e2bc8"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraService.cs",
+      "sha256": "e32a90381de9f9144ffb7cfa5d94df2ed89bbc5328d342a0da039af4897efa2b"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraLauncher.cs",
+      "sha256": "cfd80aecf8d6fc09a4fae515fd3521ced2f471c006c599a855bad86437867cd5"
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraAtomicFile.cs",
+      "sha256": "e171507f2f397b51604f15fcd4467153ab8b9f1cbf2437a8407c6b72373cd0ff"
+    },
+    {
+      "path": "packaging/windows/workstation/Build-Runtime.ps1",
+      "sha256": "28fef003b9d6e9a61feef52bf5da2dbf66ca4808939c26ef3e2d67ba7f462dfa"
+    },
+    {
+      "path": "packaging/windows/workstation/web/Build-WebPayload.ps1",
+      "sha256": "9d74238b8d391fa161b64da8fd4c54bbae4b6f88880b735c14c4ca1742a695cf"
+    },
+    {
+      "path": "packaging/windows/workstation/web/prepare_payload.py",
+      "sha256": "b8405551a987f717955b1b6659f458805a1d3aa65d722c0035912bf94b5848ff"
+    },
+    {
+      "path": "packaging/windows/workstation/web/manage.php",
+      "sha256": "375ab1e98293eae329c6ab16748e977debccbc7dd84dfde4897740f1cd1cd39a"
+    }
+  ],
+  "payload_files": 10662,
+  "payload_bytes": 286803890,
+  "steps": [
+    {
+      "name": "verified-desktop-client",
+      "exit_code": 0,
+      "source_content_sha256": "64df2084eabfe0ae35a1551e0969603ad15f4b7b6b9d8799368fcd3d2f728d94",
+      "binary_sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f",
+      "files": 3
+    },
+    {
+      "name": "build-installer",
+      "executable": "C:\\Users\\LOVE\\AppData\\Local\\tauri\\NSIS\\makensis.exe",
+      "arguments": [
+        "/V3",
+        "/DSTAGE=C:\\xampp\\DRAGONHYDRA\\build\\connections\\external-links-workstation-20261101\\stage",
+        "/DOUTPUT=C:\\xampp\\DRAGONHYDRA\\dist\\connections\\external-links-workstation-20261101\\DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+        "/DPREREQUISITES=C:\\xampp\\DRAGONHYDRA\\build\\connections\\external-links-workstation-20261101\\prerequisites",
+        "/DVERSION=0.4.1-dev.1",
+        "/DNUMERICVERSION=0.4.1.1",
+        "C:\\xampp\\DRAGONHYDRA\\packaging\\windows\\workstation\\installer.nsi"
+      ],
+      "exit_code": 0,
+      "seconds": 109.453,
+      "log": "build-installer-repackage-20261101-102342.log"
+    }
+  ],
+  "kernel_override": {
+    "version": "0.4.0-alpha.1",
+    "build_kind": "connector-development-snapshot",
+    "source_sha": null,
+    "source_content_sha256": "886161d0a8c4f0bf3364fd6d0a9966630398bba6bfe27b84de9c5999a307acd4",
+    "binary_sha256": "6960835b332728672183b2953c4003119ed743a721793dd6e21a7b66181607fc",
+    "payload_manifest_sha256": "0535cb2ee0bee7016296d2768579a040f44b18d7248d0f56c2727d56ced71990",
+    "source_manifest": "server/SOURCE-MANIFEST.json",
+    "verification": "private-runtime current-host smoke checks; no clean-machine claim",
+    "upstream_notices_sha256": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a"
+  },
+  "client_override": {
+    "version": "0.4.0-alpha.1",
+    "architecture": "x86_64-pc-windows-msvc",
+    "source_content_sha256": "64df2084eabfe0ae35a1551e0969603ad15f4b7b6b9d8799368fcd3d2f728d94",
+    "binary_sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f",
+    "build_manifest_sha256": "a2841394186ba6b640fa3c343e39da4a9dfcf1ce15c62c9891688ef51b7f3f7d",
+    "baseline_staging": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\workstation-a6",
+    "baseline_payload_manifest_sha256": "79ed5cec42e9efbb34008cda77c209ef11e3df2182782135ef76b83aa4efe9dd",
+    "verification": "Verified current-host desktop repair; exact source/payload hashes in CLIENT-BUILD.json; no clean-machine claim"
+  }
+}

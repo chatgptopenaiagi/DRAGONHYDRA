@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T09:29:27.090857+00:00",
+  "scope": "Actual copied Windows Tauri client/WebView2 DOM clicks and actual default-browser process dispatch",
+  "binary": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\client\\DRAGONHYDRA-Client.exe",
+  "binary_sha256": "557837ee832896c5d81b46222c701d4d7ddb771f9dc7ed22e3e2e5d222a1b84f",
+  "harness_sha256": "d8fa09f21223270a7479a3904f0cd6f471111af25bc19e266bf9dc803b5d9efc",
+  "actual_installed_binary_executed": true,
+  "launched_executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\client\\DRAGONHYDRA-Client.exe",
+  "expected_opening": "yes",
+  "default_browser": {
+    "progid": "MSEdgeHTM",
+    "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    "process_name": "msedge.exe"
+  },
+  "providers_requested": false,
+  "settings_writes_requested": false,
+  "checks": [
+    {
+      "provider": "the-odds-api",
+      "expected_url": "https://the-odds-api.com/liveapi/guides/v4/",
+      "click_events": [
+        {
+          "url": "https://the-odds-api.com/liveapi/guides/v4/",
+          "defaultPrevented": true
+        }
+      ],
+      "browser_windows_before": [],
+      "default_browser_window_receipts": [
+        {
+          "hwnd": 525844,
+          "pid": 16964,
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+          "title": "Odds API Documentation V4 | The Odds API and 27 more pages - Profile 1 - Microsoft\u200b Edge"
+        }
+      ],
+      "native_opener_handoff_verified": true,
+      "default_browser_process_dispatch_observed": false,
+      "dispatch_processes": [],
+      "native_application_still_open": true,
+      "native_route_unchanged": true
+    },
+    {
+      "provider": "sportmonks",
+      "expected_url": "https://docs.sportmonks.com/v3/endpoints-and-entities/endpoints/fixtures",
+      "click_events": [
+        {
+          "url": "https://docs.sportmonks.com/v3/endpoints-and-entities/endpoints/fixtures",
+          "defaultPrevented": true
+        }
+      ],
+      "browser_windows_before": [],
+      "default_browser_window_receipts": [
+        {
+          "hwnd": 525844,
+          "pid": 16964,
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+          "title": "Fixtures | API 3.0 and 28 more pages - Profile 1 - Microsoft\u200b Edge"
+        }
+      ],
+      "native_opener_handoff_verified": true,
+      "default_browser_process_dispatch_observed": false,
+      "dispatch_processes": [],
+      "native_application_still_open": true,
+      "native_route_unchanged": true
+    },
+    {
+      "provider": "api-football",
+      "expected_url": "https://www.api-football.com/documentation_v3",
+      "click_events": [
+        {
+          "url": "https://www.api-football.com/documentation_v3",
+          "defaultPrevented": true
+        }
+      ],
+      "browser_windows_before": [],
+      "default_browser_window_receipts": [
+        {
+          "hwnd": 525844,
+          "pid": 16964,
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+          "title": "API-Football - documentation_v3 and 29 more pages - Profile 1 - Microsoft\u200b Edge"
+        }
+      ],
+      "native_opener_handoff_verified": true,
+      "default_browser_process_dispatch_observed": false,
+      "dispatch_processes": [],
+      "native_application_still_open": true,
+      "native_route_unchanged": true
+    }
+  ],
+  "console_errors": [],
+  "blocked_requests": [],
+  "failed_requests": [],
+  "client_process": {
+    "pid": 26692,
+    "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\client\\DRAGONHYDRA-Client.exe",
+    "creation_filetime": 134379989675559549,
+    "integrity_class": "Medium"
+  },
+  "cdp": {
+    "port": 56347,
+    "listeners": [
+      {
+        "address": "127.0.0.1",
+        "port": 56347,
+        "pid": 35064
+      }
+    ],
+    "owned_webview2": true
+  },
+  "settings_before_sha256": "ca329b298602893b2542e92e61a3e24306638f041b92a90eb4aa6f2ba2f80a19",
+  "record_counts_before": {
+    "api-football": 0,
+    "the-odds-api": 0,
+    "sportmonks": 0,
+    "football-data-org": 0,
+    "football-data-couk": 380,
+    "openfootball": 760,
+    "statsbomb": 64,
+    "nflverse": 0,
+    "moneypuck": 0,
+    "cricsheet": 17
+  },
+  "official_opener_click_handler_present": true,
+  "settings_after_sha256": "ca329b298602893b2542e92e61a3e24306638f041b92a90eb4aa6f2ba2f80a19",
+  "record_counts_after": {
+    "api-football": 0,
+    "the-odds-api": 0,
+    "sportmonks": 0,
+    "football-data-org": 0,
+    "football-data-couk": 380,
+    "openfootball": 760,
+    "statsbomb": 64,
+    "nflverse": 0,
+    "moneypuck": 0,
+    "cricsheet": 17
+  },
+  "connection_settings_unchanged": true,
+  "pairing_and_endpoint_unchanged": true,
+  "native_route": "http://127.0.0.1:18746/#connections",
+  "native_page_target_id": "2343F756F885AF11587516DFF1F0E92E",
+  "screenshot_sha256": "653998650949a4367f97144cc4e98796f13bb1f482ef4b245f656220e0328959",
+  "defect_reproduced": false,
+  "default_browser_delivery_verification": "actual_default_browser_window_title_receipts_after_native_clicks; exact_clicked_URLs_verified; addressbar_UI_comparison_is_separate",
+  "native_application_alive_after_checks": true,
+  "owned_copy_cleanup": {
+    "method": "Exact owned process handle terminated after checks",
+    "installed_executable": true,
+    "exit_code": 1
+  },
+  "finished_at": "2026-11-01T09:29:42.338099+00:00"
+}

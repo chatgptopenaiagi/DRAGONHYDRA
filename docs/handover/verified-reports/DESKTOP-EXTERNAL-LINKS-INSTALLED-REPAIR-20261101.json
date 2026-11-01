@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "applied": true,
+  "phase": "apply",
+  "target": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files",
+  "source_manifest_sha256": "a2841394186ba6b640fa3c343e39da4a9dfcf1ce15c62c9891688ef51b7f3f7d",
+  "backup_root": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\external-links-20261101\\installed-client-backup-r1",
+  "services_controlled": false,
+  "state_data_or_vault_accessed": false,
+  "files_replaced": [
+    "client/BUILD-INFO.json",
+    "client/DRAGONHYDRA-Client.exe",
+    "client/THIRD-PARTY-NOTICES.txt",
+    "WORKSTATION-BUILD.json",
+    "PAYLOAD-MANIFEST.json"
+  ],
+  "rollback": null,
+  "services_before": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 16848,
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    }
+  ],
+  "original_files": {
+    "PAYLOAD-MANIFEST.json": {
+      "bytes": 2245154,
+      "sha256": "79ed5cec42e9efbb34008cda77c209ef11e3df2182782135ef76b83aa4efe9dd"
+    },
+    "WORKSTATION-BUILD.json": {
+      "bytes": 4635,
+      "sha256": "f76bc41a7b4a979aa9e7dc28ad39eaa453c911771c271021d2c742dea0a63011"
+    },
+    "client/BUILD-INFO.json": {
+      "bytes": 191,
+      "sha256": "3f5882323f6c716d0a680599c9542eaddac1ff840e63097819a0122949eacb23"
+    },
+    "client/THIRD-PARTY-NOTICES.txt": {
+      "bytes": 2206151,
+      "sha256": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a"
+    },
+    "client/DRAGONHYDRA-Client.exe": {
+      "bytes": 8240128,
+      "sha256": "17b557c7a4f2524ace5769c3bace55583ce695a0f250771a3585ce954688f94b"
+    }
+  },
+  "source_content_sha256": "64df2084eabfe0ae35a1551e0969603ad15f4b7b6b9d8799368fcd3d2f728d94",
+  "services_after": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 16848,
+      "PathName": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "PathName": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+    }
+  ],
+  "status": "client_repaired_services_unchanged"
+}

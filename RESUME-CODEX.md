@@ -1,3 +1,15 @@
+Latest completed repair — Windows desktop external browser links (2026-11-01).
+Installed A6 provider-a2 client now uses official Tauri opener2.7.2; all three
+provider links opened default Edge from the ACTUAL installed EXE, while the
+app remained on Connections. Settings/counts/pairing unchanged; three SCM
+PIDs unchanged. Guarded elevated client-only update backed up five files;
+711 packaged server files remain byte-identical. No full workstation reinstall.
+Client EXE SHA557837ee...1b84f; unified installer SHA0f3a4aa6...e135 in fresh
+dist/connections/external-links-* directories. Twenty-two regressions passed.
+Read docs/handover/WINDOWS-DESKTOP-EXTERNAL-LINK-REPAIR-20261101.md and the
+windows_desktop_external_links_20261101 state section. A6/A7 releases preserved.
+Do not repeat installation/repair or completed Linux/Windows acceptance.
+
 A7 PUBLISHED AND VERIFIED: source checkpoint `2ca96e9`, remote push verified,
 release `genesis-linux-a7-20261101`, seven uploaded assets exact; independent
 manifest/wheel downloads rehashed. All25 prior A6/historical assets unchanged.
