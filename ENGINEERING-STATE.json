@@ -7,8 +7,8 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "release/core-next-20261101T1400Z",
-  "phase": "SOURCE_REFREEZE_AFTER_POSIX_ACCEPTANCE",
-  "installation": "NOT_RUN",
+  "phase": "PACKAGING_PROVENANCE_REFREEZE",
+  "installation": "PASS_EXPLORATORY_F1_NOT_FINAL_RELEASE",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
     "regression_tests": 208,
@@ -20,10 +20,10 @@
   "control_center": {
     "status": "PASS_PHP_SOURCE_SCOPE",
     "php_tests": 11,
-    "installed_candidate_browser": "NOT_RUN"
+    "installed_candidate_browser": "PASS_EXPLORATORY_F1"
   },
   "publication": "NOT_RUN",
-  "next_objective": "Freeze repaired source; rebuild server/wheel/desktop/APK/Joomla; execute installed acceptance",
+  "next_objective": "Freeze distribution provenance fixes; rebuild every application with uniform new SHA; fresh installed acceptance and publication",
   "baseline_installation": {
     "status": "PASS",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -52,8 +52,23 @@
   },
   "version": "0.5.0-dev.1",
   "proposed_tag": "v0.5.0-dev.1-core-next",
-  "updated_utc": "2026-11-01T14:34:11.905743+00:00",
+  "updated_utc": "2026-11-01T15:34:11.905743+01:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
-  "prior_artifacts": "LAB/attempts/source-03c6d82"
+  "prior_artifacts": "LAB/attempts/source-03c6d82",
+  "exploratory_f1": {
+    "evidence": "LAB/evidence/exploratory-live-acceptance-f1.json",
+    "api_joomla_checks": 35,
+    "ports": {
+      "database": 18817,
+      "api": 18815,
+      "web": 18816
+    },
+    "native_windows": "PASS_CURRENT_HOST_MEDIUM_INTEGRITY",
+    "android": "PASS_OWN_EMULATOR_ARM64_TRANSLATION",
+    "installation_id": "core-next-a871ddf82a344fb788ae050516b27911",
+    "source_commit": "f1b750b78325fa37f11ee8afcd79ebd47d104348",
+    "memory_records": 10,
+    "publication": "HELD_FOR_INHERITED_PACKAGE_METADATA"
+  }
 }

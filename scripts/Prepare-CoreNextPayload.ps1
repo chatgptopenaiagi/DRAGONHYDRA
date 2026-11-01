@@ -56,7 +56,7 @@ $runtime=Join-Path $destination 'workstation'
 & (Join-Path $project 'packaging\windows\workstation\Build-Runtime.ps1') -OutputRoot $runtime
 if($LASTEXITCODE){throw 'CORE_NEXT_DEPLOYMENT_RUNTIME_BUILD_FAILED'}
 Copy-Item -LiteralPath (Join-Path $project 'packaging\windows\workstation\CoreNext-InstallerChecks.ps1') -Destination (Join-Path $runtime 'Installer-Checks.ps1') -Force
-foreach($file in @('manage.php','CoreNextProfile.php')){Copy-Item -LiteralPath (Join-Path $project ('packaging\windows\workstation\web\'+$file)) -Destination (Join-Path $destination ('web\'+$file)) -Force}
+foreach($file in @('manage.php','CoreNextProfile.php','README.md')){Copy-Item -LiteralPath (Join-Path $project ('packaging\windows\workstation\web\'+$file)) -Destination (Join-Path $destination ('web\'+$file)) -Force}
 if($extension){Copy-Item -LiteralPath $extension -Destination (Join-Path $destination 'web\extension.zip') -Force}
 $ini="[Product]`r`nIdentity=DRAGONHYDRA CORE NEXT v1`r`nInstallRoot=$($profile.install_root)`r`nStateRoot=$($profile.state_root)`r`nServiceName=$($profile.service_name)`r`nInstallationId=$($profile.installation_id)`r`nProfilePath=$ProfilePath`r`nShortcutName=$($profile.shortcut_name)`r`nUninstallId=$($profile.uninstall_id)`r`nVersion=$($profile.version)`r`n"
 [IO.File]::WriteAllText((Join-Path $runtime 'installer.ini'),$ini,[Text.Encoding]::Unicode)

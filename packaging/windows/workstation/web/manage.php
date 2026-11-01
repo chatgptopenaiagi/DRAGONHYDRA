@@ -256,12 +256,13 @@ function configure(array $cfg, string $configPath): void {
     if (!isset($site->core_next_installation_id)) {
         // Keep Joomla's separate Site/Administrator class seeds; bind its fresh
         // random secret to this installation once, then retain it on repairs.
-        $site->secret = hash_hmac('sha256', $cfg['joomla_session_suffix'], $site->secret);
-        $site->core_next_installation_id = $cfg['installation_id'];
-        $site->core_next_session_suffix = $cfg['joomla_session_suffix'];
-        $site->cookie_domain = ''; $site->cookie_path = '/';
+        $values = get_object_vars($site);
+        $values['secret'] = hash_hmac('sha256', $cfg['joomla_session_suffix'], $site->secret);
+        $values['core_next_installation_id'] = $cfg['installation_id'];
+        $values['core_next_session_suffix'] = $cfg['joomla_session_suffix'];
+        $values['cookie_domain'] = ''; $values['cookie_path'] = '/';
         $text = "<?php\nclass JConfig {\n";
-        foreach (get_object_vars($site) as $key => $value) {
+        foreach ($values as $key => $value) {
             if (!preg_match('/^[a-zA-Z_][a-zA-Z0-9_]*$/D', $key)) { throw new RuntimeException('INVALID_JOOMLA_CONFIGURATION_PROPERTY'); }
             $text .= 'public $' . $key . ' = ' . var_export($value, true) . ";\n";
         }

@@ -1,5 +1,28 @@
 # DRAGONHYDRA CORE NEXT release report
 
+Current source checkpoint: distribution-provenance correction after exploratory
+installed acceptance of `f1b750b78325fa37f11ee8afcd79ebd47d104348`. No tag or release
+has been published. The older progress sections below describe earlier stages;
+the final delivery report will identify its separate evidence/documentation commit.
+
+The exploratory unified Setup created `core-next-a871ddf82a344fb788ae050516b27911`
+with API18815/Joomla18816/MariaDB18817 in the isolated lab. Real Joomla browsing,
+analysis, JSON/CSV/XLSX exports, all nine Control Center sections, existing-reference
+authenticated session isolation, optional-AI failure fallback, native Windows
+navigation/external browser URL and Android emulator pairing/navigation/reconnect
+passed their recorded scopes. An actual future fixture produced five model records
+and five persisted forecasts; unavailable outcomes were excluded from evaluation.
+The final source still requires rebuilt packages and fresh installed acceptance.
+
+Package inspection rejected inherited A9 root instructions/build metadata and web
+manifest application fields. This checkpoint replaces them with current source,
+component hashes and explicit CORE NEXT profile instructions while retaining
+third-party runtime provenance separately. PHP session-configuration serialization
+avoids dynamic-property warnings. Module cards render readable assessment text.
+The original deployed installation's60readable protected hashes and four service
+configurations/PIDs matched; its source checkout advanced during separately
+observed external work, so no claim of unchanged original source is made.
+
 Status: IN PROGRESS. No CORE NEXT release has been published. A successful unit
 suite is not fresh-install, GUI, device, reboot or production-signing evidence.
 
