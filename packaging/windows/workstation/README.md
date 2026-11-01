@@ -1,4 +1,15 @@
-# DRAGONHYDRA complete workstation development installer
+# Historical workstation packaging notes
+
+The notes below describe the inherited 0.4.1 development installer. They are
+retained as historical documentation, including its original paths and commands.
+Do not execute those commands for CORE NEXT or against the original installation.
+
+For the separately installed CORE NEXT edition, use the current
+[project README](../../../README.md),
+[isolated packaging instructions](../../../docs/engineering/CORE-NEXT-PACKAGING.md)
+and [release report](../../../docs/releases/CORE-NEXT-RELEASE-REPORT.md).
+Its published application source is `953b67fa50dfa9d705f060f97b8a1af5d317c001`;
+this documentation clarification is a later, separate commit.
 
 `DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe` bundles the desktop client, private Python server runtime, private Apache/PHP/MariaDB, Joomla, the DRAGONHYDRA extension, and a Windows service and launcher. It is an unsigned development build. Its installer version is 0.4.1-dev.1; the reused, verified server/client/extension are 0.4.0-alpha.1 from commit `a1380545bd3bb225f400e7e328535ff692c0123a`. `WORKSTATION-BUILD.json` records the new wrapper source file hashes separately.
 

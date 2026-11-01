@@ -15,8 +15,7 @@ injected modules. It is not a new operating-system kernel. Project attribution,
 Git history and third-party notices remain part of the original DRAGONHYDRA
 repository.
 
-**Development checkpoint:** source/behavioral checks pass; installed candidate
-acceptance and publication are gated separately. Read
+**Release evidence:** final-source behavioral comparison: PASS; Linux installed archive: PASS; current-host Windows acceptance: PASS; publication: PUBLICATION_AND_DOWNLOADS_VERIFIED. Read
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
@@ -83,16 +82,26 @@ contract. Reads do not acquire providers, run models, create calculation jobs,
 install packages or restart services. Evidence expiry does not become a fresh
 success. Definitions and installation-specific observations are separate.
 
-Current-host candidate URL, once installed:
-`http://127.0.0.1:18811/administrator/index.php?option=com_dragonhydra`.
-Installed screenshots will be added only after genuine browser acceptance; no
-mockup is presented as an application screenshot.
+Current-host candidate System Control Center: `http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra`.
+Actual authenticated953 screenshots, with captured state/evidence scope:
+
+![Control Center Overview After Lifecycle R3](docs/screenshots/core-next-control-center-overview-after-lifecycle-r3.png)
+
+Captured 2026-11-01T15:31:08.778601+00:00. Actual cached registry after owned full lifecycle; no probe on status read; point-in-time states, not a claim every capability is READY.
+
+![Control Center Modules After Lifecycle R3](docs/screenshots/core-next-control-center-modules-after-lifecycle-r3.png)
+
+Captured 2026-11-01T15:31:09.943460+00:00. Actual cached registry after owned full lifecycle; no probe on status read; point-in-time states, not a claim every capability is READY.
+
+![Sports Home](docs/screenshots/core-next-sports-home.png)
+
+Captured 2026-11-01T15:20:06.558849+00:00. Actual authenticated953UI and retained-data display; registry cards are cached point-in-time observations, not a claim all capabilities are READY.
+
+
 
 ## Separate installation and first-run access
 
-The Windows unified Setup is the primary delivery. It requires an explicit CORE
-NEXT installation profile and verifies its installation ID, canonical roots,
-service, database and ports before mutation. It cannot repair or uninstall an old
+The Windows unified Setup is the primary delivery. Its default factory creates a fresh CORE NEXT profile and free port assignments. Explicit existing CORE NEXT profiles support repair; installation ID, canonical roots, service, database and ports are checked before mutation. It cannot repair or uninstall an old
 DRAGONHYDRA profile. Its service, shortcuts, uninstaller identity, Joomla session,
 API cookie and WebView storage are distinct. Android uses
 `ai.dragonhydra.corenext.mobile`; the desktop identifier is
@@ -102,8 +111,7 @@ For this mission E: was unavailable, so source is
 `C:\xampp\DRAGONHYDRA-CORE-NEXT` and isolated runtime/evidence is
 `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB`. The original
 `C:\xampp\DRAGONHYDRA` is a read-only reference. Baseline and candidate profiles
-have separate GUIDs, application/state/browser roots, fresh credentials and ports
-18800/18801/18802 versus18810/18811/18812. Provider refresh schedules are disabled
+have separate GUIDs, application/state/browser roots and fresh credentials. The A9 baseline historically used API18800/Joomla18801/MariaDB18802; its mission-owned reference service was later removed while application/state were retained; the actual candidate assignments are recorded in its generated profile and release report. Provider refresh schedules are disabled
 in acceptance. Ports alone do not establish session isolation.
 
 Create a fresh profile with the existing PowerShell7:
@@ -138,10 +146,7 @@ separately from calculations/data. Missing-input/error cases use labelled
 synthetic fixtures. Forecasting mathematical source files remain byte-identical;
 independent fixed-input golden results cover their outputs.
 
-Current source evidence includes208 focused Python regressions,33 API/export/job
-semantic comparison groups, Joomla PHP/registry integration, server identity/path
-and environment guards, installer ownership/link guards, native state contracts,
-and Flutter analysis/tests. Consult the release report for final installed,
+Historical pre-freeze evidence includes208 broad Python regressions. Final953 source-specific checks include46 focused Windows tests (one platform skip),22 Linux core tests (one platform skip),33 API/export/job parity groups,42 installed API/Joomla/session/AI checks,24 owned lifecycle checks,9 native Windows checks,14 emulator checks and11 Linux installed groups. These scopes are distinct. Consult the release report for final installed,
 browser, platform, package and publication outcomes and remaining limitations.
 
 Example tests using the isolated Python environment:
@@ -159,11 +164,9 @@ scripts against their old installation defaults.
 
 ## Separate prerelease downloads
 
-Intended tag:
+Published prerelease tag:
 [v0.5.0-dev.1-core-next](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
-These links become available only after the separate draft passes acceptance and
-is published. Every asset will record exact source/build identity, target, size,
-SHA-256, verification scope and limitations in its release manifest.
+Remote publication and complete asset downloads were verified. Every asset records exact source/build identity, target, size, SHA-256, verification scope and limitations in its release manifest.
 
 - [Unified Windows Setup](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe)
 - [Windows desktop client](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe)
@@ -176,6 +179,10 @@ SHA-256, verification scope and limitations in its release manifest.
 - [Exact source ZIP](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip)
 - [Checksums](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/SHA256SUMS.txt)
 
-Previous branches, tags, assets and stable release classification remain intact.
+Earlier tags/assets and stable release classification are checked during publication. Concurrent external original-project source changes are recorded separately; this mission does not claim that the entire original working tree stayed byte-static.
 CORE NEXT is an architectural development prerelease, not a production-stability
 claim based on unit tests.
+
+## Frozen source and delivery documentation
+
+All compiled application packages, the tag and source ZIP use `953b67fa50dfa9d705f060f97b8a1af5d317c001`. Later delivery screenshots/reports may be committed separately; that later documentation commit is not presented as the compiled source. See the release report for exact provenance and current acceptance.
