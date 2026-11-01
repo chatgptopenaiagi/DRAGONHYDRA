@@ -387,9 +387,10 @@ def _append_revision(db, kind, scope, body, semantic, validate):
         return result
 
 
-def _as_of(db, cutoff):
+def _as_of(db, cutoff, *, initialize=True):
     cutoff = _utc(cutoff)
-    _schema(db)
+    if initialize:
+        _schema(db)
     rows = db.execute('''SELECT r.kind,r.record_id,r.payload,c.received_at,c.persisted_at,c.usable_at,r.fingerprint
       FROM cognitive_records r JOIN cognitive_receipts c ON r.record_id=c.record_id
       WHERE r.kind IN ('model','prediction','outcome','task','evaluation','hypothesis')
@@ -410,7 +411,10 @@ def _as_of(db, cutoff):
     return result
 
 
-def as_of(db_path, cutoff):
+def as_of(db_path, cutoff, *, readonly=False):
+    if readonly:
+        with closing(sqlite3.connect(Path(db_path).resolve().as_uri()+'?mode=ro', uri=True, timeout=10)) as db:
+            return _as_of(db, cutoff, initialize=False)
     with closing(sqlite3.connect(str(db_path),timeout=10)) as db:
         return _as_of(db,cutoff)
 

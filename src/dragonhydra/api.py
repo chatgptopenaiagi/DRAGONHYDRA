@@ -14,7 +14,7 @@ import time
 from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
-from fastapi import APIRouter, Depends, FastAPI, Query, Request, Response
+from fastapi import APIRouter, Depends, FastAPI, Path as PathParameter, Query, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -232,6 +232,26 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     def predictions(match_id: str):
         return product.predictions(match_id)
 
+    @router.get('/matches/{match_id}/cognition-history')
+    def cognition_history(match_id: str = PathParameter(pattern=r'^[a-f0-9]{64}$'),
+                          cutoff: str | None = Query(default=None, max_length=40)):
+        from .system_workflow import match_history
+        return match_history(product, match_id, cutoff)
+
+    @router.post('/matches/{match_id}/forecasts', status_code=202, response_model=Job)
+    def persist_forecast(body: EmptyInput, request: Request,
+                         match_id: str = PathParameter(pattern=r'^[a-f0-9]{64}$'),
+                         user=Depends(admin)):
+        product.find(match_id)
+        return jobs.submit('forecast', {'match_id': match_id}, user['user'], request.headers.get('idempotency-key'))
+
+    @router.post('/matches/{match_id}/evaluations', status_code=202, response_model=Job)
+    def evaluate_forecast(body: EmptyInput, request: Request,
+                          match_id: str = PathParameter(pattern=r'^[a-f0-9]{64}$'),
+                          user=Depends(admin)):
+        product.find(match_id)
+        return jobs.submit('evaluation', {'match_id': match_id}, user['user'], request.headers.get('idempotency-key'))
+
     @router.get('/matches/{match_id}/analysis-package')
     def analysis_package(match_id: str, context_record_id: str | None = Query(
             default=None, pattern=r'^source_context:[a-f0-9]{64}$')):
@@ -434,6 +454,11 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                 'ai': local_ai['status'], 'local_ai': local_ai, 'network_mode': 'loopback-only',
                 'capabilities': {'public_import': True, 'xlsx_export': True, 'joomla_bridge': bool(bridge_secret),
                                  'live_provider': False, 'mariadb': False, 'local_llm': local_ai['configured']}}
+
+    @router.get('/system/modules')
+    def module_status(user=Depends(principal)):
+        from .module_registry import snapshot
+        return snapshot(product, jobs, role='admin' if 'admin' in user['roles'] else 'reader')
 
     @router.post('/system/shutdown', dependencies=[Depends(admin)])
     def shutdown(body: EmptyInput):

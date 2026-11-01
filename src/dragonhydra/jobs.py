@@ -321,6 +321,10 @@ class Jobs:
             return self.import_public(job['id'], payload.get('mode', 'retained'), job['attempts'])
         if kind == 'explanation':
             return self.product.explanation(payload['match_id'])
+        if kind in ('forecast', 'evaluation'):
+            from .system_workflow import evaluate_match, forecast_match
+            operation = forecast_match if kind == 'forecast' else evaluate_match
+            return operation(self.product, payload['match_id'], job['id'])
         if kind == 'local_explanation':
             from .local_ai_service import explain
             return explain(self.product, payload['package'], lambda: self.check(job['id'], job['attempts']))
