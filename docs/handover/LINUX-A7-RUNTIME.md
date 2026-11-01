@@ -1,3 +1,5 @@
+Published and independently verified: `genesis-linux-a7-20261101`, source commit `2ca96e9`, seven assets exact; all25 prior assets unchanged. The linked publication receipt records this later gate. Container now stopped with installed state retained; all acceptance servers exited0.
+
 # Linux A6 runtime acceptance and GENESIS A7 — 2026-11-01
 
 The existing Linux A6 distribution was installed and executed successfully in an

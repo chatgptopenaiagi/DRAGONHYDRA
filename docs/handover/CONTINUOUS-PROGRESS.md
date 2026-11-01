@@ -114,3 +114,13 @@ guards pass. Helper table/count/glob and read-only test-mount mistakes remain
 as dated diagnostics, not product defects. New A7 build happened once because
 installer implementation changed. Full report LINUX-A7-RUNTIME.md; immutable
 publication proof is separate. Next native gate: original Ubuntu storage access.
+
+A7 source2ca96e94213cc6f516b6963052ef68ff1948af94 pushed/remote verified.
+New prerelease7/7 assets match local/server SHA256+size; downloaded manifest
+and wheel rehashed. Previous3A6+22historical IDs/bytes/digests unchanged.
+Final publication receipt preserved separately without replacing earlier assets.
+All8 actual acceptance servers exited0; dedicated idle container stopped with
+state retained (idle sleep exit137). Final Windows3SCM Running. Scoped machine
+registry observation marks Ubuntu route unavailable and Docker runtime proof;
+authoritative inventory/derived data unchanged, earlier evidence preserved.
+Next external gate remains original Ubuntu VHDX/storage availability.

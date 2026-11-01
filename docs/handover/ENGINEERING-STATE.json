@@ -329,14 +329,15 @@
     "branch": "continuity/genesis-20261031-a6",
     "release_tag": "genesis-linux-a7-20261101",
     "product_version": "0.4.0-alpha.1",
-    "publication": "pending_checkpoint_publication",
+    "publication": "PUBLISHED; 7 assets server-digest/size verified; downloaded manifest and wheel rehashed",
     "source_content_sha256": "8f170de1559b135cba73ecc5b12dda4d4cfdd94616136532e6e2a7649de15e3c",
     "status": [
       "BUILT",
       "INSTALLED",
       "EXECUTED",
       "TESTED",
-      "VERIFIED"
+      "VERIFIED",
+      "PUBLISHED"
     ],
     "a6_publication": "VERIFIED; 3 assets exact; historical22 unchanged",
     "runtime": "Docker Python3.14.10 Debian slim x86_64, networknone, UID10001; Ubuntu VHDX missing",
@@ -360,6 +361,25 @@
       "No systemd, reboot, host-browser, VPS or production deployment proof",
       "No provider downloads or model inference in this acceptance",
       "Historical A6 installer remains unchanged with documented parent-venv limitation"
-    ]
+    ],
+    "source_commit": "2ca96e94213cc6f516b6963052ef68ff1948af94",
+    "publication_receipt": "docs/handover/verified-reports/LINUX-A7-PUBLICATION-VERIFICATION-20261101.json",
+    "publication_receipt_sha256": "bca22dcedb0704f007beb189494e1a82b7320d9aec6657cd5dd6064f0cf887ca",
+    "remote_source_push_verified": true,
+    "container_status": "stopped; installed files and isolated states retained",
+    "container_idle_process_exit_code": 137,
+    "application_shutdown_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "container_resume_command": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe start dragonhydra-a6-acceptance-20261101-r1",
+    "capability_observation": "C:/Users/LOVE/.codex/machine-capabilities/evidence/dragonhydra-a7-20261101/registry-refresh.json",
+    "final_environment_receipt": "docs/handover/verified-reports/LINUX-A7-FINAL-ENVIRONMENT-20261101.json"
   }
 }

@@ -1,3 +1,14 @@
+A7 PUBLISHED AND VERIFIED: source checkpoint `2ca96e9`, remote push verified,
+release `genesis-linux-a7-20261101`, seven uploaded assets exact; independent
+manifest/wheel downloads rehashed. All25 prior A6/historical assets unchanged.
+Receipt: `docs/handover/verified-reports/LINUX-A7-PUBLICATION-VERIFICATION-20261101.json`.
+Runtime/source archive are immutable pre-publication snapshots; this receipt
+records the later upload. Dedicated Docker container is stopped with both
+installations/state retained; all eight acceptance server exits were0. Idle
+container sleep process was stopped separately (exit137), not a server crash.
+Three Windows services remain Running. Resolve the later documentation commit
+with `git rev-parse HEAD`; engineering tag remains pinned to2ca96e9.
+
 2026-11-01 GENESIS A7 continuation: A6 Linux publication re-verified, all3
 assets and historical22 unchanged. Installed A6 and repaired A7 each passed12
 retained-data HTTP groups plus7 fresh-state/import groups in isolated Docker.

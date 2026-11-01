@@ -1,0 +1,38 @@
+{
+  "container": "dragonhydra-a6-acceptance-20261101-r1",
+  "container_status": "exited",
+  "container_idle_process_exit_code": 137,
+  "application_shutdown_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "windows_services": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "ProcessId": 23500,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "ProcessId": 22872,
+      "StartName": "NT AUTHORITY\\LocalService"
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "ProcessId": 22876,
+      "StartName": "NT AUTHORITY\\LocalService"
+    }
+  ],
+  "resume": "docker start dragonhydra-a6-acceptance-20261101-r1",
+  "state_retained": true,
+  "observation": "2026-11-01T08:50:38.3551544Z"
+}

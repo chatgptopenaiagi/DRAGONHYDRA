@@ -1,3 +1,5 @@
+A7 publication/checkpoint gate is COMPLETE: seven assets verified, original25 unchanged. See the publication receipt. Next unfinished native Linux gate remains original Ubuntu storage availability.
+
 # Updated priority queue: GENESIS A7 (2026-11-01)
 
 1. COMPLETED: Linux A6 publication and installed runtime acceptance in isolated
