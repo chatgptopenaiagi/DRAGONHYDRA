@@ -8,7 +8,7 @@
   "installed": true,
   "executed": true,
   "tested": true,
-  "published": false,
+  "published": true,
   "baseline": {
     "build_root": "C:\\xampp\\DRAGONHYDRA\\build\\connections\\genesis-a8-candidate-workstation",
     "payload_manifest_sha256": "c81540ce13f2c858e37c70d6e1f2b7b49c623267264238f61abbb664c165da83",
@@ -61,8 +61,6 @@
     "resolved_by": "Used the existing approved build/connections lane; no path-validator source change",
     "blocks_selected_path": false
   },
-  "service_operations_performed": false,
-  "configuration_or_database_mutations_performed": false,
   "previous_artifacts_preserved": true,
   "source_checkpoint_ready": "4a08f873429e338d30031be321a0c63ccfe196a7",
   "assembly_started_at": "2026-11-01T12:30:55.269255+00:00",
@@ -89,7 +87,6 @@
     }
   ],
   "standalone_desktop_rebuilt": false,
-  "services_operated": false,
   "finished_at": "2026-11-01T12:37:56.826846+00:00",
   "source_files_match_preserved_checkpoint": true,
   "artifact": {
@@ -258,7 +255,6 @@
   "source_build_and_package_versions_distinct": true,
   "server_rebuilt": false,
   "client_rebuilt": false,
-  "new_installation_acceptance": "Pending root-controlled isolated full-Setup acceptance",
   "windows_installer_signature": "NotSigned",
   "limitations": [
     "No new installer installation/launch/runtime claim yet",
@@ -305,12 +301,6 @@
     "actual_manage_php_sha256": "cffaa31a0dcb38da2298c06def310c21770d9517d6696962b8fec5a368ed144c"
   },
   "historical_a8_setup_sha256_unchanged": "27b7b310fe78baeea76275cfc53ddacc254c99c60e7dcc641f813692398846fa",
-  "installation_acceptance_pending_for_root": {
-    "profile": "DragonhydraGenesisA8Test",
-    "service_actions_by_this_lane": false,
-    "installer_sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
-    "required_next": "Root-controlled exact full-Setup upgrade in isolated A8 profile; verify service ready, actual frontend Site login/data/exports, native shortcut pairing, and retained data/settings. Do not operate primary18740 or provider-a2."
-  },
   "completed_build_prerequisites": [
     "Root frontend checkpoint4a08f873429e338d30031be321a0c63ccfe196a7 received READY",
     "Fresh verified A8 stage/prerequisite clone under the existing approved build/connections lane",
@@ -340,5 +330,36 @@
         "sha256": "1148caa7a0ee08da631d665c1878dabb3597697a94b94f66efbed0c5b8402331"
       }
     ]
+  },
+  "initial_build_lane_snapshot": {
+    "historical_only": true,
+    "scope": "Build worker before coordinator ran installer; its pending actions have since been completed to the explicitly stated acceptance scope",
+    "values": {
+      "service_operations_performed": false,
+      "configuration_or_database_mutations_performed": false,
+      "services_operated": false,
+      "new_installation_acceptance": "Pending root-controlled isolated full-Setup acceptance",
+      "installation_acceptance_pending_for_root": {
+        "profile": "DragonhydraGenesisA8Test",
+        "service_actions_by_this_lane": false,
+        "installer_sha256": "51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+        "required_next": "Root-controlled exact full-Setup upgrade in isolated A8 profile; verify service ready, actual frontend Site login/data/exports, native shortcut pairing, and retained data/settings. Do not operate primary18740 or provider-a2."
+      }
+    }
+  },
+  "service_operations_performed": true,
+  "configuration_or_database_mutations_performed": true,
+  "services_operated": [
+    "DragonhydraGenesisA8Test"
+  ],
+  "new_installation_acceptance": "PASS: full isolated current-host upgrade,6guards plus6genuine Joomla HTTP checks; clean-machine, new native-client UI and OS reboot NOT_RUN",
+  "metadata_revision": {
+    "revision": 2,
+    "corrected_at": "2026-11-01T13:11:17.140492+00:00",
+    "previous_report_sha256": "49b5b3a3472d23c5237edfa118d273610261f22706c2751500b743e1d52e9dbe",
+    "original_report_preserved_in_tag": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+    "reason": "Explicitly label initial build-lane fields as historical after root completed the recorded upgrade acceptance",
+    "software_artifact_bytes_changed": false,
+    "publication_scope": "Release publication is confirmed; final public-download verification is a separate receipt"
   }
 }
