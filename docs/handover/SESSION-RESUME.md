@@ -1,3 +1,16 @@
+SYSTEM CONTROL CENTER — PARTIAL CHECKPOINT, 2026-11-01.
+Read docs/handover/SYSTEM-CONTROL-CENTER.md and its REPORT before deployment.
+Backend8216126/sourcefa51; Joomla dev.3/package d1c1; final R4 Setup b2af.
+18 modules,124 backend tests,27 latest Joomla/helper tests,29 packaging/observer
+tests; frozen6+22+9 groups and actual isolated restart PASS. Real760 retained
+records → five stored forecasts; later outcome unavailable, evaluation pending.
+Primary NOT DEPLOYED: Windows UAC canceled before guarded upgrade helper launch.
+All4servicePIDs,760 ID/version pairs, pairing/config/ports preserved after cancel.
+No privilege workaround/retry. Owner Windows elevation is the next prerequisite.
+After owner readiness, fresh backup as needed, fixed-primary R4 upgrade once,
+then genuine Control Center/browser workflow, repeat-deploy and scoped restart.
+Keep other3profiles/A9 releases/independent work unchanged. No new release upload.
+
 GENESIS A9 RELEASE PUBLISHED AND REMOTELY VERIFIED (2026-11-01).
 Release: https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101
 Tag: genesis-a9-20261101; source: 2e6520d5b6a7874881e5de85dbb6ececaef11d8f.

@@ -16,6 +16,15 @@ packages and a Linux server preparation bundle provide additional access paths.
 This is an **unsigned/development prerelease**, with platform-specific verification
 and limitations recorded below. No production-stable readiness is claimed.
 
+Current development source adds an authenticated 18-module registry, a Joomla
+System Control Center and persisted forecast/evaluation workflows. The frozen
+Windows server passed isolated retained-data and restart tests; primary Joomla
+deployment is still blocked by canceled Windows elevation. This increment is
+**not included in the A9 downloads below**. See the
+[module map](docs/architecture/MODULE-MAP.md),
+[contracts](docs/architecture/MODULE-CONTRACTS.md) and
+[scoped acceptance report](docs/handover/SYSTEM-CONTROL-CENTER-REPORT.md).
+
 ## Release downloads
 
 [Open the GENESIS A9 release](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101).

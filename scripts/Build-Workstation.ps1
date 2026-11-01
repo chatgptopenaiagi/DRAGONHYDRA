@@ -18,7 +18,6 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 if ($RefreshRuntime -and -not $RepackageOnly) { throw 'RefreshRuntime is an explicit repair step for an already verified staging tree.' }
 if ($RefreshWebHook -and -not $RepackageOnly) { throw 'RefreshWebHook is an explicit repair step for an already verified staging tree.' }
-if ($KernelBuildRoot -and -not $RepackageOnly) { throw 'A kernel override requires an isolated copy of a verified staging tree and RepackageOnly.' }
 if ($ClientBuildRoot -and -not $RepackageOnly) { throw 'A client override requires an isolated copy of a verified staging tree and RepackageOnly.' }
 $project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 if ($Version -ne '0.4.1-dev.1') { throw 'This development build has an explicit 0.4.1-dev.1 version contract.' }
@@ -42,9 +41,7 @@ if ($KernelBuildRoot -or $ClientBuildRoot -or ($JoomlaPackagePath -and $Repackag
 if ((Test-Path -LiteralPath $BuildRoot) -and -not $RepackageOnly) { throw 'Use a fresh build directory; previous evidence is retained.' }
 if ($RepackageOnly -and -not (Test-Path -LiteralPath $BuildRoot)) { throw 'Repackaging requires an existing, verified staging directory.' }
 foreach ($tool in @($SevenZip,$MakeNsis)) { if (-not (Test-Path -LiteralPath $tool -PathType Leaf)) { throw "Existing required build tool is unavailable: $tool" } }
-New-Item -ItemType Directory -Path $BuildRoot,$OutputRoot -Force | Out-Null
 $stage = Join-Path $BuildRoot 'stage'
-New-Item -ItemType Directory -Path $stage -Force | Out-Null
 $started = [DateTime]::UtcNow
 $attemptSuffix = if ($RepackageOnly) { '-repackage-'+(Get-Date -Format 'yyyyMMdd-HHmmss') } else { '' }
 $steps = [Collections.Generic.List[object]]::new()
@@ -72,12 +69,19 @@ function Get-VerifiedFrontendPackage([string]$Path) {
 $kernelOverride = $null
 $clientOverride = $null
 $joomlaOverride = $null
+$kernelBuild = $null
+$kernelRegistryProof = $null
 . (Join-Path $project 'packaging\windows\workstation\ClientBuild.ps1')
+. (Join-Path $project 'packaging\windows\workstation\KernelBuild.ps1')
 if (-not $RepackageOnly -and -not $JoomlaPackagePath) {
     $joomlaVersion = ([xml](Get-Content -LiteralPath (Join-Path $project 'server\joomla\pkg_dragonhydra.xml') -Raw)).extension.version
     $JoomlaPackagePath = Join-Path $project ('dist\pkg_dragonhydra-'+$joomlaVersion+'.zip')
 }
 if ($JoomlaPackagePath) { $joomlaOverride = Get-VerifiedFrontendPackage $JoomlaPackagePath }
+if ($KernelBuildRoot) { $kernelBuild = Get-VerifiedKernelBuild -Root $KernelBuildRoot -ProjectRoot $project -StagingRoot $BuildRoot }
+if (-not $RepackageOnly) {
+    $kernelRegistryProof = Assert-FrontendKernelCompatibility -FrontendVersion $(if($joomlaOverride){$joomlaOverride.version}else{$null}) -KernelBuild $kernelBuild
+}
 $sourceSha = 'a1380545bd3bb225f400e7e328535ff692c0123a'
 $manifest = Get-Content -LiteralPath (Join-Path $ReleaseRoot 'ARTIFACT-MANIFEST.json') -Raw | ConvertFrom-Json
 if ($manifest.source_sha -ne $sourceSha) { throw 'The immutable inner-component source does not match the verified release.' }
@@ -102,6 +106,9 @@ if ($RepackageOnly) {
         if (-not $path.StartsWith($stage+'\',[StringComparison]::OrdinalIgnoreCase) -or (Hash $path) -ne $entry.sha256) { throw "Previously staged payload integrity failed: $($entry.path)" }
     }
     if (@(Get-ChildItem -LiteralPath $stage -File -Recurse).Count -ne $oldInventory.files.Count+1) { throw 'Unexpected files were added to the verified staging tree.' }
+    $kernelRegistryProof = Assert-FrontendKernelCompatibility -FrontendVersion $(if($joomlaOverride){$joomlaOverride.version}else{$null}) -KernelBuild $kernelBuild -InheritedOverride $kernelOverride -Stage $stage -ProjectRoot $project -StagingRoot $BuildRoot
+    if ($kernelOverride -and $kernelRegistryProof -and -not $kernelBuild) { $kernelOverride.registry_verification = $kernelRegistryProof }
+    New-Item -ItemType Directory -Path $OutputRoot -Force | Out-Null
     if ($ClientBuildRoot) {
         # Validate the complete old staging inventory above before replacing any
         # client bytes. Server, vault, settings and services are never operated.
@@ -146,34 +153,8 @@ if ($RepackageOnly) {
         WriteJson $webManifest $webManifestPath
         $steps.Add([ordered]@{name='refresh-web-hook';exit_code=0;path='web/manage.php';sha256=$hookEntries[0].sha256;bytes=$hookEntries[0].bytes;full_web_payload_rebuilt=$false})
     }
-    if ($KernelBuildRoot) {
-        $kernelReport = Get-Content -LiteralPath (Join-Path $KernelBuildRoot 'BUILD-REPORT.json') -Raw | ConvertFrom-Json
-        $kernelInventory = Get-Content -LiteralPath (Join-Path $KernelBuildRoot 'PAYLOAD-MANIFEST.json') -Raw | ConvertFrom-Json
-        $kernelPayload = [IO.Path]::GetFullPath($kernelReport.payload)
-        if ($kernelReport.status -ne 'verified_current_host' -or -not $kernelPayload.StartsWith($KernelBuildRoot+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'The kernel override is not a verified, owned private-runtime distribution.' }
-        foreach ($entry in $kernelInventory.files) {
-            $inputFile = [IO.Path]::GetFullPath((Join-Path $kernelPayload $entry.path))
-            if (-not $inputFile.StartsWith($kernelPayload+'\',[StringComparison]::OrdinalIgnoreCase) -or (Hash $inputFile) -ne $entry.sha256 -or (Get-Item -LiteralPath $inputFile).Length -ne $entry.bytes) { throw "Kernel payload integrity failed: $($entry.path)" }
-        }
-        if (@(Get-ChildItem -LiteralPath $kernelPayload -File -Recurse).Count -ne $kernelInventory.files.Count) { throw 'The private kernel contains unexpected files.' }
-        $kernelMetadata = Get-Content -LiteralPath (Join-Path $kernelPayload 'BUILD-INFO.json') -Raw | ConvertFrom-Json
-        if ($kernelMetadata.api_namespace -ne '/dragon/api/v1' -or $kernelMetadata.schema_version -ne 1 -or $kernelMetadata.source_content_sha256 -ne $kernelReport.source_content_sha256) { throw 'The kernel metadata has an incompatible API or source identity.' }
-        $serverTarget = [IO.Path]::GetFullPath((Join-Path $stage 'server'))
-        if ($serverTarget -ne ($stage+'\server') -or -not $serverTarget.StartsWith($BuildRoot+'\',[StringComparison]::OrdinalIgnoreCase)) { throw 'The owned server staging path escaped its verified build directory.' }
-        $noticeBytes = $null
-        $noticeSource = Join-Path $serverTarget 'THIRD-PARTY-NOTICES.txt'
-        if (-not (Test-Path -LiteralPath (Join-Path $kernelPayload 'THIRD-PARTY-NOTICES.txt'))) {
-            if (-not (Test-Path -LiteralPath $noticeSource)) { throw 'The verified baseline runtime notices are missing.' }
-            $noticeBytes = [IO.File]::ReadAllBytes($noticeSource)
-        }
-        Remove-Item -LiteralPath $serverTarget -Recurse -Force
-        Copy-Item -LiteralPath $kernelPayload -Destination $serverTarget -Recurse
-        if ($noticeBytes) { [IO.File]::WriteAllBytes((Join-Path $serverTarget 'THIRD-PARTY-NOTICES.txt'), $noticeBytes) }
-        $kernelOverride = [ordered]@{version=$kernelMetadata.version;build_kind=$kernelMetadata.build_kind;source_sha=$kernelMetadata.source_sha;source_content_sha256=$kernelMetadata.source_content_sha256;binary_sha256=(Hash (Join-Path $serverTarget 'DRAGONHYDRA-Server.exe'));payload_manifest_sha256=(Hash (Join-Path $KernelBuildRoot 'PAYLOAD-MANIFEST.json'));source_manifest='server/SOURCE-MANIFEST.json';verification='private-runtime current-host smoke checks; no clean-machine claim'}
-        $kernelOverride['upstream_notices_sha256'] = Hash (Join-Path $serverTarget 'THIRD-PARTY-NOTICES.txt')
-        $steps.Add([ordered]@{name='verified-provider-kernel';exit_code=0;source_content_sha256=$kernelOverride.source_content_sha256;binary_sha256=$kernelOverride.binary_sha256;files=$kernelInventory.files.Count})
-    }
 } else {
+New-Item -ItemType Directory -Path $BuildRoot,$OutputRoot,$stage -Force | Out-Null
 $serverExtract = Join-Path $BuildRoot 'server-extracted'
 Native 'extract-server' $SevenZip @('x','-y',('-o'+$serverExtract),(Join-Path $ReleaseRoot 'DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip'))
 $serverExe = @(Get-ChildItem -LiteralPath $serverExtract -Filter 'DRAGONHYDRA-Server.exe' -Recurse -File)
@@ -191,6 +172,12 @@ foreach ($name in @('BUILD-INFO.json','THIRD-PARTY-NOTICES.txt')) { Copy-Item -L
 $pwsh = (Get-Process -Id $PID).Path
 Native 'build-runtime' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\Build-Runtime.ps1'),'-OutputRoot',(Join-Path $stage 'workstation'))
 Native 'build-web' $pwsh @('-NoLogo','-NoProfile','-File',(Join-Path $project 'packaging\windows\workstation\web\Build-WebPayload.ps1'),'-OutputRoot',(Join-Path $stage 'web'),'-ExtensionPath',$joomlaOverride.path,'-SourceSha',$sourceSha,'-Version',$Version)
+}
+if ($kernelBuild) {
+    # Both a fresh extracted baseline and an integrity-checked repackage use
+    # this one verified replacement path; immutable release inputs stay intact.
+    $kernelOverride = Set-VerifiedKernelPayload -KernelBuild $kernelBuild -BuildRoot $BuildRoot -Stage $stage -RegistryProof $kernelRegistryProof
+    $steps.Add([ordered]@{name='verified-provider-kernel';exit_code=0;source_content_sha256=$kernelOverride.source_content_sha256;binary_sha256=$kernelOverride.binary_sha256;files=$kernelBuild.inventory.files.Count})
 }
 
 # This generated, PS5-compatible helper is extracted before copying any product files.
@@ -265,7 +252,7 @@ $bootstrapper = Join-Path $prerequisites 'MicrosoftEdgeWebview2Setup.exe'
 $bootstrapperUrl = 'https://go.microsoft.com/fwlink/p/?LinkId=2124703'
 $signature = Get-AuthenticodeSignature -LiteralPath $bootstrapper
 if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'O=Microsoft Corporation') { throw 'The official WebView2 bootstrapper did not pass Microsoft Authenticode verification.' }
-$sourceFiles = @('scripts\Build-Workstation.ps1','packaging\windows\workstation\ClientBuild.ps1','packaging\windows\workstation\installer.nsi','packaging\windows\workstation\README.md','packaging\windows\workstation\Workstation.ps1','packaging\windows\workstation\DragonhydraService.cs','packaging\windows\workstation\DragonhydraLauncher.cs','packaging\windows\workstation\DragonhydraAtomicFile.cs','packaging\windows\workstation\Build-Runtime.ps1','packaging\windows\workstation\web\Build-WebPayload.ps1','packaging\windows\workstation\web\prepare_payload.py','packaging\windows\workstation\web\manage.php')
+$sourceFiles = @('scripts\Build-Workstation.ps1','packaging\windows\workstation\KernelBuild.ps1','packaging\windows\workstation\ClientBuild.ps1','packaging\windows\workstation\installer.nsi','packaging\windows\workstation\README.md','packaging\windows\workstation\Workstation.ps1','packaging\windows\workstation\DragonhydraService.cs','packaging\windows\workstation\DragonhydraLauncher.cs','packaging\windows\workstation\DragonhydraAtomicFile.cs','packaging\windows\workstation\Build-Runtime.ps1','packaging\windows\workstation\web\Build-WebPayload.ps1','packaging\windows\workstation\web\prepare_payload.py','packaging\windows\workstation\web\manage.php')
 $sourceInventory = @($sourceFiles | ForEach-Object { [ordered]@{path=$_.Replace('\','/');sha256=(Hash (Join-Path $project $_))} })
 $buildInfo = [ordered]@{schema_version=1;product='DRAGONHYDRA Workstation';version=$Version;windows_file_version='0.4.1.1';release_state='unsigned_development_build_not_published';wrapper_source='working_tree_file_hashes';wrapper_source_files=$sourceInventory;inner_components=$components;api_namespace='/dragon/api/v1';kernel_schema_version=1;kernel_backend='sqlite';joomla_database='MariaDB';optional_local_ai='not_included';webview2_strategy='reuse existing runtime; official Microsoft online bootstrapper only when missing';webview2_bootstrapper=@{url=$bootstrapperUrl;sha256=(Hash $bootstrapper);bytes=(Get-Item $bootstrapper).Length;signature=$signature.Status.ToString();signer=$signature.SignerCertificate.Subject};platform='Windows 10 or later AMD64';prerequisites=@('.NET Framework 4.8','Internet only when WebView2 is missing')}
 $buildInfo['kernel_override'] = $kernelOverride

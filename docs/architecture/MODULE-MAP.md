@@ -69,7 +69,7 @@ retry.
 
 ## Current verification boundary
 
-The focused source gate passed 120 tests in 8.763 seconds, using the existing
+The focused source gate passed 124 tests in 14.807 seconds during the R4 build, using the existing
 project Python environment and `PYTHONPATH=src`: `tests.test_system_workflow`,
 `test_market_signals`, `test_cognition_models`, `test_cognition_memory`,
 `test_cognition_evaluation`, `test_cognition_commands`,
@@ -108,6 +108,48 @@ Both shutdowns exited zero. Its receipt is
 `build/connections/system-control-center-20261101-kernel/system-control-check/system-control-frozen.json`.
 This is current-host isolated executable verification, not Joomla browser,
 installed service replacement or clean-machine acceptance.
+
+R2 supersedes that R1 candidate after a confirmed supervisor-clock edge case:
+a bound external `ready` receipt without an actual last-success timestamp could
+previously inherit its observation timestamp. The reader now requires a non-null,
+non-future success at most 90 seconds before observation; missing/null/future/old
+cases have a focused negative regression. No external service was restarted to
+reproduce it. R1 evidence/artifacts remain preserved and were not deployed.
+The R2 content snapshot is
+`4114da64b0be8425e34e5a13cee5cbc504f59d4c0cf17028336e65fc0f9d7c4a`
+(only `module_registry.py` changed among its 70 product/build inputs). The R2
+kernel is 8,070,163 bytes, SHA-256
+`089674956d73e5d6967ab93ecc4d9da0b245acf8f7360a4ba39b4ea3296438a6`,
+under `build/connections/system-control-center-20261101-kernel-r2/dist/DRAGONHYDRA-Server-x64`.
+The same six-, 22- and nine-group frozen checks all passed again with exit zero,
+including real retained-data forecasts and restart persistence. The R2 workflow
+receipt is in that build's `system-control-check/system-control-frozen.json`.
+
+The R3 candidate adds only the narrowly validated, instance-bound owning
+service name to the supervisor's sanitized metrics. Source content is
+`d660ce88d6b4641f7dca5ee7284646e1f4f5aa75fd0b0f5201f0853d686f482b`;
+only the registry source changed against R2. Its 710-file payload is under
+`build/connections/system-control-center-20261101-kernel-r3/dist/DRAGONHYDRA-Server-x64`.
+The executable is 8,070,466 bytes, SHA-256
+`3e6550e151f64269678954e307ba554e1bf7829cbfa1532d54bed7fda506fd7d`.
+The same six/22/nine frozen groups passed again, including 760 retained records,
+five persisted model/prediction pairs, an honest pending outcome branch and
+restart preservation. R1/R2 remain preserved and undeployed. No existing
+workstation service was controlled by these build/test commands.
+
+The final R4 candidate strengthens passive failure reporting: the cognition
+schema requires both tables and all four immutable triggers; an unreadable store
+does not turn into a false zero-record or zero-schedule observation. Missing or
+invalid supervisor producer schema is rejected. Source content is
+`fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb`;
+only the registry source changed against R3. The 710-file payload is under
+`build/connections/system-control-center-20261101-kernel-r4/dist/DRAGONHYDRA-Server-x64`.
+Its executable is 8,071,343 bytes, SHA-256
+`3231c279aab1a3d8b3cbfe6c396dded8ced60e4fb15a42c0a04eb7144e2990a4`.
+All six/22/nine frozen groups passed, again preserving 760 records, five stored
+model/prediction pairs, pairing and idempotency across restart; both shutdowns
+exited zero. R1–R3 remain preserved and undeployed. Installed Joomla/service
+acceptance belongs to the coordinator's deployment report.
 
 No new runtime, database server, model package or background service was added by
 this architectural integration. Existing capability inventory and source were

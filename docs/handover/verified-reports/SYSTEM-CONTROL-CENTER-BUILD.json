@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:11:19.802061+00:00",
+  "status": "VERIFIED_ISOLATED_CANDIDATE_NOT_DEPLOYED",
+  "published": false,
+  "objective": "System Control Center module registry and retained forecast/memory/evaluation integration",
+  "internal_server_version": "0.4.0-alpha.1",
+  "source_content_sha256": "fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb",
+  "source_snapshot_inputs": 70,
+  "source_snapshot_kind": "scoped_working_tree_snapshot",
+  "kernel": {
+    "path": "build/connections/system-control-center-20261101-kernel-r4/dist/DRAGONHYDRA-Server-x64",
+    "bytes": 8071343,
+    "binary_sha256": "3231c279aab1a3d8b3cbfe6c396dded8ced60e4fb15a42c0a04eb7144e2990a4",
+    "payload_files": 710
+  },
+  "standalone_archive": {
+    "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4/DRAGONHYDRA-0.4.0-alpha.1-System-Control-Server-win-x64.zip",
+    "bytes": 19558270,
+    "sha256": "9c15e196489d29b1569c64ebb61d57d9df13edaa2c2e0959e80e04017d4dc50e",
+    "zip_members": 713,
+    "payload_members_verified": 710,
+    "wrappers": [
+      "README-STARTUP.txt",
+      "PROVENANCE.json",
+      "PAYLOAD-SHA256SUMS.txt"
+    ],
+    "all_payload_sizes_and_sha256_match": true,
+    "zip_crc_check": "PASS",
+    "contains_personal_state": false,
+    "runtime_credentials_included": false,
+    "bundled_notice_paths": [
+      "_internal/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "_internal/dragonhydra/resources/NOTICE.md",
+      "_internal/opentelemetry_api-1.45.2.dist-info/licenses/LICENSE",
+      "_internal/pydantic-2.14.2.dist-info/licenses/LICENSE"
+    ]
+  },
+  "build": {
+    "status": "verified_current_host",
+    "commands": [
+      {
+        "name": "pyinstaller",
+        "exit_code": 0
+      },
+      {
+        "name": "frozen-server",
+        "exit_code": 0
+      },
+      {
+        "name": "connector-payload",
+        "exit_code": 0
+      }
+    ],
+    "receipt": "build/connections/system-control-center-20261101-kernel-r4/BUILD-REPORT.json",
+    "dependencies_installed": false
+  },
+  "focused_tests": {
+    "status": "PASS",
+    "count": 124,
+    "seconds": 14.807,
+    "runtime": "runtime/server-env/Scripts/python.exe",
+    "modules": [
+      "tests.test_system_workflow",
+      "tests.test_market_signals",
+      "tests.test_cognition_models",
+      "tests.test_cognition_memory",
+      "tests.test_cognition_evaluation",
+      "tests.test_cognition_commands",
+      "tests.test_cognition_adaptation",
+      "tests.test_product_api",
+      "tests.test_module_registry"
+    ]
+  },
+  "frozen_acceptance": {
+    "startup_api_export": {
+      "status": "PASS",
+      "groups": 6,
+      "receipt": "build/connections/system-control-center-20261101-kernel-r4/frozen-server.json"
+    },
+    "connector_context": {
+      "status": "PASS",
+      "groups": 22,
+      "receipt": "build/connections/system-control-center-20261101-kernel-r4/connector-check/verification.json"
+    },
+    "system_workflow": {
+      "status": "PASS",
+      "groups": 9,
+      "receipt": "build/connections/system-control-center-20261101-kernel-r4/system-control-check/system-control-frozen.json",
+      "scope": "Fresh isolated frozen Windows server, explicit retained data, forecast/pending evaluation and same-state restart; no Joomla/UI or installed-service claim",
+      "checks": [
+        {
+          "id": "fresh-private-frozen-startup",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:09.458565+00:00",
+          "pid": 35888
+        },
+        {
+          "id": "authenticated-passive-registry-before-memory",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:09.509786+00:00",
+          "modules": 18
+        },
+        {
+          "id": "explicit-retained-import",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:09.744806+00:00",
+          "records": 760,
+          "job_id": "4106cbeb8596441da8298c7c38406990"
+        },
+        {
+          "id": "history-does-not-initialize-or-run-model",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:09.884464+00:00",
+          "match_id": "07cd1d80a5a57f42dab48dd2624fec83362d3ebac48e17e7ad05a2b4b5f9d277"
+        },
+        {
+          "id": "selected-real-fixture-durable-forecast",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:14.263705+00:00",
+          "match_id": "07cd1d80a5a57f42dab48dd2624fec83362d3ebac48e17e7ad05a2b4b5f9d277",
+          "source_id": "openfootball-2026-27-en1.json",
+          "event_date": "2026-11-07",
+          "home": "Nottingham Forest FC",
+          "away": "Manchester City FC",
+          "model_count": 5,
+          "prediction_count": 5,
+          "training_count": 50,
+          "prediction_record_ids": [
+            "prediction:3566c83c3ecb27fa702c9a974cb46f17968443d4151504dd1cfaf0032dee8058",
+            "prediction:4c41e145dfe5ebe2afaff96157b5693695f15c220b3e7151870bc793fc63a028",
+            "prediction:8ee70d80c1e4947cbcd00af12d4d9fdeb5f7726030b9917b55783fd9623ac0af",
+            "prediction:e3ac8b24d96781362df1e3fa5ab88635b6959771bb2b497ec11b782199ba6f0c",
+            "prediction:ebe6aee8cdb9dcf98a3d78cbf76fa62489e9744cf914ac23833a23efacc5bb91"
+          ]
+        },
+        {
+          "id": "no-later-outcome-is-honestly-pending",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:14.525573+00:00",
+          "reason": "LATER_RETAINED_OUTCOME_UNAVAILABLE"
+        },
+        {
+          "id": "first-graceful-shutdown",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:14.844959+00:00",
+          "exit_code": 0
+        },
+        {
+          "id": "restart-preserves-pairing-retained-records-memory-and-job-idempotency",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:16.368755+00:00",
+          "records": 760,
+          "counts": {
+            "models": 5,
+            "predictions": 5,
+            "outcomes": 0,
+            "evaluations": 0
+          },
+          "pairing_preserved": true
+        },
+        {
+          "id": "second-graceful-shutdown",
+          "status": "PASS",
+          "timestamp": "2026-11-01T14:33:16.648104+00:00",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "primary_deployment": {
+    "status": "NOT_DEPLOYED",
+    "reason": "Windows UAC was canceled before the deployment helper launched.",
+    "coordinator_reported_primary_service_pid": 12904,
+    "primary_unchanged": "Coordinator confirmed; this lane performed no primary mutation.",
+    "installed_joomla_control_center_acceptance": "BLOCKED_BY_CANCELED_ELEVATION",
+    "privilege_workaround_attempted": false
+  },
+  "limitations": [
+    "Later real outcome unavailable; actual operational evaluation remains pending.",
+    "Controlled fictional regression tests exercise later-outcome scoring separately from real retained data.",
+    "Isolated current-host frozen execution is not clean-machine, primary Joomla/browser or installed-service acceptance.",
+    "No production signing, provider synchronization, optional inference or public upload was performed."
+  ]
+}

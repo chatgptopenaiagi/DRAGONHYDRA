@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased — System Control Center
+
+- Added a typed 18-module capability/dependency registry with passive, expiring,
+  installation-bound observations and authenticated shared API access.
+- Added protected Joomla module views and explicit durable selected-match
+  forecast/evaluation commands, reusing existing models and immutable memory.
+- Corrected fail-open missing-success clocks, incomplete cognition-schema health
+  and unreadable-store zero-count reporting; added focused negative regressions.
+- Built a new Windows server, Joomla dev.3 extension and unified installer.
+  Isolated real-data forecast persistence/restart passed; actual primary upgrade
+  was canceled at Windows UAC before helper launch. New installed Joomla/browser
+  acceptance remains blocked. These artifacts are not published as A9 assets.
+
 ## GENESIS A9 — 2026-11-01 — development prerelease
 
 Published and verified: [genesis-a9-20261101](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/genesis-a9-20261101).

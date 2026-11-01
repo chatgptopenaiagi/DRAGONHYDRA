@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+  "status": "PASS_NO_PRIMARY_UPGRADE_APPLIED",
+  "read_only_verification": {
+    "command": "pwsh -NoProfile -File tests/installation/system_control_install.ps1 -Phase Verify -Installer <final R4 Setup> -ExpectedInstallerSha256 <manifest hash> -Output <fresh scoped evidence>",
+    "started_at": "2026-11-01T15:13:34.1636079Z",
+    "finished_at": "2026-11-01T15:13:36.2189809Z",
+    "exit_code": 0,
+    "groups": 4,
+    "source_receipt": "build/system-control-center-20261101/evidence/primary-unchanged-after-canceled-upgrade.json"
+  },
+  "baseline_comparison": {
+    "all_760_match_id_versions_equal": true,
+    "pairing_file_equal": true,
+    "joomla_configuration_equal": true,
+    "ports_equal": true,
+    "primary_service_pid_equal": true,
+    "three_protected_services_state_pid_binding_equal": true
+  },
+  "service_pids": {
+    "DragonhydraWorkstationTest": 12904,
+    "DragonhydraWorkstation": 39364,
+    "DragonhydraProvidersA2Test": 23500,
+    "DragonhydraGenesisA8Test": 29480
+  },
+  "no_private_credential_values_or_credential_fingerprints_in_receipt": true,
+  "final_guard_tests": {
+    "status": "PASS",
+    "exit_code": 0,
+    "count": 29,
+    "seconds": 28.367,
+    "command": [
+      "runtime/server-env/Scripts/python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "tests.test_workstation_kernel_override",
+      "tests.test_workstation_client_override",
+      "tests.test_system_control_browser_harness",
+      "tests.test_workstation_observations"
+    ],
+    "breakdown": {
+      "kernel_override": 12,
+      "client_override": 12,
+      "browser_harness": 3,
+      "supervisor_actual_powershell_functions": 2
+    }
+  },
+  "scope": "Read-only current primary verification; source/fixture guards are not installed new interface acceptance"
+}

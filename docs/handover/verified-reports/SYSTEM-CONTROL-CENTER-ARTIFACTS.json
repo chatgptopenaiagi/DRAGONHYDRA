@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:17:26.043276+00:00",
+  "status": "BUILT_INSPECTED_ISOLATED_TESTED_PRIMARY_NOT_DEPLOYED",
+  "primary_deployment_blocker": "Windows UAC canceled before helper launch; no elevation retry or workaround",
+  "backend_source_commit": "8216126971be7aedeebe9213a5d42a00a244305f",
+  "backend_scoped_source_sha256": "fa51ebc8963b2dcdfb12a5eee13f3a41fc2b9147d11a8bdf3a78de21bf6c64bb",
+  "backend_inputs_identical_to_git": 70,
+  "workstation_builder_sha256": "65a0be9291e5e2c226aa63b0866e30fbaed58138e9b6432bd53c0a3e90c53c84",
+  "later_packaging_guard": "Source-tested follow-up, not retrospectively claimed as builder of existing R4 bytes",
+  "desktop_client_sha256": "f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+  "assets": [
+    {
+      "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4/DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+      "bytes": 64858273,
+      "sha256": "b2af820fa834645b4db3dde90a60984dcac42414b0af76cb957df523013718b6",
+      "version": "0.4.1-dev.1",
+      "source_commit": null,
+      "provenance": "Mixed verified component provenance; see WORKSTATION-BUILD.json in inspected payload",
+      "primary_installed": false,
+      "published": false
+    },
+    {
+      "name": "pkg_dragonhydra-0.4.1-dev.3.zip",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4/pkg_dragonhydra-0.4.1-dev.3.zip",
+      "bytes": 59919,
+      "sha256": "d1c1fd8d35d281b20fc4ffef71fc18fd207b6608a90aa3df65bbe4cb7f671abc",
+      "version": "0.4.1-dev.3",
+      "source_commit": "4ad188f0f36b0cca13e574084a1ddd0a32cbcecb",
+      "provenance": "Verified recorded source snapshot",
+      "primary_installed": false,
+      "published": false
+    },
+    {
+      "name": "DRAGONHYDRA-0.4.0-alpha.1-System-Control-Server-win-x64.zip",
+      "path": "dist/windows/SYSTEM-CONTROL-CENTER-20261101-r4/DRAGONHYDRA-0.4.0-alpha.1-System-Control-Server-win-x64.zip",
+      "bytes": 19558270,
+      "sha256": "9c15e196489d29b1569c64ebb61d57d9df13edaa2c2e0959e80e04017d4dc50e",
+      "version": "0.4.0-alpha.1",
+      "source_commit": "8216126971be7aedeebe9213a5d42a00a244305f",
+      "provenance": "Verified recorded source snapshot",
+      "primary_installed": false,
+      "published": false
+    }
+  ],
+  "acceptance": {
+    "backend_focused_tests": 124,
+    "joomla_latest_focused_tests": 27,
+    "final_packaging_helper_supervisor_tests": 29,
+    "desktop_source_regressions": 5,
+    "overlap_policy": "Separate batches overlap; not summed into a unique-test total",
+    "frozen_existing_server_groups": 6,
+    "frozen_connector_groups": 22,
+    "frozen_system_workflow_groups": 9,
+    "full_installer_files_verified": 10662,
+    "standalone_payload_members_verified": 710,
+    "primary_new_control_center_browser": "NOT_RUN",
+    "primary_upgrade": "BLOCKED",
+    "primary_new_runtime_restart": "NOT_RUN",
+    "published": "NOT_RUN"
+  },
+  "evidence": [
+    "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+    "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json",
+    "docs/handover/SYSTEM-CONTROL-CENTER-REPORT.md"
+  ],
+  "limitations": [
+    "Unsigned current-host development candidate; no clean-machine or reboot acceptance",
+    "Real later outcome unavailable; no operational evaluation scores claimed",
+    "Primary new installed UI, repeated deployment and native client acceptance still blocked",
+    "A9 release does not contain this increment; no release assets overwritten"
+  ]
+}

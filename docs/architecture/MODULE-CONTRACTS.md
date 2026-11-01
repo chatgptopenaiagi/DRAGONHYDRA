@@ -25,7 +25,7 @@ evidence produces a reasoned unavailable state.
 
 | Boundary | Authentication and authorization | Operation scope |
 |---|---|---|
-| Browser → Joomla | Actual site/admin session, component ACL; Joomla form token for writes | Native component pages and fixed action handlers; no password/token in HTML, JS, URLs or browser storage |
+| Browser → Joomla | Actual site/admin session, component ACL; Joomla form token for writes | Native component pages and fixed action handlers; no privileged pairing, bridge or provider credentials in HTML, JS, URLs or browser storage. Normal Joomla CSRF hidden inputs remain required; passwords are submitted only through the existing login form. |
 | Joomla → kernel | Existing server-side protected bridge secret, method/path/body hash, user/role, time and nonce HMAC | Configured loopback `/dragon/api/v1`; reader versus permitted administrator; bounded cURL and no redirects/arbitrary proxy |
 | Local desktop → kernel | Existing local pairing or session mechanism, endpoint metadata from its owning installation | Shared API; no reuse of Joomla password as backend credential |
 | Android → kernel | Explicit server pairing/configuration | Shared API; application launch alone does not verify paired connectivity |
@@ -60,6 +60,37 @@ not SQL authentication/schema acceptance; a desktop executable is not proof of a
 running interactive session, and Android source/APK presence is not paired device
 acceptance.
 
+| Runtime state | Exact meaning in this registry |
+|---|---|
+| `not_implemented` | Contract vocabulary for an explicitly absent implementation; the current 18 definitions all map to source, so none is assigned this state merely because it has not run. |
+| `installed_not_configured` | Implementation exists but its required local setup is absent: for example no cognition schema yet or no optional model configuration. No setup is performed by the read. |
+| `configured_unverified` | Inputs/configuration or an implementation are present, but this observation has not proved execution. Odds/models, clients and configured AI do not become ready from a status read. Missing/expired external evidence also cannot prove readiness. |
+| `ready` | Fresh direct evidence meets the module-specific condition and all required dependencies are ready. API request, readable authoritative schema/counts, worker state and validated supervisor checks each prove only their declared scope. |
+| `degraded` | Direct evidence exists but a required dependency is unverified, a running job lease is stale, or the bound supervisor explicitly reports degraded. Relevant unrelated modules keep their own states. |
+| `unavailable` | Observed failure/invalid configuration or unreadable/incomplete required store prevents the declared capability. Unknown values remain unknown rather than becoming zero or false success. |
+| `not_applicable` | A supported conditional operation is not required in this installation, currently a valid scheduler store with no enabled schedules. It does not mean missing functionality was silently waived. |
+
+Observations are recomputed snapshots, not persistent state transitions. Missing
+configuration can move to configured-unverified after an explicit setup; it can
+move to ready only when fresh module-specific evidence is observed. A new failed
+probe, missing dependency, invalid clock/schema or expired receipt immediately
+removes the earlier ready claim. Repairs/configuration/jobs occur through their
+existing explicit operations, never as a side effect of refreshing the registry.
+The lifetime of an observation and the actual last-success clock are both shown;
+neither extends an expired external receipt. Historical test evidence remains a
+reference, not a renewable health lease.
+
+A supervisor `ready` receipt additionally requires a real non-null
+`last_success_at` that is not later than observation and no more than 90 seconds
+older. An observation time cannot be substituted for missing success evidence.
+The installed owner remains the producer of these observations; a stale or
+incomplete receipt fails closed without starting or restarting its service.
+The owning Windows `service_name` can be projected only from the top-level
+instance-bound supervisor receipt and only into that supervisor's metric. Its
+identifier must match `Dragonhydra[A-Za-z0-9_-]{0,60}` exactly; arbitrary strings
+and service identities injected into other modules are rejected. It identifies
+the owner without exposing process arguments, credentials or private settings.
+
 Passive observations read existing SQLite metadata/counts within a bounded
 read-only connection, the existing worker and an installation-bound short-lived
 supervisor receipt. They do not import modules with side effects, create absent
@@ -70,6 +101,15 @@ and read-only declaration, not executable code supplied by a browser. A shown
 HTTP action still passes its actual permission, CSRF, input and job checks when
 invoked. Dependency readiness and stale evidence are displayed explicitly;
 optional AI/clients do not falsely block the core retained-data API.
+
+An absent cognition store and an incomplete one are different observations.
+Completeness requires `cognitive_records`, `cognitive_receipts` and all four
+immutable update/delete triggers. Partial schema is unavailable with
+`COGNITIVE_STORE_INCOMPLETE`; the status read does not repair it. If the core store
+cannot be read, memory/evaluation/scheduler remain unavailable with unknown
+configuration, rather than claiming empty history or no configured schedules.
+The supervisor receipt must also use the supported producer schema; a fresh
+timestamp alone cannot validate an incompatible heartbeat.
 
 ## Odds contract: `market-signals/1`
 

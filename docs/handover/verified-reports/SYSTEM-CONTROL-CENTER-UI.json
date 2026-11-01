@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:15:06.401190+00:00",
+  "objective": "Protected Joomla System Control Center and retained forecast/memory/evaluation presentation",
+  "status": "SOURCE_IMPLEMENTED_AND_FOCUSED_TESTS_PASS_PRIMARY_INSTALLATION_BLOCKED",
+  "component_version": "0.4.1-dev.3",
+  "observed_source_commit": "8216126971be7aedeebe9213a5d42a00a244305f",
+  "classification": {
+    "implemented": true,
+    "source_tested": true,
+    "candidate_packaged": "See separate build receipt",
+    "primary_installed": false,
+    "primary_new_control_center_executed": false,
+    "primary_new_control_center_browser_verified": false,
+    "published": false
+  },
+  "target": {
+    "installation": "Primary test-install workstation",
+    "service": "DragonhydraWorkstationTest",
+    "administrator_url": "http://127.0.0.1:18740/administrator/",
+    "candidate_control_center_url": "http://127.0.0.1:18740/administrator/index.php?option=com_dragonhydra&section=control",
+    "associated_backend": "http://127.0.0.1:18744/dragon/api/v1",
+    "candidate_url_status": "NOT_RUN against the new installed component; source route only"
+  },
+  "source_features": [
+    "Existing core.manage guard runs before bridge access; existing Options and import permissions retained.",
+    "Read-only exact module-registry GET, grouped status filters and details; Joomla stores no second module-status database.",
+    "Implementation, configuration and current installation evidence are distinct; expired/future evidence cannot establish current readiness.",
+    "Associated backend build identity whitelists version, build kind, full source commit and scoped source-content hash; unavailable values remain Not reported.",
+    "Owning service-name metric accepts only the bounded Dragonhydra product identity pattern.",
+    "Selected-match history shows stored model/prediction/outcome/evaluation identities, cutoff, uncertainty, adaptation and scope.",
+    "Explicit forecast/evaluation forms require Joomla POST CSRF, core.manage and dragonhydra.import; session/operation command keys preserve backend job idempotency.",
+    "Only exact typed empty-body workflow POST paths accept an idempotency header; no arbitrary URL, shell or status proxy.",
+    "A completed job with pending outcome remains pending; finished matches offer no prospective forecast form.",
+    "Scoped responsive styles, labels, focus indicators, scrollable tables and useful empty/error states; actual installed browser layout remains unverified."
+  ],
+  "executed_tests": {
+    "evidence_origin": "Actual active-session tool execution results. No tests were rerun while preparing this receipt.",
+    "latest_focused_batch": {
+      "status": "PASS",
+      "command": [
+        "runtime/server-env/Scripts/python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_joomla_control_center",
+        "tests.test_joomla_control_workflow",
+        "tests.test_system_control_browser_harness",
+        "-q"
+      ],
+      "exit_code": 0,
+      "count": 27,
+      "seconds": 3.445,
+      "breakdown": [
+        {
+          "module": "tests.test_joomla_control_center",
+          "count": 14
+        },
+        {
+          "module": "tests.test_joomla_control_workflow",
+          "count": 10
+        },
+        {
+          "module": "tests.test_system_control_browser_harness",
+          "count": 3
+        }
+      ],
+      "scope": "Isolated PHP projection/rendering and permission guards; local fixture HTTP HMAC transport; offline browser-harness safety. No installed browser or primary workflow execution."
+    },
+    "earlier_broader_batch": {
+      "status": "PASS",
+      "command": [
+        "runtime/server-env/Scripts/python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tests.test_joomla_control_center",
+        "tests.test_joomla_control_workflow",
+        "tests.test_joomla_package",
+        "tests.test_joomla_frontend_setup",
+        "tests.test_joomla_frontend_templates",
+        "-v"
+      ],
+      "exit_code": 0,
+      "count": 45,
+      "seconds": 6.869,
+      "scope": "Earlier Control Center source plus package/lint/setup and existing public-template regressions. This predates the later build-identity/service-name and browser-harness additions; those changes are covered by the later focused batch."
+    },
+    "counting_policy": "Batches overlap. Do not add 45 and 27 or claim that a single final 50-test combined batch was executed.",
+    "php_lint": {
+      "status": "PASS",
+      "runtime": "build/workstation/test-install/application files/web/php/php.exe",
+      "runtime_version": "8.4.27",
+      "command_flags": [
+        "-n",
+        "-l"
+      ],
+      "source": "server/joomla/com_dragonhydra/admin/src/Service/SystemModules.php",
+      "exit_code": 0,
+      "scope": "Latest service-name projection. Earlier package suite linted all Joomla PHP before the final narrow projection additions."
+    },
+    "scoped_diff_whitespace_check": {
+      "status": "PASS",
+      "exit_code": 0,
+      "independent_worktree_files_excluded": true
+    },
+    "browser_helper_preparation": {
+      "status": "PASS",
+      "compile_exit_code": 0,
+      "help_exit_code": 0,
+      "browser_launch_executed": false,
+      "helper": {
+        "path": "tests/installation/system_control_browser.py",
+        "sha256": "1b86c64949db3e8d64d599376bd0075c47d54989fafa2630760f02b0449aff1e"
+      }
+    },
+    "resolved_harness_defect": {
+      "classification": "TEST_HARNESS_ONLY",
+      "observed_failure": "An offline fixture cleanup encountered WinError 32 because SQLite transaction context managers did not close their connections.",
+      "repair": "Explicit contextlib.closing now closes read-only job snapshots and synthetic fixture connections.",
+      "verification": "All three offline browser-harness safety tests passed after the repair; included in latest 27-test batch.",
+      "primary_state_affected": false
+    }
+  },
+  "source_acceptance_matrix": [
+    {
+      "id": "UI-S01",
+      "status": "PASS",
+      "expected": "Protected component read requires existing Joomla permission before bridge use",
+      "evidence": "Actual HtmlView unauthorized stub returns 403 before any bridge call."
+    },
+    {
+      "id": "UI-S02",
+      "status": "PASS",
+      "expected": "Registry GET has a fixed path and filters cannot become arbitrary backend routes",
+      "evidence": "Actual SystemModules callable records one exact /system/modules read; input path/URL injection rejected."
+    },
+    {
+      "id": "UI-S03",
+      "status": "PASS",
+      "expected": "Group/status/detail, empty, unavailable and escaping states are honest",
+      "evidence": "Actual production PHP templates rendered with isolated synthetic fixtures; no installed-site requests."
+    },
+    {
+      "id": "UI-S04",
+      "status": "PASS",
+      "expected": "Stale/future/foreign-instance evidence cannot assert current readiness",
+      "evidence": "Projection tests demote expired/future readiness and reject mismatched installation identity."
+    },
+    {
+      "id": "UI-S05",
+      "status": "PASS",
+      "expected": "Safe build identity and service identity are allowlisted",
+      "evidence": "Full valid hashes/name accepted; missing/invalid build data stays unknown; malicious service strings discarded."
+    },
+    {
+      "id": "UI-S06",
+      "status": "PASS",
+      "expected": "Workflow history shows retained identities and numeric values without invented metrics",
+      "evidence": "Actual PHP typed projection preserves decimal-string probabilities; unsupported values become unavailable; actual templates show pending/no-evaluation states."
+    },
+    {
+      "id": "UI-S07",
+      "status": "PASS",
+      "expected": "Explicit commands enforce CSRF, permissions, narrow paths and idempotency",
+      "evidence": "Actual public controller guards deny absent CSRF/component/import permission; local fixture HTTP validates HMAC, empty JSON body and the scoped idempotency header."
+    },
+    {
+      "id": "UI-S08",
+      "status": "PASS",
+      "expected": "Acceptance helper is fresh/scoped, read-only by default and refuses secret-bearing receipts",
+      "evidence": "Offline tests verify output guards, payload/owner exclusion and read-only job proof allowing legitimate existing-job status changes."
+    }
+  ],
+  "existing_primary_authentication": {
+    "status": "PASS",
+    "scope": "Earlier genuine existing Joomla administrator login and existing Data sources component, before deployment of this candidate.",
+    "evidence": {
+      "path": "build/system-control-center-20261101/evidence/preupgrade-auth.json",
+      "sha256": "802eefdcf1e7b022dabeb90f145de1244f6c602db3abac126e7a8c16c710a4a2"
+    },
+    "historical_browser_evidence": {
+      "path": "docs/handover/verified-reports/JOOMLA-RECOVERY-BROWSER-VERIFICATION.json",
+      "sha256": "67e11124a5630d1156d8455c3d5402ffe53758d88a80d5e714cf202748cd6f40"
+    },
+    "does_not_prove_new_control_center": true,
+    "password_reset": false
+  },
+  "primary_installed_acceptance": {
+    "status": "BLOCKED",
+    "reason": "Windows UAC was canceled before the deployment helper launched. The source candidate was not installed in the primary workstation.",
+    "blocker_source": {
+      "path": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+      "sha256": "7f4d67ad6235ae4631a0c8aee86cc60c9b800371d9712aabda39d496c94d1326"
+    },
+    "privilege_retry_or_workaround_attempted_by_this_lane": false,
+    "checks": [
+      {
+        "id": "UI-P01",
+        "status": "BLOCKED",
+        "check": "Supported primary upgrade to the new component/kernel candidate"
+      },
+      {
+        "id": "UI-P02",
+        "status": "NOT_RUN",
+        "check": "Fresh genuine administrator login into the new System Control Center"
+      },
+      {
+        "id": "UI-P03",
+        "status": "NOT_RUN",
+        "check": "Eighteen module statuses/build identity/service name compared with the actual primary backend through Joomla"
+      },
+      {
+        "id": "UI-P04",
+        "status": "NOT_RUN",
+        "check": "Actual group/status filtering, details and owning service presentation"
+      },
+      {
+        "id": "UI-P05",
+        "status": "NOT_RUN",
+        "check": "Explicit Joomla forecast job and persisted five-model/five-prediction history"
+      },
+      {
+        "id": "UI-P06",
+        "status": "NOT_RUN",
+        "check": "Explicit Joomla evaluation job and honest pending outcome presentation"
+      },
+      {
+        "id": "UI-P07",
+        "status": "NOT_RUN",
+        "check": "Actual GET refresh/reload/history creates no new jobs or cognition records"
+      },
+      {
+        "id": "UI-P08",
+        "status": "NOT_RUN",
+        "check": "Installed desktop/mobile layouts, browser errors and sanitized screenshots"
+      },
+      {
+        "id": "UI-P09",
+        "status": "NOT_RUN",
+        "check": "New component logout, anonymous denial and fresh-login persistence"
+      },
+      {
+        "id": "UI-P10",
+        "status": "NOT_RUN",
+        "check": "Installed-page HTML/scripts/browser-storage secret checks for this candidate"
+      }
+    ]
+  },
+  "screenshots": {
+    "new_installed_control_center": [],
+    "status": "NOT_RUN",
+    "reason": "No new installed Control Center browser session was executed."
+  },
+  "separate_kernel_evidence": {
+    "reference": {
+      "path": "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+      "sha256": "7f4d67ad6235ae4631a0c8aee86cc60c9b800371d9712aabda39d496c94d1326"
+    },
+    "scope": "Separate isolated frozen-server acceptance is preserved in the build receipt. It does not establish Joomla/browser or primary installed-service acceptance."
+  },
+  "known_limitations": [
+    "No primary new Control Center authentication or component execution has been demonstrated.",
+    "No installed Control Center desktop/mobile screenshots or real-page accessibility/layout assessment exist for this candidate.",
+    "The selected-match Joomla forecast/evaluation sequence remains unexecuted; PHP fixtures and isolated frozen-server results have different scopes.",
+    "No later real outcome was supplied, so real operational evaluation remains pending in the separate kernel acceptance.",
+    "No successful installed-service upgrade, optional AI inference, client/device readiness, production signing or publication is claimed."
+  ],
+  "next_action": {
+    "requires": "Owner-authorized supported elevation/deployment; no automatic privilege retry",
+    "then": "Run the prepared helper through the existing verified Playwright environment against a fresh evidence directory.",
+    "helper": "tests/installation/system_control_browser.py",
+    "arguments": [
+      "--apply-workflow",
+      "--output",
+      "build/system-control-center-20261101/evidence/browser-r1"
+    ],
+    "expected_scope": "Actual installed Joomla session and explicit authorized local statistical workflow only; no provider synchronization or local AI request."
+  },
+  "privacy": {
+    "credential_values": false,
+    "private_runtime_config_copied": false,
+    "raw_html_or_cookies": false,
+    "source_and_test_hashes_only": true,
+    "owner_native_desktop_input": false
+  },
+  "source_inputs": [
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php",
+      "sha256": "a08fdf9dfcfc7e23824e6c106fd1ce20d72eb24d30bbe2e6e83d0392ec2e34c8",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php",
+      "sha256": "4b0f9f115ee0a5a31273471d9b9a301585578b3de0f398da0f69bfeb183e19c6",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/SystemModules.php",
+      "sha256": "532b1a7df92a7ce60244eafffc2c5d4412dbf49a8ccf5c8e2cd251229674839f",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/SystemWorkflow.php",
+      "sha256": "d8b367a81abacc71f8d99ee4658bc611b43b4b667f1b50a3b4f8d7b12562329c",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php",
+      "sha256": "c16a737bc374699e64252b6b0d3996c7ab7f12b08236b60e2126db8747655177",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php",
+      "sha256": "39bd12c3b284f05e499185ad53b15559c4940c9f0484607f2161abf6b7dcd44e",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control.php",
+      "sha256": "99e55adb4ee0fec3eca7dd5010e51b5b8dccc821331ee81097da22f2cb6ad6b6",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php",
+      "sha256": "91442f883e6fbd1fe2d1650e25fc2da03d9763a86a840ec3ec98379e3fbd96dc",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/css/control.css",
+      "sha256": "5b92e83292a9b756b45f63909449f3719a5642188cd8f0b306f9afa765136357",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/joomla.asset.json",
+      "sha256": "45d349dffce5d7bd6807d004826026be89f91b6681de110d35da0508ed5a786c",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/dragonhydra.xml",
+      "sha256": "8f58103f1ecd3078d8535ab3272f07645f5416e959beec276285216365ee52b9",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/pkg_dragonhydra.xml",
+      "sha256": "ad1c0c8d06db2f48694b57d6dc950d28b390730f70b162d90937fcd0eaa8aa6e",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml",
+      "sha256": "4d6eca9b1f016a84d01bb8e8f1f4f01463510a1345d75fc07d23cf176c2a6c99",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "tests/test_joomla_control_center.py",
+      "sha256": "02df9822eee5518e1afb72981ebac30c48e5ff96c59e3461a9cce6d5738fdac4",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "tests/test_joomla_control_workflow.py",
+      "sha256": "5f70559f02cb151fddacae1d205bbbd2429745d7f5902eb29e7f11b702bc4560",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "tests/test_system_control_browser_harness.py",
+      "sha256": "18caa423bc4b763e194d2ad15f3e041d883a2c6ec6837a4967ffafd1b2a81b5c",
+      "tracked_at_observation": false
+    },
+    {
+      "path": "tests/installation/joomla_control_render_fixture.php",
+      "sha256": "457b6c93a1b5a7a52e3f06297e0e96e737b8b5de0fc9f17db9d99db2ccbce101",
+      "tracked_at_observation": true
+    },
+    {
+      "path": "tests/installation/system_control_browser.py",
+      "sha256": "1b86c64949db3e8d64d599376bd0075c47d54989fafa2630760f02b0449aff1e",
+      "tracked_at_observation": false
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+  "status": "PARTIAL_PRIMARY_DEPLOYMENT_BLOCKED",
+  "checks": [
+    {
+      "id": "A",
+      "status": "PASS",
+      "expected": "All named architectural responsibilities mapped",
+      "observed": "18 definitions and source/runtime/data-ownership matrix reviewed",
+      "command_or_action": "Read MODULE-MAP, registry definitions and current installed bindings",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+        "docs/architecture/MODULE-MAP.md"
+      ]
+    },
+    {
+      "id": "B",
+      "status": "PASS",
+      "expected": "Definitions/dependencies/schema/freshness validate",
+      "observed": "19 registry tests detect unknown references, cycles, stale/future/invalid supervisor evidence and partial stores",
+      "command_or_action": "unittest tests.test_module_registry",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "C",
+      "status": "BLOCKED",
+      "expected": "Actual versions and installation identity reported in installed candidate",
+      "observed": "70 frozen inputs equal Git8216126; new primary build identity not deployed",
+      "command_or_action": "Frozen authenticated /system/modules and /system; primary upgrade canceled",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "D",
+      "status": "PASS",
+      "expected": "Status reads do not dispatch or initialize state",
+      "observed": "Read-only schema/registry/history tests and frozen pre-forecast read pass; no provider/model/service work",
+      "command_or_action": "Registry/workflow side-effect assertions and frozen system gate",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "E",
+      "status": "PASS",
+      "expected": "Relevant failures degrade without optional global blockers",
+      "observed": "Unreadable store, missing schema/dependency and optional AI negatives pass",
+      "command_or_action": "unittest tests.test_module_registry",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "F",
+      "status": "PASS",
+      "expected": "Odds known answers and invalid/incompatible inputs",
+      "observed": "Existing market-signals known-answer/scope fixtures pass; no real odds branch fabricated",
+      "command_or_action": "unittest tests.test_market_signals in124-test focused batch",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+        "docs/architecture/MODULE-CONTRACTS.md"
+      ]
+    },
+    {
+      "id": "G",
+      "status": "PASS",
+      "expected": "Forecast identity/cutoff and evaluation leakage protection",
+      "observed": "Future cutoff/capture/receipt and mismatched outcome tests pass; real forecast input references retained",
+      "command_or_action": "Focused cognition/workflow/model/evaluation test batch",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "H",
+      "status": "PASS",
+      "expected": "History, traceability and idempotency persist",
+      "observed": "Real5model/5prediction IDs and original job replay survive frozen restart; append-only tests pass",
+      "command_or_action": "system_control_frozen.py nine-group gate",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": 0,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "I",
+      "status": "BLOCKED",
+      "expected": "Genuine new Joomla Control Center matches backend",
+      "observed": "Source/PHP tests pass; installed browser helper and screenshots NOT_RUN",
+      "command_or_action": "system_control_browser.py prepared, not executed because upgrade canceled",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json"
+      ]
+    },
+    {
+      "id": "J",
+      "status": "BLOCKED",
+      "expected": "Installed authorization and no secret exposure",
+      "observed": "API and Joomla ACL/CSRF source tests plus artifact privacy pass; new installed CSRF/HTML checks NOT_RUN",
+      "command_or_action": "Source fixture tests; actual new installed browser rejection/privacy awaits deployment",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json",
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "K",
+      "status": "BLOCKED",
+      "expected": "Existing clients/pairing/settings/data remain functional",
+      "observed": "Primary retained IDs/pairing/config/ports and four PIDs preserved; repaired F4 native primary acceptance NOT_RUN",
+      "command_or_action": "Read-only Verify after cancellation; desktop source5 tests; new native helper NOT_RUN",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json"
+      ]
+    },
+    {
+      "id": "L",
+      "status": "BLOCKED",
+      "expected": "Real supported workflow reaches Joomla and persistent result",
+      "observed": "Frozen real data\u2192forecast\u2192history\u2192restart PASS; actual new Joomla display NOT_RUN; later real outcome unavailable",
+      "command_or_action": "Frozen workflow; installed selected-match browser workflow not executed",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json"
+      ]
+    },
+    {
+      "id": "M",
+      "status": "BLOCKED",
+      "expected": "Repeat deployment has no duplicate menus/jobs/records",
+      "observed": "Definitions/replay/build guards pass; actual repeated dev.3 Joomla deployment not run",
+      "command_or_action": "Offline guards and frozen replay; primary repeat deployment NOT_RUN",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json"
+      ]
+    },
+    {
+      "id": "N",
+      "status": "BLOCKED",
+      "expected": "New installed behavior survives scoped reopen/restart",
+      "observed": "Isolated frozen restart PASS; new primary service/browser/native restart NOT_RUN; other installations unchanged",
+      "command_or_action": "Frozen shutdown/restart; primary upgrade canceled before any service action",
+      "recorded_at": "2026-11-01T15:19:44.096052+00:00",
+      "exit_code": null,
+      "evidence_paths": [
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-BUILD.json",
+        "docs/handover/verified-reports/SYSTEM-CONTROL-CENTER-UI.json"
+      ]
+    }
+  ],
+  "timestamp_policy": "recorded_at is receipt consolidation, not fabricated individual execution time; original timed frozen checks remain in BUILD receipt",
+  "status_policy": "PASS is limited to stated scope; installed requirements remain BLOCKED where source/frozen evidence is insufficient",
+  "primary_upgrade": {
+    "status": "BLOCKED",
+    "reason": "Windows UAC canceled before helper launch",
+    "helper_process_created": false,
+    "installer_process_created": false,
+    "retry_attempted": false
+  },
+  "remaining": [
+    "Owner-approved elevation for fixed-primary R4 upgrade",
+    "Authenticated Control Center and real displayed workflow",
+    "Repeat supported Joomla deployment with menu/content comparison",
+    "Scoped primary restart and repaired native client acceptance"
+  ]
+}
