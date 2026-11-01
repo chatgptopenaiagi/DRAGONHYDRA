@@ -46,6 +46,14 @@ class JoomlaFrontendTemplatesTests(unittest.TestCase):
         self.assertIn('Try again', rendered)
         self.assertNotIn('data-total=', rendered)
 
+    def test_unavailable_record_does_not_claim_healthy_backend_is_offline(self):
+        rendered = self.render('unavailable_record')
+        self.assertIn('Backend available', rendered)
+        self.assertIn('The requested information is unavailable', rendered)
+        self.assertIn('Browse retained matches', rendered)
+        self.assertNotIn('Backend unavailable', rendered)
+        self.assertNotIn('The workspace is temporarily unavailable', rendered)
+
     def test_finished_match_without_forecast_stays_unavailable(self):
         rendered = self.render('noanalysis')
         self.assertIn('No supported forecast is available', rendered)

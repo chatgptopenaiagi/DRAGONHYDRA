@@ -116,7 +116,8 @@ final class FrontendSetup
                     $db->setQuery($db->createQuery()->delete($db->quoteName('#__modules_menu'))
                         ->where($db->quoteName('moduleid') . '=' . $moduleId))->execute();
                     foreach ($after as $menuId) {
-                        $db->insertObject('#__modules_menu', (object) ['moduleid' => $moduleId, 'menuid' => $menuId]);
+                        $assignment = (object) ['moduleid' => $moduleId, 'menuid' => $menuId];
+                        $db->insertObject('#__modules_menu', $assignment);
                     }
                     $report['module_assignment_changes']++;
                 }

@@ -25,7 +25,7 @@ namespace Joomla\CMS\Uri {
 namespace {
     define('_JEXEC', 1);
     $scenario = PHP_SAPI === 'cli' ? ($argv[1] ?? 'empty') : ($_GET['scenario'] ?? 'empty');
-    if (!in_array($scenario, ['empty', 'backend_unavailable', 'noanalysis', 'anonymous', 'permission_denied'], true)) {
+    if (!in_array($scenario, ['empty', 'backend_unavailable', 'unavailable_record', 'noanalysis', 'anonymous', 'permission_denied'], true)) {
         http_response_code(400); echo 'Unknown isolated fixture scenario'; exit;
     }
     $root = dirname(__DIR__, 2);
@@ -35,6 +35,7 @@ namespace {
         'matches'=>['items'=>[],'total'=>0,'offset'=>0,'limit'=>25], 'teams'=>['items'=>[]], 'competitions'=>['items'=>[]],
         'match'=>null,'filters'=>[],'analysis'=>null,'predictions'=>null,'connections'=>['items'=>[]]];
     if ($scenario === 'backend_unavailable') { $workspace['error'] = 'The local sports server did not respond within the bounded request. Please retry when it is available.'; $workspace['health'] = []; }
+    if ($scenario === 'unavailable_record') { $workspace['error'] = 'The requested retained match was not found.'; $workspace['section'] = 'matches'; }
     if ($scenario === 'permission_denied') { $workspace['authenticated'] = false; $workspace['permission_denied'] = true; }
     if ($scenario === 'noanalysis') {
         $workspace['section'] = 'analysis';

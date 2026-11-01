@@ -66,7 +66,7 @@ $exportForm = static function (array $row) use ($escape, $route): void {
     echo '</div>';
 };
 $health = (array) ($workspace['health'] ?? []);
-$ready = $authenticated && ($health['status'] ?? '') === 'ready' && empty($workspace['error']);
+$ready = $authenticated && ($health['status'] ?? '') === 'ready';
 ?>
 <div class="dh-workspace" data-dragonhydra-workspace>
   <a class="dh-skip" href="#dh-main">Skip to sports workspace</a>
@@ -93,7 +93,7 @@ $ready = $authenticated && ($health['status'] ?? '') === 'ready' && empty($works
     <section class="dh-welcome" aria-labelledby="dh-welcome-title"><p class="dh-eyebrow">EVIDENCE BEFORE OPINION</p><h1 id="dh-welcome-title">Your sports.<br><span>A clearer view.</span></h1><p class="dh-lead">One place to explore retained matches, compare teams and follow the evidence behind every analysis.</p><div class="dh-actions"><a class="dh-button dh-button-primary" href="<?= $escape($login) ?>">Sign in to your workspace <span aria-hidden="true">→</span></a><a class="dh-button" href="<?= $escape(Uri::root() . 'administrator/') ?>">Administrator access</a></div><p class="dh-privacy-note">This is your local Joomla workspace. Sign in with an authorized Joomla account to view private sports records.</p></section>
     <div class="dh-feature-grid"><article class="dh-feature"><span class="dh-feature-number">01</span><h2>Explore the record</h2><p>Find matches, teams and competitions in your retained source data.</p></article><article class="dh-feature"><span class="dh-feature-number">02</span><h2>Understand the evidence</h2><p>Read existing analysis with source identity, timing and clear limits.</p></article><article class="dh-feature"><span class="dh-feature-number">03</span><h2>Take your findings further</h2><p>Download supported reports and manage providers through protected administration.</p></article></div>
   <?php elseif (!empty($workspace['error'])): ?>
-    <section class="dh-panel dh-error" role="alert"><p class="dh-eyebrow">CONNECTION STATUS</p><h1>The workspace is temporarily unavailable</h1><p><?= $escape($workspace['error']) ?></p><p>Your retained data has not been replaced. Check the local server or try this page again.</p><div class="dh-actions"><a class="dh-button dh-button-primary" href="<?= $escape($route(['section'=>$section])) ?>">Try again</a><a class="dh-button" href="<?= $escape($admin) ?>">Open administration</a></div></section>
+    <section class="dh-panel dh-error" role="alert"><p class="dh-eyebrow"><?= $ready ? 'REQUEST STATUS' : 'CONNECTION STATUS' ?></p><h1><?= $ready ? 'The requested information is unavailable' : 'The workspace is temporarily unavailable' ?></h1><p><?= $escape($workspace['error']) ?></p><p><?= $ready ? 'Your local backend is available. This requested record or operation could not be completed. Choose another retained match or return to the overview.' : 'Your retained data has not been replaced. Check the local server or try this page again.' ?></p><div class="dh-actions"><a class="dh-button dh-button-primary" href="<?= $escape($route(['section'=>$ready ? 'matches' : $section])) ?>"><?= $ready ? 'Browse retained matches' : 'Try again' ?></a><a class="dh-button" href="<?= $escape($admin) ?>">Open administration</a></div></section>
   <?php else: ?>
     <?php require __DIR__ . '/section-' . $section . '.php'; ?>
   <?php endif; ?>
