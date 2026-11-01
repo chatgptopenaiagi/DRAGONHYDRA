@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T10:57:28.803037+00:00",
+  "web_origin": "http://127.0.0.1:18740",
+  "actual_backend": "http://127.0.0.1:18744/dragon/api/v1",
+  "service": "DragonhydraWorkstationTest",
+  "genuine_login_post": false,
+  "resumed_real_cookie_session": true,
+  "provider_or_import_requests": false,
+  "password_reset": false,
+  "checks": [
+    {
+      "name": "apache_and_joomla_login",
+      "status": "PASS",
+      "http_status": 200
+    },
+    {
+      "name": "anonymous_component_requires_login",
+      "status": "PASS",
+      "http_status": 200
+    },
+    {
+      "name": "authenticated_component_sources",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "Data sources"
+    },
+    {
+      "name": "authenticated_component_matches",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "Matches and teams"
+    },
+    {
+      "name": "authenticated_component_odds",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "Odds administration"
+    },
+    {
+      "name": "authenticated_component_models",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "AI and models"
+    },
+    {
+      "name": "authenticated_component_research",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "Research"
+    },
+    {
+      "name": "authenticated_component_databases",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "Database connections"
+    },
+    {
+      "name": "authenticated_component_system",
+      "status": "PASS",
+      "http_status": 200,
+      "expected_heading": "System"
+    },
+    {
+      "name": "authenticated_mutation_without_csrf_denied",
+      "status": "PASS",
+      "http_status": 403,
+      "provider_acquisition_occurred": false
+    },
+    {
+      "name": "anonymous_mutation_denied",
+      "status": "PASS",
+      "http_status": 200
+    },
+    {
+      "name": "corresponding_backend_ready",
+      "status": "PASS",
+      "api_port": 18744,
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.4.0-alpha.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": "a1380545bd3bb225f400e7e328535ff692c0123a"
+      }
+    },
+    {
+      "name": "separate_requested_backend_18743_available",
+      "status": "PASS",
+      "http_status": 200,
+      "integration_target": false,
+      "authenticated_with_corresponding_existing_local_metadata": true,
+      "reason": "This is the separate ProgramData/default workstation"
+    },
+    {
+      "name": "joomla_renders_actual_backend_match",
+      "status": "PASS",
+      "http_status": 200,
+      "match": {
+        "id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "event_date": "2027-05-30",
+        "source_id": "openfootball-2026-27-en1.json",
+        "evidence_id": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+        "home": {
+          "id": "c854c1d983c169591f7f9cd0edd242be66f33926e81695855e16298b21dc9637",
+          "name": "Liverpool FC"
+        },
+        "away": {
+          "id": "105765d760413bea1a437d0ca8b921b93a98a0671c762c092594e18d217135c9",
+          "name": "AFC Bournemouth"
+        }
+      }
+    },
+    {
+      "name": "joomla_signed_connections_route",
+      "status": "PASS",
+      "providers": 10
+    },
+    {
+      "name": "unsigned_backend_data_request_denied",
+      "status": "PASS",
+      "http_status": 401
+    },
+    {
+      "name": "sports_provider_and_configuration_integrity",
+      "status": "PASS",
+      "snapshot": {
+        "records": 760,
+        "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+        "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+        "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+        "provider_record_counts": {
+          "api-football": 0,
+          "the-odds-api": 0,
+          "sportmonks": 0,
+          "football-data-org": 0,
+          "football-data-couk": 0,
+          "openfootball": 760,
+          "statsbomb": 0,
+          "nflverse": 0,
+          "moneypuck": 0,
+          "cricsheet": 0
+        },
+        "configuration_sha256": {
+          "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+          "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+          "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+          "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+          "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+          "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+        }
+      }
+    }
+  ],
+  "finished_at": "2026-11-01T10:57:32.598419+00:00"
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T11:00:00.899928+00:00",
+  "installation_identity": "Original test-install workstation; not GenesisA8/providerA2 or ProgramData default",
+  "service": {
+    "name": "DragonhydraWorkstationTest",
+    "state": "Running",
+    "pid": 12904,
+    "account": "NT AUTHORITY\\LocalService",
+    "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+  },
+  "process_and_parent_bindings": [
+    {
+      "port": 18744,
+      "name": "DRAGONHYDRA-Server.exe",
+      "pid": 24532,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\kernel\" --port 18744 --init-bridge ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18741,
+      "name": "mysqld.exe",
+      "pid": 40260,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe\" --defaults-file=\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\my.ini\" --console ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18740,
+      "name": "httpd.exe",
+      "pid": 40396,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe\" -d \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\" -f \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\httpd.conf\" ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    }
+  ],
+  "apache": {
+    "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe",
+    "configuration": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\httpd.conf",
+    "document_root": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\site",
+    "port": 18740,
+    "version": "2.4.65",
+    "configuration_test_exit_code": 0
+  },
+  "joomla": {
+    "version": "6.2.0",
+    "administrator_url": "http://127.0.0.1:18740/administrator/",
+    "component_url": "http://127.0.0.1:18740/administrator/index.php?option=com_dragonhydra",
+    "extension_id": 252,
+    "owner_user_id": 476,
+    "owner_username": "dragonadmin"
+  },
+  "php": {
+    "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\php\\php.exe",
+    "cli_configuration": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\php.ini",
+    "apache_PHPIniDir": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config",
+    "version_executed_cli": "8.4.27",
+    "web_sapi": "apache2handler (module in explicit Apache config; authenticated sysinfo separately checked)",
+    "verified_web_runtime": {
+      "joomla_version": "6.2.0",
+      "php_version": "8.4.27",
+      "database_version": "10.11.16",
+      "php_sapi": "apache2handler"
+    }
+  },
+  "mariadb": {
+    "port": 18741,
+    "datadir": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\mysql-data\\",
+    "version": "10.11.16-MariaDB",
+    "selected_database": "dragonhydra_admin",
+    "configuration_database_matches": true,
+    "expected_port_matches": true,
+    "table_prefix": "dh_"
+  },
+  "authoritative_sports_store": {
+    "backend": "sqlite",
+    "state_directory": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\kernel",
+    "mariadb_core_reserved_empty": true,
+    "database_file": "C:/xampp/DRAGONHYDRA/build/workstation/test-install/state data/kernel/core.sqlite3"
+  },
+  "backend": {
+    "api_base": "http://127.0.0.1:18744/dragon/api/v1",
+    "endpoint_metadata": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\client\\endpoint.json",
+    "component_db_params_agree": true,
+    "apache_proxy_agrees": true,
+    "supervisor_config_agrees": true,
+    "separate_default_api": "http://127.0.0.1:18743/dragon/api/v1",
+    "separate_default_is_not_this_bridge": true
+  },
+  "bridge": {
+    "path": "C:/xampp/DRAGONHYDRA/build/workstation/test-install/state data/kernel/joomla-bridge.json",
+    "authentication": "HMAC-signed method/path/query/time/nonce/Joomla identity/role/body hash",
+    "cli_readable": false,
+    "actual_web_signed_requests_succeeded": true,
+    "secret_value_emitted": false
+  },
+  "process_inspection": {
+    "medium_token_empty_executable_and_commandline_observed": true,
+    "elevated_token_populated_details": true,
+    "cause": "Token/ACL inspection limits, not an Apache malfunction"
+  },
+  "credential_handoff": {
+    "method": "Existing installed DragonhydraLauncher.exe --state <this state> --administration",
+    "first_run_metadata_matches_verified_owner": true,
+    "initial_password_masked_by_launcher": true,
+    "owner_access_window_pid": 36008,
+    "password_or_token_emitted": false
+  },
+  "source_revision_before_recovery": "d0f517e49968b587bef83a043d6783447000ad74"
+}

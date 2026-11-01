@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T10:59:22.556810+00:00",
+  "scope": "Actual installed Joomla in genuine Microsoft Edge browser session",
+  "web_origin": "http://127.0.0.1:18740",
+  "service": "DragonhydraWorkstationTest",
+  "helper_sha256": "470b7d9992406ad5ff83a910e2dcd5a5206880ca163de529ca3541547f30ef46",
+  "checks": [
+    {
+      "name": "exact_existing_profile_binding",
+      "status": "PASS",
+      "backend_port": 18744,
+      "database_port": 18741
+    },
+    {
+      "name": "unauthenticated_browser_requires_real_joomla_login",
+      "status": "PASS"
+    },
+    {
+      "name": "real_login_form_csrf_present",
+      "status": "PASS",
+      "token_field_count": 1
+    },
+    {
+      "name": "genuine_browser_administrator_authentication",
+      "status": "PASS",
+      "username": "dragonadmin",
+      "credential_entry": "Existing owned configuration read only in memory"
+    },
+    {
+      "name": "component_opens_from_actual_joomla_administrator_menu",
+      "status": "PASS",
+      "observed_menu_path": [
+        "Components",
+        "DRAGONHYDRA",
+        "Data sources"
+      ],
+      "location": {
+        "origin": "http://127.0.0.1:18740",
+        "path": "/administrator/index.php",
+        "public_query": {
+          "option": "com_dragonhydra",
+          "section": "sources"
+        }
+      }
+    },
+    {
+      "name": "authenticated_sources_component_and_signed_backend_table",
+      "status": "PASS",
+      "providers": 10,
+      "location": {
+        "origin": "http://127.0.0.1:18740",
+        "path": "/administrator/index.php",
+        "public_query": {
+          "option": "com_dragonhydra",
+          "section": "sources"
+        }
+      }
+    },
+    {
+      "name": "real_retained_match_opened_by_component_link",
+      "status": "PASS",
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "match_label": "Liverpool FC — AFC Bournemouth",
+      "backend_port": 18744,
+      "location": {
+        "origin": "http://127.0.0.1:18740",
+        "path": "/administrator/index.php",
+        "public_query": {
+          "option": "com_dragonhydra",
+          "section": "matches",
+          "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea"
+        }
+      }
+    },
+    {
+      "name": "authenticated_system_section_signed_backend_response",
+      "status": "PASS"
+    },
+    {
+      "name": "genuine_authenticated_browser_session_persists_across_navigation",
+      "status": "PASS",
+      "authenticated_navigation_count": 5,
+      "cookie_count": 1
+    },
+    {
+      "name": "authenticated_joomla_reports_actual_web_php_and_sapi",
+      "status": "PASS",
+      "runtime": {
+        "joomla_version": "6.2.0",
+        "php_version": "8.4.27",
+        "database_version": "10.11.16",
+        "php_sapi": "apache2handler"
+      }
+    },
+    {
+      "name": "actual_joomla_user_menu_logout",
+      "status": "PASS",
+      "observed_logout_control": "Joomla User Menu link",
+      "csrf_present": true,
+      "cookies_forcibly_cleared": false
+    },
+    {
+      "name": "protected_component_requires_authentication_after_logout",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh_reopened_edge_requires_new_administrator_session",
+      "status": "PASS",
+      "storage_state_imported": false,
+      "previous_browser_process_closed": true
+    },
+    {
+      "name": "fresh_reopened_browser_genuine_administrator_login",
+      "status": "PASS",
+      "username": "dragonadmin",
+      "credential_entry": "Existing owned configuration read only in memory"
+    },
+    {
+      "name": "fresh_login_component_opens_through_administrator_menu",
+      "status": "PASS",
+      "observed_menu_path": [
+        "Components",
+        "DRAGONHYDRA",
+        "Data sources"
+      ],
+      "location": {
+        "origin": "http://127.0.0.1:18740",
+        "path": "/administrator/index.php",
+        "public_query": {
+          "option": "com_dragonhydra",
+          "section": "sources"
+        }
+      }
+    },
+    {
+      "name": "fresh_login_preserves_actual_provider_table",
+      "status": "PASS",
+      "providers": 10
+    },
+    {
+      "name": "no_fatal_browser_javascript_errors",
+      "status": "PASS",
+      "fatal_errors": 0
+    }
+  ],
+  "page_errors": [],
+  "blocked_requests": [],
+  "password_reset": false,
+  "provider_or_import_requests": false,
+  "credential_values_logged": false,
+  "trace_har_cookie_or_html_saved": false,
+  "stage": "complete",
+  "screenshots": [
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-recovery-20261101\\evidence\\browser-r4\\authenticated-sources.png",
+      "sha256": "63689ff2531e47061db415b38bcdcd1fc49d7295e3582ffd9d913e45d5a17cd0",
+      "scope": "Component only; no credential inputs or options page"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-recovery-20261101\\evidence\\browser-r4\\authenticated-match.png",
+      "sha256": "aede878509cb1c4d051b39ca4002d6d3e6c607071a73aec4e6f3996d3c224daa",
+      "scope": "Component public retained match presentation only"
+    }
+  ],
+  "browser_closed": true,
+  "finished_at": "2026-11-01T10:59:32.173496+00:00"
+}

@@ -164,3 +164,20 @@ package. Durable report GENESIS-A8-WINDOWS.md and public-safe verified-reports/G
 NEXT: separately authorized clean Windows11 x64 prerequisites/reboot acceptance and
 publisher signing. Current-host isolated runtime is verified; clean-machine/reboot
 and production-signature claims are absent.
+
+## Original Windows Joomla owner access — 2026-11-01
+
+CaseA confirmed: existing dragonadmin476SuperUsers works; installed native Administration
+handoff delivers matching generated credential locally/masked. No account reset, extra
+user, reinstall or product/config/database repair. Original test-install Joomla18740
+correlates supervisor/client/extensionparams/proxy/bridge to API18744, not default18743.
+Actual Edge17groups includesmenu/logout/freshreopenlogin; finalHTTP19, oldcookie across
+single targetservice restart17, service9, regressions5 pass. All18requirements PASS.
+Joomla rendered full fixture evidence JSON exactly matches backend;760fullpresentations/
+IDs/provider/config/pairing hashes unchanged. Targetservice now12904, other3PIDs unchanged.
+Consistent InnoDB SQLdump375368B/config/component backups restricted locally; protected
+bridge copy denied and no content/ACL changed. Failed helper probes preserved separately
+(noscript/auth/secretbackup/sysinfo/logout selectors), no invented product failure.
+Public receipts/screenshots/docs committed with report JOOMLA-RECOVERY-REPORT.md.
+No rebuild/newrelease/paidfetch/modelrun. Owner window left open. Next normalowneruse;
+optional ownerpasswordchange; prior A8 clean-machine/reboot/signing gates independent.

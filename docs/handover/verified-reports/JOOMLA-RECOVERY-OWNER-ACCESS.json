@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T11:02:42.1374987Z",
+  "username": "dragonadmin",
+  "user_id": 476,
+  "classification": "A - valid existing credentials and supported owner handoff",
+  "credential_handoff": "Existing primary-profile Administration launcher and first-run.json",
+  "launcher": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraLauncher.exe",
+  "arguments": "--state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --administration",
+  "window_title": "DRAGONHYDRA Administration",
+  "window_pid": 36008,
+  "owner_window_responding": true,
+  "password_masked_by_existing_launcher_implementation": true,
+  "first_run_matches_verified_existing_credentials": true,
+  "credential_file_grants_broad_users": false,
+  "reset_performed": false,
+  "credential_values_emitted": false,
+  "administrator_url": "http://127.0.0.1:18740/administrator/",
+  "start_menu": "DRAGONHYDRA Workstation - DragonhydraWorkstationTest > DRAGONHYDRA Administration"
+}

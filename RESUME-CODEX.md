@@ -1,3 +1,22 @@
+JOOMLA PRIMARY WORKSTATION ACCESS VERIFIED (2026-11-01).
+Read JOOMLA-RECOVERY-REPORT.md and joomla_recovery_20261101 in ENGINEERING-STATE.json.
+18/18 acceptance requirements PASS. Original test-install profile, service
+DragonhydraWorkstationTest/LocalService now RunningPID12904 after single scoped
+restart; Joomla18740, associated API18744, MariaDB18741. Port18743 is separate default.
+Owner account dragonadmin/id476 works; no reset, reinstall or configuration/DB repair.
+Use existing Start menu DRAGONHYDRA Workstation - DragonhydraWorkstationTest >
+DRAGONHYDRA Administration, or installed launcher --state <original state> --administration.
+Its masked initial-password handoff matches verified credentials; owner window36008
+was left open. Actual Edge menu/login/logout/freshreopen17groups, finalHTTP19,
+oldcookie postrestart17, service9 and diagnosticunit5 passed. All760match records,
+provider settings, config/pairing hashes preserved; other3servicePIDs unchanged.
+Full Joomla-rendered match evidence JSON equals its own18744backend response.
+Private SQL/config backups: build/joomla-recovery-20261101/private-backup (restricted).
+Bridge secret content backup was denied; bridge/ACL unchanged and signed use works.
+Do not re-run recovery, reset credentials, repoint to18743 or rebuild completedA8.
+Next: normal owner use; optional owner-chosen password change. Earlier A8 clean-machine/
+reboot/signing and Linux storage gates stay independent. Resolve latest checkpoint in Git.
+
 GENESIS A8 WINDOWS: VERIFIED LOCAL DELIVERY (2026-11-01).
 Read docs/handover/GENESIS-A8-WINDOWS.md, genesis_a8_windows in ENGINEERING-STATE.json,
 and verified-reports/GENESIS-A8-DELIVERY-MANIFEST.json first. Complete Setup is

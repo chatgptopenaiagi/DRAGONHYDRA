@@ -1,3 +1,12 @@
+Current Windows Joomla recovery: COMPLETE (2026-11-01).
+
+18/18 required checks passed on the original18740 profile and its actual18744backend.
+Read JOOMLA-RECOVERY-REPORT.md before touching this installation. Owner access is
+available through its existing masked Administration launcher; no password reset or
+component/bridge repair is needed. Do not repeat acceptance, repoint ports or rebuild.
+Next owner action is normal login/use; a user-selected credential change is optional.
+Previous A8 clean-machine/reboot/signing gates below remain separate unfinished work.
+
 Current priority: GENESIS A8 WINDOWS (2026-11-01).
 
 1. COMPLETE: final five-file Windows delivery, full installer upgrade and native acceptance.

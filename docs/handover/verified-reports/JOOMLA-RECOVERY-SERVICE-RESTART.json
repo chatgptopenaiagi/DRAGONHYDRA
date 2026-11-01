@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T10:56:50.6540579Z",
+  "target_service": "DragonhydraWorkstationTest",
+  "restart_requested": true,
+  "checks": [
+    {
+      "status": "PASS",
+      "name": "fixed-profile-and-port-identity"
+    },
+    {
+      "status": "PASS",
+      "name": "administrative-inspection-token"
+    },
+    {
+      "status": "PASS",
+      "name": "recoverable-backup-and-authenticated-acceptance-before-restart"
+    },
+    {
+      "status": "PASS",
+      "name": "all-three-target-listeners-owned-by-expected-installation"
+    },
+    {
+      "status": "PASS",
+      "name": "protected-bridge-present-without-opening-secret-or-changing-acl"
+    },
+    {
+      "status": "PASS",
+      "name": "actual-apache-configuration-syntax"
+    },
+    {
+      "status": "PASS",
+      "name": "target-service-restarted-api-and-joomla-ready"
+    },
+    {
+      "status": "PASS",
+      "name": "unrelated-three-services-retain-state-pid-and-image"
+    },
+    {
+      "status": "PASS",
+      "name": "existing-bridge-file-size-and-timestamp-preserved"
+    }
+  ],
+  "credential_values_emitted": false,
+  "configuration_modified": false,
+  "database_repair_requested": false,
+  "elevated": true,
+  "protected_services_before": [
+    {
+      "name": "DragonhydraWorkstation",
+      "state": "Running",
+      "pid": 39364,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "name": "DragonhydraProvidersA2Test",
+      "state": "Running",
+      "pid": 23500,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "name": "DragonhydraGenesisA8Test",
+      "state": "Running",
+      "pid": 17012,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" --name DragonhydraGenesisA8Test"
+    }
+  ],
+  "target_before": {
+    "name": "DragonhydraWorkstationTest",
+    "state": "Running",
+    "pid": 22876,
+    "account": "NT AUTHORITY\\LocalService",
+    "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+  },
+  "processes_before": [
+    {
+      "port": 18744,
+      "name": "DRAGONHYDRA-Server.exe",
+      "pid": 6728,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 21116
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\kernel\" --port 18744 --init-bridge ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18741,
+      "name": "mysqld.exe",
+      "pid": 23444,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 21116
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe\" --defaults-file=\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\my.ini\" --console ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18740,
+      "name": "httpd.exe",
+      "pid": 7980,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 21116
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe\" -d \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\" -f \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\httpd.conf\" ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    }
+  ],
+  "before": {
+    "login_form_present": true,
+    "joomla_http_status": 200,
+    "health": {
+      "status": "ready",
+      "backend": "sqlite",
+      "version": "0.4.0-alpha.1",
+      "schema_version": 1,
+      "optional_ai": "not_configured",
+      "source_sha": "a1380545bd3bb225f400e7e328535ff692c0123a"
+    }
+  },
+  "bridge_before": {
+    "source_acl_modified": false,
+    "bytes": 78,
+    "reason": "No bridge/configuration change is requested; existing LocalService-only credential protection is preserved.",
+    "backup_required_for_content_change": false,
+    "content_read": false,
+    "path": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\kernel\\joomla-bridge.json",
+    "last_write_utc": "2026-10-31T09:12:06.2805750Z"
+  },
+  "apache_config_test": {
+    "exit_code": 0,
+    "syntax_ok": true
+  },
+  "after": {
+    "login_form_present": true,
+    "joomla_http_status": 200,
+    "health": {
+      "status": "ready",
+      "backend": "sqlite",
+      "version": "0.4.0-alpha.1",
+      "schema_version": 1,
+      "optional_ai": "not_configured",
+      "source_sha": "a1380545bd3bb225f400e7e328535ff692c0123a"
+    }
+  },
+  "target_after": {
+    "name": "DragonhydraWorkstationTest",
+    "state": "Running",
+    "pid": 12904,
+    "account": "NT AUTHORITY\\LocalService",
+    "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest"
+  },
+  "protected_services_after": [
+    {
+      "name": "DragonhydraWorkstation",
+      "state": "Running",
+      "pid": 39364,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation"
+    },
+    {
+      "name": "DragonhydraProvidersA2Test",
+      "state": "Running",
+      "pid": 23500,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test"
+    },
+    {
+      "name": "DragonhydraGenesisA8Test",
+      "state": "Running",
+      "pid": 17012,
+      "account": "NT AUTHORITY\\LocalService",
+      "path": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" --name DragonhydraGenesisA8Test"
+    }
+  ],
+  "processes_after": [
+    {
+      "port": 18744,
+      "name": "DRAGONHYDRA-Server.exe",
+      "pid": 24532,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\server\\DRAGONHYDRA-Server.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\kernel\" --port 18744 --init-bridge ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18741,
+      "name": "mysqld.exe",
+      "pid": 40260,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\mariadb\\bin\\mysqld.exe\" --defaults-file=\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\my.ini\" --console ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    },
+    {
+      "port": 18740,
+      "name": "httpd.exe",
+      "pid": 40396,
+      "parent": {
+        "name": "powershell.exe",
+        "command_line": "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\Workstation.ps1\" -Action Run -StateRoot \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\"",
+        "executable": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "pid": 40308
+      },
+      "address": "127.0.0.1",
+      "executable": "C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe",
+      "command_line": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\\bin\\httpd.exe\" -d \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\web\\apache\" -f \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\\web-config\\httpd.conf\" ",
+      "owner": "NT AUTHORITY\\LOCAL SERVICE"
+    }
+  ],
+  "finished_at": "2026-11-01T10:57:01.4044164Z"
+}

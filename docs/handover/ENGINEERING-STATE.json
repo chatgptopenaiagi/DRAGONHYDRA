@@ -502,10 +502,74 @@
     ]
   },
   "current_mission": {
-    "milestone": "GENESIS A8 Windows workstation",
-    "status": "VERIFIED_LOCAL_DELIVERY",
-    "report": "docs/handover/GENESIS-A8-WINDOWS.md",
-    "next_unfinished_objective": "Clean Windows 11 x64 prerequisites/reboot acceptance, then publisher signing with authorized identity",
-    "linux_next_gate_is_independent": true
+    "milestone": "Existing Windows Joomla owner access and integration",
+    "status": "VERIFIED",
+    "report": "JOOMLA-RECOVERY-REPORT.md",
+    "next_unfinished_objective": "Owner normal use/optional owner-selected credential change; previous clean Windows A8/reboot/signing gates remain independent"
+  },
+  "joomla_recovery_20261101": {
+    "status": [
+      "INSTALLED_EXISTING",
+      "EXECUTED",
+      "TESTED",
+      "VERIFIED"
+    ],
+    "classification": "A - valid existing credentials / owner workflow recovered",
+    "report": "JOOMLA-RECOVERY-REPORT.md",
+    "starting_source_commit": "d0f517e49968b587bef83a043d6783447000ad74",
+    "checkpoint_resolution": "Git commit containing JOOMLA-RECOVERY-REPORT.md",
+    "service": "DragonhydraWorkstationTest",
+    "service_account": "NT AUTHORITY/LocalService",
+    "current_service_pid": 12904,
+    "state_root": "build/workstation/test-install/state data",
+    "site_root": "build/workstation/test-install/state data/site",
+    "administrator_url": "http://127.0.0.1:18740/administrator/",
+    "component_url": "http://127.0.0.1:18740/administrator/index.php?option=com_dragonhydra",
+    "associated_api_base": "http://127.0.0.1:18744/dragon/api/v1",
+    "separate_default_api_18743_not_repointed": true,
+    "owner_account": {
+      "id": 476,
+      "username": "dragonadmin",
+      "group": "Super Users",
+      "password_reset": false,
+      "credential_handoff": "Existing primary-profile Administration Start menu/launcher --administration",
+      "owner_access_window_pid": 36008
+    },
+    "database": {
+      "mariadb_port": 18741,
+      "joomla_schema": "dragonhydra_admin",
+      "table_prefix": "dh_",
+      "sports_authority": "SQLite kernel/core.sqlite3",
+      "mariadb_core": "Reserved empty schema"
+    },
+    "completed": [
+      "18 acceptance requirements PASS",
+      "Genuine HTTP and Edge login/menu/logout/fresh reopen",
+      "Joomla full rendered match technical JSON equals associated backend",
+      "Existing cookie session survives owning-service restart",
+      "760records/provider settings/config/pairing unchanged",
+      "Three unrelated service PIDs unchanged",
+      "5 focused diagnostic regressions passed"
+    ],
+    "test_groups": {
+      "final_http": 19,
+      "post_service_existing_session": 17,
+      "final_edge_browser": 17,
+      "service_restart": 9,
+      "focused_unit_regressions": 5
+    },
+    "acceptance_receipt": "docs/handover/verified-reports/JOOMLA-RECOVERY-ACCEPTANCE-MATRIX.json",
+    "private_backup": "build/joomla-recovery-20261101/private-backup",
+    "bridge_content_backup": "Not available to recovery token; no content/ACL modification; authenticated service use verified",
+    "product_config_database_repairs": false,
+    "normal_joomla_session_metadata_changed": true,
+    "known_product_defects": [],
+    "remaining_limitations": [
+      "No OS-reboot/clean-machine or database-restore-drill claim",
+      "No provider acquisition/model runs",
+      "Initial-password handoff does not track later user-selected password changes"
+    ],
+    "next_action": "Owner uses primary-profile Administration launcher masked handoff and Open Joomla; no additional repair/rebuild is indicated",
+    "verified_at": "2026-11-01T11:05:12.651945+00:00"
   }
 }

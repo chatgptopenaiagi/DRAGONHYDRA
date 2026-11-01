@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T10:59:27.541780+00:00",
+  "action": "Authenticated existing Joomla session reads actual component match page, extracts rendered technical-evidence JSON and compares it with the corresponding authenticated backend response",
+  "api_base": "http://127.0.0.1:18744/dragon/api/v1",
+  "joomla_url": "http://127.0.0.1:18740/administrator/index.php?option=com_dragonhydra&section=matches&match_id=de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+  "all_rendered_match_fields_equal_backend": true,
+  "retained_match": {
+    "id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+    "source_id": "openfootball-2026-27-en1.json",
+    "evidence_id": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+    "version": "f5cea7eb01404a18ebeceebc36e0bf961635abbbbd606e57640eb5e09a3a5492",
+    "event_date": "2027-05-30",
+    "home": {
+      "id": "c854c1d983c169591f7f9cd0edd242be66f33926e81695855e16298b21dc9637",
+      "name": "Liverpool FC"
+    },
+    "away": {
+      "id": "105765d760413bea1a437d0ca8b921b93a98a0671c762c092594e18d217135c9",
+      "name": "AFC Bournemouth"
+    },
+    "status": "scheduled",
+    "competition": "English Premier League 2026/27"
+  },
+  "response_data_sha256": "b197262c44f02d87c6e111e977fd7f2a6c9704455b587618e48f26a680100954",
+  "php_hmac_service_authentication": "Existing installed Kernel/ApiClient; no local pairing token transmitted to Joomla",
+  "secrets_emitted": false,
+  "provider_requests": false
+}

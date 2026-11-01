@@ -1,3 +1,15 @@
+2026-11-01: original Windows Joomla access and integration VERIFIED.
+18/18 requirements passed; read JOOMLA-RECOVERY-REPORT.md. Existing owner account476/
+dragonadmin and masked Administration launcher work; no reset, reinstall or product/
+configuration/database repair. Primary18740 correctly bridges to18744, not default18743.
+Exactly one actual authorized target-service restart changed DragonhydraWorkstationTest
+PID22876 to12904; default39364/provider23500/A8 17012 stayed unchanged. All760record
+presentations/IDs/provider/config/pairing hashes preserved. Private SQL/config/component
+backups restricted under build/joomla-recovery-20261101/private-backup; protected bridge
+content backup is not claimed. Public-safe reports/screenshots are under
+ docs/handover/verified-reports/JOOMLA-RECOVERY-*.
+Earlier preservation entries below remain historical evidence.
+
 GENESIS A8 WINDOWS: VERIFIED LOCAL DELIVERY (2026-11-01).
 Read docs/handover/GENESIS-A8-WINDOWS.md, genesis_a8_windows in ENGINEERING-STATE.json,
 and verified-reports/GENESIS-A8-DELIVERY-MANIFEST.json first. Complete Setup is

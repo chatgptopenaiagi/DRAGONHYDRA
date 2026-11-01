@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "started_at": "2026-11-01T10:51:47.714063+00:00",
+  "private_backup_directory": "C:\\xampp\\DRAGONHYDRA\\build\\joomla-recovery-20261101\\private-backup",
+  "files": [
+    {
+      "relative_path": "workstation.json",
+      "sha256": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+      "bytes": 1945
+    },
+    {
+      "relative_path": "first-run.json",
+      "sha256": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+      "bytes": 160
+    },
+    {
+      "relative_path": "site/configuration.php",
+      "sha256": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+      "bytes": 2392
+    },
+    {
+      "relative_path": "web-config/httpd.conf",
+      "sha256": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+      "bytes": 2117
+    },
+    {
+      "relative_path": "web-config/php.ini",
+      "sha256": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6",
+      "bytes": 972
+    },
+    {
+      "relative_path": "web-config/my.ini",
+      "sha256": "a51bae441157c6dc5b4856e4528dc3cb973f4a64905871aa2936249f00753a85",
+      "bytes": 617
+    }
+  ],
+  "configuration_or_database_repairs": false,
+  "component_files_backed_up": 17,
+  "bridge_backup": "Current token cannot read protected bridge; no bridge modification is permitted without an elevated backup",
+  "database_dump": {
+    "command_credentials_exposed": false,
+    "exit_code": 0,
+    "bytes": 375368,
+    "sha256": "316727113ada3ef804fc81a465d2bef2500bae7645ec4ef95aeab1d73adf048e",
+    "stderr_bytes": 0
+  },
+  "sports_and_configuration_baseline": {
+    "records": 760,
+    "all_matches_sha256": "b0c11e81f4cbe7e7459ee97219d5d2192a16ec9812cdb13c1d656586e759ad2d",
+    "match_identifiers_sha256": "1f430b84bf73c67722cb3c29cc34002847c89ffac0959790e7e0943dba1fd1ac",
+    "provider_connections_sha256": "75f140a63efe57ae0527cedcc167a03e8928fe6387184ea755c53d3f179fdba8",
+    "provider_record_counts": {
+      "api-football": 0,
+      "the-odds-api": 0,
+      "sportmonks": 0,
+      "football-data-org": 0,
+      "football-data-couk": 0,
+      "openfootball": 760,
+      "statsbomb": 0,
+      "nflverse": 0,
+      "moneypuck": 0,
+      "cricsheet": 0
+    },
+    "configuration_sha256": {
+      "workstation.json": "1901e99f8cb93d747d2c22c5f47d3b79460813794c8d1293bd164ae82a9d564e",
+      "first-run.json": "d81421757332745569d2940015447dbba175230573347104fb4d7e3fb0077509",
+      "site/configuration.php": "4077ca0fbb007cc289e71843b8b5e157bf7e1dbc045107dd4a64c0f9c518b73b",
+      "client/local-session.json": "fe3b43783e374fbaa12233f60eb6985b40d2592140202174b4ccf796375dc50b",
+      "web-config/httpd.conf": "fbc6b4d4f78eb2a1e65e4f315f1883076741e054e983245fd3a4166aeb157be4",
+      "web-config/php.ini": "b394bb4fe98c8ae96967a8e07fadd0be169ddffb674dc6530262649788df1ad6"
+    }
+  },
+  "finished_at": "2026-11-01T10:51:49.326023+00:00"
+}

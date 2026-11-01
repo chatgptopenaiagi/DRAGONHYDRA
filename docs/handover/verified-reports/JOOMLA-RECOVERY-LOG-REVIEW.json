@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-11-01T10:59:02.770960+00:00",
+  "logs": [
+    {
+      "name": "apache-error.log",
+      "bytes": 10146,
+      "last_write_utc": "2026-11-01T10:56:59.213321+00:00",
+      "severity_word_counts": {
+        "notice": 46,
+        "warn": 6,
+        "error": 0,
+        "fatal": 0,
+        "deprecated": 0
+      },
+      "raw_lines_emitted": false,
+      "note": "Counts include historical messages; not all are current failures"
+    },
+    {
+      "name": "php-error.log",
+      "exists": false
+    }
+  ],
+  "current_runtime_evidence": "authenticated-final-r1.json and browser acceptance, not historical log-word counts"
+}

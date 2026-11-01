@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "verified_at": "2026-11-01T10:58:11.145973+00:00",
+  "command": [
+    "C:\\xampp\\DRAGONHYDRA\\runtime\\server-env\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_joomla_recovery"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_actual_component_bridge_error_is_not_success (tests.test_joomla_recovery.JoomlaRecoveryDiagnosticsTests.test_actual_component_bridge_error_is_not_success) ... ok\ntest_actual_form_action_and_hidden_fields_are_parsed (tests.test_joomla_recovery.JoomlaRecoveryDiagnosticsTests.test_actual_form_action_and_hidden_fields_are_parsed) ... ok\ntest_anonymous_login_html_is_not_component_execution (tests.test_joomla_recovery.JoomlaRecoveryDiagnosticsTests.test_anonymous_login_html_is_not_component_execution) ... ok\ntest_credentials_cannot_follow_form_to_another_profile (tests.test_joomla_recovery.JoomlaRecoveryDiagnosticsTests.test_credentials_cannot_follow_form_to_another_profile) ... ok\ntest_normal_joomla_noscript_alert_does_not_mark_component_broken (tests.test_joomla_recovery.JoomlaRecoveryDiagnosticsTests.test_normal_joomla_noscript_alert_does_not_mark_component_broken) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nOK\n",
+  "tests": 5
+}

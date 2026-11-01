@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "reviewed_at": "2026-11-01T11:07:52.743202+00:00",
+  "review_type": "Independent read-only agent review and root source/evidence digest check",
+  "requirements": 18,
+  "category": "A - valid existing credentials and supported owner workflow",
+  "actual_backend_18744_vs_separate_18743_confirmed": true,
+  "owner_access_procedure_usable": true,
+  "genuine_menu_login_logout_fresh_reopen_proven": true,
+  "restart_and_old_session_proven": true,
+  "no_reset_reinstall_or_product_configuration_database_repair": true,
+  "protected_bridge_backup_not_claimed": true,
+  "null_matrix_timestamps": 0,
+  "public_secret_value_matches": 0,
+  "credential_or_csrf_bearing_urls_found": 0,
+  "private_backup_or_secret_value_published": false,
+  "referenced_evidence_digests_verified": true,
+  "selected_manifest_file_hashes_verified": 21,
+  "fresh_requests_services_or_protected_secret_reads_by_reviewer": false
+}
