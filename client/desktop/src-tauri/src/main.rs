@@ -1,7 +1,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::{env, fs, path::PathBuf, net::{SocketAddr, TcpStream}, time::Duration};
-use tauri::{WebviewUrl, WebviewWindowBuilder};
+use tauri::{Manager, WebviewUrl, WebviewWindowBuilder};
+use tauri_plugin_opener::OpenerExt;
+mod client_state;
+mod external_target;
 
 fn build_information() -> serde_json::Value {
     serde_json::json!({
@@ -40,13 +43,10 @@ fn connection(state: PathBuf) -> Result<tauri::Url, String> {
     Ok(url)
 }
 
-fn state_path() -> PathBuf {
-    let mut args = env::args().skip(1);
-    while let Some(arg) = args.next() {
-        if let Some(path) = arg.strip_prefix("--state=") { return PathBuf::from(path); }
-        if arg == "--state" { return PathBuf::from(args.next().unwrap_or_default()); }
-    }
-    PathBuf::from(env::var("PROGRAMDATA").unwrap_or_else(|_| "/var/lib".to_string())).join("DRAGONHYDRA")
+fn state_path() -> Result<PathBuf, String> {
+    let executable = env::current_exe().ok();
+    let program_data = PathBuf::from(env::var("PROGRAMDATA").unwrap_or_else(|_| "/var/lib".to_string()));
+    client_state::select(env::args().skip(1), executable.as_deref(), &program_data)
 }
 
 fn profile_path() -> Option<PathBuf> {
@@ -65,7 +65,7 @@ fn main() {
         println!("{}", build_information());
         return;
     }
-    let target = connection(state_path()).map(WebviewUrl::External)
+    let target = state_path().and_then(connection).map(WebviewUrl::External)
         .unwrap_or_else(|_| WebviewUrl::App("index.html?client=unpaired".into()));
     let profile = profile_path();
     tauri::Builder::default()
@@ -73,7 +73,24 @@ fn main() {
         // WebView2 does not open them without an explicit native integration.
         .plugin(tauri_plugin_opener::init())
         .setup(move |app| {
+            let opener = app.handle().clone();
             let mut window = WebviewWindowBuilder::new(app, "main", target)
+                // Programmatic window.open (Administration) does not produce
+                // an anchor click for the opener plugin's injected handler.
+                .on_new_window(move |url, _features| {
+                    let local_source = opener.get_webview_window("main")
+                        .and_then(|window| window.url().ok())
+                        .is_some_and(|source| source.scheme() == "http" &&
+                            source.host_str() == Some("127.0.0.1") &&
+                            source.username().is_empty() && source.password().is_none());
+                    if local_source && external_target::allowed(url.scheme(), url.host_str(),
+                        url.username(), url.password().is_some(), url.query(), url.fragment()) {
+                        if opener.opener().open_url(url.as_str(), None::<&str>).is_err() {
+                            eprintln!("The default browser could not open the requested web address.");
+                        }
+                    }
+                    tauri::webview::NewWindowResponse::Deny
+                })
                 .title("DRAGONHYDRA")
                 .inner_size(1280.0, 860.0)
                 .min_inner_size(720.0, 520.0);
