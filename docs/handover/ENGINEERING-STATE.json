@@ -795,7 +795,7 @@
   },
   "owner_joomla_access_20261102": {
     "status": "AUTHENTICATED_HTTP_VERIFIED",
-    "verified_at": "2026-11-02T06:54:01.817453+00:00",
+    "verified_at": "2026-11-02T06:57:53.322248+00:00",
     "administrator_url": "http://127.0.0.1:18822/administrator/",
     "component_url": "http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra",
     "control_center_url": "http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra&section=control",
@@ -807,6 +807,7 @@
     "credential_values_stored": false,
     "configuration_or_service_changes": false,
     "receipt": "docs/handover/verified-reports/JOOMLA-18822-OWNER-LOGIN-20261102.json",
-    "original_primary_goal": "No primary migration/deployment inferred; original18740 goal remains blocked"
+    "original_primary_goal": "No primary migration/deployment inferred; original18740 goal remains blocked",
+    "latest_owner_supplied_credential_recheck": "PASS; no credential value retained"
   }
 }

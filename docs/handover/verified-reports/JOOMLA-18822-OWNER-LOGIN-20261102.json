@@ -44,7 +44,7 @@
       "http_status": 200,
       "component_markup": true,
       "headings": [
-        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT · System Control Center",
         "DRAGONHYDRA CORE NEXT",
         "Data sources"
       ],
@@ -57,10 +57,10 @@
       "http_status": 200,
       "component_markup": true,
       "headings": [
-        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT · System Control Center",
         "DRAGONHYDRA CORE NEXT",
         "One registry. A clear operating picture.",
-        "This installation\u2019s backend",
+        "This installation’s backend",
         "Available building blocks"
       ],
       "known_error_codes": [],
@@ -72,7 +72,7 @@
       "http_status": 200,
       "component_markup": true,
       "headings": [
-        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT · System Control Center",
         "DRAGONHYDRA CORE NEXT",
         "Matches and teams"
       ],
@@ -113,5 +113,21 @@
   },
   "initial_probe_issue": "Test harness initially assumed com_admin profile navigation. Actual Joomla6 link uses com_users task=user.edit; corrected observation and verified exact username. No application repair or credential reset.",
   "boundary": "Supplied password used only as a Joomla form credential for18822; not used as a backend/provider token, command argument, source constant or persistent credential file.",
-  "original_primary_18740_upgrade": "Unchanged; prior Windows elevation blocker is distinct from successful Joomla login on this separate profile."
+  "original_primary_18740_upgrade": "Unchanged; prior Windows elevation blocker is distinct from successful Joomla login on this separate profile.",
+  "latest_owner_supplied_credential_recheck": {
+    "status": "PASS",
+    "verified_at": "2026-11-02T06:57:53.322248+00:00",
+    "username": "dragonadmin",
+    "administrator_origin": "http://127.0.0.1:18822",
+    "checks_passed": 10,
+    "genuine_post_profile_and_session_verified": true,
+    "authenticated_component_sections": [
+      "sources",
+      "control",
+      "matches"
+    ],
+    "credential_value_stored": false,
+    "account_reset": false,
+    "reason": "Owner supplied updated password; tested once against the same explicitly requested18822 installation"
+  }
 }
