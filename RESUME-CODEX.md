@@ -1,51 +1,57 @@
 # Resume DRAGONHYDRA product reconciliation
 
-Read AGENTS.md, ENGINEERING-STATE.json and
-[ACTIVE-RECONCILIATION.md](docs/handover/ACTIVE-RECONCILIATION.md) first. The current
-owner directive excludes SENTINEL/general session control and continues only
-DRAGONHYDRA product integration. Do not launch nested Codex or alter its version.
+Read AGENTS.md, ENGINEERING-STATE.json and [active handoff](docs/handover/ACTIVE-RECONCILIATION.md).
+Owner correction excludes SENTINEL/general Codex-control software. Continue only
+DRAGONHYDRA in the existing session; preserve Codex and the original installation.
 
-**Active product reconciliation (2026-11-02):** work continues on
-`reconcile/genesis-20261102` from source `ede5bf788097abc136eee2ae726248893fb4ae7b`.
-The original continuity history, six historical worktrees and nested research
-foundation are preserved separately. Three source snapshots have been actually
-restored; original54 and foundation42 isolated reference tests passed. Selected
-integration changes add status filtering, stronger service evidence and embedded
-Joomla package provenance checks. Dev.5 source verification passed335 distinct cases (328PASS/7NOT_RUN/0FAIL); new builds and installed acceptance remain pending.
+**Current milestone: nine source-bound dev.5 packages built; release HELD.**
+Frozen application source: `ed78fab282599a181d4254ab65a2fc2eaa5b7f50`, tree `7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a`.
+Release branch/worktree: `release/core-next-dev5-20261102`,
+`LAB/release-source/dev5-ed78`. Coordinator branch `reconcile/genesis-20261102`
+may contain a later documentation checkpoint; that later commit is not compiled
+into the nine packages. Do not rebuild or relabel unchanged artifacts for docs.
 
-The running CORE NEXT installation is mixed: Joomla component/template/package
-dev.4/F, backend/native/profile dev.3/source `3af173d...`, at18822/18821. Supported
-Joomla install/repeat and actual browser r4 passed204 checks, two not run. This
-does not prove a fully installed dev.4 Windows product. All nine F r2 packages are
-preserved, unpublished. The prior Windows launch raised `InvalidOperationException`
-without a child receipt/native cause; user cancellation is unproven. Diagnosis and
-a new isolated installation/recovery gate precede any promotion.
+Primary `core-next-7ac520727b85456cac4a3a92a8dd62da`: Joomla18822/API18821/DB18823,
+service `DragonhydraCoreNextcandidate3a92a8dd62da` LocalService/PID32192 at receipt.
+Joomla component/template/package dev.5/ed78; backend/native/profile dev.3/3af173d.
+This is an explicitly mixed runtime. Original18740/18744 and four other services,
+independent working source, A9 and published dev.1 remain preserved.
 
-See [active reconciliation](docs/handover/ACTIVE-RECONCILIATION.md),
-[decisions](docs/reconciliation/RECONCILIATION-DECISIONS.md) and
-[release acceptance](docs/releases/RELEASE-ACCEPTANCE.md). The most recent published
-CORE NEXT release remains [dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
-No new release/tag is claimed. SENTINEL and generic session-control software are
-outside the product mission.
+Evidence:335 distinct source cases (328PASS/7NOT_RUN/0FAIL),521 Git-bound inputs;
+actual frozen/extracted server, SQLite23-table restore, JSON/CSV/XLSX exports;
+actual Joomla5/backend3 browser219PASS/4NOT_RUN/0FAIL; Docker11runtime groups;
+Flutter15 tests/build and offline wheel/sdist installs. Do not add overlapping
+batches.760 retained primary records and identity/version digest preserved.
 
-Use the existing dedicated CORE NEXT checkout and LAB. Inspect HEAD/status before
-editing; agents have explicit narrow file ownership. Preserve original source and
-all independent working changes. Use the machine capability registry and exact
-existing tools; no dependency installation was needed for reference tests.
+Artifacts: `LAB/dist/v0.5.0-dev.5-core-next` (nine packages + six metadata files).
+Manifest SHA `b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b`.
+No new tag/draft/release. Most recent published CORE NEXT remains
+[dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
 
-Current private backups: LAB/preservation/reconciliation-20261102T124413751Z;
-actual restoration receipt source-restoration-r1.json. Existing Joomla/SQLite
-backups and rollback remain separate. Never publish private history/configuration,
-runtime databases, tokens, SQL dumps or owner credentials. Source recovery is not
-application data recovery.
+**Remaining gates:** new Windows install/repair/service restart/retained uninstall
+and reinstall; live new SCM identity; native GUI/default-browser/pairing; supported
+primary3→5 transition; final installed-source credential scan; publication and
+download verification. Android device and native Linux desktop are NOT_RUN.
 
-Next executable action: finish/review the three focused integration changes and
-their tests, run the distinct integrated source suite, select a coherent new
-development source identity and freeze it. Then build source-bound packages,
-verify disposable install/repair/restore/restart, deploy to CORE NEXT only,
-perform actual interface/platform/privacy gates and publish/download-verify.
+One read-only RunAs identity probe reported “The operation was canceled by the
+user”; no elevated child receipt. This does not establish the older failure's
+cause. A separate native5 launch was rejected before process creation by automatic
+approval review (“blocked by policy”). Do not retry through another transport.
 
-Historical completed checkpoint: sourceF and its prior handoff remain available
-in Git at ede5bf788097abc136eee2ae726248893fb4ae7b. Detailed earlier receipts are
-retained in docs/handover/CONTINUATION-20261102.md and the existing release report;
-they must not be presented as rerun evidence for subsequent source changes.
+Next executable action: review the disposable-only Windows5 plan at
+`LAB/continuation-20261102/disposable-dev5-lifecycle-r1/PLAN.md`. Nine explicit
+phases have not executed. It needs local elevation/launch clearance; no pending
+UAC/process exists. Do not run old fixed-primary helpers or bypass consecutive
+upgrade guards. See [current report](docs/releases/DRAGONHYDRA-RELEASE-REPORT.md)
+and [A–Z acceptance](docs/releases/RELEASE-ACCEPTANCE.md) for exact scope/rollback.
+
+Private source snapshots `LAB/preservation/reconciliation-20261102T124413751Z`
+were actually restored; all six historical HEAD objects are recoverable. Consistent
+Joomla and standalone SQLite backups are separate. Keep private state out of Git
+and packages. Historical receipts remain in existing handoffs and release reports.
+
+Owner-browser delivery was attempted but stopped: browser connector host unavailable;
+Windows Computer Use could not establish the current browser URL confidently.
+Homepage opening is unverified; no further input or alternate transport used.
+Prepared private driver has21synthetic groups and corrected helper19pure guards
+passed, zero real phases; latest bindings df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7.

@@ -7,8 +7,8 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "reconcile/genesis-20261102",
-  "phase": "RECONCILED_SOURCE_VERIFIED_BUILD_READY",
-  "installation": "MIXED_JOOMLA_F_DEV4_BACKEND_NATIVE_PROFILE_DEV3",
+  "phase": "DEV5_PACKAGES_VERIFIED_RELEASE_HELD_WINDOWS_GATES",
+  "installation": "MIXED_JOOMLA_DEV5_BACKEND_NATIVE_PROFILE_DEV3",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
     "mathematical_files_byte_identical": 5,
@@ -28,14 +28,16 @@
     }
   },
   "control_center": {
-    "status": "JOOMLA_F_DEV4_DEPLOYED_NEW_INTEGRATION_PENDING",
-    "browser_receipt": "LAB/acceptance/dev3-joomla4-browser-r4/verification.json",
-    "browser_passed": 204,
-    "browser_not_run": 2,
-    "neutral_source_scope": "F unverified/expired neutral deployed; new not-configured/filter integration pending"
+    "status": "JOOMLA5_BACKEND3_BROWSER_SCOPED_PASS",
+    "browser_receipt": "acceptance/dev3-joomla5-browser-r3/verification.json",
+    "browser_passed": 219,
+    "browser_not_run": 4,
+    "browser_failed": 0,
+    "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
-  "publication": "NOT_PUBLISHED_CURRENT_DEV4",
-  "next_objective": "Freeze and bind335-case verified dev5 inputs; build new source-bound packages; complete isolated Windows install/recovery gate before primary promotion and publication",
+  "publication": "HELD_NOT_PUBLISHED_NO_DEV5_TAG_OR_DRAFT",
+  "next_objective": "Review prepared disposable CORE NEXT Windows5 phase plan. Obtain required local elevation/native launch clearance once before actual installation; do not repeat canceled RunAs or bypass auto-review. Verify all mandatory lifecycle/GUI/identity/privacy gates, supported3-to5 transition, then publish/download-verify.",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -55,7 +57,7 @@
     "scope": "Historical A9 install/login/characterization passed; only its mission-owned service removed afterward; application/state/profile retained"
   },
   "candidate_installation": {
-    "status": "JOOMLA4_R1_ON_BACKEND_NATIVE_PROFILE3",
+    "status": "JOOMLA5_ON_BACKEND_NATIVE_PROFILE3",
     "installation_id": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "service_name": "DragonhydraCoreNextcandidate3a92a8dd62da",
     "install_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\profiles\\core-next-7ac520727b85456cac4a3a92a8dd62da\\application",
@@ -66,27 +68,26 @@
       "web": 18822
     },
     "current_component_versions": {
-      "joomla": "0.5.0-dev.4",
+      "joomla": "0.5.0-dev.5",
       "backend": "0.5.0-dev.3",
       "native": "0.5.0-dev.3",
       "profile": "0.5.0-dev.3"
     }
   },
   "packages": {
-    "status": "F_R2_NINE_BUILT_PRESERVED_NEW_INTEGRATION_NOT_BUILT",
-    "source_commit": "ede5bf788097abc136eee2ae726248893fb4ae7b",
+    "status": "NINE_PACKAGES_BUILT_VERIFIED_IN_SCOPED_TESTS_FULL_RELEASE_HELD",
+    "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
     "distribution_count": 9,
-    "inventory": "LAB/evidence/dev4-r2-prepared-packages.json",
-    "checksums": "LAB/evidence/dev4-r2-package-SHA256SUMS.txt",
-    "r1_assets": "LAB/dist/v0.5.0-dev.4-core-next",
-    "planned_r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
-    "publication_status": "NOT_PUBLISHED",
-    "r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
-    "pending_version": "0.5.0-dev.5"
+    "asset_count": 15,
+    "directory": "LAB/dist/v0.5.0-dev.5-core-next",
+    "manifest_sha256": "b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b",
+    "inventory": "LAB/evidence/dev5-prepared-packages.json",
+    "checksums": "LAB/dist/v0.5.0-dev.5-core-next/SHA256SUMS.txt",
+    "publication_status": "HELD_NOT_PUBLISHED"
   },
   "version": "0.5.0-dev.5",
   "proposed_tag": "v0.5.0-dev.5-core-next",
-  "updated_utc": "2026-11-02T13:43:00.470375+00:00",
+  "updated_utc": "2026-11-02T15:57:21.194494+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -105,23 +106,24 @@
     "memory_records": 10,
     "publication": "HELD_FOR_INHERITED_PACKAGE_METADATA"
   },
-  "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
-  "frozen_build_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "frozen_build_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
   "delivery_document_commit": null,
   "platform_acceptance": {
-    "current_windows4": "BLOCKED_APPROVAL_OR_LAUNCH_FAILED",
-    "current_joomla4_r1_on_backend3": "PASS_BROWSER_R3_SCOPED",
-    "native_client": "INSTALLED_DEV3_ONLY",
-    "android_dev4": "BUILD_HOST_TESTS_ONLY_DEVICE_NOT_RUN",
-    "linux_dev4": "R1_DOCKER_ONLY",
-    "r2_packages": "NOT_BUILT"
+    "windows_standalone5": "PASS_CURRENT_HOST_RESTART_AND_SQLITE_RESTORE",
+    "joomla5_backend3": "PASS219_NOTRUN4",
+    "windows_full5": "BLOCKED_ELEVATION_NOT_ESTABLISHED",
+    "native_client5": "BLOCKED_AUTO_REVIEW_BEFORE_CREATEPROCESS",
+    "linux5": "PASS_OFFLINE_NONROOT_DOCKER_ONLY",
+    "android5": "PASS_BUILD15_HOST_TESTS_DEVICE_NOTRUN",
+    "python5": "PASS_WHEEL_AND_SDIST_FRESH_OFFLINE_INSTALLS"
   },
   "original_concurrent_activity": {
     "local_head_observed": "f45c459ded940a5aeded8c111f76370eb4fd4e10",
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -156,15 +158,25 @@
     "sealed_release_assets_changed": false
   },
   "current_runtime_observation": {
-    "source_commit": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
-    "version": "0.5.0-dev.3",
+    "profile_id": "core-next-7ac520727b85456cac4a3a92a8dd62da",
+    "backend_source": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
+    "backend_version": "0.5.0-dev.3",
+    "joomla_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "joomla_version": "0.5.0-dev.5",
     "service_pid": 32192,
-    "joomla_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
-    "joomla_version": "0.5.0-dev.4",
-    "retained_count": 760,
-    "receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
-    "sha256": "f918a39a443b41bd4c1dcca61965cc00248e3319cc39a9bf2dc96466c0bef704",
-    "scope": "Actual mixed-component Joomla/browser runtime; no full dev.4 Windows acceptance"
+    "service_name": "DragonhydraCoreNextcandidate3a92a8dd62da",
+    "service_account": "LocalService",
+    "ports": {
+      "api": 18821,
+      "joomla": 18822,
+      "mariadb": 18823
+    },
+    "retained_matches": 760,
+    "scheduled": 330,
+    "finished": 430,
+    "source_scoped_teams": 40,
+    "competitions": 2,
+    "retained_identity_version_digest": "75c4ac7f23aaa4399b7c3883b7f2244448885a05ea3db75791d95910d8766cde"
   },
   "publication_external_history_observation": {
     "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
@@ -417,7 +429,9 @@
         "scope": "Actual PHP render/expiry unit suite; not full r2 source gate"
       },
       "privileged_retry": "NOT_AUTHORIZED_BEFORE_OWNER_ACKNOWLEDGEMENT"
-    }
+    },
+    "historical_context_only": true,
+    "superseded_by": "postbuild_dev5"
   },
   "historical_dev1_checkpoint": {
     "phase": "PUBLISHED_VERIFIED_PRERELEASE",
@@ -678,7 +692,7 @@
       "scope": "Current bounded availability and passive registry view after test-reference cleanup; old cached observations remain expired rather than being reprobed"
     }
   },
-  "source_commit_scope": "Last frozen r1 package source; new neutral-state r2 source awaits its own freeze",
+  "source_commit_scope": "Exact compiled application/source archive commit; later documentation-only coordinator HEAD is separate",
   "reconciliation": {
     "start_commit": "ede5bf788097abc136eee2ae726248893fb4ae7b",
     "original_commit": "a63068de10a111a7784bcf677101a66b693d0908",
@@ -708,7 +722,7 @@
       "scope": "Source and synthetic fixtures only"
     },
     "documentation": "docs/handover/ACTIVE-RECONCILIATION.md",
-    "publication": "NOT_RUN_MANDATORY_GATES_PENDING",
+    "publication": "HELD_NOT_PUBLISHED",
     "source_conflict_selections": "23_SOURCE_VERIFIED_INSTALLED_ACCEPTANCE_PENDING",
     "fresh_primary_baseline": {
       "records": 760,
@@ -720,5 +734,104 @@
       "evidence": "LAB/evidence/reconciliation-20261102/primary-api-baseline-r1.json"
     },
     "windows_elevation": "Single read-only identity probe launched; outcome pending, no installer or service action"
+  },
+  "historical_pre_dev5_postbuild_checkpoint": {
+    "captured_from_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "phase": "RECONCILED_SOURCE_VERIFIED_BUILD_READY",
+    "installation": "MIXED_JOOMLA_F_DEV4_BACKEND_NATIVE_PROFILE_DEV3",
+    "publication": "NOT_PUBLISHED_CURRENT_DEV4",
+    "next_objective": "Freeze and bind335-case verified dev5 inputs; build new source-bound packages; complete isolated Windows install/recovery gate before primary promotion and publication",
+    "packages": {
+      "status": "F_R2_NINE_BUILT_PRESERVED_NEW_INTEGRATION_NOT_BUILT",
+      "source_commit": "ede5bf788097abc136eee2ae726248893fb4ae7b",
+      "distribution_count": 9,
+      "inventory": "LAB/evidence/dev4-r2-prepared-packages.json",
+      "checksums": "LAB/evidence/dev4-r2-package-SHA256SUMS.txt",
+      "r1_assets": "LAB/dist/v0.5.0-dev.4-core-next",
+      "planned_r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
+      "publication_status": "NOT_PUBLISHED",
+      "r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
+      "pending_version": "0.5.0-dev.5"
+    },
+    "platform_acceptance": {
+      "current_windows4": "BLOCKED_APPROVAL_OR_LAUNCH_FAILED",
+      "current_joomla4_r1_on_backend3": "PASS_BROWSER_R3_SCOPED",
+      "native_client": "INSTALLED_DEV3_ONLY",
+      "android_dev4": "BUILD_HOST_TESTS_ONLY_DEVICE_NOT_RUN",
+      "linux_dev4": "R1_DOCKER_ONLY",
+      "r2_packages": "NOT_BUILT"
+    },
+    "control_center": {
+      "status": "JOOMLA_F_DEV4_DEPLOYED_NEW_INTEGRATION_PENDING",
+      "browser_receipt": "LAB/acceptance/dev3-joomla4-browser-r4/verification.json",
+      "browser_passed": 204,
+      "browser_not_run": 2,
+      "neutral_source_scope": "F unverified/expired neutral deployed; new not-configured/filter integration pending"
+    },
+    "current_runtime_observation": {
+      "source_commit": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
+      "version": "0.5.0-dev.3",
+      "service_pid": 32192,
+      "joomla_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+      "joomla_version": "0.5.0-dev.4",
+      "retained_count": 760,
+      "receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
+      "sha256": "f918a39a443b41bd4c1dcca61965cc00248e3319cc39a9bf2dc96466c0bef704",
+      "scope": "Actual mixed-component Joomla/browser runtime; no full dev.4 Windows acceptance"
+    },
+    "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+    "frozen_build_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+    "source_commit_scope": "Last frozen r1 package source; new neutral-state r2 source awaits its own freeze"
+  },
+  "release_source_tree_hash": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+  "release_branch": "release/core-next-dev5-20261102",
+  "delivery_document_commit_resolution": "Resolve Git commit of this post-build documentation update; not used as compiled source",
+  "postbuild_dev5": {
+    "status": "PARTIALLY_COMPLETE_WITH_EXACT_REMAINING_GATES",
+    "recorded_at": "2026-11-02T15:52:27.813227+00:00",
+    "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "release_source_tree_hash": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+    "release_version": "0.5.0-dev.5",
+    "release_branch": "release/core-next-dev5-20261102",
+    "coordinator_branch": "reconcile/genesis-20261102",
+    "suite_totals_policy": "335 distinct source cases only; browser checks, historical lineages and platform groups are separate and not summed",
+    "next_action": "Review prepared disposable CORE NEXT Windows5 phase plan. Obtain required local elevation/native launch clearance once before actual installation; do not repeat canceled RunAs or bypass auto-review. Verify all mandatory lifecycle/GUI/identity/privacy gates, supported3-to5 transition, then publish/download-verify.",
+    "owner_browser_delivery": {
+      "status": "BLOCKED",
+      "reason": "Browser connector host unavailable; Windows Computer Use stopped after new-tab request because current browser URL could not be determined confidently. No further app input or alternate transport used.",
+      "homepage_opened_verified": false,
+      "homepage": "http://127.0.0.1:18822/"
+    },
+    "disposable_preparation": {
+      "status": "PREPARED_NOT_EXECUTED",
+      "driver_synthetic_groups_passed": 21,
+      "python_helper_pure_guards_passed": 19,
+      "helper_sha256": "47d5ffc472bbb0675ab8942c77fccb14e9a780e8f40acff2e397fe5e1c197f0b",
+      "bindings_sha256": "df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7",
+      "real_phase_receipts": 0,
+      "scope": "Private test harness only; actual infrastructure service-identity route correction, no product source or Windows action",
+      "peer_review": "PASS_BOUNDED_READ_ONLY_SOURCE_AND_BINDING_RECHECK",
+      "remaining_real_windows_gates": "NOT_RUN; zero phase markers/receipts; no UI or HTTP used in peer review"
+    },
+    "receipt": {
+      "path": "docs/releases/evidence/POST-BUILD-DEV5.json",
+      "sha256": "8c1110b6d20cabcc0ea1cbc694fb443c7119a6a93c5b3f35456cd8042d376983"
+    },
+    "source_tests": {
+      "distinct": 335,
+      "passed": 328,
+      "failed": 0,
+      "not_run": 7,
+      "input_hashes_bound_to_git": 521,
+      "witness": {
+        "evidence_name": "integrated-dev5-r1.json",
+        "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+      }
+    },
+    "final_preservation_receipt": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/final-preservation-r2.json",
+      "bytes": 76086,
+      "sha256": "1e5b5cb31c24e391d71c66d85880028b589e718e545b68ebfde0e88b562c63f2"
+    }
   }
 }

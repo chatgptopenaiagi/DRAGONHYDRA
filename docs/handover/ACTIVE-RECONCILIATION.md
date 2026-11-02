@@ -1,64 +1,106 @@
-# Active product reconciliation — 2026-11-02
+# Active DRAGONHYDRA reconciliation — post-build checkpoint
 
-Target: existing CORE NEXT clone `C:\xampp\DRAGONHYDRA-CORE-NEXT`, branch
-`reconcile/genesis-20261102`, starting commit
-`ede5bf788097abc136eee2ae726248893fb4ae7b` (F). Read the current Git HEAD/status;
-this starting identity is not a claim that later binaries contain the integration.
+Updated 2026-11-02T15:52:27.813227+00:00. **PARTIALLY COMPLETE WITH EXACT REMAINING GATES.**
 
-Preserve original `C:\xampp\DRAGONHYDRA`, its nested independent `source/`
-repository, all six clean historical worktrees, four original running profiles,
-GENESIS A9 and the published CORE NEXT dev.1. No SENTINEL/general session-control
-software is authorized. Second Codex window is closed per owner; process counts
-are not writer attribution.
+## Source and ownership
 
-Primary profile is `core-next-7ac520727b85456cac4a3a92a8dd62da`, service
-`DragonhydraCoreNextcandidate3a92a8dd62da`, LocalService. API18821/Joomla18822/
-MariaDB18823; private application/state live under LAB/profiles/<identity>.
-Backend/native/profile source remains `3af173d...` dev.3. Joomla component,
-template and package are F `ede5bf...` dev.4. The F package repeat update and
-actual authenticated browser r4 passed 204 checks, two not run. This is explicitly
-a mixed installation, not complete dev.4 installed acceptance.
+Canonical clone: `C:\xampp\DRAGONHYDRA-CORE-NEXT`, coordinator branch
+`reconcile/genesis-20261102`. Frozen application source `ed78fab282599a181d4254ab65a2fc2eaa5b7f50`, tree `7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a`;
+release branch `release/core-next-dev5-20261102` and clean worktree
+`LAB/release-source/dev5-ed78` preserve it. Both source branches were pushed and
+remote SHA verified. A subsequent docs-only coordinator commit is separate from
+compiled source and must not become a falsely labelled binary source/tag.
 
-Completed: three source snapshots created and actually restored, six historical
-worktrees clean, 798-path three-way inventory, shared science/provider comparison,
-bounded session attribution, fresh published-baseline metadata, original54 and
-foundation42 isolated reference tests. All nine F r2 artifacts remain preserved;
-no new tag/draft/release exists. See LAB/evidence/reconciliation-20261102.
+Original `C:\xampp\DRAGONHYDRA` continuity HEAD a63068de... and nested
+`source/` HEAD1d044992... remain independent. Three source snapshots actually
+restored; all six historical worktree HEADs readable in the restored bundle.
+798-path inventory/23 same-path decisions recorded. Ambiguous session origins
+remain UNKNOWN. Original-only capabilities are preserved rather than blindly
+merged into the modern registry. Owner excludes SENTINEL/general session control.
 
-Active nonoverlapping edits: UI/model/tests and minimal filter plumbing; backend
-typed service identity and exact supervisor heartbeat; packaging Joomla source
-agreement checks; coordinator documentation/ledger. No version freeze, current
-integration source-suite pass, new build or live integration deployment yet.
+## What is deployed
 
-Next: integrate focused tests; resolve all meaningful ledger paths; freeze one
-coherent development source/version; build affected packages; diagnose Windows
-RunAs launch precisely; verify disposable installation/repair/restore/restart
-before primary upgrade. Then installed UI/native/platform/privacy acceptance and
-verified publication. Historical `InvalidOperationException` proves neither user
-cancellation nor successful elevation. Do not blindly rerun old one-shot drivers.
+Profile `core-next-7ac520727b85456cac4a3a92a8dd62da`, service
+`DragonhydraCoreNextcandidate3a92a8dd62da`, LocalService, PID32192 at receipt.
+API18821, Joomla18822, MariaDB18823. Joomla supported install/repeat now deploys
+45 declared files from dev.5/ed78. Backend/native/supervisor/profile/application
+envelope remain dev.3/source3af173d/build upgrade-3af173d0248e. Old cached web ZIP
+and application manifests are unchanged. This is compatibility evidence, not
+complete installed Windows5. Original18740/18744 and other profiles unchanged.
 
-Private recovery snapshot: LAB/preservation/reconciliation-20261102T124413751Z.
-Source restoration-r1 passed all three HEAD/patch/hash checks. This does not prove
-live database restoration. Existing consistent Joomla/SQLite recovery receipts
-remain separate; use them before a scoped deployment. Keep backups out of Git.
+Primary fresh baseline remains760matches (330scheduled/430finished),40teams,
+two source/season competitions,18registry entries (six engines/twelve supporting),
+40cognitive records/18durable jobs. Actual stable match identity/version digest
+`75c4ac7f23aaa4399b7c3883b7f2244448885a05ea3db75791d95910d8766cde`
+matches before/after. Pairing/provider config/Joomla identities/content preserved.
 
-## Verified integration source checkpoint
+## Verified increments
 
-Candidate0.5.0-dev.5 (Androidcode8) aligns existing product version inputs without
-changing dependency pins. The deduplicated integrated suite ran335 cases:
-328PASS, sevenNOT_RUN, zeroFAIL;521 product/test/style/template/lock/resource
-hashes were stable and rechecked before checkpointing. New service identity11,
-payload input8 and frontend setup9 scopes passed within that total; do not add
-overlapping focused batches. Original54 and foundation42 remain separate scopes.
+-335 distinct source cases:328PASS/7NOT_RUN/0FAIL;521 tested inputs match Git.
+-New real Windows standalone/extracted dev.5 server startup/auth/forecast/pending
+ evaluation/duplicate/restart checks pass; all owned processes shut down.
+-Real SQLite backup restored23tables and stable forecast identities, then exact
+ packaged server read them back. Whole Windows/MariaDB restore NOT_RUN.
+-Three real export formats preserve numeric0–0 and deny anonymous download.
+-One actual retained target with50identical evidence tuples: five dev.3/dev.5
+ probability vectors agree to1e-12 (actual delta0). No accuracy claim.
+-Joomla5/backend3 actual browser219PASS/4NOT_RUN/0FAIL, zero page errors; five
+ existing jobs reused, zero new UI submissions; repeat package update idempotent.
+-Docker exact archive11runtime groups;31unit cases30PASS/1NOT_RUN. Flutter clean
+ analysis/15tests/new ARM64 APK, no attached device. Wheel/sdist offline fresh
+ installations and API checks pass. Native binary built, GUI blocked.
+-Final nine packages and six held metadata files have verified sizes/checksums.
+ Known-value scan decoded10,684files/4,361archive members with0matches/0errors;
+ six metadata files separately scanned. Final installed-source gate NOT_RUN.
 
-The seven not-run cases require Linux shell/TIME_WAIT(3), a private real registry
-PHP snapshot(1), or Windows symlink privilege(3). New installed behavior, actual
-SCM identity, native client, clean installation, database restoration and final
-privacy/publication still require their own evidence. Root's single read-only
-RunAs identity probe has not established an elevation result; no installer was
-launched. Do not mistake an uncertain launch for cancellation or repeat it blindly.
+Browser R1/R2 resize errors were a test-harness/native cross-document transition
+race, reproduced in isolated CSS-only Edge. R3 waits the actual transition finish;
+six RED/GREEN fixture guards keep real JS-error gates intact. No app source was
+changed after freeze. Export first-run header casing and numerical comparison
+Decimal-string mistakes were also harness defects; failed receipts preserved.
 
-Source/test receipt: docs/reconciliation/evidence/INTEGRATED-SOURCE-DEV5.json.
-All previous F r1/r2 packages, source snapshots and service/data baselines remain
-preserved. New builds must reference the immutable integration checkpoint; old
-binaries retain their actual dev.4/dev.3 source and version.
+## Held deliverables and blockers
+
+`LAB/dist/v0.5.0-dev.5-core-next`:9packages +6metadata; manifest
+`b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b`. No dev.5 tag/draft/release/publication.
+Historical dev.1/A9 assets preserved. See [release report](../releases/DRAGONHYDRA-RELEASE-REPORT.md).
+
+Read-only RunAs probe: terminal launch exception text reports cancellation; no
+child/PID/receipt. Old dev.4 InvalidOperationException remains undiagnosed. New
+native5 CreateProcess action was rejected by automatic approval review (“blocked
+by policy”). Do not bypass or repeatedly retry. Current shell is not elevated.
+
+Disposable profile `core-next-b447d99ab9524197af09c235077685de` reserves18860–18862.
+`LAB/continuation-20261102/disposable-dev5-lifecycle-r1/PLAN.md` is prepared only:
+explicit fresh/read/forecast/backup/restart/repair/retain-uninstall/reinstall/final-
+uninstall phases; zero real phase markers. It has synthetic guard/peer review,
+not actual install acceptance. Review its latest BINDINGS and PREPARATION receipt
+after any helper fix. No native launch is hidden in it. Backups are private.
+
+## Next executable work
+
+1. With necessary local Windows approval available, execute each prepared
+   disposable phase explicitly and inspect its receipt before continuing.
+2. Verify live new SCM producer/Joomla, repair/restart/retention/reinstall,
+   native GUI/pairing/default-browser and final private-data scan.
+3. Review supported primary3→5 transition; consecutive-version guard currently
+   rejects direct jump. Never bypass it or assume reinstall is an upgrade.
+4. After mandatory gates, recheck remote baseline, source and all15asset hashes,
+   tag exact ed78, publish unique dev.5 prerelease and re-download/verify.
+   If source changes, freeze a new identity and rebuild affected packages.
+
+Rollback: Joomla backup/consistent SQL and file receipt at
+`LAB/continuation-20261102/joomla-only-dev5-r1`; do not copy live MariaDB datadirs.
+Actual standalone SQLite recovery evidence at `LAB/acceptance/database-restore-dev5-r1`;
+private backup `LAB/preservation/database-restore-dev5-r1`. Source private snapshots
+are not live database backups. Never restore over unrelated profiles.
+
+Full scoped receipts/hashes: [POST-BUILD-DEV5.json](../releases/evidence/POST-BUILD-DEV5.json).
+Earlier detailed handoff [CONTINUATION-20261102.md](CONTINUATION-20261102.md) is
+historical context; this checkpoint governs current source/build/next action.
+
+Owner-browser delivery was attempted but stopped: browser connector host unavailable;
+Windows Computer Use could not establish the current browser URL confidently.
+Homepage opening is unverified; no further input or alternate transport used.
+Prepared private driver has21synthetic groups and corrected helper19pure guards
+passed, zero real phases; latest bindings df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7.

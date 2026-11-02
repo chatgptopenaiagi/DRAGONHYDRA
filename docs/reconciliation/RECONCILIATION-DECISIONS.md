@@ -1,3 +1,9 @@
+# Post-build decision update — dev.5 held
+
+R05/R10 now have installed Joomla5/backend3 browser evidence219PASS/4NOT_RUN/0FAIL. R06 remains source-verified with live Windows5 SCM producer NOT_RUN. R07 now has source-bound package/extracted installer evidence. R09 runtime is Joomla5/ed78 on backend/native/profile3; new standalone5 verification is separate. All six historical HEADs are recovered. See the master release report for actual RunAs/native denial and required Windows gates. The original decisions below are preserved at their timestamps.
+
+---
+
 # Product reconciliation decisions — 2026-11-02
 
 This is a product integration checkpoint, not a completed release. The owner's

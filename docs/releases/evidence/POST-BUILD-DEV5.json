@@ -1,0 +1,765 @@
+{
+  "schema_version": "dragonhydra.post-build-checkpoint/1",
+  "recorded_at": "2026-11-02T15:52:27.813227+00:00",
+  "status": "PARTIALLY_COMPLETE_WITH_EXACT_REMAINING_GATES",
+  "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "release_source_tree_hash": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+  "release_version": "0.5.0-dev.5",
+  "release_branch": "release/core-next-dev5-20261102",
+  "coordinator_branch": "reconcile/genesis-20261102",
+  "documentation_commit_scope": "Later documentation checkpoint; not compiled source; resolve its Git commit separately",
+  "release_identity": {
+    "RELEASE_SOURCE_COMMIT": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "RELEASE_SOURCE_TREE_HASH": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+    "RELEASE_VERSION": "0.5.0-dev.5",
+    "BUILD_ID": "core-next-dev5-ed78fab28259-r1",
+    "RELEASE_MANIFEST_HASH": "b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b",
+    "publication_status": "HELD_NOT_PUBLISHED",
+    "proposed_tag": "v0.5.0-dev.5-core-next",
+    "asset_count": 15,
+    "package_count": 9,
+    "asset_inventory": [
+      {
+        "filename": "ARTIFACT-MANIFEST.json",
+        "bytes": 12578,
+        "sha256": "b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b"
+      },
+      {
+        "filename": "BUILD-REPORT.json",
+        "bytes": 5503,
+        "sha256": "2bacbc7e08dc842dd8637c57af471ebd3dded026c7d279702fce3d9f11da693a"
+      },
+      {
+        "filename": "dragonhydra-0.5.0.dev5-py3-none-any.whl",
+        "bytes": 338599,
+        "sha256": "705a6d657ed85f03ec55468961b6a88cf67827efa5e580a487d6d63c032c9145"
+      },
+      {
+        "filename": "dragonhydra-0.5.0.dev5.tar.gz",
+        "bytes": 2995992,
+        "sha256": "585d75a74343271144d5032f8c7e405ca122140ba02b0cef98feb4e9a9e8ce78"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Android-arm64-development.apk",
+        "bytes": 17345950,
+        "sha256": "4b207ffd9b7518f2aaef4e5ec25596bbc947d69dc26cfa33cc97abf6043fe994"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Desktop-win-x64.exe",
+        "bytes": 10087424,
+        "sha256": "f3f9f366a2d7d6979f84a71a99cb1ef343b1fe27b00a623b12e48408579c2a71"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Linux-server-x86_64.tar.gz",
+        "bytes": 4316578,
+        "sha256": "9d5585dc9831bbc66e61f469385aa8610655e71890092278024deb892e4d11b4"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Server-win-x64.zip",
+        "bytes": 19612787,
+        "sha256": "b7b2e58790738c7ecfb0169b30ef27ca579dbb3eedbe8be43917e834333572a9"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Source.zip",
+        "bytes": 4049648,
+        "sha256": "b47550c7e84091d38f298c7d9d91193527ad6a46f3074a9b0f909ac1550ec46e"
+      },
+      {
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Workstation-win-x64-Setup.exe",
+        "bytes": 64918477,
+        "sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553"
+      },
+      {
+        "filename": "INSTALLATION.md",
+        "bytes": 3019,
+        "sha256": "3c39c6d3528f16efcaa04774ea3d90b54bf2a47ac6d5dc868d141f8c31233b31"
+      },
+      {
+        "filename": "pkg_dragonhydra-0.5.0-dev.5.zip",
+        "bytes": 64159,
+        "sha256": "212cf909c69ede78b83888a1041a2d3260d5f5c0838dbc24bc8a5ab60d114582"
+      },
+      {
+        "filename": "RELEASE-NOTES.md",
+        "bytes": 2331,
+        "sha256": "efd0b97fe262480f2f4e6abc14001c6f39f37f5ce020ceb9f33b356cd1542aca"
+      },
+      {
+        "filename": "SHA256SUMS.txt",
+        "bytes": 1472,
+        "sha256": "4f523e9e2b5fb68864d6cb4f0a39828ef79300898ec978edd3fe0674bd723959"
+      },
+      {
+        "filename": "TEST-REPORT.json",
+        "bytes": 4759,
+        "sha256": "93865c105dd8259a9fb22cf56b8fd560f3f464762d7ef5c1ce7c48ef12c1c1d4"
+      }
+    ],
+    "metadata_scan_refresh": "Prepublication known-value scan R2; old metadata preserved in attempts"
+  },
+  "source_tests": {
+    "distinct": 335,
+    "passed": 328,
+    "failed": 0,
+    "not_run": 7,
+    "input_hashes_bound_to_git": 521,
+    "witness": {
+      "evidence_name": "integrated-dev5-r1.json",
+      "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+    }
+  },
+  "suite_totals_policy": "335 distinct source cases only; browser checks, historical lineages and platform groups are separate and not summed",
+  "evidence": {
+    "source": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+      "bytes": 200169,
+      "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+    },
+    "source_binding": {
+      "path_relative_to_lab": "evidence/dev5-tested-source-binding.json",
+      "bytes": 219486,
+      "sha256": "50d60e4392164abdb0b526a1689d2ef1b7fd3b66c8214f5002cd898fa6ed43f9"
+    },
+    "source_recovery": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/source-restoration-r1.json",
+      "bytes": 1686,
+      "sha256": "2c32dd16c0c3c7ecc0d1b0bc733feb8756aca99cff58115fca3718ff5f90a984"
+    },
+    "historical_objects": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/historical-worktree-commits-in-restored-bundle.json",
+      "bytes": 713,
+      "sha256": "29f1350e4b8add9f50a649111720b7b959f40e61aec76c8abfe777923a4242ec"
+    },
+    "standalone": {
+      "path_relative_to_lab": "acceptance/frozen-dev5-r1/verification.json",
+      "bytes": 11076,
+      "sha256": "ec4efb14af2dd97e8831b9f918fb632fdc03620cdddb1768b429b172c61ea89e"
+    },
+    "server_archive": {
+      "path_relative_to_lab": "acceptance/server-archive-dev5-r1/verification.json",
+      "bytes": 11225,
+      "sha256": "c63696f90fa8aae4a77e81795cdefdadf2aa16fa2a4b9d4f409393b54c7ae53d"
+    },
+    "restore": {
+      "path_relative_to_lab": "acceptance/database-restore-dev5-r1/verification.json",
+      "bytes": 1013,
+      "sha256": "cbd6179f141118a93302ae3884c82d87e467b1461aacaad03dff88da3e9fc4ba"
+    },
+    "exports": {
+      "path_relative_to_lab": "acceptance/frozen-exports-dev5-r2/verification.json",
+      "bytes": 2521,
+      "sha256": "cc58c7a6a1455823c2662a7f367155753cfe35e850749f11fda8f05ceb27d164"
+    },
+    "numerical_comparison": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/retained-forecast-dev3-dev5-comparison-r2.json",
+      "bytes": 1995,
+      "sha256": "caeba36f1f506a62c2be6dd67e5217aea4690616dc5e32d0f32e855ab3e81c4e"
+    },
+    "joomla_deployment": {
+      "path_relative_to_lab": "continuation-20261102/joomla-only-dev5-r1/verification.json",
+      "bytes": 36554,
+      "sha256": "833b8195018a84e9c82dc63c4d6e586b643b88537bc5d8dd65ceeb8c972045e0"
+    },
+    "browser": {
+      "path_relative_to_lab": "acceptance/dev3-joomla5-browser-r3/verification.json",
+      "bytes": 66950,
+      "sha256": "812f7c78959d95da42e5b2ac8890be88f7f5b0554bb60b24a41e07cd84566546"
+    },
+    "browser_harness": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/product-ui-native-transition-diagnosis-r1.json",
+      "bytes": 4275,
+      "sha256": "561aad4fe1b147ffcc46627d89fabd9191e046febead2ac0ff76ebcd0d4eb749"
+    },
+    "wheel": {
+      "path_relative_to_lab": "build/python-dev5-r1/wheel-verification.json",
+      "bytes": 26851,
+      "sha256": "870527948aced03f931f9329472df99db72b40f4d6d595433493e1e9c24b9efa"
+    },
+    "sdist": {
+      "path_relative_to_lab": "build/sdist-dev5-r1/sdist-verification.json",
+      "bytes": 36760,
+      "sha256": "f3f396911746959ebd6243f5cdd620a6d7f314c2f0cb1630364996a58f27cffd"
+    },
+    "linux": {
+      "path_relative_to_lab": "evidence/linux-dev5-verification.json",
+      "bytes": 7623,
+      "sha256": "879dc491e53aec24c804eb147eb89b12016ce43f969471ecb118f75d995ea2b1"
+    },
+    "android": {
+      "path_relative_to_lab": "build/android-dev5-r1/android-verification.json",
+      "bytes": 4612,
+      "sha256": "642f89831acdf247b603899113c16828c5a5005a2066d9a12dfb0fa990dd3b2c"
+    },
+    "installer_extraction": {
+      "path_relative_to_lab": "evidence/workstation-dev5-r1-extraction.json",
+      "bytes": 13147,
+      "sha256": "592a077a30b143a574933af920dbc10e3d8c84c49b5d062fadfb9b23817f8d8b"
+    },
+    "installer_provenance": {
+      "path_relative_to_lab": "evidence/workstation-dev5-r1-source-provenance.json",
+      "bytes": 5191,
+      "sha256": "8177d53fc6b994166dc5c6783839d91a066161fce37575c9c3f1cfd58cc854b2"
+    },
+    "native_package": {
+      "path_relative_to_lab": "evidence/desktop-dev5-r1-verification.json",
+      "bytes": 2788,
+      "sha256": "bf4fe2d9c4b7689c1f315a038eaec1206c2d20fe20a8198700c1eb9fa2b00106"
+    },
+    "native_launch": {
+      "path_relative_to_lab": "acceptance/native-dev5-r1/verification.json",
+      "bytes": 701,
+      "sha256": "a22f3e35ee9e1bdcf9dd4a4beab0315f36bf0a1f522d2793dbdb67d0143b4b02"
+    },
+    "elevation": {
+      "path_relative_to_lab": "continuation-20261102/uac-identity-probe-r1/launch-result.json",
+      "bytes": 2402,
+      "sha256": "66e1478fa3668ef70c4fc6e883355b12beed4a336d5a6120f5ecd847e70f105c"
+    },
+    "privacy_packages": {
+      "path_relative_to_lab": "evidence/privacy-dev5-preliminary-packages-r3.json",
+      "bytes": 5748,
+      "sha256": "2b1adcdf1f9b00b7ebff53825623713e30696dfec5f20a120005d33cb49d4509"
+    },
+    "privacy_metadata": {
+      "path_relative_to_lab": "evidence/privacy-dev5-held-metadata-r2.json",
+      "bytes": 1752,
+      "sha256": "b477e8479e0bf307116c17097d60d34b25ac4f134b7d7a33aca65946a7d53d30"
+    },
+    "performance": {
+      "path_relative_to_lab": "acceptance/measure-standalone-dev5-r1/verification.json",
+      "bytes": 1035,
+      "sha256": "9a96a093a6b86cc9091857ad742775c134cddfb3be9c240cdbb1a0575374e2f4"
+    },
+    "final_preservation": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/final-preservation-r2.json",
+      "bytes": 76086,
+      "sha256": "1e5b5cb31c24e391d71c66d85880028b589e718e545b68ebfde0e88b562c63f2"
+    }
+  },
+  "acceptance": [
+    {
+      "verification_id": "A",
+      "subsystem": "Workspace discovery",
+      "test_objective": "Identify independent physical repositories and profiles",
+      "expected_behavior": "Identify independent physical repositories and profiles",
+      "observed_behavior": "Three independent repositories and six historical worktrees inventoried",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/source-restoration-r1.json",
+        "bytes": 1686,
+        "sha256": "2c32dd16c0c3c7ecc0d1b0bc733feb8756aca99cff58115fca3718ff5f90a984"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/source-restoration-r1.json",
+      "known_limitations": "Read-only source/metadata discovery; attribution is bounded"
+    },
+    {
+      "verification_id": "B",
+      "subsystem": "Session reconstruction",
+      "test_objective": "Record proven origin and uncertainty",
+      "expected_behavior": "Record proven origin and uncertainty",
+      "observed_behavior": "Session/commit evidence recorded; ambiguous file origins UNKNOWN",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/source-restoration-r1.json",
+        "bytes": 1686,
+        "sha256": "2c32dd16c0c3c7ecc0d1b0bc733feb8756aca99cff58115fca3718ff5f90a984"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/source-restoration-r1.json",
+      "known_limitations": "Process count does not identify independent writers"
+    },
+    {
+      "verification_id": "C",
+      "subsystem": "File integrity",
+      "test_objective": "Recover original working states without loss",
+      "expected_behavior": "Recover original working states without loss",
+      "observed_behavior": "Three private source restorations and all six historical commit objects verified",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/historical-worktree-commits-in-restored-bundle.json",
+        "bytes": 713,
+        "sha256": "29f1350e4b8add9f50a649111720b7b959f40e61aec76c8abfe777923a4242ec"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/historical-worktree-commits-in-restored-bundle.json",
+      "known_limitations": "No claim for unreachable/reflog-only objects or all ignored files"
+    },
+    {
+      "verification_id": "D",
+      "subsystem": "Git reconciliation",
+      "test_objective": "Preserve separate histories and select justified source",
+      "expected_behavior": "Preserve separate histories and select justified source",
+      "observed_behavior": "A9 ancestry, 798-path inventory and 23 same-path decisions recorded",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/dev5-tested-source-binding.json",
+        "bytes": 219486,
+        "sha256": "50d60e4392164abdb0b526a1689d2ef1b7fd3b66c8214f5002cd898fa6ed43f9"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/dev5-tested-source-binding.json",
+      "known_limitations": "Original and nested histories preserved; no blanket merge"
+    },
+    {
+      "verification_id": "E",
+      "subsystem": "Architecture",
+      "test_objective": "One authoritative registry and canonical mathematics",
+      "expected_behavior": "One authoritative registry and canonical mathematics",
+      "observed_behavior": "Six engines plus twelve supporting bindings; 25 selected science/provider files unchanged",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+        "bytes": 200169,
+        "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+      "known_limitations": "Source contracts plus scoped runtime; no accuracy claim"
+    },
+    {
+      "verification_id": "F",
+      "subsystem": "Conflict resolution",
+      "test_objective": "Test selected product behaviors",
+      "expected_behavior": "Test selected product behaviors",
+      "observed_behavior": "328 source cases pass; filtering/service identity/package checks integrated",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+        "bytes": 200169,
+        "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+      "known_limitations": "Installed service producer still requires Windows acceptance"
+    },
+    {
+      "verification_id": "G",
+      "subsystem": "Generic writer coordination",
+      "test_objective": "Follow corrected owner scope",
+      "expected_behavior": "Follow corrected owner scope",
+      "observed_behavior": "SENTINEL/general coordination explicitly excluded; none implemented",
+      "result": "NOT_APPLICABLE",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+        "bytes": 200169,
+        "sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/integrated-dev5-r1.json",
+      "known_limitations": "Ordinary Git/source verification only"
+    },
+    {
+      "verification_id": "H",
+      "subsystem": "Frozen source",
+      "test_objective": "Bind builds to immutable tested inputs",
+      "expected_behavior": "Bind builds to immutable tested inputs",
+      "observed_behavior": "521 input hashes match ed78; nine source-bound packages; frozen release branch",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/dev5-tested-source-binding.json",
+        "bytes": 219486,
+        "sha256": "50d60e4392164abdb0b526a1689d2ef1b7fd3b66c8214f5002cd898fa6ed43f9"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/dev5-tested-source-binding.json",
+      "known_limitations": "Later documentation commits are separate from compiled source"
+    },
+    {
+      "verification_id": "I",
+      "subsystem": "Registry",
+      "test_objective": "Validate inventory, dependencies and operation-scoped states",
+      "expected_behavior": "Validate inventory, dependencies and operation-scoped states",
+      "observed_behavior": "Source validation and standalone six/all18 API contracts pass; Joomla reads same registry",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/frozen-dev5-r1/verification.json",
+        "bytes": 11076,
+        "sha256": "ec4efb14af2dd97e8831b9f918fb632fdc03620cdddb1768b429b172c61ea89e"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/frozen-dev5-r1/verification.json",
+      "known_limitations": "Live SCM producer not demonstrated on old primary backend"
+    },
+    {
+      "verification_id": "J",
+      "subsystem": "Observation lifecycle",
+      "test_objective": "Verify installed new service identity and autonomous refresh",
+      "expected_behavior": "Verify installed new service identity and autonomous refresh",
+      "observed_behavior": "Standalone fresh/idle/expiry/recovery checks pass; new Windows SCM producer untested",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/frozen-dev5-r1/verification.json",
+        "bytes": 11076,
+        "sha256": "ec4efb14af2dd97e8831b9f918fb632fdc03620cdddb1768b429b172c61ea89e"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/frozen-dev5-r1/verification.json",
+      "known_limitations": "Do not infer service proof from standalone/API health"
+    },
+    {
+      "verification_id": "K",
+      "subsystem": "Cognitive memory",
+      "test_objective": "Persist immutable history and idempotent operations",
+      "expected_behavior": "Persist immutable history and idempotent operations",
+      "observed_behavior": "Standalone forecast/readback/restart and 23-table SQLite restore pass",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/database-restore-dev5-r1/verification.json",
+        "bytes": 1013,
+        "sha256": "cbd6179f141118a93302ae3884c82d87e467b1461aacaad03dff88da3e9fc4ba"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/database-restore-dev5-r1/verification.json",
+      "known_limitations": "Not a primary MariaDB/whole-workstation restore"
+    },
+    {
+      "verification_id": "L",
+      "subsystem": "Prediction workflow",
+      "test_objective": "Trace real inputs through persisted outputs",
+      "expected_behavior": "Trace real inputs through persisted outputs",
+      "observed_behavior": "50 retained inputs; four models plus ensemble; durable duplicate-safe job",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/frozen-dev5-r1/verification.json",
+        "bytes": 11076,
+        "sha256": "ec4efb14af2dd97e8831b9f918fb632fdc03620cdddb1768b429b172c61ea89e"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/frozen-dev5-r1/verification.json",
+      "known_limitations": "New source5 workflow standalone; installed Joomla reads existing source3 jobs"
+    },
+    {
+      "verification_id": "M",
+      "subsystem": "Evaluation eligibility",
+      "test_objective": "Reject leakage/mismatch and report unavailable outcome",
+      "expected_behavior": "Reject leakage/mismatch and report unavailable outcome",
+      "observed_behavior": "Source fixtures pass; actual evaluation awaits eligible later outcome",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/retained-forecast-dev3-dev5-comparison-r2.json",
+        "bytes": 1995,
+        "sha256": "caeba36f1f506a62c2be6dd67e5217aea4690616dc5e32d0f32e855ab3e81c4e"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/retained-forecast-dev3-dev5-comparison-r2.json",
+      "known_limitations": "No measured accuracy/calibration or fabricated score"
+    },
+    {
+      "verification_id": "N",
+      "subsystem": "Sports semantics",
+      "test_objective": "Preserve identities, zeros and regulation eligibility",
+      "expected_behavior": "Preserve identities, zeros and regulation eligibility",
+      "observed_behavior": "Source standings invariants pass; real0-0 preserved across three exports",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/frozen-exports-dev5-r2/verification.json",
+        "bytes": 2521,
+        "sha256": "cc58c7a6a1455823c2662a7f367155753cfe35e850749f11fda8f05ceb27d164"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/frozen-exports-dev5-r2/verification.json",
+      "known_limitations": "No new official/live acquisition or deductions/tie-break claim"
+    },
+    {
+      "verification_id": "O",
+      "subsystem": "Database recovery",
+      "test_objective": "Verify full workstation backup and recovery",
+      "expected_behavior": "Verify full workstation backup and recovery",
+      "observed_behavior": "Actual standalone SQLite restore preserves23tables; Joomla consistent backups retained",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/database-restore-dev5-r1/verification.json",
+        "bytes": 1013,
+        "sha256": "cbd6179f141118a93302ae3884c82d87e467b1461aacaad03dff88da3e9fc4ba"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/database-restore-dev5-r1/verification.json",
+      "known_limitations": "Full Windows/MariaDB restore gate remains NOT_RUN"
+    },
+    {
+      "verification_id": "P",
+      "subsystem": "Backend runtime",
+      "test_objective": "Run exact packaged server with authentication and restart",
+      "expected_behavior": "Run exact packaged server with authentication and restart",
+      "observed_behavior": "Standalone and extracted ZIP6 acceptance groups pass; shutdown exit0",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/server-archive-dev5-r1/verification.json",
+        "bytes": 11225,
+        "sha256": "c63696f90fa8aae4a77e81795cdefdadf2aa16fa2a4b9d4f409393b54c7ae53d"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/server-archive-dev5-r1/verification.json",
+      "known_limitations": "Current-host standalone, not Windows service acceptance"
+    },
+    {
+      "verification_id": "Q",
+      "subsystem": "Joomla administrator",
+      "test_objective": "Authenticate and retain permission boundaries",
+      "expected_behavior": "Authenticate and retain permission boundaries",
+      "observed_behavior": "Real Joomla5/backend3 browser login/CSRF/navigation/logout/fresh login pass",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/dev3-joomla5-browser-r3/verification.json",
+        "bytes": 66950,
+        "sha256": "812f7c78959d95da42e5b2ac8890be88f7f5b0554bb60b24a41e07cd84566546"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/dev3-joomla5-browser-r3/verification.json",
+      "known_limitations": "Mixed installed version scope explicit"
+    },
+    {
+      "verification_id": "R",
+      "subsystem": "Website",
+      "test_objective": "Browse retained records, filters and valid exports",
+      "expected_behavior": "Browse retained records, filters and valid exports",
+      "observed_behavior": "219PASS/4NOT_RUN/0FAIL; zero page errors; no new UI jobs",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/dev3-joomla5-browser-r3/verification.json",
+        "bytes": 66950,
+        "sha256": "812f7c78959d95da42e5b2ac8890be88f7f5b0554bb60b24a41e07cd84566546"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/dev3-joomla5-browser-r3/verification.json",
+      "known_limitations": "New native UI and new SCM producer excluded; ten browser popups are not OS-default proof"
+    },
+    {
+      "verification_id": "S",
+      "subsystem": "Windows desktop",
+      "test_objective": "Launch new exact native client and verify OS browser/pairing",
+      "expected_behavior": "Launch new exact native client and verify OS browser/pairing",
+      "observed_behavior": "Fresh PE/source/package verified; tool rejected launch before process creation",
+      "result": "BLOCKED",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "acceptance/native-dev5-r1/verification.json",
+        "bytes": 701,
+        "sha256": "a22f3e35ee9e1bdcf9dd4a4beab0315f36bf0a1f522d2793dbdb67d0143b4b02"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "acceptance/native-dev5-r1/verification.json",
+      "known_limitations": "Automatic approval review reported blocked by policy; no bypass"
+    },
+    {
+      "verification_id": "T",
+      "subsystem": "Windows install/repair/restart",
+      "test_objective": "Execute disposable lifecycle before primary promotion",
+      "expected_behavior": "Execute disposable lifecycle before primary promotion",
+      "observed_behavior": "Nine-phase explicit plan prepared; zero real phase receipts; read-only RunAs probe canceled",
+      "result": "BLOCKED",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "continuation-20261102/uac-identity-probe-r1/launch-result.json",
+        "bytes": 2402,
+        "sha256": "66e1478fa3668ef70c4fc6e883355b12beed4a336d5a6120f5ecd847e70f105c"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "continuation-20261102/uac-identity-probe-r1/launch-result.json",
+      "known_limitations": "No installation/repair/uninstall/full Windows5 restart result"
+    },
+    {
+      "verification_id": "U",
+      "subsystem": "Linux",
+      "test_objective": "Install exact package and exercise actual runtime",
+      "expected_behavior": "Install exact package and exercise actual runtime",
+      "observed_behavior": "Pinned offline nonroot Docker:30PASS/1NOT_RUN unit cases,11runtime groups",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/linux-dev5-verification.json",
+        "bytes": 7623,
+        "sha256": "879dc491e53aec24c804eb147eb89b12016ce43f969471ecb118f75d995ea2b1"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/linux-dev5-verification.json",
+      "known_limitations": "No native WSL/Linux desktop/systemd proof"
+    },
+    {
+      "verification_id": "V",
+      "subsystem": "Android",
+      "test_objective": "Verify on-device installation and pairing",
+      "expected_behavior": "Verify on-device installation and pairing",
+      "observed_behavior": "Fresh ARM64 APK, source/version/signature, clean analysis and15Flutter tests pass",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "build/android-dev5-r1/android-verification.json",
+        "bytes": 4612,
+        "sha256": "642f89831acdf247b603899113c16828c5a5005a2066d9a12dfb0fa990dd3b2c"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "build/android-dev5-r1/android-verification.json",
+      "known_limitations": "ADB0devices; device install/pairing NOT_RUN; development certificate"
+    },
+    {
+      "verification_id": "W",
+      "subsystem": "Installed version consistency",
+      "test_objective": "Run one coherent installed release identity",
+      "expected_behavior": "Run one coherent installed release identity",
+      "observed_behavior": "All nine assets bind to ed78; primary Joomla5/backend/native/profile3",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/dev5-tested-source-binding.json",
+        "bytes": 219486,
+        "sha256": "50d60e4392164abdb0b526a1689d2ef1b7fd3b66c8214f5002cd898fa6ed43f9"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/dev5-tested-source-binding.json",
+      "known_limitations": "Full source5 Windows deployment has not occurred"
+    },
+    {
+      "verification_id": "X",
+      "subsystem": "Historical releases",
+      "test_objective": "Preserve old release IDs, tags and assets",
+      "expected_behavior": "Preserve old release IDs, tags and assets",
+      "observed_behavior": "Ten releases/95assets recorded; no owned tag/release/update/delete operation",
+      "result": "PASS",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/reconciliation-20261102/source-restoration-r1.json",
+        "bytes": 1686,
+        "sha256": "2c32dd16c0c3c7ecc0d1b0bc733feb8756aca99cff58115fca3718ff5f90a984"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/reconciliation-20261102/source-restoration-r1.json",
+      "known_limitations": "Final remote receipt is recorded separately before handoff"
+    },
+    {
+      "verification_id": "Y",
+      "subsystem": "Reproducibility and recovery",
+      "test_objective": "Complete installation/recovery and final privacy gates",
+      "expected_behavior": "Complete installation/recovery and final privacy gates",
+      "observed_behavior": "Build provenance/source archive and known-value scans pass; SQLite restore real",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/privacy-dev5-preliminary-packages-r3.json",
+        "bytes": 5748,
+        "sha256": "2b1adcdf1f9b00b7ebff53825623713e30696dfec5f20a120005d33cb49d4509"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/privacy-dev5-preliminary-packages-r3.json",
+      "known_limitations": "Final installed-source privacy and whole Windows lifecycle remain required"
+    },
+    {
+      "verification_id": "Z",
+      "subsystem": "Publication",
+      "test_objective": "Publish only after mandatory gates and verify downloaded bytes",
+      "expected_behavior": "Publish only after mandatory gates and verify downloaded bytes",
+      "observed_behavior": "15assets assembled HELD_NOT_PUBLISHED; no new tag/draft/release",
+      "result": "NOT_RUN",
+      "execution_environment": "Windows11 current host; platform distinctions in evidence",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "test_implementation": {
+        "path_relative_to_lab": "evidence/privacy-dev5-held-metadata-r2.json",
+        "bytes": 1752,
+        "sha256": "b477e8479e0bf307116c17097d60d34b25ac4f134b7d7a33aca65946a7d53d30"
+      },
+      "observed_at": "2026-11-02T15:52:27.813227+00:00",
+      "evidence_location": "evidence/privacy-dev5-held-metadata-r2.json",
+      "known_limitations": "Remote authentication works; not a connectivity blocker"
+    }
+  ],
+  "installed": {
+    "profile_id": "core-next-7ac520727b85456cac4a3a92a8dd62da",
+    "backend_source": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
+    "backend_version": "0.5.0-dev.3",
+    "joomla_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "joomla_version": "0.5.0-dev.5",
+    "service_pid": 32192,
+    "service_name": "DragonhydraCoreNextcandidate3a92a8dd62da",
+    "service_account": "LocalService",
+    "ports": {
+      "api": 18821,
+      "joomla": 18822,
+      "mariadb": 18823
+    },
+    "retained_matches": 760,
+    "scheduled": 330,
+    "finished": 430,
+    "source_scoped_teams": 40,
+    "competitions": 2,
+    "retained_identity_version_digest": "75c4ac7f23aaa4399b7c3883b7f2244448885a05ea3db75791d95910d8766cde"
+  },
+  "publication": {
+    "status": "HELD_NOT_PUBLISHED",
+    "url": null,
+    "tag_created": false,
+    "proposed_tag": "v0.5.0-dev.5-core-next",
+    "baseline_url": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next"
+  },
+  "next_action": "Review prepared disposable CORE NEXT Windows5 phase plan. Obtain required local elevation/native launch clearance once before actual installation; do not repeat canceled RunAs or bypass auto-review. Verify all mandatory lifecycle/GUI/identity/privacy gates, supported3-to5 transition, then publish/download-verify.",
+  "owner_browser_delivery": {
+    "status": "BLOCKED",
+    "reason": "Browser connector host unavailable; Windows Computer Use stopped after new-tab request because current browser URL could not be determined confidently. No further app input or alternate transport used.",
+    "homepage_opened_verified": false,
+    "homepage": "http://127.0.0.1:18822/"
+  },
+  "disposable_preparation": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "driver_synthetic_groups_passed": 21,
+    "python_helper_pure_guards_passed": 19,
+    "helper_sha256": "47d5ffc472bbb0675ab8942c77fccb14e9a780e8f40acff2e397fe5e1c197f0b",
+    "bindings_sha256": "df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7",
+    "real_phase_receipts": 0,
+    "scope": "Private test harness only; actual infrastructure service-identity route correction, no product source or Windows action",
+    "peer_review": "PASS_BOUNDED_READ_ONLY_SOURCE_AND_BINDING_RECHECK",
+    "remaining_real_windows_gates": "NOT_RUN; zero phase markers/receipts; no UI or HTTP used in peer review"
+  },
+  "final_preservation_scope": {
+    "status": "PASS",
+    "historical_releases": 10,
+    "historical_assets": 95,
+    "original_source_inventory_files": 729,
+    "original_selected_private_snapshot_files": 10,
+    "dev5_tag_release_draft": "ABSENT",
+    "raw_release_notes_byte_equality": "UNKNOWN: baseline no raw bodyhash; no change inferred",
+    "initial_R1_comparator": "Preserved FAIL: word boundary excluded labelled40hexcommit references; corrected negative-hex-boundary extractor has two passing pure regressions"
+  }
+}

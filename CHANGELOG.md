@@ -1,5 +1,22 @@
 # Changelog
 
+## CORE NEXT 0.5.0-dev.5 — 2026-11-02 — held development candidate
+
+- Reconciled independent source histories without replacing the authoritative
+  mathematics, original working changes or historical releases.
+- Added conjunctive runtime-status filtering, neutral not-configured states and
+  narrowly allowlisted read navigation to the Joomla Control Center.
+- Added separate typed, expiring service identity with strict profile/build/source
+  matching; numeric metric allowlists remain unchanged. Live Windows5 producer
+  acceptance remains NOT_RUN.
+- Repaired payload staging acceptance of same-version Joomla packages from a
+  different source; embedded and sidecar provenance now agree before staging.
+- Built nine exact source-bound distributions; verified new standalone server,
+  actual SQLite restore, exports, scoped Joomla update/browser and Docker runtime.
+  Android has build/host tests, no current device acceptance.
+- Publication held: Windows5 install/repair/restart/retained reinstall/native GUI,
+  coherent primary transition and final installed privacy still require evidence.
+
 ## GENESIS A9 — 2026-11-01 — development prerelease
 
 - Added a Joomla-native sports homepage and seven protected workspace sections,

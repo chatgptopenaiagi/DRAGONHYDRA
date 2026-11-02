@@ -1,3 +1,9 @@
+# Current post-build dev.5 status
+
+See [the master reconciliation report](DRAGONHYDRA-RELEASE-REPORT.md): nine packages built, Windows/native gates incomplete, HELD_NOT_PUBLISHED. All material below is preserved earlier evidence, not a current dev.5 installation claim.
+
+---
+
 # DRAGONHYDRA CORE NEXT release report
 
 Current: [reconciliation acceptance](RELEASE-ACCEPTANCE.md),
@@ -5,7 +11,7 @@ Current: [reconciliation acceptance](RELEASE-ACCEPTANCE.md),
 Prior sections below are preserved scoped historical evidence, not current build/install claims.
 
 
-## Current dev.4 r2 — unpublished
+## Historical dev.4 r2 — unpublished checkpoint
 
 **Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
 Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and

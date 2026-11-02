@@ -19,28 +19,23 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Active product reconciliation (2026-11-02):** work continues on
-`reconcile/genesis-20261102` from source `ede5bf788097abc136eee2ae726248893fb4ae7b`.
-The original continuity history, six historical worktrees and nested research
-foundation are preserved separately. Three source snapshots have been actually
-restored; original54 and foundation42 isolated reference tests passed. Selected
-integration changes add status filtering, stronger service evidence and embedded
-Joomla package provenance checks. Dev.5 source verification passed335 distinct cases (328PASS/7NOT_RUN/0FAIL); new builds and installed acceptance remain pending.
+**Current development checkpoint (2026-11-02):** nine fresh dev.5 packages are
+built from `ed78fab282599a181d4254ab65a2fc2eaa5b7f50` and held locally. Source335distinct cases:
+328PASS/7NOT_RUN/0FAIL; actual standalone server/restart/SQLite restore and exports,
+Docker runtime and fresh Python/Android builds have scoped evidence. The installed
+Joomla dev.5 on backend/native/profile dev.3 passed219browser checks, four not run.
+This is a mixed runtime, not a fully installed dev.5 product.
 
-The running CORE NEXT installation is mixed: Joomla component/template/package
-dev.4/F, backend/native/profile dev.3/source `3af173d...`, at18822/18821. Supported
-Joomla install/repeat and actual browser r4 passed204 checks, two not run. This
-does not prove a fully installed dev.4 Windows product. All nine F r2 packages are
-preserved, unpublished. The prior Windows launch raised `InvalidOperationException`
-without a child receipt/native cause; user cancellation is unproven. Diagnosis and
-a new isolated installation/recovery gate precede any promotion.
-
-See [active reconciliation](docs/handover/ACTIVE-RECONCILIATION.md),
-[decisions](docs/reconciliation/RECONCILIATION-DECISIONS.md) and
-[release acceptance](docs/releases/RELEASE-ACCEPTANCE.md). The most recent published
-CORE NEXT release remains [dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
-No new release/tag is claimed. SENTINEL and generic session-control software are
-outside the product mission.
+Windows fresh installation/repair/restart/retained reinstall, live new SCM
+identity, native GUI/default-browser and final installed-source privacy gates
+remain incomplete. No dev.5 tag/draft/release exists. Read the
+[current report](docs/releases/DRAGONHYDRA-RELEASE-REPORT.md),
+[acceptance](docs/releases/RELEASE-ACCEPTANCE.md) and
+[resume handoff](docs/handover/ACTIVE-RECONCILIATION.md) before deployment.
+The most recently published CORE NEXT remains
+[dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
+Original histories, source changes, runtime data/services and published A9/dev1
+are preserved. No SENTINEL/general Codex-control software is included.
 
 ## What changes internally
 
@@ -154,7 +149,7 @@ Create a fresh profile with the existing PowerShell7:
 
 ```powershell
 Set-Location C:\xampp\DRAGONHYDRA-CORE-NEXT
-.\scripts\New-CoreNextProfile.ps1 -Environment candidate -SourceCommit <exact-source-commit> -Version 0.5.0-dev.3
+.\scripts\New-CoreNextProfile.ps1 -Environment candidate -SourceCommit <exact-source-commit> -Version 0.5.0-dev.5
 ```
 
 Use the profile returned by that command with Setup `/PROFILE=...`; review
@@ -200,7 +195,7 @@ scripts against their old installation defaults.
 
 ## Separate prerelease downloads
 
-The next release identity is **v0.5.0-dev.3-core-next**. Its publication requires
+The proposed next identity is **v0.5.0-dev.5-core-next**, currently held and unpublished. Its publication requires
 installed-interface, package/privacy and remote-download gates; consult the release
 report for the actual result. The links below preserve the already verified dev.1
 release while that process completes.
@@ -226,4 +221,4 @@ claim based on unit tests.
 
 ## Frozen source and delivery documentation
 
-All compiled application packages, the tag and source ZIP use `953b67fa50dfa9d705f060f97b8a1af5d317c001`. Later delivery screenshots/reports may be committed separately; that later documentation commit is not presented as the compiled source. See the release report for exact provenance and current acceptance.
+Published dev.1 packages/tag/source use `953b67fa50dfa9d705f060f97b8a1af5d317c001`. The nine held dev.5 packages/source ZIP use `ed78fab282599a181d4254ab65a2fc2eaa5b7f50`, frozen on `release/core-next-dev5-20261102`. A later documentation-only coordinator commit is separate from compiled source. No dev.5 tag exists yet; see the current report for exact hashes and remaining gates.
