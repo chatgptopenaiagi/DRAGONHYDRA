@@ -7,7 +7,7 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "reconcile/genesis-20261102",
-  "phase": "DEV5_PACKAGES_VERIFIED_RELEASE_HELD_WINDOWS_GATES",
+  "phase": "RELEASE_HELD_WINDOWS_AUTHORITY_REQUIRED_NO_LIVE_INSTALLER",
   "installation": "MIXED_JOOMLA_DEV5_BACKEND_NATIVE_PROFILE_DEV3",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -87,7 +87,7 @@
   },
   "version": "0.5.0-dev.5",
   "proposed_tag": "v0.5.0-dev.5-core-next",
-  "updated_utc": "2026-11-02T16:42:39.789310+00:00",
+  "updated_utc": "2026-11-02T16:49:41.850356+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -902,5 +902,15 @@
       "remaining": "Required Windows install/repair/restart/retention/reinstall/live SCM/native/primary transition/final installed privacy and publication gates remain incomplete"
     },
     "coordinator_head_before_additional_documentation": "f544408fb168975a282baa373b0c2ed82ba8d44c"
+  },
+  "blocked_audit": {
+    "path": "docs/releases/evidence/BLOCKED-AUDIT-DEV5.json",
+    "sha256": "5c71e59a3621374b0364b451f74cd0b909683a973d19b5fa7125712bd07bb39b",
+    "result": "BLOCKED_THRESHOLD_MET_NO_COMPLETION_CLAIM",
+    "consecutive_turns": 3,
+    "current_elevated": false,
+    "live_installer_handle": null,
+    "next_owner_action": "In matching-owner administrator PowerShell7: & 'C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Invoke-Dev5Phase.ps1' -Phase InstallFresh -Apply; report the result for receipt inspection",
+    "goal_tool_status_is_authoritative": true
   }
 }

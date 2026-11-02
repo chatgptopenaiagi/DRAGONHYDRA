@@ -62,3 +62,12 @@ snapshot equality and clean shutdown. Source/15release assets unchanged. Full
 Windows5 gates still held; owner InstallFresh request is pending with no phase
 receipt. See ACTIVE-RECONCILIATION.md and POST-BUILD-DEV5.json. Do not mistake
 headless standalone UI for the blocked native/default-browser/owner-homepage action.
+
+Blocked audit: the same required Windows authority/native review condition remains
+unresolved for three consecutive goal turns. Fresh probe: non-admin, zero
+disposable phase receipts/markers/application/state/service and no live installer
+handle. Five protected services unchanged. Independent tests are completed; do
+not repeat them merely to keep running. See docs/releases/evidence/BLOCKED-AUDIT-DEV5.json.
+Goal status is authoritative in get_goal; required owner InstallFresh step and
+native review clearance remain pending. Resume by inspecting real phase evidence;
+never infer approval from elapsed time or retry the rejected action elsewhere.

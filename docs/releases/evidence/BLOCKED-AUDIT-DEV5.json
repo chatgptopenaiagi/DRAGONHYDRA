@@ -1,0 +1,85 @@
+{
+  "schema_version": "dragonhydra.blocked-goal-audit/1",
+  "observed_at": "2026-11-02T16:49:41.850356+00:00",
+  "audit_result": "BLOCKED_THRESHOLD_MET_NO_COMPLETION_CLAIM",
+  "same_blocking_condition_consecutive_goal_turns": 3,
+  "blocking_condition": "Required Windows service installation authority and new native-client review clearance are unavailable; owner elevated InstallFresh interaction remains unanswered",
+  "previous_goal_turn_classification": "PROGRESS: completed actual standalone source5 UI and archived SQL restore checks",
+  "current_goal_turn_classification": "NO_PROGRESS_ON_REMAINING_REQUIRED_GATES; authoritative current-state revalidation",
+  "historical_turn_receipts": [
+    {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/final-source-push-checkpoint.json",
+      "sha256": "e4b2540b66f506f32aaa96daca2c5c1a0d8abbdc990fa2e183eb1832b4ff4a16"
+    },
+    {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/continuation-source-push-checkpoint-r2.json",
+      "sha256": "9d29c006711422dfadb9e7c5931bce25fc285f1d9d70d027d9e87adec77c6b41"
+    }
+  ],
+  "source_head_before_audit_documentation": "01444cb894c0a32cb9a1975a88081b8cbc21550c",
+  "frozen_product_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "current_authoritative_probe": {
+    "elevated": false,
+    "session": 1,
+    "services": [
+      {
+        "name": "DragonhydraWorkstationTest",
+        "state": "Running",
+        "pid": 12904,
+        "account": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "name": "DragonhydraWorkstation",
+        "state": "Running",
+        "pid": 39364,
+        "account": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "name": "DragonhydraProvidersA2Test",
+        "state": "Running",
+        "pid": 23500,
+        "account": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "name": "DragonhydraGenesisA8Test",
+        "state": "Running",
+        "pid": 29480,
+        "account": "NT AUTHORITY\\LocalService"
+      },
+      {
+        "name": "DragonhydraCoreNextcandidate3a92a8dd62da",
+        "state": "Running",
+        "pid": 32192,
+        "account": "NT AUTHORITY\\LocalService"
+      }
+    ],
+    "disposable_service_present": false
+  },
+  "disposable_phase_receipts": [],
+  "disposable_phase_markers": [],
+  "disposable_application_or_state_present": false,
+  "specific_live_installer_handle": null,
+  "not_a_verified_wait": "No live installer/UAC/job process handle is present; a pending interaction is not a running process",
+  "independent_safe_scopes_completed": [
+    "335 source cases:328PASS/7NOT_RUN/0FAIL",
+    "Joomla5/backend3 actual browser219PASS/4NOT_RUN",
+    "Standalone source5 UI19PASS and lifetime9PASS",
+    "Archived dev4 SQL restore5phasechecksPASS",
+    "Actual standalone server/restart/forecast/SQLite restore/exports",
+    "Offline Python package installs, Docker runtime and Android host build/tests"
+  ],
+  "independent_assessment": "Separate read-only deployment review found no further necessary safe operation that would advance remaining Windows gates without repeating evidence or crossing held authority",
+  "held_gates": [
+    "Full Windows5 install/repair/restart/retained uninstall and reinstall",
+    "New live service identity producer",
+    "Native pairing and default Windows browser",
+    "Actual supported primary3->4->5 transition",
+    "Final installed-source private-data scan",
+    "New release publication and downloaded-byte verification"
+  ],
+  "next_owner_action": "In matching-owner administrator PowerShell7: & 'C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Invoke-Dev5Phase.ps1' -Phase InstallFresh -Apply; report the result for receipt inspection",
+  "safety_boundary": "Do not reattempt UAC/native launch or use alternate transport to bypass review. Do not publish or change protected profiles. If resumed, revalidate actual receipts/processes before any action.",
+  "goal_status_transition": "Ready for update_goal(blocked); actual status is authoritative in goal tool",
+  "release_status": "HELD_NOT_PUBLISHED",
+  "product_source_or_release_assets_changed": false
+}
