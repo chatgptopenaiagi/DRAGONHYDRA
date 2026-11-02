@@ -24,3 +24,9 @@ installed-source scan and remote uploaded/downloaded bytes have not run.
 No performance improvement is asserted: source5current-host timing is descriptive
 only. No general Codex-control software is included. Published A9/dev1 remain
 unchanged. See current release report and structured evidence for hashes/results.
+
+Additional candidate evidence now includes19 actual standalone source5 dashboard
+checks/9lifetime checks and a real76-table archived MariaDB restoration with exact
+normalized SQL snapshot equality. These strengthen tested UI/data-recoverability
+scope, not full Windows5 release readiness. Mandatory install/native/current-primary
+recovery gates remain explicit. No source or fifteen held asset bytes changed.

@@ -87,7 +87,7 @@
   },
   "version": "0.5.0-dev.5",
   "proposed_tag": "v0.5.0-dev.5-core-next",
-  "updated_utc": "2026-11-02T15:57:21.194494+00:00",
+  "updated_utc": "2026-11-02T16:42:39.789310+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -815,7 +815,7 @@
     },
     "receipt": {
       "path": "docs/releases/evidence/POST-BUILD-DEV5.json",
-      "sha256": "8c1110b6d20cabcc0ea1cbc694fb443c7119a6a93c5b3f35456cd8042d376983"
+      "sha256": "5135054abfcccde237c6cf90755af28fca3c3d3c0dafc6ef6ef23593a64c0fa7"
     },
     "source_tests": {
       "distinct": 335,
@@ -832,6 +832,75 @@
       "path_relative_to_lab": "evidence/reconciliation-20261102/final-preservation-r2.json",
       "bytes": 76086,
       "sha256": "1e5b5cb31c24e391d71c66d85880028b589e718e545b68ebfde0e88b562c63f2"
-    }
+    },
+    "additional_acceptance": {
+      "observed_at": "2026-11-02T16:42:39.789310+00:00",
+      "goal_turn_classification": "PROGRESS: completed previously missing standalone source5 UI and archived MariaDB restore evidence; previous goal turn also PROGRESS",
+      "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "product_source_or_asset_changes": false,
+      "standalone_dashboard": {
+        "status": "PASS",
+        "browser_checks_passed": 19,
+        "lifetime_checks_passed": 9,
+        "scope": "Exact source5 packaged Python-served dashboard, own standalone95profile; not full Windows/native/owner browser",
+        "retained_competition": "English Premier League 2025/26",
+        "retained_finished_matches": 380,
+        "teams": 20,
+        "widths_verified": [
+          390,
+          768,
+          1024,
+          1440
+        ],
+        "page_errors": 0,
+        "domain_or_job_changes": false,
+        "own_server_pid": 9064,
+        "shutdown_exit_code": 0,
+        "listener_and_endpoint_removed": true,
+        "root_visual_review": "Narrow actual main-content screenshot reviewed; reconstructed label, season/source/limitations visible; table uses horizontal scrolling for additional columns",
+        "not_run": [
+          "Native client/default Windows browser/owner homepage delivery",
+          "Search/filter UI beyond standings navigation",
+          "Full Windows service and Joomla5/backend5 acceptance"
+        ]
+      },
+      "archived_sql_recovery": {
+        "status": "PASS_ARCHIVED_JOOMLA_DEV4_SCOPE",
+        "phase_checks_passed": 5,
+        "schema_table_counts": {
+          "dhcn_admin_3a92a8dd62da": 76,
+          "dhcn_core_3a92a8dd62da": 0
+        },
+        "normalized_sql_snapshot_sha256": "c846fca0375c4cbb47f25c5d912e2abcc9b52e28dbdc0e4ed0459f1453957e6b",
+        "runtime": "Exact dev5-packaged MariaDB10.11.16, unique named pipe, TCP disabled, non-admin own process",
+        "own_server_pid": 8956,
+        "clean_shutdown": true,
+        "protected_five_services_unchanged": true,
+        "all_58_runtime_files_and_archived_inputs_unchanged": true,
+        "not_established": [
+          "Current primary SQL restore",
+          "New dev5 disposable database restoration",
+          "Workstation rollback controller",
+          "Joomla HTTP login against restored database"
+        ]
+      },
+      "upgrade_path": {
+        "direct_dev3_to_dev5": "REJECTED_CORE_NEXT_UPGRADE_NEXT_INCREMENT_REQUIRED",
+        "supported_metadata_path": "dev3 -> dev4(F ede5bf) -> dev5(ed78fab)",
+        "metadata_only_checks": "PASS",
+        "actual_two_hop_installation": "NOT_RUN",
+        "limitation": "Would temporarily replace currently deployed Joomla5 with Joomla4; do not bypass guard"
+      },
+      "windows_gate": {
+        "current_shell_elevated": false,
+        "disposable_install_phases_executed": 0,
+        "owner_interaction": "Pending single async request to run reviewed InstallFresh in matching-owner elevated PowerShell7; no reply/receipt observed",
+        "native_client": "Automatic approval review rejection remains; no retry/bypass",
+        "guest_environment": "Historical bridge verified; current availability/isolation unverified; no guest contact or writes"
+      },
+      "test_count_policy": "19browser,9lifetime and5SQL phase checks are separate acceptance scopes; source335 unchanged; do not sum overlapping/heterogeneous groups",
+      "remaining": "Required Windows install/repair/restart/retention/reinstall/live SCM/native/primary transition/final installed privacy and publication gates remain incomplete"
+    },
+    "coordinator_head_before_additional_documentation": "f544408fb168975a282baa373b0c2ed82ba8d44c"
   }
 }

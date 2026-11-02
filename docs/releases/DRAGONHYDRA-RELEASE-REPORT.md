@@ -257,6 +257,53 @@ no note change inferred. R1 comparator failure was preserved: word-boundary rege
 missed labelled commit references; corrected hex-boundary extractor passes two
 regressions and the actual baseline reference sets agree.
 
+## Additional executed acceptance — 2026-11-02 continuation
+
+No application source or any of the fifteen staged release assets changed.
+Frozen compiled source remains ed78fab282599a181d4254ab65a2fc2eaa5b7f50.
+
+- **Standalone source5 dashboard PASS:**19browser checks;9separate lifetime/
+  preservation checks. Exact713-file bundle/80Git inputs/four web assets and actual
+  profile/API identity were verified before headless Edge. One real2025/26
+  competition,380finished retained matches/20teams: independent standings/API/DOM
+  parity, every team link, no null/object coercion, keyboard skip/route, reload and
+  widths390/768/1024/1440 pass. Two screenshots had known-secret DOM scans0;
+  zero browser errors/unapproved requests/domain/job changes. Own source5server
+  PID9064 exited0; port18913/free and endpoint removed. Five protected services
+  and settings/retained data unchanged. This is standalone Python UI, not native
+  client/OS-default browser/owner homepage/full Windows5 or Joomla5/backend5 proof.
+- **Archived MariaDB restore PASS:** five actual phase checks,76Joomla tables and
+  empty reserved-core schema restored into a fresh owner-restricted datadir using
+  exact packaged MariaDB10.11.16, unique pipe and disabled TCP. Strict normalized
+  SQL re-export SHA c846fca0375c4cbb47f25c5d912e2abcc9b52e28dbdc0e4ed0459f1453957e6b
+  matches the archived snapshot. Own PID8956 shut down cleanly; all58runtime files,
+  original input hashes and five protected service states/PIDs/bindings unchanged.
+  The input is the actual archived dev.4/F backup; it is not a new dev.5/current
+  primary database backup or an installed-workstation rollback/controller test.
+- **Upgrade path clarified:** the unchanged guard rejects3→5. Actual-profile
+  in-memory3→4(F)→5(ed78) transitions pass without file mutation; preserved4Setup
+  hash verified. The two complete real installs remain NOT_RUN and would temporarily
+  reapply Joomla4. No guard bypass or primary upgrade occurred.
+
+Browser receipt ed0b69e6a00860be43d5188205b7c4c70fc658b561d0be6032d526c7be393c73;
+lifetime8086c549c8f8ee66fdb8ebbd004ceed8161ece9a61cf8c5fb4a0b523f3f57a0a;
+SQLrestore e3de6499cfad5133b79e2d581d1dde40c1e2a415996953064948ce66b2ef8905.
+Exact paths and additional review receipts are in POST-BUILD-DEV5.json.
+
+Source335distinct cases remain328PASS/7NOT_RUN/0FAIL. These new19browser,
+9lifetime and5SQL phase checks are separate scopes, not an enlarged distinct-unit
+test total. Earlier Joomla219PASS/4NOT_RUN remains its original mixed-version scope.
+
+Current required owner step is pending: execute the reviewed disposable InstallFresh
+phase in matching-owner elevated PowerShell7. No reply/phase receipt observed;
+zero actual phases/markers and no disposable service. Elapsed time is not approval.
+Native launch review denial remains unchanged. The existing guest bridge is only
+historically verified, its current isolation is unproven, and no guest was contacted.
+All mandatory Windows5 gates, final installed-source privacy and publication remain
+held. No new tag/draft/release. Next action remains the explicit disposable phase,
+followed by receipt inspection; never rerun blindly or invoke the old primary helper.
+
+
 ## Preserved historical GENESIS A9 report
 
 The following is the unchanged earlier report from its original checkpoint.

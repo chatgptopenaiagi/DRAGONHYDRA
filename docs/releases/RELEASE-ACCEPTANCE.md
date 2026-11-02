@@ -52,3 +52,21 @@ The current CLI RunAs probe reports cancellation; native launch was rejected bef
 CreateProcess by automatic approval review. The old RunAs failure remains separate.
 No new release/tag/draft exists. Final installed-source privacy and published-byte
 download checks remain NOT_RUN; remote authentication is available.
+
+## Additional executed acceptance — current continuation
+
+Frozen sourceed78 and all15held assets unchanged. Source suite remains335distinct
+(328PASS/7NOT_RUN/0FAIL); additional scopes are not added to that total.
+
+-Standalone source5 dashboard:19browser checks and9lifetime checks PASS, including
+ real380-match/20-team standings, four widths, read-only data and clean exit0.
+-Archived dev4/F MariaDB backup:76tables restored with exact normalized SQL snapshot
+ equality; clean shutdown, original inputs/runtime and five protected services unchanged.
+ This does not verify current-primary/Windows5 rollback or new native client.
+-Read-only supported path is3→4→5; both real installs remain NOT_RUN. No guard bypass.
+
+Detailed actual scopes/hashes: master release report, additional-acceptance section;
+authoritative structured receipt: docs/releases/evidence/POST-BUILD-DEV5.json.
+Owner elevated InstallFresh step is pending; no reply/phase receipt observed.
+No new UAC/native action, source/tag/release or guest contact. Full Windows5 gates,
+native/default-browser, final installed privacy and publication remain held.

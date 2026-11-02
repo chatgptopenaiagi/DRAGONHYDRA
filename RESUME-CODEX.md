@@ -55,3 +55,10 @@ Windows Computer Use could not establish the current browser URL confidently.
 Homepage opening is unverified; no further input or alternate transport used.
 Prepared private driver has21synthetic groups and corrected helper19pure guards
 passed, zero real phases; latest bindings df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7.
+
+Additional continuation evidence: standalone source5 dashboard19PASS +9lifetime
+checks; actual archived MariaDB dev4/F backup restored76tables with strict SQL
+snapshot equality and clean shutdown. Source/15release assets unchanged. Full
+Windows5 gates still held; owner InstallFresh request is pending with no phase
+receipt. See ACTIVE-RECONCILIATION.md and POST-BUILD-DEV5.json. Do not mistake
+headless standalone UI for the blocked native/default-browser/owner-homepage action.

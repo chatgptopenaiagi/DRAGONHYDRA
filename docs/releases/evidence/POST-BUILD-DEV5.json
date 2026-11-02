@@ -234,6 +234,31 @@
       "path_relative_to_lab": "evidence/reconciliation-20261102/final-preservation-r2.json",
       "bytes": 76086,
       "sha256": "1e5b5cb31c24e391d71c66d85880028b589e718e545b68ebfde0e88b562c63f2"
+    },
+    "standalone_dashboard": {
+      "path_relative_to_lab": "acceptance/dev5-kernel-standalone-r1/verification.json",
+      "sha256": "ed0b69e6a00860be43d5188205b7c4c70fc658b561d0be6032d526c7be393c73",
+      "bytes": 9721
+    },
+    "standalone_dashboard_lifetime": {
+      "path_relative_to_lab": "continuation-20261102/standalone-dashboard-dev5-r1/verification.json",
+      "sha256": "8086c549c8f8ee66fdb8ebbd004ceed8161ece9a61cf8c5fb4a0b523f3f57a0a",
+      "bytes": 8613
+    },
+    "archived_mariadb_restore": {
+      "path_relative_to_lab": "acceptance/mariadb-portable-restore-dev5-r1/verification.json",
+      "sha256": "e3de6499cfad5133b79e2d581d1dde40c1e2a415996953064948ce66b2ef8905",
+      "bytes": 6941
+    },
+    "upgrade_path_review": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/dev5-upgrade-path-review-r1.json",
+      "sha256": "335c89c678bace20716404c0a631fddb089d70ee935e3f0e1030eaa8c5cbbcc0",
+      "bytes": 9208
+    },
+    "guest_capability_assessment": {
+      "path_relative_to_lab": "evidence/reconciliation-20261102/windows-guest-capability-assessment-r1.json",
+      "sha256": "ad0b493429326b28766d1f3825370f8cc717f975eb2cc39961665274dfffdae8",
+      "bytes": 5487
     }
   },
   "acceptance": [
@@ -761,5 +786,73 @@
     "dev5_tag_release_draft": "ABSENT",
     "raw_release_notes_byte_equality": "UNKNOWN: baseline no raw bodyhash; no change inferred",
     "initial_R1_comparator": "Preserved FAIL: word boundary excluded labelled40hexcommit references; corrected negative-hex-boundary extractor has two passing pure regressions"
+  },
+  "additional_acceptance": {
+    "observed_at": "2026-11-02T16:42:39.789310+00:00",
+    "goal_turn_classification": "PROGRESS: completed previously missing standalone source5 UI and archived MariaDB restore evidence; previous goal turn also PROGRESS",
+    "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "product_source_or_asset_changes": false,
+    "standalone_dashboard": {
+      "status": "PASS",
+      "browser_checks_passed": 19,
+      "lifetime_checks_passed": 9,
+      "scope": "Exact source5 packaged Python-served dashboard, own standalone95profile; not full Windows/native/owner browser",
+      "retained_competition": "English Premier League 2025/26",
+      "retained_finished_matches": 380,
+      "teams": 20,
+      "widths_verified": [
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "page_errors": 0,
+      "domain_or_job_changes": false,
+      "own_server_pid": 9064,
+      "shutdown_exit_code": 0,
+      "listener_and_endpoint_removed": true,
+      "root_visual_review": "Narrow actual main-content screenshot reviewed; reconstructed label, season/source/limitations visible; table uses horizontal scrolling for additional columns",
+      "not_run": [
+        "Native client/default Windows browser/owner homepage delivery",
+        "Search/filter UI beyond standings navigation",
+        "Full Windows service and Joomla5/backend5 acceptance"
+      ]
+    },
+    "archived_sql_recovery": {
+      "status": "PASS_ARCHIVED_JOOMLA_DEV4_SCOPE",
+      "phase_checks_passed": 5,
+      "schema_table_counts": {
+        "dhcn_admin_3a92a8dd62da": 76,
+        "dhcn_core_3a92a8dd62da": 0
+      },
+      "normalized_sql_snapshot_sha256": "c846fca0375c4cbb47f25c5d912e2abcc9b52e28dbdc0e4ed0459f1453957e6b",
+      "runtime": "Exact dev5-packaged MariaDB10.11.16, unique named pipe, TCP disabled, non-admin own process",
+      "own_server_pid": 8956,
+      "clean_shutdown": true,
+      "protected_five_services_unchanged": true,
+      "all_58_runtime_files_and_archived_inputs_unchanged": true,
+      "not_established": [
+        "Current primary SQL restore",
+        "New dev5 disposable database restoration",
+        "Workstation rollback controller",
+        "Joomla HTTP login against restored database"
+      ]
+    },
+    "upgrade_path": {
+      "direct_dev3_to_dev5": "REJECTED_CORE_NEXT_UPGRADE_NEXT_INCREMENT_REQUIRED",
+      "supported_metadata_path": "dev3 -> dev4(F ede5bf) -> dev5(ed78fab)",
+      "metadata_only_checks": "PASS",
+      "actual_two_hop_installation": "NOT_RUN",
+      "limitation": "Would temporarily replace currently deployed Joomla5 with Joomla4; do not bypass guard"
+    },
+    "windows_gate": {
+      "current_shell_elevated": false,
+      "disposable_install_phases_executed": 0,
+      "owner_interaction": "Pending single async request to run reviewed InstallFresh in matching-owner elevated PowerShell7; no reply/receipt observed",
+      "native_client": "Automatic approval review rejection remains; no retry/bypass",
+      "guest_environment": "Historical bridge verified; current availability/isolation unverified; no guest contact or writes"
+    },
+    "test_count_policy": "19browser,9lifetime and5SQL phase checks are separate acceptance scopes; source335 unchanged; do not sum overlapping/heterogeneous groups",
+    "remaining": "Required Windows install/repair/restart/retention/reinstall/live SCM/native/primary transition/final installed privacy and publication gates remain incomplete"
   }
 }

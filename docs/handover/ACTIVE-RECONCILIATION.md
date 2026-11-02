@@ -104,3 +104,21 @@ Windows Computer Use could not establish the current browser URL confidently.
 Homepage opening is unverified; no further input or alternate transport used.
 Prepared private driver has21synthetic groups and corrected helper19pure guards
 passed, zero real phases; latest bindings df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7.
+
+## Additional executed acceptance — current continuation
+
+Frozen sourceed78 and all15held assets unchanged. Source suite remains335distinct
+(328PASS/7NOT_RUN/0FAIL); additional scopes are not added to that total.
+
+-Standalone source5 dashboard:19browser checks and9lifetime checks PASS, including
+ real380-match/20-team standings, four widths, read-only data and clean exit0.
+-Archived dev4/F MariaDB backup:76tables restored with exact normalized SQL snapshot
+ equality; clean shutdown, original inputs/runtime and five protected services unchanged.
+ This does not verify current-primary/Windows5 rollback or new native client.
+-Read-only supported path is3→4→5; both real installs remain NOT_RUN. No guard bypass.
+
+Detailed actual scopes/hashes: master release report, additional-acceptance section;
+authoritative structured receipt: docs/releases/evidence/POST-BUILD-DEV5.json.
+Owner elevated InstallFresh step is pending; no reply/phase receipt observed.
+No new UAC/native action, source/tag/release or guest contact. Full Windows5 gates,
+native/default-browser, final installed privacy and publication remain held.
