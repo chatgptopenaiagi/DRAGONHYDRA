@@ -240,15 +240,26 @@ class ModuleRegistry:
                 configuration_state = 'CONFIGURED' if raw['metrics']['configured'] else 'NOT_CONFIGURED'
             operation = raw['last_operation']
             runtime_state = 'UNVERIFIED'
+            runtime_scope = []
             if state == 'STOPPED':
                 runtime_state = 'STOPPED'
+            elif definition.layer=='supporting' and 'status' in definition.supported_operations:
+                # Supporting probes execute only their declared status operation;
+                # use the same proof policy as capability_status above. This is
+                # bounded reachability/schema evidence, not full acceptance of
+                # every service, endpoint, user session or research operation.
+                if (observation is not None and observation.installation_id==self.installation_id
+                        and observation.module_id==identifier and observation.build_identity==self.build_identity):
+                    runtime_state = state
+                    runtime_scope = ['SUPPORTING_STATUS_OBSERVATION_ONLY',*observation.verification_scope]
             elif operation is not None:
                 from datetime import datetime
                 at = datetime.fromisoformat(operation['observed_at'].replace('Z', '+00:00'))
                 runtime_state = 'EXPIRED' if self.clock() >= at+timedelta(seconds=self.ttl) else operation['state']
+                runtime_scope = ['EXPLICIT_ENGINE_OPERATION_ONLY',operation['operation']]
             sanitized = dict(raw['metrics'])
             canonical = {'implementation_state': 'BOUND', 'configuration_state': configuration_state,
-                'runtime_state': runtime_state, 'reason_code': reason,
+                'runtime_state': runtime_state, 'runtime_verification_scope': runtime_scope, 'reason_code': reason,
                 'human_readable_reason': reason.replace('_', ' ').capitalize()+'.',
                 'last_success_at': raw['last_success'], 'evidence_expires_at': raw['expires_at'],
                 'sanitized_metrics': sanitized, 'evidence_reference': list(raw['evidence'])}

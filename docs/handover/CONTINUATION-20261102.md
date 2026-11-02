@@ -1,9 +1,36 @@
 # CORE NEXT continuation — 2026-11-02
 
-ACTIVE UPDATE 2026-11-02T09:40Z: dev.2 source343de81 is installed and actual
-upgrade/workflow/restart plus disposable install/repair/restart/uninstall passed.
-It was NOT published. Real browser acceptance found a skip-link/router defect;
-the next justified increment is dev.3. Preserve all dev.2 receipts/artifacts below.
+ACTIVE UPDATE: source3af173d0248e95f7d76aeabed1095aa4f3e97af3/dev.3 is installed,
+build upgrade-3af173d0248e. All approved primary upgrade, retained forecast,
+pending evaluation, restart and disposable install/repair/restart/uninstall
+checks passed. Four original services retained their PIDs. Dev.3 is NOT published.
+
+Actual Edge kernel browser acceptance passed both source-season standings,
+all forty team buttons, keyboard skip route preservation, narrow layout,
+refresh/reload and no-new-jobs/data checks. Official native launcher opened the
+matching dev.3 client and authenticated retained Today page; native mouse input
+was unavailable, so no fresh native external-browser interaction is claimed.
+
+Actual Joomla frontend/admin login and eighteen-module inventory passed, then
+narrow-screen acceptance failed: 703px during resize, settling at539px in a390px
+viewport. Isolated diagnosis proves the long Atum header title causes the
+remaining overflow even with component content hidden. Component content is358px.
+The next justified dev.4 increment applies component-scoped title wrapping,
+aligns supporting-module runtime fields with their bounded observed status, and
+repeats acceptance; no Joomla core/vendor edit or credential reset is required.
+
+Preserved evidence: LAB/continuation-20261102/dev3-windows-operation-r1;
+LAB/acceptance/dev3-kernel-3af-r1; LAB/acceptance/dev3-3af-browser-r1;
+LAB/acceptance/dev3-overflow-diag-r2; LAB/evidence/desktop-dev3-startup.json.
+All nine dev.3 packages remain under LAB/dist/v0.5.0-dev.3-core-next.
+TEST-REPORT correctly records the remaining interface/publication gates.
+
+The dev.3 private-upgrade-backup contains consistent SQLite/MariaDB backups,
+runtime/configuration, credentials and rollback receipts. Never publish it.
+Current target remains core-next-7ac520727b85456cac4a3a92a8dd62da,
+API18821/Joomla18822/database18823. Original18740/18744 and A9 are protected.
+
+The historical records below retain their original scope and chronology.
 
 ## Installed dev.2 and next dev.3 increment
 

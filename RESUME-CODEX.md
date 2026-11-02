@@ -1,13 +1,11 @@
-ACTIVE UPDATE — dev2 source343de81 is installed and lifecycle verified; NOT published.
-Real18821 keyboard skip link loses standings route. Source fix is tested; preparing dev3.
+ACTIVE UPDATE — dev.3/source3af173d is installed; NOT published.
+Primary upgrade/workflow/restart and disposable install/repair/restart/uninstall
+passed. Actual kernel Edge standings/skip/reload tests passed. Authenticated Joomla
+narrow-screen acceptance found persistent Atum header-title overflow (539px at
+390px after settling); component content itself fits. Dev.4 is the justified
+scoped presentation repair. Preserve all dev.3 artifacts and failure receipts.
 Read active_continuation_20261102 and docs/handover/CONTINUATION-20261102.md.
-
-ACTIVE CORE NEXT CONTINUATION — 2026-11-02.
-Owner settled18822/18821 and profilecore-next-7ac520727b85456cac4a3a92a8dd62da.
-Read docs/handover/CONTINUATION-20261102.md and active_continuation_20261102 state.
-Dev2 source verified: 290 unique cases, 283 PASS, 7 explicit NOT_RUN; installed953/dev1 remains untouched.
-Consistentprivatebackup-r2done; protectedkernel files needelevatedbackupbeforelivewrite.
-OriginalDRAGONHYDRA source/services/A9 are READ ONLY and preserved.
+Original DRAGONHYDRA source/services/A9 remain read-only and preserved.
 
 # Resume DRAGONHYDRA CORE NEXT
 

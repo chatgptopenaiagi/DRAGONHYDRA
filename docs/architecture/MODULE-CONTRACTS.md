@@ -38,8 +38,15 @@ implementation, schema and declared operation binding validated; it does not mea
 the operations ran. `configuration_state` remains `UNVERIFIED` unless cached
 configuration availability was explicitly observed (`CONFIGURED` or
 `NOT_CONFIGURED`), or the profile explicitly disabled the module (`DISABLED`).
-`runtime_state` starts `UNVERIFIED` and derives only from an actual scoped
-last-operation record, its own expiry, or explicit shutdown. None of these
+`runtime_state` starts `UNVERIFIED`. For engines it derives only from an actual
+scoped last-operation record, its own expiry, or explicit shutdown. Supporting
+modules expose their actual bounded status observation through the same field,
+with exact profile/build/module binding and `runtime_verification_scope` set to
+`SUPPORTING_STATUS_OBSERVATION_ONLY`. This is reachability/schema evidence, not
+full administrator, device or service acceptance. Engine operation evidence is
+labelled `EXPLICIT_ENGINE_OPERATION_ONLY`. Missing configuration evidence remains
+separately `UNVERIFIED`; a successful storage schema read does not invent a
+configuration measurement. None of these
 substates implies that every configuration requirement or domain workflow passed.
 
 `reason_code`/`human_readable_reason`, `last_success_at`, `evidence_expires_at`,

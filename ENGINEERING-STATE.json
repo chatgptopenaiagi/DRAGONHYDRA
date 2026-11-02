@@ -266,7 +266,7 @@
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -428,15 +428,15 @@
   ],
   "active_continuation_20261102": {
     "updated_at": "2026-11-02T09:51:39.046511+00:00",
-    "phase": "DEV3_SOURCE_VERIFIED_AWAITING_BUILD",
+    "phase": "DEV3_INSTALLED_NARROW_HEADER_REPAIR_DEV4",
     "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
     "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "joomla_port": 18822,
     "api_port": 18821,
     "source_baseline": "efb36a85032b0b90ead8818f4f4693ab7e5ae178",
-    "installed_source": "343de81c88013604b39b72564665f33d3aa3523c",
-    "installed_version": "0.5.0-dev.2",
-    "planned_version": "0.5.0-dev.3",
+    "installed_source": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
+    "installed_version": "0.5.0-dev.3",
+    "planned_version": "0.5.0-dev.4",
     "master_handoff": "docs/handover/CONTINUATION-20261102.md",
     "memory_registry_workflow_focused_tests": {
       "count": 17,
@@ -455,8 +455,8 @@
     "new_standings_scope_regression": "AET/PEN scores excluded from reconstructed regulation standings; seven source tests passed; installed pending",
     "backup_receipt": "C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/core-next-dev2-backup-r2.json",
     "live_mutations": false,
-    "publication": false,
-    "next_action": "Integrate support inventory/observer cadence and typed workflow; focused regressions then frozenbuild/profile-specific upgrade",
+    "publication": "NOT_RUN_INTERFACE_GATE_FAILED",
+    "next_action": "Apply scoped Joomla header title wrapping; freeze dev.4; rebuild source-bound packages and repeat installed browser/lifecycle acceptance.",
     "registry_inventory": {
       "engines": 6,
       "supporting": 12,
@@ -524,6 +524,28 @@
       "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\backend-workflow-20261102-r1\\integrated-dev3-final.json",
       "sha256": "4b06a0025da5a8ed8010a909e1fe54d8f801c915eec4fcca3e23e903fba44551",
       "scope": "One298-case source gate; corrected Joomla version assertion rerun15cases replaces that scope. No overlapping batch totals."
+    },
+    "installed_build": "upgrade-3af173d0248e",
+    "dev3_acceptance": {
+      "lifecycle": "PASS",
+      "kernel_browser": "PASS",
+      "native_launcher_and_paired_read": "PASS",
+      "joomla_browser": "FAIL_NARROW_HEADER_OVERFLOW",
+      "publication": "NOT_RUN",
+      "preservation": "Four original service PIDs unchanged",
+      "retained_records": 760,
+      "forecast_job": "a09fd8b1908249849db3a8e47ab9cd1c",
+      "evaluation_job": "d543b319f0494a62b10b6b2c01ca12ef",
+      "outcome": "Awaiting eligible later retained outcome"
+    },
+    "dev4_source_gate": {
+      "unique_cases": 302,
+      "passed": 295,
+      "failed": 0,
+      "not_run": 7,
+      "receipt": "LAB/evidence/backend-workflow-20261102-r1/integrated-dev4-r1.json",
+      "source_files_changed_during_gate": [],
+      "scope": "Source tests/synthetic isolated fixtures; build and installation remain pending"
     }
   }
 }

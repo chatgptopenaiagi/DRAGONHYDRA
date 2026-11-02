@@ -1,11 +1,13 @@
 """Genuine supporting definitions and synthetic owned-receipt validation."""
 from contextlib import closing
+from dataclasses import replace
 from datetime import datetime,timedelta,timezone
 import json,os,sqlite3,tempfile,unittest
 from pathlib import Path
 from dragonhydra.kernel.contracts import KernelConfig
 from dragonhydra.kernel.ports import StoragePort,ApplicationContext
 from dragonhydra.kernel.supporting import SupportingObservations,definitions
+from dragonhydra.kernel.registry import ModuleRegistry
 
 ROOT=Path(__file__).resolve().parents[2]
 LAB=Path(r'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB')
@@ -75,3 +77,36 @@ class SupportingRegistryTests(unittest.TestCase):
     def test_external_clients_remain_unverified_from_sources_or_files(self):
         for identifier in ('windows_desktop','android_client'):
             self.assertEqual(self.source.observe(identifier)['state'],'UNVERIFIED')
+    def registry(self,identifier='sqlite_storage'):
+        definition=next(item for item in definitions('fixture-version') if item.id==identifier)
+        return ModuleRegistry((definition,),{},supporting={identifier:self.source.bindings()[identifier]},
+            clock=lambda:self.at,ttl_seconds=5,installation_id=self.config.installation_id,build_identity=self.config.build_id)
+    def test_supporting_status_runtime_is_fresh_bounded_status_not_engine_execution(self):
+        registry=self.registry();registry.refresh('sqlite_storage')
+        # A cached read must not execute even another SQLite metadata probe.
+        self.source.observe=lambda unused:(_ for _ in ()).throw(AssertionError('Passive read probed source'))
+        item=registry.item('sqlite_storage')
+        self.assertEqual(item['state'],'READY');self.assertEqual(item['runtime_state'],'READY')
+        self.assertEqual(item['observation']['runtime_state'],'READY')
+        self.assertEqual(item['configuration_state'],'UNVERIFIED') # no configured metric was measured
+        self.assertEqual(item['runtime_verification_scope'],['SUPPORTING_STATUS_OBSERVATION_ONLY','LIGHTWEIGHT_LOCAL_OBSERVATION'])
+        self.assertEqual(item['runtime_verification_scope'],item['observation']['runtime_verification_scope'])
+        self.assertIn('READ_ONLY_SQLITE_SCHEMA',item['evidence_reference'][0])
+        self.assertEqual(item['capability_status'][0]['verified_operations'],['status'])
+    def test_supporting_runtime_expires_and_failed_refresh_does_not_reuse_ready(self):
+        registry=self.registry();registry.refresh('sqlite_storage');success=registry.item('sqlite_storage')['last_success_at']
+        self.at+=timedelta(seconds=6)
+        self.assertEqual(registry.item('sqlite_storage')['runtime_state'],'EXPIRED')
+        def failed(unused):raise OSError('SYNTHETIC_PRIVATE_ERROR')
+        self.source.observe=failed;registry.refresh('sqlite_storage')
+        item=registry.item('sqlite_storage');self.assertEqual(item['runtime_state'],'DEGRADED')
+        self.assertEqual(item['last_success_at'],success);self.assertNotIn('SYNTHETIC_PRIVATE_ERROR',json.dumps(item))
+    def test_supporting_runtime_rejects_foreign_identity_and_wrong_producer_build(self):
+        registry=self.registry('web_server');self.receipt(source_commit='b'*40);registry.refresh('web_server')
+        self.assertEqual(registry.item('web_server')['runtime_state'],'UNVERIFIED')
+        self.receipt();registry.refresh('web_server');proof=registry.observations['web_server']
+        for changes in ({'build_identity':'foreign-build'},{'installation_id':'foreign-profile'},{'module_id':'sqlite_storage'}):
+            with self.subTest(changes=changes):
+                registry.observations['web_server']=replace(proof,**changes)
+                item=registry.item('web_server');self.assertEqual(item['runtime_state'],'UNVERIFIED')
+                self.assertEqual(item['runtime_verification_scope'],[])

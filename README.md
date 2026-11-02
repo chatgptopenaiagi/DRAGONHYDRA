@@ -19,20 +19,16 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Current installed checkpoint:** dev.2/source343de81 passed the primary upgrade,
-retained forecast/pending-outcome workflow and restart, plus isolated workstation
-install/repair/restart/uninstall. It has not been published. Actual browser
-acceptance found that the keyboard skip link changed the dashboard's hash route;
-the focused source repair preserves the route and table while moving focus.
-Dev.3 adds the verified keyboard-safe skip navigation repair to this checkpoint. The shared registry distinguishes six core engines
-from twelve supporting components. Existing worker/supervisor checks refresh
-bounded, expiring observations without opening Joomla or contacting providers.
-The Control Center separates display refresh, local observation and explicit
-forecast/evaluation jobs. Standings rendering, regulation-time eligibility and
-read-only memory-schema checks have focused repairs. Build, installed-profile
-acceptance and publication are recorded separately in the
-[current continuation](docs/handover/CONTINUATION-20261102.md); source tests alone
-do not by themselves prove the running workstation received an update.
+**Current installed checkpoint:** dev.3/source3af173d passed the primary upgrade,
+retained forecast/pending-outcome workflow, scoped restart and disposable Windows
+install/repair/restart/uninstall. Actual kernel browser checks passed both retained
+standings tables and keyboard-safe skip navigation. Dev.3 was not published:
+authenticated Joomla acceptance identified a narrow-screen administration-header
+overflow. Dev.4 applies a scoped presentation repair before repeating release
+acceptance. The shared registry has six engines and twelve supporting components;
+worker/supervisor observations refresh with bounded expiry without opening Joomla
+or contacting providers. Build, installed acceptance and publication retain
+separate evidence in the [current continuation](docs/handover/CONTINUATION-20261102.md).
 
 ## What changes internally
 
