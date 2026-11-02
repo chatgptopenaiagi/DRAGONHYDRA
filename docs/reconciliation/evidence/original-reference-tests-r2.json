@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-02T13:21:58.974051+00:00",
+  "source_commit": "a63068de10a111a7784bcf677101a66b693d0908",
+  "tests_run": 54,
+  "passed": 54,
+  "failed": 0,
+  "not_run": 0,
+  "dependency_injection": {
+    "PHP": "Existing primary profile web/php/php.exe",
+    "classes_enabled": [
+      "JoomlaControlCenterTests",
+      "JoomlaControlWorkflowTests"
+    ]
+  },
+  "scope": "Original isolated contracts, same source/assertions; PHP path injected instead of missing historical relative runtime. Not installed application acceptance.",
+  "result": "PASS"
+}

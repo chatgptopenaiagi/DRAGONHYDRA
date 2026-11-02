@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-02T13:18:41.988855+00:00",
+  "scope": "Actual source bundle/patch/file restoration into private disposable repositories; not application database restoration",
+  "original_repositories_written": false,
+  "local_git_configuration_reused": false,
+  "nested_repository_kept_separate": true,
+  "repositories": [
+    {
+      "repository": "original",
+      "source_head": "a63068de10a111a7784bcf677101a66b693d0908",
+      "head_equal": true,
+      "binary_patches_equal": {
+        "staged": true,
+        "unstaged": true
+      },
+      "selected_source_files_restored": 10,
+      "all_selected_hashes_equal": true,
+      "patches_applied": [
+        "unstaged"
+      ],
+      "captured_ref_objects_readable": 17,
+      "result": "PASS"
+    },
+    {
+      "repository": "core-next",
+      "source_head": "ede5bf788097abc136eee2ae726248893fb4ae7b",
+      "head_equal": true,
+      "binary_patches_equal": {
+        "staged": true,
+        "unstaged": true
+      },
+      "selected_source_files_restored": 0,
+      "all_selected_hashes_equal": true,
+      "patches_applied": [],
+      "captured_ref_objects_readable": 26,
+      "result": "PASS"
+    },
+    {
+      "repository": "nested-source",
+      "source_head": "1d044992d36962359dfe46b4caedef750a3c0043",
+      "head_equal": true,
+      "binary_patches_equal": {
+        "staged": true,
+        "unstaged": true
+      },
+      "selected_source_files_restored": 0,
+      "all_selected_hashes_equal": true,
+      "patches_applied": [],
+      "captured_ref_objects_readable": 6,
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

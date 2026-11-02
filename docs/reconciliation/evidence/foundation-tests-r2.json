@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "Existing foundation tests in isolated exact Git snapshot; existing dependency overlay, no installation",
+  "source_commit": "1d044992d36962359dfe46b4caedef750a3c0043",
+  "source_archive_sha256": "0ee5ee1b896136ffc35c26578888fe9fcc3d334550ef136b8d27195d90974c28",
+  "exit_code": 0,
+  "duration_seconds": 4.619,
+  "source_state_preserved": true,
+  "stdout": "foundation-tests-r2.stdout.txt",
+  "stderr": "foundation-tests-r2.stderr.txt",
+  "result": "PASS",
+  "passed": 42,
+  "failed": 0,
+  "not_run": 0
+}

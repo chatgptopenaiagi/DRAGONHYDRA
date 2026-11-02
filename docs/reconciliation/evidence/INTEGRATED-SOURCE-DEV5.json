@@ -1,0 +1,2399 @@
+{
+  "status": "PASS_WITH_NOT_RUN",
+  "started_at": "2026-11-02T13:37:02.074540+00:00",
+  "finished_at": "2026-11-02T13:39:43.818238+00:00",
+  "version": "0.5.0-dev.5",
+  "tests_run": 335,
+  "unique_test_count": 335,
+  "duplicate_cases_removed": 0,
+  "passed": 328,
+  "failed": 0,
+  "not_run": 7,
+  "duration_seconds": 160.858,
+  "modules": [
+    "tests.test_cognition_memory",
+    "tests.test_cognition_models",
+    "tests.test_cognition_evaluation",
+    "tests.test_cognition_adaptation",
+    "tests.test_cognition_commands",
+    "tests.test_cognition_research",
+    "tests.test_market_signals",
+    "tests.test_research",
+    "tests.test_connectors_research",
+    "tests.test_product_api",
+    "tests.test_desktop_external_links",
+    "tests.core_next.test_characterization",
+    "tests.core_next.test_dashboard_children",
+    "tests.core_next.test_dashboard_pairing",
+    "tests.core_next.test_dashboard_skip",
+    "tests.core_next.test_joomla_admin_header",
+    "tests.core_next.test_kernel",
+    "tests.core_next.test_linux_guard",
+    "tests.core_next.test_listener",
+    "tests.core_next.test_local_observer",
+    "tests.core_next.test_memory_readonly",
+    "tests.core_next.test_registry_safety",
+    "tests.core_next.test_standings_semantics",
+    "tests.core_next.test_supervisor_heartbeat",
+    "tests.core_next.test_supporting_registry",
+    "tests.core_next.test_workflow",
+    "tests.core_next.test_workflow_api",
+    "tests.core_next.test_workflow_eligibility",
+    "tests.test_core_next_cargo_cache",
+    "tests.test_core_next_control_workflow",
+    "tests.test_core_next_joomla_control",
+    "tests.test_core_next_packaging_metadata",
+    "tests.test_core_next_profiles",
+    "tests.test_core_next_release",
+    "tests.test_core_next_server_profile",
+    "tests.test_core_next_upgrade",
+    "tests.test_core_next_version_contract",
+    "tests.core_next.test_service_identity",
+    "tests.test_core_next_payload_inputs",
+    "tests.test_joomla_frontend_setup"
+  ],
+  "scopes": {
+    "tests.test_cognition_memory": {
+      "PASS": 21
+    },
+    "tests.test_cognition_models": {
+      "PASS": 9
+    },
+    "tests.test_cognition_evaluation": {
+      "PASS": 21
+    },
+    "tests.test_cognition_adaptation": {
+      "PASS": 5
+    },
+    "tests.test_cognition_commands": {
+      "PASS": 7
+    },
+    "tests.test_cognition_research": {
+      "PASS": 3
+    },
+    "tests.test_market_signals": {
+      "PASS": 23
+    },
+    "tests.test_research": {
+      "PASS": 12
+    },
+    "tests.test_connectors_research": {
+      "PASS": 20
+    },
+    "tests.test_product_api": {
+      "PASS": 10
+    },
+    "tests.test_desktop_external_links": {
+      "PASS": 3
+    },
+    "tests.core_next.test_characterization": {
+      "PASS": 1
+    },
+    "tests.core_next.test_dashboard_children": {
+      "PASS": 2
+    },
+    "tests.core_next.test_dashboard_pairing": {
+      "PASS": 2
+    },
+    "tests.core_next.test_dashboard_skip": {
+      "PASS": 1
+    },
+    "tests.core_next.test_joomla_admin_header": {
+      "PASS": 1
+    },
+    "tests.core_next.test_kernel": {
+      "PASS": 15
+    },
+    "tests.core_next.test_linux_guard": {
+      "NOT_RUN": 2,
+      "PASS": 3
+    },
+    "tests.core_next.test_listener": {
+      "PASS": 1,
+      "NOT_RUN": 1
+    },
+    "tests.core_next.test_local_observer": {
+      "PASS": 10
+    },
+    "tests.core_next.test_memory_readonly": {
+      "PASS": 5
+    },
+    "tests.core_next.test_registry_safety": {
+      "PASS": 9
+    },
+    "tests.core_next.test_standings_semantics": {
+      "PASS": 7
+    },
+    "tests.core_next.test_supervisor_heartbeat": {
+      "PASS": 8
+    },
+    "tests.core_next.test_supporting_registry": {
+      "PASS": 9
+    },
+    "tests.core_next.test_workflow": {
+      "PASS": 5
+    },
+    "tests.core_next.test_workflow_api": {
+      "PASS": 3
+    },
+    "tests.core_next.test_workflow_eligibility": {
+      "PASS": 5
+    },
+    "tests.test_core_next_cargo_cache": {
+      "PASS": 5
+    },
+    "tests.test_core_next_control_workflow": {
+      "PASS": 7
+    },
+    "tests.test_core_next_joomla_control": {
+      "PASS": 19,
+      "NOT_RUN": 1
+    },
+    "tests.test_core_next_packaging_metadata": {
+      "PASS": 1
+    },
+    "tests.test_core_next_profiles": {
+      "PASS": 12,
+      "NOT_RUN": 2
+    },
+    "tests.test_core_next_release": {
+      "PASS": 7
+    },
+    "tests.test_core_next_server_profile": {
+      "PASS": 7,
+      "NOT_RUN": 1
+    },
+    "tests.test_core_next_upgrade": {
+      "PASS": 18
+    },
+    "tests.test_core_next_version_contract": {
+      "PASS": 3
+    },
+    "tests.core_next.test_service_identity": {
+      "PASS": 11
+    },
+    "tests.test_core_next_payload_inputs": {
+      "PASS": 8
+    },
+    "tests.test_joomla_frontend_setup": {
+      "PASS": 9
+    }
+  },
+  "tests": [
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_ambiguous_reschedule_cannot_attach_outcome_or_change_earlier_memory",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_ambiguous_source_evidence_is_flagged_for_research_and_not_asserted",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_evaluation_is_recomputed_from_observed_outcomes_and_resolvable",
+      "status": "PASS",
+      "duration_seconds": 0.014
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_hypothesis_cannot_become_model_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_hypothesis_cannot_reference_a_later_memory_record",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_hypothesis_marks_unsupported_claim",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_hypothesis_rejects_fabricated_evidence_and_out_of_order_revision",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_hypothesis_revisions_are_append_only_and_cutoff_isolated",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_model_does_not_use_superseded_training_revision",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_model_prediction_are_immutable_and_provenance_bound",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_model_rejects_ambiguous_rescheduled_target_as_of_new_capture",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_model_rejects_fabricated_target_and_embedded_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_model_requires_exact_configuration_hash_and_eligible_inputs",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_outcome_only_after_later_source_and_isolation",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_outcome_requires_earlier_prediction",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_outcome_revision_does_not_mutate_earlier_result",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_prediction_cannot_misstate_stored_model_probabilities",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_research_tasks_validate_references_and_cutoff",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_cognition_memory.CognitiveMemoryTests.test_unknown_evidence_or_future_model_cutoff_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_memory.MarketEvidenceHypothesisTests.test_hypothesis_resolves_retained_operational_market_quote",
+      "status": "PASS",
+      "duration_seconds": 0.126
+    },
+    {
+      "id": "tests.test_cognition_memory.MarketEvidenceHypothesisTests.test_quote_with_valid_hash_but_fabricated_price_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.114
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_deterministic_and_future_input_does_not_change_payload",
+      "status": "PASS",
+      "duration_seconds": 0.009
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_extreme_elo_expectations_do_not_overflow",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_known_poisson_probability",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_model_outputs_are_normalized_and_evidence_linked",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_raw_tamper_and_invalid_config_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_scoreline_grid_is_complete_compact_and_recovers_markets",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_sparse_falls_back_and_truncated_poisson_abstains",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_unverified_or_future_evaluation_cannot_change_weights",
+      "status": "PASS",
+      "duration_seconds": 0.013
+    },
+    {
+      "id": "tests.test_cognition_models.FootballModelsTests.test_verified_out_of_sample_losses_can_supply_weights",
+      "status": "PASS",
+      "duration_seconds": 0.011
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_future_receipt_with_forged_old_usable_time_is_not_historical_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_known_scores",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_later_evidence_cannot_change_cutoff",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_real_provenance_holdout_is_present_knowledge",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_requires_single_source_competition_scope",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_rescheduled_fixture_quarantines_both_dates_only_after_arrival",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_tampered_source_or_mapping_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_cognition_evaluation.ChronologicalHoldoutTests.test_unknown_or_insufficient_data_abstains",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.MemoryEvaluationIntegrationTests.test_attach_ignores_source_outcome_already_known_before_prediction",
+      "status": "PASS",
+      "duration_seconds": 0.085
+    },
+    {
+      "id": "tests.test_cognition_evaluation.MemoryEvaluationIntegrationTests.test_memory_prediction_and_later_outcome_are_scored_at_actual_receipt_boundaries",
+      "status": "PASS",
+      "duration_seconds": 0.181
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_ambiguous_and_mismatched_outcomes_abstain",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_correction_does_not_rewrite_earlier_evaluation",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_earliest_prediction_per_fixture_is_scored_once",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_equal_receipt_times_use_stable_record_id_tiebreak",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_future_memory_receipt_cannot_disrupt_earlier_evaluation",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_model_groups_and_unscored_coverage_have_provenance",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_outcome_known_before_prediction_never_scores_even_after_correction",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_performance_groups_preserve_source_and_settlement_scope",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_persisted_prediction_scores_only_after_outcome",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_prediction_missing_pre_game_time_abstains",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_evaluation.OperationalEvaluationTests.test_same_fixture_from_separate_sources_scores_each_only_against_its_source",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_adaptation.AdaptationTests.test_correction_invalidates_old_weight_only_after_its_cutoff",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_cognition_adaptation.AdaptationTests.test_future_receipt_with_forged_old_usable_time_cannot_disrupt_selection",
+      "status": "PASS",
+      "duration_seconds": 0.009
+    },
+    {
+      "id": "tests.test_cognition_adaptation.AdaptationTests.test_requires_raw_verification_and_same_sufficient_cohort",
+      "status": "PASS",
+      "duration_seconds": 0.009
+    },
+    {
+      "id": "tests.test_cognition_adaptation.AdaptationTests.test_rescheduled_fixture_invalidates_weights_only_after_arrival",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.test_cognition_adaptation.AdaptationTests.test_source_hash_tampering_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_ambiguous_rescheduled_target_is_skipped_and_reported",
+      "status": "PASS",
+      "duration_seconds": 0.405
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_historical_cutoff_does_not_replace_actual_run_clock",
+      "status": "PASS",
+      "duration_seconds": 0.07
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_intelligence_report_keeps_unmapped_markets_and_tasks_separate",
+      "status": "PASS",
+      "duration_seconds": 0.49
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_no_training_data_abstains_and_emits_research_tasks",
+      "status": "PASS",
+      "duration_seconds": 0.186
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_predict_cli_emits_json_and_persists_forecasts",
+      "status": "PASS",
+      "duration_seconds": 0.309
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_predictions_are_stored_and_gap_tasks_are_evidence_linked",
+      "status": "PASS",
+      "duration_seconds": 0.567
+    },
+    {
+      "id": "tests.test_cognition_commands.CognitiveCommandsTests.test_unscored_forecasts_are_not_evaluation_successes",
+      "status": "PASS",
+      "duration_seconds": 0.321
+    },
+    {
+      "id": "tests.test_cognition_research.CognitiveResearchTests.test_competing_hypotheses_link_only_to_eligible_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_research.CognitiveResearchTests.test_model_disagreement_is_computed_and_linked",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_cognition_research.CognitiveResearchTests.test_unknown_mapping_never_becomes_a_market_comparison",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.OddsConversionTests.test_conversions",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.OddsConversionTests.test_invalid_numbers",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_archival_import_time_is_not_quote_time",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_complete_half_unit_total_overround_and_estimates",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_conflicted_latest_quote_cannot_produce_margin",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_correction_uses_original_market_time",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_disjoint_feeds_never_make_up_a_movement",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_future_data_and_malformed_future_do_not_change_output",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_historical_labels_same_feed_stay_distinct",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_historical_open_close_labels_do_not_create_conflict",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_incomplete_totals_are_unavailable",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_integer_or_quarter_totals_refuse_false_complete_margin",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_live_comparison_requires_game_state",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_margin_complete_only_same_snapshot",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_mismatched_scope_has_explicit_reason",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_movement_and_comparable_provider",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_real_capture_age_is_not_asserted_actual_quote_age",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_simultaneous_conflict_is_unavailable",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_snapshot_with_different_receipt_clocks_is_not_complete",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_stale_and_misaligned_are_reasoned_unavailable",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_total_line_is_required",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_totals_with_mismatched_lines_are_not_compared",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_market_signals.SignalTests.test_unknown_archival_scope_keeps_quotes_but_blocks_comparison",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_chronological_scoring_and_future_isolation",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_exact_boundary_and_late_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_expected_value_kelly_and_seeded_simulation",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_frequency_model_withholds_future_result",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_historical_import_does_not_imply_fresh_quote",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_invalid_and_mismatched_are_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_live_requires_compatible_game_state",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_model_cannot_depend_on_future_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_negative_probability_candidate_has_zero_stake",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_publication_after_receipt_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_real_capture_age_is_not_source_quote_age",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_research.ResearchTests.test_stale_quoted_price_and_corrupted_hash",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_cancellation_between_catalog_and_match_fetch",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_configuration_defaults_and_bounded_range",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_malformed_statsbomb_is_rejected_after_retention",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_ambiguous_nonexistent_and_missing_times_remain_unknown",
+      "status": "PASS",
+      "duration_seconds": 0.01
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_complete_season_is_not_truncated",
+      "status": "PASS",
+      "duration_seconds": 0.027
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_csv_header_and_truncated_rows",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_documented_eastern_dst_and_january_season",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_duplicate_and_conflict_rows",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_missing_points_not_zero_and_archival_odds_not_tradable",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_no_selected_coverage_is_distinct_from_success",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_nfl_partial_score_identity_and_date_errors_are_typed",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_response_bound_and_no_live_claim",
+      "status": "PASS",
+      "duration_seconds": 0.016
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_complete_selection_and_zero_score",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_duplicate_and_conflicting_records",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_missing_coverage_does_not_fetch_guessed_path",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_only_source_supplied_offsets_become_utc",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_redirect_provenance_native_row_and_no_assumed_utc",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_statsbomb_rejects_mixed_identity_and_partial_scores",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_transport_quota_error_is_not_misrepresented",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_connectors_research.ResearchConnectorTests.test_untrusted_configuration_never_becomes_a_request",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_authentication_origin_and_error_contract",
+      "status": "PASS",
+      "duration_seconds": 0.268
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_bridge_signature_replay_permissions_and_owner",
+      "status": "PASS",
+      "duration_seconds": 0.192
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_expired_lease_recovers_without_duplicate_imports",
+      "status": "PASS",
+      "duration_seconds": 0.387
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_explanation_references_open_retained_source",
+      "status": "PASS",
+      "duration_seconds": 0.185
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_forecast_reuses_all_models_for_selected_future_event",
+      "status": "PASS",
+      "duration_seconds": 0.176
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_job_idempotency_cancel_and_committed_updates",
+      "status": "PASS",
+      "duration_seconds": 0.221
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_provider_failure_retains_cached_records_and_redacts_exception",
+      "status": "PASS",
+      "duration_seconds": 0.435
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_real_workbook_csv_json_and_spreadsheet_formula_protection",
+      "status": "PASS",
+      "duration_seconds": 1.9
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_same_match_navigation_pagination_and_time_precision",
+      "status": "PASS",
+      "duration_seconds": 0.43
+    },
+    {
+      "id": "tests.test_product_api.ProductAPITests.test_schema_and_get_requests_do_not_import",
+      "status": "PASS",
+      "duration_seconds": 0.502
+    },
+    {
+      "id": "tests.test_desktop_external_links.DesktopExternalLinkTests.test_native_opener_is_pinned_and_initialized",
+      "status": "PASS",
+      "duration_seconds": 0.02
+    },
+    {
+      "id": "tests.test_desktop_external_links.DesktopExternalLinkTests.test_permission_is_only_web_urls_from_main_loopback_dashboard",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_desktop_external_links.DesktopExternalLinkTests.test_provider_clicks_dispatch_actual_plugin_and_preserve_application",
+      "status": "PASS",
+      "duration_seconds": 0.085
+    },
+    {
+      "id": "tests.core_next.test_characterization.LockedA9Characterization.test_fixed_clock_seed_and_full_algorithm_reports_match_locked_a9",
+      "status": "PASS",
+      "duration_seconds": 0.008
+    },
+    {
+      "id": "tests.core_next.test_dashboard_children.DashboardChildrenTests.test_browser_and_packaged_desktop_share_identical_dashboard_source",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_dashboard_children.DashboardChildrenTests.test_real_server_and_desktop_renderers_preserve_dom_children_and_zeros",
+      "status": "PASS",
+      "duration_seconds": 0.152
+    },
+    {
+      "id": "tests.core_next.test_dashboard_pairing.DashboardPairingTests.test_matching_candidate_identity_allows_own_pairing",
+      "status": "PASS",
+      "duration_seconds": 2.576
+    },
+    {
+      "id": "tests.core_next.test_dashboard_pairing.DashboardPairingTests.test_original_backend_rejected_before_pairing_secret_is_sent",
+      "status": "PASS",
+      "duration_seconds": 1.887
+    },
+    {
+      "id": "tests.core_next.test_dashboard_skip.DashboardSkipTests.test_keyboard_skip_keeps_standings_and_external_links_in_both_clients",
+      "status": "PASS",
+      "duration_seconds": 25.379
+    },
+    {
+      "id": "tests.core_next.test_joomla_admin_header.JoomlaAdminHeaderTests.test_scoped_narrow_header_preserves_desktop_unrelated_and_nested_zero_content",
+      "status": "PASS",
+      "duration_seconds": 1.888
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_actual_prospective_forecast_persists_before_later_outcome_evaluation",
+      "status": "PASS",
+      "duration_seconds": 0.311
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_canonical_schema_separates_bound_implementation_configuration_and_runtime_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.162
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_explicit_retained_import_refreshes_counts_and_status_reads_do_not_probe",
+      "status": "PASS",
+      "duration_seconds": 0.39
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_optional_memory_disabled_blocks_persistence_before_execution_but_not_forecast",
+      "status": "PASS",
+      "duration_seconds": 0.181
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_owner_ai_configuration_refreshes_cached_status_without_model_inference",
+      "status": "PASS",
+      "duration_seconds": 0.227
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_real_data_api_uses_injected_engine_and_disabled_dependency_does_not_fallback",
+      "status": "PASS",
+      "duration_seconds": 0.133
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_status_authentication_schema_no_engine_calls_and_no_state_writes",
+      "status": "PASS",
+      "duration_seconds": 0.204
+    },
+    {
+      "id": "tests.core_next.test_kernel.ComposedAPITests.test_unique_cookie_old_cookie_ignored_logout_revoke_only_own_installation",
+      "status": "PASS",
+      "duration_seconds": 0.231
+    },
+    {
+      "id": "tests.core_next.test_kernel.IndependentPortTests.test_engines_execute_against_declared_ports_without_product_or_kernel",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_dependency_validation_duplicate_unknown_cycle_and_adapter_binding",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_lifecycle_expiry_dependency_states_and_pure_status_reads",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_missing_optional_dependency_limits_its_capability_without_blocking_other_engines",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_operation_evidence_does_not_renew_old_counter_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_required_state_vocabulary_is_not_collapsed",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_kernel.RegistryTests.test_schema_engine_contract_and_unsupported_capability_declarations_are_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_linux_guard.LinuxRootParsing.test_linux_override_and_profile_cannot_select_original_state_or_symlink",
+      "status": "NOT_RUN",
+      "reason": "Executed by the isolated Linux container",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_linux_guard.LinuxRootParsing.test_missing_profile_never_selects_a_fallback",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.core_next.test_linux_guard.LinuxRootParsing.test_new_wrapper_requires_profile_and_historical_entrypoints_fail_before_mutation",
+      "status": "NOT_RUN",
+      "reason": "Actual shell guards run in isolated Linux",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_linux_guard.LinuxRootParsing.test_posix_default_or_explicit_root_is_absolute_and_isolated",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_linux_guard.LinuxRootParsing.test_windows_ignores_posix_override",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.core_next.test_listener.ListenerTests.test_active_listener_is_not_taken_over_and_bind_failure_retains_errno",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.core_next.test_listener.ListenerTests.test_connected_listener_can_rebind_same_endpoint_after_graceful_close",
+      "status": "NOT_RUN",
+      "reason": "Actual Linux TIME_WAIT semantics",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_local_observer.ExistingWorkerObserverTests.test_periodic_checks_run_without_any_page_or_model_request",
+      "status": "PASS",
+      "duration_seconds": 1.208
+    },
+    {
+      "id": "tests.core_next.test_local_observer.ExistingWorkerObserverTests.test_registry_layer_counts_and_local_check_role_separation",
+      "status": "PASS",
+      "duration_seconds": 0.194
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_cache_rejects_wrong_build_and_future_or_malformed_clocks",
+      "status": "PASS",
+      "duration_seconds": 0.009
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_cache_write_failure_is_bounded_and_reported",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_external_evidence_keeps_its_shorter_expiry_and_real_success_clock",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_failed_check_retains_success_but_does_not_renew_old_metrics",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_non_overlapping_manual_and_scheduled_cycles",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_reads_do_not_renew_evidence_and_real_check_recovers_after_expiry",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_restart_history_does_not_renew_old_counter_or_claim_ready",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.core_next.test_local_observer.LocalObserverTests.test_slow_staged_probe_cannot_replace_newer_explicit_operation",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.core_next.test_memory_readonly.ReadonlyMemoryTests.test_each_missing_immutable_trigger_fails_closed_without_repair",
+      "status": "PASS",
+      "duration_seconds": 0.054
+    },
+    {
+      "id": "tests.core_next.test_memory_readonly.ReadonlyMemoryTests.test_explicit_readonly_memory_api_does_not_write_complete_or_partial_schema",
+      "status": "PASS",
+      "duration_seconds": 0.024
+    },
+    {
+      "id": "tests.core_next.test_memory_readonly.ReadonlyMemoryTests.test_initial_history_read_does_not_initialize_memory",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.core_next.test_memory_readonly.ReadonlyMemoryTests.test_partial_records_table_cannot_report_immutable_memory_ready",
+      "status": "PASS",
+      "duration_seconds": 0.009
+    },
+    {
+      "id": "tests.core_next.test_memory_readonly.ReadonlyMemoryTests.test_unavailable_store_does_not_create_file_or_infer_empty_memory",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_failed_or_empty_sample_does_not_renew_retained_count",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_failed_refresh_retains_actual_historical_success",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_future_observation_cannot_stay_ready_when_clock_moves_back",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_invalid_identifiers_and_configuration_references_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_nonfinite_and_wrong_scalar_types_rejected_before_publish",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_observation_has_bound_identity_scope_and_unique_ids",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_operation_proof_does_not_verify_other_capabilities_or_renew_expired_evidence",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_scoped_read_success_does_not_promote_absent_store_or_optional_model",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_registry_safety.RegistrySafetyTests.test_secret_or_unknown_metrics_never_escape_any_projection",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_competition_and_season_are_scoped_and_duplicate_captures_do_not_double_count",
+      "status": "PASS",
+      "duration_seconds": 0.083
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_finished_provider_regulation_result_keeps_ordinary_points",
+      "status": "PASS",
+      "duration_seconds": 0.052
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_live_provider_score_does_not_become_a_completed_result",
+      "status": "PASS",
+      "duration_seconds": 0.053
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_only_finished_full_time_scores_count_missing_is_not_zero_and_real_zero_survives",
+      "status": "PASS",
+      "duration_seconds": 0.054
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_provider_duration_marked_extra_time_or_shootout_is_explicitly_unavailable",
+      "status": "PASS",
+      "duration_seconds": 0.059
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_provider_extra_time_and_penalty_winners_are_not_silently_full_time_league_wins",
+      "status": "PASS",
+      "duration_seconds": 0.055
+    },
+    {
+      "id": "tests.core_next.test_standings_semantics.StandingsSemanticsTests.test_public_full_time_score_excludes_extra_time_and_shootout_and_declares_tie_break_limits",
+      "status": "PASS",
+      "duration_seconds": 0.054
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_atomic_writer_replaces_owned_receipt_and_refuses_junction_ancestor",
+      "status": "PASS",
+      "duration_seconds": 6.145
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_bound_receipt_distinguishes_anonymous_login_and_preserves_schema_on_both_hosts",
+      "status": "PASS",
+      "duration_seconds": 4.111
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_failed_check_preserves_historical_success_without_renewing_it",
+      "status": "PASS",
+      "duration_seconds": 2.571
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_failed_joomla_bootstrap_does_not_assert_administrator_or_sql_readiness",
+      "status": "PASS",
+      "duration_seconds": 2.832
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_http_refuses_redirects_oversize_and_slow_response_without_credentials",
+      "status": "PASS",
+      "duration_seconds": 7.159
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_missing_null_future_or_stale_success_can_never_be_ready",
+      "status": "PASS",
+      "duration_seconds": 20.462
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_native_listener_requires_the_exact_process_and_connects_only_the_own_port",
+      "status": "PASS",
+      "duration_seconds": 2.412
+    },
+    {
+      "id": "tests.core_next.test_supervisor_heartbeat.SupervisorHeartbeatTests.test_wrong_build_pid_and_exited_child_never_renew_receipt",
+      "status": "PASS",
+      "duration_seconds": 7.657
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_all_supporting_definitions_have_actual_sources_and_inspection_bindings",
+      "status": "PASS",
+      "duration_seconds": 0.015
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_external_clients_remain_unverified_from_sources_or_files",
+      "status": "PASS",
+      "duration_seconds": 0.014
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_external_receipt_needs_fresh_clocks_build_and_owned_process_identity",
+      "status": "PASS",
+      "duration_seconds": 0.037
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_no_store_does_not_create_file_or_infer_zero_schedules",
+      "status": "PASS",
+      "duration_seconds": 0.013
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_scheduler_counts_actual_interval_schema_without_reading_secret_config",
+      "status": "PASS",
+      "duration_seconds": 0.016
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_supporting_runtime_expires_and_failed_refresh_does_not_reuse_ready",
+      "status": "PASS",
+      "duration_seconds": 0.015
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_supporting_runtime_rejects_foreign_identity_and_wrong_producer_build",
+      "status": "PASS",
+      "duration_seconds": 0.017
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_supporting_status_runtime_is_fresh_bounded_status_not_engine_execution",
+      "status": "PASS",
+      "duration_seconds": 0.013
+    },
+    {
+      "id": "tests.core_next.test_supporting_registry.SupportingRegistryTests.test_unknown_profile_is_not_mislabelled_as_non_applicable",
+      "status": "PASS",
+      "duration_seconds": 0.013
+    },
+    {
+      "id": "tests.core_next.test_workflow.WorkflowTests.test_finished_unsupported_and_future_cutoff_abstain",
+      "status": "PASS",
+      "duration_seconds": 0.058
+    },
+    {
+      "id": "tests.core_next.test_workflow.WorkflowTests.test_forecast_provenance_is_persisted_and_same_run_replays_original_records",
+      "status": "PASS",
+      "duration_seconds": 0.334
+    },
+    {
+      "id": "tests.core_next.test_workflow.WorkflowTests.test_history_does_not_create_schema_run_model_or_diagnostic",
+      "status": "PASS",
+      "duration_seconds": 0.061
+    },
+    {
+      "id": "tests.core_next.test_workflow.WorkflowTests.test_partial_run_is_visible_without_recalculation",
+      "status": "PASS",
+      "duration_seconds": 0.108
+    },
+    {
+      "id": "tests.core_next.test_workflow.WorkflowTests.test_real_later_revision_in_fictional_clock_fixture_is_pending_then_scored",
+      "status": "PASS",
+      "duration_seconds": 0.49
+    },
+    {
+      "id": "tests.core_next.test_workflow_api.WorkflowAPITests.test_anonymous_and_reader_permissions_empty_body_and_no_backdating",
+      "status": "PASS",
+      "duration_seconds": 0.252
+    },
+    {
+      "id": "tests.core_next.test_workflow_api.WorkflowAPITests.test_durable_forecast_jobs_bind_owner_key_run_and_same_state_restart",
+      "status": "PASS",
+      "duration_seconds": 0.546
+    },
+    {
+      "id": "tests.core_next.test_workflow_api.WorkflowAPITests.test_evaluation_job_is_honestly_pending_without_later_result",
+      "status": "PASS",
+      "duration_seconds": 0.473
+    },
+    {
+      "id": "tests.core_next.test_workflow_eligibility.WorkflowEligibilityTests.test_ensemble_is_scored_readonly_but_not_persisted_as_supported_base_evaluation",
+      "status": "PASS",
+      "duration_seconds": 0.4
+    },
+    {
+      "id": "tests.core_next.test_workflow_eligibility.WorkflowEligibilityTests.test_incomplete_run_with_one_prediction_is_not_a_ready_explicit_operation",
+      "status": "PASS",
+      "duration_seconds": 0.132
+    },
+    {
+      "id": "tests.core_next.test_workflow_eligibility.WorkflowEligibilityTests.test_known_result_cannot_be_erased_by_a_later_scheduled_revision",
+      "status": "PASS",
+      "duration_seconds": 0.098
+    },
+    {
+      "id": "tests.core_next.test_workflow_eligibility.WorkflowEligibilityTests.test_model_inputs_generation_and_prediction_receipts_keep_distinct_clocks",
+      "status": "PASS",
+      "duration_seconds": 0.194
+    },
+    {
+      "id": "tests.core_next.test_workflow_eligibility.WorkflowEligibilityTests.test_unknown_timezone_near_event_date_does_not_establish_pregame_timing",
+      "status": "PASS",
+      "duration_seconds": 0.068
+    },
+    {
+      "id": "tests.test_core_next_cargo_cache.CargoCacheContracts.test_changed_lock_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.077
+    },
+    {
+      "id": "tests.test_core_next_cargo_cache.CargoCacheContracts.test_changed_rust_toolchain_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.036
+    },
+    {
+      "id": "tests.test_core_next_cargo_cache.CargoCacheContracts.test_copy_reuses_dependency_but_excludes_every_own_application_output",
+      "status": "PASS",
+      "duration_seconds": 0.041
+    },
+    {
+      "id": "tests.test_core_next_cargo_cache.CargoCacheContracts.test_manifest_cannot_promote_application_or_escape_member",
+      "status": "PASS",
+      "duration_seconds": 0.043
+    },
+    {
+      "id": "tests.test_core_next_cargo_cache.CargoCacheContracts.test_modified_dependency_rejected_before_destination_creation",
+      "status": "PASS",
+      "duration_seconds": 0.039
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_commands_are_typed_empty_body_and_session_keys_replay",
+      "status": "PASS",
+      "duration_seconds": 0.054
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_explicit_local_check_completion_busy_and_disabled_messages_keep_their_scope",
+      "status": "PASS",
+      "duration_seconds": 0.156
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_history_is_same_instance_read_only_and_projects_retained_provenance",
+      "status": "PASS",
+      "duration_seconds": 0.15
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_history_schema_and_other_instance_are_rejected_before_workflow_render",
+      "status": "PASS",
+      "duration_seconds": 0.053
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_narrow_idempotency_transport_rejects_local_checks_and_arbitrary_paths",
+      "status": "PASS",
+      "duration_seconds": 0.051
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_public_actions_require_csrf_component_and_import_permission_before_bridge",
+      "status": "PASS",
+      "duration_seconds": 0.459
+    },
+    {
+      "id": "tests.test_core_next_control_workflow.CoreNextControlWorkflowTests.test_real_template_shows_retained_ids_and_uncertainty_with_honest_pending",
+      "status": "PASS",
+      "duration_seconds": 0.216
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_actual_overview_and_layer_filter_render_inventory_and_separate_health_controls",
+      "status": "PASS",
+      "duration_seconds": 0.331
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_anonymous_and_missing_installation_binding_make_no_backend_request",
+      "status": "PASS",
+      "duration_seconds": 0.097
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_bound_service_identity_is_projected_and_displayed_with_its_limited_scope",
+      "status": "PASS",
+      "duration_seconds": 0.158
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_capability_proof_is_operation_scoped_when_optional_model_is_not_configured",
+      "status": "PASS",
+      "duration_seconds": 0.105
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_detail_render_escapes_data_and_shows_disabled_operation_reason",
+      "status": "PASS",
+      "duration_seconds": 0.103
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_known_module_detail_has_same_instance_and_does_not_run_prediction",
+      "status": "PASS",
+      "duration_seconds": 0.1
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_neutral_unknown_proof_preserves_expiry_and_legend_without_new_observation",
+      "status": "PASS",
+      "duration_seconds": 0.101
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_operation_read_views_use_only_known_ids_enabled_get_and_existing_routes",
+      "status": "PASS",
+      "duration_seconds": 0.202
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_original_product_and_other_candidate_identity_block_before_other_reads",
+      "status": "PASS",
+      "duration_seconds": 0.104
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_overview_reads_only_registry_and_system_and_preserves_real_zero",
+      "status": "PASS",
+      "duration_seconds": 0.081
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_package_identity_and_real_assets_are_included_without_new_status_tables",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_ready_without_bounded_evidence_is_unknown_and_duplicate_ids_fail",
+      "status": "PASS",
+      "duration_seconds": 0.129
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_real_candidate_registry_shape_survives_php_adapter_without_status_side_effects",
+      "status": "NOT_RUN",
+      "reason": "Explicit private snapshot required for real-registry integration",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_runtime_status_filter_uses_normalized_evidence_and_combines_with_existing_filters",
+      "status": "PASS",
+      "duration_seconds": 0.251
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_shared_registry_inventory_separates_six_engines_and_twelve_supporting_modules",
+      "status": "PASS",
+      "duration_seconds": 0.201
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_state_colors_are_labeled_and_evidence_age_is_preserved_without_probe",
+      "status": "PASS",
+      "duration_seconds": 0.1
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_system_identity_cannot_silently_switch_to_an_original_backend",
+      "status": "PASS",
+      "duration_seconds": 0.049
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_unbound_foreign_stale_future_or_malicious_service_identity_is_omitted",
+      "status": "PASS",
+      "duration_seconds": 1.118
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_unknown_and_expired_observations_cannot_be_presented_as_ready",
+      "status": "PASS",
+      "duration_seconds": 0.05
+    },
+    {
+      "id": "tests.test_core_next_joomla_control.CoreNextControlTests.test_unknown_or_traversal_module_cannot_become_an_arbitrary_proxy",
+      "status": "PASS",
+      "duration_seconds": 0.146
+    },
+    {
+      "id": "tests.test_core_next_packaging_metadata.DistributionMetadata.test_candidate_replaces_inherited_instructions_and_component_claims",
+      "status": "PASS",
+      "duration_seconds": 0.027
+    },
+    {
+      "id": "tests.test_core_next_profiles.PayloadGuards.test_changed_file_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_core_next_profiles.PayloadGuards.test_exact_payload_can_be_copied_only_to_fresh_lab_destination",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.test_core_next_profiles.PayloadGuards.test_manifest_escape_or_alternate_stream_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_core_next_profiles.PayloadGuards.test_symlink_member_rejected",
+      "status": "NOT_RUN",
+      "reason": "Symlink creation unavailable",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_complete_isolated_profile_accepted",
+      "status": "PASS",
+      "duration_seconds": 0.739
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_default_factory_generates_two_independent_instances_without_live_state",
+      "status": "PASS",
+      "duration_seconds": 0.63
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_existing_service_with_other_binary_or_account_rejected",
+      "status": "PASS",
+      "duration_seconds": 1.489
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_identity_cannot_point_to_another_profile",
+      "status": "PASS",
+      "duration_seconds": 0.685
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_old_ports_or_copied_credentials_rejected",
+      "status": "PASS",
+      "duration_seconds": 1.117
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_original_application_or_state_rejected",
+      "status": "PASS",
+      "duration_seconds": 1.031
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_profile_junction_or_symlink_rejected_before_install",
+      "status": "NOT_RUN",
+      "reason": "Symlink creation unavailable",
+      "duration_seconds": 0.004
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_release_binding_rejects_different_source",
+      "status": "PASS",
+      "duration_seconds": 0.652
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_release_binding_rejects_different_version",
+      "status": "PASS",
+      "duration_seconds": 0.623
+    },
+    {
+      "id": "tests.test_core_next_profiles.ProfileGuards.test_service_or_database_substitution_rejected",
+      "status": "PASS",
+      "duration_seconds": 1.123
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_asset_and_archive_paths_reject_private_state_and_wildcards",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_build_witness_source_and_digest_are_bound",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_existing_publisher_stages_verified_prerelease_without_publishing",
+      "status": "PASS",
+      "duration_seconds": 0.007
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_joomla_requires_new_version_and_current_embedded_source",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_paths_and_reference_parser_do_not_accept_original_or_invalid_refs",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_primary_gate_requires_every_real_witness_and_exact_installer_source",
+      "status": "PASS",
+      "duration_seconds": 0.019
+    },
+    {
+      "id": "tests.test_core_next_release.ReleaseGuards.test_wheel_embedded_version_and_source_reject_old_renamed_content",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_explicit_bound_profile",
+      "status": "PASS",
+      "duration_seconds": 0.01
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_linked_state_path_rejected",
+      "status": "NOT_RUN",
+      "reason": "[WinError 1314] A required privilege is not held by the client: 'C:\\\\xampp\\\\DRAGONHYDRA-CORE-NEXT-LAB\\\\tests\\\\integrated-dev5-source-4b7n_dtt\\\\tmp\\\\tmp55xwv1f1\\\\outside' -> 'C:\\\\xampp\\\\DRAGONHYDRA-CORE-NEXT-LAB\\\\tests\\\\integrated-dev5-source-4b7n_dtt\\\\tmp\\\\tmp55xwv1f1\\\\profiles\\\\core-next-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\\\\state'",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_missing_profile_does_not_fall_back",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_only_explicit_candidate_namespace_binds_existing_adapters",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_original_credential_environment_is_not_inherited",
+      "status": "PASS",
+      "duration_seconds": 0.003
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_persisted_identity_mismatch_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.013
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_port_and_service_identities_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.019
+    },
+    {
+      "id": "tests.test_core_next_server_profile.ServerProfileTests.test_state_and_path_escape_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.015
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_atomic_partial_failure_restores_only_our_written_profile",
+      "status": "PASS",
+      "duration_seconds": 0.88
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_atomic_target_changed_after_snapshot_is_not_overwritten",
+      "status": "PASS",
+      "duration_seconds": 0.873
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_backup_mode_failure_empty_and_escaped_sources_fail_before_live_actions",
+      "status": "PASS",
+      "duration_seconds": 2.572
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_backup_mode_uses_exact_private_file_and_records_actual_payload_integrity",
+      "status": "PASS",
+      "duration_seconds": 0.759
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_downgrades_same_version_skips_and_same_source_are_rejected",
+      "status": "PASS",
+      "duration_seconds": 3.673
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_installed_343_dev2_to_dev3_preserves_metadata_and_rejects_skipped_increment",
+      "status": "PASS",
+      "duration_seconds": 1.565
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_next_increment_preserves_identity_ports_secrets_owner_and_input_objects",
+      "status": "PASS",
+      "duration_seconds": 1.067
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_old_five_component_sources_sizes_and_hashes_are_verified",
+      "status": "PASS",
+      "duration_seconds": 5.968
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_original_project_cannot_be_an_upgrade_target",
+      "status": "PASS",
+      "duration_seconds": 0.645
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_partial_failure_never_overwrites_an_independent_config_change",
+      "status": "PASS",
+      "duration_seconds": 0.84
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_real_dev2_c5c_server_can_be_the_explicit_old_build_pin",
+      "status": "PASS",
+      "duration_seconds": 0.742
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_reparse_atomic_target_is_rejected_without_touching_target",
+      "status": "PASS",
+      "duration_seconds": 0.571
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_snapshot_uses_real_registry_shape_and_process_local_script_policy",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_stale_plan_refuses_owner_config_or_profile_changes_before_any_write",
+      "status": "PASS",
+      "duration_seconds": 1.366
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_upgrade_scripts_parse_without_invoking_deployment",
+      "status": "PASS",
+      "duration_seconds": 0.76
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_utf8_bom_metadata_is_read_without_changing_snapshot_meaning",
+      "status": "PASS",
+      "duration_seconds": 0.874
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_wrapper_retains_legacy_pin_default_and_passes_explicit_old_build_guard",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.test_core_next_upgrade.UpgradeTests.test_wrong_identity_or_partial_old_binding_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 2.807
+    },
+    {
+      "id": "tests.test_core_next_version_contract.VersionContractTests.test_affected_product_versions_and_private_runtime_identity_agree",
+      "status": "PASS",
+      "duration_seconds": 0.027
+    },
+    {
+      "id": "tests.test_core_next_version_contract.VersionContractTests.test_android_release_identity_matches_actual_pubspec_and_dependency_pins_stay_fixed",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_core_next_version_contract.VersionContractTests.test_dependency_cache_accepts_only_our_excluded_package_version_change",
+      "status": "PASS",
+      "duration_seconds": 0.002
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_bound_identity_has_exact_public_shape_and_read_does_not_probe_or_renew",
+      "status": "PASS",
+      "duration_seconds": 0.008
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_configured_name_without_scm_evidence_is_never_public_identity",
+      "status": "PASS",
+      "duration_seconds": 0.006
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_foreign_profile_source_build_or_process_receipts_never_supply_identity",
+      "status": "PASS",
+      "duration_seconds": 0.019
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_local_observer_carries_identity_but_history_does_not_restore_it",
+      "status": "PASS",
+      "duration_seconds": 0.015
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_malformed_or_non_scm_identity_is_omitted_without_discarding_other_status",
+      "status": "PASS",
+      "duration_seconds": 0.041
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_missing_future_stale_naive_or_upstream_expired_clocks_omit_identity",
+      "status": "PASS",
+      "duration_seconds": 0.015
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_registry_projection_rejects_wrong_enclosing_identity_build_or_expected_source",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_scm_sample_expiry_can_be_earlier_but_never_later_than_upstream",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceIdentityTests.test_typed_scope_and_metrics_remain_separate",
+      "status": "PASS",
+      "duration_seconds": 0.005
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceProducerTests.test_exact_running_service_and_supervisor_parent_are_required_on_both_hosts",
+      "status": "PASS",
+      "duration_seconds": 0.978
+    },
+    {
+      "id": "tests.core_next.test_service_identity.ServiceProducerTests.test_stalled_query_has_bounded_wait_and_only_one_inflight_runspace",
+      "status": "PASS",
+      "duration_seconds": 11.092
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_built_and_schema_types_are_not_coerced_from_strings_or_booleans",
+      "status": "PASS",
+      "duration_seconds": 1.908
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_declared_package_and_component_versions_must_match_the_profile",
+      "status": "PASS",
+      "duration_seconds": 1.21
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_existing_hash_and_size_contract_still_rejects_tampering",
+      "status": "PASS",
+      "duration_seconds": 0.542
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_matching_source_and_future_profile_version_pass_without_building",
+      "status": "PASS",
+      "duration_seconds": 0.621
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_preserved_real_same_version_candidates_keep_their_source_binding",
+      "status": "PASS",
+      "duration_seconds": 1.129
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_relabelled_receipt_cannot_hide_stale_embedded_component_source",
+      "status": "PASS",
+      "duration_seconds": 0.618
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_same_version_stale_source_receipt_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 0.525
+    },
+    {
+      "id": "tests.test_core_next_payload_inputs.JoomlaPayloadInputs.test_wrong_embedded_version_or_ambiguous_identity_is_rejected",
+      "status": "PASS",
+      "duration_seconds": 1.225
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_actual_assignment_loop_accepts_joomla_by_reference_insert_contract",
+      "status": "PASS",
+      "duration_seconds": 0.056
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_builder_reproducibly_includes_both_extensions_and_assets",
+      "status": "PASS",
+      "duration_seconds": 0.057
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_combined_override_provenance_never_marks_old_extensions_installed",
+      "status": "PASS",
+      "duration_seconds": 0.489
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_component_manifest_deploys_site_and_scoped_media",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_home_exclusion_retains_other_page_behavior_and_is_idempotent",
+      "status": "PASS",
+      "duration_seconds": 0.056
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_repair_calls_same_scoped_joomla_setup",
+      "status": "PASS",
+      "duration_seconds": 0.0
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_template_installs_before_component_and_has_parent",
+      "status": "PASS",
+      "duration_seconds": 0.001
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_verified_web_refresh_reuses_other_files_and_rejects_tampering",
+      "status": "PASS",
+      "duration_seconds": 0.061
+    },
+    {
+      "id": "tests.test_joomla_frontend_setup.JoomlaFrontendSetupTests.test_workstation_package_gate_accepts_verified_input_and_rejects_changed_bytes",
+      "status": "PASS",
+      "duration_seconds": 0.601
+    }
+  ],
+  "runtime_scope": "Current source tests and synthetic LAB fixtures. No installed profile/API, actual SCM, provider acquisition, external model inference, installer or service mutation.",
+  "fixture_redirect": "Legacy ROOT/__file__ anchors and TEMP/TMP process-only redirects into a new LAB fixture. Frontend setup uses its own LAB fixture roots. No production logic overrides.",
+  "separate_scopes_not_added": [
+    "Original continuity54",
+    "Independent nested foundation42",
+    "Historical frozen/installed/device acceptance"
+  ],
+  "original_receipt_sha256": "c8e36bd50abf5666e89a7a114a8031810ea209e4bde4add3c0bfeb8bb6d03fa7",
+  "tested_input_count": 521,
+  "tested_input_hashes": {
+    "tests/core_next/test_service_identity.py": "29fc78a86c895948520295a3c699859d5c3633a80976bea56e4925297252a1a4",
+    "tests/test_core_next_payload_inputs.py": "a08161d5ae03ecd6e1ae23a048163adca5c1a356a7a75ef6ab80a1ced388461f",
+    ".gitattributes": "4cae0ce52a7c85f0e2c87a16ab34cfefd78931392412fdd0428765806501b984",
+    ".gitignore": "22d9a7fb3334df04c92b89d67b92b04d0c175a563f3a8cf4fafd26c1fb2ab5e3",
+    "android/dragonhydra_mobile/.gitignore": "0581d23086f7283dc97d2d5bde4f60724f8115f67baa76949596790ab9800dd7",
+    "android/dragonhydra_mobile/.metadata": "17dc2ba8ee55cc0abd5edbb3343a4cda97c7928fcb1345a1e60a79f6b2c73b28",
+    "android/dragonhydra_mobile/README.md": "e6d202651f4813195d84a03a545e05d6fa51a6c3fe30a26c5b764b15bf1e4a4d",
+    "android/dragonhydra_mobile/analysis_options.yaml": "81326dc8eb2ce39eb2e00ed1a5e44b692aae9ae9bcec15e6e131f0cac213e4cb",
+    "android/dragonhydra_mobile/android/.gitignore": "c9af75dbc2c8aa867476a09426c80b178c4aeed8b9393ae48503eedfa3273d71",
+    "android/dragonhydra_mobile/android/app/build.gradle.kts": "5cda164260b1ca2cc0e88d76143afe7810bee8bdb8e94fefd84f15d7856772ae",
+    "android/dragonhydra_mobile/android/app/src/debug/AndroidManifest.xml": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
+    "android/dragonhydra_mobile/android/app/src/main/AndroidManifest.xml": "5bcf9b6434d87edb4e04bbd9cc82205fc0fd654caf637686abc846c39cc28524",
+    "android/dragonhydra_mobile/android/app/src/main/kotlin/ai/dragonhydra/dragonhydra_mobile/MainActivity.kt": "fd740bb03f318ca15d416465b2087aed897a0e4d07e3e22ddc1c71134c338f0a",
+    "android/dragonhydra_mobile/android/app/src/main/kotlin/ai/dragonhydra/dragonhydra_mobile/SecureConnections.kt": "63e874c22ffd493291480b80f41a3209a7d4fdea3bd0e745877962defbb39874",
+    "android/dragonhydra_mobile/android/app/src/main/res/drawable-v21/launch_background.xml": "dca312ec77de83e43ef70a825c299b51451247286c29167d62f19165750b8793",
+    "android/dragonhydra_mobile/android/app/src/main/res/drawable/ic_dragonhydra.xml": "6bbe629280d2e42a56af0b24658abbfbca8b34449d585a2c87df8f66529ccf09",
+    "android/dragonhydra_mobile/android/app/src/main/res/drawable/launch_background.xml": "2df60e2cfbee873ce2858088cf003e6b93498f2f568476da437610467ea1a9d7",
+    "android/dragonhydra_mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef",
+    "android/dragonhydra_mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81",
+    "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa",
+    "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540",
+    "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180",
+    "android/dragonhydra_mobile/android/app/src/main/res/values-night/styles.xml": "ea763597dc1a84c8034251caee98d7753e0fbf57340ffc94677427de4b537516",
+    "android/dragonhydra_mobile/android/app/src/main/res/values/styles.xml": "cca15a99b59380a548bf6a890f7ca5380ee509b1f9bbb2f5f9ec3589fa25c2f7",
+    "android/dragonhydra_mobile/android/app/src/main/res/xml/network_security_config.xml": "9b5e0e0e53707ffb5e4e30472816ffbb40f33433dae188f9a65213613c72f7b0",
+    "android/dragonhydra_mobile/android/app/src/profile/AndroidManifest.xml": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
+    "android/dragonhydra_mobile/android/build.gradle.kts": "218f400e3fff31c9c986a2535dfb974560e1b4d33cc27b7c1fee96a2b7e44454",
+    "android/dragonhydra_mobile/android/gradle.properties": "7714698de712a7872e371f0dbae626c255fc83ac1c15e52e7cd9fcaa241b5092",
+    "android/dragonhydra_mobile/android/gradle/wrapper/gradle-wrapper.properties": "c16d82b9773fb59bb6377e796b346edbb4149db9f1fa4035eecae538f266ffa6",
+    "android/dragonhydra_mobile/android/settings.gradle.kts": "092ba880c8d4a07591aafc082f45deedc9afcf60c113a4bb3d13cbe1a1fce9de",
+    "android/dragonhydra_mobile/assets/football-snapshot.json": "086d0c7e1167a37d144fa3f25a6167db212a6f1417b401c003c6dd1c929e47e3",
+    "android/dragonhydra_mobile/assets/provider-manifest.json": "6a899846c1dba4ca7c7f7f03c81d79e5db69d11b80675a536a0e461b99db2391",
+    "android/dragonhydra_mobile/lib/connections.dart": "9b2cc21d1937a2a2329637cd92489fcbdeaa73f9024af9398510684587d66c5f",
+    "android/dragonhydra_mobile/lib/main.dart": "c321bf351591b05cc0d55768642709820331e518dee0c69638e879e392ab3dc8",
+    "android/dragonhydra_mobile/lib/public_sources.dart": "b8ecc7f129f06d40c7c27d5d780331d12006a93e412f02861b504dd3ecb465ee",
+    "android/dragonhydra_mobile/lib/server_api.dart": "91b20a083d593f3ec70997dadd9e2a3e14509a41eee9d278c6fa2c4dad7083c5",
+    "android/dragonhydra_mobile/lib/server_connection.dart": "d634e996a12b1ad5e9b4733c8e14d7a27cb3e744e2f9f491af9d0f4bee6901ee",
+    "android/dragonhydra_mobile/lib/simulation.dart": "2040cb59090d7e9d833667939bbc48381cea5090aa10f9879227a5c730a68f30",
+    "android/dragonhydra_mobile/pubspec.lock": "445be5b2e81eacfc9922170e346b420f4f0a81d1805e24205de41b80d4f1d4e7",
+    "android/dragonhydra_mobile/pubspec.yaml": "f75d03061e694413de18b121a2390d326b1023524314b002cff8770aeef3ebc7",
+    "android/dragonhydra_mobile/test/connections_test.dart": "837ff9830e6d8890d131a582f00a62f11699cc09e4aacdbda2942bd047880290",
+    "android/dragonhydra_mobile/test/public_sources_test.dart": "c6831d99f82b75b0aa18c376c73fd583d4323f81903216ebedc0aef90b320059",
+    "android/dragonhydra_mobile/test/server_connection_test.dart": "97dcaba5d9498bda470f3345ae53d3b454f5ebd34f6662faef0f08fa0c501126",
+    "android/dragonhydra_mobile/test/widget_test.dart": "9914ce861256603ce5ada6fa38c4e6f7d9744ed18b90610adc016d17b22c3857",
+    "android/dragonhydra_mobile/tool/public_source_probe.dart": "0b16fc0c3e56e0f9333a077b68194dafe785a76f0386db9c54f43b0dd434177c",
+    "android/dragonhydra_mobile/tool/release_smoke.py": "b1cca30422930aebda3b6736274bb2ac2bcdaeab8396d1b34bffd7bd0fd587e2",
+    "android/fixtures/build_snapshot.py": "4f058995ba56aecc6d7bcea8fdec60446e69f04aee9ce993dbfabf6a17b78752",
+    "android/fixtures/test_snapshot.py": "981405b6dce3e400fd14e4404e59b33f939e3cbfec8f1eb5d81675df87a88a30",
+    "client/desktop/THIRD-PARTY-OPENER-NOTICES.txt": "38c6e8a07c3f9f115ff3fb73be999689cecea7e3eb6f7a3ec8fbe3b09cf729fd",
+    "client/desktop/package-lock.json": "9225d3d6c15d586538d3561e98b70ed69f584a20c7311cc112af8577e8a6c15c",
+    "client/desktop/package.json": "564c0f4cd2c575fde10cf7ceecc444a01493f27ca533da224cf3b3358db6a9f2",
+    "client/desktop/src-tauri/Cargo.lock": "79479fe0cd4d6fa7109ec6e7dcf4a67411cd1649b99b851ba0a67297aed71e05",
+    "client/desktop/src-tauri/Cargo.toml": "b609ae5d426e5bc2bc6725ba63eb7acd9c9fd6a64e46c468c976c023b3a181e8",
+    "client/desktop/src-tauri/build.rs": "8af41c0062014fc594e4bb9899e60ee9930ab57d4cf0c73041ff557d6ec736e6",
+    "client/desktop/src-tauri/capabilities/external-browser.json": "1f111b7e827b9c659e49cf71aec022dffbc3045f15e6b4c04790cb29afca4739",
+    "client/desktop/src-tauri/gen/schemas/acl-manifests.json": "7985a7fce6e3d243cc660c50dcd0a0cf452501a24b82439affdd9f4a5f3ebba5",
+    "client/desktop/src-tauri/gen/schemas/capabilities.json": "9307b59ffa9c461365524ff1d67321d7f0ca0f1f9ee38b9058e04ddf5f43fddc",
+    "client/desktop/src-tauri/gen/schemas/desktop-schema.json": "2600849ddea8e3e9aba603f66af5e4897dadc19153c32954e53ed2b74193c43d",
+    "client/desktop/src-tauri/gen/schemas/windows-schema.json": "2600849ddea8e3e9aba603f66af5e4897dadc19153c32954e53ed2b74193c43d",
+    "client/desktop/src-tauri/icons/128x128.png": "7e1ad1856c80ffff01e1d2029b4d9bb9fab5d927fd887cc80f18bb95ad73d92e",
+    "client/desktop/src-tauri/icons/128x128@2x.png": "c5d92979f2141a00959777411d4b9de237385341e050a4ba1d31f3cf6d3c4e62",
+    "client/desktop/src-tauri/icons/32x32.png": "2aa801697dca4d91541b50f47cc187ddd95305b8108299c0995598a458bee277",
+    "client/desktop/src-tauri/icons/64x64.png": "97f8ae9fdc1efa5a9c2cad2a36d9aa973a87c95fbac6d35c18891d76433d2290",
+    "client/desktop/src-tauri/icons/Square107x107Logo.png": "aa72d419967dff14f2ee097dabcf9688cd793ece86d37c3bea3e094fe2d45c6d",
+    "client/desktop/src-tauri/icons/Square142x142Logo.png": "fc8d18cb3932ad8d48d40c37ae33512181461f62cffbab7d69286b52ecef7d12",
+    "client/desktop/src-tauri/icons/Square150x150Logo.png": "35822072bb6fde9d046363045dbe5599ebd24b8b9f305788ff0538aa7c500254",
+    "client/desktop/src-tauri/icons/Square284x284Logo.png": "fc76062420eb6c8c16b384b9e1826f0b359ac379850d967407fddfc42e772c3c",
+    "client/desktop/src-tauri/icons/Square30x30Logo.png": "24ac8bc68674bac40d4bf343eed1e4244118eb04c1762540b3d0418d4806d21e",
+    "client/desktop/src-tauri/icons/Square310x310Logo.png": "2136feb1230e749821e9cbdbfd85a9872afc592aafd496b2d84b6cf294d2d748",
+    "client/desktop/src-tauri/icons/Square44x44Logo.png": "e2ec093c6d0c69aa3e8f259b17edaca4c61f1362769fc7b58be52cdd30c046fa",
+    "client/desktop/src-tauri/icons/Square71x71Logo.png": "d76cb1531bbff753a17912b23c90965499ececef82112604d09c7c19429ca0be",
+    "client/desktop/src-tauri/icons/Square89x89Logo.png": "48a5d6bba39438efb424a6b3536986e59f3dd6cdac9cb6b5949fc96c77fe1997",
+    "client/desktop/src-tauri/icons/StoreLogo.png": "852d9ce71d60eca439fb7691eb87e578322921c400d52f1be3e582ec3cc8793c",
+    "client/desktop/src-tauri/icons/android/mipmap-anydpi-v26/ic_launcher.xml": "760d4b8a06bf7163dd010c33ad2cac9e4a75fa0177afaba042f83e311eef0c3e",
+    "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher.png": "a7f2b6e0337b2692324eb0e48c716be29c4c69d32d1d67eb3a7c0221b9cac0f5",
+    "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher_foreground.png": "0394d4c3592fbbba7b86c44d34837c6907cd7c0bc0153efbdab1dfa3c0d33383",
+    "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher_round.png": "43afba98dd5680bebca7fd69bc6fc4f9c861e8264548bc11ee6d501cd76bc3b0",
+    "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher.png": "8a40247b6ec5800af41adb1270f8754d52b64b3f7aeecfc8345a517d93b38c12",
+    "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher_foreground.png": "8760defb61ef0a37d31de948a782545f7f5a1b9699aece55016a391e40df8ec9",
+    "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher_round.png": "39488b5005a4cff986e73cc2a14ad7a1071647b7defef72399a4c9968de66619",
+    "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png": "4b633bb5db051829a3e87ff0eae794bd4ff2c809d7b6e81761f84ea89bf6bc49",
+    "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png": "2aa1f4c76a935d799713b7a274b3536d48bef28ff390145e64a5296bc46ac59d",
+    "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png": "e3d104a04b0b9d50b7342b2489ccc522491918e15d1bf5582a0bea9650e53557",
+    "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher.png": "eed57d154cf5eb0970916107ccd4edaf236bdb636254b7909e29b03a7744b8f6",
+    "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_foreground.png": "74845625c9ac53e4db90528c507b313c870ce1f2bf55b78c7cef176b3c3b4e47",
+    "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_round.png": "980cb21915367d08a69a9ba61269b2fa50ea6d00850173068622a237f0621ad0",
+    "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher.png": "1af07343141a8d47fa49b300693a35a27d9197e978a3d6aaae4ade5736715c97",
+    "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_foreground.png": "ddfe557b8a6bfb11b96e76a34a47fcbd33c5bed226ce977b41cab0e34c56af66",
+    "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_round.png": "f1c79ee9b70ee413e66f23cd55b29687ed22205a8b97beab09f532675f7b5649",
+    "client/desktop/src-tauri/icons/android/values/ic_launcher_background.xml": "b1c42868a1777ed1cf61108b506ffc91d0a826318d8516e36cf8f76fab8c4ced",
+    "client/desktop/src-tauri/icons/dragonhydra.svg": "9ec520e33d592baea04022e0cbd5c7ce6da155b060769a7176d62d53e67f27b4",
+    "client/desktop/src-tauri/icons/icon.icns": "4d9780f653e8775760f4d769abc7b18d343c3c72038aabbd2156521d8da1608d",
+    "client/desktop/src-tauri/icons/icon.ico": "b59e32241399cdf5933f0948eef77754d0fbc9005dc5b538dc6819271e8932b4",
+    "client/desktop/src-tauri/icons/icon.png": "5266993b8a00c2cca7e194fbafdac9dfddc4d8a35d8fd57c391a909c4b6ff54c",
+    "client/desktop/src-tauri/icons/ios/AppIcon-20x20@1x.png": "eb90c47ead35f9c956de6a31cb5b17447378226ecf46305a514fb4ceab6c1d46",
+    "client/desktop/src-tauri/icons/ios/AppIcon-20x20@2x-1.png": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+    "client/desktop/src-tauri/icons/ios/AppIcon-20x20@2x.png": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+    "client/desktop/src-tauri/icons/ios/AppIcon-20x20@3x.png": "db1685870426b4ef836746b312903e458e3e53e150124698befe03477aec9216",
+    "client/desktop/src-tauri/icons/ios/AppIcon-29x29@1x.png": "77ec5fbf7291aa8a302b449efa6a10d3aef3acc749b9b64682f8b16d5229a13e",
+    "client/desktop/src-tauri/icons/ios/AppIcon-29x29@2x-1.png": "dcbd45c1d3182f1fa22df999f64bfc4245b695b724854af7570fc199db0664a4",
+    "client/desktop/src-tauri/icons/ios/AppIcon-29x29@2x.png": "dcbd45c1d3182f1fa22df999f64bfc4245b695b724854af7570fc199db0664a4",
+    "client/desktop/src-tauri/icons/ios/AppIcon-29x29@3x.png": "ec9696aa497e6b72614eb94bb76c79e972a140bfebfff88bae2a2cca8ab2a3bc",
+    "client/desktop/src-tauri/icons/ios/AppIcon-40x40@1x.png": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+    "client/desktop/src-tauri/icons/ios/AppIcon-40x40@2x-1.png": "1f6b42d6191ed520685f3bd5d4662951fcbfed45f0b1ae43a9e1eec7d60cd862",
+    "client/desktop/src-tauri/icons/ios/AppIcon-40x40@2x.png": "1f6b42d6191ed520685f3bd5d4662951fcbfed45f0b1ae43a9e1eec7d60cd862",
+    "client/desktop/src-tauri/icons/ios/AppIcon-40x40@3x.png": "11fd0479cd3bc8fbdab40dd9dd9e714d5f6c0d608f8abe82e40e1ad605f834c4",
+    "client/desktop/src-tauri/icons/ios/AppIcon-512@2x.png": "9f55bcada1a39081fed685294e9eb662daef9d4f3f9261fa9ca321e98c0eb07f",
+    "client/desktop/src-tauri/icons/ios/AppIcon-60x60@2x.png": "11fd0479cd3bc8fbdab40dd9dd9e714d5f6c0d608f8abe82e40e1ad605f834c4",
+    "client/desktop/src-tauri/icons/ios/AppIcon-60x60@3x.png": "05952be10d482f2ba3d43c6b6ef86e61eb465688b601064338abd16fd87e9d08",
+    "client/desktop/src-tauri/icons/ios/AppIcon-76x76@1x.png": "593ea0df9d54d54ef7b6b17323136dea412191799a1a0a21b0245f17c5126e69",
+    "client/desktop/src-tauri/icons/ios/AppIcon-76x76@2x.png": "46fccaeb33ff1b5d3692b9458dddddfa28348d63ad95733d5eb881a0d785baf3",
+    "client/desktop/src-tauri/icons/ios/AppIcon-83.5x83.5@2x.png": "0bed22580c1cc00c65dd29f5b8c985795f3302c9167343c50cd54b8e5892ecd2",
+    "client/desktop/src-tauri/src/client_state.rs": "30348527f36cef4cc6c8daa6ee33a3f5e31bcd105b927d5f673adb08c84d34be",
+    "client/desktop/src-tauri/src/external_target.rs": "092427c942305ad85b02d41333f66ea7a91277d23e6b18089b0fc5abf4870d9a",
+    "client/desktop/src-tauri/src/main.rs": "bc6b0395bfcb2dd3d3401d3a6a035e383e2f0c9f3f23d8a4435e15ccda2205c1",
+    "client/desktop/src-tauri/tauri.conf.json": "44df4cb6881c27bc62b5a9fe1ab815d3511b0a038a0fbe189bb64deb7550d630",
+    "client/desktop/web/app.js": "eec7c04ae5cd868f210f142ed03558aa47a51e7b2729c2d85998d93529c48bfd",
+    "client/desktop/web/favicon.svg": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39",
+    "client/desktop/web/index.html": "38e81a0faaedf41272e285f081189e5d3112ac13c03f554da56473a267a252c6",
+    "client/desktop/web/style.css": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba",
+    "packaging/dragonhydra.spec": "66a7f0bfef9829bcebe468845f74b9b899d8e6a0c475bb7ab0bbc391be3f2470",
+    "packaging/genesis2/README.md": "65aec1a440d8add5bbe123a3ec57a436c620a9c0709a979e3eee53c8e8b4d67a",
+    "packaging/genesis2/THIRD-PARTY-NOTICES.txt": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a",
+    "packaging/genesis2/Write-ClientManifest.ps1": "7fef7b1c812fc78718db576ce67670c383ce2bafe381ff675f36fdb361b1ce12",
+    "packaging/linux-native/README.md": "62c7e7f7e436f8bb33c9f9b8d985eeebb4d54c87a6f22fc986c3660b22f60184",
+    "packaging/linux-native/api.env": "359574722c75715d918a34f4688f90563ca254b6086c2e13700fbaeda4666f95",
+    "packaging/linux-native/bootstrap.py": "01d2cb5e48b76fba0c1f4bb4f974622d5abb6942196a9413741357151654a8d0",
+    "packaging/linux-native/build_deb.py": "27ecce748a28c5ce0a597e0e8323af5fff2b4909668b9ff09d2716a7b1b791a1",
+    "packaging/linux-native/build_local_ai.py": "a05ea794eec32daf7c38c43de0baa242732367cdf27dd88785b2cddbad4c2b37",
+    "packaging/linux-native/configure_local_ai.py": "b81fc2d0d48b84cb930fec42f5ff49745859c06850c1e249c2245b2f34b8b0c9",
+    "packaging/linux-native/dragonhydra-api.service": "4b36e40e304e84a9d43d98bc33a6add4e9c9882cbe46df310591454d3bd779e9",
+    "packaging/linux-native/dragonhydra-server": "83903649be377b2f651f25ee04909f5b9e7e0a1002d20ef8661da6c5b1484c31",
+    "packaging/linux-native/finalize_metadata.py": "b705b1354c0bf2ce90f312c446c8538ae84213bd0efc020979fa060d18433326",
+    "packaging/linux-native/managed_endpoint.py": "05d584d799a7378a9c786a9a30ae02b1437576dadb262e1bd268832ac49a7b03",
+    "packaging/linux-native/package_ai_setup.py": "fe46c19c612d9b5a80d2e1921b58166e0d1278c57968140175f4b0efbda6197d",
+    "packaging/linux-native/package_local_ai.py": "439164f47c867db02d179fe3cc77105ed47fc72dfc3791bf05b49f026527cee6",
+    "packaging/linux-native/postinst": "3774934c19b835d017e52bb769e47a829200177e797c333a355e89d9839ad7a6",
+    "packaging/linux-native/postrm": "adf3ad9c311ab0aeec8056aab52b803afefa4e4a5198f090d4dbc58b4b703016",
+    "packaging/linux-native/preinst.in": "43dc361a2ff2f6bc89046919aecc0b4c2722665fa068fa2bee44a30661c928ed",
+    "packaging/linux-native/prepare_frozen_bundle.py": "e55b1a871e33b12869cf3d5bd4266b577902add4bb0731fa73e360643c71c190",
+    "packaging/linux-native/prerm": "2520d1481706c3fbf659fd8e5cadf46a6800447a003a722bae0dc6121005b68f",
+    "packaging/linux-native/server_patch.py": "0c47af145c61567d433e9858e743076cbb8e776dc0038e99f1c83e16a17e6a8f",
+    "packaging/linux-native/test_build_contract.py": "e67f7d99ec4d4e6c16851d150a6382d4e8d54c164482b91c14f5197fac91f9c8",
+    "packaging/linux/README.md": "d074ff39fcb370fcca19dc11e8df0717f6a51feaf4d27db25c30fafbe94a887b",
+    "packaging/linux/dragonhydra.service.in": "4dc5f61aeda237b5e23c3f434cd485c461dd480757eb7d43f7691cbd08cda4be",
+    "packaging/linux/install.sh": "62949f38f477334de0f0e6d639c6b6c409aa3e4018fd15f966d2e861e87025a1",
+    "packaging/linux/preflight.py": "71d6cd88d05a5dbb84c81c621efe01fada16a1eee5915232d1fcb8caa3865213",
+    "packaging/linux/run-server.sh": "ff226c3b00064941d951b46f17c7df0f03ca8457c0a87d8c6b824916a7b8d86c",
+    "packaging/release/SOURCE-LOCK.md": "9c8383978e1085c61bd5d852ed87c1d367eda03928168312d65b3d10c8a1f97f",
+    "packaging/release/artifact-contract.json": "e0602d78bad59d4844538264c35368d9cc0b005dacd1fa6c6179e2d7b77dded9",
+    "packaging/release/build-requirements.txt": "94a409121a3c4c9531ac2e1f5cc298a58dcb6ba6b9d4d1e031fa26648c91a0e4",
+    "packaging/release/version.json": "7ad962f2235653310121e5b68b24d820fcbe547e811de8353587a65d1457e8a4",
+    "packaging/windows/product-server.spec": "a6d6263def997d233586322c13f06c07b307169703247c6f038b5fb8f54f7b7c",
+    "packaging/windows/server_entry.py": "f09cb47749587ae4968cd53f3454d35ac70b276d77e7a9a5d665c16fdff44bb9",
+    "packaging/windows/version_info.txt": "44a83a35fcb5bb6538019a7558abc7a20e88fc7f45e62b986423f3e5b3d0ad2d",
+    "packaging/windows/workstation/Build-Runtime.ps1": "e32cadd2016cf3703a1fc976a1ef3a395dd2bd601f97775bbe8b37527d0d5f8d",
+    "packaging/windows/workstation/CORE-NEXT-INSTALLATION.md": "9cc7af4c58f8d593650519cb353068e9bf3e764bd36bcdd1e969a1001ffee9f0",
+    "packaging/windows/workstation/ClientBuild.ps1": "82137dd4d9d4fd9880f527134e8930347c3abc4de5594243b8218261e5fa2c66",
+    "packaging/windows/workstation/CoreNext-InstallerChecks.ps1": "d858886c4f6919cc5f4aa288701f9a3ff12c8c2d19375b7185bb2d282d7a48b8",
+    "packaging/windows/workstation/CoreNextProfile.ps1": "4ff8676621b3e3662cc10d4de91345cf09d132215bf78f0b8a5c597e9cd7e27b",
+    "packaging/windows/workstation/CoreNextUpgrade.ps1": "79f97b8c48361059dc8b78027d073e2ff59d39bd48506bc31400cba6bf95be24",
+    "packaging/windows/workstation/DragonhydraAtomicFile.cs": "e171507f2f397b51604f15fcd4467153ab8b9f1cbf2437a8407c6b72373cd0ff",
+    "packaging/windows/workstation/DragonhydraLauncher.cs": "e92e78852075bcfb36228d991a17921a05e47e6e44f94fc9d9ed4851ad71e67f",
+    "packaging/windows/workstation/DragonhydraService.cs": "e32a90381de9f9144ffb7cfa5d94df2ed89bbc5328d342a0da039af4897efa2b",
+    "packaging/windows/workstation/README.md": "6bb41aa1ed7c606896367afcc3437cb0fdd68d435e0520656e7a1ae0ebd0e871",
+    "packaging/windows/workstation/Workstation.ps1": "8afbb01d2209bacb9e2aa963073b06eb6ff15d52a80ef93751868529a5002d1f",
+    "packaging/windows/workstation/installer.nsi": "d012b66dbd438ae08f2e7e115532b7d5f1c0825ed54670b6e2fe100d666f5d3f",
+    "packaging/windows/workstation/web/Build-WebPayload.ps1": "ec92e8babd54b9e69ab22dda13d102b4e4e6d2554b810e2d1d1073ca4fd05192",
+    "packaging/windows/workstation/web/CoreNextProfile.php": "2b136896460ba84da5c8f271321a140a467c7359103bf0c623be88a9c9f3c842",
+    "packaging/windows/workstation/web/README.md": "d863db5b1082fc1d45e456779649bae24a87a99ec234a3a8747f7be72fadcc7c",
+    "packaging/windows/workstation/web/manage.php": "c62f286391f819ece535edc95fe1cc2b73acb1d3304255ffee6129e2797c425f",
+    "packaging/windows/workstation/web/prepare_payload.py": "6a6c548c01245c9c8254bea891408c64b1c97ad9b469e50bacfc7e1fb0d1534a",
+    "packaging/windows_entry.py": "5d3f1528f945586aef70c817d449fe47c72e88ea899bd63e03607d8c8cf1d5e1",
+    "pyproject.toml": "c2d4ad3c01d3c086637b36f922f28f1e5f18460b33b265b2731bcdd2e64a08cf",
+    "scripts/Build-CoreNextWorkstation.ps1": "722595b8a64a62d04b4a1754c9bf949af615692bcb4b7dc3b99383d22c43f9d1",
+    "scripts/Build-Desktop.ps1": "843f1732f53236dade65983e6b111228c91af6a2eeadcdb18df060aed66aa9ea",
+    "scripts/Build-Workstation.ps1": "8e93f81ebde7743600b01a466d508f35260b1eb4338285065e6e1d19a5a6066c",
+    "scripts/Dragonhydra-ServerOwnership.ps1": "4052a6b7d4836eaa121b9c399c78c6bd45e9179210070136106d5545797b110d",
+    "scripts/New-CoreNextProfile.ps1": "6723c8f69e296ad5598550e37f3dd41dc424b687fb7ced5c69d21d03c778ede8",
+    "scripts/Prepare-CoreNextPayload.ps1": "1d389360d8daf2c1c1bee69aae62fcdda9d0524c48b13af99e22c1f6f9019f08",
+    "scripts/Release-Dragonhydra.ps1": "cfeb47b3a92d37125ad98b7ec29438cac4b012638a350121f6815916051529db",
+    "scripts/Release-Windows.ps1": "869a48d2a9246263547d180dc94fd26befb537991f6ab60065794273bbff8bb1",
+    "scripts/Repair-InstalledDesktopClient.ps1": "becd50c6c48e32be1ec331feca9f25e491879d627fa8fe05a6f85c1002a8931a",
+    "scripts/Resume-Codex.ps1": "2205c9ddc276f6f1c8db81f74d249f5c5183f714c2c0306ba8a699992dda707d",
+    "scripts/Start-Dragonhydra.ps1": "8f19affcdce4ad4ebb43ce61154b6186a4ed942e372d4e8a838b6bf4aa1d7bee",
+    "scripts/Stop-Dragonhydra.ps1": "ef9bb3ed96db942158c43c888a46f2e6986752f894c8c5a3a70130628799827e",
+    "scripts/Upgrade-CoreNextWorkstation.ps1": "ae1579c7f14a54d8e6b4bff7d440a690845d335d571962b3a798c8050990eefd",
+    "scripts/Verify-Joomla.ps1": "516a2b9d75e5989c41fcd53d86923f4ca040be17c5271cbef5a848df3721cecd",
+    "scripts/build_checkpoint_archive.py": "7cd5f8faaa6aa2a1ad746f851c3932e6f73ce8f9972a25f7a81a829db11b40c4",
+    "scripts/build_connector_server.py": "373e64fbd8cbd91ca6106232f415b52441271115a2dd48601d1098a09a7c266f",
+    "scripts/build_joomla.py": "928634da53ea906756d597f0fb59a939590753349297c979a1f0450fb9044895",
+    "scripts/build_linux_bundle.py": "1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e",
+    "scripts/build_mariadb_migration.py": "6551ae17e84366c3d838d215fe1bc6d1d1717a2598a7aae89f899914f5429df4",
+    "scripts/compare_a6_calculations.py": "7c3900f7ec70a0ca6f8e4347f488f7e521256349e962280d8485d2d3e1d03ef8",
+    "scripts/core_next/characterize.py": "31e8fba1f397e50dcf54e691d81bb64411a1e8de3568bfb837223820e16e6532",
+    "scripts/core_next/linux-server.sh": "9394494cfae8b8551cf460b328706e3780cc772749c60c4a4162d4ddd8868bd2",
+    "scripts/core_next/release.py": "ddf8bd58e9180e4aed4bde9c6fc64849656f35cde25688b6d2edcac00deb9223",
+    "scripts/core_next_cargo_cache.py": "feddf1548985be342bfc39702179b86e594c8026f9bde3f81f7bd0c6a1ba579b",
+    "scripts/finalize_core_next_payload.py": "301f6471b78afbea4e05c0715f36422e65444b648319b27aa6bbee6e7f5e7f51",
+    "scripts/freeze_release.py": "4d8c860a06e555bae0b41bd05034896f6e5d4af999a9c170c3a114a5dcc44623",
+    "scripts/master_release_manifest.py": "9d0af0d541f1154379c56a960bd84cb86e15eab15be90e20ce734ad134bf6749",
+    "scripts/prepare_android_production.py": "75d7b910edbafb5129b682ae1868775141191eaa3515feaafeb64e906110a08b",
+    "scripts/prepare_database_migration.py": "10fd29c151d5f8d81faa50f260e5b5149a7e7444358e7a6e22f569d1fb6e3500",
+    "scripts/probe_local_ai.py": "9bbdbd871ab78e0c0d1c205ce205cdeedc9e06cde30e3d6c92d777e1dd48c045",
+    "scripts/release_android.ps1": "337f3d1b3a659c836ac823f5c775ede883d76a3e55a67dffde01b231fba81f07",
+    "scripts/release_coordinator.py": "c3ce845f353e051a605e2acdbd060d404215b20532e8522e3161dfea8ab8c1ae",
+    "scripts/release_joomla_gateway.py": "4633fd9cb0ea31b4453ee8277b81fac12503523c72699bab868636be71a84e77",
+    "scripts/release_wheel.py": "68f9539c9d96c5c6b8a2e9523db4d4e87370a51a11d09108accf113e52871049",
+    "scripts/verify_connections.py": "cf4c639be048ec644d85dbdeb1b7e794ced4aa07dff0b94ef002f9f056056bca",
+    "scripts/verify_context_foundation.py": "37da7078330028119ffa7527fe299c0c4267bfe97adbc81e84e15fd600669f21",
+    "scripts/verify_continuity_checkpoint.py": "296d505d974dfb79ed2d4ddf22c4ea1cd89cb9c10de368cc0cfa98cc5a32b3c7",
+    "scripts/verify_core_next_payload.py": "06f08b5da00aa188dec1bdf239ff230acc2484c4c6b2e4d3581d253568f46570",
+    "scripts/verify_linux_a6_runtime.py": "79eeca6f49b858f4328d063bfb696764771a93c82ad8450b181bd3fd3bf81f34",
+    "scripts/verify_linux_fresh_runtime.py": "51017e09f5d87ee2db9c766d4d16ea25237946ca45229cae7fa4b7041c9dc7e3",
+    "scripts/verify_mariadb_migration.py": "37c860333a56d68be731d2072a3e293abfb46390ec50463a1e236639e06dcc4c",
+    "scripts/verify_master_publication.py": "4d13691d84a0e9941c21e13329410a6abe795b8abdd1efcc69975368ebd8b4f3",
+    "scripts/verify_retained_provenance.py": "275f8d030b0022408a4b3eaf387fd622e11c3e041be62e2c80188354f14915c1",
+    "scripts/verify_sports_package_3_retained.py": "9d66783ca493b5a786961d763e0df4b9c1adae44ff71b174e46e564f05d50cf5",
+    "scripts/verify_statsbomb_context_job.py": "a61524740eb409676188b792bba9b1818668d480cf752531dd7dacdc8d61a4fe",
+    "scripts/verify_statsbomb_context_live.py": "d5bd3d78207ae33d922be3a0b05f1520ef7f13ced7db584d0da7fb2b29bf6615",
+    "scripts/verify_statsbomb_parent.py": "7acbdfd1ddc7926f00c27b766e75cc383d1605a751fa2f004cacb3714c541421",
+    "scripts/verify_statsbomb_parser.py": "f24f1c6fdd205f2347cad139ab1ccd060f85efb990e075c3bdbdd2c21f4c9fe9",
+    "server/joomla/README.md": "71e931e4d7475b7c2cd31cf4c953d6847cc914d53c5c20884b44f3a67449be77",
+    "server/joomla/com_dragonhydra/admin/access.xml": "d7e2fc2a753b14d3b9bae5a230e38879751d95d529327172fe0f8d38c18386b7",
+    "server/joomla/com_dragonhydra/admin/config.xml": "bb243067695dca56606c464b8220b6939ab57afe9e88af53e53de5d64afbccd2",
+    "server/joomla/com_dragonhydra/admin/forms/import.xml": "0761b775656701d62a24f0c5e12629f46dd9760f280109c512ef710edf0e7bda",
+    "server/joomla/com_dragonhydra/admin/language/en-GB/com_dragonhydra.ini": "25d3bad26535bda654bc7cf55ea8ff2a450193b44893d55cce1acaf7043175a9",
+    "server/joomla/com_dragonhydra/admin/language/en-GB/com_dragonhydra.sys.ini": "fdb1d003acf8409c5b23b4adda9d3ea9395366399b8b302942467d1966105005",
+    "server/joomla/com_dragonhydra/admin/services/provider.php": "e4583f87f58d97ea9feee89b23a41f0380692f822e027ced487cdc3c6eed31e0",
+    "server/joomla/com_dragonhydra/admin/sql/install.mysql.utf8.sql": "270923a2c273e50f912a19c5d6bee5d5025af1c3478a153ba909ee5c202da216",
+    "server/joomla/com_dragonhydra/admin/sql/uninstall.mysql.utf8.sql": "f701376b43acb0aefde0c2417a3d5ac85b40814b703ba71c1312a03a2c21372b",
+    "server/joomla/com_dragonhydra/admin/sql/updates/mysql/0.3.0.sql": "a43b6329ab45abef3637f772b478cd8f46ffc5a2700678b27c36d8b2ea2ab260",
+    "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php": "d4ae0c1814ae07994abf6d54e71a7aee21621fae98ee046401d5a9b84f0a9310",
+    "server/joomla/com_dragonhydra/admin/src/Controller/DisplayController.php": "5f9aa9b5750219a203b6aebe1a77045611681a2a5e83c4669234bcc8795d257d",
+    "server/joomla/com_dragonhydra/admin/src/Extension/DragonhydraComponent.php": "94795006829ef59b02940121c34ef51ff6d2bec1e799a2e40e8e3270344b9f98",
+    "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php": "43f17b3f8ae703db027b0d7af8cb5d2d8b4e1a7edcb1e4bf7683bf5f7cb3e5e4",
+    "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php": "ca09a92e80f541ae8c2efef7a059e64cb5754c6a194c95a07351ec726b35fe26",
+    "server/joomla/com_dragonhydra/admin/src/Service/ControlWorkflow.php": "83203758872b30f4cef8aafe2915dfee46b2a57272193ccc267321d35bd454ef",
+    "server/joomla/com_dragonhydra/admin/src/Service/FrontendSetup.php": "1601adc2ee43bf888ceb4fb8d66de0ec40bf93c94a4498c7a463c1c38684c1a6",
+    "server/joomla/com_dragonhydra/admin/src/Service/Kernel.php": "d1b2ae5a59bcd876d19eb95569c14d6c0cf5f0a6443b15452d5b58d55abbb0ec",
+    "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php": "e13ed619b4863c6cf168cb0f1100943756de057ca8192734b1f85eeb570cc4fe",
+    "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php": "0466edda3b92d8dfeaabf5c059b4d8a4b1c26bd6196f770cb4c36c4a48434552",
+    "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php": "13f91f5cbd2d40474b73c4b358f0f23f662c808dcb3c9e6c0efea51f61e7ca68",
+    "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php": "9ea3271663723031fec4c5f2a66b8fe8b90fbc3c8a195608592b7167e066162c",
+    "server/joomla/com_dragonhydra/dragonhydra.xml": "f4231b7dddf7ceb0aaaf5a81bde5d775249092ec969cdc09729c7dfd69d3768b",
+    "server/joomla/com_dragonhydra/media/css/control-center.css": "e890b66bb57c04d48311c5ceb630434753c1053efb067edc5ecfee00c01afc66",
+    "server/joomla/com_dragonhydra/media/css/workspace.css": "43279ac1acd37aaf694244b8851910e8cc12a67c1a00208d54059a237c5ec435",
+    "server/joomla/com_dragonhydra/media/joomla.asset.json": "33d47fde12a7792e3119362f7daa0a08424655d254c0cf0175acf99bfbc9cf44",
+    "server/joomla/com_dragonhydra/script.php": "ec010a5abcb423e53f746f94b01e38c40eb21b4e46ea35262f5d3eff10697872",
+    "server/joomla/com_dragonhydra/site/language/en-GB/com_dragonhydra.ini": "0a4aeaaa9089655dd1eeb27a3744eb8037f3dbb9a5993a9b43193dbdbabe3a71",
+    "server/joomla/com_dragonhydra/site/src/Controller/ActionsController.php": "74312532dc17b46b936b762a33e8f620a196affff64322028352004273db448a",
+    "server/joomla/com_dragonhydra/site/src/Controller/DisplayController.php": "c0150b76348fbfa3dc40c495243dc1583a49ed0b20b43a0d3f55d98a38419004",
+    "server/joomla/com_dragonhydra/site/src/Model/WorkspaceModel.php": "f07714427245d3358eb4c250cb51afaaab74a5494e84b3e32ae276d35e62fcae",
+    "server/joomla/com_dragonhydra/site/src/Service/Kernel.php": "20bf656f99a29fb7f2f49fa2a68ccda672a308d0e6953d1032f99ba2dd9216cf",
+    "server/joomla/com_dragonhydra/site/src/View/Dashboard/HtmlView.php": "cddfbf793321ba17c2d7895e343d915ebcc88d91414fcf45036c29517dfd407c",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/default.php": "e2b478a9540cff11cc81a03406568662872c7fd4e519021d6414a687474819d3",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/default.xml": "80209fa58564172c46923e54e5ae0a3170962461ba0d9c60426877512153db83",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-analysis.php": "063211ed22c1646e3a55d738f9b9d24589e9dea49356e919bd27dc167daeec3b",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-competitions.php": "844fb99d4d7de13bc2d5c7d462d804986c24577ffffdfe78eb087644a1c5155d",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-connections.php": "02dee028c379f581b29e7913b7c47bf4c3e7ec5f0a9ffd2d42a9fcc38c1200b6",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-matches.php": "518b2ed5fc7094cf5c30624b4407731b5c3a359df5ec9db015ea9dcf3ab42818",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-overview.php": "9c34d87bbf04905d5eeec9543d8a2d19296d3bcb375c29ea51a822ad7c0efca8",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-reports.php": "2469f21e17fd7ce988f197e2da47a6c96b1f219a137e695a6abc9db00d846d86",
+    "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-teams.php": "b5b4f819f69d6228ce92a807384b9a102663889b774e6e4c6daf1c4c68463598",
+    "server/joomla/integration/manage.php": "6a24f155d42f312f620be8efcbad20c5b1cbfc9a284bde9a713587be84888f73",
+    "server/joomla/integration/verify_ui.py": "444727923e9e65fccd5e79ed1d20a85410b11198cf181dea0ab5a4603ac88390",
+    "server/joomla/pkg_dragonhydra.xml": "5f879ed4b675618a64edbd838107791c374eadfe6da16ef740304f6b7a49ad5e",
+    "server/joomla/tpl_cassiopeia_dragonhydra/index.php": "09a1c357493f9dd78b18db703629c3320b0434a7277c66cfbeff5a83ccddc944",
+    "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml": "79ce6e8c7a3ccaa2279ed6e281f9f300e8ab0baa388ea2bbf6974bc21ab4e458",
+    "src/dragonhydra/__init__.py": "0bcd4a0201074f0b153bbfd456bbd353ea51a96dfeff1a51f7ccd8947b3284d0",
+    "src/dragonhydra/api.py": "a5a31fe9d682c9425c825681be777a521547c12c2a621df5703867bafc3b2db3",
+    "src/dragonhydra/api_contracts.py": "56056b71b7cdd4892eb450dfa575e78dca26aa5516fa791fb3b1b02ef59a1f19",
+    "src/dragonhydra/build_meta.py": "549a10a84a8a6bd55588a23260ee1514769bad211600ac527d6b97052735e005",
+    "src/dragonhydra/cli.py": "b4f924b85f65413240568c3f556f46f8c76f5c7341e9eeb8fd2e6de8ed9fd186",
+    "src/dragonhydra/cognition/__init__.py": "7992192172710200521ffa72af6aa50992fcee7328d2248208ff6bd561aa8c54",
+    "src/dragonhydra/cognition/adaptation.py": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669",
+    "src/dragonhydra/cognition/commands.py": "8d8516bd3666b515d205559b4b402254b294d210c227eb48911549991cbac840",
+    "src/dragonhydra/cognition/evaluation.py": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f",
+    "src/dragonhydra/cognition/memory.py": "d068811c07ea960552800ca8cdee221799813e975bf566e22f65f2f5430f8b8f",
+    "src/dragonhydra/cognition/models.py": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06",
+    "src/dragonhydra/cognition/research.py": "08287e52f91e8c698d8b79258e556957605f66fd23ae079566207610e2278a81",
+    "src/dragonhydra/cognition/runtime.py": "9d6ee182b80c9d03f7746f5b884efbe33e8a361255f173a52876f0ec5b5bad3a",
+    "src/dragonhydra/connectors/__init__.py": "736f747eacf276124b99c055e2d803cd35cabc1b2ca16a429bda0ed76cfc125a",
+    "src/dragonhydra/connectors/core.py": "3610559069a5fdb39f02eadc4f80642375c0dcab81da648f4165a28e481497a8",
+    "src/dragonhydra/connectors/football.py": "3df70ba3365413f5cac9435c10817057675eea2c55adcb03f20445f17cb74bd0",
+    "src/dragonhydra/connectors/multisport.py": "d01ec628c41f56744bb7f2959daac813cfe98b7a41638a283a531f092c5b4db2",
+    "src/dragonhydra/connectors/research.py": "c5627e6199e2583e368d211a7289b7316f7321abb2c3a07bb353084caea0def8",
+    "src/dragonhydra/connectors/service.py": "f5a74aeaa2776b5b0574ea1803065fd35c1554df9b7590502c72521ec27d87c4",
+    "src/dragonhydra/connectors/statsbomb_context.py": "d66f53b14a23d0d165e442f0d9c8e1454d3ff9c44a131751f7be487d27d097b3",
+    "src/dragonhydra/connectors/statsbomb_context_jobs.py": "89f11cf9b8ddb20bdb00802bb3e9720729e789077b2da9170dbbef9c271f4793",
+    "src/dragonhydra/connectors/statsbomb_context_parser.py": "0a7a682e431715f5b4aacc7a25e839333bc4d4f84d17995f4cb259955b7e80e3",
+    "src/dragonhydra/connectors/statsbomb_context_view.py": "9f76c202dce8e6d5a79d4d324580c3fb0865860b5752564b1d82472244177ee1",
+    "src/dragonhydra/connectors/store.py": "2aad02a44dddf08502e03548e4e05203094f52c5d8ef73a32037396e6e283418",
+    "src/dragonhydra/connectors/vault.py": "f833bba2aad66a7361c3da6eb97959fa240eff0e0963dbfb8799e4353c058824",
+    "src/dragonhydra/domain.py": "af2608230c815fc6ec81313b48763f08f20257af771e8d056e5577627d5f9535",
+    "src/dragonhydra/estimate_store.py": "4541b96fc2475048dbd538460f2c89270d8aea19d14f7d7ba15b5bc9568660f4",
+    "src/dragonhydra/football_data.py": "db42314be53d2ab4d161001c3496f217dc911b9d178be755a1c2ad43fa37bb7c",
+    "src/dragonhydra/installation_profile.py": "ec8abffca2d621677bdaf05194a5852788176daf01f0cd246a58dfc71c9e3a1d",
+    "src/dragonhydra/jobs.py": "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296",
+    "src/dragonhydra/kernel/__init__.py": "2ded2713043bf9604874ffeaa10d6f2f774f606783055fa0cca2f59a9799eadc",
+    "src/dragonhydra/kernel/composition.py": "a93e1edfe3e80490d90356af71e3844d8aae74b27cc4ea7120d33a79aa3fee34",
+    "src/dragonhydra/kernel/contracts.py": "14fc041dbc99c21f2baadc3d499fc47d3c26961ae47cf2663700de523a07badc",
+    "src/dragonhydra/kernel/engines.py": "9c24d35f89867886cbc899405e70b7b7aeecebe1d1091e4e982faeae1151fb25",
+    "src/dragonhydra/kernel/job_dispatch.py": "e7542681832d25501d09c551e864c3054f15f8bcdbd9ae4395a1b0343c7c26fd",
+    "src/dragonhydra/kernel/local_observer.py": "2586f7f4a44fd636e29bc126fc1620cd7d7954c7b5869d4b4bb130eba060c501",
+    "src/dragonhydra/kernel/ports.py": "abafedbd676fa2cf200f4d16be15730072fb735ff4addae73b9ae0ac040ff956",
+    "src/dragonhydra/kernel/registry.py": "6fef57d160ca953704db88c99bc98e3b53540e9c84350845fcc85239ead2c4c0",
+    "src/dragonhydra/kernel/supporting.py": "60d32da022e714cf461ee3efd230c90d270631367c14cca33a3a25afef2b49f9",
+    "src/dragonhydra/kernel/workflow.py": "7bcdb8e6058b98e00313c0cbff56959a0c010b5c207f032f0b26eabe01284d9a",
+    "src/dragonhydra/local_ai.py": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6",
+    "src/dragonhydra/local_ai_context.py": "bfd544221bb972e2752c3d84a303d6c9aa55c9d9d07f15e2275a6cd1fb447aec",
+    "src/dragonhydra/local_ai_service.py": "e16c1603e0eb390519d61891d703304b2f6069af9aa2f4ee9b4908c6cfa57160",
+    "src/dragonhydra/local_ai_settings.py": "529df95153f1145b755029e5f0975d011748faba51ad08ae54b92d15065ab2a6",
+    "src/dragonhydra/mariadb_migration.py": "6e87a6b3c63832a73ebac9180bf8877bd62d91d9ef56a5566a81e88f6e5e5103",
+    "src/dragonhydra/market_signals.py": "6cc6919afdee7f6fd170d5111917d4bbdd1d6d201e86be6df25b705f93120a43",
+    "src/dragonhydra/market_store.py": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc",
+    "src/dragonhydra/migration.py": "dea25a7f1492de3a0a808397713ba469e0970b23e4d53d89f9001e45b55696ca",
+    "src/dragonhydra/packaging_entry.py": "fe12ca5e18f1dd210a3b98038f83860eff1d56f5285607225a2b2bf30f7c638c",
+    "src/dragonhydra/product.py": "79607607706aee9dd7ab4131ae5ae8dabed414fe0af1e4dca150470c525768f6",
+    "src/dragonhydra/public_results.py": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f",
+    "src/dragonhydra/research.py": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df",
+    "src/dragonhydra/resources/NOTICE.md": "f46681177b756cc89360d02f2ee0a7355c193916f6a503d0e0732e668e39ca8b",
+    "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+    "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv.receipt.json": "de1c12c2241fd7a35bfb56994a254997539216f67ada57b5de05918e232dcb91",
+    "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+    "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json.receipt.json": "ba3c81539f9e6068bb904d96f75b88051e6b6b2c309bab690f6053ffad040908",
+    "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+    "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json.receipt.json": "6ab7c2dad2f88a7118e8ef6c3b55713f997b09d3056123df6d38b07b69a3c30e",
+    "src/dragonhydra/resources/examples/synthetic-estimate.json": "b36ccb38585e92d39efb9a67e32428d3351d6bd21a8641abf00cd3a27ae2e2fe",
+    "src/dragonhydra/resources/examples/synthetic-market.json": "50630cb2f1b98a8efdc0a571f13ec1f446267716845728e4a1cc186c5a24377e",
+    "src/dragonhydra/resources/examples/synthetic-scores.json": "bee6f470d7bc1a3d195d47b3292dd3d30dd8e14badef733f041af41b6366b208",
+    "src/dragonhydra/resources/examples/synthetic-totals.json": "68c30b103c2eedf23d054a5cefae4641b08a29eb15be661a7676b869e1619492",
+    "src/dragonhydra/resources/web/app.js": "eec7c04ae5cd868f210f142ed03558aa47a51e7b2729c2d85998d93529c48bfd",
+    "src/dragonhydra/resources/web/favicon.svg": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39",
+    "src/dragonhydra/resources/web/index.html": "38e81a0faaedf41272e285f081189e5d3112ac13c03f554da56473a267a252c6",
+    "src/dragonhydra/resources/web/style.css": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba",
+    "src/dragonhydra/samples.py": "c1b191233f125ebd5f94a369835ecdd8e118d185bf114f1bec40652358936fd0",
+    "src/dragonhydra/scenario.py": "63118fe4d762212adcb00f37b85d9677b1e8352bafbdb226e0af5ae4759070ce",
+    "src/dragonhydra/server.py": "8d39c0e165ba6b0ff54055e8ba834a8c006c34b4150ea1eb7d84a2c0c9173b58",
+    "src/dragonhydra/source_context.py": "03a1ac3a289451282bfd4c830fc4d7576d348ba81e91c43680d3f89c69b994b2",
+    "src/dragonhydra/tipsaudit.py": "0d1a4080cb18f2b304dfc517e9665b711176e429efd58669aec7f2495151eae1",
+    "src/dragonhydra/watch.py": "97f16f7ea5a97dda3d53b02177f51bebc16599f37c6fc0db10f8bda3de9c3b99",
+    "tests/core_next/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/core_next/characterization.py": "c74153187fc031e52c2fd8d4b2b2e10382371febebdeb1a2a602214168877d69",
+    "tests/core_next/dashboard_children.cjs": "f12e51015069814721ecfedbcae9671ffbc9662f6e7d616243f4c7150f4a6757",
+    "tests/core_next/fixtures/a9-mathematics.json": "aaddfc7361eb40ee20761e77c3d21e72fa816af07b007976b5049ff856296c72",
+    "tests/core_next/test_characterization.py": "66042035569e274ced004f840dc229c93aeba3de21a45585eee6b44c3bffc921",
+    "tests/core_next/test_dashboard_children.py": "41a049248bd67a4c2c9f450b78ef33e3f10a639d1767f7167622b43790bcc31f",
+    "tests/core_next/test_dashboard_pairing.py": "f62a2fbbc612d180e8d9d5bdaed9c4fdb22f28e6849707e5a48b1915d3b4daa8",
+    "tests/core_next/test_dashboard_skip.py": "f5ed331c7d358319c93c77c14ee9696e01b70367d053f66b1a89e553501d0d12",
+    "tests/core_next/test_joomla_admin_header.py": "e80d3f74edd4c37509c167f15f50e09789f180e98ec1b6174fdcef4988423fe1",
+    "tests/core_next/test_kernel.py": "92bb96a7a652686b8b863be18dc0bdbb21d252f2f08d93e5b163b8d0ac1f2f5a",
+    "tests/core_next/test_linux_guard.py": "94168a5a09b79ea980387e2d6a0897066ed411c4a61027d0fbd89121f24ebd80",
+    "tests/core_next/test_listener.py": "b11f8fbcc33820852938748b9addcab14bd5ca9e38199418e73bc2c9e540b5d8",
+    "tests/core_next/test_local_observer.py": "fe2d3acd63a78f34ca4ca917c9aad6b6d0ec152be8e8c015e2f71cc589e7e26d",
+    "tests/core_next/test_memory_readonly.py": "f7d54ecf55dcd57d86cc27c8492f44929e883bb29e2c0f1da2afb94cd4345834",
+    "tests/core_next/test_registry_safety.py": "ec23b5462204f9066c8e23062272299c5379a11cb616d082deea263cbe016553",
+    "tests/core_next/test_standings_semantics.py": "b4da36cd5c7c24b59dedc250fcd000f862a53bc1270772509b26fd903ba28bdb",
+    "tests/core_next/test_supervisor_heartbeat.py": "f54aaa7e1159ff0664c5896437b2f1dccd50e5a76d7a4983540463a461d49895",
+    "tests/core_next/test_supporting_registry.py": "6511e16b5c34498c5744acb583237a17bc679898c36e3c166235d2c738e8345c",
+    "tests/core_next/test_workflow.py": "d417ede0ef059a9364dec7bd3f03b297259d21d87b278ed6e9d90fb55ad7d850",
+    "tests/core_next/test_workflow_api.py": "79fd939f732c8b875ab01f317d4b995433c28f0422be3063ee0cb61743eef1d6",
+    "tests/core_next/test_workflow_eligibility.py": "058155dde7c6022a400a2a1ce0c579b1f65cd6ba59c686eed1e7f0435d506404",
+    "tests/fixtures/connectors/football/api-football-odds.json": "3df05a63f57bc676b76e095550ea4d120e6c6352e2ad804553e38961d3b12b06",
+    "tests/fixtures/connectors/football/api-football.json": "72cde61ce68eb1d3e86d333f381a5aab93a817359c1e142762b35dafecd74e5e",
+    "tests/fixtures/connectors/football/archive.csv": "013db70410165b5e106fcfceb5a1162afa555c8b18e6b0aa63012689165bfb68",
+    "tests/fixtures/connectors/football/football-data-org.json": "57fb8f88418daa2d34514e02f87f487d643f4bd31c7aea5626edc3e5c4780979",
+    "tests/fixtures/connectors/football/odds-api.json": "027062efd2b0a4487f8fc881acfcc4198bd75dc21f662701f22b8eaa71628b93",
+    "tests/fixtures/connectors/football/sportmonks.json": "e61a8105bfd3a1cf67183ef14966adcbf5c57d679a43b9779e4368cd73c6eeb3",
+    "tests/fixtures/connectors/multisport/cricsheet.json": "57d325e2a20491314c949518e0fdddab55ce29f250de9487630d067497d608cc",
+    "tests/fixtures/connectors/multisport/moneypuck.csv": "0df9bd2e9c39cb2fb7f1616a37a3afbcec11957bb3b7ee6206482e005ae035c0",
+    "tests/installation/atomic_file_ps51.ps1": "435284963ea86ec31c9532da3f291c429d92e37fdd979ecab6179d2cf3c9e34b",
+    "tests/installation/check_lifecycle.ps1": "5f49c35162361c71e72474bb5205101880f23832245ef838128e5ad2081ae347",
+    "tests/installation/client_install.ps1": "277f0cb0d4dd09d8cf110cb1950ede37706268091097bd6aecd39d3fdf68a431",
+    "tests/installation/connector_payload.py": "204ef572b25200b4d46bf49a89c6ee5ec18ac676d0a67de60c5ac5d8adf4f9e2",
+    "tests/installation/context_ai_workstation.py": "ddede711aef497282610cc7109f6190c57569e47076a8471b773b4da4b17c9fa",
+    "tests/installation/desktop_external_links.py": "d8fa09f21223270a7479a3904f0cd6f471111af25bc19e266bf9dc803b5d9efc",
+    "tests/installation/frozen_server.py": "004b13c233cc46f8410606b48551fef25146ed1827c829465749ac8bfc439573",
+    "tests/installation/genesis_a8_database.php": "055b943790800d6660930207a4d7760bfc95ee58887d4aa47c4831a2bf1e5e77",
+    "tests/installation/genesis_a8_delivery.py": "e08297838b21a741923a6b736c40428dcf4f4041de84c2f16516bff5065154ad",
+    "tests/installation/genesis_a8_install.ps1": "67d97a6ea3c8f121904fa540f534dcca51eeba009e6c4da69adc080d4848842e",
+    "tests/installation/genesis_a8_journey.py": "255b06d27194e67e625a5d18e73d89acdbf5a2002d3ce5764aa202be03b71aa8",
+    "tests/installation/genesis_a8_links.py": "178839c6124b6204a0d62b048fa3e12a2ad2cfc63f9eb6cca757b4bfa34092e6",
+    "tests/installation/joomla_extension_staging.php": "70f8099888a44303070ea4df2affa6b3b102036234af7b715e8010fe3e8dca73",
+    "tests/installation/joomla_frontend_browser.py": "013004bd74c4f20b359b81d01cf21f2d0ffdd182da5a8772008bc001d1bef532",
+    "tests/installation/joomla_frontend_credentials.py": "f15b722d0bd7cebccc60c456caada5b9f1195ead9d29503796cb443208a1cf8b",
+    "tests/installation/joomla_frontend_deploy.py": "f84838a8a900c8d3fa0a02bfa244328aeab45ee0136fbe2e0ff58614f8aca7a0",
+    "tests/installation/joomla_frontend_installed_payload.ps1": "af6fc30084e512a736da729b3e84b264f18f733a6ec87dba9a38d81701bca879",
+    "tests/installation/joomla_frontend_menu_contract.py": "62637f3348a6e23471ddc74df2aed390b4955ccb1f39259993a81b0a9475a919",
+    "tests/installation/joomla_frontend_render_fixture.php": "6168f0b32145980945e18a9fc56b6dc4f1f9ba075bee4e942006291d1d806c66",
+    "tests/installation/joomla_frontend_secret_scan.py": "a450636ff9882778950e9ea370c23c4832d83c4a01150d5b1fa87403bf4994a7",
+    "tests/installation/joomla_frontend_state.php": "ce618fff242928b4c2e0c6dedcf868692be86c92f779ebaf98eaea78fc994275",
+    "tests/installation/joomla_frontend_states_browser.py": "c08b3fe37b2ab71635f1bbd1031362a785bd49a98753ca0851e28a5389fee341",
+    "tests/installation/joomla_recovery.py": "a52ec94c6382284f2a2ba960c57cacb6ddaf44d48d65317d8dfd619a3c46f116",
+    "tests/installation/joomla_recovery_audit.php": "057af928feff3e61a31f7308f5d3b83bfd720d8c228798477c57a519af3e269f",
+    "tests/installation/joomla_recovery_browser.py": "470b7d9992406ad5ff83a910e2dcd5a5206880ca163de529ca3541547f30ef46",
+    "tests/installation/joomla_recovery_service.ps1": "0ccab421ea2310641ed3562ff7bd204ad8ee0edfb288096ecf4ade16aa2164a6",
+    "tests/installation/linux_a5_upgrade.py": "32df9f96ff38ad8439081a6f01c38d643776cc001d1a5ecd868f2acb8dc6dde5",
+    "tests/installation/linux_a5_upgrade_guard_test.py": "14218b9a687b560b75f6e3b3532c131863aaa83389fd6f73310b7d0813d8ec03",
+    "tests/installation/linux_frozen_bundle_test.py": "118d3839ff8539ed031b61a9563515baec9f23ba0f5ee20234777ded0682dd96",
+    "tests/installation/linux_frozen_upgrade.py": "ef7f35bd6a8981bcbfdd182ac46d0fb855ebb1fa80e86b71cf3968670c12d85d",
+    "tests/installation/linux_installed_regression.py": "205f698a20042eca696e1e7d79e307537d225521711a1720a090b4e3ef4b8595",
+    "tests/installation/linux_local_ai_integration.py": "c5d510d0337962d87ff0b0009737b310110a30255c61417364dff145087ba07d",
+    "tests/installation/linux_local_ai_runtime_test.py": "28c19de5896062e4b6d75a952c0d4024446689caef732c32e69097ed489c3c97",
+    "tests/installation/linux_managed_endpoint_test.py": "a27aa9030b31221bf0e3e6b46ecf8fb7b78ba4e82ab2747b9b3a601703678e1b",
+    "tests/installation/linux_native_package.py": "0b626e2651a111d430e4e8b6f4a238c8c32df606d703c91b6aa98e2323ea9b59",
+    "tests/installation/linux_native_removal.py": "9eeb4644fe4671cb3cc872e7f9a5228fdf68f72c9d5167653b90cf71ea5db233",
+    "tests/installation/linux_native_upgrade.py": "70d7655266ac44eee66263f3e3128515e0c7baf724145f8e199d10528a48ecfb",
+    "tests/installation/linux_native_version_test.py": "4af2a54bdef32a0a1c5bdc16600613c4617e1b0e23183aa4dfaf141460c7b1bc",
+    "tests/installation/linux_optional_ai_service_test.py": "01aeec76d3e4e731ba65d21bd7a8539a9d722695c60b00ce9f64b07270a43abe",
+    "tests/installation/linux_provider_replay.py": "1f28f3d3c6aa2810dae59a6a323940a0efc9d59de53e383fe78ad4c5d0eaa264",
+    "tests/installation/linux_public_sync.py": "f13751c0793590ec88964c9c59fde0acb3148360c7c55c8aeedc0e3aa79d0811",
+    "tests/installation/linux_server_patch_test.py": "df4e81b2409922b99df1fbac15bcfa473414662fe260ab52bf927ee4f5e0977e",
+    "tests/installation/linux_service_cleanup_test.py": "6c1bf5e2c2244902fd5c22d907439a37b19bf986502436e828148fd1017b909e",
+    "tests/installation/linux_service_network_probe.py": "01c08cc775ae58a75a550247764699e6c37bcdabe5d8fc614a645385f2f46245",
+    "tests/installation/linux_systemd_package.py": "9ac2b39a0d7390c48318d43b01e83847052377502469e417a6c449eb9feb21ca",
+    "tests/installation/local_ai_workstation.py": "44691a2ce7a46fd40839c6ab86722e715927eae56a94af927edfb37a29da2578",
+    "tests/installation/mariadb_roundtrip.php": "ab9c32146b583b96d8df682858e1e34d6bbe54756cd1d0bf0304336dd26f0302",
+    "tests/installation/master_release_privacy.py": "d32f99dc05c4ab2eea39930938681865021790201735134d6083927ca0033e35",
+    "tests/installation/master_release_windows_http.py": "37caca41dbc582d3818a205f711adbf7a550e397d1ae90e0b4e6363e715bf72a",
+    "tests/installation/mysql_driver_probe.py": "01b719448ba73a8b594052798ae2095a27763fe09fee61cc12d1be2ce3393d03",
+    "tests/installation/native_smoke.py": "f03657f66a8ed04e6ce3cf1739617e49017c02978e9e0ff85fdf3cab85f116e1",
+    "tests/installation/native_uia.ps1": "fa936c7faf098325b9667b3af303d3c54b03bafb3340dfe6d791a612f09d12fd",
+    "tests/installation/provider_public_payload.py": "920e287dbd0c0c900fe60bd07b3a00e2393a7c646b11d9eb0865804790ba7ac5",
+    "tests/installation/release_client_install.ps1": "09c8113190ed59d5bf5c1c7a84a0e3ff6c0082d7563284596ade0575df56fe4e",
+    "tests/installation/release_gateway.py": "69b0d29af18b2c476c0fcd66a0122fca0b3ab529f78163e6d490af97fcf89c32",
+    "tests/installation/release_joomla.ps1": "5a49ad52f03c53a8adc30f56c276f83f7277fde108b76e16df70d01764b7e42f",
+    "tests/installation/release_native_uia.ps1": "aca5b481be6f3e06a7f2b66a7990d111f9b7a05aff39c17b720118d601a76415",
+    "tests/installation/release_windows_smoke.py": "d84493cc26623d5e15c5f097b2d426046058fe514a4b7f3ded6b5b0317bd1f2a",
+    "tests/installation/release_zip.py": "faf368ff05b29db6b93699b62c94194b1c7a5228901cec401707746d4c2d939f",
+    "tests/installation/run_joomla_staging_regression.ps1": "25ca489ed5321ea1e67fd4288c10f47eb24d3136b10203018e5b6b477df84291",
+    "tests/installation/statsbomb_context_workstation.py": "d9991f2e3092b1cc96c45829f91e42942c985633f31ada2dcc0d58c02d1ab999",
+    "tests/installation/test_linux_metadata_origin.py": "8e8266e4e746845e88238973191744f0727c1bc496da2c3cb28c596a9bd9a351",
+    "tests/installation/test_linux_optional_ai_configuration.py": "82d7f1b4c2738cda06f25b23127b04efeee6b991c928ac1d3ddcffb330ad9584",
+    "tests/installation/workstation_database.php": "b88ce181b1f2197f9f01057c95e9d16a5cd05912f0e98085953b87c52976b5f4",
+    "tests/installation/workstation_journey.py": "089f26bfd8f830f13d4d83a070d34a7f679dc8320ae0178ab8e1233b03c52e23",
+    "tests/installation/workstation_lifecycle.ps1": "629e274173c64cac873f4efde634ce8304138b92de0316f4f5fd884ac4872853",
+    "tests/installation/workstation_native.ps1": "1c91a5f7985d1f7c6611ca2cf70865cff475fe4df926aa8f316c779d08b5be46",
+    "tests/installation/workstation_recovery.ps1": "ea270e34ba281f89cf446ba4ad1f2ddcb916b26b2262628abbd54df82d099bde",
+    "tests/installation/workstation_web.py": "3311a7c5f77bb8d068d680134aa6a21772e8d317db1aa1ff59f2ef180a3489ce",
+    "tests/test_android_production.py": "34428de5988098748014b56b3bd70d640036fa3ca081d5cc884beca143a6d8e2",
+    "tests/test_cli.py": "53b2b4e5934f1cbf0179288e9d64d74294565add2c3eaf4f96678e097bc9cc05",
+    "tests/test_cognition_adaptation.py": "9112da3ec6284d1edc12664600d0b93588168f63cdd3b53659888d2f4721741e",
+    "tests/test_cognition_commands.py": "310a5562a3958b56cdb569e2ea4b07b0319531f1d0b18de09f9550abe4610eeb",
+    "tests/test_cognition_evaluation.py": "e6e8fd81a0a79a3a335f223726fd8dcdb39ab635a40a660c285ef976e60fab9d",
+    "tests/test_cognition_memory.py": "267f12445ac588f171e2d62906b9801cadf7e7b370f71c4e634b805cb94cb7f1",
+    "tests/test_cognition_models.py": "67c41d72af02aed202211b9b79db407db78f39217946cde2826529cc1519048d",
+    "tests/test_cognition_research.py": "0f1f4891db72c8fd656c776c55c0a52ca97fe7396b75ed0a92105d375fa29e7d",
+    "tests/test_connector_provenance.py": "6f94593ef2c31ffe88345261ed401f5c7ecb3d803d5e364ba16f09498954192b",
+    "tests/test_connectors_football.py": "aa2f8f01cb7391217e35de92b1d0573b4c9e9a25c1cd3d2d30ce279d8cf2731d",
+    "tests/test_connectors_multisport.py": "3fbdedc45aa6e3dabdfe4725326cab663a7ce20c8c5e57d21556e87fdf974be8",
+    "tests/test_connectors_research.py": "2da6213ed0ac908b2e15e7f7d5c1bd1ff6e4a57e1c4af40fce50039844d6bd01",
+    "tests/test_connectors_store.py": "d81226a53c512c48fa4479d4081712b4fbc230538a380678809e545c098cc09d",
+    "tests/test_connectors_transport.py": "4c6617417a605e9e0dc33e393b16f6476868a02a54f56ecc40bd00e5ba6352c9",
+    "tests/test_context_ai_workstation.py": "c2ebfd91ef0c8ace5e132781be8f43b323f436a4a6dc99e0f6a5880d50866617",
+    "tests/test_core_next_cargo_cache.py": "3acfda774453b9abbbb51dba03b771ee6a4c7ed52c4af661c8ace42483a83065",
+    "tests/test_core_next_control_workflow.py": "31be44ec8bbf494566b7437257db092127897618cbcf0e73127bff1d102fcb71",
+    "tests/test_core_next_joomla_control.py": "16eb48383f02906a6733edae09d1f5dd599a40517d7061a17c00d711a7c45599",
+    "tests/test_core_next_packaging_metadata.py": "b53b96d95d92664fb4bec766d10ab7caaa68674e04273c50506449b9195a6c7c",
+    "tests/test_core_next_profiles.py": "6e20a06b5bfa2d6f5728de4b1e323165f6490a201302e4413314dc911e6afa88",
+    "tests/test_core_next_release.py": "c6b64f166886397c43cc1f53ce2d00ca4c15aafc48b3bf612902df5f83c7207b",
+    "tests/test_core_next_server_profile.py": "ea4e4470d59d07ae56e1111be9d0e517c6fd09be4f5cc9f17e71a50f54286e3e",
+    "tests/test_core_next_upgrade.py": "f3982359a7d0bd957c5c96d96130c775fb1414717dd7aacf517ca275ddaee0ed",
+    "tests/test_core_next_version_contract.py": "85790e65264e7a150b1d7ebd43de834ffcd3ff2de2f6b241d111e1751343f10b",
+    "tests/test_current_prior.py": "ea9c520f2309074790bd7e81683a70212317ce5214971dcb1e2a48426c8a4729",
+    "tests/test_desktop_external_links.py": "0dd06a3e2fc51f221528f1e57c74d00f10ee89f54b20de6038eb0b5a49a561fc",
+    "tests/test_desktop_pairing.py": "08096c4f98bf26b670f93133a1d7618ee76471d0b4796a78956b9d54ded27881",
+    "tests/test_desktop_popup.py": "71c96069fe2abbe778ce485610ad0a9b63b8b33b0b33c2f4f31662644fbe1149",
+    "tests/test_football_data.py": "20d34dafbe6e7cc0b618ba89e8750d29adb6a6f13de8ff50fc6cdbce0b9b2687",
+    "tests/test_forecast_cli.py": "385b4a353a1e80a58b936f3960665d301861787626fffacfa14d5ec880581221",
+    "tests/test_genesis_a8_links.py": "cfc79275d5e78be7724501cadfdb152ed128123064d81485bdb77fae5dcc8e17",
+    "tests/test_installed_desktop_client_repair.py": "e0977d161ec8baedf46fa42b96deca271be98a0fbf4d38a235fe3c193a0801e9",
+    "tests/test_job_claims.py": "208a2f3f2f9fc8d01a7494b2a03c5234def613ee46e1b88a4ee90feb35c49f1b",
+    "tests/test_joomla_frontend_menu_contract.py": "608e61f5f5e04812c599e7ab72c4bd24a0a8538bc699db512dd593fea597e34b",
+    "tests/test_joomla_frontend_model.py": "bd6fedc4f4aeceb2ad27c938b957a7e4bf299b5b24b96091748130cb15a3bcec",
+    "tests/test_joomla_frontend_setup.py": "5983986f8062993f166cae4185cd39d62c6aeec1ddb37b0582f83eb36c41c45c",
+    "tests/test_joomla_frontend_templates.py": "ddf431f93db19f6521b46b63cef066faa3d16ff63ab0533e055500112b657042",
+    "tests/test_joomla_frontend_transport.py": "9fd027f6b57f6cc45969f06f96ebc65bf5450b514392d44498b3f4b0c2d3df3e",
+    "tests/test_joomla_package.py": "3168e9712182a79a7cc43879da67b8c5b8f711cd5591b2ff7c88e14ceb3ca161",
+    "tests/test_joomla_recovery.py": "8763935badcdee5157c6bcd00763f34900bf0c77066e8232ff0b9d2df67d6943",
+    "tests/test_linux_a6_runtime_acceptance.py": "40ccd8a88894fd0dfb12038e89d3ca2e083d8154f61968787070678d3058bb6d",
+    "tests/test_linux_bundle.py": "67aba8f4d85e7585d811e2c9063f525eafdf4739c5b60ea4b36d155ad4ebfb76",
+    "tests/test_local_ai.py": "d6129ca7738447a53324012e21d477d65e2544f0b755a5dbb4eeaf49f04aa219",
+    "tests/test_local_ai_api.py": "ce3e638e8fd1118d2b1acbed7bba33b68df49724245efa0907cd5282d841388c",
+    "tests/test_local_ai_context.py": "6ce21421761f1dcaa233f51e5e7f6b8749c84cf627b25c33d25cc1ddcebf1567",
+    "tests/test_local_ai_context_api.py": "36ac8634d2c29f72145a8f6d367cc97ccad0908b5b59a7d694bfefcdfc743ccb",
+    "tests/test_local_ai_context_service.py": "1397d7d73d7ef276a33ea049dbfdf4fb2d58e92a08486ec278ca1c86c81d3aba",
+    "tests/test_local_ai_health.py": "223fee9a5ce00e439ab543418029b425a1b7ee42878a182b1ebf0ca252edf9c2",
+    "tests/test_local_ai_settings.py": "9350f7c0ffdaaa3cb1d301a895e1e075dc9c2605cf8e6a402111de5329298eb9",
+    "tests/test_mariadb_migration.py": "37c885d2f74115998e178492be10b49cc420d1207e3bf29f248924659467739a",
+    "tests/test_market_signals.py": "88c8a578384a9479109ad71560950a4a3617f6e4956711c2dd1de8609b8030c9",
+    "tests/test_market_store.py": "580689f68090371203ac6196c80dd0b5f592cb0be6fb7d9440ee529f71f2a240",
+    "tests/test_migration.py": "19df78f1b78c9e6500274f51198ad263fadb0275542c344fc69e04bf8148f996",
+    "tests/test_packaging_entry.py": "d17bd724179b6de5928fe8d7728c57ec94b462e461976d0c76b18dc2e6c5778f",
+    "tests/test_probe_local_ai_context.py": "a9359093189f70d904dc706ac6f96104108c0c256ea433f013a8b8806a000170",
+    "tests/test_product_api.py": "0a2fc83e59bdc88031a43da6b2d3d9a58aa02d95562981b2557b84517ba48c9e",
+    "tests/test_product_review.py": "f66f81e469ec1866301647b2a1a7fa00ce498754b4884ac73693419610e11562",
+    "tests/test_public_results.py": "a8ba885a3c9a60eab301222eb5af6956aa2b7d08e9233b0422333c636cee7e99",
+    "tests/test_release_joomla_gateway.py": "8ab441843a0b85ed11bc5ee635ed5f0ac4676ff69ffa260cc89c79dc7e7cab27",
+    "tests/test_release_resources.py": "83813acd5cd604a0e541e977b9bd0e76e3ccb653a9fd1c32ffbf8e91d34fbd99",
+    "tests/test_research.py": "edca087721da703f3a9b5bc868e9901b81ac54646428b9eab217878181543aca",
+    "tests/test_runtime_release_inputs.py": "623d8517622346a78559954c0ce1bdfc0e3dbe9e1282571801c7901d8feeaf63",
+    "tests/test_scenario.py": "b30d3a73082f67a285b6565c5c4f80bd468368a1c87b4220b0d8c5788b66dc92",
+    "tests/test_source_context.py": "a8b95b9fb68ac39859d8877a40bb55b2b356c161106cdc15919d44704384d61c",
+    "tests/test_source_context_exact.py": "73ac5389eee8e51789b33835515f1bbfe97ca2dff1abfb7d8f17d75ddea01706",
+    "tests/test_statsbomb_context.py": "f84bb7094b03201cc85f1c9d3ab809257bc3ad718fb3691c539ccfb688aeb4f6",
+    "tests/test_statsbomb_context_api.py": "ad0d1577bd2661a87507ceb3fa018195ab9208ba66700072da0ccf138fba97f6",
+    "tests/test_statsbomb_context_jobs.py": "b48434abca75c9eaec529c3641d27d18d57daee9d5ae1eefcecb103821b0a339",
+    "tests/test_statsbomb_context_parser.py": "afb5e638be16cec4d656946d4fdc6491c63238d17603b2d1ba7e8b23c86e44d8",
+    "tests/test_tipsaudit.py": "ae205412248206de981c6e6c01dae18324e87aaa052e187047fd101a029af6d5",
+    "tests/test_watch.py": "031492e1bdbb7780f505249fbc0d9121d19df5cb018bf9a5820b2b5cc24df0fc",
+    "tests/test_workstation_client_override.py": "ef2699833c0b954d081406d4f1d256eca914bba52c0376a688386b80b69a4003",
+    "tests/ui/connections_journey.py": "7349bd138038c61a082c546d617c50e5b7c771d2a2334c913592cce9f98c1a7c",
+    "tests/ui/dashboard_journey.py": "ca12c519676b128f2f1b30ea43f3cb3acc1626c17db7c9bfcff81a3bfd0fc634",
+    "tests/ui/installed_a4_journey.py": "cd8e74a8c332a505a2e1c6ac4d96c32d224169aafeabc5cc0388aae541ad1194",
+    "tests/ui/linux_api_journey.py": "f7c3ba57f8052727dbc0f0526f1a4f502739843b053c3ff4975b620ae9e7f9f3",
+    "tests/ui/local_ai_context_journey.py": "6082b851f4c553a58949613f6329c1a22c90d53e65cad34dba590e94064f79c4",
+    "tests/ui/local_ai_journey.py": "e3969f6a347c2e9f21269596670c66bd95e92da9c853b63941e3296c48c58659",
+    "tests/ui/native_webview_journey.py": "22c0fdc42b0331400cbae08c8616328a878894140dbd35d62438d4b96765fc2a",
+    "tests/ui/statsbomb_context_journey.py": "e96d22a71257421f1e9a66b3ae939b69127a188f7002c566d9354529ede9debd",
+    "tests/ui/statsbomb_retained_journey.py": "53de1e33c54ccea37bfae0530138c84c6995ff004f590c1907f858f796bc2666"
+  },
+  "source_binding": "Pre-commit working bytes validated; bind this exact hash set to the next immutable commit before building. Historical HEAD in the private full receipt is F, not a claim F contains these edits."
+}
