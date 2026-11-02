@@ -1,3 +1,12 @@
+OWNER LOGIN VERIFIED ON SEPARATE CORE-NEXT PROFILE — 2026-11-02.
+User-requested Joomla18822 login succeeded asdragonadmin/user507 with genuine
+CSRF/cookie session, exactprofileidentity, Sources/Matches/ControlCenter navigation,
+subsequent request and anonymous denial10PASS. AssociatedAPI18821; component0.5.0-dev.1.
+No reset/config/service change; suppliedpassword onlyinshort-livedstdin/processmemory.
+Do not copy this credential into primary18740 or use it as an API/provider token.
+Read verified-reports/JOOMLA-18822-OWNER-LOGIN-20261102.json.
+This separate CORE-NEXT-LAB profile does not establish original18740 deployment.
+
 BLOCKED — OWNER WINDOWS ELEVATION REQUIRED, 2026-11-01.
 Goal status blocked after the same canceled-elevation prerequisite persisted
 through3goalturns. Current primary health200 but new modules route404; old server

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-11-02T06:53:56.543535+00:00",
+  "finished_at": "2026-11-02T06:54:01.817453+00:00",
+  "origin": "http://127.0.0.1:18822",
+  "username": "dragonadmin",
+  "status": "PASS",
+  "credentials_supplied_by_owner": true,
+  "credential_source": "stdin-memory-only",
+  "credentials_in_arguments_or_output": false,
+  "credential_reset": false,
+  "configuration_changes": false,
+  "service_changes": false,
+  "session_persisted_to_disk": false,
+  "checks": [
+    {
+      "name": "actual_login_form",
+      "status": "PASS",
+      "http_status": 200
+    },
+    {
+      "name": "local_post_action",
+      "status": "PASS"
+    },
+    {
+      "name": "csrf_and_actual_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "genuine_login_post",
+      "status": "PASS",
+      "http_status": 200,
+      "final_path": "/administrator/index.php"
+    },
+    {
+      "name": "authenticated_username",
+      "status": "PASS",
+      "http_status": 200,
+      "username": "dragonadmin"
+    },
+    {
+      "name": "authenticated_component_sources",
+      "status": "PASS",
+      "http_status": 200,
+      "component_markup": true,
+      "headings": [
+        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT",
+        "Data sources"
+      ],
+      "known_error_codes": [],
+      "control_center_markup": null
+    },
+    {
+      "name": "authenticated_component_control",
+      "status": "PASS",
+      "http_status": 200,
+      "component_markup": true,
+      "headings": [
+        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT",
+        "One registry. A clear operating picture.",
+        "This installation\u2019s backend",
+        "Available building blocks"
+      ],
+      "known_error_codes": [],
+      "control_center_markup": true
+    },
+    {
+      "name": "authenticated_component_matches",
+      "status": "PASS",
+      "http_status": 200,
+      "component_markup": true,
+      "headings": [
+        "DRAGONHYDRA CORE NEXT \u00b7 System Control Center",
+        "DRAGONHYDRA CORE NEXT",
+        "Matches and teams"
+      ],
+      "known_error_codes": [],
+      "control_center_markup": null
+    },
+    {
+      "name": "authenticated_session_continuity",
+      "status": "PASS",
+      "http_status": 200
+    },
+    {
+      "name": "anonymous_component_requires_login",
+      "status": "PASS",
+      "http_status": 200
+    }
+  ],
+  "authenticated_user_id": 507,
+  "installation": {
+    "identity": "CORE-NEXT-LAB candidate; separate from original primary",
+    "service": "DragonhydraCoreNextcandidate3a92a8dd62da",
+    "service_account": "LocalService",
+    "service_pid": 39136,
+    "apache_pid": 42564,
+    "supervisor_pid": 44696,
+    "api_pid": 5648,
+    "database_pid": 29656,
+    "joomla_port": 18822,
+    "associated_api_port": 18821,
+    "database_port": 18823,
+    "joomla_version": "6.2.0",
+    "component_version": "0.5.0-dev.1",
+    "component_url": "http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra",
+    "control_center_url": "http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra&section=control",
+    "current_listener_ancestry_and_workstation_configuration_correlated": true,
+    "runtime_backend_api_acceptance": "NOT_RUN; association verified, not a full API/data acceptance claim",
+    "source_commit": "Not inferred from version or this repository HEAD"
+  },
+  "initial_probe_issue": "Test harness initially assumed com_admin profile navigation. Actual Joomla6 link uses com_users task=user.edit; corrected observation and verified exact username. No application repair or credential reset.",
+  "boundary": "Supplied password used only as a Joomla form credential for18822; not used as a backend/provider token, command argument, source constant or persistent credential file.",
+  "original_primary_18740_upgrade": "Unchanged; prior Windows elevation blocker is distinct from successful Joomla login on this separate profile."
+}
