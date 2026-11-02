@@ -7,8 +7,8 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "release/core-next-20261101T1400Z",
-  "phase": "PUBLISHED_VERIFIED_PRERELEASE",
-  "installation": "PASS",
+  "phase": "UNPUBLISHED_DEV4_R2_SOURCE_PENDING_FREEZE",
+  "installation": "MIXED_JOOMLA_DEV4_R1_BACKEND_NATIVE_PROFILE_DEV3",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
     "mathematical_files_byte_identical": 5,
@@ -28,12 +28,14 @@
     }
   },
   "control_center": {
-    "status": "PASS_PHP_SOURCE_SCOPE",
-    "php_tests": 11,
-    "installed_candidate_browser": "PASS"
+    "status": "JOOMLA4_R1_DEPLOYED_NEUTRAL_SOURCE_R2_PENDING",
+    "browser_receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
+    "browser_passed": 186,
+    "browser_not_run": 2,
+    "neutral_source_scope": "PHP mapping+legend+render/expiry regression; not yet built or installed"
   },
-  "publication": "PUBLICATION_AND_DOWNLOADS_VERIFIED",
-  "next_objective": "Broaden acceptance on a clean Windows system and a physical Android ARM64 device; production signing remains unavailable",
+  "publication": "NOT_PUBLISHED_CURRENT_DEV4",
+  "next_objective": "Freeze the neutral-state r2 source, build fresh F-bound dev.4 r2 packages, verify all lanes; no Windows retry before owner acknowledgement",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -53,7 +55,7 @@
     "scope": "Historical A9 install/login/characterization passed; only its mission-owned service removed afterward; application/state/profile retained"
   },
   "candidate_installation": {
-    "status": "PASS",
+    "status": "JOOMLA4_R1_ON_BACKEND_NATIVE_PROFILE3",
     "installation_id": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "service_name": "DragonhydraCoreNextcandidate3a92a8dd62da",
     "install_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\profiles\\core-next-7ac520727b85456cac4a3a92a8dd62da\\application",
@@ -62,176 +64,27 @@
       "database": 18823,
       "api": 18821,
       "web": 18822
+    },
+    "current_component_versions": {
+      "joomla": "0.5.0-dev.4",
+      "backend": "0.5.0-dev.3",
+      "native": "0.5.0-dev.3",
+      "profile": "0.5.0-dev.3"
     }
   },
   "packages": {
-    "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
-    "artifact_manifest": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/ARTIFACT-MANIFEST.json",
-    "source_archive": {
-      "files": 722,
-      "bytes": 3116264,
-      "sha256": "5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2"
-    },
-    "primary_windows_acceptance": "PASS",
-    "downloaded_and_hashed_assets": 15,
+    "status": "R1_BUILT_PRESERVED_R2_NOT_BUILT",
+    "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
     "distribution_count": 9,
-    "metadata_count": 6,
-    "publication_status": "PUBLICATION_AND_DOWNLOADS_VERIFIED",
-    "verification_timestamp": "2026-11-01T16:27:51.383048Z",
-    "artifacts": [
-      {
-        "kind": "workstation",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe",
-        "version": "0.5.0-dev.1",
-        "bytes": 64863681,
-        "sha256": "a4ce2f0f918ee37760138cc07f11b4881ef9ec376fcb1b25d76ebf0c5ee19f30",
-        "target": "Windows 11 x64 unified workstation",
-        "verification": {
-          "status": "PASS_CURRENT_HOST_INSTALLED",
-          "scope": "Actual current-host installed CORE NEXT service, Joomla and retained-data workflow; owned restart/repair/uninstall; no clean-machine or OS reboot claim"
-        },
-        "acceptance_scope": "Actual current-host installed CORE NEXT service, Joomla and retained-data workflow; owned restart/repair/uninstall; no clean-machine or OS reboot claim",
-        "known_limitations": [
-          "Unsigned development installer",
-          "Current-host acceptance; no clean-machine or OS reboot claim"
-        ]
-      },
-      {
-        "kind": "desktop",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe",
-        "version": "0.5.0-dev.1",
-        "bytes": 10087424,
-        "sha256": "1fd382247b047e87d9091bea95b9710aaf5d584eaadafb47b9c8fa95b6bfec08",
-        "target": "Windows 11 x64 Tauri/WebView2 desktop client",
-        "verification": {
-          "status": "PASS_NATIVE_CURRENT_HOST",
-          "scope": "Actual native client acceptance recorded separately from compilation"
-        },
-        "acceptance_scope": "Actual native client acceptance recorded separately from compilation",
-        "known_limitations": [
-          "Unsigned development binary",
-          "Requires installed Microsoft WebView2"
-        ]
-      },
-      {
-        "kind": "joomla",
-        "filename": "pkg_dragonhydra-0.5.0-dev.1.zip",
-        "version": "0.5.0-dev.1",
-        "bytes": 52232,
-        "sha256": "849176a4a178a9899cb1b0b5f7344195e24ce90048df78a2daefc17ef0b29f02",
-        "target": "Joomla 6 component and Cassiopeia child template; PHP >=8.3",
-        "verification": {
-          "status": "PASS_INSTALLED_CURRENT_HOST",
-          "scope": "Installed isolated Joomla component, genuine session, navigation and registry Control Center"
-        },
-        "acceptance_scope": "Installed isolated Joomla component, genuine session, navigation and registry Control Center",
-        "known_limitations": [
-          "CORE NEXT backend and server-side bridge required"
-        ]
-      },
-      {
-        "kind": "server",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Server-win-x64.zip",
-        "version": "0.5.0-dev.1",
-        "bytes": 19534517,
-        "sha256": "ad98c08cc33b63aceb7e1b04249b7fd58e9e8af8f6dbe88f2a24f7493b3f0352",
-        "target": "Windows 11 x64 frozen Python HTTP server",
-        "verification": {
-          "status": "PASS_SAME_FROZEN_PAYLOAD_INSTALLED",
-          "scope": "Same frozen server payload installed and exercised by unified workstation acceptance"
-        },
-        "acceptance_scope": "Same frozen server payload installed and exercised by unified workstation acceptance",
-        "known_limitations": [
-          "Windows x64 only; standalone ZIP fresh install is not a second clean-machine claim"
-        ]
-      },
-      {
-        "kind": "wheel",
-        "filename": "dragonhydra-0.5.0.dev1-py3-none-any.whl",
-        "version": "0.5.0.dev1",
-        "bytes": 315532,
-        "sha256": "1e8c2015d47e3144dc702a93e05d9f686a9b5ae62cde049497cf5be9413cb30a",
-        "target": "CPython >=3.14,<3.15; wheel py3-none-any",
-        "verification": {
-          "status": "PASS_FRESH_NONEDITABLE_INSTALL",
-          "scope": "Fresh non-editable Windows install and independently tested Linux installed wheel"
-        },
-        "acceptance_scope": "Fresh non-editable Windows install and independently tested Linux installed wheel",
-        "known_limitations": [
-          "Requires pinned server dependencies for HTTP API"
-        ]
-      },
-      {
-        "kind": "sdist",
-        "filename": "dragonhydra-0.5.0.dev1.tar.gz",
-        "version": "0.5.0.dev1",
-        "bytes": 2118944,
-        "sha256": "01e79f1bb665aa19b9add579abf3364f394e7b95c886cc97d00ae5e5cd7acb34",
-        "target": "Python source distribution for CPython >=3.14,<3.15",
-        "verification": {
-          "status": "PASS_ARCHIVE_AND_SAME_SOURCE_WHEEL_BUILD",
-          "scope": "Source archive identity/lock/privacy inspected; wheel built and installed from the same staged source"
-        },
-        "acceptance_scope": "Source archive identity/lock/privacy inspected; wheel built and installed from the same staged source",
-        "known_limitations": [
-          "Source archive inspection is not an independent sdist-based clean-machine install"
-        ]
-      },
-      {
-        "kind": "source",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip",
-        "version": "0.5.0-dev.1",
-        "bytes": 3116264,
-        "sha256": "5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2",
-        "target": "Exact frozen repository Git source",
-        "verification": {
-          "status": "PASS_EXACT_GIT_BLOBS",
-          "scope": "Complete path and blob comparison against frozen Git commit"
-        },
-        "acceptance_scope": "Complete path and blob comparison against frozen Git commit",
-        "known_limitations": [
-          "Source-only distribution; build tools and third-party runtimes required"
-        ]
-      },
-      {
-        "kind": "android",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Android-arm64-development.apk",
-        "version": "0.5.0-dev.1",
-        "bytes": 17345950,
-        "sha256": "269a6fdedefcae2807f17df19989839eacc1f45d600cb80d653099bc2a1f649e",
-        "target": "Android ARM64-v8a; separate ai.dragonhydra.corenext.mobile application",
-        "verification": {
-          "status": "PASS_ISOLATED_EMULATOR",
-          "scope": "Flutter analysis/tests, actual signature/package metadata and separate emulator acceptance"
-        },
-        "acceptance_scope": "Flutter analysis/tests, actual signature/package metadata and separate emulator acceptance",
-        "known_limitations": [
-          "Development/debug signing identity",
-          "No physical ARM64 device acceptance"
-        ]
-      },
-      {
-        "kind": "linux",
-        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Linux-server-x86_64.tar.gz",
-        "version": "0.5.0-dev.1",
-        "bytes": 4293260,
-        "sha256": "5cf689477a6b3347275ec787389ced525ce1bd81ee60c07d94ddf942beb0b8e1",
-        "target": "Linux amd64 Python server archive; no Linux desktop",
-        "verification": {
-          "status": "PASS_EXTRACTED_ARCHIVE_CONTAINER",
-          "scope": "Extracted archive installed/tested in pinned Linux amd64 container"
-        },
-        "acceptance_scope": "Extracted archive installed/tested in pinned Linux amd64 container",
-        "known_limitations": [
-          "Existing compatible CPython3.14 interpreter required",
-          "No host systemd installation or Linux native desktop acceptance"
-        ]
-      }
-    ]
+    "inventory": "LAB/evidence/dev4-partial-deployment-package-inventory.json",
+    "checksums": "LAB/evidence/dev4-package-SHA256SUMS.txt",
+    "r1_assets": "LAB/dist/v0.5.0-dev.4-core-next",
+    "planned_r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
+    "publication_status": "NOT_PUBLISHED"
   },
-  "version": "0.5.0-dev.1",
-  "proposed_tag": "v0.5.0-dev.1-core-next",
-  "updated_utc": "2026-11-01T16:33:00.410546+00:00",
+  "version": "0.5.0-dev.4",
+  "proposed_tag": "v0.5.0-dev.4-core-next",
+  "updated_utc": "2026-11-02T12:00:01.647312+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -250,23 +103,23 @@
     "memory_records": 10,
     "publication": "HELD_FOR_INHERITED_PACKAGE_METADATA"
   },
-  "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
-  "frozen_build_source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
-  "delivery_document_commit": "Separate documentation-only follow-up; resolve from branch Git HEAD",
+  "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+  "frozen_build_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+  "delivery_document_commit": null,
   "platform_acceptance": {
-    "linux": "PASS",
-    "android_emulator": "PASS",
-    "desktop_native": "PASS",
-    "physical_android_device": "NOT_RUN",
-    "windows_clean_machine": "NOT_RUN",
-    "windows_os_reboot": "NOT_RUN"
+    "current_windows4": "BLOCKED_APPROVAL_OR_LAUNCH_FAILED",
+    "current_joomla4_r1_on_backend3": "PASS_BROWSER_R3_SCOPED",
+    "native_client": "INSTALLED_DEV3_ONLY",
+    "android_dev4": "BUILD_HOST_TESTS_ONLY_DEVICE_NOT_RUN",
+    "linux_dev4": "R1_DOCKER_ONLY",
+    "r2_packages": "NOT_BUILT"
   },
   "original_concurrent_activity": {
     "local_head_observed": "f45c459ded940a5aeded8c111f76370eb4fd4e10",
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -301,75 +154,15 @@
     "sealed_release_assets_changed": false
   },
   "current_runtime_observation": {
-    "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\final-current-runtime-953b67f.json",
-    "receipt_sha256": "8e9714a1f42287d176435b5ec1d67ed5bf1e6f2fd2685ceedc1161a19ca9010b",
-    "observed_utc": "2026-11-01T16:07:43.219375+00:00",
-    "health": {
-      "status": "ready",
-      "backend": "sqlite",
-      "version": "0.5.0-dev.1",
-      "schema_version": 1,
-      "optional_ai": "not_configured",
-      "source_sha": "953b67fa50dfa9d705f060f97b8a1af5d317c001"
-    },
+    "source_commit": "3af173d0248e95f7d76aeabed1095aa4f3e97af3",
+    "version": "0.5.0-dev.3",
+    "service_pid": 32192,
+    "joomla_source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+    "joomla_version": "0.5.0-dev.4",
     "retained_count": 760,
-    "modules": [
-      {
-        "module_id": "data",
-        "state": "READY",
-        "runtime_state": "READY",
-        "observed_at": "2026-11-01T16:07:43.214547Z",
-        "expires_at": "2026-11-01T16:12:43.214547Z",
-        "reason": "Explicit operation completed.",
-        "metrics_state": "EXPIRED"
-      },
-      {
-        "module_id": "odds",
-        "state": "EXPIRED",
-        "runtime_state": "UNVERIFIED",
-        "observed_at": "2026-11-01T15:27:45.259998Z",
-        "expires_at": "2026-11-01T15:32:45.259998Z",
-        "reason": "Observation expired.",
-        "metrics_state": "EXPIRED"
-      },
-      {
-        "module_id": "prediction",
-        "state": "EXPIRED",
-        "runtime_state": "UNVERIFIED",
-        "observed_at": "2026-11-01T15:27:45.260010Z",
-        "expires_at": "2026-11-01T15:32:45.260010Z",
-        "reason": "Observation expired.",
-        "metrics_state": "EXPIRED"
-      },
-      {
-        "module_id": "memory",
-        "state": "EXPIRED",
-        "runtime_state": "UNVERIFIED",
-        "observed_at": "2026-11-01T15:27:45.261180Z",
-        "expires_at": "2026-11-01T15:32:45.261180Z",
-        "reason": "Observation expired.",
-        "metrics_state": "EXPIRED"
-      },
-      {
-        "module_id": "evaluation",
-        "state": "EXPIRED",
-        "runtime_state": "UNVERIFIED",
-        "observed_at": "2026-11-01T15:27:45.262261Z",
-        "expires_at": "2026-11-01T15:32:45.262261Z",
-        "reason": "Observation expired.",
-        "metrics_state": "EXPIRED"
-      },
-      {
-        "module_id": "ai",
-        "state": "EXPIRED",
-        "runtime_state": "UNVERIFIED",
-        "observed_at": "2026-11-01T15:27:45.262644Z",
-        "expires_at": "2026-11-01T15:32:45.262644Z",
-        "reason": "Observation expired.",
-        "metrics_state": "EXPIRED"
-      }
-    ],
-    "scope": "Current bounded availability and passive registry view after test-reference cleanup; old cached observations remain expired rather than being reprobed"
+    "receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
+    "sha256": "f918a39a443b41bd4c1dcca61965cc00248e3319cc39a9bf2dc96466c0bef704",
+    "scope": "Actual mixed-component Joomla/browser runtime; no full dev.4 Windows acceptance"
   },
   "publication_external_history_observation": {
     "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
@@ -427,8 +220,8 @@
     }
   ],
   "active_continuation_20261102": {
-    "updated_at": "2026-11-02T09:51:39.046511+00:00",
-    "phase": "DEV3_INSTALLED_NARROW_HEADER_REPAIR_DEV4",
+    "updated_at": "2026-11-02T12:00:01.647312+00:00",
+    "phase": "UNPUBLISHED_DEV4_R2_SOURCE_PENDING_FREEZE",
     "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
     "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "joomla_port": 18822,
@@ -454,9 +247,9 @@
     ],
     "new_standings_scope_regression": "AET/PEN scores excluded from reconstructed regulation standings; seven source tests passed; installed pending",
     "backup_receipt": "C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/core-next-dev2-backup-r2.json",
-    "live_mutations": false,
-    "publication": "NOT_RUN_INTERFACE_GATE_FAILED",
-    "next_action": "Apply scoped Joomla header title wrapping; freeze dev.4; rebuild source-bound packages and repeat installed browser/lifecycle acceptance.",
+    "live_mutations": true,
+    "publication": "NOT_PUBLISHED_NO_DEV4_TAG_OR_DRAFT",
+    "next_action": "Freeze the neutral-state r2 source, build fresh F-bound dev.4 r2 packages, verify all lanes; no Windows retry before owner acknowledgement",
     "registry_inventory": {
       "engines": 6,
       "supporting": 12,
@@ -477,7 +270,7 @@
       "supervisor_ttl_seconds": 45,
       "installed": "NOT_RUN"
     },
-    "next_executable_action": "Freeze dev3 source; build server/native desktop/Joomla, current Android3+6, Python/Linux/source packages; verify then guarded same-profile dev2-to-dev3 update",
+    "next_executable_action": "Freeze the neutral-state r2 source, build fresh F-bound dev.4 r2 packages, verify all lanes; no Windows retry before owner acknowledgement",
     "integrated_source_gate": {
       "status": "PASS",
       "tests_run": 290,
@@ -489,7 +282,7 @@
       "scope": "289-case initial gate plus changed 14-case upgrade scope rerun; 290 distinct final test IDs. Source/fixtures only."
     },
     "installed_build_id": "upgrade-343de81c8801",
-    "installed_service_pid": 32748,
+    "installed_service_pid": 32192,
     "publication_dev2": "NOT_PUBLISHED",
     "dev2_installed_acceptance": {
       "operation_receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\dev2-windows-operation-r1\\operation-receipt.json",
@@ -498,14 +291,17 @@
     },
     "workflow": {
       "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
-      "forecast_job_id": "38e144c05de8495289c550cf00675c73",
-      "evaluation_job_id": "0244b53cca4d4d58a5bd0be22fa949bf",
+      "forecast_job_id": "6f710b7b4bd549919169d3d66f670fdd",
+      "evaluation_job_id": "d86b6e51c8a94dd58b10b8ffee18eb1d",
       "retained_matches": 760,
-      "models": 5,
-      "predictions": 5,
-      "independent_models": 4,
       "evaluation": "AWAITING_ELIGIBLE_OUTCOME",
-      "restart_readback": "PASS"
+      "job_status": "succeeded",
+      "scope": "Existing primary dev.3 durable jobs through Joomla dev.4 r1; r3 readback resumed without resubmission",
+      "exports": {
+        "export_json": "45726d9e71304266ab18d7a0f5379085",
+        "export_csv": "f98e8f3f017e484ba2ce0ddb2dda6d63",
+        "export_xlsx": "095d260418734f25afa763c2c61dc091"
+      }
     },
     "new_confirmed_defect": {
       "component": "Browser and Tauri shared dashboard skip link",
@@ -546,6 +342,339 @@
       "receipt": "LAB/evidence/backend-workflow-20261102-r1/integrated-dev4-r1.json",
       "source_files_changed_during_gate": [],
       "scope": "Source tests/synthetic isolated fixtures; build and installation remain pending"
+    },
+    "prior_dev2_workflow": {
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "forecast_job_id": "38e144c05de8495289c550cf00675c73",
+      "evaluation_job_id": "0244b53cca4d4d58a5bd0be22fa949bf",
+      "retained_matches": 760,
+      "models": 5,
+      "predictions": 5,
+      "independent_models": 4,
+      "evaluation": "AWAITING_ELIGIBLE_OUTCOME",
+      "restart_readback": "PASS"
+    },
+    "installed_joomla_source": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+    "installed_joomla_version": "0.5.0-dev.4",
+    "pending_r2_source_commit": null,
+    "live_mutation_scope": "Supported Joomla-only CLI update/repeat; no dev.4 Windows service/application upgrade",
+    "dev4_r1": {
+      "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+      "packages_preserved": 9,
+      "unique_source_cases": 302,
+      "source_passed": 295,
+      "source_not_run": 7,
+      "joomla_supported_install_repeat": "PASS",
+      "whole_windows_install": "BLOCKED",
+      "approval": {
+        "status": "WINDOWS_APPROVAL_OR_LAUNCH_FAILED",
+        "exception_type": "InvalidOperationException",
+        "native_error_code": null,
+        "child_returned": false,
+        "operation_receipt": false,
+        "one_shot_marker": false,
+        "automatic_retry": false
+      },
+      "joomla_backup": "LAB/continuation-20261102/joomla-only-dev4-r1/private",
+      "prior_dev3_upgrade_backup": "LAB/continuation-20261102/dev3-windows-operation-r1/private-upgrade-backup"
+    },
+    "browser_joomla4_on_dev3": {
+      "r2": {
+        "passed": false,
+        "passing_checks": 159,
+        "failed_assertion": "administrator_logout_denies_protected_component",
+        "root_cause": "LAB harness navigation race; corrected"
+      },
+      "r3": {
+        "passed": true,
+        "passing_checks": 186,
+        "not_run": 2,
+        "receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
+        "sha256": "f918a39a443b41bd4c1dcca61965cc00248e3319cc39a9bf2dc96466c0bef704",
+        "resumed_existing_jobs": 5,
+        "new_ui_job_submissions": 0,
+        "excluded": [
+          "native_api_dashboard_ui",
+          "service_restart_persistence"
+        ]
+      }
+    },
+    "dev4_r2": {
+      "status": "SOURCE_PENDING_FREEZE_BUILD_DEPLOYMENT",
+      "same_version_and_tag": true,
+      "neutral_states": [
+        "UNVERIFIED",
+        "EXPIRED",
+        "UNKNOWN",
+        "NOT_APPLICABLE",
+        "NOT_IMPLEMENTED"
+      ],
+      "source_focus_tests": {
+        "passed": 15,
+        "not_run": 1,
+        "scope": "Actual PHP render/expiry unit suite; not full r2 source gate"
+      },
+      "privileged_retry": "NOT_AUTHORIZED_BEFORE_OWNER_ACKNOWLEDGEMENT"
     }
-  }
+  },
+  "historical_dev1_checkpoint": {
+    "phase": "PUBLISHED_VERIFIED_PRERELEASE",
+    "installation": "PASS",
+    "publication": "PUBLICATION_AND_DOWNLOADS_VERIFIED",
+    "next_objective": "Broaden acceptance on a clean Windows system and a physical Android ARM64 device; production signing remains unavailable",
+    "version": "0.5.0-dev.1",
+    "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "frozen_build_source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "delivery_document_commit": "Separate documentation-only follow-up; resolve from branch Git HEAD",
+    "packages": {
+      "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+      "artifact_manifest": "https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/download/v0.5.0-dev.1-core-next/ARTIFACT-MANIFEST.json",
+      "source_archive": {
+        "files": 722,
+        "bytes": 3116264,
+        "sha256": "5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2"
+      },
+      "primary_windows_acceptance": "PASS",
+      "downloaded_and_hashed_assets": 15,
+      "distribution_count": 9,
+      "metadata_count": 6,
+      "publication_status": "PUBLICATION_AND_DOWNLOADS_VERIFIED",
+      "verification_timestamp": "2026-11-01T16:27:51.383048Z",
+      "artifacts": [
+        {
+          "kind": "workstation",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe",
+          "version": "0.5.0-dev.1",
+          "bytes": 64863681,
+          "sha256": "a4ce2f0f918ee37760138cc07f11b4881ef9ec376fcb1b25d76ebf0c5ee19f30",
+          "target": "Windows 11 x64 unified workstation",
+          "verification": {
+            "status": "PASS_CURRENT_HOST_INSTALLED",
+            "scope": "Actual current-host installed CORE NEXT service, Joomla and retained-data workflow; owned restart/repair/uninstall; no clean-machine or OS reboot claim"
+          },
+          "acceptance_scope": "Actual current-host installed CORE NEXT service, Joomla and retained-data workflow; owned restart/repair/uninstall; no clean-machine or OS reboot claim",
+          "known_limitations": [
+            "Unsigned development installer",
+            "Current-host acceptance; no clean-machine or OS reboot claim"
+          ]
+        },
+        {
+          "kind": "desktop",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe",
+          "version": "0.5.0-dev.1",
+          "bytes": 10087424,
+          "sha256": "1fd382247b047e87d9091bea95b9710aaf5d584eaadafb47b9c8fa95b6bfec08",
+          "target": "Windows 11 x64 Tauri/WebView2 desktop client",
+          "verification": {
+            "status": "PASS_NATIVE_CURRENT_HOST",
+            "scope": "Actual native client acceptance recorded separately from compilation"
+          },
+          "acceptance_scope": "Actual native client acceptance recorded separately from compilation",
+          "known_limitations": [
+            "Unsigned development binary",
+            "Requires installed Microsoft WebView2"
+          ]
+        },
+        {
+          "kind": "joomla",
+          "filename": "pkg_dragonhydra-0.5.0-dev.1.zip",
+          "version": "0.5.0-dev.1",
+          "bytes": 52232,
+          "sha256": "849176a4a178a9899cb1b0b5f7344195e24ce90048df78a2daefc17ef0b29f02",
+          "target": "Joomla 6 component and Cassiopeia child template; PHP >=8.3",
+          "verification": {
+            "status": "PASS_INSTALLED_CURRENT_HOST",
+            "scope": "Installed isolated Joomla component, genuine session, navigation and registry Control Center"
+          },
+          "acceptance_scope": "Installed isolated Joomla component, genuine session, navigation and registry Control Center",
+          "known_limitations": [
+            "CORE NEXT backend and server-side bridge required"
+          ]
+        },
+        {
+          "kind": "server",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Server-win-x64.zip",
+          "version": "0.5.0-dev.1",
+          "bytes": 19534517,
+          "sha256": "ad98c08cc33b63aceb7e1b04249b7fd58e9e8af8f6dbe88f2a24f7493b3f0352",
+          "target": "Windows 11 x64 frozen Python HTTP server",
+          "verification": {
+            "status": "PASS_SAME_FROZEN_PAYLOAD_INSTALLED",
+            "scope": "Same frozen server payload installed and exercised by unified workstation acceptance"
+          },
+          "acceptance_scope": "Same frozen server payload installed and exercised by unified workstation acceptance",
+          "known_limitations": [
+            "Windows x64 only; standalone ZIP fresh install is not a second clean-machine claim"
+          ]
+        },
+        {
+          "kind": "wheel",
+          "filename": "dragonhydra-0.5.0.dev1-py3-none-any.whl",
+          "version": "0.5.0.dev1",
+          "bytes": 315532,
+          "sha256": "1e8c2015d47e3144dc702a93e05d9f686a9b5ae62cde049497cf5be9413cb30a",
+          "target": "CPython >=3.14,<3.15; wheel py3-none-any",
+          "verification": {
+            "status": "PASS_FRESH_NONEDITABLE_INSTALL",
+            "scope": "Fresh non-editable Windows install and independently tested Linux installed wheel"
+          },
+          "acceptance_scope": "Fresh non-editable Windows install and independently tested Linux installed wheel",
+          "known_limitations": [
+            "Requires pinned server dependencies for HTTP API"
+          ]
+        },
+        {
+          "kind": "sdist",
+          "filename": "dragonhydra-0.5.0.dev1.tar.gz",
+          "version": "0.5.0.dev1",
+          "bytes": 2118944,
+          "sha256": "01e79f1bb665aa19b9add579abf3364f394e7b95c886cc97d00ae5e5cd7acb34",
+          "target": "Python source distribution for CPython >=3.14,<3.15",
+          "verification": {
+            "status": "PASS_ARCHIVE_AND_SAME_SOURCE_WHEEL_BUILD",
+            "scope": "Source archive identity/lock/privacy inspected; wheel built and installed from the same staged source"
+          },
+          "acceptance_scope": "Source archive identity/lock/privacy inspected; wheel built and installed from the same staged source",
+          "known_limitations": [
+            "Source archive inspection is not an independent sdist-based clean-machine install"
+          ]
+        },
+        {
+          "kind": "source",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip",
+          "version": "0.5.0-dev.1",
+          "bytes": 3116264,
+          "sha256": "5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2",
+          "target": "Exact frozen repository Git source",
+          "verification": {
+            "status": "PASS_EXACT_GIT_BLOBS",
+            "scope": "Complete path and blob comparison against frozen Git commit"
+          },
+          "acceptance_scope": "Complete path and blob comparison against frozen Git commit",
+          "known_limitations": [
+            "Source-only distribution; build tools and third-party runtimes required"
+          ]
+        },
+        {
+          "kind": "android",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Android-arm64-development.apk",
+          "version": "0.5.0-dev.1",
+          "bytes": 17345950,
+          "sha256": "269a6fdedefcae2807f17df19989839eacc1f45d600cb80d653099bc2a1f649e",
+          "target": "Android ARM64-v8a; separate ai.dragonhydra.corenext.mobile application",
+          "verification": {
+            "status": "PASS_ISOLATED_EMULATOR",
+            "scope": "Flutter analysis/tests, actual signature/package metadata and separate emulator acceptance"
+          },
+          "acceptance_scope": "Flutter analysis/tests, actual signature/package metadata and separate emulator acceptance",
+          "known_limitations": [
+            "Development/debug signing identity",
+            "No physical ARM64 device acceptance"
+          ]
+        },
+        {
+          "kind": "linux",
+          "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Linux-server-x86_64.tar.gz",
+          "version": "0.5.0-dev.1",
+          "bytes": 4293260,
+          "sha256": "5cf689477a6b3347275ec787389ced525ce1bd81ee60c07d94ddf942beb0b8e1",
+          "target": "Linux amd64 Python server archive; no Linux desktop",
+          "verification": {
+            "status": "PASS_EXTRACTED_ARCHIVE_CONTAINER",
+            "scope": "Extracted archive installed/tested in pinned Linux amd64 container"
+          },
+          "acceptance_scope": "Extracted archive installed/tested in pinned Linux amd64 container",
+          "known_limitations": [
+            "Existing compatible CPython3.14 interpreter required",
+            "No host systemd installation or Linux native desktop acceptance"
+          ]
+        }
+      ]
+    },
+    "platform_acceptance": {
+      "linux": "PASS",
+      "android_emulator": "PASS",
+      "desktop_native": "PASS",
+      "physical_android_device": "NOT_RUN",
+      "windows_clean_machine": "NOT_RUN",
+      "windows_os_reboot": "NOT_RUN"
+    },
+    "control_center": {
+      "status": "PASS_PHP_SOURCE_SCOPE",
+      "php_tests": 11,
+      "installed_candidate_browser": "PASS"
+    },
+    "current_runtime_observation": {
+      "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\final-current-runtime-953b67f.json",
+      "receipt_sha256": "8e9714a1f42287d176435b5ec1d67ed5bf1e6f2fd2685ceedc1161a19ca9010b",
+      "observed_utc": "2026-11-01T16:07:43.219375+00:00",
+      "health": {
+        "status": "ready",
+        "backend": "sqlite",
+        "version": "0.5.0-dev.1",
+        "schema_version": 1,
+        "optional_ai": "not_configured",
+        "source_sha": "953b67fa50dfa9d705f060f97b8a1af5d317c001"
+      },
+      "retained_count": 760,
+      "modules": [
+        {
+          "module_id": "data",
+          "state": "READY",
+          "runtime_state": "READY",
+          "observed_at": "2026-11-01T16:07:43.214547Z",
+          "expires_at": "2026-11-01T16:12:43.214547Z",
+          "reason": "Explicit operation completed.",
+          "metrics_state": "EXPIRED"
+        },
+        {
+          "module_id": "odds",
+          "state": "EXPIRED",
+          "runtime_state": "UNVERIFIED",
+          "observed_at": "2026-11-01T15:27:45.259998Z",
+          "expires_at": "2026-11-01T15:32:45.259998Z",
+          "reason": "Observation expired.",
+          "metrics_state": "EXPIRED"
+        },
+        {
+          "module_id": "prediction",
+          "state": "EXPIRED",
+          "runtime_state": "UNVERIFIED",
+          "observed_at": "2026-11-01T15:27:45.260010Z",
+          "expires_at": "2026-11-01T15:32:45.260010Z",
+          "reason": "Observation expired.",
+          "metrics_state": "EXPIRED"
+        },
+        {
+          "module_id": "memory",
+          "state": "EXPIRED",
+          "runtime_state": "UNVERIFIED",
+          "observed_at": "2026-11-01T15:27:45.261180Z",
+          "expires_at": "2026-11-01T15:32:45.261180Z",
+          "reason": "Observation expired.",
+          "metrics_state": "EXPIRED"
+        },
+        {
+          "module_id": "evaluation",
+          "state": "EXPIRED",
+          "runtime_state": "UNVERIFIED",
+          "observed_at": "2026-11-01T15:27:45.262261Z",
+          "expires_at": "2026-11-01T15:32:45.262261Z",
+          "reason": "Observation expired.",
+          "metrics_state": "EXPIRED"
+        },
+        {
+          "module_id": "ai",
+          "state": "EXPIRED",
+          "runtime_state": "UNVERIFIED",
+          "observed_at": "2026-11-01T15:27:45.262644Z",
+          "expires_at": "2026-11-01T15:32:45.262644Z",
+          "reason": "Observation expired.",
+          "metrics_state": "EXPIRED"
+        }
+      ],
+      "scope": "Current bounded availability and passive registry view after test-reference cleanup; old cached observations remain expired rather than being reprobed"
+    }
+  },
+  "source_commit_scope": "Last frozen r1 package source; new neutral-state r2 source awaits its own freeze"
 }

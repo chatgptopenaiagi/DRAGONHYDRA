@@ -107,10 +107,31 @@ class CoreNextControlTests(unittest.TestCase):
         expected=NOW-int(__import__('datetime').datetime.fromisoformat('2026-11-01T11:59:00+00:00').timestamp())
         self.assertEqual(got['result']['modules']['data']['evidence_age_seconds'],expected)
         code='echo json_encode(['
-        for state in ['READY','DEGRADED','UNAVAILABLE','UNKNOWN','EXPIRED','NOT_APPLICABLE']:
+        for state in ['READY','DEGRADED','NOT_CONFIGURED','UNAVAILABLE','STOPPED','UNVERIFIED','UNKNOWN','EXPIRED','NOT_APPLICABLE','NOT_IMPLEMENTED']:
             code+='[\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::tone("'+state+'"),\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::stateLabel("'+state+'")],'
         code+=']);'
-        self.assertEqual(json.loads(self.php(code)),[['green','Ready'],['amber','Degraded'],['red','Unavailable'],['neutral','Unknown'],['amber','Expired'],['neutral','Not applicable']])
+        self.assertEqual(json.loads(self.php(code)),[['green','Ready'],['amber','Degraded'],['amber','Not configured'],['red','Unavailable'],['red','Stopped'],['neutral','Unverified'],['neutral','Unknown'],['neutral','Expired'],['neutral','Not applicable'],['neutral','Not implemented']])
+
+    def test_neutral_unknown_proof_preserves_expiry_and_legend_without_new_observation(self):
+        expired_at='2026-11-01T11:59:00Z'
+        observed_at='2026-11-01T11:58:00Z'
+        got=self.build(items=[module('expired',observed_at=observed_at,expires_at=expired_at),
+                              module('unverified',state='UNVERIFIED'),
+                              module('unknown',expires_at=None)])
+        self.assertEqual(got['calls'],['/modules?scope=all','/system'])
+        self.assertEqual(got['result']['modules']['expired']['state'],'EXPIRED')
+        self.assertEqual(got['result']['modules']['unknown']['state'],'UNKNOWN')
+        self.assertEqual(got['result']['modules']['expired']['observed_at'],observed_at)
+        self.assertEqual(got['result']['modules']['expired']['expires_at'],expired_at)
+        self.assertLess(got['result']['modules']['expired']['evidence_remaining_seconds'],0)
+        self.assertIn('No new probe',got['result']['modules']['expired']['reason'])
+        rendered=self.render(got['result'])
+        for state,label in [('EXPIRED','Expired'),('UNVERIFIED','Unverified'),('UNKNOWN','Unknown')]:
+            self.assertIn('data-state="'+state+'" data-tone="neutral">'+label+'</span>',rendered)
+            self.assertNotIn('data-state="'+state+'" data-tone="green"',rendered)
+        self.assertIn('Degraded / not configured',rendered)
+        self.assertIn('Unverified / expired / unknown / not applicable',rendered)
+        self.assertIn('No current readiness proof',rendered)
 
     def test_actual_overview_and_layer_filter_render_inventory_and_separate_health_controls(self):
         items=[module(key) for key in ['data','odds','prediction','ai','memory','evaluation']]

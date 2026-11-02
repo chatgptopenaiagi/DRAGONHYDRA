@@ -29,8 +29,9 @@ final class ControlCenterModel
     public static function tone(string $state): string
     {
         return match ($state) {
-            'READY' => 'green', 'DEGRADED','NOT_CONFIGURED','UNVERIFIED','EXPIRED' => 'amber',
-            'UNAVAILABLE','STOPPED' => 'red', default => 'neutral',
+            'READY' => 'green', 'DEGRADED','NOT_CONFIGURED' => 'amber',
+            'UNAVAILABLE','STOPPED' => 'red',
+            'UNVERIFIED','EXPIRED','UNKNOWN','NOT_APPLICABLE' => 'neutral', default => 'neutral',
         };
     }
 

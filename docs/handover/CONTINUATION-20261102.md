@@ -1,5 +1,75 @@
 # CORE NEXT continuation — 2026-11-02
 
+**Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
+Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and
+reapplied through the supported Joomla CLI. Its backend, native client, launcher,
+service and profile remain **dev.3, source `3af173d0248e95f7d76aeabed1095aa4f3e97af3`** at
+API `18821`, Joomla `18822`, MariaDB `18823`; service PID `32192` was preserved.
+The new PHP presentation rule makes `UNVERIFIED` and `EXPIRED` neutral, with
+matching legend/render/expiry regressions. That change is **source only** until
+a new frozen source and fresh r2 packages are built and deployed. Version/tag
+remain dev.4; no dev.4 tag, draft or public release has been created.
+
+The full dev.4 Windows elevation/launch ended in `InvalidOperationException`,
+native code unavailable, with no returned child, operation receipt or one-shot
+marker. Cancellation versus launch failure is not established. It was not retried;
+no new Windows attempt is authorized before owner acknowledgement. Preserve all
+nine r1 packages/source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32` and their receipts. R1 source verification was
+302 unique cases: 295 PASS, 7 NOT_RUN; this is not the pending r2 source gate.
+
+Actual browser r2 retained 159 PASS and one logout assertion FAIL caused by a
+navigation race in the LAB harness. The corrected r3 run is terminal **PASS:
+186 PASS, 2 NOT_RUN**, using the existing five job IDs without resubmission.
+This verifies deployed Joomla r1 on backend dev.3, not the pending neutral-state
+source or a dev.4 Windows runtime. Native dashboard pairing and service restart
+are the two NOT_RUN scopes in this browser harness. No eligible later retained
+outcome was observed, so pending evaluation is not an accuracy/learning claim.
+
+Local evidence: [nine-package inventory](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-partial-deployment-package-inventory.json>),
+[package checksums](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-package-SHA256SUMS.txt>),
+[Joomla install/repeat receipt](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/verification.json>),
+[browser r3](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/acceptance/dev3-joomla4-browser-r3/verification.json>).
+Recoverable backups: [Joomla scoped rollback](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/ROLLBACK.md>)
+and the owner-restricted `joomla-only-dev4-r1/private` plus
+`dev3-windows-operation-r1/private-upgrade-backup` directories. Never publish
+their SQL, runtime state or credential-bearing contents.
+
+## Current retained workflow and preserved exports
+
+Target match: `de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea` (Liverpool–Bournemouth, 2027-05-30).
+Forecast job `6f710b7b4bd549919169d3d66f670fdd` and evaluation job `d86b6e51c8a94dd58b10b8ffee18eb1d` are terminal durable
+jobs. The evaluation result remains `AWAITING_ELIGIBLE_OUTCOME`; a succeeded job
+does not imply a scored forecast. Browser r3 resumed the persisted job pages and
+readbacks instead of submitting duplicate work.
+
+| Export | Terminal job | Bytes | SHA-256 |
+|---|---|---:|---|
+| JSON | `45726d9e71304266ab18d7a0f5379085` | 2,929 | `db1bd68ad35520d59c17e2960c35857a4d97301d7af0b92b367213fa198990fc` |
+| CSV | `f98e8f3f017e484ba2ce0ddb2dda6d63` | 373 | `4f714213c005c0205572ced56984ab7cf7647eba695bd9a29987592218e0535e` |
+| XLSX | `095d260418734f25afa763c2c61dc091` | 6,226 | `48cb5ed2653bdc66599d845bcbdee407b5044646c2a8bb983298af9f6cf0a9dc` |
+
+The supported Joomla update preserved all six presentation-fingerprint groups,
+extension identities/parameters, owner/permissions, 760 retained matches,
+provider/pairing/configuration fingerprints and protected application files.
+All five observed service PIDs were unchanged; original four remain 12904, 39364,
+23500 and 29480. Service-only secret-file contents could not be rehashed from
+the ordinary owner token; no ACL was changed and those paths were not written.
+
+The r1 known-value package scan passed with zero matches/errors over 522,305,438
+decoded bytes. Final metadata/new-source installation were excluded: it is not a
+final release privacy pass. Fresh native compile/metadata, Joomla package source,
+isolated server/Python runtime and offline Docker Linux have separate r1 receipts.
+Android dev.4/code 7 was newly built with a development certificate and 15 host
+tests; device acceptance remains NOT_RUN. Windows is unsigned; there is no
+clean-machine, OS-reboot, native Linux/WSL or production-signing claim.
+
+Next: finish the neutral-state source gate, freeze the new r2 source, then
+build/verify fresh source-bound dev.4 r2 packages in new directories. Preserve all
+r1 attempts. Resolve owner Windows approval before any new privileged operation;
+keep full Windows/browser/privacy/publication gates separate and fail closed.
+
+## Historical continuation before dev.4 r2
+
 ACTIVE UPDATE: source3af173d0248e95f7d76aeabed1095aa4f3e97af3/dev.3 is installed,
 build upgrade-3af173d0248e. All approved primary upgrade, retained forecast,
 pending evaluation, restart and disposable install/repair/restart/uninstall

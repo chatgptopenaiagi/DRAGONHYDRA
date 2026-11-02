@@ -59,12 +59,13 @@ evidence. Actual last-operation state/time/evidence is retained separately.
 |---|---|
 | NOT_IMPLEMENTED | A declared optional implementation is absent. |
 | NOT_CONFIGURED | Required configuration for the selected optional feature is absent. |
-| UNVERIFIED | Implementation/configuration exists but relevant execution has not been observed. |
+| UNVERIFIED | Implementation/configuration exists but relevant execution has not been observed; neutral, not fresh success or observed failure. |
 | READY | The explicitly described bounded observation or operation succeeded. |
 | DEGRADED | Partial data, failed observation or required dependency limits operation. |
 | UNAVAILABLE | The requested feature/data/cohort is currently unavailable. |
 | NOT_APPLICABLE | An adapter explicitly establishes the capability does not apply. |
-| EXPIRED | Previous evidence has reached its expiry; status does not silently refresh it. |
+| EXPIRED | Previous evidence reached expiry; neutral current readiness, with original clocks retained and no silent refresh. |
+| UNKNOWN | Relevant current state has not been established; neutral. |
 | STOPPED | Explicit kernel shutdown completed for this engine. |
 
 Startup performs bounded local read-only SQLite counts and redacted configuration
@@ -127,6 +128,17 @@ initializing the store. No client-supplied cutoff, run ID, arbitrary URL or shel
 command is accepted. A no-outcome evaluation is a successful pending workflow,
 not evidence of numerical performance.
 
-Presentation uses label/icon plus green (recent scoped success), amber (limited),
-red (observed unavailable prerequisite/failure), or neutral (unknown/unverified/
-expired/not applicable). No optional model dependency gates retained browsing.
+Presentation uses a visible label/icon plus the exact state mapping: `READY`
+is green; `DEGRADED` and `NOT_CONFIGURED` are amber; `UNAVAILABLE` and `STOPPED`
+are red; `UNVERIFIED`, `EXPIRED`, `UNKNOWN`, `NOT_APPLICABLE` and
+`NOT_IMPLEMENTED` are neutral. Unknown/default input is neutral. Neither an
+unobserved operation nor an expired receipt is a newly ready engine. Colour,
+navigation, rerender and a cache read never renew `observed_at`, `last_success_at`
+or expiry. The legend states this distinction rather than grouping unverified
+proof with degraded capability. No optional model dependency gates retained
+browsing.
+
+This neutral PHP mapping is a source-only dev.4 r2 presentation correction pending
+the next freeze/build/deployment. The currently deployed Joomla dev.4 r1 package
+is source 3cae; its Atum-width fix and backend dev.3 compatibility have separate
+actual acceptance. Do not relabel that installed package as the new r2 source.

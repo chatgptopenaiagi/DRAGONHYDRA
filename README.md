@@ -19,16 +19,44 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Current installed checkpoint:** dev.3/source3af173d passed the primary upgrade,
-retained forecast/pending-outcome workflow, scoped restart and disposable Windows
-install/repair/restart/uninstall. Actual kernel browser checks passed both retained
-standings tables and keyboard-safe skip navigation. Dev.3 was not published:
-authenticated Joomla acceptance identified a narrow-screen administration-header
-overflow. Dev.4 applies a scoped presentation repair before repeating release
-acceptance. The shared registry has six engines and twelve supporting components;
-worker/supervisor observations refresh with bounded expiry without opening Joomla
-or contacting providers. Build, installed acceptance and publication retain
-separate evidence in the [current continuation](docs/handover/CONTINUATION-20261102.md).
+**Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
+Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and
+reapplied through the supported Joomla CLI. Its backend, native client, launcher,
+service and profile remain **dev.3, source `3af173d0248e95f7d76aeabed1095aa4f3e97af3`** at
+API `18821`, Joomla `18822`, MariaDB `18823`; service PID `32192` was preserved.
+The new PHP presentation rule makes `UNVERIFIED` and `EXPIRED` neutral, with
+matching legend/render/expiry regressions. That change is **source only** until
+a new frozen source and fresh r2 packages are built and deployed. Version/tag
+remain dev.4; no dev.4 tag, draft or public release has been created.
+
+The full dev.4 Windows elevation/launch ended in `InvalidOperationException`,
+native code unavailable, with no returned child, operation receipt or one-shot
+marker. Cancellation versus launch failure is not established. It was not retried;
+no new Windows attempt is authorized before owner acknowledgement. Preserve all
+nine r1 packages/source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32` and their receipts. R1 source verification was
+302 unique cases: 295 PASS, 7 NOT_RUN; this is not the pending r2 source gate.
+
+Actual browser r2 retained 159 PASS and one logout assertion FAIL caused by a
+navigation race in the LAB harness. The corrected r3 run is terminal **PASS:
+186 PASS, 2 NOT_RUN**, using the existing five job IDs without resubmission.
+This verifies deployed Joomla r1 on backend dev.3, not the pending neutral-state
+source or a dev.4 Windows runtime. Native dashboard pairing and service restart
+are the two NOT_RUN scopes in this browser harness. No eligible later retained
+outcome was observed, so pending evaluation is not an accuracy/learning claim.
+
+Local evidence: [nine-package inventory](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-partial-deployment-package-inventory.json>),
+[package checksums](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-package-SHA256SUMS.txt>),
+[Joomla install/repeat receipt](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/verification.json>),
+[browser r3](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/acceptance/dev3-joomla4-browser-r3/verification.json>).
+Recoverable backups: [Joomla scoped rollback](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/ROLLBACK.md>)
+and the owner-restricted `joomla-only-dev4-r1/private` plus
+`dev3-windows-operation-r1/private-upgrade-backup` directories. Never publish
+their SQL, runtime state or credential-bearing contents.
+
+Next: finish the neutral-state source gate, freeze the new r2 source, then
+build/verify fresh source-bound dev.4 r2 packages in new directories. Preserve all
+r1 attempts. Resolve owner Windows approval before any new privileged operation;
+keep full Windows/browser/privacy/publication gates separate and fail closed.
 
 ## What changes internally
 

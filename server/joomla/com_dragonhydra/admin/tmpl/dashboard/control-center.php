@@ -26,7 +26,7 @@ $detailsUrl = static fn($id): string => $route('section=modules&module=' . rawur
     <article><span>Ready within scope</span><strong><?= (int) ($counts['READY'] ?? 0) ?></strong><small>Engine and supporting observations</small></article>
   </div>
   <?php if (!empty($inventory['unclassified'])): ?><p class="dhcn-muted"><?= (int)$inventory['unclassified'] ?> entries have no verified layer classification. Their presence is not counted as an engine.</p><?php endif; ?>
-  <p class="dhcn-state-legend"><span class="dhcn-state" data-tone="green">Ready</span> Current scoped proof <span class="dhcn-state" data-tone="amber">Limited / unverified</span> Read the reason <span class="dhcn-state" data-tone="red">Unavailable / stopped</span> Observed failure or absence <span class="dhcn-state" data-tone="neutral">Unknown / not applicable</span> No readiness claim</p>
+  <p class="dhcn-state-legend"><span class="dhcn-state" data-tone="green">Ready</span> Current scoped proof <span class="dhcn-state" data-tone="amber">Degraded / not configured</span> Limited capability or missing configuration <span class="dhcn-state" data-tone="red">Unavailable / stopped</span> Observed failure or absence <span class="dhcn-state" data-tone="neutral">Unverified / expired / unknown / not applicable</span> No current readiness proof</p>
 <?php endif; ?>
 
 <?php if (in_array($this->section, ['overview','infrastructure'], true)): ?>
