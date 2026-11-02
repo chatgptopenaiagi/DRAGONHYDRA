@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "edition": "DRAGONHYDRA CORE NEXT",
+  "version": "0.5.0-dev.2",
+  "phase": "SOURCE_VERIFIED_NOT_YET_BUILT_OR_DEPLOYED",
+  "observed_at": "2026-11-02T08:38:35.612089+00:00",
+  "unique_tests": 290,
+  "passed": 283,
+  "failed": 0,
+  "not_run": 7,
+  "not_run_scopes": [
+    "Three native Linux cases on Windows",
+    "One private live-registry snapshot not supplied",
+    "Three symbolic-link privilege cases; junction refusals separately passed"
+  ],
+  "method": "Initial 289-case gate had no assertion errors but two upgrade files changed; replaced changed upgrade-module results with fourteen fresh cases, preserving unchanged source hashes and exact test IDs. Counts do not sum overlapping suites.",
+  "evidence_sha256": "3ad14a2d9b54a8668feb4c288e44dfad8ec05ef18f635bb3feb10fc71deb7ac8",
+  "evidence_reference": "CORE-NEXT-LAB/evidence/backend-workflow-20261102-r1/integrated-final.json",
+  "installed_dev2": "NOT_RUN",
+  "live_services_changed": false,
+  "publication_dev2": "NOT_RUN"
+}

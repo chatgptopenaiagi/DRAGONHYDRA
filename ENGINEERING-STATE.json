@@ -427,8 +427,8 @@
     }
   ],
   "active_continuation_20261102": {
-    "updated_at": "2026-11-02T08:31:55.140449+00:00",
-    "phase": "SOURCE_INTEGRATION_BEFORE_FREEZE",
+    "updated_at": "2026-11-02T08:38:35.609700+00:00",
+    "phase": "VERIFIED_SOURCE_BEFORE_FROZEN_BUILD",
     "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
     "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "joomla_port": 18822,
@@ -477,6 +477,16 @@
       "supervisor_ttl_seconds": 45,
       "installed": "NOT_RUN"
     },
-    "next_executable_action": "Finish integrated source gate, freeze dev2 commit, build affected payloads, preview guarded same-profile upgrade; no live dev2 deployment yet"
+    "next_executable_action": "Build dev2 server, desktop and Joomla from this checkpoint, then isolated frozen-profile acceptance before CORE NEXT upgrade preview",
+    "integrated_source_gate": {
+      "status": "PASS",
+      "tests_run": 290,
+      "passed": 283,
+      "not_run": 7,
+      "failed": 0,
+      "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\backend-workflow-20261102-r1\\integrated-final.json",
+      "sha256": "3ad14a2d9b54a8668feb4c288e44dfad8ec05ef18f635bb3feb10fc71deb7ac8",
+      "scope": "289-case initial gate plus changed 14-case upgrade scope rerun; 290 distinct final test IDs. Source/fixtures only."
+    }
   }
 }
