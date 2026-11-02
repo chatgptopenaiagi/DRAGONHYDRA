@@ -1,3 +1,7 @@
+ACTIVE UPDATE — dev2 source343de81 is installed and lifecycle verified; NOT published.
+Real18821 keyboard skip link loses standings route. Source fix is tested; preparing dev3.
+Read active_continuation_20261102 and docs/handover/CONTINUATION-20261102.md.
+
 ACTIVE CORE NEXT CONTINUATION — 2026-11-02.
 Owner settled18822/18821 and profilecore-next-7ac520727b85456cac4a3a92a8dd62da.
 Read docs/handover/CONTINUATION-20261102.md and active_continuation_20261102 state.

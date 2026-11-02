@@ -11,6 +11,7 @@ class DomNode {
   replaceChildren(...children) { this.children = []; this.append(...children); }
   setAttribute(key, value) { this.attrs[key] = String(value); }
   addEventListener() {}
+  focus() { document.activeElement = this; }
   get textContent() { return this.tagName === "#text" ? this.text : this.children.map(c => c.textContent).join(""); }
   set textContent(value) { this.children = [new DomNode("#text", String(value))]; }
   set innerHTML(_value) { throw new Error("Markup parsing must not be used by the child renderer"); }
@@ -22,7 +23,7 @@ const state = {render: 0, scrolls: new Map(), match: null};
 const fixture = {competition: "Synthetic standings fixture", season: null, label: "Reconstructed fixture", official: false,
   items: [{team: "Synthetic team", team_id: "fixture-team", played: 0, won: 0, drawn: 0, lost: 0, goals_for: 0, goals_against: 0, points: 0}],
   source_id: "synthetic-only", as_of: null, limitations: ["First retained limitation", "Second retained limitation"]};
-const context = vm.createContext({Node: DomNode, document, main, state, location: {hash: "#standings/fixture"},
+const context = vm.createContext({Node: DomNode, URL, document, main, state, location: {hash: "#standings/fixture",origin:"http://127.0.0.1:18999"},
   window: {scrollTo() {}}, sessionStorage: {setItem() {}}, updateNav() {}, go() {}, time: value => value || "Not supplied",
   request: async () => fixture, loading: () => new DomNode("p", "Loading"), errorView: error => { throw error; }});
 function include(name) {
@@ -30,7 +31,7 @@ function include(name) {
   if (!line) return false;
   vm.runInContext(line, context); return true;
 }
-for (const name of ["contentNodes", "el", "button", "badge", "heading", "note", "empty", "table", "standingsView", "render"]) include(name);
+for (const name of ["contentNodes", "skipToMain", "el", "button", "badge", "heading", "note", "empty", "safeUrl", "link", "table", "standingsView", "render"]) include(name);
 const checks = [];
 function check(name, action) { action(); checks.push(name); }
 async function run() {
@@ -59,6 +60,21 @@ async function run() {
     function all(node) { return [node, ...node.children.flatMap(all)]; }
     const cells = all(main).filter(n => n.tagName === "td");
     assert.equal(cells.length, 8); assert.deepEqual(cells.slice(1).map(n => n.textContent), Array(7).fill("0"));
+  });
+  check("skip_focus_preserves_route_rendered_rows_and_does_not_render", () => {
+    const hash=context.location.hash, children=[...main.children], render=state.render;
+    let prevented=false;context.skipToMain({preventDefault(){prevented=true;}});
+    assert.ok(prevented);assert.equal(document.activeElement,main);
+    assert.equal(context.location.hash,hash);assert.equal(state.render,render);
+    assert.deepEqual(main.children,children);
+  });
+  check("external_http_https_links_still_use_new_context_and_unsafe_schemes_are_text", () => {
+    for(const address of ["https://example.invalid/register","http://example.invalid/docs"]){
+      const anchor=context.link("Synthetic provider",address);
+      assert.equal(anchor.tagName,"a");assert.equal(anchor.attrs.href,address);
+      assert.equal(anchor.attrs.target,"_blank");assert.equal(anchor.attrs.rel,"noopener noreferrer");
+    }
+    assert.equal(context.link("Unsupported","javascript:synthetic()").tagName,"span");
   });
   fixture.available = false; fixture.items = []; fixture.label = "Regulation-only standings unavailable for retained score scope";
   fixture.limitations = ["Extra-time and penalty scope is not regulation-only evidence."];

@@ -427,16 +427,16 @@
     }
   ],
   "active_continuation_20261102": {
-    "updated_at": "2026-11-02T08:38:35.609700+00:00",
-    "phase": "VERIFIED_SOURCE_BEFORE_FROZEN_BUILD",
+    "updated_at": "2026-11-02T09:51:39.046511+00:00",
+    "phase": "DEV3_SOURCE_VERIFIED_AWAITING_BUILD",
     "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
     "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
     "joomla_port": 18822,
     "api_port": 18821,
     "source_baseline": "efb36a85032b0b90ead8818f4f4693ab7e5ae178",
-    "installed_source": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
-    "installed_version": "0.5.0-dev.1",
-    "planned_version": "0.5.0-dev.2",
+    "installed_source": "343de81c88013604b39b72564665f33d3aa3523c",
+    "installed_version": "0.5.0-dev.2",
+    "planned_version": "0.5.0-dev.3",
     "master_handoff": "docs/handover/CONTINUATION-20261102.md",
     "memory_registry_workflow_focused_tests": {
       "count": 17,
@@ -461,7 +461,7 @@
       "engines": 6,
       "supporting": 12,
       "total": 18,
-      "installed_dev2": "NOT_RUN"
+      "installed_dev2": "PASS"
     },
     "focused_source_gate": {
       "tests_run": 48,
@@ -477,7 +477,7 @@
       "supervisor_ttl_seconds": 45,
       "installed": "NOT_RUN"
     },
-    "next_executable_action": "Build dev2 server, desktop and Joomla from this checkpoint, then isolated frozen-profile acceptance before CORE NEXT upgrade preview",
+    "next_executable_action": "Freeze dev3 source; build server/native desktop/Joomla, current Android3+6, Python/Linux/source packages; verify then guarded same-profile dev2-to-dev3 update",
     "integrated_source_gate": {
       "status": "PASS",
       "tests_run": 290,
@@ -487,6 +487,43 @@
       "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\backend-workflow-20261102-r1\\integrated-final.json",
       "sha256": "3ad14a2d9b54a8668feb4c288e44dfad8ec05ef18f635bb3feb10fc71deb7ac8",
       "scope": "289-case initial gate plus changed 14-case upgrade scope rerun; 290 distinct final test IDs. Source/fixtures only."
+    },
+    "installed_build_id": "upgrade-343de81c8801",
+    "installed_service_pid": 32748,
+    "publication_dev2": "NOT_PUBLISHED",
+    "dev2_installed_acceptance": {
+      "operation_receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\dev2-windows-operation-r1\\operation-receipt.json",
+      "passed": true,
+      "scope": "Actual primary upgrade, API retained forecast/pending/duplicate/restart plus isolated installer/repair/restart/uninstall; Joomla browser has not completed."
+    },
+    "workflow": {
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "forecast_job_id": "38e144c05de8495289c550cf00675c73",
+      "evaluation_job_id": "0244b53cca4d4d58a5bd0be22fa949bf",
+      "retained_matches": 760,
+      "models": 5,
+      "predictions": 5,
+      "independent_models": 4,
+      "evaluation": "AWAITING_ELIGIBLE_OUTCOME",
+      "restart_readback": "PASS"
+    },
+    "new_confirmed_defect": {
+      "component": "Browser and Tauri shared dashboard skip link",
+      "reproduction": "On real18821 standings with20rows, activate a.skip via Enter: route changes to#main and rendersChooseaview. Refresh follows the new route.",
+      "root_cause": "Accessibility fragment collides with SPA hash router",
+      "repair": "Bind only actual skip anchor; preventDefault and focus existing main, preserving current route",
+      "source_tests": "UI red/green actual-source browser fixture passes for both assets; final integrated gate pending",
+      "evidence": "CORE-NEXT-LAB/acceptance/dev2-kernel-refresh-diag-r1/verification.json"
+    },
+    "new_source_gate": {
+      "status": "PASS",
+      "unique_tests": 298,
+      "passed": 291,
+      "not_run": 7,
+      "failed": 0,
+      "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\backend-workflow-20261102-r1\\integrated-dev3-final.json",
+      "sha256": "4b06a0025da5a8ed8010a909e1fe54d8f801c915eec4fcca3e23e903fba44551",
+      "scope": "One298-case source gate; corrected Joomla version assertion rerun15cases replaces that scope. No overlapping batch totals."
     }
   }
 }

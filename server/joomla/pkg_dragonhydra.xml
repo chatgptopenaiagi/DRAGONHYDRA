@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="package" method="upgrade">
   <name>DRAGONHYDRA CORE NEXT</name><packagename>dragonhydra</packagename>
-  <author>DRAGONHYDRA</author><creationDate>2026-11</creationDate><version>0.5.0-dev.2</version>
+  <author>DRAGONHYDRA</author><creationDate>2026-11</creationDate><version>0.5.0-dev.3</version>
   <description>Isolated CORE NEXT sports workspace and registry-backed System Control Center.</description>
   <blockChildUninstall>true</blockChildUninstall>
   <files folder="constituents">

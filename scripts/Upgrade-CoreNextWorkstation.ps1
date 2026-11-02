@@ -7,6 +7,7 @@ param([Parameter(Mandatory)][string]$ProfilePath,
       [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$NewSourceCommit,
       [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{64}$')][string]$ExpectedNewServerSha256,
       [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{64}$')][string]$ExpectedNewClientSha256,
+      [Alias('ExpectedOldServerSha')][ValidatePattern('^[a-f0-9]{64}$')][string]$ExpectedOldServerSha256='31d85b96121aa8685d58fb8808a972b89a0aeaac93c0fcb4e4a67ef476dd9f38',
       [string]$FromSourceCommit='953b67fa50dfa9d705f060f97b8a1af5d317c001',
       [string]$FromVersion='0.5.0-dev.1',[string]$ToVersion='0.5.0-dev.2',
       [string]$BackupRoot,[switch]$Apply)
@@ -49,7 +50,7 @@ $build=Json (Join-Path (Split-Path $Installer -Parent) 'WORKSTATION-BUILD.json')
 if($build.product -cne 'DRAGONHYDRA CORE NEXT' -or $build.status -cne 'BUILT' -or $build.installed -ne $false -or $build.source_sha -cne $NewSourceCommit -or $build.version -cne $ToVersion -or $build.sha256 -cne $ExpectedInstallerSha256 -or (Hash $Installer) -cne $ExpectedInstallerSha256 -or (Get-Item -LiteralPath $Installer).Length -ne $build.bytes -or [IO.Path]::GetFullPath($build.artifact) -ine [IO.Path]::GetFullPath($Installer)){throw 'CORE_NEXT_UPGRADE_NEW_PACKAGE_PROVENANCE_MISMATCH'}
 $installed=Json (Join-Path $profile.install_root 'WORKSTATION-BUILD.json')
 $serverInfo=Json (Join-Path $profile.install_root 'server\BUILD-INFO.json')
-if($installed.product -cne $profile.product -or $installed.version -cne $FromVersion -or $installed.source_sha -cne $FromSourceCommit -or $serverInfo.version -cne $FromVersion -or $serverInfo.source_sha -cne $FromSourceCommit -or (Hash (Join-Path $profile.install_root 'server\DRAGONHYDRA-Server.exe')) -cne '31d85b96121aa8685d58fb8808a972b89a0aeaac93c0fcb4e4a67ef476dd9f38'){throw 'CORE_NEXT_UPGRADE_OLD_INSTALLED_SOURCE_MISMATCH'}
+$oldApplication=Assert-CoreNextInstalledApplication -Profile $profile -Installed $installed -ServerInfo $serverInfo -ExpectedSource $FromSourceCommit -ExpectedVersion $FromVersion -ExpectedServerSha256 $ExpectedOldServerSha256
 $oldValidator=Join-Path $profile.install_root 'workstation\Installer-Checks.ps1'
 & (Join-Path $env:WINDIR 'System32\WindowsPowerShell\v1.0\powershell.exe') -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File $oldValidator -Action Validate -ProfilePath $ProfilePath -InstallRoot $profile.install_root -StateRoot $profile.state_root -ServiceName $profile.service_name -ReleaseVersion $FromVersion -ReleaseSourceCommit $FromSourceCommit *> $null
 if($LASTEXITCODE){throw 'CORE_NEXT_UPGRADE_OLD_OWNERSHIP_VALIDATION_FAILED'}
@@ -59,7 +60,7 @@ $service=Get-CimInstance Win32_Service -Filter ("Name='"+$profile.service_name+"
 if(-not$service -or $service.State -cne 'Running'){throw 'CORE_NEXT_UPGRADE_RUNNING_OWNED_SERVICE_REQUIRED'}
 Assert-OwnedListeners $profile $service.ProcessId
 $elevated=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-$plan=[ordered]@{schema_version=1;mode=$(if($Apply){'apply'}else{'preview'});installation_id=$profile.installation_id;service_name=$profile.service_name;service_pid=$service.ProcessId;ports=$profile.ports;from_source=$FromSourceCommit;from_version=$FromVersion;to_source=$NewSourceCommit;to_version=$ToVersion;installer_sha256=$ExpectedInstallerSha256;expected_new_server_sha256=$ExpectedNewServerSha256;expected_new_client_sha256=$ExpectedNewClientSha256;elevated=$elevated;protected_backup_required_before_stop=$true;metadata_fields_only=@('source_commit','version','build_id','product_version');protected_original_services=@($protected|ForEach-Object{@{name=$_.name;state=$_.state;pid=$_.pid}});installed=$false;phase='preflight_passed'}
+$plan=[ordered]@{schema_version=1;mode=$(if($Apply){'apply'}else{'preview'});installation_id=$profile.installation_id;service_name=$profile.service_name;service_pid=$service.ProcessId;ports=$profile.ports;from_source=$FromSourceCommit;from_version=$FromVersion;to_source=$NewSourceCommit;to_version=$ToVersion;installer_sha256=$ExpectedInstallerSha256;expected_old_server_sha256=$ExpectedOldServerSha256;old_application_components_verified=$oldApplication.components_verified;expected_new_server_sha256=$ExpectedNewServerSha256;expected_new_client_sha256=$ExpectedNewClientSha256;elevated=$elevated;protected_backup_required_before_stop=$true;metadata_fields_only=@('source_commit','version','build_id','product_version');protected_original_services=@($protected|ForEach-Object{@{name=$_.name;state=$_.state;pid=$_.pid}});installed=$false;phase='preflight_passed'}
 if(-not$Apply){$plan|ConvertTo-Json -Depth 8;return}
 if(-not$elevated){throw 'CORE_NEXT_UPGRADE_OWNER_WINDOWS_ELEVATION_REQUIRED'}
 if(-not$BackupRoot){throw 'CORE_NEXT_UPGRADE_FRESH_PRIVATE_BACKUP_REQUIRED'}

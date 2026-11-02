@@ -80,7 +80,9 @@ const window = {
 };
 const context = vm.createContext({Node, document, window, location, URL});
 const app = fs.readFileSync(input.dashboard, 'utf8');
-const helpers = ['el', 'safeUrl', 'link'].map(name => {
+// Load the real child normalizer used by el as well; the complete application
+// already defines it before el. Omitting that dependency is a harness failure.
+const helpers = ['contentNodes', 'el', 'safeUrl', 'link'].map(name => {
   const line = app.split('\n').find(line => line.startsWith('function ' + name + '('));
   assert.ok(line, 'Actual dashboard helper missing: ' + name);
   return line;

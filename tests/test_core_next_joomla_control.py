@@ -207,7 +207,8 @@ class CoreNextControlTests(unittest.TestCase):
         package = ET.parse(ROOT / 'server/joomla/pkg_dragonhydra.xml').getroot()
         component = ET.parse(COMPONENT / 'dragonhydra.xml').getroot()
         template = ET.parse(ROOT / 'server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml').getroot()
-        self.assertEqual([package.findtext('version'), component.findtext('version'), template.findtext('version')], ['0.5.0-dev.2'] * 3)
+        expected = json.loads((ROOT / 'packaging/release/version.json').read_text())['joomla_version']
+        self.assertEqual([package.findtext('version'), component.findtext('version'), template.findtext('version')], [expected] * 3)
         assets = json.loads((COMPONENT / 'media/joomla.asset.json').read_text())
         self.assertIn('com_dragonhydra.control-center', [a['name'] for a in assets['assets']])
         self.assertTrue((COMPONENT / 'media/css/control-center.css').is_file())

@@ -28,6 +28,31 @@ function New-CoreNextUpgradeMetadata {
         original_config_fingerprint=(Get-CoreNextMetadataFingerprint $Config)}
 }
 
+function Assert-CoreNextInstalledApplication {
+    [CmdletBinding()]
+    param([Parameter(Mandatory)]$Profile,[Parameter(Mandatory)]$Installed,
+          [Parameter(Mandatory)]$ServerInfo,[Parameter(Mandatory)][string]$ExpectedSource,
+          [Parameter(Mandatory)][string]$ExpectedVersion,
+          [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{64}$')][string]$ExpectedServerSha256)
+    $null=Assert-CoreNextOrdinaryPath $Profile.install_root 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
+    if($ExpectedSource -cnotmatch '^[a-f0-9]{40}$' -or $Installed.product -cne $Profile.product -or $Installed.version -cne $ExpectedVersion -or $Installed.source_sha -cne $ExpectedSource -or $ServerInfo.version -cne $ExpectedVersion -or $ServerInfo.source_sha -cne $ExpectedSource){throw 'CORE_NEXT_UPGRADE_OLD_INSTALLED_SOURCE_MISMATCH'}
+    $paths=[ordered]@{server='server/DRAGONHYDRA-Server.exe';desktop='client/DRAGONHYDRA-Client.exe';
+        joomla='web/extension.zip';service='workstation/DragonhydraService.exe';launcher='workstation/DragonhydraLauncher.exe'}
+    $components=@($Installed.application_components);$seen=@{};$serverHash=$null
+    if($components.Count -ne $paths.Count){throw 'CORE_NEXT_UPGRADE_OLD_COMPONENT_PROVENANCE_MISMATCH'}
+    foreach($item in $components){
+        if($item.kind -cnotin @($paths.Keys) -or $seen.ContainsKey($item.kind) -or $item.path -cne $paths[$item.kind] -or $item.source_commit -cne $ExpectedSource -or $item.sha256 -cnotmatch '^[a-f0-9]{64}$' -or $item.bytes -le 0){throw 'CORE_NEXT_UPGRADE_OLD_COMPONENT_PROVENANCE_MISMATCH'}
+        $seen[$item.kind]=$true
+        $path=Assert-CoreNextOrdinaryPath (Join-Path $Profile.install_root $item.path) 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
+        if(-not(Test-Path -LiteralPath $path -PathType Leaf) -or (Get-Item -LiteralPath $path).Length -ne $item.bytes){throw 'CORE_NEXT_UPGRADE_OLD_COMPONENT_BYTES_MISMATCH'}
+        $actual=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+        if($actual -cne $item.sha256){throw 'CORE_NEXT_UPGRADE_OLD_COMPONENT_BYTES_MISMATCH'}
+        if($item.kind -ceq 'server'){$serverHash=$actual}
+    }
+    if($serverHash -cne $ExpectedServerSha256){throw 'CORE_NEXT_UPGRADE_OLD_SERVER_BYTES_MISMATCH'}
+    [pscustomobject]@{components_verified=$components.Count;server_sha256=$serverHash}
+}
+
 function Get-CoreNextBytesFingerprint([byte[]]$Bytes) {
     $algorithm=[Security.Cryptography.SHA256]::Create()
     try{([BitConverter]::ToString($algorithm.ComputeHash($Bytes))).Replace('-','').ToLowerInvariant()}

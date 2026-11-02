@@ -1,9 +1,12 @@
 """Pure upgrade transition and isolated atomic-file failure contracts."""
 import json
+import hashlib
 from pathlib import Path
+import shutil
 import subprocess
 import tempfile
 import unittest
+import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 LAB = Path(r'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB')
@@ -29,8 +32,9 @@ class UpgradeTests(unittest.TestCase):
         return subprocess.run([PWSH, '-NoLogo', '-NoProfile', '-NonInteractive', '-Command', script],
                               capture_output=True, text=True, timeout=30)
 
-    def plan(self, mutate='', to_version='0.5.0-dev.2', expected='$p.installation_id', source="('b'*40)"):
-        return self.run_ps("""
+    def plan(self, mutate='', to_version='0.5.0-dev.2', expected='$p.installation_id', source="('b'*40)",
+             from_version='0.5.0-dev.1', from_source="('a'*40)"):
+        script = ("""
         $p=New-CoreNextProfileObject -Environment candidate -SourceCommit ('a'*40) -Version '0.5.0-dev.1' -BuildId fixture
         $cfg=$p|ConvertTo-Json -Depth 20|ConvertFrom-Json
         $cfg|Add-Member product_version '0.5.0-dev.1'
@@ -38,6 +42,7 @@ class UpgradeTests(unittest.TestCase):
         """ + mutate + "\ntry{$n=New-CoreNextUpgradeMetadata -Profile $p -Config $cfg -ExpectedInstallationId "+expected+
         " -FromSource ('a'*40) -FromVersion '0.5.0-dev.1' -ToSource "+source+" -ToVersion '"+to_version+"' -BuildId dev2;"+
         "@{profile_version=$n.profile.version;config_version=$n.config.version;source=$n.profile.source_commit;identity_preserved=($n.profile.installation_id -ceq $p.installation_id);ports_preserved=(($n.config.ports|ConvertTo-Json -Compress) -ceq ($cfg.ports|ConvertTo-Json -Compress));secret_preserved=($n.config.root_password -ceq $cfg.root_password);owner_preserved=($n.config.owner_sid -ceq $cfg.owner_sid);old_untouched=($p.version -ceq '0.5.0-dev.1')}|ConvertTo-Json -Compress}catch{Write-Output $_.Exception.Message;exit 7}")
+        return self.run_ps(script.replace("'0.5.0-dev.1'", "'"+from_version+"'").replace("('a'*40)", from_source))
 
     def test_next_increment_preserves_identity_ports_secrets_owner_and_input_objects(self):
         result = self.plan()
@@ -47,6 +52,77 @@ class UpgradeTests(unittest.TestCase):
         self.assertEqual(output['config_version'], '0.5.0-dev.2')
         self.assertEqual(output['source'], 'b'*40)
         self.assertTrue(all(output[key] for key in ('identity_preserved','ports_preserved','secret_preserved','owner_preserved','old_untouched')))
+
+    def test_installed_343_dev2_to_dev3_preserves_metadata_and_rejects_skipped_increment(self):
+        arguments = dict(from_version='0.5.0-dev.2', from_source="'343de81c88013604b39b72564665f33d3aa3523c'")
+        result = self.plan(to_version='0.5.0-dev.3', **arguments)
+        self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+        output = json.loads(result.stdout)
+        self.assertEqual(output['profile_version'], '0.5.0-dev.3')
+        self.assertEqual(output['config_version'], '0.5.0-dev.3')
+        self.assertTrue(all(output[key] for key in ('identity_preserved','ports_preserved','secret_preserved','owner_preserved','old_untouched')))
+        self.assertNotEqual(self.plan(to_version='0.5.0-dev.4', **arguments).returncode, 0)
+
+    def component_check(self, mutate='', *, expected_sha=None, real_server=False):
+        base = self.folder/uuid.uuid4().hex
+        root = base/'application'
+        source = '343de81c88013604b39b72564665f33d3aa3523c'
+        paths = dict(server='server/DRAGONHYDRA-Server.exe', desktop='client/DRAGONHYDRA-Client.exe',
+                     joomla='web/extension.zip', service='workstation/DragonhydraService.exe',
+                     launcher='workstation/DragonhydraLauncher.exe')
+        components = []
+        for kind, name in paths.items():
+            path = root/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            if kind == 'server' and real_server:
+                binary = LAB/'build/server-dev2-r1/dist/DRAGONHYDRA-Server-x64/DRAGONHYDRA-Server.exe'
+                if not binary.is_file():
+                    self.skipTest('Optional public frozen dev.2 build is unavailable; synthetic component contracts run separately')
+                shutil.copy2(binary, path)
+            else:
+                path.write_bytes(('Synthetic fixture '+kind).encode())
+            components.append(dict(kind=kind, path=name, bytes=path.stat().st_size,
+                                   sha256=hashlib.sha256(path.read_bytes()).hexdigest(), source_commit=source))
+        server_hash = components[0]['sha256']
+        payload = dict(profile=dict(product='DRAGONHYDRA CORE NEXT', install_root=str(root)),
+                       installed=dict(product='DRAGONHYDRA CORE NEXT', version='0.5.0-dev.2', source_sha=source,
+                                      application_components=components),
+                       server_info=dict(version='0.5.0-dev.2', source_sha=source))
+        fixture = base/'components.json'
+        fixture.write_text(json.dumps(payload), encoding='utf-8')
+        quoted = str(fixture).replace("'", "''")
+        pin = expected_sha or server_hash
+        return self.run_ps("$v=Get-Content -LiteralPath '"+quoted+"' -Raw|ConvertFrom-Json;"+mutate+
+            ";try{$r=Assert-CoreNextInstalledApplication -Profile $v.profile -Installed $v.installed -ServerInfo $v.server_info -ExpectedSource '"+source+
+            "' -ExpectedVersion '0.5.0-dev.2' -ExpectedServerSha256 '"+pin+"';$r|ConvertTo-Json -Compress}catch{Write-Output $_.Exception.Message;exit 7}")
+
+    def test_old_five_component_sources_sizes_and_hashes_are_verified(self):
+        result = self.component_check()
+        self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+        self.assertEqual(json.loads(result.stdout)['components_verified'], 5)
+        for mutation in ("$v.installed.application_components[1].source_commit='c'*40",
+                         "$v.installed.application_components[1].sha256='f'*64",
+                         "$v.installed.application_components[1].bytes++",
+                         "$v.installed.application_components[1].path='../outside.exe'",
+                         "$v.installed.application_components[4].kind='service'",
+                         "$v.installed.application_components+=$v.installed.application_components[0]",
+                         "$v.server_info.source_sha='d'*40"):
+            with self.subTest(mutation=mutation):
+                negative = self.component_check(mutation)
+                self.assertEqual(negative.returncode, 7, negative.stdout+negative.stderr)
+        self.assertEqual(self.component_check(expected_sha='0'*64).returncode, 7)
+
+    def test_real_dev2_c5c_server_can_be_the_explicit_old_build_pin(self):
+        result = self.component_check(real_server=True,
+            expected_sha='c5c34c51cc713d9347890caa89234af9b0115d470e0914d508b7b68e6343c9be')
+        self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+        self.assertEqual(json.loads(result.stdout)['server_sha256'], 'c5c34c51cc713d9347890caa89234af9b0115d470e0914d508b7b68e6343c9be')
+
+    def test_wrapper_retains_legacy_pin_default_and_passes_explicit_old_build_guard(self):
+        text = (ROOT/'scripts/Upgrade-CoreNextWorkstation.ps1').read_text()
+        self.assertIn("$ExpectedOldServerSha256='31d85b96121aa8685d58fb8808a972b89a0aeaac93c0fcb4e4a67ef476dd9f38'", text)
+        self.assertIn('-ExpectedServerSha256 $ExpectedOldServerSha256', text)
+        self.assertLess(text.index('Assert-CoreNextInstalledApplication'), text.index("Phase 'backing_up_before_service_stop'"))
 
     def test_wrong_identity_or_partial_old_binding_is_rejected(self):
         for args in ({'expected':"'core-next-'+('0'*32)"}, {'mutate':"$cfg.source_commit='c'*40"},

@@ -19,7 +19,7 @@ class DashboardChildrenTests(unittest.TestCase):
                 report=json.loads(run.stdout)
                 self.assertEqual(run.returncode,0,report)
                 self.assertTrue(report['passed'])
-                self.assertEqual(len(report['checks']),6)
+                self.assertEqual(len(report['checks']),8)
 
     def test_browser_and_packaged_desktop_share_identical_dashboard_source(self):
         self.assertEqual(ASSETS[0].read_bytes(),ASSETS[1].read_bytes())

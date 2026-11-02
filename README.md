@@ -15,11 +15,16 @@ injected modules. It is not a new operating-system kernel. Project attribution,
 Git history and third-party notices remain part of the original DRAGONHYDRA
 repository.
 
-**Published dev.1 evidence:** final-source behavioral comparison: PASS; Linux installed archive: PASS; current-host Windows acceptance: PASS; publication: PUBLICATION_AND_DOWNLOADS_VERIFIED. These historical claims apply to dev.1, not the pending dev.2 increment. Read
+**Published dev.1 evidence:** final-source behavioral comparison: PASS; Linux installed archive: PASS; current-host Windows acceptance: PASS; publication: PUBLICATION_AND_DOWNLOADS_VERIFIED. These historical claims apply only to dev.1; each later increment has its own evidence. Read
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Active dev.2 work:** the shared registry now distinguishes six core engines
+**Current installed checkpoint:** dev.2/source343de81 passed the primary upgrade,
+retained forecast/pending-outcome workflow and restart, plus isolated workstation
+install/repair/restart/uninstall. It has not been published. Actual browser
+acceptance found that the keyboard skip link changed the dashboard's hash route;
+the focused source repair preserves the route and table while moving focus.
+Dev.3 adds the verified keyboard-safe skip navigation repair to this checkpoint. The shared registry distinguishes six core engines
 from twelve supporting components. Existing worker/supervisor checks refresh
 bounded, expiring observations without opening Joomla or contacting providers.
 The Control Center separates display refresh, local observation and explicit
@@ -27,7 +32,7 @@ forecast/evaluation jobs. Standings rendering, regulation-time eligibility and
 read-only memory-schema checks have focused repairs. Build, installed-profile
 acceptance and publication are recorded separately in the
 [current continuation](docs/handover/CONTINUATION-20261102.md); source tests alone
-do not prove the running workstation received the update.
+do not by themselves prove the running workstation received an update.
 
 ## What changes internally
 
@@ -141,7 +146,7 @@ Create a fresh profile with the existing PowerShell7:
 
 ```powershell
 Set-Location C:\xampp\DRAGONHYDRA-CORE-NEXT
-.\scripts\New-CoreNextProfile.ps1 -Environment candidate -SourceCommit <exact-source-commit> -Version 0.5.0-dev.1
+.\scripts\New-CoreNextProfile.ps1 -Environment candidate -SourceCommit <exact-source-commit> -Version 0.5.0-dev.3
 ```
 
 Use the profile returned by that command with Setup `/PROFILE=...`; review
@@ -186,6 +191,11 @@ and `ENGINEERING-STATE.json`. Never execute inherited historical acceptance
 scripts against their old installation defaults.
 
 ## Separate prerelease downloads
+
+The next release identity is **v0.5.0-dev.3-core-next**. Its publication requires
+installed-interface, package/privacy and remote-download gates; consult the release
+report for the actual result. The links below preserve the already verified dev.1
+release while that process completes.
 
 Published prerelease tag:
 [v0.5.0-dev.1-core-next](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).

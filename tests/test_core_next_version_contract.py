@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import tomllib
 import unittest
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,11 +31,18 @@ class VersionContractTests(unittest.TestCase):
         self.assertIn("StringStruct('FileVersion', '"+matrix['windows_file_version']+"')", pe)
         self.assertIn("StringStruct('ProductVersion', '"+matrix['product_version']+"')", pe)
         self.assertEqual(tauri['identifier'], 'ai.dragonhydra.corenext.desktop')
+        for name in ('pkg_dragonhydra.xml', 'com_dragonhydra/dragonhydra.xml',
+                     'tpl_cassiopeia_dragonhydra/templateDetails.xml'):
+            self.assertEqual(ET.parse(ROOT/'server/joomla'/name).getroot().findtext('version'), matrix['joomla_version'])
+        self.assertEqual(json.loads((ROOT/'server/joomla/com_dragonhydra/media/joomla.asset.json').read_text())['version'], matrix['joomla_version'])
 
-    def test_unchanged_android_identity_and_dependency_pins_remain_independent(self):
+    def test_android_release_identity_matches_actual_pubspec_and_dependency_pins_stay_fixed(self):
         matrix = json.loads((ROOT/'packaging/release/version.json').read_text())
-        self.assertEqual(matrix['android_version_name'], '0.5.0-dev.1')
-        self.assertEqual(matrix['android_version_code'], 5)
+        declared = re.findall(r'^version:\s*([^+\s]+)\+(\d+)\s*$', (ROOT/'android/dragonhydra_mobile/pubspec.yaml').read_text(), re.M)
+        self.assertEqual(len(declared), 1)
+        self.assertEqual(declared[0], (matrix['android_version_name'], str(matrix['android_version_code'])))
+        self.assertEqual(matrix['android_version_name'], matrix['product_version'])
+        self.assertEqual(matrix['android_version_code'], 6)
         cargo = tomllib.loads((ROOT/'client/desktop/src-tauri/Cargo.toml').read_text())
         self.assertEqual(cargo['dependencies']['tauri']['version'], '=2.12.5')
         self.assertEqual(cargo['dependencies']['tauri-plugin-opener'], '=2.7.2')

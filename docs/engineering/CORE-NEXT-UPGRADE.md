@@ -1,16 +1,19 @@
 # Same-profile CORE NEXT development upgrade
 
-The dev.2 entry point is `scripts/Upgrade-CoreNextWorkstation.ps1`. It is scoped
-to a verified dev.1 CORE NEXT installation and the immediately next development
-increment. It never selects the original DRAGONHYDRA workstation. Existing NSIS
+The entry point is `scripts/Upgrade-CoreNextWorkstation.ps1`. It accepts a
+verified CORE NEXT installation and the immediately next development increment.
+The dev.3 recovery uses the installed dev.2 source `343de81c88013604b39b72564665f33d3aa3523c`.
+It never selects the original DRAGONHYDRA workstation. Existing NSIS
 and `CoreNext-InstallerChecks.ps1` same-build guards remain strict: a separate
 explicit operator transition changes the owned metadata before invoking Setup.
 
 The new server, native desktop, Joomla package and unified installer must first
-be built from the frozen dev.2 source and inspected. Historical dev.1 and A9
+be built from the frozen dev.3 source and inspected. Historical dev.1, dev.2 and A9
 assets stay unchanged. The desktop rebuild is required because its embedded
-shared dashboard assets changed. Android's unchanged dev.1/code5 identity is not
-renamed to dev.2. Reusing verified Cargo dependencies permits only a changed own
+shared dashboard assets changed. The requested Android dev.3/code6 artifact must
+be freshly built from its matching declared source; the existing dev.1/code5 APK
+and signing material remain unchanged. This version alignment does not establish
+device or platform acceptance. Reusing verified Cargo dependencies permits only a changed own
 application lockfile version; all dependency records, checksums, toolchain and
 architecture checks remain strict and application outputs are excluded.
 
@@ -26,9 +29,13 @@ $upgrade = 'C:\xampp\DRAGONHYDRA-CORE-NEXT\scripts\Upgrade-CoreNextWorkstation.p
 $parameters = @{
     ProfilePath = '<existing CORE NEXT installation-profile.json>'
     ExpectedInstallationId = '<that profile installation_id>'
-    Installer = '<verified dev.2 Workstation Setup.exe>'
+    Installer = '<verified dev.3 Workstation Setup.exe>'
     ExpectedInstallerSha256 = '<full verified Setup SHA-256>'
-    NewSourceCommit = '<full frozen dev.2 Git commit>'
+    NewSourceCommit = '<full frozen dev.3 Git commit>'
+    FromSourceCommit = '343de81c88013604b39b72564665f33d3aa3523c'
+    FromVersion = '0.5.0-dev.2'
+    ToVersion = '0.5.0-dev.3'
+    ExpectedOldServerSha256 = 'c5c34c51cc713d9347890caa89234af9b0115d470e0914d508b7b68e6343c9be'
     ExpectedNewServerSha256 = '<new installed server EXE SHA-256>'
     ExpectedNewClientSha256 = '<new installed client EXE SHA-256>'
 }
@@ -38,6 +45,10 @@ $parameters = @{
 Without `-Apply`, the script only validates and prints a sanitized plan. It checks
 the exact installation/profile, source/version, old installed bytes, SCM binding,
 old ownership validator, owning listener ancestry and new package receipt/hash.
+All five fixed installed application-component paths must match their declared
+source, size and SHA-256, and the server must additionally match the supplied old
+build pin. The legacy defaults remain dev.1 to dev.2 and server hash `31d85b...`;
+they are not substituted for the explicit dev.2 to dev.3 inputs above.
 It creates no backup directory, changes no metadata and controls no service.
 The current owner token is not assumed elevated.
 

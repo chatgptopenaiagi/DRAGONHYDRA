@@ -1,5 +1,66 @@
 # CORE NEXT continuation — 2026-11-02
 
+ACTIVE UPDATE 2026-11-02T09:40Z: dev.2 source343de81 is installed and actual
+upgrade/workflow/restart plus disposable install/repair/restart/uninstall passed.
+It was NOT published. Real browser acceptance found a skip-link/router defect;
+the next justified increment is dev.3. Preserve all dev.2 receipts/artifacts below.
+
+## Installed dev.2 and next dev.3 increment
+
+The one approved fixed Windows operation completed successfully:
+`CORE-NEXT-LAB/continuation-20261102/dev2-windows-operation-r1/operation-receipt.json`.
+Its private-upgrade-backup contains online SQLite, a consistent locked MariaDB
+dump, exact runtime/configuration and protected credential backups. Only the
+primary CORE NEXT service restarted. Original four services retained PIDs12904,
+39364,23500,29480. Disposable9cc profile was installed/repaired/restarted and
+uninstalled; its data remains retained, entire application directory removed.
+
+Current primary: source343de81c88013604b39b72564665f33d3aa3523c,
+version0.5.0-dev.2, build upgrade-343de81c8801, servicePID32748 at verification.
+API18821/Joomla18822/database18823 and installation7ac...62da are unchanged.
+Registry counts6engines+12supporting=18. Worker cache updates were observed through
+filesystem-only snapshots; no health-check POST was required for those updates.
+
+Actual retained workflow:760records preserved, Liverpool–Bournemouth2027-05-30,
+match de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea;
+forecastjob38e144c05de8495289c550cf00675c73, evaluationjob0244b53cca4d4d58a5bd0be22fa949bf.
+Four base models plus ensemble,50same-source training records, five immutable
+model/prediction pairs, duplicate identity and restart readback passed.
+Evaluation remains awaiting a later eligible outcome; no accuracy claim.
+
+Browser results must be scoped: genuine primary site login and760total passed;
+the large Joomla harness stopped first on missing auto-wait, then an ambiguous
+skip selector shared by child template/component. Both are LAB harness defects,
+not authentication failures. Read-only Edge diagnoses and regressions repaired
+them; final full Joomla acceptance remains pending.
+
+Actual18821 browser verified standings arithmetic,20team routes, zero values and
+no null/object coercion before exposing a real product defect: keyboard activation
+of href=#main changes the SPA route and loses the table. The existing first-run
+screenshots show that failure state; do not publish them as final standings images.
+The smallest repair prevents default navigation only for that skip link and focuses
+main, preserving hash/table. Both served/native assets have matching repairs and
+red/green real-source browser regressions. This implementation change justifies
+dev.3 rebuilds; do not relabel dev.2 binaries.
+
+New ownership: UI owns two JS assets and their regressions; deployment owns all
+version metadata plus explicit-current-source upgrade guards; coordinator owns
+handoff/docs and the legacy opener test's missing contentNodes fixture dependency.
+The latter was a harness-only ReferenceError: the isolated test extracted el but
+omitted its new contentNodes dependency. Loading both actual helpers preserves
+all original pinned-opener, provider URL, navigation and rejected-scheme assertions;
+the three source cases now pass. It is included in the dev.3 source checkpoint.
+All product source changes stay in CORE NEXT. Android will be freshly built as
+dev.3/code6 for the requested complete release, with build/device scope separated.
+No dev.3 build/deployment or publication has yet occurred.
+
+Next: freeze tested dev.3 source, rebuild affected distributions, perform the
+explicit343/dev2→new/dev3 upgrade of this same primary profile, then complete
+actual Joomla/kernel browser, package, privacy and remote release gates. The
+historical dev.1→dev.2 operation is complete; never rerun its one-shot driver.
+
+The sections below preserve the original dev.2 baseline/plan chronology.
+
 Owner decision: use the running CORE NEXT edition, Joomla18822/API18821.
 Canonical source is C:/xampp/DRAGONHYDRA-CORE-NEXT on
 release/core-next-20261101T1400Z; initial HEAD efb36a85032b0b90ead8818f4f4693ab7e5ae178.

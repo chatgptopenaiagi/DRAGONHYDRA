@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "version": "0.5.0-dev.3",
+  "phase": "SOURCE_VERIFIED_BEFORE_BUILD",
+  "observed_at": "2026-11-02T09:51:39.048009+00:00",
+  "unique_tests": 298,
+  "passed": 291,
+  "not_run": 7,
+  "failed": 0,
+  "source_parent": "343de81c88013604b39b72564665f33d3aa3523c",
+  "evidence_reference": "CORE-NEXT-LAB/evidence/backend-workflow-20261102-r1/integrated-dev3-final.json",
+  "evidence_sha256": "4b06a0025da5a8ed8010a909e1fe54d8f801c915eec4fcca3e23e903fba44551",
+  "scope": "Includes original domain/API/registry/worker/Joomla/package guards, real-source synthetic browser skip regression and three pinned-opener cases. Corrected Joomla matrix version assertion rerun only; exact distinct IDs recorded.",
+  "installed_dev3": "NOT_RUN",
+  "published_dev3": "NOT_RUN",
+  "real_defect": "Skip navigation changed standings hash to#main; narrow preventDefault/focus preserves route/table."
+}

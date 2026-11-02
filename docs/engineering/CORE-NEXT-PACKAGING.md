@@ -53,8 +53,8 @@ After a clean source commit, build candidate components using existing tools:
 
 .\scripts\release_android.ps1 -SourceRoot C:\xampp\DRAGONHYDRA-CORE-NEXT `
   -WorkRoot C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\build\android-<unique> `
-  -ArtifactPath C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\releases\CORE-NEXT-0.5.0-dev.1-arm64.apk `
-  -Version 0.5.0-dev.1 -VersionCode 5 -SourceSha <commit>
+  -ArtifactPath C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\releases\CORE-NEXT-0.5.0-dev.3-arm64.apk `
+  -Version 0.5.0-dev.3 -VersionCode 6 -SourceSha <commit>
 
 .\scripts\Build-Workstation.ps1 -ProfilePath <candidate-profile.json> `
   -BaselinePayloadRoot C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\baseline-payload `
@@ -101,3 +101,13 @@ Unit/guard checks, metadata probes, compilation, actual installation, native UI,
 Android pairing, reboot and clean-machine acceptance are separate states. The
 syntax-only NSIS fixtures under lab/tests are never release assets or installation
 inputs. Installer and guest/service mutations remain explicit acceptance actions.
+
+## Existing lab reservation limitation
+
+The historical sdists test profile98f231... lacks Windows shell identity fields.
+The normal factory correctly refuses that malformed reservation on this developer
+host. It was preserved unchanged. Acceptance uses the existing pure profile-object
+factory with explicit reservations from all profile port metadata and live listeners,
+then full Windows-profile validation. This does not establish default-factory or
+clean-machine acceptance; it does establish the tested explicit-profile Setup path.
+Never delete an existing profile or disregard occupied ports to clear the guard.
