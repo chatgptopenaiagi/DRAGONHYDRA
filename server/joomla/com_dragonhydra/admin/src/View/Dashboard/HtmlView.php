@@ -54,6 +54,7 @@ final class HtmlView extends BaseHtmlView
                 'match_id'=>$app->input->getString('match_id', ''), 'job_id'=>$app->input->getString('job_id', ''),
                 'offset'=>$app->input->getInt('offset', 0),
                 'layer'=>$app->input->getString('layer',''), 'category'=>$app->input->getString('category',''),
+                'status'=>$app->input->getString('status',''),
             ], true, static fn(string $path): array => $api->request('GET', $path));
             $this->data = $this->center['data'];
             $this->jobId = $this->center['job_id'];

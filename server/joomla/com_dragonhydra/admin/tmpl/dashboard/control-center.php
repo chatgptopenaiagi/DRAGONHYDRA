@@ -15,7 +15,8 @@ $label = static fn($key): string => ucfirst(str_replace('_', ' ', (string) $key)
 $reason = static fn($text): string => preg_match('/^[A-Z0-9_]+$/D', (string) $text) ? ucfirst(strtolower(str_replace('_', ' ', (string) $text))) : (string) $text;
 $value = static fn($v): string => is_bool($v) ? ($v ? 'Yes' : 'No') : (is_scalar($v) && $v !== '' ? (string) $v : 'Not reported');
 $counts = array_count_values(array_map(static fn($m) => $m['state'], $modules));
-$detailsUrl = static fn($id): string => $route('section=modules&module=' . rawurlencode((string) $id));
+$activeFilters = array_filter(array_intersect_key((array)($center['filters'] ?? []), array_flip(['layer','category','status'])), static fn($entry): bool => is_string($entry) && $entry !== '');
+$detailsUrl = static fn($id): string => $route(http_build_query(['section'=>'modules','module'=>(string)$id] + $activeFilters, '', '&', PHP_QUERY_RFC3986));
 ?>
 <?php if ($this->section === 'overview'): ?>
   <section class="dhcn-introduction"><div><p class="dhcn-eyebrow">SYSTEM OVERVIEW</p><h2>One registry. A clear operating picture.</h2><p>Inspect the modules serving this installation, their retained evidence and the work they can currently support.</p></div><a class="btn btn-outline-primary" href="<?= $escape($route('section=modules')) ?>">Browse all modules</a></section>
@@ -26,7 +27,7 @@ $detailsUrl = static fn($id): string => $route('section=modules&module=' . rawur
     <article><span>Ready within scope</span><strong><?= (int) ($counts['READY'] ?? 0) ?></strong><small>Engine and supporting observations</small></article>
   </div>
   <?php if (!empty($inventory['unclassified'])): ?><p class="dhcn-muted"><?= (int)$inventory['unclassified'] ?> entries have no verified layer classification. Their presence is not counted as an engine.</p><?php endif; ?>
-  <p class="dhcn-state-legend"><span class="dhcn-state" data-tone="green">Ready</span> Current scoped proof <span class="dhcn-state" data-tone="amber">Degraded / not configured</span> Limited capability or missing configuration <span class="dhcn-state" data-tone="red">Unavailable / stopped</span> Observed failure or absence <span class="dhcn-state" data-tone="neutral">Unverified / expired / unknown / not applicable</span> No current readiness proof</p>
+  <p class="dhcn-state-legend"><span class="dhcn-state" data-tone="green">Ready</span> Current scoped proof <span class="dhcn-state" data-tone="amber">Degraded</span> Limited capability <span class="dhcn-state" data-tone="red">Unavailable / stopped</span> Observed failure or absence <span class="dhcn-state" data-tone="neutral">Not configured / unverified / expired / unknown / not applicable</span> No current readiness proof</p>
 <?php endif; ?>
 
 <?php if (in_array($this->section, ['overview','infrastructure'], true)): ?>
@@ -39,6 +40,28 @@ $detailsUrl = static fn($id): string => $route('section=modules&module=' . rawur
     </dl>
     <p class="dhcn-muted">Joomla owns accounts and presentation. The associated Python kernel owns sports records, calculations, module observations and durable jobs.</p>
     <div class="dhcn-limit"><strong>Infrastructure changes are disabled here.</strong><p>Service restart, installation, database cutover and restoration require the installation’s scoped management tooling. Opening this page performs no probe, import, inference or restart.</p></div>
+  </section>
+<?php endif; ?>
+
+<?php if (in_array($this->section, ['overview','infrastructure'], true) || ($selected['id'] ?? '') === 'runtime_supervisor'):
+    $serviceModule = ($selected['id'] ?? '') === 'runtime_supervisor' ? $selected : ($modules['runtime_supervisor'] ?? []);
+    $serviceIdentity = $serviceModule['service_identity'] ?? null; ?>
+  <section class="dhcn-panel" aria-labelledby="dhcn-service-identity-title">
+    <h2 id="dhcn-service-identity-title">Bound Windows service identity</h2>
+    <?php if ($serviceIdentity): ?>
+      <dl class="dhcn-facts" data-service-identity>
+        <div><dt>Running service</dt><dd><code><?= $escape($serviceIdentity['service_name']) ?></code></dd></div>
+        <div><dt>Installation</dt><dd><code><?= $escape($serviceIdentity['installation_id']) ?></code></dd></div>
+        <div><dt>Source commit</dt><dd><code><?= $escape($serviceIdentity['source_commit']) ?></code></dd></div>
+        <div><dt>Build identity</dt><dd><?= $escape($serviceIdentity['build_id']) ?></dd></div>
+        <div><dt>Observed (UTC)</dt><dd><?= $escape($serviceIdentity['observed_at']) ?></dd></div>
+        <div><dt>Evidence expires (UTC)</dt><dd><?= $escape($serviceIdentity['evidence_expires_at']) ?></dd></div>
+      </dl>
+      <p class="dhcn-muted">Verification scope: <?= $escape($serviceIdentity['verification_scope']) ?>.</p>
+      <p class="dhcn-muted">This limited evidence identifies the running service and its supervisor parent. It does not report a service account, its privileges or interactive application acceptance.</p>
+    <?php else: ?>
+      <p class="dhcn-muted" data-service-identity-unverified>No current bound service identity was supplied. A configured service name or runtime-owner label does not establish service ownership.</p>
+    <?php endif; ?>
   </section>
 <?php endif; ?>
 
@@ -75,11 +98,11 @@ $detailsUrl = static fn($id): string => $route('section=modules&module=' . rawur
     <?php if ($evidence): ?><h3>Evidence scope</h3><ul class="dhcn-muted"><?php foreach ((array) $evidence as $entry): if (is_scalar($entry)): ?><li><?= $escape($entry) ?></li><?php endif; endforeach; ?></ul><?php endif; ?>
     <?php if (!empty($selected['configuration_requirements']) || !empty($selected['optional_dependency_status'])): ?><div class="dhcn-detail-grid"><div><h3>Configuration requirements</h3><ul><?php foreach (($selected['configuration_requirements'] ?? []) as $requirement): if (is_scalar($requirement)): ?><li><?= $escape($label($requirement)) ?></li><?php endif; endforeach; ?></ul></div><div><h3>Optional dependencies</h3><ul><?php foreach (($selected['optional_dependency_status'] ?? []) as $dependency): ?><li><?= $escape($dependency['id'] ?? 'Dependency') ?> · <?= $escape($dependency['state'] ?? 'UNKNOWN') ?><br><span class="dhcn-muted"><?= $escape($dependency['reason'] ?? 'No current proof reported.') ?></span></li><?php endforeach; ?></ul></div></div><?php endif; ?>
     <h3>Operations</h3><div class="table-responsive"><table class="table"><caption>Only implemented, explicitly authorized actions can change state. Module status is a retained read.</caption><thead><tr><th scope="col">Operation</th><th scope="col">Availability</th><th scope="col">Reason and next step</th></tr></thead><tbody>
-    <?php foreach (($selected['operations'] ?? []) as $operation): $readOnly = ($operation['enabled'] ?? false) && ($operation['method'] ?? 'GET') === 'GET'; ?><tr><th scope="row"><?= $escape($operation['label'] ?? $operation['id'] ?? 'Operation') ?></th><td><?= $readOnly ? 'Read only' : 'Disabled here' ?></td><td><?= $escape($operation['reason'] ?? ($readOnly ? 'Available through this module’s retained status.' : 'No supported Control Center action is registered.')) ?></td></tr><?php endforeach; ?>
+    <?php foreach (($selected['operations'] ?? []) as $operation): if (!is_array($operation)) { continue; } $readView = \Dragonhydra\Component\Dragonhydra\Administrator\Model\ControlCenterModel::operationReadView($operation, (string)$selected['id']); ?><tr><th scope="row"><?= $escape($operation['label'] ?? $operation['id'] ?? 'Operation') ?></th><td><?php if ($readView['query'] !== null): ?><a class="btn btn-outline-primary" data-operation-read-view="<?= $escape($operation['id']) ?>" href="<?= $escape($route($readView['query'])) ?>"><?= $escape($readView['label']) ?></a><?php else: ?>Disabled here<?php endif; ?></td><td><?= $escape($readView['reason']) ?></td></tr><?php endforeach; ?>
     <?php if (empty($selected['operations'])): ?><tr><td colspan="3">No operations were reported for this module.</td></tr><?php endif; ?>
     </tbody></table></div>
     <?php if ($selected['id'] === 'data'): ?><a class="btn btn-outline-primary" href="<?= $escape($route('section=sources')) ?>">Open existing Data sources actions</a><?php endif; ?>
-    <a class="btn btn-outline-secondary" href="<?= $escape($route('section=modules')) ?>">All modules</a>
+    <a class="btn btn-outline-secondary" href="<?= $escape($route(http_build_query(['section'=>'modules'] + $activeFilters, '', '&', PHP_QUERY_RFC3986))) ?>">All modules</a>
     <?php if (!empty($selected['verification_references']) || !empty($selected['implementation_reference'])): ?><details class="mt-4"><summary>Implementation and verification references</summary><p class="dhcn-muted"><?= $escape($selected['implementation_reference'] ?? 'Not reported') ?></p><ul class="dhcn-muted"><?php foreach (($selected['verification_references'] ?? []) as $reference): if (is_scalar($reference)): ?><li><?= $escape($reference) ?></li><?php endif; endforeach; ?></ul></details><?php endif; ?>
   </section>
 <?php elseif (in_array($this->section, ['odds','prediction','ai','memory','evaluation'], true)): ?>
@@ -88,7 +111,13 @@ $detailsUrl = static fn($id): string => $route('section=modules&module=' . rawur
 
 <?php if (in_array($this->section, ['overview','modules'], true) && !$selected): ?>
   <section aria-labelledby="dhcn-directory-title"><div class="dhcn-section-heading"><div><p class="dhcn-eyebrow">MODULE REGISTRY</p><h2 id="dhcn-directory-title">Available building blocks</h2></div><span class="dhcn-muted">State and scope from the associated kernel</span></div>
-    <form class="dhcn-filter" action="index.php" method="get"><input type="hidden" name="option" value="com_dragonhydra"><input type="hidden" name="section" value="<?= $escape($this->section) ?>"><div><label for="dhcn-layer">Registry layer</label><select id="dhcn-layer" name="layer"><option value="">All layers</option><?php foreach(['engine'=>'Engines','supporting'=>'Supporting modules'] as $key=>$text): ?><option value="<?= $key ?>" <?= ($center['filters']['layer'] ?? '') === $key ? 'selected' : '' ?>><?= $text ?></option><?php endforeach; ?></select></div><div><label for="dhcn-category">Category</label><select id="dhcn-category" name="category"><option value="">All categories</option><?php foreach(($center['categories'] ?? []) as $category): ?><option value="<?= $escape($category) ?>" <?= ($center['filters']['category'] ?? '') === $category ? 'selected' : '' ?>><?= $escape($category) ?></option><?php endforeach; ?></select></div><button class="btn btn-outline-primary" type="submit">Apply display filters</button><a href="<?= $escape($route('section=' . $this->section)) ?>">Clear filters</a></form>
+    <form class="dhcn-filter" action="index.php" method="get">
+      <input type="hidden" name="option" value="com_dragonhydra"><input type="hidden" name="section" value="<?= $escape($this->section) ?>">
+      <div><label for="dhcn-layer">Registry layer</label><select id="dhcn-layer" name="layer"><option value="">All layers</option><?php foreach(['engine'=>'Engines','supporting'=>'Supporting modules'] as $key=>$text): ?><option value="<?= $key ?>" <?= ($center['filters']['layer'] ?? '') === $key ? 'selected' : '' ?>><?= $text ?></option><?php endforeach; ?></select></div>
+      <div><label for="dhcn-category">Category</label><select id="dhcn-category" name="category"><option value="">All categories</option><?php foreach(($center['categories'] ?? []) as $category): ?><option value="<?= $escape($category) ?>" <?= ($center['filters']['category'] ?? '') === $category ? 'selected' : '' ?>><?= $escape($category) ?></option><?php endforeach; ?></select></div>
+      <div><label for="dhcn-status">Runtime status</label><select id="dhcn-status" name="status"><option value="">All statuses</option><?php foreach(\Dragonhydra\Component\Dragonhydra\Administrator\Model\ControlCenterModel::STATES as $status): ?><option value="<?= $escape($status) ?>" <?= ($center['filters']['status'] ?? '') === $status ? 'selected' : '' ?>><?= $escape($stateLabel($status)) ?></option><?php endforeach; ?></select></div>
+      <button class="btn btn-outline-primary" type="submit">Apply display filters</button><a href="<?= $escape($route('section=' . $this->section)) ?>">Clear filters</a>
+    </form>
     <div class="dhcn-module-grid"><?php foreach ($visibleModules as $module): ?><article class="dhcn-module-card" data-module-id="<?= $escape($module['id']) ?>" data-module-layer="<?= $escape($module['layer'] ?? 'unclassified') ?>"><div class="dhcn-module-heading"><span class="dhcn-eyebrow"><?= $escape($label($module['layer'] ?? 'unclassified')) ?> / <?= $escape($module['category'] ?? 'MODULE') ?></span><span class="dhcn-state is-<?= $stateClass($module['state']) ?>" data-state="<?= $escape($module['state']) ?>" data-tone="<?= $stateTone($module['state']) ?>"><?= $escape($stateLabel($module['state'])) ?></span></div><h3><a href="<?= $escape($detailsUrl($module['id'])) ?>"><?= $escape($module['name'] ?? $module['id']) ?></a></h3><p><?= $escape($module['description'] ?? '') ?></p><p class="dhcn-card-reason"><?= $escape($reason($module['reason'] ?? 'No assessment reason reported.')) ?></p><p class="dhcn-muted">Evidence age: <?= $escape($age($module['evidence_age_seconds'] ?? null)) ?></p><div class="dhcn-card-footer"><span>v<?= $escape($module['version'] ?? '?') ?></span><a href="<?= $escape($detailsUrl($module['id'])) ?>">Details <span aria-hidden="true">→</span></a></div></article><?php endforeach; ?></div>
     <?php if ($modules && !$visibleModules): ?><div class="dhcn-panel"><p>No modules match these display filters. Clear the filters to read the complete registry.</p></div><?php endif; ?>
     <?php if (!$modules): ?><div class="dhcn-panel"><p>No module definitions were returned. An empty registry does not establish readiness.</p></div><?php endif; ?>

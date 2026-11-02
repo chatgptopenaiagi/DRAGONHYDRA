@@ -1,97 +1,51 @@
-# Resume DRAGONHYDRA CORE NEXT — active dev.4 r2
+# Resume DRAGONHYDRA product reconciliation
 
-**Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
-Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and
-reapplied through the supported Joomla CLI. Its backend, native client, launcher,
-service and profile remain **dev.3, source `3af173d0248e95f7d76aeabed1095aa4f3e97af3`** at
-API `18821`, Joomla `18822`, MariaDB `18823`; service PID `32192` was preserved.
-The new PHP presentation rule makes `UNVERIFIED` and `EXPIRED` neutral, with
-matching legend/render/expiry regressions. That change is **source only** until
-a new frozen source and fresh r2 packages are built and deployed. Version/tag
-remain dev.4; no dev.4 tag, draft or public release has been created.
+Read AGENTS.md, ENGINEERING-STATE.json and
+[ACTIVE-RECONCILIATION.md](docs/handover/ACTIVE-RECONCILIATION.md) first. The current
+owner directive excludes SENTINEL/general session control and continues only
+DRAGONHYDRA product integration. Do not launch nested Codex or alter its version.
 
-The full dev.4 Windows elevation/launch ended in `InvalidOperationException`,
-native code unavailable, with no returned child, operation receipt or one-shot
-marker. Cancellation versus launch failure is not established. It was not retried;
-no new Windows attempt is authorized before owner acknowledgement. Preserve all
-nine r1 packages/source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32` and their receipts. R1 source verification was
-302 unique cases: 295 PASS, 7 NOT_RUN; this is not the pending r2 source gate.
+**Active product reconciliation (2026-11-02):** work continues on
+`reconcile/genesis-20261102` from source `ede5bf788097abc136eee2ae726248893fb4ae7b`.
+The original continuity history, six historical worktrees and nested research
+foundation are preserved separately. Three source snapshots have been actually
+restored; original54 and foundation42 isolated reference tests passed. Selected
+integration changes add status filtering, stronger service evidence and embedded
+Joomla package provenance checks. Dev.5 source verification passed335 distinct cases (328PASS/7NOT_RUN/0FAIL); new builds and installed acceptance remain pending.
 
-Actual browser r2 retained 159 PASS and one logout assertion FAIL caused by a
-navigation race in the LAB harness. The corrected r3 run is terminal **PASS:
-186 PASS, 2 NOT_RUN**, using the existing five job IDs without resubmission.
-This verifies deployed Joomla r1 on backend dev.3, not the pending neutral-state
-source or a dev.4 Windows runtime. Native dashboard pairing and service restart
-are the two NOT_RUN scopes in this browser harness. No eligible later retained
-outcome was observed, so pending evaluation is not an accuracy/learning claim.
+The running CORE NEXT installation is mixed: Joomla component/template/package
+dev.4/F, backend/native/profile dev.3/source `3af173d...`, at18822/18821. Supported
+Joomla install/repeat and actual browser r4 passed204 checks, two not run. This
+does not prove a fully installed dev.4 Windows product. All nine F r2 packages are
+preserved, unpublished. The prior Windows launch raised `InvalidOperationException`
+without a child receipt/native cause; user cancellation is unproven. Diagnosis and
+a new isolated installation/recovery gate precede any promotion.
 
-Local evidence: [nine-package inventory](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-partial-deployment-package-inventory.json>),
-[package checksums](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-package-SHA256SUMS.txt>),
-[Joomla install/repeat receipt](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/verification.json>),
-[browser r3](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/acceptance/dev3-joomla4-browser-r3/verification.json>).
-Recoverable backups: [Joomla scoped rollback](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/ROLLBACK.md>)
-and the owner-restricted `joomla-only-dev4-r1/private` plus
-`dev3-windows-operation-r1/private-upgrade-backup` directories. Never publish
-their SQL, runtime state or credential-bearing contents.
+See [active reconciliation](docs/handover/ACTIVE-RECONCILIATION.md),
+[decisions](docs/reconciliation/RECONCILIATION-DECISIONS.md) and
+[release acceptance](docs/releases/RELEASE-ACCEPTANCE.md). The most recent published
+CORE NEXT release remains [dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
+No new release/tag is claimed. SENTINEL and generic session-control software are
+outside the product mission.
 
-Next: finish the neutral-state source gate, freeze the new r2 source, then
-build/verify fresh source-bound dev.4 r2 packages in new directories. Preserve all
-r1 attempts. Resolve owner Windows approval before any new privileged operation;
-keep full Windows/browser/privacy/publication gates separate and fail closed.
+Use the existing dedicated CORE NEXT checkout and LAB. Inspect HEAD/status before
+editing; agents have explicit narrow file ownership. Preserve original source and
+all independent working changes. Use the machine capability registry and exact
+existing tools; no dependency installation was needed for reference tests.
 
-Work only in `C:\xampp\DRAGONHYDRA-CORE-NEXT`; LAB owns private runtime/evidence.
-Read `ENGINEERING-STATE.json`, `docs/handover/CONTINUATION-20261102.md` and the
-current release-report section first. Original DRAGONHYDRA and all other
-workstation profiles remain protected. Do not reset credentials, acquire providers
-or automatically rerun historical lifecycle commands. The primary owner opens
-http://127.0.0.1:18822/ and its existing Administration shortcut; use the local
-protected credential workflow, never this documentation as a credential store.
+Current private backups: LAB/preservation/reconciliation-20261102T124413751Z;
+actual restoration receipt source-restoration-r1.json. Existing Joomla/SQLite
+backups and rollback remain separate. Never publish private history/configuration,
+runtime databases, tokens, SQL dumps or owner credentials. Source recovery is not
+application data recovery.
 
-## Historical handoff retained below
+Next executable action: finish/review the three focused integration changes and
+their tests, run the distinct integrated source suite, select a coherent new
+development source identity and freeze it. Then build source-bound packages,
+verify disposable install/repair/restore/restart, deploy to CORE NEXT only,
+perform actual interface/platform/privacy gates and publish/download-verify.
 
-The following text records previous dev.3/dev.1 checkpoints. Published dev.1
-claims apply only to its immutable 953 source/tag; its commands and next-objective
-text are not the active r2 instructions above.
-
-ACTIVE UPDATE — dev.3/source3af173d is installed; NOT published.
-Primary upgrade/workflow/restart and disposable install/repair/restart/uninstall
-passed. Actual kernel Edge standings/skip/reload tests passed. Authenticated Joomla
-narrow-screen acceptance found persistent Atum header-title overflow (539px at
-390px after settling); component content itself fits. Dev.4 is the justified
-scoped presentation repair. Preserve all dev.3 artifacts and failure receipts.
-Read active_continuation_20261102 and docs/handover/CONTINUATION-20261102.md.
-Original DRAGONHYDRA source/services/A9 remain read-only and preserved.
-
-# Resume DRAGONHYDRA CORE NEXT
-
-Read AGENTS.md, BASELINE-LOCK.json, ENGINEERING-STATE.json and docs/releases/CORE-NEXT-RELEASE-REPORT.md.
-
-Independent source `C:\xampp\DRAGONHYDRA-CORE-NEXT`; private runtime/evidence `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB`. Preferred E: unavailable. Original `C:\xampp\DRAGONHYDRA` remains a separate project; do not execute its installers or modify its services/state/source. Its concurrent external local commits/index changes are observed separately.
-
-Baseline `genesis-a9-20261101`, exact `2e6520d5b6a7874881e5de85dbb6ececaef11d8f`. Candidate branch `release/core-next-20261101T1400Z`. Frozen compiled source `953b67fa50dfa9d705f060f97b8a1af5d317c001`. Tag `v0.5.0-dev.1-core-next` pins that source. A later documentation commit is not the package source and must not move a published tag.
-
-Actual implementation: composed six engines, explicit ports, real API/Product/Jobs dispatch, authenticated cached registry and native Joomla Control Center. Final candidate33 semantic groups match the baseline using the same retained snapshot and fixed clocks/seeds. The final installed Linux archive passes11 groups, including the same-endpoint restart. SourceZIP matches722 Git blobs. Windows primary PASS, desktop PASS, Android emulator PASS; publication PUBLICATION_AND_DOWNLOADS_VERIFIED. Scope and evidence are in the release report.
-
-Installation `core-next-7ac520727b85456cac4a3a92a8dd62da`:
-
-- Application: `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles\core-next-7ac520727b85456cac4a3a92a8dd62da\application`.
-- State: `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles\core-next-7ac520727b85456cac4a3a92a8dd62da\state`.
-- Service: `DragonhydraCoreNextcandidate3a92a8dd62da`.
-- API/Joomla/MariaDB ports: `18821` / `18822` / `18823`.
-- System Control Center: http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra.
-- Private profile: `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles\core-next-7ac520727b85456cac4a3a92a8dd62da\installation-profile.json`.
-
-
-```powershell
-Set-Location C:\xampp\DRAGONHYDRA-CORE-NEXT
-$profilePath = 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles\core-next-7ac520727b85456cac4a3a92a8dd62da\installation-profile.json'
-. .\packaging\windows\workstation\CoreNextProfile.ps1
-$profile = Read-CoreNextProfile $profilePath -CheckService
-Start-Service -Name $profile.service_name
-& 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe' -NoProfile -File 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\profiles\core-next-7ac520727b85456cac4a3a92a8dd62da\application\workstation\Workstation.ps1' -Action Status -ProfilePath $profilePath
-```
-
-
-All runtime credentials remain in this edition's private state/first-run design; never print them. Pair clients with this edition only. Status refresh must not acquire providers, infer or start jobs. A historical finished-match report is not a pre-event forecast. Optional AI failure must remain scoped.
-
-Next unfinished objective: Broaden acceptance on a clean Windows system and a physical Android ARM64 device; production signing remains unavailable.
+Historical completed checkpoint: sourceF and its prior handoff remain available
+in Git at ede5bf788097abc136eee2ae726248893fb4ae7b. Detailed earlier receipts are
+retained in docs/handover/CONTINUATION-20261102.md and the existing release report;
+they must not be presented as rerun evidence for subsequent source changes.

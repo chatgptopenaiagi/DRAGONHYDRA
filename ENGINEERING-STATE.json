@@ -6,9 +6,9 @@
   "preferred_e_available": false,
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
-  "branch": "release/core-next-20261101T1400Z",
-  "phase": "UNPUBLISHED_DEV4_R2_SOURCE_PENDING_FREEZE",
-  "installation": "MIXED_JOOMLA_DEV4_R1_BACKEND_NATIVE_PROFILE_DEV3",
+  "branch": "reconcile/genesis-20261102",
+  "phase": "RECONCILED_SOURCE_VERIFIED_BUILD_READY",
+  "installation": "MIXED_JOOMLA_F_DEV4_BACKEND_NATIVE_PROFILE_DEV3",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
     "mathematical_files_byte_identical": 5,
@@ -28,14 +28,14 @@
     }
   },
   "control_center": {
-    "status": "JOOMLA4_R1_DEPLOYED_NEUTRAL_SOURCE_R2_PENDING",
-    "browser_receipt": "LAB/acceptance/dev3-joomla4-browser-r3/verification.json",
-    "browser_passed": 186,
+    "status": "JOOMLA_F_DEV4_DEPLOYED_NEW_INTEGRATION_PENDING",
+    "browser_receipt": "LAB/acceptance/dev3-joomla4-browser-r4/verification.json",
+    "browser_passed": 204,
     "browser_not_run": 2,
-    "neutral_source_scope": "PHP mapping+legend+render/expiry regression; not yet built or installed"
+    "neutral_source_scope": "F unverified/expired neutral deployed; new not-configured/filter integration pending"
   },
   "publication": "NOT_PUBLISHED_CURRENT_DEV4",
-  "next_objective": "Freeze the neutral-state r2 source, build fresh F-bound dev.4 r2 packages, verify all lanes; no Windows retry before owner acknowledgement",
+  "next_objective": "Freeze and bind335-case verified dev5 inputs; build new source-bound packages; complete isolated Windows install/recovery gate before primary promotion and publication",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -73,18 +73,20 @@
     }
   },
   "packages": {
-    "status": "R1_BUILT_PRESERVED_R2_NOT_BUILT",
-    "source_commit": "3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32",
+    "status": "F_R2_NINE_BUILT_PRESERVED_NEW_INTEGRATION_NOT_BUILT",
+    "source_commit": "ede5bf788097abc136eee2ae726248893fb4ae7b",
     "distribution_count": 9,
-    "inventory": "LAB/evidence/dev4-partial-deployment-package-inventory.json",
-    "checksums": "LAB/evidence/dev4-package-SHA256SUMS.txt",
+    "inventory": "LAB/evidence/dev4-r2-prepared-packages.json",
+    "checksums": "LAB/evidence/dev4-r2-package-SHA256SUMS.txt",
     "r1_assets": "LAB/dist/v0.5.0-dev.4-core-next",
     "planned_r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
-    "publication_status": "NOT_PUBLISHED"
+    "publication_status": "NOT_PUBLISHED",
+    "r2_assets": "LAB/dist/v0.5.0-dev.4-core-next-r2",
+    "pending_version": "0.5.0-dev.5"
   },
-  "version": "0.5.0-dev.4",
-  "proposed_tag": "v0.5.0-dev.4-core-next",
-  "updated_utc": "2026-11-02T12:00:01.647312+00:00",
+  "version": "0.5.0-dev.5",
+  "proposed_tag": "v0.5.0-dev.5-core-next",
+  "updated_utc": "2026-11-02T13:43:00.470375+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -119,7 +121,7 @@
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -676,5 +678,47 @@
       "scope": "Current bounded availability and passive registry view after test-reference cleanup; old cached observations remain expired rather than being reprobed"
     }
   },
-  "source_commit_scope": "Last frozen r1 package source; new neutral-state r2 source awaits its own freeze"
+  "source_commit_scope": "Last frozen r1 package source; new neutral-state r2 source awaits its own freeze",
+  "reconciliation": {
+    "start_commit": "ede5bf788097abc136eee2ae726248893fb4ae7b",
+    "original_commit": "a63068de10a111a7784bcf677101a66b693d0908",
+    "nested_commit": "1d044992d36962359dfe46b4caedef750a3c0043",
+    "owner_scope": "DRAGONHYDRA only; SENTINEL explicitly excluded; second window closed per owner",
+    "source_recovery": "PASS_THREE_PRIVATE_DISPOSABLE_RESTORES",
+    "historical_worktrees_clean": 6,
+    "original_reference_tests": {
+      "passed": 54,
+      "failed": 0,
+      "scope": "Isolated restored original source, existing PHP path injected"
+    },
+    "nested_foundation_tests": {
+      "passed": 42,
+      "failed": 0,
+      "scope": "Exact isolated Git snapshot; existing dependency overlay"
+    },
+    "tracked_union_paths": 798,
+    "same_path_conflict_selections": 23,
+    "new_integrated_tests": {
+      "unique": 335,
+      "passed": 328,
+      "failed": 0,
+      "not_run": 7,
+      "input_hash_count": 521,
+      "receipt": "docs/reconciliation/evidence/INTEGRATED-SOURCE-DEV5.json",
+      "scope": "Source and synthetic fixtures only"
+    },
+    "documentation": "docs/handover/ACTIVE-RECONCILIATION.md",
+    "publication": "NOT_RUN_MANDATORY_GATES_PENDING",
+    "source_conflict_selections": "23_SOURCE_VERIFIED_INSTALLED_ACCEPTANCE_PENDING",
+    "fresh_primary_baseline": {
+      "records": 760,
+      "scheduled": 330,
+      "finished": 430,
+      "teams": 40,
+      "competitions": 2,
+      "logical_digest": "75c4ac7f23aaa4399b7c3883b7f2244448885a05ea3db75791d95910d8766cde",
+      "evidence": "LAB/evidence/reconciliation-20261102/primary-api-baseline-r1.json"
+    },
+    "windows_elevation": "Single read-only identity probe launched; outcome pending, no installer or service action"
+  }
 }

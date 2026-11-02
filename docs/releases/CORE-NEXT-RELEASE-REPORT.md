@@ -1,5 +1,10 @@
 # DRAGONHYDRA CORE NEXT release report
 
+Current: [reconciliation acceptance](RELEASE-ACCEPTANCE.md),
+[actual published baseline](PUBLISHED-BASELINE.md), [candidate comparison](SUPERIORITY-COMPARISON.md).
+Prior sections below are preserved scoped historical evidence, not current build/install claims.
+
+
 ## Current dev.4 r2 — unpublished
 
 **Current unpublished dev.4 r2 status (2026-11-02):** the running primary has

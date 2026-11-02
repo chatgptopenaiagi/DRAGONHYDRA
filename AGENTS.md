@@ -30,3 +30,13 @@ BASELINE-LOCK.json, RESUME-CODEX.md and ENGINEERING-STATE.json before continuing
 - Record PASS/FAIL/BLOCKED/NOT_RUN with evidence; maintain checkpoints and handoff.
 - Publish only a new prerelease on this release branch and a unique immutable tag,
   after workflow/updater inspection. Do not merge or change default/stable tracks.
+
+## Active owner correction — product only
+
+Read docs/handover/ACTIVE-RECONCILIATION.md before following older task plans.
+Use branch reconcile/genesis-20261102 in this existing clone. Preserve the
+original independent histories and all releases. No SENTINEL/workspace-guard or
+general Codex coordination software is in scope. Use ordinary Git/source checks
+and explicit task ownership. Freeze and verify one coherent source before builds;
+test disposable installation/recovery before promoting CORE NEXT. Historical
+RunAs failure is not evidence of cancellation or a permanent product blocker.

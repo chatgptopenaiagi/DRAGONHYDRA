@@ -129,8 +129,8 @@ command is accepted. A no-outcome evaluation is a successful pending workflow,
 not evidence of numerical performance.
 
 Presentation uses a visible label/icon plus the exact state mapping: `READY`
-is green; `DEGRADED` and `NOT_CONFIGURED` are amber; `UNAVAILABLE` and `STOPPED`
-are red; `UNVERIFIED`, `EXPIRED`, `UNKNOWN`, `NOT_APPLICABLE` and
+is green; `DEGRADED` is amber; `UNAVAILABLE` and `STOPPED`
+are red; `NOT_CONFIGURED`, `UNVERIFIED`, `EXPIRED`, `UNKNOWN`, `NOT_APPLICABLE` and
 `NOT_IMPLEMENTED` are neutral. Unknown/default input is neutral. Neither an
 unobserved operation nor an expired receipt is a newly ready engine. Colour,
 navigation, rerender and a cache read never renew `observed_at`, `last_success_at`
@@ -138,7 +138,33 @@ or expiry. The legend states this distinction rather than grouping unverified
 proof with degraded capability. No optional model dependency gates retained
 browsing.
 
-This neutral PHP mapping is a source-only dev.4 r2 presentation correction pending
-the next freeze/build/deployment. The currently deployed Joomla dev.4 r1 package
-is source 3cae; its Atum-width fix and backend dev.3 compatibility have separate
-actual acceptance. Do not relabel that installed package as the new r2 source.
+F's unverified/expired neutral mapping is deployed in Joomla dev.4 on backend
+dev.3. The dev.5 integration adds neutral NOT_CONFIGURED, conjunctive status
+filtering and typed service identity; its installed acceptance is still pending.
+
+## Typed supervisor service identity — dev.5
+
+`runtime_supervisor` may expose a separate `service_identity` object on the module
+and nested observation. It contains only `service_name`, `installation_id`,
+`source_commit`, `build_id`, `observed_at`, `evidence_expires_at` and fixed
+`verification_scope=BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY`. Metrics remain
+finite numeric/boolean counters and flags; arbitrary strings are not admitted.
+
+The existing supervisor checks exactly one running SCM service with the expected
+ImagePath and verifies that its process is the supervisor's parent. Two bounded
+local CIM reads run in one in-process runspace with a1200ms heartbeat wait and at
+most one request in flight. Failure/missing evidence omits the identity; it does
+not grant service-control permission or prove the account's permissions.
+
+Python additionally binds receipt schema, service, supervisor/API PID, profile,
+source, build and original clocks. Public projection and Joomla independently
+validate the installation/source/build/scope and fresh bounded UTC clocks. The
+upstream45-second expiry is retained; checks delayed beyond their own maximum
+age are not renewed by serialization. Identity is not restored from cache. A
+configured name or a general API response alone does not establish this evidence.
+
+Status filtering operates after expiry normalization and composes with layer and
+category. Counts describe the unfiltered inventory. Read navigation uses fixed
+known operation IDs with enabled===true and GET; supplied paths/URLs never become
+arbitrary actions. Provider imports, forecasts and evaluations retain their
+separate authorized POST/CSRF/idempotency workflows.

@@ -29,15 +29,47 @@ final class ControlCenterModel
     public static function tone(string $state): string
     {
         return match ($state) {
-            'READY' => 'green', 'DEGRADED','NOT_CONFIGURED' => 'amber',
+            'READY' => 'green', 'DEGRADED' => 'amber',
             'UNAVAILABLE','STOPPED' => 'red',
-            'UNVERIFIED','EXPIRED','UNKNOWN','NOT_APPLICABLE' => 'neutral', default => 'neutral',
+            'NOT_CONFIGURED','UNVERIFIED','EXPIRED','UNKNOWN','NOT_APPLICABLE' => 'neutral', default => 'neutral',
         };
     }
 
     public static function stateLabel(string $state): string
     {
         return in_array($state,self::STATES,true) ? ucfirst(strtolower(str_replace('_',' ',$state))) : 'Unknown';
+    }
+
+    /** Navigation to existing views only; backend paths never become links. */
+    public static function operationReadView(array $operation, string $moduleId): array
+    {
+        $disabled = static fn(string $reason): array => ['query'=>null, 'label'=>'Disabled here', 'reason'=>$reason];
+        $reportedReason = is_string($operation['reason'] ?? null) && trim($operation['reason']) !== '' ? $operation['reason'] : null;
+        if (($operation['enabled'] ?? false) !== true) {
+            return $disabled($reportedReason ?? 'This operation is disabled for this account or installation.');
+        }
+        if (($operation['method'] ?? '') !== 'GET') {
+            return $disabled($reportedReason ?? 'This operation requires an explicit supported form; it cannot run from a read link.');
+        }
+        $views = [
+            'read_modules'=>['section=modules','Browse modules'],
+            'read_system'=>['section=infrastructure','Open infrastructure'],
+            'read_matches'=>['section=matches','Browse retained matches'],
+            'read_connections'=>['section=sources','Open data sources'],
+            'read_predictions'=>['section=prediction','Open predictions read view'],
+            'read_cognition_history'=>['section=memory','Open retained memory view'],
+            'read_analysis_package'=>['section=ai','Open AI evidence view'],
+        ];
+        $id = $operation['id'] ?? null;
+        if ($id === 'status' && preg_match('/^[a-zA-Z0-9_-]{1,80}$/D', $moduleId)) {
+            return ['query'=>'section=modules&module=' . rawurlencode($moduleId), 'label'=>'Inspect module',
+                'reason'=>'Read this module’s retained definition and evidence. No job or background check is started.'];
+        }
+        if (is_string($id) && isset($views[$id])) {
+            return ['query'=>$views[$id][0], 'label'=>$views[$id][1],
+                'reason'=>'Open the existing protected read view. This does not run the advertised engine operation.'];
+        }
+        return $disabled($reportedReason ?? 'No supported Joomla read view is registered for this operation.');
     }
 
     private static function identity(array $value): array
@@ -48,10 +80,54 @@ final class ControlCenterModel
         return array_intersect_key($value, array_flip(['product', 'edition', 'installation_id', 'environment_id', 'build_id', 'source_commit', 'version']));
     }
 
-    private static function module(array $value, int $now): array
+    private static function serviceIdentity(array $module, array $installation, float $now): ?array
+    {
+        if (($module['id'] ?? '') !== 'runtime_supervisor'
+            || !is_array($module['service_identity'] ?? null)
+            || !is_array($module['observation'] ?? null)
+            || !is_array($module['observation']['service_identity'] ?? null)) { return null; }
+        if (isset($module['installation']) && !is_array($module['installation'])) { return null; }
+        $fields = array_flip(['service_name','installation_id','source_commit','build_id','observed_at','evidence_expires_at','verification_scope']);
+        $identity = array_intersect_key($module['service_identity'], $fields);
+        $observedCopy = array_intersect_key($module['observation']['service_identity'], $fields);
+        ksort($identity); ksort($observedCopy);
+        if ($identity !== $observedCopy || count($identity) !== count($fields)
+            || !is_string($identity['service_name']) || !preg_match('/^Dragonhydra[A-Za-z0-9_-]{0,60}$/D', $identity['service_name'])
+            || ($identity['verification_scope'] ?? '') !== 'BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY') { return null; }
+        foreach (['installation_id','source_commit','build_id'] as $key) {
+            if (!is_string($identity[$key]) || $identity[$key] !== ($installation[$key] ?? null)) { return null; }
+            if (isset($module['installation']) && $identity[$key] !== ($module['installation'][$key] ?? null)) { return null; }
+        }
+        if (!preg_match('/^[a-f0-9]{40}$/D', $identity['source_commit'])
+            || !preg_match('/^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$/D', $identity['installation_id'])
+            || !preg_match('/^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$/D', $identity['build_id'])
+            || (isset($module['installation_id']) && $module['installation_id'] !== $identity['installation_id'])) { return null; }
+        $timestamp = static function ($value): ?float {
+            if (!is_string($value) || !preg_match('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z$/D', $value)) { return null; }
+            try {
+                $date = new \DateTimeImmutable($value);
+                $errors = \DateTimeImmutable::getLastErrors();
+                if ($errors !== false && ($errors['warning_count'] || $errors['error_count'])) { return null; }
+                return (float)$date->format('U.u');
+            } catch (\Exception $error) { return null; }
+        };
+        $observed = $timestamp($identity['observed_at']);
+        $expiry = $timestamp($identity['evidence_expires_at']);
+        if ($observed === null || $expiry === null || $observed > $now || $expiry <= $now
+            || $expiry <= $observed || $expiry-$observed > 90) { return null; }
+        return $identity;
+    }
+
+    private static function module(array $value, int $now, array $installation, float $serviceClock): array
     {
         self::identifier((string) ($value['id'] ?? ''));
+        $serviceIdentity = self::serviceIdentity($value, $installation, $serviceClock);
         $value = array_intersect_key($value, array_flip(['id', 'name', 'version', 'state', 'description', 'category', 'origin', 'observed_at', 'expires_at', 'reason', 'dependencies', 'dependency_status', 'capabilities', 'capability_status', 'operations', 'observation', 'optional_dependency_status', 'configuration_requirements', 'data_domains', 'verification_references', 'implementation_reference', 'implementation_state', 'configuration_state', 'runtime_state', 'reason_code', 'human_readable_reason', 'last_success_at', 'evidence_expires_at', 'actual_version_or_build', 'display_name', 'responsibility', 'kind', 'layer', 'runtime_owner', 'observation_id', 'observer_identity', 'build_identity', 'verification_scope']));
+        if (is_array($value['observation'] ?? null)) { unset($value['observation']['service_identity']); }
+        if ($serviceIdentity !== null) {
+            $value['service_identity'] = $serviceIdentity;
+            $value['observation']['service_identity'] = $serviceIdentity;
+        }
         $value['layer'] = in_array($value['layer'] ?? '', ['engine','supporting'],true) ? $value['layer'] : 'unclassified';
         if (!in_array($value['state'] ?? '', self::STATES, true)) {
             $value['state'] = 'UNKNOWN';
@@ -76,7 +152,7 @@ final class ControlCenterModel
     {
         $section = self::section((string) ($input['section'] ?? 'overview'));
         $result = ['section'=>$section, 'installation'=>[], 'modules'=>[], 'visible_modules'=>[], 'module'=>null,
-            'inventory'=>['engines'=>0,'supporting'=>0,'total'=>0,'unclassified'=>0], 'categories'=>[], 'filters'=>['layer'=>'','category'=>''],
+            'inventory'=>['engines'=>0,'supporting'=>0,'total'=>0,'unclassified'=>0], 'categories'=>[], 'filters'=>['layer'=>'','category'=>'','status'=>''],
             'system'=>[], 'data'=>[], 'job_id'=>'', 'workflow'=>null,'workflow_error'=>null, 'error'=>null];
         if (!$authorised) {
             $result['error'] = 'An authorized Joomla administrator session is required.';
@@ -96,7 +172,7 @@ final class ControlCenterModel
                 throw new \RuntimeException('CORE_NEXT_INSTALLATION_MISMATCH');
             }
             foreach ($registry['items'] as $module) {
-                $module = self::module((array) $module, $now ?? time());
+                $module = self::module((array) $module, $now ?? time(), $result['installation'], $now === null ? microtime(true) : (float)$now);
                 if (isset($result['modules'][$module['id']])) {
                     throw new \RuntimeException('DUPLICATE_MODULE_ID');
                 }
@@ -116,11 +192,14 @@ final class ControlCenterModel
             ksort($result['categories']);
             $layer = (string) ($input['layer'] ?? '');
             $category = (string) ($input['category'] ?? '');
+            $status = (string) ($input['status'] ?? '');
             $result['filters'] = ['layer'=>in_array($layer,['engine','supporting'],true) ? $layer : '',
-                'category'=>isset($result['categories'][$category]) ? $category : ''];
+                'category'=>isset($result['categories'][$category]) ? $category : '',
+                'status'=>in_array($status,self::STATES,true) ? $status : ''];
             $result['visible_modules'] = array_filter($result['modules'], static fn($module): bool =>
                 (!$result['filters']['layer'] || $module['layer'] === $result['filters']['layer'])
-                && (!$result['filters']['category'] || ($module['category'] ?? '') === $result['filters']['category']));
+                && (!$result['filters']['category'] || ($module['category'] ?? '') === $result['filters']['category'])
+                && (!$result['filters']['status'] || $module['state'] === $result['filters']['status']));
             $selected = (string) ($input['module'] ?? '');
             if (!$selected && in_array($section, ['odds', 'prediction', 'ai', 'memory', 'evaluation'], true)) {
                 $selected = $section;
@@ -135,7 +214,7 @@ final class ControlCenterModel
                 if ($identity['installation_id'] !== $result['installation']['installation_id'] || ($detail['id'] ?? '') !== $selected) {
                     throw new \RuntimeException('MODULE_IDENTITY_MISMATCH');
                 }
-                $result['module'] = self::module($detail, $now ?? time());
+                $result['module'] = self::module($detail, $now ?? time(), $result['installation'], $now === null ? microtime(true) : (float)$now);
             }
             if (in_array($section, ['overview', 'infrastructure'], true)) {
                 $result['system'] = $read('/system');

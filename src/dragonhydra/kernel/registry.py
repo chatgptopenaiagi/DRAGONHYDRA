@@ -10,7 +10,7 @@ from .contracts import Observation, STATES, CONFIGURATION_REFERENCES, iso, utc_n
 
 
 class ModuleRegistry:
-    def __init__(self, definitions, engines, *, supporting=None, ttl_seconds=300, clock=utc_now, disabled=(), installation_id='', build_identity='source-checkout'):
+    def __init__(self, definitions, engines, *, supporting=None, ttl_seconds=300, clock=utc_now, disabled=(), installation_id='', build_identity='source-checkout', source_commit=None):
         self.definitions = {item.id: item for item in definitions}
         if len(self.definitions) != len(definitions):
             raise ValueError('DUPLICATE_MODULE_ID')
@@ -56,6 +56,7 @@ class ModuleRegistry:
         self.ttl, self.clock, self.lock = ttl_seconds, clock, RLock()
         self.installation_id = installation_id
         self.build_identity = build_identity
+        self.source_commit = source_commit
         self._order = []
         visiting, visited = set(), set()
         def visit(identifier):
@@ -78,7 +79,7 @@ class ModuleRegistry:
         self.operation_observations = {}
         self.running = False
 
-    def record(self, identifier, state, reason, *, metrics=None, evidence=(), observer_identity=None, verification_scope=('LIGHTWEIGHT_LOCAL_OBSERVATION',), observed_at=None, expires_at=None, last_success_at=None):
+    def record(self, identifier, state, reason, *, metrics=None, evidence=(), observer_identity=None, verification_scope=('LIGHTWEIGHT_LOCAL_OBSERVATION',), observed_at=None, expires_at=None, last_success_at=None, service_identity=None):
         if identifier not in self.definitions:
             raise LookupError('MODULE_NOT_FOUND')
         at = observed_at or self.clock()
@@ -100,7 +101,7 @@ class ModuleRegistry:
             value = Observation(state, reason, at, expiry, combined,
                                 tuple(evidence), self.installation_id, identifier, last_success, sampled,
                                 uuid4().hex, observer_identity or 'core-next.kernel:'+str(os.getpid()),
-                                self.build_identity,tuple(verification_scope),metrics_expiry)
+                                self.build_identity,tuple(verification_scope),metrics_expiry,service_identity)
             self.observations[identifier] = value
 
     def record_operation(self, identifier, operation, state, reason, *, evidence=(), update_module=True):
@@ -138,7 +139,8 @@ class ModuleRegistry:
             result = self.bindings[identifier].observe()
             self.record(identifier, result['state'], result['reason'],
                         metrics=result.get('metrics'), evidence=result.get('evidence', ()),
-                        observed_at=result.get('observed_at'),expires_at=result.get('expires_at'),last_success_at=result.get('last_success_at'))
+                        observed_at=result.get('observed_at'),expires_at=result.get('expires_at'),last_success_at=result.get('last_success_at'),
+                        service_identity=result.get('service_identity'))
         except Exception:
             self.record(identifier, 'DEGRADED', 'BOUNDED_LOCAL_OBSERVATION_FAILED',metrics={})
 
@@ -264,7 +266,17 @@ class ModuleRegistry:
                 'last_success_at': raw['last_success'], 'evidence_expires_at': raw['expires_at'],
                 'sanitized_metrics': sanitized, 'evidence_reference': list(raw['evidence'])}
             raw.update(canonical)
-            return {**asdict(definition), 'state': state, 'reason': reason,
+            identity=observation.service_identity if observation else None
+            projected_identity=None
+            if (identifier=='runtime_supervisor' and runtime_state=='READY' and identity is not None
+                    and observation.installation_id==self.installation_id and observation.module_id==identifier
+                    and observation.build_identity==self.build_identity
+                    and identity.source_commit==self.source_commit
+                    and identity.observed_at<=self.clock()<identity.evidence_expires_at):
+                projected_identity={**asdict(identity),'observed_at':iso(identity.observed_at),
+                    'evidence_expires_at':iso(identity.evidence_expires_at)}
+                raw['service_identity']=projected_identity
+            item={**asdict(definition), 'state': state, 'reason': reason,
                     **canonical, 'display_name': definition.name, 'kind': definition.origin,
                     'responsibility': definition.description, 'actual_version_or_build': definition.version,
                     'implemented_capabilities': list(definition.capabilities),
@@ -277,6 +289,8 @@ class ModuleRegistry:
                     'dependency_status': dependencies, 'observation': raw,
                     'operations': [{'id': 'status', 'label': 'Inspect module', 'method': 'GET',
                                     'path': '/modules/'+identifier, 'enabled': True, 'reason': None}]}
+            if projected_identity is not None:item['service_identity']=dict(projected_identity)
+            return item
 
     def items(self,scope='all'):
         if scope not in ('all','engines','supporting'):raise ValueError('INVALID_MODULE_SCOPE')

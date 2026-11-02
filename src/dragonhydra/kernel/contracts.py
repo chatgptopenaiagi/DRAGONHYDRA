@@ -106,6 +106,29 @@ class Engine(Protocol):
 
 
 @dataclass(frozen=True)
+class ServiceIdentity:
+    """Fresh running-service/supervisor binding, never an account or ACL claim."""
+    service_name: str
+    installation_id: str
+    source_commit: str
+    build_id: str
+    observed_at: datetime
+    evidence_expires_at: datetime
+    verification_scope: str = 'BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY'
+
+    def __post_init__(self):
+        if (not isinstance(self.service_name,str) or not re.fullmatch(r'Dragonhydra[A-Za-z0-9_-]{0,60}',self.service_name)
+                or not isinstance(self.installation_id,str) or not re.fullmatch(r'core-next-[a-f0-9]{32}',self.installation_id)
+                or not isinstance(self.source_commit,str) or not re.fullmatch(r'[a-f0-9]{40}',self.source_commit)
+                or not isinstance(self.build_id,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.:+-]{0,127}',self.build_id)
+                or self.verification_scope != 'BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY'
+                or not isinstance(self.observed_at,datetime) or not isinstance(self.evidence_expires_at,datetime)
+                or self.observed_at.utcoffset() is None or self.evidence_expires_at.utcoffset() is None
+                or not 0<(self.evidence_expires_at-self.observed_at).total_seconds()<=90):
+            raise ValueError('INVALID_SERVICE_IDENTITY')
+
+
+@dataclass(frozen=True)
 class Observation:
     state: str
     reason: str
@@ -122,6 +145,7 @@ class Observation:
     build_identity: str = ''
     verification_scope: tuple[str, ...] = ()
     metrics_expiry: datetime | None = None
+    service_identity: ServiceIdentity | None = None
 
     def __post_init__(self):
         if (self.state not in STATES or not isinstance(self.observed_at,datetime)
@@ -132,4 +156,10 @@ class Observation:
             raise ValueError('INVALID_LAST_SUCCESS_CLOCK')
         if self.metrics_expiry is not None and (self.metrics_sampled_at is None or self.metrics_expiry.utcoffset() is None or self.metrics_expiry<=self.metrics_sampled_at):
             raise ValueError('INVALID_METRICS_EXPIRY')
+        identity=self.service_identity
+        if identity is not None and (not isinstance(identity,ServiceIdentity)
+                or self.module_id!='runtime_supervisor' or identity.installation_id!=self.installation_id
+                or identity.build_id+':'+identity.source_commit!=self.build_identity
+                or not identity.observed_at<=self.observed_at<identity.evidence_expires_at<=self.expires_at):
+            raise ValueError('UNBOUND_SERVICE_IDENTITY')
         object.__setattr__(self,'metrics',MappingProxyType(sanitized_metrics(self.metrics)))

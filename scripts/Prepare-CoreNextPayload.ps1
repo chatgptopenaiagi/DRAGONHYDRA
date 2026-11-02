@@ -39,8 +39,46 @@ foreach($pair in @(@('server',$ServerPayloadRoot),@('client',$ClientPayloadRoot)
 $extension=$null
 if($JoomlaPackagePath){
     $extension=Assert-CoreNextOrdinaryPath $JoomlaPackagePath $lab
-    $receipt=Get-Content -LiteralPath ([IO.Path]::ChangeExtension($extension,'.manifest.json')) -Raw|ConvertFrom-Json
-    if(-not $receipt.built -or $receipt.version -cne $profile.version -or $receipt.sha256 -cne (Hash $extension) -or $receipt.bytes -ne (Get-Item -LiteralPath $extension).Length){throw 'CORE_NEXT_JOOMLA_PACKAGE_IDENTITY_MISMATCH'}
+    $receiptPath=Assert-CoreNextOrdinaryPath ([IO.Path]::ChangeExtension($extension,'.manifest.json')) $lab
+    $receipt=Get-Content -LiteralPath $receiptPath -Raw|ConvertFrom-Json
+    if($receipt.built -isnot [bool] -or -not $receipt.built -or $receipt.version -cne $profile.version -or $receipt.source_sha -cne $profile.source_commit -or $receipt.sha256 -cne (Hash $extension) -or $receipt.bytes -ne (Get-Item -LiteralPath $extension).Length){throw 'CORE_NEXT_JOOMLA_PACKAGE_IDENTITY_MISMATCH'}
+    # A same-version sidecar must not relabel an older embedded component.
+    function Read-CoreNextJoomlaText($archive,[string]$name){
+        $entries=@($archive.Entries|Where-Object FullName -IEQ $name)
+        if($entries.Count -ne 1 -or $entries[0].FullName -cne $name -or $entries[0].Length -gt 65536){throw 'UNIQUE_BOUNDED_JOOMLA_ENTRY_REQUIRED'}
+        $reader=[IO.StreamReader]::new($entries[0].Open())
+        try{return $reader.ReadToEnd()}finally{$reader.Dispose()}
+    }
+    function Read-CoreNextJoomlaVersion($archive,[string]$name){
+        $text=Read-CoreNextJoomlaText $archive $name
+        $settings=[Xml.XmlReaderSettings]::new();$settings.DtdProcessing=[Xml.DtdProcessing]::Prohibit;$settings.XmlResolver=$null
+        $reader=[Xml.XmlReader]::Create([IO.StringReader]::new($text),$settings)
+        try{
+            $xml=[Xml.XmlDocument]::new();$xml.XmlResolver=$null;$xml.Load($reader)
+            $versions=$xml.SelectNodes('/extension/version')
+            if($versions.Count -ne 1){throw 'UNIQUE_JOOMLA_VERSION_REQUIRED'}
+            return $versions[0].InnerText
+        }finally{$reader.Dispose()}
+    }
+    $package=$component=$componentBytes=$componentStream=$identityReader=$null
+    try{
+        $package=[IO.Compression.ZipFile]::OpenRead($extension)
+        if((Read-CoreNextJoomlaVersion $package 'pkg_dragonhydra.xml') -cne $profile.version){throw 'PACKAGE_VERSION_MISMATCH'}
+        $parts=@($package.Entries|Where-Object FullName -IEQ 'constituents/com_dragonhydra.zip')
+        if($parts.Count -ne 1 -or $parts[0].FullName -cne 'constituents/com_dragonhydra.zip' -or $parts[0].Length -gt 16777216){throw 'COMPONENT_IDENTITY_REQUIRED'}
+        $componentBytes=[IO.MemoryStream]::new()
+        $componentStream=$parts[0].Open();$componentStream.CopyTo($componentBytes);$componentStream.Dispose();$componentStream=$null
+        $componentBytes.Position=0
+        $component=[IO.Compression.ZipArchive]::new($componentBytes,[IO.Compression.ZipArchiveMode]::Read)
+        if((Read-CoreNextJoomlaVersion $component 'dragonhydra.xml') -cne $profile.version){throw 'COMPONENT_VERSION_MISMATCH'}
+        $identities=@($component.Entries|Where-Object FullName -IEQ 'admin/build-info.json')
+        if($identities.Count -ne 1 -or $identities[0].FullName -cne 'admin/build-info.json' -or $identities[0].Length -gt 65536){throw 'COMPONENT_IDENTITY_REQUIRED'}
+        $identityReader=[IO.StreamReader]::new($identities[0].Open())
+        $embedded=$identityReader.ReadToEnd()|ConvertFrom-Json
+        if($embedded.source_sha -cne $profile.source_commit -or $embedded.version -cne $profile.version -or $embedded.api_namespace -cne '/dragon/api/v1' -or ($embedded.kernel_schema_version -isnot [int] -and $embedded.kernel_schema_version -isnot [long]) -or $embedded.kernel_schema_version -ne 1){throw 'COMPONENT_IDENTITY_MISMATCH'}
+    }catch{throw 'CORE_NEXT_JOOMLA_EMBEDDED_IDENTITY_MISMATCH'}finally{
+        foreach($resource in @($identityReader,$component,$componentStream,$componentBytes,$package)){if($null -ne $resource){$resource.Dispose()}}
+    }
 }
 # Inputs are completely checked before a fresh destination is created.
 $python=Join-Path $lab 'tools-env\Scripts\python.exe'

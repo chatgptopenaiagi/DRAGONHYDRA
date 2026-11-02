@@ -1,5 +1,11 @@
 # CORE NEXT continuation — 2026-11-02
 
+Current owner mission: [active product reconciliation](ACTIVE-RECONCILIATION.md).
+The text below is retained historical checkpoint evidence. Its source/build,
+Windows-approval and next-action statements are superseded by the active handoff.
+
+## Historical dev.4 r2 checkpoint
+
 **Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
 Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and
 reapplied through the supported Joomla CLI. Its backend, native client, launcher,

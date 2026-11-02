@@ -19,44 +19,28 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Current unpublished dev.4 r2 status (2026-11-02):** the running primary has
-Joomla component/template/package **dev.4, source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32`**, installed and
-reapplied through the supported Joomla CLI. Its backend, native client, launcher,
-service and profile remain **dev.3, source `3af173d0248e95f7d76aeabed1095aa4f3e97af3`** at
-API `18821`, Joomla `18822`, MariaDB `18823`; service PID `32192` was preserved.
-The new PHP presentation rule makes `UNVERIFIED` and `EXPIRED` neutral, with
-matching legend/render/expiry regressions. That change is **source only** until
-a new frozen source and fresh r2 packages are built and deployed. Version/tag
-remain dev.4; no dev.4 tag, draft or public release has been created.
+**Active product reconciliation (2026-11-02):** work continues on
+`reconcile/genesis-20261102` from source `ede5bf788097abc136eee2ae726248893fb4ae7b`.
+The original continuity history, six historical worktrees and nested research
+foundation are preserved separately. Three source snapshots have been actually
+restored; original54 and foundation42 isolated reference tests passed. Selected
+integration changes add status filtering, stronger service evidence and embedded
+Joomla package provenance checks. Dev.5 source verification passed335 distinct cases (328PASS/7NOT_RUN/0FAIL); new builds and installed acceptance remain pending.
 
-The full dev.4 Windows elevation/launch ended in `InvalidOperationException`,
-native code unavailable, with no returned child, operation receipt or one-shot
-marker. Cancellation versus launch failure is not established. It was not retried;
-no new Windows attempt is authorized before owner acknowledgement. Preserve all
-nine r1 packages/source `3cae11e4d44c2ffa2b7ad7c03b6c9ff6b4696d32` and their receipts. R1 source verification was
-302 unique cases: 295 PASS, 7 NOT_RUN; this is not the pending r2 source gate.
+The running CORE NEXT installation is mixed: Joomla component/template/package
+dev.4/F, backend/native/profile dev.3/source `3af173d...`, at18822/18821. Supported
+Joomla install/repeat and actual browser r4 passed204 checks, two not run. This
+does not prove a fully installed dev.4 Windows product. All nine F r2 packages are
+preserved, unpublished. The prior Windows launch raised `InvalidOperationException`
+without a child receipt/native cause; user cancellation is unproven. Diagnosis and
+a new isolated installation/recovery gate precede any promotion.
 
-Actual browser r2 retained 159 PASS and one logout assertion FAIL caused by a
-navigation race in the LAB harness. The corrected r3 run is terminal **PASS:
-186 PASS, 2 NOT_RUN**, using the existing five job IDs without resubmission.
-This verifies deployed Joomla r1 on backend dev.3, not the pending neutral-state
-source or a dev.4 Windows runtime. Native dashboard pairing and service restart
-are the two NOT_RUN scopes in this browser harness. No eligible later retained
-outcome was observed, so pending evaluation is not an accuracy/learning claim.
-
-Local evidence: [nine-package inventory](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-partial-deployment-package-inventory.json>),
-[package checksums](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/dev4-package-SHA256SUMS.txt>),
-[Joomla install/repeat receipt](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/verification.json>),
-[browser r3](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/acceptance/dev3-joomla4-browser-r3/verification.json>).
-Recoverable backups: [Joomla scoped rollback](<C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/joomla-only-dev4-r1/ROLLBACK.md>)
-and the owner-restricted `joomla-only-dev4-r1/private` plus
-`dev3-windows-operation-r1/private-upgrade-backup` directories. Never publish
-their SQL, runtime state or credential-bearing contents.
-
-Next: finish the neutral-state source gate, freeze the new r2 source, then
-build/verify fresh source-bound dev.4 r2 packages in new directories. Preserve all
-r1 attempts. Resolve owner Windows approval before any new privileged operation;
-keep full Windows/browser/privacy/publication gates separate and fail closed.
+See [active reconciliation](docs/handover/ACTIVE-RECONCILIATION.md),
+[decisions](docs/reconciliation/RECONCILIATION-DECISIONS.md) and
+[release acceptance](docs/releases/RELEASE-ACCEPTANCE.md). The most recent published
+CORE NEXT release remains [dev.1](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases/tag/v0.5.0-dev.1-core-next).
+No new release/tag is claimed. SENTINEL and generic session-control software are
+outside the product mission.
 
 ## What changes internally
 

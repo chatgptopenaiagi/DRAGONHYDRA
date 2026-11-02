@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 from pathlib import Path
 import subprocess
 import tempfile
@@ -13,6 +14,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+LAB = ROOT.parent / (ROOT.name + '-LAB')
 SOURCE = ROOT / 'server/joomla'
 PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', ROOT / 'build/workstation/test-install/application files/web/php/php.exe'))
 SETUP = SOURCE / 'com_dragonhydra/admin/src/Service/FrontendSetup.php'
@@ -90,7 +92,7 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('frontend_joomla_builder', ROOT / 'scripts/build_joomla.py')
         builder = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(builder)
-        scratch = ROOT / 'runtime/scratch'
+        scratch = LAB / 'tests/frontend-setup'
         scratch.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='frontend-package-', dir=scratch) as temporary:
             target = Path(temporary) / 'package.zip'
@@ -113,11 +115,19 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
             return value
         builder = module('refresh_extension_builder', ROOT / 'scripts/build_joomla.py')
         prep = module('refresh_web_inputs', ROOT / 'packaging/windows/workstation/web/prepare_payload.py')
-        base = ROOT / 'build/frontend-setup-tests'
+        base = LAB / 'tests/frontend-setup'
         base.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='reuse-', dir=base) as temporary:
-            temp = Path(temporary).resolve()
-            self.assertTrue(temp.is_relative_to((ROOT / 'build').resolve()))
+            fixture = Path(temporary).resolve()
+            self.assertTrue(fixture.is_relative_to((LAB / 'tests').resolve()))
+            # Keep the real helper's project/build ownership guard active in an
+            # isolated same-source fixture rather than writing canonical build/.
+            helper = fixture / 'packaging/windows/workstation/web'
+            helper.mkdir(parents=True)
+            for name in ('prepare_payload.py', 'manage.php', 'README.md'):
+                shutil.copyfile(ROOT / 'packaging/windows/workstation/web' / name, helper / name)
+            prep.__file__ = str(helper / 'prepare_payload.py')
+            temp = fixture / 'build'; temp.mkdir()
             package = temp / 'extension.zip'
             builder.build(package)
             old = temp / 'old'; old.mkdir()
@@ -151,11 +161,12 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
     def test_workstation_package_gate_accepts_verified_input_and_rejects_changed_bytes(self):
         spec = importlib.util.spec_from_file_location('workstation_extension_builder', ROOT / 'scripts/build_joomla.py')
         builder = importlib.util.module_from_spec(spec); spec.loader.exec_module(builder)
-        scratch = ROOT / 'runtime/scratch'; scratch.mkdir(parents=True, exist_ok=True)
+        scratch = LAB / 'tests/frontend-setup'; scratch.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='workstation-frontend-', dir=scratch) as temporary:
             temp = Path(temporary).resolve()
             self.assertTrue(temp.is_relative_to(scratch.resolve()))
             package = temp / 'extension.zip'; builder.build(package)
+            expected_version = json.loads((ROOT / 'packaging/release/version.json').read_text())['joomla_version']
             quote = lambda value: "'" + str(value).replace("'", "''") + "'"
             script = ("$ErrorActionPreference='Stop';Set-StrictMode -Version Latest;"
                       "$project=" + quote(ROOT) + ";"
@@ -168,7 +179,7 @@ class JoomlaFrontendSetupTests(unittest.TestCase):
                       "$accepted=Get-VerifiedFrontendPackage " + quote(package) + ";"
                       "[IO.File]::AppendAllText(" + quote(package) + ",'tamper');"
                       "$rejected=$false;try{Get-VerifiedFrontendPackage " + quote(package) + "|Out-Null}catch{$rejected=$true};"
-                      "@{accepted=($accepted.version -eq '0.5.0-dev.1');tampered_rejected=$rejected}|ConvertTo-Json")
+                      "@{accepted=($accepted.version -eq " + quote(expected_version) + ");tampered_rejected=$rejected}|ConvertTo-Json")
             result = subprocess.run(['C:/Program Files/PowerShell/7/pwsh.exe', '-NoProfile', '-Command', script],
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
@@ -187,7 +198,7 @@ $components=@([ordered]@{filename='DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip'
 Invoke-Expression $source.Substring($begin,$end-$begin)
 @{all_baseline_components_replaced=(@($components|Where-Object installed_payload).Count -eq 0);frontend_role_recorded=$components[2].role.Contains('joomla_frontend_override')}|ConvertTo-Json
 """
-        scratch = ROOT / 'runtime/scratch'; scratch.mkdir(parents=True, exist_ok=True)
+        scratch = LAB / 'tests/frontend-setup'; scratch.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='frontend-provenance-', dir=scratch) as temporary:
             helper = Path(temporary) / 'check.ps1'; helper.write_text(script, encoding='utf-8')
             result = subprocess.run(['C:/Program Files/PowerShell/7/pwsh.exe', '-NoProfile', '-File', str(helper),

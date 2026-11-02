@@ -5,11 +5,11 @@ only the local observer calls these bounded filesystem/SQLite observations.
 """
 from contextlib import closing
 from dataclasses import replace
-from datetime import datetime,timezone
+from datetime import datetime,timedelta,timezone
 import json,os,re,sqlite3,time
 from pathlib import Path
 
-from .contracts import ModuleDefinition
+from .contracts import ModuleDefinition,ServiceIdentity
 
 
 _SPECS=(
@@ -102,6 +102,26 @@ class SupportingObservations:
                 self._store_cache=metrics
         except (OSError,sqlite3.Error,ValueError):self._store_cache={}
         return self._store_cache
+    def _service_identity(self,cfg,receipt):
+        # A configured service name is not SCM evidence. Only the existing
+        # supervisor's exact running-service/parent-PID check may supply it.
+        value=receipt.get('service_identity')
+        expected={'schema_version','service_name','service_process_id','supervisor_process_id','observed_at','verification_scope'}
+        if not isinstance(value,dict) or set(value)!=expected:return None
+        if (type(receipt.get('schema_version')) is not int or receipt['schema_version']!=2
+                or type(value.get('schema_version')) is not int or value['schema_version']!=1 or value.get('service_name')!=cfg.get('service_name')
+                or value.get('verification_scope')!='SCM_RUNNING_SERVICE_AND_SUPERVISOR_PARENT_ONLY'
+                or type(value.get('service_process_id')) is not int or not 0<value['service_process_id']<=2**32-1
+                or type(value.get('supervisor_process_id')) is not int
+                or value['supervisor_process_id']!=receipt.get('supervisor_pid')
+                or value['service_process_id']==value['supervisor_process_id']):return None
+        try:
+            at=datetime.fromisoformat(value['observed_at'].replace('Z','+00:00'))
+            if at.utcoffset() is None or not 0<=(receipt['_at']-at).total_seconds()<=90:return None
+            expiry=min(receipt['_expiry'],at+timedelta(seconds=90))
+            if not at<=self.clock()<expiry:return None
+            return ServiceIdentity(value['service_name'],cfg['installation_id'],cfg['source_commit'],cfg['build_id'],at,expiry)
+        except (KeyError,TypeError,ValueError,AttributeError):return None
     def observe(self,identifier):
         def value(state,reason,metrics=None,scope='BOUNDED_LOCAL_METADATA'):
             return {'state':state,'reason':reason,'metrics':metrics or {},'evidence':[scope]}
@@ -128,8 +148,12 @@ class SupportingObservations:
         receipt=self._receipt(cfg)
         if not receipt:return value('UNVERIFIED','SUPERVISOR_EVIDENCE_MISSING_STALE_OR_WRONG_IDENTITY')
         checks=receipt.get('checks',{})
-        if identifier=='runtime_supervisor':return {**value('READY','BOUND_SUPERVISOR_HEARTBEAT',{'process_id':receipt.get('supervisor_pid')},'LIVE_OWNED_CHILD_PROCESSES; no service-control permission claim'),
-            'observed_at':receipt['_at'],'expires_at':receipt['_expiry'],'last_success_at':receipt['_success']}
+        if identifier=='runtime_supervisor':
+            result={**value('READY','BOUND_SUPERVISOR_HEARTBEAT',{'process_id':receipt.get('supervisor_pid')},'LIVE_OWNED_CHILD_PROCESSES; no service-control permission claim'),
+                'observed_at':receipt['_at'],'expires_at':receipt['_expiry'],'last_success_at':receipt['_success']}
+            identity=self._service_identity(cfg,receipt)
+            if identity is not None:result['service_identity']=identity
+            return result
         check=checks.get(identifier)
         if not isinstance(check,dict) or check.get('state') not in ('READY','DEGRADED','UNAVAILABLE','UNVERIFIED'):return value('UNVERIFIED','LOCAL_CHECK_NOT_REPORTED')
         try:

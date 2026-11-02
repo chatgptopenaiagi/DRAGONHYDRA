@@ -22,6 +22,7 @@ $installation = $center['installation'] ?? [];
   </nav>
   <section class="dhcn-refresh-actions" aria-label="Display and local observation controls">
     <?php $refreshQuery=['section'=>$this->section]; if(!empty($center['module']['id'])){$refreshQuery['module']=$center['module']['id'];} if(!empty($this->jobId)){$refreshQuery['job_id']=$this->jobId;} if(!empty($this->workflowMatchId)){$refreshQuery['match_id']=$this->workflowMatchId;} ?>
+    <?php foreach (['layer','category','status'] as $filter) { if (!empty($center['filters'][$filter])) { $refreshQuery[$filter]=$center['filters'][$filter]; } } ?>
     <a class="btn btn-outline-secondary" href="<?= $escape($route(http_build_query($refreshQuery,'','&',PHP_QUERY_RFC3986))) ?>">Refresh display</a>
     <?php if ($this->canImport && in_array($this->section,['overview','infrastructure','modules'],true)): ?><form method="post" action="<?= $escape($route('task=actions.observe')) ?>"><button type="submit" class="btn btn-outline-primary">Run local checks</button><?= HTMLHelper::_('form.token') ?></form><?php endif; ?>
     <p class="dhcn-muted">Display refresh reads retained observations. “Run local checks” explicitly requests bounded local health observations; it does not acquire providers or create forecast jobs. Forecast, evaluation and import controls are separate explicit work.</p>

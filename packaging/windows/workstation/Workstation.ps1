@@ -271,7 +271,47 @@ function Get-CoreNextHeartbeatPrevious([int]$ApiPid) {
         return $value
     }catch{return $null}
 }
+function Read-CoreNextHeartbeatServiceEvidence {
+    param([string]$Name,[string]$ExpectedImage,[int]$SupervisorId)
+    # Exact local SCM/CIM reads only. Configuration alone never attests a service.
+    try{
+        if($Name -cnotmatch '^Dragonhydra[A-Za-z0-9_-]{0,60}\z' -or $SupervisorId -le 0){return $null}
+        $service=@(Get-CimInstance -ClassName Win32_Service -Filter ("Name='"+$Name+"'") -OperationTimeoutSec 1 -ErrorAction Stop)
+        if($service.Count -ne 1 -or $service[0].Name -cne $Name -or $service[0].State -cne 'Running' -or
+                $service[0].ProcessId -le 0 -or $service[0].PathName -cne $ExpectedImage){return $null}
+        $process=@(Get-CimInstance -ClassName Win32_Process -Filter ('ProcessId='+$SupervisorId) -OperationTimeoutSec 1 -ErrorAction Stop)
+        if($process.Count -ne 1 -or $process[0].ProcessId -ne $SupervisorId -or
+                $process[0].ParentProcessId -ne $service[0].ProcessId){return $null}
+        return [ordered]@{schema_version=1;service_name=$Name;service_process_id=[int]$service[0].ProcessId;
+            supervisor_process_id=$SupervisorId;observed_at=[DateTime]::UtcNow.ToString('o');
+            verification_scope='SCM_RUNNING_SERVICE_AND_SUPERVISOR_PARENT_ONLY'}
+    }catch{return $null}
+}
+function Get-CoreNextHeartbeatServiceIdentity {
+    # A single in-process runspace bounds the heartbeat wait even if CIM stalls.
+    # Keep at most one request in flight; never accumulate retries or processes.
+    if(-not (Get-Variable -Name coreNextServiceQuery -Scope Script -ErrorAction SilentlyContinue)){$script:coreNextServiceQuery=$null}
+    $name=$script:cfg.service_name
+    if($name -cnotmatch '^Dragonhydra[A-Za-z0-9_-]{0,60}\z'){return $null}
+    $image='"'+(Join-Path $script:cfg.install_root 'workstation\DragonhydraService.exe')+'" --state "'+$script:cfg.state_root+'" --name '+$name
+    if(-not $script:coreNextServiceQuery){
+        $shell=[PowerShell]::Create()
+        try{
+            $null=$shell.AddScript(${function:Read-CoreNextHeartbeatServiceEvidence}.ToString()).AddArgument($name).AddArgument($image).AddArgument($PID)
+            $script:coreNextServiceQuery=@{shell=$shell;handle=$shell.BeginInvoke();image=$image;name=$name}
+        }catch{$shell.Dispose();return $null}
+    }
+    $pending=$script:coreNextServiceQuery
+    if(-not $pending.handle.IsCompleted){$null=$pending.handle.AsyncWaitHandle.WaitOne(1200)}
+    if(-not $pending.handle.IsCompleted){return $null}
+    try{
+        $result=@($pending.shell.EndInvoke($pending.handle))
+        if($pending.image -cne $image -or $pending.name -cne $name -or $result.Count -ne 1){return $null}
+        return $result[0]
+    }catch{return $null}finally{$pending.shell.Dispose();$script:coreNextServiceQuery=$null}
+}
 function Save-CoreNextHeartbeatSnapshot([int]$ApiPid,[bool]$ApiVerified,$KernelSuccess,$Checks) {
+    $serviceIdentity=$null;if($ApiVerified){$serviceIdentity=Get-CoreNextHeartbeatServiceIdentity}
     $at=[DateTime]::UtcNow;$stamp=$at.ToString('o');$previous=Get-CoreNextHeartbeatPrevious $ApiPid
     $success=Get-CoreNextHeartbeatStamp $KernelSuccess $at
     if(-not $success -or ($at-([DateTimeOffset]::Parse($success).UtcDateTime)).TotalSeconds -gt 90){$ApiVerified=$false;$success=$null}
@@ -291,6 +331,7 @@ function Save-CoreNextHeartbeatSnapshot([int]$ApiPid,[bool]$ApiVerified,$KernelS
         $check.last_success_at=$last
     }
     $receipt=[ordered]@{schema_version=2;observer='core-next.supervisor';installation_id=$script:cfg.installation_id;source_commit=$script:cfg.source_commit;build_id=$script:cfg.build_id;service_name=$script:cfg.service_name;api_pid=$ApiPid;supervisor_pid=$PID;api_verified=$ApiVerified;last_success_at=$success;observed_at=$stamp;expires_at=$at.AddSeconds(45).ToString('o');checks=$Checks}
+    if($ApiVerified -and $serviceIdentity){$receipt.service_identity=$serviceIdentity}
     Save-CoreNextHeartbeatReceipt $receipt
 }
 function Write-CoreNextHeartbeat {

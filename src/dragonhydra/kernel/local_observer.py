@@ -107,7 +107,8 @@ class LocalObserver:
                     self.registry.record(identifier,result['state'],result['reason'],metrics=result.get('metrics',{}),
                         evidence=result.get('evidence',()),observer_identity='core-next.local-observer:'+str(os.getpid()),
                         verification_scope=('LIGHTWEIGHT_LOCAL_OBSERVATION',),observed_at=result.get('_observed_at'),
-                        expires_at=result.get('expires_at'),last_success_at=result.get('last_success_at'))
+                        expires_at=result.get('expires_at'),last_success_at=result.get('last_success_at'),
+                        service_identity=result.get('service_identity'))
             self.completed+=1;self.failed=len(failures);self.last_observed=self.clock()
             # One failed observation never blocks other modules; capped cadence
             # backoff avoids tight retries while preserving expiry honesty.

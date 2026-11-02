@@ -110,7 +110,131 @@ class CoreNextControlTests(unittest.TestCase):
         for state in ['READY','DEGRADED','NOT_CONFIGURED','UNAVAILABLE','STOPPED','UNVERIFIED','UNKNOWN','EXPIRED','NOT_APPLICABLE','NOT_IMPLEMENTED']:
             code+='[\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::tone("'+state+'"),\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::stateLabel("'+state+'")],'
         code+=']);'
-        self.assertEqual(json.loads(self.php(code)),[['green','Ready'],['amber','Degraded'],['amber','Not configured'],['red','Unavailable'],['red','Stopped'],['neutral','Unverified'],['neutral','Unknown'],['neutral','Expired'],['neutral','Not applicable'],['neutral','Not implemented']])
+        self.assertEqual(json.loads(self.php(code)),[['green','Ready'],['amber','Degraded'],['neutral','Not configured'],['red','Unavailable'],['red','Stopped'],['neutral','Unverified'],['neutral','Unknown'],['neutral','Expired'],['neutral','Not applicable'],['neutral','Not implemented']])
+
+    def test_runtime_status_filter_uses_normalized_evidence_and_combines_with_existing_filters(self):
+        items=[module('ready',layer='supporting',category='Infrastructure'),
+               module('expired',layer='supporting',category='Infrastructure',expires_at='2026-11-01T11:59:00Z'),
+               module('unknown',layer='supporting',category='Infrastructure',expires_at=None),
+               module('other',layer='engine',category='Data',expires_at='2026-11-01T11:59:00Z')]
+        got=self.build(inputs={'section':'modules','layer':'supporting','category':'Infrastructure','status':'EXPIRED'},items=items)
+        self.assertEqual(got['calls'],['/modules?scope=all'])
+        self.assertEqual(list(got['result']['visible_modules']),['expired'])
+        self.assertEqual(got['result']['filters'],{'layer':'supporting','category':'Infrastructure','status':'EXPIRED'})
+        self.assertEqual(got['result']['inventory']['total'],4)
+        self.assertEqual(got['result']['modules']['expired']['state'],'EXPIRED')
+        ready=self.build(inputs={'section':'modules','status':'READY'},items=items)
+        self.assertEqual(list(ready['result']['visible_modules']),['ready'])
+        unknown=self.build(inputs={'section':'modules','status':'UNKNOWN'},items=items)
+        self.assertEqual(list(unknown['result']['visible_modules']),['unknown'])
+        invalid=self.build(inputs={'section':'modules','status':'../../jobs/new?task=run'},items=items)
+        self.assertEqual(invalid['result']['filters']['status'],'')
+        self.assertEqual(len(invalid['result']['visible_modules']),4)
+        self.assertEqual(invalid['calls'],['/modules?scope=all'])
+        rendered=self.render(got['result'])
+        self.assertIn('for="dhcn-status">Runtime status</label>',rendered)
+        self.assertIn('name="status"',rendered)
+        self.assertIn('value="EXPIRED" selected',rendered)
+        self.assertIn('section=modules&amp;layer=supporting&amp;category=Infrastructure&amp;status=EXPIRED',rendered)
+        self.assertEqual(rendered.count('data-module-layer="supporting"'),1)
+        self.assertNotIn('task=actions.observe',rendered)
+
+    def test_operation_read_views_use_only_known_ids_enabled_get_and_existing_routes(self):
+        operations=[{'id':'status','label':'Inspect module','method':'GET','enabled':True,'path':'https://untrusted.invalid/secret'},
+                    {'id':'read_matches','label':'Matches','method':'GET','enabled':True,'path':'/arbitrary/path'},
+                    {'id':'read_connections','label':'Sources','method':'GET','enabled':False,'reason':'Account read permission is unavailable.'},
+                    {'id':'read_matches','label':'Mutation','method':'POST','enabled':True},
+                    {'id':'download_export','label':'Download','method':'GET','enabled':True},
+                    {'id':'unknown','label':'<script>bad()</script>','method':'GET','enabled':True}]
+        item=module('data',operations=operations)
+        center=self.build(inputs={'section':'modules','module':'data'},items=[item],detail=item|{'installation':IDENTITY})
+        self.assertEqual(center['calls'],['/modules?scope=all','/modules/data'])
+        rendered=self.render(center['result'])
+        self.assertIn('data-operation-read-view="status"',rendered)
+        self.assertIn('data-operation-read-view="read_matches"',rendered)
+        self.assertIn('href="index.php?option=com_dragonhydra&amp;section=matches"',rendered)
+        self.assertNotIn('data-operation-read-view="read_connections"',rendered)
+        self.assertNotIn('data-operation-read-view="download_export"',rendered)
+        self.assertNotIn('data-operation-read-view="unknown"',rendered)
+        self.assertNotIn('untrusted.invalid',rendered)
+        self.assertNotIn('/arbitrary/path',rendered)
+        self.assertNotIn('task=actions.',rendered)
+        self.assertNotIn('<script>bad()',rendered)
+        self.assertIn('&lt;script&gt;bad()&lt;/script&gt;',rendered)
+        self.assertIn('Account read permission is unavailable.',rendered)
+        self.assertIn('explicit supported form',rendered)
+        self.assertIn('No supported Joomla read view',rendered)
+        denied=self.build(inputs={'section':'modules','module':'data'},items=[item],authorised=False)
+        self.assertEqual(denied['calls'],[])
+        self.assertFalse(denied['result']['modules'])
+        code='$out=[];foreach(["true",1,false] as $enabled){$out[]=\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::operationReadView(["id"=>"read_matches","method"=>"GET","enabled"=>$enabled],"data");}echo json_encode($out);'
+        self.assertTrue(all(row['query'] is None for row in json.loads(self.php(code))))
+
+    def test_bound_service_identity_is_projected_and_displayed_with_its_limited_scope(self):
+        identity={'service_name':'DragonhydraCoreNextcandidate3a92a8dd62da',
+                  'installation_id':IDENTITY['installation_id'],'source_commit':IDENTITY['source_commit'],
+                  'build_id':IDENTITY['build_id'],'observed_at':'2026-11-01T11:59:40.000000Z',
+                  'evidence_expires_at':'2026-11-01T12:00:25.000000Z',
+                  'verification_scope':'BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY'}
+        raw=identity|{'private_account':'SYNTHETIC_NOT_FOR_PRESENTATION'}
+        item=module('runtime_supervisor',layer='supporting',category='Infrastructure',service_identity=raw,
+                    observation={'metrics':{'process_id':123},'service_identity':raw})
+        got=self.build(inputs={'section':'modules','module':'runtime_supervisor'},items=[item],detail=item|{'installation':IDENTITY})
+        self.assertEqual(got['calls'],['/modules?scope=all','/modules/runtime_supervisor'])
+        self.assertEqual(got['result']['module']['service_identity'],identity)
+        self.assertEqual(got['result']['module']['observation']['service_identity'],identity)
+        self.assertNotIn('SYNTHETIC_NOT_FOR_PRESENTATION',json.dumps(got))
+        rendered=self.render(got['result'])
+        for text in (identity['service_name'],identity['source_commit'],identity['build_id'],
+                     identity['observed_at'],identity['evidence_expires_at'],identity['verification_scope'],
+                     'data-service-identity','does not report a service account'):
+            self.assertIn(text,rendered)
+        self.assertNotIn('SYNTHETIC_NOT_FOR_PRESENTATION',rendered)
+        fractional=identity|{'observed_at':'2026-11-01T11:59:59.900000Z',
+                             'evidence_expires_at':'2026-11-01T12:00:00.100000Z'}
+        item=module('runtime_supervisor',service_identity=fractional,observation={'service_identity':fractional})
+        self.assertEqual(self.build(items=[item])['result']['modules']['runtime_supervisor']['service_identity'],fractional)
+
+    def test_unbound_foreign_stale_future_or_malicious_service_identity_is_omitted(self):
+        valid={'service_name':'DragonhydraCoreNextcandidate3a92a8dd62da',
+               'installation_id':IDENTITY['installation_id'],'source_commit':IDENTITY['source_commit'],
+               'build_id':IDENTITY['build_id'],'observed_at':'2026-11-01T11:59:40.000000Z',
+               'evidence_expires_at':'2026-11-01T12:00:25.000000Z',
+               'verification_scope':'BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY'}
+        changes=[{'service_name':'Dragonhydra<script>alert(1)</script>'},
+                 {'installation_id':'foreign-profile'},{'source_commit':'b'*40},{'build_id':'foreign-build'},
+                 {'observed_at':'2026-11-01T12:00:01.000000Z'},
+                 {'observed_at':'2026-11-01T12:00:00.000001Z'},
+                 {'evidence_expires_at':'2026-11-01T11:59:59.000000Z'},
+                 {'evidence_expires_at':'2026-11-01T12:01:11.000000Z'},
+                 {'observed_at':'2026-11-01T11:59:40'},
+                 {'observed_at':'2026-02-30T11:59:40Z'},
+                 {'verification_scope':'CONFIGURED_NAME_ONLY'},{'service_name':None}]
+        for change in changes:
+            with self.subTest(change=change):
+                proof=valid|change
+                item=module('runtime_supervisor',service_identity=proof,observation={'service_identity':proof})
+                got=self.build(items=[item])['result']['modules']['runtime_supervisor']
+                self.assertNotIn('service_identity',got)
+                self.assertNotIn('service_identity',got['observation'])
+        for item in [module('runtime_supervisor',service_identity=valid),
+                     module('runtime_supervisor',observation={'service_identity':valid}),
+                     module('runtime_supervisor',service_identity=valid,observation={'service_identity':valid|{'service_name':'DragonhydraOther'}}),
+                     module('ai',service_identity=valid,observation={'service_identity':valid})]:
+            got=self.build(items=[item])['result']['modules'][item['id']]
+            self.assertNotIn('service_identity',got)
+            self.assertNotIn('service_identity',got.get('observation',{}))
+        item=module('runtime_supervisor',service_identity=valid,observation={'service_identity':valid})
+        got=self.build(inputs={'section':'modules','module':'runtime_supervisor'},items=[item],
+                       detail=item|{'installation':IDENTITY|{'source_commit':'b'*40}})['result']
+        self.assertNotIn('service_identity',got['module'])
+        configured=module('runtime_supervisor',runtime_owner=valid['service_name'],
+                          observation={'metrics':{'process_id':123}})
+        got=self.build(inputs={'section':'modules','module':'runtime_supervisor'},items=[configured],
+                       detail=configured|{'installation':IDENTITY})['result']
+        self.assertNotIn('service_identity',got['module'])
+        self.assertIn('data-service-identity-unverified',self.render(got))
+        self.assertIn('does not establish service ownership',self.render(got))
 
     def test_neutral_unknown_proof_preserves_expiry_and_legend_without_new_observation(self):
         expired_at='2026-11-01T11:59:00Z'
@@ -129,8 +253,8 @@ class CoreNextControlTests(unittest.TestCase):
         for state,label in [('EXPIRED','Expired'),('UNVERIFIED','Unverified'),('UNKNOWN','Unknown')]:
             self.assertIn('data-state="'+state+'" data-tone="neutral">'+label+'</span>',rendered)
             self.assertNotIn('data-state="'+state+'" data-tone="green"',rendered)
-        self.assertIn('Degraded / not configured',rendered)
-        self.assertIn('Unverified / expired / unknown / not applicable',rendered)
+        self.assertIn('Degraded',rendered)
+        self.assertIn('Not configured / unverified / expired / unknown / not applicable',rendered)
         self.assertIn('No current readiness proof',rendered)
 
     def test_actual_overview_and_layer_filter_render_inventory_and_separate_health_controls(self):

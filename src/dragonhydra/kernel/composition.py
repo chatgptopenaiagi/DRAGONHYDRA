@@ -116,7 +116,7 @@ class Kernel:
         definitions = definitions+supporting_definitions(build['version'])
         self.registry = ModuleRegistry(definitions, self.engines,supporting=self.supporting.bindings(),
             ttl_seconds=config.observation_ttl_seconds, clock=clock, disabled=config.disabled_modules,
-            installation_id=config.installation_id, build_identity=(config.build_id or '')+':'+(config.source_commit or 'source-checkout'))
+            installation_id=config.installation_id, build_identity=(config.build_id or '')+':'+(config.source_commit or 'source-checkout'),source_commit=config.source_commit)
         self.observer=LocalObserver(self.registry,self.supporting,context.storage.state,self.identity(),
             interval=config.observation_interval_seconds,clock=clock)
         self.supporting.observer=self.observer

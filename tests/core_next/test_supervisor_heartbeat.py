@@ -94,6 +94,7 @@ foreach($file in @($Source,$ProfileSource)){
     }
   }
 }
+${function:Read-CoreNextHeartbeatServiceEvidence} = {param($Name,$ExpectedImage,$SupervisorId) return $null}
 $clock=[Diagnostics.Stopwatch]::StartNew()
 if($fixture.mode -eq 'api'){
   $token=(Read-CoreNextHeartbeatJson (Join-Path $StateRoot 'kernel\local-session.json')).token
