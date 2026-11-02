@@ -9,6 +9,7 @@ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Dragonhydra\Component\Dragonhydra\Administrator\Service\Kernel;
 use Dragonhydra\Component\Dragonhydra\Administrator\Model\ControlCenterModel;
+use Dragonhydra\Component\Dragonhydra\Administrator\Service\ControlWorkflow;
 
 final class HtmlView extends BaseHtmlView
 {
@@ -20,6 +21,8 @@ final class HtmlView extends BaseHtmlView
     public array $probe = [];
     public string $dashboardUrl = '';
     public string $jobId = '';
+    public string $workflowMatchId = '';
+    public array $workflowKeys = [];
 
     public function display($tpl = null): void
     {
@@ -50,10 +53,17 @@ final class HtmlView extends BaseHtmlView
                 'section'=>$this->section, 'module'=>$app->input->getString('module', ''),
                 'match_id'=>$app->input->getString('match_id', ''), 'job_id'=>$app->input->getString('job_id', ''),
                 'offset'=>$app->input->getInt('offset', 0),
+                'layer'=>$app->input->getString('layer',''), 'category'=>$app->input->getString('category',''),
             ], true, static fn(string $path): array => $api->request('GET', $path));
             $this->data = $this->center['data'];
             $this->jobId = $this->center['job_id'];
             $this->error = $this->center['error'];
+            $this->workflowMatchId = $app->input->getString('match_id','');
+            if ($this->canImport && !empty($this->center['workflow'])) {
+                foreach (['forecasts','evaluations'] as $operation) {
+                    $this->workflowKeys[$operation] = ControlWorkflow::formKey($app,$this->workflowMatchId,$operation);
+                }
+            }
         } catch (\RuntimeException $error) {
             $this->error = 'The CORE NEXT backend is unavailable. Check this installation’s protected bridge and retry.';
         }

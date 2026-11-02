@@ -15,9 +15,19 @@ injected modules. It is not a new operating-system kernel. Project attribution,
 Git history and third-party notices remain part of the original DRAGONHYDRA
 repository.
 
-**Release evidence:** final-source behavioral comparison: PASS; Linux installed archive: PASS; current-host Windows acceptance: PASS; publication: PUBLICATION_AND_DOWNLOADS_VERIFIED. Read
+**Published dev.1 evidence:** final-source behavioral comparison: PASS; Linux installed archive: PASS; current-host Windows acceptance: PASS; publication: PUBLICATION_AND_DOWNLOADS_VERIFIED. These historical claims apply to dev.1, not the pending dev.2 increment. Read
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
+
+**Active dev.2 work:** the shared registry now distinguishes six core engines
+from twelve supporting components. Existing worker/supervisor checks refresh
+bounded, expiring observations without opening Joomla or contacting providers.
+The Control Center separates display refresh, local observation and explicit
+forecast/evaluation jobs. Standings rendering, regulation-time eligibility and
+read-only memory-schema checks have focused repairs. Build, installed-profile
+acceptance and publication are recorded separately in the
+[current continuation](docs/handover/CONTINUATION-20261102.md); source tests alone
+do not prove the running workstation received the update.
 
 ## What changes internally
 
@@ -81,6 +91,19 @@ Authenticated `/dragon/api/v1/modules` and `/modules/{module_id}` are the status
 contract. Reads do not acquire providers, run models, create calculation jobs,
 install packages or restart services. Evidence expiry does not become a fresh
 success. Definitions and installation-specific observations are separate.
+
+Use `?scope=all` for eighteen responsibilities or `?scope=supporting` for twelve;
+the default six-engine response is preserved for compatible clients. Green means
+recent success within its stated scope, amber a limitation, red an observed
+unavailable prerequisite, and neutral unknown/unverified/expired. Capabilities
+show their own successful operations; API availability does not verify a model.
+The kernel defaults to a 30-second cadence/300-second expiry. Supervisor receipts
+expire after 45 seconds and retain that shorter limit. See the
+[module contract](docs/architecture/MODULE-CONTRACTS.md) for clocks and permissions.
+
+To update an existing CORE NEXT installation, use the guarded, preview-first
+[same-profile upgrade procedure](docs/engineering/CORE-NEXT-UPGRADE.md). Keep its
+private consistent backups outside release inputs. Never apply it to GENESIS A9.
 
 Current-host candidate System Control Center: `http://127.0.0.1:18822/administrator/index.php?option=com_dragonhydra`.
 Actual authenticated953 screenshots, with captured state/evidence scope:

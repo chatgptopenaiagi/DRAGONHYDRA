@@ -5,7 +5,7 @@ at `administrator/index.php?option=com_dragonhydra`. It retains the sports Site
 workspace, separate Joomla authentication, existing server-side HMAC transport,
 Data sources actions, match browsing and durable-job progress/cancellation.
 
-The component, package and child template identify as `0.5.0-dev.1`. The header
+The dev.2 component, package and child template identify as `0.5.0-dev.2`. The header
 shows the expected CORE NEXT edition, verified installation/environment identity,
 kernel version, build ID and source revision. The public sports header and page
 title also identify CORE NEXT. Installation, runtime and browser acceptance are
@@ -13,12 +13,25 @@ separate from PHP fixture/package verification.
 
 ## Authoritative reads
 
-`ControlCenterModel` first reads authenticated `/dragon/api/v1/modules` with schema
+`ControlCenterModel` first reads authenticated `/dragon/api/v1/modules?scope=all` with schema
 `core-next.modules/1`. It requires product `DRAGONHYDRA CORE NEXT` and an exact match
 to the trusted component parameter `core_next_installation_id`. Missing binding,
 an original-edition backend, a foreign installation, an invalid registry or a
 failed transport produces a bounded unavailable message. There is no default
 original API endpoint and no fallback status database.
+
+The registry exposes six engines and twelve supporting responsibilities. The
+overview totals and layer/category filters derive from those returned IDs, not
+fixed counts in the template. All modules and detail pages include the same
+build-bound inventory; see [the ownership map](architecture/MODULE-MAP.md).
+
+Display refresh is a passive read. The separate local-observation POST requires
+administrator permission, a Joomla form token and a matching installation. It
+performs bounded local checks only. Forecast/evaluation forms submit explicit
+typed jobs; repeated submissions reuse their idempotency key. Match history shows
+stable run/record IDs, input cutoffs, model/ensemble identity and pending outcomes.
+No state-changing action is a GET link. The service observer runs without Joomla
+being open; evidence age/expiry never changes simply because a page is refreshed.
 
 The Overview and Infrastructure pages additionally read `/system`, retaining its
 existing public status/storage fields and checking the same installation identity.

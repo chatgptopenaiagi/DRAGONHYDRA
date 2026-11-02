@@ -6,6 +6,8 @@ from dataclasses import replace
 from .contracts import KernelConfig, ModuleDefinition, utc_now
 from .engines import DataEngine, OddsEngine, PredictionEngine, MemoryEngine, EvaluationEngine, AIEngine
 from .registry import ModuleRegistry
+from .supporting import SupportingObservations,definitions as supporting_definitions
+from .local_observer import LocalObserver
 
 DEFINITIONS = (
     ModuleDefinition('data', 'Retained sports data', 'Canonical source-scoped matches and retained evidence.',
@@ -35,10 +37,10 @@ _CONTRACTS = {
     'prediction': (('eligible_future_fixture', 'same_source_training_evidence'), ('predictions', 'persist'),
                    ('model_runs', 'prospective_predictions', 'uncertainty'),
                    ('tests/test_cognition_models.py', 'tests/core_next/test_kernel.py', 'tests/core_next/test_characterization.py')),
-    'memory': (('sqlite_state',), ('view', 'record_model', 'record_prediction', 'attach_outcome'),
+    'memory': (('sqlite_state',), ('view', 'history', 'record_model', 'record_prediction', 'attach_outcome'),
                ('immutable_memory', 'prediction_receipts', 'later_outcomes'),
                ('tests/test_cognition_memory.py', 'tests/core_next/test_kernel.py')),
-    'evaluation': (('eligible_persisted_prediction_and_later_outcome',), ('evaluate', 'persist'),
+    'evaluation': (('eligible_persisted_prediction_and_later_outcome',), ('evaluate', 'persist', 'evaluate_match'),
                    ('operational_evaluation', 'calibration', 'coverage'),
                    ('tests/test_cognition_evaluation.py', 'tests/core_next/test_kernel.py')),
     'ai': (('protected_server_endpoint', 'protected_server_credential'), ('explanation', 'explain', 'package'),
@@ -54,8 +56,8 @@ _CAPABILITIES = {
              'canonical_identity': ('match_id', 'competition_id', 'team_id'), 'provenance': ('evidence',)},
     'odds': {'retained_odds': ('odds',), 'market_signals': ('signals',), 'conditional_scenarios': ('scenario',)},
     'prediction': {'current_forecast': ('predictions',), 'explicit_forecast_persistence': ('persist',)},
-    'memory': {'as_of_memory': ('view',), 'append_only_records': ('record_model', 'record_prediction', 'attach_outcome')},
-    'evaluation': {'observed_brier': ('evaluate', 'persist'), 'log_loss': ('evaluate',), 'calibration': ('evaluate',)},
+    'memory': {'as_of_memory': ('view', 'history'), 'append_only_records': ('record_model', 'record_prediction', 'attach_outcome')},
+    'evaluation': {'observed_brier': ('evaluate', 'persist', 'evaluate_match'), 'log_loss': ('evaluate', 'evaluate_match'), 'calibration': ('evaluate', 'evaluate_match')},
     'ai': {'evidence_package': ('package', 'explanation'), 'optional_local_inference': ('explain',)},
 }
 DEFINITIONS = tuple(replace(item, capability_operations=tuple(_CAPABILITIES[item.id].items()),
@@ -87,7 +89,7 @@ class Kernel:
         if set(overrides)-{item.id for item in DEFINITIONS}:
             raise ValueError('UNKNOWN_MODULE_ADAPTER')
         data = overrides.get('data') or DataEngine(context)
-        memory_engine = overrides.get('memory') or MemoryEngine(context, memory)
+        memory_engine = overrides.get('memory') or MemoryEngine(context, memory, data=data)
         memory_port = MemoryPort(
             lambda cutoff: self.execute('memory', 'view', cutoff),
             lambda draft: self.execute('memory', 'record_model', draft),
@@ -99,7 +101,7 @@ class Kernel:
             'odds': overrides.get('odds') or OddsEngine(context, data, market_signals.compute_signals, scenario.price_scenario),
             'prediction': overrides.get('prediction') or PredictionEngine(context, data, models, memory_port),
             'evaluation': overrides.get('evaluation') or EvaluationEngine(context, memory_port,
-                evaluation.evaluate_observed, memory.record_evaluation),
+                evaluation.evaluate_observed, memory.record_evaluation, data=data),
             'ai': overrides.get('ai') or AIEngine(context, data,
                 lambda match: local_ai.build_package(ai_context, match),
                 lambda match, selected: local_ai.build_context_package(ai_context, match, selected),
@@ -109,15 +111,30 @@ class Kernel:
         definitions = tuple(replace(item, version=build['version'],
             implementation_reference=type(self.engines[item.id]).__module__+'.'+type(self.engines[item.id]).__name__)
             for item in DEFINITIONS)
-        self.registry = ModuleRegistry(definitions, self.engines,
+        self.supporting = SupportingObservations(context,config,clock)
+        definitions=tuple(replace(item,dependencies=('sqlite_storage',)+item.dependencies) if item.id=='data' else item for item in definitions)
+        definitions = definitions+supporting_definitions(build['version'])
+        self.registry = ModuleRegistry(definitions, self.engines,supporting=self.supporting.bindings(),
             ttl_seconds=config.observation_ttl_seconds, clock=clock, disabled=config.disabled_modules,
-            installation_id=config.installation_id)
+            installation_id=config.installation_id, build_identity=(config.build_id or '')+':'+(config.source_commit or 'source-checkout'))
+        self.observer=LocalObserver(self.registry,self.supporting,context.storage.state,self.identity(),
+            interval=config.observation_interval_seconds,clock=clock)
+        self.supporting.observer=self.observer
 
     def start(self):
-        self.registry.start()
+        self.supporting.api_active=True
+        self.observer.start()
 
     def stop(self):
+        self.observer.stop()
         self.registry.stop()
+        self.supporting.api_active=False
+
+    def bind_worker(self,worker):self.supporting.worker=worker
+
+    def observation_tick(self):return self.observer.tick()
+
+    def observe_local(self,force=False):return self.observer.tick(force=force)
 
     def execute(self, identifier, operation, *args, **kwargs):
         if identifier not in self.engines:
@@ -152,15 +169,16 @@ class Kernel:
         if identifier == 'ai' and operation == 'explain':
             available = bool(result.get('local_ai', {}).get('accepted'))
         if identifier == 'ai' and operation in ('explanation', 'package'):
-            previous = self.registry.item('ai')['state']
-            self.registry.record_operation('ai', operation, 'NOT_CONFIGURED' if previous == 'NOT_CONFIGURED' else 'UNVERIFIED',
+            self.registry.record_operation('ai', operation, 'READY',
                 'DETERMINISTIC_PACKAGE_ONLY_NO_INFERENCE',
-                evidence=('Actual retained-source '+operation+'; no model inference claimed',))
+                evidence=('Actual retained-source '+operation+'; no model inference claimed',),update_module=False)
+            # Model configuration remains the module-level requirement;
+            # successful deterministic packaging is independent scoped proof.
             return result
         if identifier == 'evaluation' and operation == 'evaluate':
             available = any(group['metrics']['brier']['sample_size'] for group in result['groups'])
         if identifier == 'prediction' and operation == 'persist':
-            available = bool(result['predictions'])
+            available = available and bool(result['predictions'])
         if ((identifier == 'memory' and operation in ('record_model', 'record_prediction', 'attach_outcome'))
                 or (identifier in ('prediction', 'evaluation') and operation == 'persist')):
             self.registry.refresh('memory')
@@ -168,7 +186,8 @@ class Kernel:
                 self.registry.refresh('evaluation')
         self.registry.record_operation(identifier, operation, 'READY' if available else 'UNAVAILABLE',
             'EXPLICIT_OPERATION_COMPLETED' if available else 'EXPLICIT_OPERATION_RETURNED_UNAVAILABLE',
-            evidence=('Actual '+operation+' through composed engine',))
+            evidence=('Actual '+operation+' through composed engine',),
+            update_module=not(identifier=='memory' and operation in ('view','history')))
         return result
 
     def dispatch_job(self, jobs, job):
@@ -179,7 +198,9 @@ class Kernel:
             local_explanation=lambda package, check: self.execute('ai', 'explain', package, check),
             context_run=lambda item, check, claim: run(jobs.product, item, check, claim),
             provider_run=jobs.providers.run, check=jobs.check,
-            require_claim=jobs.require_claim, stop=jobs.stop).execute(job)
+            require_claim=jobs.require_claim, stop=jobs.stop,
+            forecast=lambda item: {**self.execute('prediction','persist',item['payload']['match_id'],run_id=item['id']), 'installation':self.identity()},
+            evaluation=lambda item: {**self.execute('evaluation','evaluate_match',item['payload']['match_id'],item['id']), 'installation':self.identity()}).execute(job)
         if job['kind'] in ('import_public', 'connector_sync'):
             self.registry.refresh('data')
         return result
@@ -187,9 +208,9 @@ class Kernel:
     def identity(self):
         return self.config.identity()
 
-    def modules(self):
+    def modules(self,scope='engines'):
         return {'schema_version': 'core-next.modules/1', 'installation': self.identity(),
-                'items': self.registry.items()}
+                'items': self.registry.items(scope),'inventory':self.registry.inventory(),'scope':scope}
 
     def module(self, identifier):
         return {'schema_version': 'core-next.modules/1', 'installation': self.identity(),

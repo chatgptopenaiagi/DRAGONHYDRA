@@ -3,7 +3,6 @@ from contextlib import closing
 import re
 import sqlite3
 import time
-from uuid import uuid4
 from .. import public_results, market_store
 from ..domain import API, identity
 from .ports import ApplicationContext, DataReadPort, ModelPort, MemoryPort, MemoryBackend
@@ -147,6 +146,17 @@ class DataEngine(BoundEngine):
         rows = [r for r in self.rows() if self.competition_id(r) == competition_id]
         if not rows:
             raise LookupError('COMPETITION_NOT_FOUND')
+        non_regulation = any(row.get('outcome') and (
+            row.get('_connector', {}).get('attributes', {}).get('source_status') in ('AET', 'PEN', 'FT_PEN')
+            or row.get('_connector', {}).get('attributes', {}).get('score_duration') in ('EXTRA_TIME', 'PENALTY_SHOOTOUT'))
+            for row in rows)
+        if non_regulation:
+            return {'competition': rows[0]['competition'], 'season': self.present(rows[0])['season'],
+                    'official': False, 'available': False, 'reason': 'REGULATION_STANDINGS_SCOPE_UNAVAILABLE',
+                    'label': 'Extra-time or shootout outcomes; a regulation league table is not established',
+                    'items': [], 'source_id': rows[0]['source_id'], 'as_of': self.clock(),
+                    'limitations': ['Final extra-time or shootout scores are not regulation league results.',
+                        'Competition format and eligible regulation scores must be normalized before reconstructing a league table.']}
         stages = {r.get('_connector', {}).get('attributes', {}).get('competition_stage', {}).get('name')
                   for r in rows if isinstance(r.get('_connector', {}).get('attributes', {}).get('competition_stage'), dict)}
         if stages-{'Regular Season', None}:
@@ -226,37 +236,11 @@ class PredictionEngine(BoundEngine):
                 'model_version': result['model_version'], 'training_count': result['training_count']}
 
 
-    def persist(self, match_id):
+    def persist(self, match_id, run_id=None):
         """Explicit command, never a status read: persist genuine current forecast before evaluation."""
-        target = self.data.find(match_id)
-        if target.get('outcome') or target.get('_connector'):
-            raise ValueError('PROSPECTIVE_FORECAST_NOT_ELIGIBLE')
-        cutoff = self.clock()
-        forecast = self.models.forecast(self.data.rows(), target, cutoff,
-                                  lambda h: market_store.raw_source(self.db_path, h))
-        inputs = [r['evidence_id'] for r in forecast['training_manifest']]
-        run_id = uuid4().hex
-        saved_models, saved_predictions = [], []
-        if inputs:
-            candidates = {k: v for k, v in forecast['models'].items() if v.get('available')}
-            if forecast.get('ensemble'):
-                candidates['ensemble'] = forecast['ensemble']
-            for name, result in candidates.items():
-                saved = self.memory.record_model({
-                    'run_id': run_id, 'model_name': name, 'model_version': forecast['model_version'],
-                    'data_cutoff': forecast['data_cutoff'], 'input_evidence_ids': inputs,
-                    'parameters': {'target_evidence_id': forecast['target']['evidence_id'], 'result': result},
-                    'configuration': forecast['configuration'],
-                    'transformation': 'deterministic provenance-checked football model; '+name})
-                saved_models.append({'model_name': name, **saved})
-                predicted = self.memory.record_prediction({
-                    'run_id': run_id, 'model_run_id': saved['record_id'],
-                    'target_evidence_id': forecast['target']['evidence_id'],
-                    'probabilities': {k: result['probabilities'][k]['value'] for k in ('home', 'draw', 'away')},
-                    'transformation': 'persisted forecast from model '+name+' and retained training evidence'})
-                saved_predictions.append({'model_name': name, **predicted})
-        return {'run_id': run_id, 'forecast': forecast, 'model_runs': saved_models,
-                'predictions': saved_predictions, 'mode': 'ACTUAL_CURRENT_PERSISTED_FORECAST'}
+        from .workflow import forecast_match
+        return forecast_match(data=self.data, model_backend=self.models, memory=self.memory,
+            db_path=self.db_path, clock=self.clock, match_id=match_id, run_id=run_id)
 
 
 class OddsEngine(BoundEngine):
@@ -339,12 +323,19 @@ class AIEngine(BoundEngine):
 
 
 class MemoryEngine(BoundEngine):
-    def __init__(self, context: ApplicationContext, backend: MemoryBackend):
+    def __init__(self, context: ApplicationContext, backend: MemoryBackend, *, data: DataReadPort | None = None):
         super().__init__(context)
-        self.backend = backend
+        self.backend, self.data = backend, data
 
     def view(self, cutoff):
-        return self.backend.as_of(self.db_path, cutoff)
+        return self.backend.as_of(self.db_path, cutoff, readonly=True)
+
+    def history(self, match_id, cutoff=None):
+        from .workflow import match_history
+        if self.data is None:
+            raise ValueError('EXPLICIT_DATA_PORT_REQUIRED')
+        return match_history(data=self.data, view=self.view, db_path=self.db_path,
+                             clock=self.clock, match_id=match_id, cutoff=cutoff)
 
     def record_model(self, draft):
         return self.backend.record_model_run(self.db_path, draft)
@@ -356,16 +347,28 @@ class MemoryEngine(BoundEngine):
         return self.backend.record_outcome(self.db_path, evidence_id)
 
     def observe(self):
-        metrics = self.counts('cognitive_records', 'cognitive_receipts')
+        try:
+            observed = self.backend.inspect_store(self.db_path)
+        except ValueError:
+            return {'state': 'UNAVAILABLE', 'reason': 'COGNITIVE_STORE_UNAVAILABLE',
+                    'metrics': {}, 'evidence': ['Bounded read-only memory observation failed; absence was not inferred']}
+        if observed['schema_state'] != 'complete':
+            absent = observed['schema_state'] == 'absent'
+            return {'state': 'NOT_CONFIGURED' if absent else 'UNAVAILABLE',
+                    'reason': 'COGNITIVE_SCHEMA_NOT_INITIALIZED' if absent else 'COGNITIVE_STORE_INCOMPLETE',
+                    'metrics': {'configured': False, 'schema_complete': False} if absent else {'schema_complete': False},
+                    'evidence': ['Both cognitive tables and all four immutable triggers required; no schema created or repaired']}
+        metrics = {**observed['counts'], 'configured': True, 'schema_complete': True}
         return {'state': 'READY' if metrics['cognitive_records'] else 'DEGRADED',
                 'reason': 'IMMUTABLE_MEMORY_PRESENT' if metrics['cognitive_records'] else 'NO_RETAINED_MEMORY',
                 'metrics': metrics, 'evidence': ['Read-only retained record/receipt counts; no schema creation']}
 
 
 class EvaluationEngine(BoundEngine):
-    def __init__(self, context: ApplicationContext, memory: MemoryPort, evaluate, persist):
+    def __init__(self, context: ApplicationContext, memory: MemoryPort, evaluate, persist, *, data: DataReadPort | None = None):
         super().__init__(context)
         self.memory, self.evaluate_adapter, self.persist_adapter = memory, evaluate, persist
+        self.data = data
 
     def evaluate(self, cutoff):
         # Existing contract excludes outcomes known before actual persisted forecasts.
@@ -374,6 +377,13 @@ class EvaluationEngine(BoundEngine):
 
     def persist(self, draft):
         return self.persist_adapter(self.db_path, draft)
+
+    def evaluate_match(self, match_id, run_id):
+        from .workflow import evaluate_match
+        if self.data is None:
+            raise ValueError('EXPLICIT_DATA_PORT_REQUIRED')
+        return evaluate_match(data=self.data, memory=self.memory, persist=self.persist,
+            db_path=self.db_path, clock=self.clock, match_id=match_id, run_id=run_id)
 
     def observe(self):
         metrics = self.counts('cognitive_records')

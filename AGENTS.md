@@ -1,5 +1,8 @@
 # DRAGONHYDRA CORE NEXT
 
+Active continuation: read docs/handover/CONTINUATION-20261102.md for the settled
+18822/18821 target, module/observation contracts, ownership and acceptance A–U.
+
 This is an independent clone derived from the locked GENESIS A9 release. Read
 BASELINE-LOCK.json, RESUME-CODEX.md and ENGINEERING-STATE.json before continuing.
 

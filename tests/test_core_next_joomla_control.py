@@ -22,7 +22,7 @@ IDENTITY = {'product': 'DRAGONHYDRA CORE NEXT', 'edition': 'CORE NEXT', 'install
 
 def module(ident='data', **changes):
     return dict(id=ident, name=ident.title(), version='1', state='READY', reason='Retained evidence is available.',
-                description='Existing module', category='Data', origin='built-in', observed_at='2026-11-01T11:59:00Z',
+                description='Existing module', category='Data', layer='engine', origin='built-in', observed_at='2026-11-01T11:59:00Z',
                 expires_at='2026-11-01T12:30:00Z', dependencies=[], capabilities=['Read retained records'],
                 operations=[{'id':'status', 'label':'Read status', 'method':'GET', 'enabled':True}],
                 observation={'metrics':{'records':0}, 'evidence':['Synthetic retained fixture']}) | changes
@@ -38,10 +38,19 @@ class CoreNextControlTests(unittest.TestCase):
         self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
         return run.stdout
 
-    def build(self, inputs=None, authorised=True, identity=None, items=None, detail=None, expected='core-next-fixture', system_identity=None):
+    def render(self,center,can_import=False):
+        prefix=('namespace Joomla\\CMS\\HTML {class HTMLHelper{static function _($x){return "<input type=hidden name=synthetic_csrf value=1>";}}}'
+                'namespace Joomla\\CMS\\Language {class Text{static function _($x){return $x;}}}'
+                'namespace Joomla\\CMS\\Router {class Route{static function _($x,$b=false){return $x;}}}')
+        body='$v=new class{public $section="overview",$error=null,$center=[],$jobId="",$data=[],$probe=[],$canImport=false,$dashboardUrl="",$workflowMatchId="",$workflowKeys=[];function render($path){ob_start();require $path;return ob_get_clean();}};'
+        body+='$v->center=json_decode('+json.dumps(json.dumps(center))+',true);$v->section=$v->center["section"];$v->canImport='+str(can_import).lower()+';echo $v->render('+json.dumps(str(COMPONENT/'admin/tmpl/dashboard/default.php'))+');'
+        return self.php(body,prefix)
+
+    def build(self, inputs=None, authorised=True, identity=None, items=None, detail=None, expected='core-next-fixture', system_identity=None, inventory=None):
         identity = IDENTITY if identity is None else identity
         registry = {'schema_version':'core-next.modules/1', 'installation':identity, 'items':[module()] if items is None else items}
-        responses = {'/modules':registry, '/system':{'status':'ready', 'backend':'sqlite', 'installation':system_identity or identity}}
+        if inventory is not None: registry['inventory']=inventory
+        responses = {'/modules?scope=all':registry, '/system':{'status':'ready', 'backend':'sqlite', 'installation':system_identity or identity}}
         if detail is not None:
             responses['/modules/' + detail['id']] = detail
         body = ('$responses=json_decode(' + json.dumps(json.dumps(responses)) + ',true);$calls=[];'
@@ -63,17 +72,78 @@ class CoreNextControlTests(unittest.TestCase):
         for identity in [IDENTITY | {'product':'DRAGONHYDRA'}, IDENTITY | {'installation_id':'another-profile'}]:
             with self.subTest(identity=identity):
                 got = self.build(identity=identity)
-                self.assertEqual(got['calls'], ['/modules'])
+                self.assertEqual(got['calls'], ['/modules?scope=all'])
                 self.assertFalse(got['result']['installation'])
                 self.assertFalse(got['result']['modules'])
                 self.assertIsNotNone(got['result']['error'])
 
     def test_overview_reads_only_registry_and_system_and_preserves_real_zero(self):
         got = self.build()
-        self.assertEqual(got['calls'], ['/modules','/system'])
+        self.assertEqual(got['calls'], ['/modules?scope=all','/system'])
         self.assertIsNone(got['result']['error'])
         self.assertEqual(got['result']['modules']['data']['observation']['metrics']['records'], 0)
         self.assertEqual(got['result']['installation']['installation_id'], 'core-next-fixture')
+
+    def test_shared_registry_inventory_separates_six_engines_and_twelve_supporting_modules(self):
+        engines=['data','odds','prediction','ai','memory','evaluation']
+        supporting=['web_server','joomla_administration','joomla_website','api_server','sqlite_storage','mariadb_storage',
+                    'durable_jobs','provider_scheduler','runtime_supervisor','windows_desktop','android_client','packaging_recovery']
+        items=[module(key) for key in engines]+[module(key,layer='supporting',category='Infrastructure') for key in supporting]
+        result=self.build(items=items,inventory={'engines':6,'supporting':12,'total':18})
+        self.assertIsNone(result['result']['error'])
+        self.assertEqual(result['result']['inventory'],{'engines':6,'supporting':12,'total':18,'unclassified':0})
+        self.assertEqual(result['calls'],['/modules?scope=all','/system'])
+        filtered=self.build(inputs={'section':'modules','layer':'supporting','category':'Infrastructure'},items=items,
+                            inventory={'engines':6,'supporting':12,'total':18})
+        self.assertEqual(set(filtered['result']['visible_modules']),set(supporting))
+        self.assertEqual(filtered['result']['inventory']['engines'],6)
+        mismatch=self.build(items=items,inventory={'engines':18,'supporting':0,'total':18})
+        self.assertIsNotNone(mismatch['result']['error'])
+        small=self.build(items=[module()])
+        self.assertEqual(small['result']['inventory']['total'],1)
+
+    def test_state_colors_are_labeled_and_evidence_age_is_preserved_without_probe(self):
+        got=self.build(items=[module()])
+        expected=NOW-int(__import__('datetime').datetime.fromisoformat('2026-11-01T11:59:00+00:00').timestamp())
+        self.assertEqual(got['result']['modules']['data']['evidence_age_seconds'],expected)
+        code='echo json_encode(['
+        for state in ['READY','DEGRADED','UNAVAILABLE','UNKNOWN','EXPIRED','NOT_APPLICABLE']:
+            code+='[\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::tone("'+state+'"),\\Dragonhydra\\Component\\Dragonhydra\\Administrator\\Model\\ControlCenterModel::stateLabel("'+state+'")],'
+        code+=']);'
+        self.assertEqual(json.loads(self.php(code)),[['green','Ready'],['amber','Degraded'],['red','Unavailable'],['neutral','Unknown'],['amber','Expired'],['neutral','Not applicable']])
+
+    def test_actual_overview_and_layer_filter_render_inventory_and_separate_health_controls(self):
+        items=[module(key) for key in ['data','odds','prediction','ai','memory','evaluation']]
+        items+=[module('support_'+str(i),layer='supporting',category='Infrastructure') for i in range(12)]
+        result=self.build(items=items,inventory={'engines':6,'supporting':12,'total':18})['result']
+        rendered=self.render(result,True)
+        for field,count in [('engines',6),('supporting',12),('total',18)]:
+            self.assertIn('data-inventory="'+field+'">'+str(count)+'</strong>',rendered)
+        for text in ('Refresh display','Run local checks','task=actions.observe','synthetic_csrf','data-tone="green"','data-tone="amber"','data-tone="red"','data-tone="neutral"'):
+            self.assertIn(text,rendered)
+        self.assertNotIn('task=actions.forecast',rendered)
+        reader=self.render(result,False)
+        self.assertNotIn('task=actions.observe',reader)
+        filtered=self.build(inputs={'section':'modules','layer':'supporting'},items=items)['result']
+        filtered_html=self.render(filtered)
+        self.assertEqual(filtered_html.count('data-module-layer="supporting"'),12)
+        self.assertNotIn('data-module-layer="engine"',filtered_html)
+
+    def test_capability_proof_is_operation_scoped_when_optional_model_is_not_configured(self):
+        item=module('ai',state='NOT_CONFIGURED',reason='OPTIONAL_MODEL_NOT_CONFIGURED',capability_status=[
+            {'id':'evidence_package','available':True,'verified_operations':['package'],'operation_status':[
+                {'id':'package','state':'READY','observed_at':'2026-11-01T11:59:00Z','expires_at':'2026-11-01T12:30:00Z',
+                 'observation_id':'synthetic-package-proof','verification_scope':['DETERMINISTIC_PACKAGE_ONLY'],'reason':'OPERATION_SUCCEEDED'},
+                {'id':'inference','state':'UNVERIFIED','observed_at':None,'expires_at':None,'verification_scope':[],'reason':'NO_OPERATION_EVIDENCE'}]}])
+        center=self.build(inputs={'section':'ai'},items=[item],detail=item|{'installation':IDENTITY})['result']
+        rendered=self.render(center)
+        self.assertIn('Available for named verified operations',rendered)
+        self.assertIn('synthetic-package-proof',rendered)
+        self.assertIn('2026-11-01T11:59:00Z',rendered)
+        self.assertIn('DETERMINISTIC_PACKAGE_ONLY',rendered)
+        self.assertIn('No operation evidence',rendered)
+        self.assertIn('Not configured',rendered)
+        self.assertIn('does not verify every operation or an optional model',rendered)
 
     def test_unknown_and_expired_observations_cannot_be_presented_as_ready(self):
         got = self.build(items=[module('data', state='ADVERTISED'), module('ai', expires_at='2026-11-01T11:59:00Z')])
@@ -86,13 +156,13 @@ class CoreNextControlTests(unittest.TestCase):
         self.assertEqual(got['result']['modules']['data']['state'], 'UNKNOWN')
         self.assertIn('does not establish readiness', got['result']['modules']['data']['reason'])
         duplicate = self.build(items=[module(), module()])
-        self.assertEqual(duplicate['calls'], ['/modules'])
+        self.assertEqual(duplicate['calls'], ['/modules?scope=all'])
         self.assertIsNotNone(duplicate['result']['error'])
 
     def test_known_module_detail_has_same_instance_and_does_not_run_prediction(self):
         item = module('prediction')
         got = self.build(inputs={'section':'prediction'}, items=[item], detail=item | {'installation':IDENTITY})
-        self.assertEqual(got['calls'], ['/modules','/modules/prediction'])
+        self.assertEqual(got['calls'], ['/modules?scope=all','/modules/prediction'])
         self.assertEqual(got['result']['module']['id'], 'prediction')
         self.assertIsNone(got['result']['error'])
         bad = self.build(inputs={'section':'prediction'}, items=[item], detail=item | {'installation':IDENTITY | {'installation_id':'original'}})
@@ -103,7 +173,7 @@ class CoreNextControlTests(unittest.TestCase):
         for selection in ['not-registered', '../../connections/openfootball/sync', 'data?admin=true']:
             with self.subTest(selection=selection):
                 got = self.build(inputs={'section':'modules','module':selection})
-                self.assertEqual(got['calls'], ['/modules'])
+                self.assertEqual(got['calls'], ['/modules?scope=all'])
                 self.assertIsNotNone(got['result']['error'])
                 self.assertNotIn('PRIVATE_BACKEND_DETAIL', json.dumps(got))
 
@@ -137,7 +207,7 @@ class CoreNextControlTests(unittest.TestCase):
         package = ET.parse(ROOT / 'server/joomla/pkg_dragonhydra.xml').getroot()
         component = ET.parse(COMPONENT / 'dragonhydra.xml').getroot()
         template = ET.parse(ROOT / 'server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml').getroot()
-        self.assertEqual([package.findtext('version'), component.findtext('version'), template.findtext('version')], ['0.5.0-dev.1'] * 3)
+        self.assertEqual([package.findtext('version'), component.findtext('version'), template.findtext('version')], ['0.5.0-dev.2'] * 3)
         assets = json.loads((COMPONENT / 'media/joomla.asset.json').read_text())
         self.assertIn('com_dragonhydra.control-center', [a['name'] for a in assets['assets']])
         self.assertTrue((COMPONENT / 'media/css/control-center.css').is_file())
@@ -163,8 +233,8 @@ class CoreNextControlTests(unittest.TestCase):
                 kernel_config=KernelConfig(installation_id='core-next-control-fixture',environment_id='candidate',version='0.5.0-dev.1'))
             with TestClient(app) as client:
                 client.headers['Authorization'] = 'Bearer synthetic-control-test-token'
-                registry = client.get(API+'/modules').json()
-                responses = {'/modules':registry,'/system':client.get(API+'/system').json()}
+                registry = client.get(API+'/modules?scope=all').json()
+                responses = {'/modules?scope=all':registry,'/system':client.get(API+'/system').json()}
                 for item in registry['items']:
                     responses['/modules/'+item['id']] = client.get(API+'/modules/'+item['id']).json()
                 before = app.state.product.kernel.modules()

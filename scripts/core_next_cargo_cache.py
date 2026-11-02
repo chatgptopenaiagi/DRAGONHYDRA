@@ -1,12 +1,32 @@
 """Seal/copy only proven lab Cargo dependencies; application outputs never reuse."""
 from pathlib import Path
-import argparse, hashlib, json, os, shutil, subprocess
+import argparse, hashlib, json, os, re, shutil, subprocess, tomllib
 
 LAB=Path(r'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB')
 RUSTC=r'C:\Users\LOVE\.cargo\bin\rustc.exe'
 INPUTS=('src-tauri/src/main.rs','src-tauri/src/client_state.rs','src-tauri/src/external_target.rs',
         'src-tauri/tauri.conf.json','src-tauri/Cargo.toml','src-tauri/Cargo.lock',
         'web/app.js','web/index.html','web/style.css','web/favicon.svg')
+def same_locked_dependencies(before,after):
+    """Only our excluded application version may differ; dependencies stay exact."""
+    def normalized(raw):
+        value=tomllib.loads(raw.decode('utf-8-sig'))
+        own=[item for item in value.get('package',[]) if item.get('name')=='dragonhydra-desktop']
+        if len(own)!=1 or not isinstance(own[0].get('version'),str):raise ValueError('CORE_NEXT_CARGO_APPLICATION_LOCK_REQUIRED')
+        own[0].pop('version')
+        return value
+    return normalized(before)==normalized(after)
+
+def lock_relation(manifest,desktop):
+    current=Path(desktop)/'src-tauri/Cargo.lock'
+    if manifest.get('cargo_lock_sha256')==digest(current):return 'exact_lock_hash'
+    source=manifest.get('proven_source_sha','')
+    if not re.fullmatch(r'[a-f0-9]{40}',source):raise ValueError('CORE_NEXT_CARGO_CACHE_TOOLCHAIN_OR_LOCK_CHANGED')
+    root=Path(__file__).resolve().parents[1]
+    result=subprocess.run([r'C:\Program Files\Git\cmd\git.exe','-C',str(root),'show',source+':client/desktop/src-tauri/Cargo.lock'],capture_output=True,timeout=15)
+    if result.returncode or hashlib.sha256(result.stdout).hexdigest()!=manifest.get('cargo_lock_sha256') or not same_locked_dependencies(result.stdout,current.read_bytes()):
+        raise ValueError('CORE_NEXT_CARGO_CACHE_TOOLCHAIN_OR_LOCK_CHANGED')
+    return 'only_excluded_application_version_changed; all_locked_dependencies_identical'
 def digest(path):
     h=hashlib.sha256()
     with Path(path).open('rb') as stream:
@@ -53,7 +73,8 @@ def copy_cache(root,manifest_path,desktop,destination):
     root,manifest_path,destination=map(ordinary,(root,manifest_path,destination))
     manifest=json.loads(manifest_path.read_text(encoding='utf-8-sig'))
     if manifest.get('schema_version')!=1 or manifest.get('root')!=str(root) or manifest.get('target')!='x86_64-pc-windows-msvc':raise ValueError('CORE_NEXT_CARGO_CACHE_IDENTITY_MISMATCH')
-    if manifest.get('rustc_version')!=rust_version() or manifest.get('cargo_lock_sha256')!=digest(Path(desktop)/'src-tauri/Cargo.lock'):raise ValueError('CORE_NEXT_CARGO_CACHE_TOOLCHAIN_OR_LOCK_CHANGED')
+    if manifest.get('rustc_version')!=rust_version():raise ValueError('CORE_NEXT_CARGO_CACHE_TOOLCHAIN_OR_LOCK_CHANGED')
+    relation=lock_relation(manifest,desktop)
     if digest(ordinary(manifest['proof_path']))!=manifest['proof_sha256']:raise ValueError('CORE_NEXT_CARGO_CACHE_BUILD_PROOF_CHANGED')
     if destination.exists() or destination.is_relative_to(root) or root.is_relative_to(destination):raise ValueError('CORE_NEXT_FRESH_CARGO_CACHE_DESTINATION_REQUIRED')
     files=manifest.get('files',[]);seen=set()
@@ -70,7 +91,7 @@ def copy_cache(root,manifest_path,desktop,destination):
         target=destination/row['path'];target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copy2(root/row['path'],target)
         if digest(target)!=row['sha256']:raise ValueError('CORE_NEXT_CARGO_DEPENDENCY_COPY_MISMATCH')
-    return dict(copied_files=len(files),application_reused=False,source_build=manifest['proven_source_sha'],destination=str(destination))
+    return dict(copied_files=len(files),application_reused=False,source_build=manifest['proven_source_sha'],lock_relation=relation,destination=str(destination))
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['seal','copy']);p.add_argument('--root',required=True);p.add_argument('--desktop',required=True);p.add_argument('--manifest',required=True);p.add_argument('--proof');p.add_argument('--destination');a=p.parse_args()
     print(json.dumps(seal(a.root,a.desktop,a.proof,a.manifest) if a.action=='seal' else copy_cache(a.root,a.manifest,a.desktop,a.destination)))

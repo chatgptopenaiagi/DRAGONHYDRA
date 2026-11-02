@@ -90,6 +90,10 @@ class Jobs:
                 db.execute('ALTER TABLE product_jobs ADD COLUMN next_attempt REAL NOT NULL DEFAULT 0')
             db.commit()
 
+        kernel=getattr(self.product,'kernel',None)
+        if hasattr(kernel,'bind_worker'):
+            kernel.bind_worker(self)
+
     def start(self):
         if self.thread and self.thread.is_alive():
             return
@@ -308,6 +312,11 @@ class Jobs:
 
     def run(self):
         while not self.stop.is_set():
+            try:
+                self.product.kernel.observation_tick()
+            except Exception:
+                # Observer failures stay scoped; existing jobs keep running.
+                pass
             try:
                 worked = self.run_once()
             except Exception:

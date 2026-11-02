@@ -18,6 +18,7 @@ LAB = Path(r'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB')
 
 class Probe:
     contract_version = 'core-next.engine/1'
+    def read(self):return []
     def __init__(self, state='READY'):
         self.calls, self.stops, self.state = 0, 0, state
 
@@ -68,7 +69,7 @@ class RegistryTests(unittest.TestCase):
 
     def test_operation_evidence_does_not_renew_old_counter_evidence(self):
         at = [datetime(2026, 1, 1, tzinfo=timezone.utc)]
-        r = ModuleRegistry((ModuleDefinition('a', 'A', 'Test', 'Test'),), {'a': Probe()},
+        r = ModuleRegistry((ModuleDefinition('a', 'A', 'Test', 'Test',supported_operations=('read',)),), {'a': Probe()},
                            ttl_seconds=5, clock=lambda: at[0])
         r.start()
         sampled = r.item('a')['observation']['metrics_sampled_at']
@@ -107,6 +108,9 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(r.item('a')['state'], 'READY')
         self.assertEqual(r.item('b')['state'], 'READY')
         caps = {x['id']: x for x in r.item('a')['capability_status']}
+        self.assertFalse(caps['read']['available']) # Storage probe is not operation proof.
+        r.engines['a'].read();r.record_operation('a','read','READY','EXPLICIT_FIXTURE_READ')
+        caps = {x['id']: x for x in r.item('a')['capability_status']}
         self.assertTrue(caps['read']['available'])
         self.assertFalse(caps['optional_export']['available'])
         self.assertEqual(r.item('a')['optional_dependency_status'][0]['state'], 'NOT_IMPLEMENTED')
@@ -144,10 +148,10 @@ class IndependentPortTests(unittest.TestCase):
         self.assertEqual(calls, [([], 'cutoff', {'max_age_seconds': 5})])
         class Backend:
             @staticmethod
-            def as_of(path, cutoff):
-                return {'bound_path': path.name, 'cutoff': cutoff}
+            def as_of(path, cutoff, *, readonly=False):
+                return {'bound_path': path.name, 'cutoff': cutoff,'readonly':readonly}
         self.assertEqual(MemoryEngine(context, Backend()).view('cutoff'),
-                         {'bound_path': 'unused.sqlite3', 'cutoff': 'cutoff'})
+                         {'bound_path': 'unused.sqlite3', 'cutoff': 'cutoff','readonly':True})
 
 
 class ComposedAPITests(unittest.TestCase):

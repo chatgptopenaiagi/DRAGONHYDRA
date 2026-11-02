@@ -16,7 +16,8 @@ if($LASTEXITCODE -ne 0 -or $head -cne $SourceSha){throw 'CORE_NEXT_FROZEN_DESKTO
 if($LASTEXITCODE){throw 'CORE_NEXT_CLEAN_DESKTOP_SOURCE_REQUIRED'}
 $desktop=Join-Path $project 'client\desktop'
 $config=Get-Content -LiteralPath (Join-Path $desktop 'src-tauri\tauri.conf.json') -Raw|ConvertFrom-Json
-if($config.identifier -cne 'ai.dragonhydra.corenext.desktop' -or $config.version -cne '0.5.0-dev.1'){throw 'CORE_NEXT_DESKTOP_IDENTITY_REQUIRED'}
+$matrix=Get-Content -LiteralPath (Join-Path $project 'packaging\release\version.json') -Raw|ConvertFrom-Json
+if($config.identifier -cne 'ai.dragonhydra.corenext.desktop' -or $config.version -cne $matrix.desktop_version){throw 'CORE_NEXT_DESKTOP_IDENTITY_REQUIRED'}
 $cache=Join-Path $lab 'tools\desktop-node_modules'
 if(-not(Test-Path -LiteralPath $cache)){
     if($NodeModulesSource -ine (Join-Path $desktop 'node_modules') -and $NodeModulesSource -ine 'C:\xampp\DRAGONHYDRA\client\desktop\node_modules'){throw 'CORE_NEXT_UNREVIEWED_NODE_MODULE_SOURCE'}

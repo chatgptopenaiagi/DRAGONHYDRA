@@ -2,8 +2,8 @@
 import json
 from pathlib import Path
 
-VERSION = '0.5.0-dev.1'
-PYTHON_VERSION = '0.5.0.dev1'
+VERSION = '0.5.0-dev.2'
+PYTHON_VERSION = '0.5.0.dev2'
 
 
 def info():

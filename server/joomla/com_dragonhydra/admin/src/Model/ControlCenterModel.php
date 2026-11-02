@@ -1,6 +1,7 @@
 <?php
 namespace Dragonhydra\Component\Dragonhydra\Administrator\Model;
 defined('_JEXEC') or die;
+use Dragonhydra\Component\Dragonhydra\Administrator\Service\ControlWorkflow;
 
 /** Presentation adapter for the kernel's registry; never stores status or runs an operation. */
 final class ControlCenterModel
@@ -25,6 +26,19 @@ final class ControlCenterModel
         return $value;
     }
 
+    public static function tone(string $state): string
+    {
+        return match ($state) {
+            'READY' => 'green', 'DEGRADED','NOT_CONFIGURED','UNVERIFIED','EXPIRED' => 'amber',
+            'UNAVAILABLE','STOPPED' => 'red', default => 'neutral',
+        };
+    }
+
+    public static function stateLabel(string $state): string
+    {
+        return in_array($state,self::STATES,true) ? ucfirst(strtolower(str_replace('_',' ',$state))) : 'Unknown';
+    }
+
     private static function identity(array $value): array
     {
         if (($value['product'] ?? '') !== self::PRODUCT || empty($value['installation_id'])) {
@@ -36,7 +50,8 @@ final class ControlCenterModel
     private static function module(array $value, int $now): array
     {
         self::identifier((string) ($value['id'] ?? ''));
-        $value = array_intersect_key($value, array_flip(['id', 'name', 'version', 'state', 'description', 'category', 'origin', 'observed_at', 'expires_at', 'reason', 'dependencies', 'capabilities', 'capability_status', 'operations', 'observation', 'optional_dependency_status', 'configuration_requirements', 'data_domains', 'verification_references', 'implementation_reference', 'implementation_state', 'configuration_state', 'runtime_state', 'reason_code', 'human_readable_reason', 'last_success_at', 'evidence_expires_at', 'actual_version_or_build', 'display_name', 'responsibility', 'kind']));
+        $value = array_intersect_key($value, array_flip(['id', 'name', 'version', 'state', 'description', 'category', 'origin', 'observed_at', 'expires_at', 'reason', 'dependencies', 'dependency_status', 'capabilities', 'capability_status', 'operations', 'observation', 'optional_dependency_status', 'configuration_requirements', 'data_domains', 'verification_references', 'implementation_reference', 'implementation_state', 'configuration_state', 'runtime_state', 'reason_code', 'human_readable_reason', 'last_success_at', 'evidence_expires_at', 'actual_version_or_build', 'display_name', 'responsibility', 'kind', 'layer', 'runtime_owner', 'observation_id', 'observer_identity', 'build_identity', 'verification_scope']));
+        $value['layer'] = in_array($value['layer'] ?? '', ['engine','supporting'],true) ? $value['layer'] : 'unclassified';
         if (!in_array($value['state'] ?? '', self::STATES, true)) {
             $value['state'] = 'UNKNOWN';
             $value['reason'] = 'The registry did not provide a recognized state.';
@@ -51,13 +66,17 @@ final class ControlCenterModel
             $value['state'] = 'EXPIRED';
             $value['reason'] = 'The last observation has expired. No new probe was run by opening this page.';
         }
+        $value['evidence_age_seconds'] = $observed !== false && $observed <= $now ? $now-$observed : null;
+        $value['evidence_remaining_seconds'] = $expiry !== false ? $expiry-$now : null;
         return $value;
     }
 
     public function build(array $input, bool $authorised, callable $read, ?int $now = null): array
     {
         $section = self::section((string) ($input['section'] ?? 'overview'));
-        $result = ['section'=>$section, 'installation'=>[], 'modules'=>[], 'module'=>null, 'system'=>[], 'data'=>[], 'job_id'=>'', 'error'=>null];
+        $result = ['section'=>$section, 'installation'=>[], 'modules'=>[], 'visible_modules'=>[], 'module'=>null,
+            'inventory'=>['engines'=>0,'supporting'=>0,'total'=>0,'unclassified'=>0], 'categories'=>[], 'filters'=>['layer'=>'','category'=>''],
+            'system'=>[], 'data'=>[], 'job_id'=>'', 'workflow'=>null,'workflow_error'=>null, 'error'=>null];
         if (!$authorised) {
             $result['error'] = 'An authorized Joomla administrator session is required.';
             return $result;
@@ -66,7 +85,7 @@ final class ControlCenterModel
             if ($this->expectedInstallationId === '') {
                 throw new \RuntimeException('CORE_NEXT_INSTALLATION_BINDING_REQUIRED');
             }
-            $registry = $read('/modules');
+            $registry = $read('/modules?scope=all');
             if (($registry['schema_version'] ?? '') !== 'core-next.modules/1' || !is_array($registry['items'] ?? null)) {
                 throw new \RuntimeException('INVALID_MODULE_REGISTRY');
             }
@@ -82,6 +101,25 @@ final class ControlCenterModel
                 }
                 $result['modules'][$module['id']] = $module;
             }
+            foreach ($result['modules'] as $module) {
+                $key = $module['layer'] === 'engine' ? 'engines' : $module['layer'];
+                $result['inventory'][$key]++;
+                $result['inventory']['total']++;
+                if (is_string($module['category'] ?? null) && $module['category'] !== '') { $result['categories'][$module['category']] = $module['category']; }
+            }
+            if (isset($registry['inventory'])) {
+                foreach (['engines','supporting','total'] as $key) {
+                    if (($registry['inventory'][$key] ?? null) !== $result['inventory'][$key]) { throw new \RuntimeException('INVENTORY_COUNT_MISMATCH'); }
+                }
+            }
+            ksort($result['categories']);
+            $layer = (string) ($input['layer'] ?? '');
+            $category = (string) ($input['category'] ?? '');
+            $result['filters'] = ['layer'=>in_array($layer,['engine','supporting'],true) ? $layer : '',
+                'category'=>isset($result['categories'][$category]) ? $category : ''];
+            $result['visible_modules'] = array_filter($result['modules'], static fn($module): bool =>
+                (!$result['filters']['layer'] || $module['layer'] === $result['filters']['layer'])
+                && (!$result['filters']['category'] || ($module['category'] ?? '') === $result['filters']['category']));
             $selected = (string) ($input['module'] ?? '');
             if (!$selected && in_array($section, ['odds', 'prediction', 'ai', 'memory', 'evaluation'], true)) {
                 $selected = $section;
@@ -114,13 +152,21 @@ final class ControlCenterModel
                 $result['job_id'] = self::identifier((string) ($input['job_id'] ?? ''));
                 $result['data'] = $read('/jobs/' . rawurlencode($result['job_id']));
             }
+            $workflowMatch = (string)($input['match_id'] ?? '');
+            if ($workflowMatch !== '' && in_array($section,['overview','prediction','memory','evaluation','modules'],true)) {
+                try {
+                    $result['workflow'] = ControlWorkflow::load($read,$workflowMatch,$this->expectedInstallationId);
+                } catch (\Throwable $error) {
+                    $result['workflow_error'] = 'Retained workflow history is unavailable for this selected match in this installation. No forecast or evaluation was started.';
+                }
+            }
         } catch (\Throwable $error) {
             // Transport details, configuration paths and arbitrary backend errors stay server-side.
             $result['data'] = [];
             $result['system'] = [];
             $result['module'] = null;
             $result['error'] = 'The isolated CORE NEXT registry could not be verified. Check this installation’s backend and protected bridge, then retry. No background operation was started.';
-            if (!$result['installation']) { $result['modules'] = []; }
+            if (!$result['installation']) { $result['modules'] = []; $result['visible_modules'] = []; }
         }
         return $result;
     }

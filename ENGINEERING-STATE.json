@@ -266,7 +266,7 @@
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -425,5 +425,58 @@
       "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\installed-ownership-953b67f-before-lifecycle.json",
       "sha256": "250df71a902a0c7decd1c2bb1ba6b4a59425eec4c1ab21a1946fbdd2b67b8932"
     }
-  ]
+  ],
+  "active_continuation_20261102": {
+    "updated_at": "2026-11-02T08:31:55.140449+00:00",
+    "phase": "SOURCE_INTEGRATION_BEFORE_FREEZE",
+    "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
+    "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
+    "joomla_port": 18822,
+    "api_port": 18821,
+    "source_baseline": "efb36a85032b0b90ead8818f4f4693ab7e5ae178",
+    "installed_source": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "installed_version": "0.5.0-dev.1",
+    "planned_version": "0.5.0-dev.2",
+    "master_handoff": "docs/handover/CONTINUATION-20261102.md",
+    "memory_registry_workflow_focused_tests": {
+      "count": 17,
+      "scope": "Source/synthetic fixtures; no installed dev2 claim",
+      "exit_code": 0
+    },
+    "known_confirmed_repairs": [
+      "Metric allowlist/finite validation across all projections",
+      "Readonly complete cognitive schema plus immutable triggers",
+      "Null/nested DOM children in browser and desktop assets",
+      "Extra-time/shootout eligibility in regulation standings",
+      "Expired setup-only observations: existing worker/supervisor cadence",
+      "Incomplete forecast replay cannot become READY",
+      "Capability-specific proof cannot verify unrelated operations"
+    ],
+    "new_standings_scope_regression": "AET/PEN scores excluded from reconstructed regulation standings; seven source tests passed; installed pending",
+    "backup_receipt": "C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/evidence/core-next-dev2-backup-r2.json",
+    "live_mutations": false,
+    "publication": false,
+    "next_action": "Integrate support inventory/observer cadence and typed workflow; focused regressions then frozenbuild/profile-specific upgrade",
+    "registry_inventory": {
+      "engines": 6,
+      "supporting": 12,
+      "total": 18,
+      "installed_dev2": "NOT_RUN"
+    },
+    "focused_source_gate": {
+      "tests_run": 48,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0,
+      "scope": "Synthetic controlled clocks, registry, same-state API lifecycle, cutoff eligibility; integrated deduplicated gate pending"
+    },
+    "observer": {
+      "kernel_interval_seconds": 30,
+      "kernel_ttl_seconds": 300,
+      "supervisor_interval_seconds": 15,
+      "supervisor_ttl_seconds": 45,
+      "installed": "NOT_RUN"
+    },
+    "next_executable_action": "Finish integrated source gate, freeze dev2 commit, build affected payloads, preview guarded same-profile upgrade; no live dev2 deployment yet"
+  }
 }

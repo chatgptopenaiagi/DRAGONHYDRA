@@ -1,11 +1,39 @@
 """Explicit module definitions and short-lived observations, without implicit probes."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+import math
 import re
+from types import MappingProxyType
 from typing import Callable, Mapping, Protocol
 
 STATES = frozenset({'NOT_IMPLEMENTED', 'NOT_CONFIGURED', 'UNVERIFIED', 'READY', 'DEGRADED',
                     'UNAVAILABLE', 'NOT_APPLICABLE', 'UNKNOWN', 'EXPIRED', 'STOPPED'})
+
+# Only finite, bounded counters/flags may leave the registry. Paths, provider
+# settings, exception strings and arbitrary adapter fields are never metrics.
+METRIC_KEYS = frozenset({'public_fixture_records','connector_observations','retained_observation_count',
+    'cognitive_records','cognitive_receipts','configured','process_id','worker_alive',
+    'queued_jobs','running_jobs','enabled_schedules','listener_present','http_status',
+    'table_count','schema_complete','artifact_present','observations_completed',
+    'observations_failed','observer_running','last_cycle_ms','registry_count'})
+CONFIGURATION_REFERENCES = frozenset({'sqlite_state','retained_provider_scope','eligible_future_fixture',
+    'same_source_training_evidence','eligible_persisted_prediction_and_later_outcome',
+    'protected_server_endpoint','protected_server_credential','workstation_profile',
+    'web_document_root','php_runtime','apache_configuration','joomla_component',
+    'mariadb_endpoint','core_sqlite','worker','provider_settings','endpoint_pairing',
+    'external_android_pairing','package_manifest'})
+
+
+def sanitized_metrics(values):
+    result = {}
+    for key,value in dict(values).items():
+        if key not in METRIC_KEYS:
+            continue
+        if value is not None and (type(value) not in (bool,int,float)
+                or (type(value) in (int,float) and (not math.isfinite(value) or abs(value)>10**15))):
+            raise ValueError('INVALID_OBSERVATION_METRICS')
+        result[key] = value
+    return result
 
 
 def utc_now():
@@ -13,7 +41,7 @@ def utc_now():
 
 
 def iso(value):
-    return value.isoformat(timespec='microseconds').replace('+00:00', 'Z')
+    return value.astimezone(timezone.utc).isoformat(timespec='microseconds').replace('+00:00', 'Z')
 
 
 @dataclass(frozen=True)
@@ -27,6 +55,7 @@ class KernelConfig:
     version: str | None = None
     observation_ttl_seconds: int = 300
     disabled_modules: tuple[str, ...] = ()
+    observation_interval_seconds: int | None = None
 
     def __post_init__(self):
         if self.product != 'DRAGONHYDRA CORE NEXT' or self.edition != 'CORE NEXT':
@@ -36,6 +65,10 @@ class KernelConfig:
                 raise ValueError('INVALID_INSTALLATION_IDENTITY')
         if type(self.observation_ttl_seconds) is not int or not 1 <= self.observation_ttl_seconds <= 3600:
             raise ValueError('INVALID_OBSERVATION_TTL')
+        if self.observation_interval_seconds is None:
+            object.__setattr__(self,'observation_interval_seconds',min(30,max(1,self.observation_ttl_seconds//3)))
+        if type(self.observation_interval_seconds) is not int or not 1 <= self.observation_interval_seconds <= min(300,self.observation_ttl_seconds):
+            raise ValueError('INVALID_OBSERVATION_INTERVAL')
         object.__setattr__(self, 'disabled_modules', tuple(self.disabled_modules))
 
     def identity(self):
@@ -62,6 +95,8 @@ class ModuleDefinition:
     schema_version: str = 'core-next.module/1'
     capability_operations: tuple[tuple[str, tuple[str, ...]], ...] = ()
     capability_dependencies: tuple[tuple[str, tuple[str, ...]], ...] = ()
+    layer: str = 'engine'
+    runtime_owner: str = 'CORE NEXT Python kernel'
 
 
 class Engine(Protocol):
@@ -82,10 +117,19 @@ class Observation:
     module_id: str = ''
     last_success: datetime | None = None
     metrics_sampled_at: datetime | None = None
+    observation_id: str = ''
+    observer_identity: str = ''
+    build_identity: str = ''
+    verification_scope: tuple[str, ...] = ()
+    metrics_expiry: datetime | None = None
 
     def __post_init__(self):
-        if self.state not in STATES or self.expires_at < self.observed_at:
+        if (self.state not in STATES or not isinstance(self.observed_at,datetime)
+                or not isinstance(self.expires_at,datetime) or self.observed_at.utcoffset() is None
+                or self.expires_at.utcoffset() is None or self.expires_at <= self.observed_at):
             raise ValueError('INVALID_MODULE_OBSERVATION')
-        if any(not isinstance(k, str) or not (v is None or type(v) in (str, bool, int, float))
-               for k, v in self.metrics.items()):
-            raise ValueError('INVALID_OBSERVATION_METRICS')
+        if self.last_success is not None and (self.last_success.utcoffset() is None or self.last_success>self.observed_at):
+            raise ValueError('INVALID_LAST_SUCCESS_CLOCK')
+        if self.metrics_expiry is not None and (self.metrics_sampled_at is None or self.metrics_expiry.utcoffset() is None or self.metrics_expiry<=self.metrics_sampled_at):
+            raise ValueError('INVALID_METRICS_EXPIRY')
+        object.__setattr__(self,'metrics',MappingProxyType(sanitized_metrics(self.metrics)))

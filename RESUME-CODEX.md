@@ -1,3 +1,10 @@
+ACTIVE CORE NEXT CONTINUATION — 2026-11-02.
+Owner settled18822/18821 and profilecore-next-7ac520727b85456cac4a3a92a8dd62da.
+Read docs/handover/CONTINUATION-20261102.md and active_continuation_20261102 state.
+Dev2 source implementation in progress; installed953/dev1 remains untouched.
+Consistentprivatebackup-r2done; protectedkernel files needelevatedbackupbeforelivewrite.
+OriginalDRAGONHYDRA source/services/A9 are READ ONLY and preserved.
+
 # Resume DRAGONHYDRA CORE NEXT
 
 Read AGENTS.md, BASELINE-LOCK.json, ENGINEERING-STATE.json and docs/releases/CORE-NEXT-RELEASE-REPORT.md.

@@ -2,14 +2,21 @@
 
 class JobDispatcher:
     def __init__(self, *, import_public, export, explanation, local_explanation,
-                 context_run, provider_run, check, require_claim, stop):
+                 context_run, provider_run, check, require_claim, stop, forecast=None, evaluation=None):
         self.import_public, self.export = import_public, export
         self.explanation, self.local_explanation = explanation, local_explanation
         self.context_run, self.provider_run = context_run, provider_run
         self.check, self.require_claim, self.stop = check, require_claim, stop
+        self.forecast, self.evaluation = forecast, evaluation
 
     def execute(self, job):
         kind, payload = job['kind'], job['payload']
+        if kind in ('forecast', 'evaluation'):
+            handler = self.forecast if kind == 'forecast' else self.evaluation
+            if not callable(handler):
+                raise ValueError('WORKFLOW_HANDLER_NOT_CONFIGURED')
+            self.check(job['id'], job['attempts'])
+            return handler(job)
         if kind == 'import_public':
             return self.import_public(job['id'], payload.get('mode', 'retained'), job['attempts'])
         if kind == 'explanation':

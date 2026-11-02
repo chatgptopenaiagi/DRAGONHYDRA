@@ -1,4 +1,4 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)][ValidateSet('Install','Run','Stop','Uninstall','Status')][string]$Action,
@@ -124,6 +124,238 @@ function Close-OwnedClient {
 function Status([string]$stage,[string]$errorCode='') {
     $script:phase=$stage
     Save-Json ([ordered]@{stage=$stage;updated_at=[DateTime]::UtcNow.ToString('o');service_name=$script:cfg.service_name;api_url=('http://127.0.0.1:'+$script:cfg.api_port);joomla_url=('http://127.0.0.1:'+$script:cfg.web_port);backend='sqlite';admin_database='MariaDB';optional_ai='not_configured';error=$errorCode;processes=@($script:children|ForEach-Object {@{role=$_.Role;pid=$_.Process.Id}})}) (Join-Path $StateRoot 'status.json')
+}
+function Initialize-CoreNextPassiveSockets {
+    if('Dragonhydra.Workstation.CoreNextPassiveSockets' -as [type]){return}
+    Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+namespace Dragonhydra.Workstation {
+  public static class CoreNextPassiveSockets {
+    [DllImport("iphlpapi.dll",SetLastError=true)]
+    static extern uint GetExtendedTcpTable(IntPtr table,ref int size,bool sorted,int family,int tableClass,uint reserved);
+    public static bool OwnsLoopbackListener(int port,int processId) {
+      if(port<18800 || port>65535 || processId<=0) return false;
+      int size=0;
+      uint code=GetExtendedTcpTable(IntPtr.Zero,ref size,false,2,3,0);
+      if(code!=122 || size<4 || size>16*1024*1024) throw new InvalidOperationException("TCP_TABLE_UNVERIFIED");
+      for(int attempt=0;attempt<2;attempt++) {
+        if(size<4 || size>16*1024*1024) throw new InvalidOperationException("TCP_TABLE_UNVERIFIED");
+        int allocated=size;IntPtr table=Marshal.AllocHGlobal(allocated);
+        try {
+          code=GetExtendedTcpTable(table,ref size,false,2,3,0);
+          if(code==122) continue;
+          if(code!=0 || size<4 || size>allocated) throw new InvalidOperationException("TCP_TABLE_UNVERIFIED");
+          int count=Marshal.ReadInt32(table);
+          if(count<0 || count>(size-4)/24) throw new InvalidOperationException("TCP_TABLE_UNVERIFIED");
+          for(int i=0;i<count;i++) {
+            int at=4+i*24;
+            uint address=unchecked((uint)Marshal.ReadInt32(table,at+4));
+            uint wirePort=unchecked((uint)Marshal.ReadInt32(table,at+8));
+            int actualPort=(int)(((wirePort&255)<<8)|((wirePort>>8)&255));
+            if(Marshal.ReadInt32(table,at)==2 && address==0x0100007f && actualPort==port && Marshal.ReadInt32(table,at+20)==processId) return true;
+          }
+          return false;
+        } finally {Marshal.FreeHGlobal(table);}
+      }
+      throw new InvalidOperationException("TCP_TABLE_UNVERIFIED");
+    }
+  }
+}
+'@
+}
+function Get-CoreNextHeartbeatChild([string]$Role,[string]$Relative) {
+    $entries=@($script:children|Where-Object {$_.Role -eq $Role})
+    if($entries.Count -ne 1){return $null}
+    $entry=$entries[0]
+    try{
+        if($entry.Executable -ine (Join-Path $script:cfg.install_root $Relative) -or $entry.Process.HasExited -or $entry.Process.Id -le 0){return $null}
+        return $entry.Process
+    }catch{return $null}
+}
+function Read-CoreNextHeartbeatJson([string]$Path) {
+    $null=Assert-CoreNextOrdinaryPath $Path $StateRoot
+    $stream=[IO.FileStream]::new($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete))
+    try{
+        $buffer=New-Object byte[] 16385;$length=0
+        do{$count=$stream.Read($buffer,$length,$buffer.Length-$length);$length+=$count}while($count -gt 0 -and $length -lt $buffer.Length)
+        if($length -gt 16384){throw 'HEARTBEAT_METADATA_UNVERIFIED'}
+        return ([Text.UTF8Encoding]::new($false,$true).GetString($buffer,0,$length)|ConvertFrom-Json)
+    }finally{$stream.Dispose()}
+}
+function Invoke-CoreNextHeartbeatHttp([int]$Port,[string]$Path,[string]$Token='') {
+    if($Port -lt 18800 -or $Port -gt 65535 -or $Path -notin @('/','/administrator/','/dragon/api/v1/health/live','/dragon/api/v1/health/ready')){throw 'INVALID_HEARTBEAT_HTTP_TARGET'}
+    $request=[Net.HttpWebRequest]::Create('http://127.0.0.1:'+$Port+$Path)
+    $request.Method='GET';$request.AllowAutoRedirect=$false;$request.Proxy=$null;$request.Timeout=1000;$request.ReadWriteTimeout=1000
+    if($Token){$request.Headers['Authorization']='Bearer '+$Token}
+    $response=$null;$stream=$null;$status=0;$headersAt=$null;$clock=[Diagnostics.Stopwatch]::StartNew()
+    try{
+        $response=$request.GetResponse();$status=[int]$response.StatusCode
+        if($status -eq 200){$headersAt=[DateTime]::UtcNow.ToString('o')}
+        if($status -ne 200 -or $response.ContentLength -gt 16384){return @{ok=$false;status=$status;body='';observed_at=[DateTime]::UtcNow.ToString('o');http_200_at=$headersAt}}
+        $stream=$response.GetResponseStream();$memory=[IO.MemoryStream]::new();$buffer=New-Object byte[] 1024
+        try{
+            while($true){
+                $remaining=1000-[int]$clock.ElapsedMilliseconds
+                if($remaining -le 0){throw 'HEARTBEAT_HTTP_DEADLINE'}
+                $pending=$stream.ReadAsync($buffer,0,$buffer.Length)
+                if(-not $pending.Wait($remaining)){throw 'HEARTBEAT_HTTP_DEADLINE'}
+                $count=$pending.GetAwaiter().GetResult()
+                if($count -eq 0){break}
+                if($memory.Length+$count -gt 16384){throw 'HEARTBEAT_HTTP_SIZE_LIMIT'}
+                $memory.Write($buffer,0,$count)
+            }
+            return @{ok=$true;status=$status;body=[Text.UTF8Encoding]::new($false,$true).GetString($memory.ToArray());observed_at=[DateTime]::UtcNow.ToString('o');http_200_at=$headersAt}
+        }finally{$memory.Dispose()}
+    }catch{
+        $failure=$_.Exception.GetBaseException()
+        if($failure -is [Net.WebException] -and $failure.Response -is [Net.HttpWebResponse]){$status=[int]$failure.Response.StatusCode}
+        return @{ok=$false;status=$status;body='';observed_at=[DateTime]::UtcNow.ToString('o');http_200_at=$headersAt}
+    }
+    finally{if($stream){$stream.Dispose()};if($response){$response.Dispose()};$request.Abort();$clock.Stop()}
+}
+function Test-CoreNextHeartbeatTcp([int]$Port,[int]$ProcessId) {
+    if($Port -lt 18800 -or $Port -gt 65535 -or $ProcessId -le 0){return 'UNVERIFIED'}
+    $clock=[Diagnostics.Stopwatch]::StartNew();$client=$null;$pending=$null
+    try{
+        Initialize-CoreNextPassiveSockets
+        if(-not [Dragonhydra.Workstation.CoreNextPassiveSockets]::OwnsLoopbackListener($Port,$ProcessId)){return 'UNVERIFIED'}
+        $remaining=500-[int]$clock.ElapsedMilliseconds;if($remaining -le 0){return 'UNVERIFIED'}
+        $client=[Net.Sockets.TcpClient]::new();$pending=$client.ConnectAsync('127.0.0.1',$Port)
+        if(-not $pending.Wait($remaining)){return 'UNAVAILABLE'}
+        $null=$pending.GetAwaiter().GetResult();if(-not $client.Connected){return 'UNAVAILABLE'}
+        return 'READY'
+    }catch{return 'UNVERIFIED'}finally{if($client){$client.Dispose()};$clock.Stop()}
+}
+function Save-CoreNextHeartbeatReceipt($Value) {
+    $target=Join-Path $StateRoot 'runtime-observations.json';$temporary=$null
+    $null=Assert-CoreNextOrdinaryPath $target $StateRoot
+    try{
+        $temporary=$target+'.'+[Guid]::NewGuid().ToString('N')+'.tmp'
+        $null=Assert-CoreNextOrdinaryPath $temporary $StateRoot
+        $stream=[IO.FileStream]::new($temporary,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+        try{$bytes=$utf8.GetBytes(($Value|ConvertTo-Json -Depth 8));$stream.Write($bytes,0,$bytes.Length);$stream.Flush($true)}finally{$stream.Dispose()}
+        $null=Assert-CoreNextOrdinaryPath $target $StateRoot
+        $null=Assert-CoreNextOrdinaryPath $temporary $StateRoot
+        [Dragonhydra.Workstation.AtomicFile]::Commit($temporary,$target)
+    }finally{
+        if($temporary -and (Test-Path -LiteralPath $temporary)){
+            try{$null=Assert-CoreNextOrdinaryPath $temporary $StateRoot;[IO.File]::Delete($temporary)}catch{}
+        }
+    }
+}
+function Get-CoreNextHeartbeatStamp($Value,[DateTime]$Upper) {
+    if($Value -is [DateTime]){
+        if($Value.Kind -eq [DateTimeKind]::Unspecified -or $Value.ToUniversalTime() -gt $Upper.ToUniversalTime()){return $null}
+        return $Value.ToUniversalTime().ToString('o')
+    }
+    if(-not ($Value -is [string]) -or $Value -notmatch '(?:Z|[+-][0-9]{2}:[0-9]{2})$'){return $null}
+    $parsed=[DateTimeOffset]::MinValue
+    if(-not [DateTimeOffset]::TryParse($Value,[ref]$parsed) -or $parsed.UtcDateTime -gt $Upper.ToUniversalTime()){return $null}
+    return $parsed.UtcDateTime.ToString('o')
+}
+function Get-CoreNextHeartbeatPrevious([int]$ApiPid) {
+    try{
+        $value=Read-CoreNextHeartbeatJson (Join-Path $StateRoot 'runtime-observations.json')
+        if($value.schema_version -ne 2 -or $value.observer -cne 'core-next.supervisor' -or $value.api_pid -ne $ApiPid -or $value.supervisor_pid -le 0 -or -not ($value.api_verified -is [bool])){return $null}
+        foreach($key in @('installation_id','source_commit','build_id','service_name')){if($value.$key -cne $script:cfg.$key){return $null}}
+        $now=[DateTime]::UtcNow;$observed=Get-CoreNextHeartbeatStamp $value.observed_at $now
+        $expiry=Get-CoreNextHeartbeatStamp $value.expires_at $now.AddSeconds(90)
+        if(-not $observed -or -not $expiry){return $null}
+        $span=([DateTimeOffset]::Parse($expiry)-[DateTimeOffset]::Parse($observed)).TotalSeconds
+        if($span -le 0 -or $span -gt 90){return $null}
+        if($value.api_verified){
+            $last=Get-CoreNextHeartbeatStamp $value.last_success_at ([DateTimeOffset]::Parse($observed).UtcDateTime)
+            if(-not $last -or ([DateTimeOffset]::Parse($observed)-[DateTimeOffset]::Parse($last)).TotalSeconds -gt 90){return $null}
+        }
+        return $value
+    }catch{return $null}
+}
+function Save-CoreNextHeartbeatSnapshot([int]$ApiPid,[bool]$ApiVerified,$KernelSuccess,$Checks) {
+    $at=[DateTime]::UtcNow;$stamp=$at.ToString('o');$previous=Get-CoreNextHeartbeatPrevious $ApiPid
+    $success=Get-CoreNextHeartbeatStamp $KernelSuccess $at
+    if(-not $success -or ($at-([DateTimeOffset]::Parse($success).UtcDateTime)).TotalSeconds -gt 90){$ApiVerified=$false;$success=$null}
+    if(-not $ApiVerified -and $previous){try{$success=Get-CoreNextHeartbeatStamp $previous.last_success_at $at}catch{}}
+    foreach($name in @('web_server','joomla_administration','joomla_website','mariadb_storage')){
+        if(-not $Checks.Contains($name)){$Checks[$name]=@{state='UNVERIFIED';reason='KERNEL_IDENTITY_NOT_VERIFIED';metrics=@{};scope='No fresh component proof without authenticated same-build kernel verification'}}
+        $check=$Checks[$name]
+        $observed=$null;if($check.ContainsKey('observed_at')){$observed=Get-CoreNextHeartbeatStamp $check.observed_at $at}
+        $check.observed_at=if($observed){$observed}else{$stamp}
+        $last=$null;if($check.ContainsKey('last_success_at')){$last=Get-CoreNextHeartbeatStamp $check.last_success_at ([DateTimeOffset]::Parse($check.observed_at).UtcDateTime)}
+        if(-not $ApiVerified){$check.state='UNVERIFIED';$check.reason='KERNEL_IDENTITY_NOT_VERIFIED';$last=$null}
+        if($check.state -eq 'READY' -and (-not $last -or ($at-([DateTimeOffset]::Parse($last).UtcDateTime)).TotalSeconds -gt 90)){$check.state='UNVERIFIED';$check.reason='LOCAL_CHECK_SUCCESS_UNVERIFIED';$last=$null}
+        if($check.state -ne 'READY'){
+            $last=$null
+            if($previous){try{$old=$previous.checks.$name;$oldObserved=Get-CoreNextHeartbeatStamp $old.observed_at ([DateTimeOffset]::Parse($check.observed_at).UtcDateTime);if($oldObserved){$last=Get-CoreNextHeartbeatStamp $old.last_success_at ([DateTimeOffset]::Parse($oldObserved).UtcDateTime)}}catch{}}
+        }
+        $check.last_success_at=$last
+    }
+    $receipt=[ordered]@{schema_version=2;observer='core-next.supervisor';installation_id=$script:cfg.installation_id;source_commit=$script:cfg.source_commit;build_id=$script:cfg.build_id;service_name=$script:cfg.service_name;api_pid=$ApiPid;supervisor_pid=$PID;api_verified=$ApiVerified;last_success_at=$success;observed_at=$stamp;expires_at=$at.AddSeconds(45).ToString('o');checks=$Checks}
+    Save-CoreNextHeartbeatReceipt $receipt
+}
+function Write-CoreNextHeartbeat {
+    # No status/configuration mutation, provider call, inference, job or service operation.
+    # A receipt is renewed only after authenticating this exact live kernel/build.
+    $knownKernelId=0
+    try{
+        $at=[DateTime]::UtcNow
+        if($script:cfg.product -cne 'DRAGONHYDRA CORE NEXT' -or $script:cfg.edition -cne 'CORE NEXT' -or
+            $script:cfg.installation_id -cnotmatch '^core-next-[a-f0-9]{32}$' -or
+            $script:cfg.source_commit -cnotmatch '^[a-f0-9]{40}$' -or
+            $script:cfg.service_name -cnotmatch '^Dragonhydra[A-Za-z0-9_-]{0,60}$' -or
+            -not $script:cfg.build_id -or [IO.Path]::GetFullPath($script:cfg.state_root).TrimEnd('\') -ine $StateRoot){return $false}
+        $kernel=Get-CoreNextHeartbeatChild 'kernel' 'server\DRAGONHYDRA-Server.exe'
+        $apache=Get-CoreNextHeartbeatChild 'apache' 'web\apache\bin\httpd.exe'
+        $database=Get-CoreNextHeartbeatChild 'database' 'web\mariadb\bin\mysqld.exe'
+        if(-not $kernel){return $false}
+        $knownKernelId=[int]$kernel.Id
+        if(-not $apache -or -not $database){throw 'OWNED_CHILD_NOT_RUNNING'}
+        $endpoint=Read-CoreNextHeartbeatJson (Join-Path $StateRoot 'kernel\endpoint.json')
+        if($endpoint.pid -ne $kernel.Id -or $endpoint.url -cne ('http://127.0.0.1:'+$script:cfg.api_port)){throw 'KERNEL_ENDPOINT_UNVERIFIED'}
+        if((Test-CoreNextHeartbeatTcp $script:cfg.api_port $kernel.Id) -ne 'READY'){throw 'KERNEL_LISTENER_UNVERIFIED'}
+        $session=Read-CoreNextHeartbeatJson (Join-Path $StateRoot 'kernel\local-session.json')
+        if(-not ($session.token -is [string]) -or $session.token.Length -lt 32 -or $session.token.Length -gt 512){throw 'KERNEL_AUTHENTICATION_UNVERIFIED'}
+        $live=Invoke-CoreNextHeartbeatHttp $script:cfg.api_port '/dragon/api/v1/health/live' $session.token
+        $ready=Invoke-CoreNextHeartbeatHttp $script:cfg.api_port '/dragon/api/v1/health/ready' $session.token
+        if(-not $live.ok -or -not $ready.ok){throw 'KERNEL_HEALTH_UNVERIFIED'}
+        $identity=($live.body|ConvertFrom-Json).installation;$health=$ready.body|ConvertFrom-Json
+        if($identity.product -cne 'DRAGONHYDRA CORE NEXT' -or $identity.installation_id -cne $script:cfg.installation_id -or
+            $identity.source_commit -cne $script:cfg.source_commit -or $identity.build_id -cne $script:cfg.build_id -or
+            $identity.version -cne $script:cfg.version -or $health.version -cne $script:cfg.version -or
+            $health.source_sha -cne $script:cfg.source_commit -or $health.status -cne 'ready'){throw 'KERNEL_BUILD_UNVERIFIED'}
+        $kernelSuccess=[DateTime]::UtcNow.ToString('o')
+        $homepageCheck=@{ok=$false;status=0;body=''};$admin=@{ok=$false;status=0;body=''}
+        if($apache){$homepageCheck=Invoke-CoreNextHeartbeatHttp $script:cfg.web_port '/';$admin=Invoke-CoreNextHeartbeatHttp $script:cfg.web_port '/administrator/'}
+        $checks=[ordered]@{}
+        $checks.web_server=@{state='UNAVAILABLE';reason='OWNED_WEB_HTTP_UNAVAILABLE';metrics=@{http_status=[int]$homepageCheck.status;listener_present=$false};scope='OWNED_APACHE_PARENT_AND_LOOPBACK_HTTP_ONLY; no authenticated Joomla proof'}
+        if($apache -and $homepageCheck.status -eq 200){$checks.web_server=@{state='READY';reason='OWNED_LOOPBACK_HTTP_RESPONDED';metrics=@{http_status=200;process_id=[int]$apache.Id;listener_present=$true};scope='OWNED_APACHE_PARENT_ALIVE_AND_LOOPBACK_HTTP_200_HEADERS; no child-listener PID or authenticated Joomla claim'}}
+        $checks.joomla_administration=@{state='UNAVAILABLE';reason='JOOMLA_LOGIN_BOOTSTRAP_UNAVAILABLE';metrics=@{http_status=[int]$admin.status};scope='ANONYMOUS_JOOMLA_LOGIN_BOOTSTRAP_ONLY; administrator authentication not tested'}
+        if($admin.ok -and $admin.body -match 'mod-login-username' -and $admin.body -match '<form'){$checks.joomla_administration.state='DEGRADED';$checks.joomla_administration.reason='LOCAL_LOGIN_BOOTSTRAP_ONLY'}
+        elseif($admin.status -eq 200){$checks.joomla_administration.state='UNVERIFIED';$checks.joomla_administration.reason='LOGIN_BOOTSTRAP_NOT_VERIFIED_WITHIN_BOUNDED_RESPONSE'}
+        $checks.joomla_website=@{state='UNAVAILABLE';reason='JOOMLA_PUBLIC_SHELL_UNVERIFIED';metrics=@{http_status=[int]$homepageCheck.status};scope='PUBLIC_BRANDED_COMPONENT_SHELL_ONLY; no private data or authenticated operation proof'}
+        $websiteSuccess=$null
+        if($homepageCheck.ok -and $homepageCheck.body -match 'DRAGONHYDRA' -and $homepageCheck.body -match 'data-dragonhydra-workspace'){$checks.joomla_website.state='READY';$checks.joomla_website.reason='BRANDED_PUBLIC_COMPONENT_SHELL_RESPONDED';$websiteSuccess=[DateTime]::UtcNow.ToString('o')}
+        elseif($homepageCheck.status -eq 200){$checks.joomla_website.state='UNVERIFIED';$checks.joomla_website.reason='PUBLIC_COMPONENT_SHELL_NOT_VERIFIED_WITHIN_BOUNDED_RESPONSE'}
+        $dbState='UNAVAILABLE';if($database){$dbState=Test-CoreNextHeartbeatTcp $script:cfg.database_port $database.Id}
+        $checks.mariadb_storage=@{state='UNVERIFIED';reason='OWNED_DATABASE_LISTENER_UNVERIFIED';metrics=@{listener_present=$false};scope='OWNED_DATABASE_PROCESS_AND_TCP_LISTENER_PLUS_JOOMLA_BOOTSTRAP; no direct SQL permission/schema/integrity proof'}
+        $databaseSuccess=$null
+        if(-not $database){$checks.mariadb_storage.state='UNAVAILABLE';$checks.mariadb_storage.reason='OWNED_DATABASE_PROCESS_NOT_RUNNING'}
+        elseif($dbState -eq 'READY' -and $admin.ok -and $admin.body -match 'mod-login-username'){$checks.mariadb_storage.state='READY';$checks.mariadb_storage.reason='OWNED_DATABASE_TCP_AND_JOOMLA_BOOTSTRAP';$checks.mariadb_storage.metrics=@{process_id=[int]$database.Id;listener_present=$true};$databaseSuccess=[DateTime]::UtcNow.ToString('o')}
+        elseif($dbState -eq 'UNAVAILABLE'){$checks.mariadb_storage.state='UNAVAILABLE';$checks.mariadb_storage.reason='OWNED_DATABASE_TCP_UNAVAILABLE'}
+        $checks.web_server.observed_at=$homepageCheck.observed_at
+        if($checks.web_server.state -eq 'READY'){$checks.web_server.last_success_at=$homepageCheck.http_200_at}
+        $checks.joomla_administration.observed_at=$admin.observed_at
+        $checks.joomla_website.observed_at=[DateTime]::UtcNow.ToString('o')
+        if($checks.joomla_website.state -eq 'READY'){$checks.joomla_website.last_success_at=$websiteSuccess}
+        $checks.mariadb_storage.observed_at=[DateTime]::UtcNow.ToString('o')
+        if($checks.mariadb_storage.state -eq 'READY'){$checks.mariadb_storage.last_success_at=$databaseSuccess}
+        foreach($binding in @(@('kernel','server\DRAGONHYDRA-Server.exe'),@('apache','web\apache\bin\httpd.exe'),@('database','web\mariadb\bin\mysqld.exe'))){if(-not(Get-CoreNextHeartbeatChild $binding[0] $binding[1])){return $false}}
+        Save-CoreNextHeartbeatSnapshot ([int]$kernel.Id) $true $kernelSuccess $checks
+        return $true
+    }catch{
+        if($knownKernelId -gt 0){try{Save-CoreNextHeartbeatSnapshot $knownKernelId $false $null ([ordered]@{})}catch{}}
+        return $false
+    }
 }
 function Web([string]$operation) {
     $php=Join-Path $script:cfg.install_root 'web\php\php.exe'
@@ -331,8 +563,10 @@ try{
         if($i -eq 239){throw 'Initial sample import timed out.'}
     }
     Status 'ready'
+    $nextHeartbeat=[DateTime]::UtcNow
     while(-not(Test-Path -LiteralPath $stopFile)){
         foreach($entry in $script:children){if($entry.Process.HasExited){throw ('Managed component exited: '+$entry.Role)}}
+        if([DateTime]::UtcNow -ge $nextHeartbeat){$null=Write-CoreNextHeartbeat;$nextHeartbeat=[DateTime]::UtcNow.AddSeconds(15)}
         Start-Sleep -Seconds 1
     }
     Status 'stopping'

@@ -17,12 +17,16 @@ import json
 from pathlib import Path
 import re
 import sqlite3
+import time as monotonic_time
 
 from .. import market_store, public_results
 
 VERSION = 'cognitive-memory/1'
 OUTCOMES = ('home', 'draw', 'away')
 COGNITIVE_KINDS = ('model', 'prediction', 'outcome', 'task', 'evaluation', 'hypothesis')
+SCHEMA_TABLES = frozenset({'cognitive_records', 'cognitive_receipts'})
+SCHEMA_TRIGGERS = frozenset({'cognitive_records_no_update', 'cognitive_records_no_delete',
+                           'cognitive_receipts_no_update', 'cognitive_receipts_no_delete'})
 
 # Shared verbatim by the optional context migration profile. Keep these exact
 # table/trigger definitions compatible with existing cognitive databases.
@@ -387,9 +391,34 @@ def _append_revision(db, kind, scope, body, semantic, validate):
         return result
 
 
-def _as_of(db, cutoff):
+def _schema_state(db):
+    objects = list(db.execute("SELECT name,type FROM sqlite_master WHERE type IN ('table','trigger')"))
+    tables = {name for name, kind in objects if kind == 'table'}
+    triggers = {name for name, kind in objects if kind == 'trigger'}
+    if SCHEMA_TABLES <= tables and SCHEMA_TRIGGERS <= triggers:
+        return 'complete'
+    return 'incomplete' if SCHEMA_TABLES & tables or SCHEMA_TRIGGERS & triggers else 'absent'
+
+
+def inspect_store(db_path):
+    """Bounded read-only structural evidence; never initialize or repair memory."""
+    deadline = monotonic_time.monotonic()+.25
+    try:
+        with closing(sqlite3.connect(Path(db_path).resolve().as_uri()+'?mode=ro', uri=True, timeout=.1)) as db:
+            db.execute('PRAGMA query_only=ON')
+            db.set_progress_handler(lambda: int(monotonic_time.monotonic() > deadline), 1000)
+            state = _schema_state(db)
+            counts = {table: db.execute('SELECT COUNT(*) FROM '+table).fetchone()[0]
+                      for table in SCHEMA_TABLES} if state == 'complete' else {}
+            return {'schema_state': state, 'counts': counts}
+    except (sqlite3.Error, OSError):
+        raise ValueError('COGNITIVE_STORE_UNAVAILABLE') from None
+
+
+def _as_of(db, cutoff, *, initialize=True):
     cutoff = _utc(cutoff)
-    _schema(db)
+    if initialize:
+        _schema(db)
     rows = db.execute('''SELECT r.kind,r.record_id,r.payload,c.received_at,c.persisted_at,c.usable_at,r.fingerprint
       FROM cognitive_records r JOIN cognitive_receipts c ON r.record_id=c.record_id
       WHERE r.kind IN ('model','prediction','outcome','task','evaluation','hypothesis')
@@ -410,7 +439,22 @@ def _as_of(db, cutoff):
     return result
 
 
-def as_of(db_path, cutoff):
+def as_of(db_path, cutoff, *, readonly=False):
+    if readonly:
+        cutoff = _utc(cutoff)
+        try:
+            with closing(sqlite3.connect(Path(db_path).resolve().as_uri()+'?mode=ro', uri=True, timeout=.1)) as db:
+                db.execute('PRAGMA query_only=ON')
+                deadline = monotonic_time.monotonic()+2
+                db.set_progress_handler(lambda: int(monotonic_time.monotonic() > deadline), 1000)
+                state = _schema_state(db)
+                if state == 'absent':
+                    return {'models': [], 'predictions': [], 'outcomes': [], 'research_tasks': [], 'evaluations': [], 'hypotheses': []}
+                if state != 'complete':
+                    raise ValueError('COGNITIVE_STORE_INCOMPLETE')
+                return _as_of(db, cutoff, initialize=False)
+        except (sqlite3.Error, OSError):
+            raise ValueError('COGNITIVE_STORE_UNAVAILABLE') from None
     with closing(sqlite3.connect(str(db_path),timeout=10)) as db:
         return _as_of(db,cutoff)
 
