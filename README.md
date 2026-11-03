@@ -32,6 +32,13 @@ See [release evolution, package inventory and hashes](docs/releases/RELEASE-EVOL
 [resume instructions](RESUME-CODEX.md). The current public release remains dev1;
 do not install this held candidate over another edition.
 
+**Additional publication hold:** the legacy coordinator branch snapshot expects
+Nov1c9, while the original continuity branch already held Nov2a630 at this
+mission's baseline. Nov3heads/tags/releases remain preserved; no baseline/ref was
+changed to silence the guard. The current local metadata revision2 records both
+this unresolved guard and Windows acceptance gaps. All nine software hashes are
+unchanged; use the current report and held-r2 directory, not an assumed new release.
+
 **Historical development checkpoint (2026-11-02):** nine fresh dev.5 packages are
 built from `ed78fab282599a181d4254ab65a2fc2eaa5b7f50` and held locally. Source335distinct cases:
 328PASS/7NOT_RUN/0FAIL; actual standalone server/restart/SQLite restore and exports,

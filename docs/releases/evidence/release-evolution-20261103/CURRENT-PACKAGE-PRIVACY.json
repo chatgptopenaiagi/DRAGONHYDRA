@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "passed": true,
+  "stage": "complete",
+  "findings": [],
+  "counts": {
+    "top_level_assets": 6,
+    "setup_files": 0,
+    "archive_members": 0,
+    "inspected_buffers": 6,
+    "uncompressed_bytes_inspected": 86923,
+    "clean_joomla_class_exceptions": 0
+  },
+  "started_at": "2026-11-03T15:58:09.657663+00:00",
+  "artifact_sha256": {
+    "ARTIFACT-MANIFEST.json": "f325fb8dd481a6c9e71fb770290ad09e49da46b5438007ed9fda7b98a5b3b078",
+    "BUILD-REPORT.json": "9a23f44acae6bc928e864aa5b53d143438643903abc90244bdcb48fb2607b515",
+    "dragonhydra-0.5.0.dev6-py3-none-any.whl": "cffba23b0e150d6449788ee907fde87257d84fed3725c5e185fe46233a6a5afe",
+    "dragonhydra-0.5.0.dev6.tar.gz": "5a2ee3f7923283d9db35dcf321412034ce3a57fd0c035909a54b375edc734bdf",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk": "cd60bd1b92364268c49c5dbcf1b6be946283ac7bef659e5f3412fa94f67a3b8a",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe": "ac32dc8f4bbac1ebcf7f2d0c7eac22c620d909ef79bbbe288417eed2914cb73b",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz": "cc7d7c2de0cdfb37a1e5fe8a55ff0df6e732d76d95be8b977cc15968eb3d1fd4",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip": "e064b294c0ce91f54af203c3977f4ed66529c7d6a7b768e56397bec797829f48",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip": "860bec0759a8923494dcaf23ad923f6dd92e8072be86411c44ffd631b50f5190",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe": "5f569cb18cf7640770dbab643fd9b7cbbaeb33f505b47f53ed79cb4122b10e46",
+    "INSTALLATION.md": "832cae40cff55b82c513487250243224ab762b95920d980f1815a22454599ecc",
+    "pkg_dragonhydra-0.5.0-dev.6.zip": "7e3681853175adde4618598acab65837bf5c113bf8e79ccbc82bea629f58be0a",
+    "RELEASE-NOTES.md": "a018227549820ab7e349b1019975ca1f46590e09a0720ddef2fb95418b1dec6b",
+    "SHA256SUMS.txt": "e4175c6176a8078096bba8f9f8c901ac226e6818fb5d7d8a330290de40cbd658",
+    "TEST-REPORT.json": "548ba611db2ae27fb36f36ea8bba534335e44a842d0921d28351c62ed7299d56"
+  },
+  "artifact_bytes": {
+    "ARTIFACT-MANIFEST.json": 17443,
+    "BUILD-REPORT.json": 50577,
+    "dragonhydra-0.5.0.dev6-py3-none-any.whl": 378761,
+    "dragonhydra-0.5.0.dev6.tar.gz": 3259356,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk": 17345950,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe": 10087424,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz": 4356539,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip": 19615742,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip": 4321054,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe": 64918303,
+    "INSTALLATION.md": 5086,
+    "pkg_dragonhydra-0.5.0-dev.6.zip": 64160,
+    "RELEASE-NOTES.md": 3770,
+    "SHA256SUMS.txt": 1471,
+    "TEST-REPORT.json": 8576
+  },
+  "checksums": {
+    "status": "PASS",
+    "non_self_entries": 14,
+    "manifest_software_entries": 9
+  },
+  "unchanged_software_files": [
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe",
+    "dragonhydra-0.5.0.dev6-py3-none-any.whl",
+    "dragonhydra-0.5.0.dev6.tar.gz",
+    "pkg_dragonhydra-0.5.0-dev.6.zip"
+  ],
+  "changed_metadata_files": [
+    "ARTIFACT-MANIFEST.json",
+    "BUILD-REPORT.json",
+    "INSTALLATION.md",
+    "RELEASE-NOTES.md",
+    "SHA256SUMS.txt",
+    "TEST-REPORT.json"
+  ],
+  "prior_full_scan": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\FINAL-PACKAGE-PRIVACY.json",
+    "bytes": 5579,
+    "sha256": "b60ed68fab8c2edd956676127d7ee4510385dd1af2fdb20dede2fbdacb3ab29b"
+  },
+  "known_value_policy": {
+    "source": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\scan_task_sources.py",
+    "code_sha256": "b2be4d6cb476c9602cda390978fb9a404b89151ec154e08603b60ddc71225b35",
+    "execution_scope": "Only existing read-only collection/protected loader and encoding rules; no scanner main, credential validation or mutation",
+    "available_source_classes": {
+      "local_workstation_config": 10,
+      "local_client_handoff": 10,
+      "existing_owner_dpapi_handoff": 1
+    },
+    "unavailable_source_classes": {},
+    "distinct_values_loaded": 51,
+    "encoded_patterns_loaded": 154,
+    "secret_values_lengths_hashes_fingerprints_or_output_not_saved": true
+  },
+  "status": "PASS_NINE_UNCHANGED_FULL_SCAN_INHERITED_PLUS_SIX_METADATA_SCANNED",
+  "source_or_artifact_or_liveconfig_or_remote_mutations": false,
+  "all_fifteen_hashes_unchanged_during_check": true,
+  "inherited_scope": {
+    "nine_software_files": "Exact SHA256+size inheritance to prior full finite scan",
+    "decoded_setup_tree": "Prior bound full Setup scan inherited; no repeated tree scan",
+    "source_832_files": "Prior sealed source archive+832 manifest-file binding inherited by exact software ZIP hash",
+    "prior_inspected_bytes": 526071336,
+    "prior_nested_archive_members": 2722,
+    "prior_setup_files": 10675,
+    "prior_clean_joomla_class_exceptions": 2
+  },
+  "actual_new_scope": "All15 current hashes/checksums verified; ONLY six changed metadata files newly content/path scanned; no new archive/fullSetup scan",
+  "known_value_identity_statement": "Same unchanged collection/encoding policy and source classes reloaded;51 values154 encodings. Secret identities/fingerprints intentionally not persisted; exact-value identity is not inferred from counts alone.",
+  "installed_final_privacy": "NOT_RUN",
+  "history_or_windows_gate_cleared": false,
+  "limits": {
+    "maximum_member_bytes": 536870912,
+    "maximum_total_inspected_bytes": 4294967296,
+    "maximum_depth_exclusive": 8,
+    "maximum_archive_members": 200000
+  },
+  "limitations": [
+    "Finite known-value and path privacy only; not universal unknown-secret absence.",
+    "Prior full nine-software scan is inherited solely by exact unchanged hashes and sizes; new scan covers six metadata files.",
+    "Installed Windows privacy/runtime and historical baseline gate remain separate held gates."
+  ],
+  "finished_at": "2026-11-03T15:58:09.937769+00:00"
+}

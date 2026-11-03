@@ -7,7 +7,7 @@
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
   "branch": "docs/core-next-dev6-delivery-20261103",
-  "phase": "DEV6_LOCAL_STAGED_HELD_WINDOWS_GATES",
+  "phase": "DEV6_HELD_WINDOWS_AND_LEGACY_HISTORY_GUARD",
   "installation": "DISPOSABLE_DEV5_B447_ALL_FIVE_SOURCE_ED78_PRIMARY_PRESERVED_MIXED",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -37,7 +37,7 @@
     "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
   "publication": "LOCAL_STAGED_NOT_TAGGED_NOT_DRAFT_NOT_PUBLISHED",
-  "next_objective": "Bind a new exact-profile Windows lifecycle operation to sealed Setup/source795; obtain necessary local Windows authority and perform fresh installation/readback individually, then scoped remaining phases; no old one-shot rerun",
+  "next_objective": "Reconcile the legacy branch-baseline guard through an explicit immutable per-transaction evidence plan; then complete individually scoped Windows installed/native/lifecycle gates. No direct publication bypass.",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -1010,14 +1010,46 @@
     "remote_binary_downloads": "NOT_RUN",
     "frozen_source_branch": "release/core-next-dev6-verified-20261103",
     "documentation_branch": "docs/core-next-dev6-delivery-20261103",
-    "next_action": "Bind a new exact-profile Windows lifecycle operation to sealed Setup/source795; obtain necessary local Windows authority and perform fresh installation/readback individually, then scoped remaining phases; no old one-shot rerun",
+    "next_action": "Reconcile the legacy branch-baseline guard through an explicit immutable per-transaction evidence plan; then complete individually scoped Windows installed/native/lifecycle gates. No direct publication bypass.",
     "compiled_source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
-    "assets": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.6-core-next",
-    "manifest_sha256": "55c1e456942437a78d77d1ef10ec18352b8afc9ca57b9c9ecfd6f033010f1950",
-    "checksums_sha256": "fe29fdfc68995199db72043ba45fc4bc69e72dbf1890273c8a57343c763ede3a",
+    "assets": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.6-core-next-held-r2",
+    "manifest_sha256": "f325fb8dd481a6c9e71fb770290ad09e49da46b5438007ed9fda7b98a5b3b078",
+    "checksums_sha256": "e4175c6176a8078096bba8f9f8c901ac226e6818fb5d7d8a330290de40cbd658",
     "engineering_evidence_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103",
     "automatic_commit_archive_sha256": "0cff876d29296913841d0a1d425bb939f94937cf20efc3ffa81175bd0dec2033",
-    "package_privacy_receipt_sha256": "b60ed68fab8c2edd956676127d7ee4510385dd1af2fdb20dede2fbdacb3ab29b",
-    "local_preservation_receipt_sha256": "91c9657abbf2a9e1b202a739362ee2d2ebe19c87241107c8e2cf50afa6b47747"
+    "package_privacy_receipt_sha256": "e5d906ab98d45425948113ef347b8d7be8adad4b074fa3e2789efa1d31cda496",
+    "local_preservation_receipt_sha256": "91c9657abbf2a9e1b202a739362ee2d2ebe19c87241107c8e2cf50afa6b47747",
+    "metadata_revision": 2,
+    "additional_guard": {
+      "status": "BLOCKED",
+      "name": "LEGACY_RELEASE_COORDINATOR_HISTORY",
+      "reason": "Old Nov1branch witness expectsc9; branch was alreadya630beforeNov3mission. All initialNov3heads unchanged; ancestry verified. Old witness/ref left untouched."
+    },
+    "history_addendum": {
+      "schema_version": 1,
+      "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "observed_at": "2026-11-03T15:56:16.334180+00:00",
+      "status": "PREEXISTING_LEGACY_HISTORY_GUARD_BLOCK_RECONCILED_AS_FACTS_NOT_BYPASSED",
+      "coordinator_history": "FAIL_HISTORICAL_BRANCHES_BEFORE_REFS_CHANGED",
+      "differences": [
+        {
+          "ref": "refs/heads/continuity/genesis-20261031-a6",
+          "legacy_baseline": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
+          "current": "a63068de10a111a7784bcf677101a66b693d0908"
+        }
+      ],
+      "legacy_baseline_sha256": "35c4a3c8767501ddabf029b40491d0ece528bbde33f3246f5705e2e8cd1effb0",
+      "failure_log_sha256": "66dd997b09c3e1797c90561033b2d59584009e386018e4a0c08362cc3c2402cf",
+      "initial_nov3_branch_heads_unchanged": true,
+      "initial_branch_count": 11,
+      "current_branch_count": 13,
+      "current_is_descendant_of_legacy_tip": true,
+      "legacy_tip_committed_at": "2026-11-01T14:17:02+01:00",
+      "current_tip_committed_at": "2026-11-02T07:58:53+01:00",
+      "original_branch_or_legacy_baseline_modified": false,
+      "source_or_software_changed": false,
+      "remaining_action": "Explicitly reconcile a new release-transaction branch baseline against the preserved legacy snapshot; require exact transaction-time refs and preserve immutable tags/assets. Do not reset the branch, edit the old witness or suppress the guard.",
+      "publication": "HELD_FOR_WINDOWS_AND_LEGACY_HISTORY_GUARD"
+    }
   }
 }

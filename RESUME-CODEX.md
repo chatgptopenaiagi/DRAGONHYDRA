@@ -1,3 +1,26 @@
+# Current metadata revision2 — held, 2026-11-03
+
+Current candidate: `LAB/dist/v0.5.0-dev.6-core-next-held-r2`.
+Nine software bytes/source795 are unchanged; only six metadata files were resealed.
+Current manifest `f325fb8dd481a6c9e71fb770290ad09e49da46b5438007ed9fda7b98a5b3b078`;
+checksums `e4175c6176a8078096bba8f9f8c901ac226e6818fb5d7d8a330290de40cbd658`. The initial15-file seal and
+its release-state snapshot remain preserved. Neither seal was uploaded.
+
+Additional gate: the unchanged coordinator's history command **FAILed** because
+the Nov1branch snapshot expectsc9fcc789d0380bc372cd349d3fb43abcfaeca09f, while
+continuity/genesis-20261031-a6 was already ata63068de10a111a7784bcf677101a66b693d0908
+in the initialNov3audit. Currenta630was committedNov2; oldc9is its ancestor.
+Every initialNov3branch head, published tag and release/asset witness is preserved.
+This is a preexisting comparison-baseline discrepancy, not a ref changed by this
+mission. The old baseline/ref was NOT edited, reset or exempted. Formal fresh
+transaction-baseline reconciliation remains required, alongside mandatory Windows
+installed/native/service/repair/retained lifecycle and installed privacy acceptance.
+
+Result: **PARTIALLY COMPLETE / LOCAL_STAGED**, not a draft or public release.
+Next: reconcile that history guard with explicit preserved evidence, then the
+individually scoped Windows operations. Do not bypass either gate. The detailed
+report below includes the initial seal's historical observations where stated.
+
 # Current verified delivery — 2026-11-03
 
 Read [release evolution report](docs/releases/RELEASE-EVOLUTION-REPORT-20261103.md).

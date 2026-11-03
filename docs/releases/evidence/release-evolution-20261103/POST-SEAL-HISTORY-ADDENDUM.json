@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "observed_at": "2026-11-03T15:56:16.334180+00:00",
+  "status": "PREEXISTING_LEGACY_HISTORY_GUARD_BLOCK_RECONCILED_AS_FACTS_NOT_BYPASSED",
+  "coordinator_history": "FAIL_HISTORICAL_BRANCHES_BEFORE_REFS_CHANGED",
+  "differences": [
+    {
+      "ref": "refs/heads/continuity/genesis-20261031-a6",
+      "legacy_baseline": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
+      "current": "a63068de10a111a7784bcf677101a66b693d0908"
+    }
+  ],
+  "legacy_baseline_sha256": "35c4a3c8767501ddabf029b40491d0ece528bbde33f3246f5705e2e8cd1effb0",
+  "failure_log_sha256": "66dd997b09c3e1797c90561033b2d59584009e386018e4a0c08362cc3c2402cf",
+  "initial_nov3_branch_heads_unchanged": true,
+  "initial_branch_count": 11,
+  "current_branch_count": 13,
+  "current_is_descendant_of_legacy_tip": true,
+  "legacy_tip_committed_at": "2026-11-01T14:17:02+01:00",
+  "current_tip_committed_at": "2026-11-02T07:58:53+01:00",
+  "original_branch_or_legacy_baseline_modified": false,
+  "source_or_software_changed": false,
+  "remaining_action": "Explicitly reconcile a new release-transaction branch baseline against the preserved legacy snapshot; require exact transaction-time refs and preserve immutable tags/assets. Do not reset the branch, edit the old witness or suppress the guard.",
+  "publication": "HELD_FOR_WINDOWS_AND_LEGACY_HISTORY_GUARD"
+}
