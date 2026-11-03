@@ -1,3 +1,20 @@
+# Final source-bound observation — 0.5.0-dev.6
+
+Frozen source795f962be36d30f8c30bcb1a2c3dc264b9b397e3: actual new Windows EXE persisted forecast9cee340634464547afd61af978132481,
+reused duplicate job identities, exported three valid formats and read back history
+after clean application restart. All50ordered input/version/availability manifests
+match the dev5oracle; all five Decimal vectors have zero delta. Evaluationa87c98ae54b94913aa8a757d4c534d6e
+remains pending eligible later outcome. No measured skill, model training, Neural
+Bridge or live conditional forecasting is claimed. Registry remains6engines and
+12supporting components, with no passive provider/model work.
+
+Current verification:94focused cases PASS; Joomla71PASS/1NOT_RUN plus9contracts;
+Flutter15PASS; Windows17checks; Docker11runtime groups (embedded31cases30PASS/1NOT_RUN,
+not summed twice); fresh Python wheel/sdist installation. These are scoped results,
+not full Windows/GUI/device acceptance. Read [the release report](RELEASE-EVOLUTION-REPORT-20261103.md).
+The capability inventory/source comparison below remains valid; its old timestamps
+are historical observations, not automatically refreshed evidence.
+
 # Cognitive evolution — dev.6 source-freeze preparation
 
 This candidate accumulates reliability and integration improvements over published

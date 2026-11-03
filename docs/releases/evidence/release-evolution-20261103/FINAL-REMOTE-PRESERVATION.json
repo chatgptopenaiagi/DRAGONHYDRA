@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "observed_at": {
+    "utc": "2026-11-03T15:28:19.576555Z",
+    "europe_vienna": "2026-11-03T16:28:19.576555+01:00"
+  },
+  "status": "PASS",
+  "scope": "READ_ONLY_RELEASE_REF_METADATA_PRESERVATION; RELEASE_BINARIES_NOT_DOWNLOADED",
+  "baselines": {
+    "initial_case": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\audit-github\\GITHUB-AUDIT.json",
+      "bytes": 126386,
+      "sha256": "397af7be7ad1922e202e48da69ecabb6c0b0a9f1cda1f9b5d94593d2f17a05bd"
+    },
+    "forensic_prior": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\final-preservation-r1\\REMOTE-PRESERVATION.json",
+      "bytes": 63361,
+      "sha256": "7856e3001825a97f8c1d306ee671cd89f3b2e02e704cbdc6ccdfae4f5f3dd4ea"
+    },
+    "original_nov2": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\reconciliation-20261102\\release-baseline-20261102T122047Z-remote.json",
+      "bytes": 71305,
+      "sha256": "56dff39fc1ba9b9aa9cb490a9f478be392cefc29e702d1eab38a9b7dadc9984b"
+    }
+  },
+  "metadata_witness": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\final-github-preservation\\METADATA-WITNESS.json",
+    "bytes": 97153,
+    "sha256": "b3f769e9f64ee82e91f966a7d92fa9b4503ee0a0edb5b51d2739474af94fb136"
+  },
+  "current_counts": {
+    "releases": 10,
+    "assets": 95,
+    "drafts": 0,
+    "tags": 10,
+    "expanded_tag_refs": 14,
+    "branches": 12
+  },
+  "historical_releases_compared": 10,
+  "historical_assets_compared": 95,
+  "initial_release_asset_body_differences": [],
+  "forensic_release_asset_body_differences": [],
+  "original_release_asset_differences": [],
+  "initial_tag_differences": [],
+  "original_tag_differences": [],
+  "initial_branch_differences": [],
+  "original_branch_differences": [],
+  "new_branches_since_initial": {
+    "refs/heads/release/core-next-dev6-verified-20261103": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3"
+  },
+  "expected_source_branch": {
+    "ref": "refs/heads/release/core-next-dev6-verified-20261103",
+    "expected": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "actual": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "verified": true
+  },
+  "candidate_source_classification": "REMOTE_BRANCH_ONLY",
+  "dev5_dev6_tags": [],
+  "dev5_dev6_releases_or_drafts": [],
+  "latest_stable": {
+    "id": 426798763,
+    "tag": "v0.2.0+genesis2.checkpoint",
+    "source_commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+    "published_at": {
+      "utc": "2026-10-28T14:48:37Z",
+      "europe_vienna": "2026-10-28T15:48:37+01:00"
+    }
+  },
+  "latest_stable_preserved": true,
+  "newest_published_release": {
+    "id": 430678928,
+    "tag": "v0.5.0-dev.1-core-next",
+    "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "published_at": {
+      "utc": "2026-11-01T16:25:32Z",
+      "europe_vienna": "2026-11-01T17:25:32+01:00"
+    },
+    "classification": "PUBLISHED_PRERELEASE"
+  },
+  "historical_binary_download_checks": "NOT_RUN; metadata ID/name/size/digest checks only",
+  "remote_mutations": false,
+  "source_mutations": false,
+  "limits": [
+    "Prose hashes prove preservation only since existing Nov3 witnesses; Nov2 baseline lacked complete body hashes.",
+    "Download counts are dynamic and excluded from preservation judgments.",
+    "Branch tips are mutable and compared separately from immutable release tag/asset witnesses."
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "checked_at": "2026-11-03T15:27:12.837494+00:00",
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "version": "0.5.0-dev.6",
+  "installation_id": "core-next-8f00f5cb34384405b09b88ba439e8e6a",
+  "ports": {
+    "api": 18954,
+    "database": 18956,
+    "web": 18955
+  },
+  "exe": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\build\\server-dev6-evolution-r2\\dist\\DRAGONHYDRA-Server-x64\\DRAGONHYDRA-Server.exe",
+    "bytes": 8118946,
+    "sha256": "7c441b9ec178a4a152aca3ef397bdfb84da05f2ff163f3f65d1ec172ae95d8a6"
+  },
+  "scope": "New dev6 standalone retained workflow/exports only; no original phase continuation or service acceptance",
+  "actual_checks": 17,
+  "planned_groups": 6,
+  "checks": [
+    {
+      "at": "2026-11-03T15:26:28.131497+00:00",
+      "name": "first_source_profile_ready",
+      "pid": 7276,
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:28.266508+00:00",
+      "name": "passive_registry_history_reads_no_database_or_job_writes",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:31.931961+00:00",
+      "name": "forecast_exact_duplicate_returns_same_job_result",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:32.193182+00:00",
+      "name": "evaluation_exact_duplicate_and_honest_pending",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:32.264313+00:00",
+      "name": "actual_persisted_history_matches_job_outputs",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:32.420110+00:00",
+      "name": "independent_canonical_workflow_preservation_audit",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:32.424034+00:00",
+      "max_absolute_decimal_deltas": {
+        "elo": "0E-17",
+        "ensemble": "0E-16",
+        "frequency": "0E-16",
+        "poisson_goals": "0E-16",
+        "recency": "0E-16"
+      },
+      "name": "actual_same_cohort_dev5_oracle_decimal_comparison",
+      "same_ordered_50_inputs": true,
+      "same_source_version_availability_manifests": true,
+      "scope": "Same retained input cohort only; no accuracy or performance improvement claim",
+      "status": "PASS",
+      "tolerance": "1e-12"
+    },
+    {
+      "at": "2026-11-03T15:26:32.719901+00:00",
+      "bytes": 2929,
+      "format": "json",
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "name": "actual_json_export_and_anonymous_download_denial",
+      "sha256": "e1881128f2234b6e5fb40c59a735b6854808ef089c40cbd3a39f370991ac5688",
+      "source_id": "openfootball-2026-27-en1.json",
+      "status": "PASS",
+      "valid": true
+    },
+    {
+      "at": "2026-11-03T15:26:33.088973+00:00",
+      "bytes": 373,
+      "format": "csv",
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "name": "actual_csv_export_and_anonymous_download_denial",
+      "sha256": "b1fa4119bb606c9ddcf730fde3cc99b549a9c74f0d9598036cc9f09bfeadec69",
+      "source_id": "openfootball-2026-27-en1.json",
+      "status": "PASS",
+      "valid": true
+    },
+    {
+      "at": "2026-11-03T15:26:33.496526+00:00",
+      "bytes": 6225,
+      "format": "xlsx",
+      "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+      "name": "actual_xlsx_export_and_anonymous_download_denial",
+      "sha256": "8243b5d72698e9bb1e0e85ea92e91bc7b229fa03bd9f56b356e42ad341328b03",
+      "source_id": "openfootball-2026-27-en1.json",
+      "status": "PASS",
+      "valid": true
+    },
+    {
+      "at": "2026-11-03T15:26:33.607065+00:00",
+      "name": "exports_only_approved_three_jobs_and_twelve_events",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:33.932205+00:00",
+      "name": "owned_clean_shutdown_1",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:34.848548+00:00",
+      "name": "restart_source_profile_ready",
+      "pid": 44008,
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:35.049294+00:00",
+      "name": "restart_history_jobs_and_own_pairing_preserved",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:35.191654+00:00",
+      "name": "restart_is_replay_only_without_new_records_jobs_events",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:35.504717+00:00",
+      "name": "owned_clean_shutdown_2",
+      "status": "PASS"
+    },
+    {
+      "at": "2026-11-03T15:26:35.512433+00:00",
+      "name": "original_before_and_all_other_profiles_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "forecast_proof": {
+    "cutoff": "2026-11-03T15:26:28.315280Z",
+    "finite_decimal_roundtrip": true,
+    "generated_at": "2026-11-03T15:26:28.374588+00:00",
+    "independent_trained_model_count_claimed": false,
+    "input_count": 50,
+    "input_ids_sha256": "e3c9764849617193ff9a4f330f0be300dca10cf0d431144f014fdb188ae7247e",
+    "model_names": [
+      "elo",
+      "ensemble",
+      "frequency",
+      "poisson_goals",
+      "recency"
+    ],
+    "model_version": "football-models/1",
+    "output_count": 5,
+    "probability_wire_types": [
+      "JSON_STRING"
+    ]
+  },
+  "numeric_oracle": {
+    "max_absolute_decimal_deltas": {
+      "elo": "0E-17",
+      "ensemble": "0E-16",
+      "frequency": "0E-16",
+      "poisson_goals": "0E-16",
+      "recency": "0E-16"
+    },
+    "same_ordered_50_inputs": true,
+    "same_source_version_availability_manifests": true,
+    "scope": "Same retained input cohort only; no accuracy or performance improvement claim",
+    "tolerance": "1e-12"
+  },
+  "approved_workflow_job_ids": {
+    "evaluation": "a87c98ae54b94913aa8a757d4c534d6e",
+    "forecast": "9cee340634464547afd61af978132481"
+  },
+  "preservation_audit": {
+    "after_sha256": "5d157b9e4a7c47107b3846d301ce0a52419f25d4e22db40acee5845f899a00bc",
+    "authentication_bookkeeping_row_exemptions": [
+      "product_bridge_nonces",
+      "product_sessions"
+    ],
+    "before_sha256": "84e7a9ee2aa87c556ec0e0493aa460dc69f2e27b600d4c803a3de33ded00d429",
+    "counts": {
+      "added_schema_objects": 27,
+      "auth_bookkeeping": {
+        "product_bridge_nonces": {
+          "after": 0,
+          "before": 0
+        },
+        "product_sessions": {
+          "after": 0,
+          "before": 0
+        }
+      },
+      "new_cognitive_receipts": 10,
+      "new_cognitive_records": 10,
+      "new_events": 8,
+      "new_jobs": 2,
+      "protected_retained_rows": 760
+    },
+    "errors": [],
+    "passed": true,
+    "schema_contract_sha256": "f0b216aaf58e9bde1351e0e152263f25480b39cdab17fe8ee49ee0d3ecf5485b",
+    "schema_version": "workflow-preservation/1",
+    "scope_limits": [
+      "Does not replace configuration/credential fingerprint checks",
+      "Caller binds source/profile, approved IDs and preserved snapshot hashes",
+      "Does not prove network inactivity or model numerical correctness"
+    ]
+  },
+  "export_preservation": {
+    "all_old_rows_preserved": true,
+    "new_export_jobs": 3,
+    "new_related_events": 12,
+    "passed": true,
+    "schema_and_protected_domain_unchanged": true
+  },
+  "restart_audit": {
+    "after_sha256": "7a0ecb8dabcc110de1943ca4e69e9cbf56659aca70a82d7d8aacfc2a8fd3f82c",
+    "authentication_bookkeeping_row_exemptions": [
+      "product_bridge_nonces",
+      "product_sessions"
+    ],
+    "before_sha256": "7a0ecb8dabcc110de1943ca4e69e9cbf56659aca70a82d7d8aacfc2a8fd3f82c",
+    "counts": {
+      "added_schema_objects": 0,
+      "auth_bookkeeping": {
+        "product_bridge_nonces": {
+          "after": 0,
+          "before": 0
+        },
+        "product_sessions": {
+          "after": 0,
+          "before": 0
+        }
+      },
+      "new_cognitive_receipts": 0,
+      "new_cognitive_records": 0,
+      "new_events": 0,
+      "new_jobs": 0,
+      "protected_retained_rows": 760
+    },
+    "errors": [],
+    "passed": true,
+    "schema_contract_sha256": "f0b216aaf58e9bde1351e0e152263f25480b39cdab17fe8ee49ee0d3ecf5485b",
+    "schema_version": "workflow-preservation/1",
+    "scope_limits": [
+      "Does not replace configuration/credential fingerprint checks",
+      "Caller binds source/profile, approved IDs and preserved snapshot hashes",
+      "Does not prove network inactivity or model numerical correctness"
+    ]
+  },
+  "exports": {
+    "jobs": [
+      "ddb261b9abea4b4b9da52773398cea34",
+      "c6a6ceba59dd483eb217777f62cecec6",
+      "1e68d99d5dd54c8e9a81f5cf49155faa"
+    ],
+    "proofs": [
+      {
+        "format": "json",
+        "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "source_id": "openfootball-2026-27-en1.json",
+        "valid": true
+      },
+      {
+        "format": "csv",
+        "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "source_id": "openfootball-2026-27-en1.json",
+        "valid": true
+      },
+      {
+        "format": "xlsx",
+        "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+        "source_id": "openfootball-2026-27-en1.json",
+        "valid": true
+      }
+    ],
+    "role_scope": "Owner success and anonymous401 only; no invented reader/other-user credential"
+  },
+  "lifetimes": [
+    {
+      "endpoint_removed": true,
+      "exit_code": 0,
+      "finished_at": "2026-11-03T15:26:33.931997+00:00",
+      "hidden": true,
+      "label": "first",
+      "pid": 7276,
+      "port_free": true,
+      "started_at": "2026-11-03T15:26:26.461727+00:00"
+    },
+    {
+      "endpoint_removed": true,
+      "exit_code": 0,
+      "finished_at": "2026-11-03T15:26:35.504379+00:00",
+      "hidden": true,
+      "label": "restart",
+      "pid": 44008,
+      "port_free": true,
+      "started_at": "2026-11-03T15:26:33.986934+00:00"
+    }
+  ],
+  "http_status_counts": {
+    "200": 54,
+    "202": 7,
+    "401": 5
+  },
+  "no_provider_import_local_ai_joomla_scm_browser_or_installer_actions": true,
+  "automatic_retry": false,
+  "release_status": "NOT_PUBLISHED",
+  "evidence": [
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\dev6-runtime-r2\\verification.json",
+      "sha256": "e806cb80a88746224f0f9cf82bf2b369e55b3a7a9a540bf6efe118877507e33c"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\dev6-runtime-r2\\EXECUTION-PLAN.json",
+      "sha256": "c72fa2fdcd8e87a62bacfbf7423117276c0b274bd62ebad1d25e4bfb6b602747"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\dev6-runtime-r2\\PROFILE-PLAN.json",
+      "sha256": "61c152274007ae82c47cca14b906ab5a75b0b3060bb58310234c7c514aaddfc0"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\dev6-runtime-r2\\run_dev6.py",
+      "sha256": "bc773503cbb572ce2ba7fafdf9a08fc91b27b2d3ffa70df0aa38da7c473fc33f"
+    },
+    {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\dev6-runtime-r2\\runtime_extras.py",
+      "sha256": "334ca2030906b1119a367a790bcd9be842ef12304fcfada475f33ae8c16b9bb0"
+    }
+  ]
+}

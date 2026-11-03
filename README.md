@@ -19,19 +19,18 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Release evolution (2026-11-03):** the forensic checkpoint reached its Git branch,
-but no dev.5/dev.6 release or draft exists at the authenticated audit. Candidate
-**0.5.0-dev.6** is being built from a separate frozen source, with Androidcode9,
-improved preservation/recovery verification and registered-worktree build support.
-The forecasting formulas are unchanged; no new predictive skill, NeuralBridge or
-live conditional forecasting is claimed. Builds/runtime checks are NOT_RUN at
-this source-freeze preparation. Publication remains held by the existing mandatory
-Windows lifecycle/privacy gates. See [cognitive evolution](docs/releases/COGNITIVE-EVOLUTION-20261103.md)
-and [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md). Preliminary
-40523425 packages passed scoped runtime checks, but regression reruns exposed
-three test-fixture defects. The [corrected checkpoint](docs/releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md)
-preserves those failures and requires fresh source-bound outputs; it changes no
-forecast formula or installed application behavior.
+**Current development candidate: 0.5.0-dev.6, LOCAL_STAGED/HELD.** Nine packages and
+six metadata files were rebuilt from [795f962be36d](https://github.com/chatgptopenaiagi/DRAGONHYDRA/commit/795f962be36d30f8c30bcb1a2c3dc264b9b397e3).
+Source is pushed and its automatic GitHub ZIP is verified; no dev6Release/tag/draft
+or public binary download exists.94focused tests passed; Joomla71/72 plus9contracts,
+Flutter15, actual standalone Windows17checks and Docker11groups passed within their
+documented scope. Full Windows installed/native/SCM/repair/retained lifecycle and
+final installed privacy gates remain incomplete. No new prediction formulas,
+measured accuracy, Neural Bridge or live conditional forecasting is claimed.
+See [release evolution, package inventory and hashes](docs/releases/RELEASE-EVOLUTION-REPORT-20261103.md),
+[cognitive capabilities](docs/releases/COGNITIVE-EVOLUTION-20261103.md) and
+[resume instructions](RESUME-CODEX.md). The current public release remains dev1;
+do not install this held candidate over another edition.
 
 **Historical development checkpoint (2026-11-02):** nine fresh dev.5 packages are
 built from `ed78fab282599a181d4254ab65a2fc2eaa5b7f50` and held locally. Source335distinct cases:

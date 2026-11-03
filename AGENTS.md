@@ -1,3 +1,10 @@
+## Delivery documentation ownership — 2026-11-03
+
+Root owns only this documentation worktree/branch, docs/core-next-dev6-delivery-20261103.
+The compiled frozen source is795f962 on release/core-next-dev6-verified-20261103.
+Read RESUME-CODEX.md and docs/releases/RELEASE-EVOLUTION-REPORT-20261103.md.
+No source/binary tag drift, Windows gate bypass or old phase repetition is allowed.
+
 ## Current release evolution — 2026-11-03
 
 Root now owns `LAB/release-source/dev6-verified-20261103`, branch

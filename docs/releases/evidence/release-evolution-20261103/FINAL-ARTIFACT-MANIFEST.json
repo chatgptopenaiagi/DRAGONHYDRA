@@ -1,0 +1,356 @@
+{
+  "schema_version": "dragonhydra.release-candidate/1",
+  "legacy_manifest_schema_version": 1,
+  "product": "DRAGONHYDRA CORE NEXT",
+  "version": "0.5.0-dev.6",
+  "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "tag": "v0.5.0-dev.6-core-next",
+  "classification": "development prerelease",
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "release_type": "development-prerelease",
+  "artifacts": [
+    {
+      "kind": "workstation",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Windows x64",
+      "bytes": 64918303,
+      "sha256": "5f569cb18cf7640770dbab643fd9b7cbbaeb33f505b47f53ed79cb4122b10e46",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Extracted/manifest/source checked; NOT installed",
+      "build_witness": {
+        "name": "workstation.json",
+        "sha256": "f79391d13d61d52539b7cdbe9a6c4eeb9d795f4a35d7cca5291ca12aff0bb591",
+        "scope": "Extracted/manifest/source checked; NOT installed"
+      },
+      "acceptance": [],
+      "inspection": {
+        "windows_file_version": "0.5.0.6"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": [
+        "Mandatory new-version Windows installation/service/GUI/restart/repair/uninstall and final installed privacy acceptance remain incomplete; no draft/publication exception is introduced.",
+        "Windows EXE builds are unsigned development outputs. Desktop numeric PE0.5.0.0 is Tauri prerelease mapping; embedded SemVer is0.5.0-dev.6. Server/Setup numeric PE0.5.0.6.",
+        "Android ARM64 optimized release build uses the existing development Debug signer, code9; no connected target or physical-device acceptance.",
+        "Joomla package/source/isolated PHP checks passed; new-version installed authenticated Joomla acceptance is NOT_RUN.",
+        "Linux verification used cached Docker CPython3.14, network none; no native Linux desktop, WSL, systemd or reboot acceptance.",
+        "Four model outputs plus their ensemble are uncalibrated statistical forecasts. No predictive-skill improvement, Neural Bridge, new training or live conditional forecasting is claimed.",
+        "No eligible real later outcome exists for the retained demonstration; evaluation is pending. Synthetic evaluation cases do not demonstrate real accuracy.",
+        "Earlier independent wheel/sdist byte-rebuild equality applies to40523425 only; byte reproducibility is not claimed for the full current distribution.",
+        "Remote software assets do not exist for this held candidate; remote binary download checks are NOT_RUN. The separately verified GitHub commit archive is not a Release asset."
+      ]
+    },
+    {
+      "kind": "desktop",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Windows x64",
+      "bytes": 10087424,
+      "sha256": "ac32dc8f4bbac1ebcf7f2d0c7eac22c620d909ef79bbbe288417eed2914cb73b",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Fresh Tauri compilation/metadata CLI/PE/source checks; native GUI NOT_RUN",
+      "build_witness": {
+        "name": "desktop.json",
+        "sha256": "46014d8a6be3778db1b0475f77aab25c8b27f560294d0d7e96100545d155a139",
+        "scope": "Fresh Tauri compilation/metadata CLI/PE/source checks; native GUI NOT_RUN"
+      },
+      "acceptance": [],
+      "inspection": {
+        "windows_file_version": "0.5.0.0"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "server",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Windows x64",
+      "bytes": 19615742,
+      "sha256": "e064b294c0ce91f54af203c3977f4ed66529c7d6a7b768e56397bec797829f48",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Actual standalone17 checks, persisted forecast/exports, clean application restart; no SCM",
+      "build_witness": {
+        "name": "server.json",
+        "sha256": "bc58f43ba5ab54d36f3dc6a4563b2132d0f3731fbf4fc984e327e5df196340d8",
+        "scope": "Actual standalone17 checks, persisted forecast/exports, clean application restart; no SCM"
+      },
+      "acceptance": [],
+      "inspection": {
+        "embedded_source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "joomla",
+      "filename": "pkg_dragonhydra-0.5.0-dev.6.zip",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Joomla6 PHP",
+      "bytes": 64160,
+      "sha256": "7e3681853175adde4618598acab65837bf5c113bf8e79ccbc82bea629f58be0a",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "28 PHP lints;72 cases71PASS/1NOT_RUN;9 current contracts PASS; installed update NOT_RUN",
+      "build_witness": {
+        "name": "joomla.json",
+        "sha256": "acb7c0f26de0f94352f4fffe90421db954f82924b02d510e440c10ca99cf9850",
+        "scope": "28 PHP lints;72 cases71PASS/1NOT_RUN;9 current contracts PASS; installed update NOT_RUN"
+      },
+      "acceptance": [],
+      "inspection": {
+        "joomla_version": "0.5.0-dev.6",
+        "embedded_source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "wheel",
+      "filename": "dragonhydra-0.5.0.dev6-py3-none-any.whl",
+      "version": "0.5.0.dev6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "CPython3.14 >=3.14,<3.15",
+      "bytes": 378761,
+      "sha256": "cffba23b0e150d6449788ee907fde87257d84fed3725c5e185fe46233a6a5afe",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Fresh offline wheel install, CLI/server/bundled760 data, manifest/RECORD/source validation",
+      "build_witness": {
+        "name": "wheel.json",
+        "sha256": "87c493d8793ffc4bc585557a9fda654d0b284b871370066904ce4c50040bfb97",
+        "scope": "Fresh offline wheel install, CLI/server/bundled760 data, manifest/RECORD/source validation"
+      },
+      "acceptance": [],
+      "inspection": {
+        "python_version": "0.5.0.dev6",
+        "embedded_source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "sdist",
+      "filename": "dragonhydra-0.5.0.dev6.tar.gz",
+      "version": "0.5.0.dev6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "CPython3.14 source",
+      "bytes": 3259356,
+      "sha256": "5a2ee3f7923283d9db35dcf321412034ce3a57fd0c035909a54b375edc734bdf",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Actual fresh offline sdist install, pip check, CLI/4synthetic score cases/18row sample report",
+      "build_witness": {
+        "name": "sdist.json",
+        "sha256": "372574b3947c13453cd45a3aef5108a10d2b39892ab1c13c6200de56b005c2fb",
+        "scope": "Actual fresh offline sdist install, pip check, CLI/4synthetic score cases/18row sample report"
+      },
+      "acceptance": [],
+      "inspection": {
+        "python_version": "0.5.0.dev6",
+        "embedded_source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "linux",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Linux x86_64 CPython3.14",
+      "bytes": 4356539,
+      "sha256": "cc7d7c2de0cdfb37a1e5fe8a55ff0df6e732d76d95be8b977cc15968eb3d1fd4",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Docker11runtime groups;31unit cases30PASS/1Windows-only NOT_RUN, overlap not summed",
+      "build_witness": {
+        "name": "linux.json",
+        "sha256": "042c4af8b76c73c7d960bd5aa3b1439ac51fec66ce4d513cfd45952693bdd1e0",
+        "scope": "Docker11runtime groups;31unit cases30PASS/1Windows-only NOT_RUN, overlap not summed"
+      },
+      "acceptance": [],
+      "inspection": {
+        "tar_integrity": true,
+        "runtime_acceptance": "See explicit preparation/runtime scope; no automatic native Linux claim"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "android",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Android arm64-v8a SDK24+",
+      "bytes": 17345950,
+      "sha256": "cd60bd1b92364268c49c5dbcf1b6be946283ac7bef659e5f3412fa94f67a3b8a",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Flutter analyze/15tests/manifest/ELF/source/development signer; device NOT_RUN",
+      "build_witness": {
+        "name": "android.json",
+        "sha256": "b20889a5fcffd239efec6dd06c6548b18f070e99f4926d0862772214cbf9cf70",
+        "scope": "Flutter analyze/15tests/manifest/ELF/source/development signer; device NOT_RUN"
+      },
+      "acceptance": [],
+      "inspection": {
+        "zip_integrity": true,
+        "runtime_acceptance": "See explicit Android receipt; archive check is not device acceptance"
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    },
+    {
+      "kind": "source",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip",
+      "version": "0.5.0-dev.6",
+      "source_sha": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+      "target": "Complete source",
+      "bytes": 4321054,
+      "sha256": "860bec0759a8923494dcaf23ad923f6dd92e8072be86411c44ffd631b50f5190",
+      "build_configuration": {
+        "frozen_source": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+        "whole_source_manifest_sha256": "1af5c2ce4fcd8e3ccb0ba20fa3da6d9e07f7f5fd70494d825c6839f944ea46a9",
+        "source_tree": "0ffe60ff7e938379d2f5b3112647732ea3cae150",
+        "development": true
+      },
+      "dependencies": [],
+      "acceptance_scope": "Exact832 Git blobs; separately downloaded automatic GitHub archive matches logical source",
+      "build_witness": {
+        "name": "git archive / exact Git blob verification",
+        "sha256": "860bec0759a8923494dcaf23ad923f6dd92e8072be86411c44ffd631b50f5190",
+        "scope": "Exact frozen Git source content, independently checked by this tool"
+      },
+      "acceptance": [],
+      "inspection": {
+        "exact_git_blob_files": 832
+      },
+      "verification": {
+        "built": "PASS",
+        "integrity": "PASS",
+        "github_uploaded": "NOT_RUN",
+        "remote_asset_hash": "NOT_RUN"
+      },
+      "known_limitations": []
+    }
+  ],
+  "omitted_platforms": {},
+  "tested_capabilities": [
+    "Retained forecast provenance/idempotency/persistence",
+    "Pending eligible-outcome semantics",
+    "JSON CSV XLSX exports",
+    "6engine/12support registry passive reads"
+  ],
+  "new_capabilities": [],
+  "improved_capabilities": [
+    "Registered isolated-worktree release and Android build routing"
+  ],
+  "verification_improvements": [
+    "Logical protected-input preservation permits exact intended research writes",
+    "Continuation test isolation preserves used-output rejection",
+    "Joomla guard/delegation and child-template regression contracts"
+  ],
+  "known_limitations": [
+    "Mandatory new-version Windows installation/service/GUI/restart/repair/uninstall and final installed privacy acceptance remain incomplete; no draft/publication exception is introduced.",
+    "Windows EXE builds are unsigned development outputs. Desktop numeric PE0.5.0.0 is Tauri prerelease mapping; embedded SemVer is0.5.0-dev.6. Server/Setup numeric PE0.5.0.6.",
+    "Android ARM64 optimized release build uses the existing development Debug signer, code9; no connected target or physical-device acceptance.",
+    "Joomla package/source/isolated PHP checks passed; new-version installed authenticated Joomla acceptance is NOT_RUN.",
+    "Linux verification used cached Docker CPython3.14, network none; no native Linux desktop, WSL, systemd or reboot acceptance.",
+    "Four model outputs plus their ensemble are uncalibrated statistical forecasts. No predictive-skill improvement, Neural Bridge, new training or live conditional forecasting is claimed.",
+    "No eligible real later outcome exists for the retained demonstration; evaluation is pending. Synthetic evaluation cases do not demonstrate real accuracy.",
+    "Earlier independent wheel/sdist byte-rebuild equality applies to40523425 only; byte reproducibility is not claimed for the full current distribution.",
+    "Remote software assets do not exist for this held candidate; remote binary download checks are NOT_RUN. The separately verified GitHub commit archive is not a Release asset."
+  ],
+  "publication": {
+    "state": "NOT_YET_PUBLISHED",
+    "scope": "State when this immutable manifest was assembled; release-state.json holds subsequent observations"
+  }
+}

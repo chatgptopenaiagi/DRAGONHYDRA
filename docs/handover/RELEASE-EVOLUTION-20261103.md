@@ -1,3 +1,24 @@
+# Current verified delivery — 2026-11-03
+
+Read [release evolution report](../releases/RELEASE-EVOLUTION-REPORT-20261103.md).
+The nine dev6packages and six metadata files are LOCAL_STAGED/HELD under
+`LAB/dist/v0.5.0-dev.6-core-next`, manifest55c1e456942437a78d77d1ef10ec18352b8afc9ca57b9c9ecfd6f033010f1950.
+Binary/source-archive source is `795f962be36d30f8c30bcb1a2c3dc264b9b397e3` on
+`release/core-next-dev6-verified-20261103`; that worktree is frozen and unchanged.
+This documentation-only checkpoint lives on `docs/core-next-dev6-delivery-20261103`,
+`LAB/release-source/dev6-delivery-20261103`; never call its HEAD the binary source.
+Source is remote-branch-only. No dev6tag/draft/release or software upload exists.
+94focused cases PASS; Joomla71/72PASS,1NOT_RUN,9additional contracts PASS;
+Flutter15PASS; actual Windows17checks and Docker11groups PASS with explicit scope.
+760fixture records preserved; five forecast vectors unchanged; real evaluation pending.
+Mandatory Windows installed/native/SCM/repair/retained lifecycle/final installed
+privacy gates still hold publication. Actual coordinator validation refused them.
+Next: a NEW exact-profile Windows lifecycle plan bound to Setup SHA
+`5f569cb18cf7640770dbab643fd9b7cbbaeb33f505b47f53ed79cb4122b10e46`, individually reviewed phases and required local authority.
+Never rerun original Forecast or delete its marker; dev5Backup has no successful
+receipt after the historical canceled elevation request. Preserve all six services,
+original data, old releases and all preliminary failure/build receipts.
+
 # Release evolution — 3 November 2026
 
 Updated integration source: `LAB/release-source/dev6-verified-20261103`, branch

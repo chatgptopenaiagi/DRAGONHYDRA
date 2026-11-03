@@ -10,8 +10,9 @@
 - Aligns platform version metadata; Android development versionCode advances to9.
 - Corrects isolated continuation and Joomla regression fixtures while preserving
   their original failures, production guards and historical operation evidence.
-- New builds and runtime acceptance are NOT_RUN at this source checkpoint; this
-  entry does not claim a published release, native/device acceptance or accuracy.
+- Nine source795packages plus six metadata files are sealed locally. Scoped
+  source/runtime checks passed; mandatory installed Windows/native/privacy gates
+  remain incomplete. No public release, native/device acceptance or accuracy claim.
 
 ## CORE NEXT 0.5.0-dev.5 — 2026-11-02 — held development candidate
 

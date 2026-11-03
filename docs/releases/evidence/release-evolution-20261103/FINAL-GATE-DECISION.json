@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-03T15:46:40.644171+00:00",
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "version": "0.5.0-dev.6",
+  "publication_state": "LOCAL_STAGED",
+  "overall_result": "PARTIALLY_COMPLETE",
+  "eligible_for_draft_or_publication": false,
+  "coordinator_validate_exit_code": 1,
+  "source_and_setup_hash_match": true,
+  "refusal": "Primary acceptance source/hash/pass mismatch: pass=false; current source/hash themselves match",
+  "blocker": "New-version mandatory Windows installed lifecycle/native GUI/final installed privacy evidence absent",
+  "package_known_value_privacy": "PASS_SCOPE_LIMITED_NOT_INSTALLED_PRIVACY",
+  "tag": "v0.5.0-dev.6-core-next",
+  "tag_created": false,
+  "github_release_url": null,
+  "remote_binary_downloads": "NOT_RUN",
+  "frozen_source_branch": "release/core-next-dev6-verified-20261103",
+  "documentation_branch": "docs/core-next-dev6-delivery-20261103",
+  "next_action": "Bind a new exact-profile Windows lifecycle operation to sealed Setup/source795; obtain necessary local Windows authority and perform fresh installation/readback individually, then scoped remaining phases; no old one-shot rerun"
+}

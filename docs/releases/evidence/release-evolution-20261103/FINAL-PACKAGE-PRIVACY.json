@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "stage": "complete",
+  "findings": [],
+  "limits": {
+    "maximum_member_bytes": 536870912,
+    "maximum_total_inspected_bytes": 4294967296,
+    "maximum_depth_exclusive": 8,
+    "maximum_archive_members": 200000
+  },
+  "counts": {
+    "top_level_assets": 15,
+    "setup_files": 10675,
+    "archive_members": 2722,
+    "inspected_buffers": 13811,
+    "uncompressed_bytes_inspected": 526071336,
+    "clean_joomla_class_exceptions": 2
+  },
+  "started_at": "2026-11-03T15:44:47.600340+00:00",
+  "artifact_sha256": {
+    "ARTIFACT-MANIFEST.json": "55c1e456942437a78d77d1ef10ec18352b8afc9ca57b9c9ecfd6f033010f1950",
+    "BUILD-REPORT.json": "264c252e1037cc98f51b0403ddb6c95682d8690036d6161e4c41b71b1cbde3d3",
+    "dragonhydra-0.5.0.dev6-py3-none-any.whl": "cffba23b0e150d6449788ee907fde87257d84fed3725c5e185fe46233a6a5afe",
+    "dragonhydra-0.5.0.dev6.tar.gz": "5a2ee3f7923283d9db35dcf321412034ce3a57fd0c035909a54b375edc734bdf",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk": "cd60bd1b92364268c49c5dbcf1b6be946283ac7bef659e5f3412fa94f67a3b8a",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe": "ac32dc8f4bbac1ebcf7f2d0c7eac22c620d909ef79bbbe288417eed2914cb73b",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz": "cc7d7c2de0cdfb37a1e5fe8a55ff0df6e732d76d95be8b977cc15968eb3d1fd4",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip": "e064b294c0ce91f54af203c3977f4ed66529c7d6a7b768e56397bec797829f48",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip": "860bec0759a8923494dcaf23ad923f6dd92e8072be86411c44ffd631b50f5190",
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe": "5f569cb18cf7640770dbab643fd9b7cbbaeb33f505b47f53ed79cb4122b10e46",
+    "INSTALLATION.md": "68ea3dfc69f430293c4d777d7712c4d4e634e55440b1fb9a785891384cd04aaf",
+    "pkg_dragonhydra-0.5.0-dev.6.zip": "7e3681853175adde4618598acab65837bf5c113bf8e79ccbc82bea629f58be0a",
+    "RELEASE-NOTES.md": "f2d70fc00a34393fef580e2a4d143e81f46c3835adf53f15486b5ddaa11ebc84",
+    "SHA256SUMS.txt": "fe29fdfc68995199db72043ba45fc4bc69e72dbf1890273c8a57343c763ede3a",
+    "TEST-REPORT.json": "e5e8097481fc34f527eb5f5de8529435d97252816dc2f5edd2e91e6334871e06"
+  },
+  "artifact_bytes": {
+    "ARTIFACT-MANIFEST.json": 17077,
+    "BUILD-REPORT.json": 48376,
+    "dragonhydra-0.5.0.dev6-py3-none-any.whl": 378761,
+    "dragonhydra-0.5.0.dev6.tar.gz": 3259356,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Android-arm64-development.apk": 17345950,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Client-win-x64.exe": 10087424,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Linux-server-x86_64.tar.gz": 4356539,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Server-win-x64.zip": 19615742,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Source.zip": 4321054,
+    "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.6-Workstation-win-x64-Setup.exe": 64918303,
+    "INSTALLATION.md": 4332,
+    "pkg_dragonhydra-0.5.0-dev.6.zip": 64160,
+    "RELEASE-NOTES.md": 3016,
+    "SHA256SUMS.txt": 1471,
+    "TEST-REPORT.json": 5774
+  },
+  "checksums": {
+    "status": "PASS",
+    "non_self_entries": 14,
+    "manifest_software_entries": 9
+  },
+  "known_value_policy": {
+    "source": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\scan_task_sources.py",
+    "code_sha256": "b2be4d6cb476c9602cda390978fb9a404b89151ec154e08603b60ddc71225b35",
+    "execution_scope": "Only existing read-only collection/protected loader and encoding rules; no scanner main, credential validation or mutation",
+    "available_source_classes": {
+      "local_workstation_config": 10,
+      "local_client_handoff": 10,
+      "existing_owner_dpapi_handoff": 1
+    },
+    "unavailable_source_classes": {},
+    "distinct_values_loaded": 51,
+    "encoded_patterns_loaded": 154,
+    "secret_values_lengths_hashes_fingerprints_or_output_not_saved": true
+  },
+  "source_archive_832_files_verified": true,
+  "decoded_setup": {
+    "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "setup_sha256": "5f569cb18cf7640770dbab643fd9b7cbbaeb33f505b47f53ed79cb4122b10e46",
+    "declared_payload_files": 10666,
+    "decoded_files_scanned": 10675,
+    "known_nsis_extras": 8,
+    "binding_receipt": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103\\packaging-dev6-r2\\workstation-extraction.json",
+      "bytes": 13177,
+      "sha256": "9f02e8a57698fb13b25236674595514214d2d57757c6ead4f9e7be26ac8551c6"
+    }
+  },
+  "status": "PASS_FINITE_KNOWN_VALUES_AND_PACKAGE_PATHS",
+  "artifact_maps_unchanged": true,
+  "installed_final_privacy": "NOT_RUN",
+  "source_or_configuration_or_remote_mutations": false,
+  "scopes": [
+    "All15 sealed software+metadata files, recursively recognized ZIP/APK/wheel/tar/gzip members",
+    "All832 exact source-manifest files via sealed source ZIP",
+    "Entire hash-bound decoded Setup tree including NSIS extras",
+    "Finite loaded known values in raw and unchanged existing encoded policy forms; no secret fingerprints saved"
+  ],
+  "limitations": [
+    "Finite known-value detection does not establish absence of unknown/new secrets.",
+    "Unreadable secret-source classes are reported; their unavailable values cannot be scanned.",
+    "Opaque PE/ELF blobs scanned as raw bytes; decoded Setup supplied from already audited extraction; no new executable/custom archive unpacker was run.",
+    "Installed new-version privacy and runtime acceptance remain separate unverified gates."
+  ],
+  "finished_at": "2026-11-03T15:45:06.989177+00:00"
+}

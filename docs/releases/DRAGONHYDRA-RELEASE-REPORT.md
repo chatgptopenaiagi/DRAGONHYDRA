@@ -1,3 +1,12 @@
+# Current dev6delivery — 2026-11-03
+
+Nine new source795packages and six metadata files are sealed locally. Source pushed,
+automatic GitHub source archive downloaded and832files verified. No dev6tag/draft/
+release exists; mandatory Windows acceptance remains incomplete. See the complete
+[evolution report](RELEASE-EVOLUTION-REPORT-20261103.md) for inventory, full hashes,
+actual tests, preserved failures, publication decision and next operation.
+The older reports below remain historical evidence with their original scope.
+
 ## Current forensic continuation — 2026-11-03
 
 The dev.5 release remains HELD/UNPUBLISHED at frozen application source ed78fab282599a181d4254ab65a2fc2eaa5b7f50. New owner-executed InstallFresh and ReadFresh receipts PASS. Original Forecast remains FAIL; forensic analysis establishes an acceptance-harness defect, with protected760 matches/source versions/settings unchanged and five model/five prediction outputs persisted. No application build change is needed.

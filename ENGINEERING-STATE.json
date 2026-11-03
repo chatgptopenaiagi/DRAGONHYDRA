@@ -6,8 +6,8 @@
   "preferred_e_available": false,
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
-  "branch": "release/core-next-dev6-verified-20261103",
-  "phase": "DEV6_TEST_FIXTURE_RECONCILIATION_BEFORE_NEW_FREEZE",
+  "branch": "docs/core-next-dev6-delivery-20261103",
+  "phase": "DEV6_LOCAL_STAGED_HELD_WINDOWS_GATES",
   "installation": "DISPOSABLE_DEV5_B447_ALL_FIVE_SOURCE_ED78_PRIMARY_PRESERVED_MIXED",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -36,8 +36,8 @@
     "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
     "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
-  "publication": "HELD_NOT_PUBLISHED_NO_DEV5_TAG_OR_DRAFT",
-  "next_objective": "Freeze corrected tests; rebuild source-bound packages into fresh LAB outputs, verify all platform scopes and retain mandatory Windows/privacy publication gates",
+  "publication": "LOCAL_STAGED_NOT_TAGGED_NOT_DRAFT_NOT_PUBLISHED",
+  "next_objective": "Bind a new exact-profile Windows lifecycle operation to sealed Setup/source795; obtain necessary local Windows authority and perform fresh installation/readback individually, then scoped remaining phases; no old one-shot rerun",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -990,5 +990,34 @@
     "publication": "LOCAL_SOURCE_PREPARATION_NOT_PUBLISHED",
     "real_time_conditional_forecasting": "NOT_IMPLEMENTED",
     "version": "0.5.0-dev.6"
+  },
+  "release_evolution_current": {
+    "schema_version": 1,
+    "observed_at": "2026-11-03T15:46:40.644171+00:00",
+    "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "version": "0.5.0-dev.6",
+    "publication_state": "LOCAL_STAGED",
+    "overall_result": "PARTIALLY_COMPLETE",
+    "eligible_for_draft_or_publication": false,
+    "coordinator_validate_exit_code": 1,
+    "source_and_setup_hash_match": true,
+    "refusal": "Primary acceptance source/hash/pass mismatch: pass=false; current source/hash themselves match",
+    "blocker": "New-version mandatory Windows installed lifecycle/native GUI/final installed privacy evidence absent",
+    "package_known_value_privacy": "PASS_SCOPE_LIMITED_NOT_INSTALLED_PRIVACY",
+    "tag": "v0.5.0-dev.6-core-next",
+    "tag_created": false,
+    "github_release_url": null,
+    "remote_binary_downloads": "NOT_RUN",
+    "frozen_source_branch": "release/core-next-dev6-verified-20261103",
+    "documentation_branch": "docs/core-next-dev6-delivery-20261103",
+    "next_action": "Bind a new exact-profile Windows lifecycle operation to sealed Setup/source795; obtain necessary local Windows authority and perform fresh installation/readback individually, then scoped remaining phases; no old one-shot rerun",
+    "compiled_source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "assets": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.6-core-next",
+    "manifest_sha256": "55c1e456942437a78d77d1ef10ec18352b8afc9ca57b9c9ecfd6f033010f1950",
+    "checksums_sha256": "fe29fdfc68995199db72043ba45fc4bc69e72dbf1890273c8a57343c763ede3a",
+    "engineering_evidence_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261103",
+    "automatic_commit_archive_sha256": "0cff876d29296913841d0a1d425bb939f94937cf20efc3ffa81175bd0dec2033",
+    "package_privacy_receipt_sha256": "b60ed68fab8c2edd956676127d7ee4510385dd1af2fdb20dede2fbdacb3ab29b",
+    "local_preservation_receipt_sha256": "91c9657abbf2a9e1b202a739362ee2d2ebe19c87241107c8e2cf50afa6b47747"
   }
 }

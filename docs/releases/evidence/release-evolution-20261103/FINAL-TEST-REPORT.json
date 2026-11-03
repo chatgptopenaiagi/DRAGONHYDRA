@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "version": "0.5.0-dev.6",
+  "source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "observed_at": "2026-11-03T15:35:34.085385+00:00",
+  "status": "SCOPED_CHECKS_PASS_MANDATORY_WINDOWS_GATES_HELD",
+  "public_publication_eligible": false,
+  "gates": {
+    "SOURCE_IDENTITY": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "VERSION_CONSISTENCY": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "BUILD_SUCCESS": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "ARTIFACT_INTEGRITY": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "FORECAST_PRESERVATION": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "DATABASE_COMPATIBILITY": {
+      "status": "PASS",
+      "mandatory": true,
+      "scope": "Actual SQLite source preservation, coherent snapshots/restart; full MariaDB lifecycle restore is NOT_RUN"
+    },
+    "REPRESENTATIVE_RUNTIME": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "ANDROID_PACKAGE": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "JOOMLA_PACKAGE": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "EXISTING_RELEASE_PRESERVATION": {
+      "status": "PASS",
+      "mandatory": true
+    },
+    "WINDOWS_INSTALLATION": {
+      "status": "BLOCKED",
+      "mandatory": true,
+      "reason": "New-version fresh-install/control/native GUI/SCM restart/repair/uninstall and installed privacy not completed; standard-user shell, historical native launch blocked by policy"
+    },
+    "REMOTE_ASSET_VERIFICATION": {
+      "status": "NOT_RUN",
+      "mandatory_after_upload": true,
+      "reason": "No software assets uploaded; publication is held"
+    }
+  },
+  "counts_not_combined_across_overlapping_scopes": true,
+  "suites": [
+    {
+      "name": "Focused preservation/continuation/API/registry/worktree/version",
+      "cases": 94,
+      "passed": 94,
+      "failed": 0,
+      "not_run": 0,
+      "evidence": {
+        "name": "verification.json",
+        "bytes": 10360,
+        "sha256": "014f060f397eb5190d75ee019c9821f83da8d1c0d84adc38827a73dcaa1549d0"
+      }
+    },
+    {
+      "name": "Joomla source/package/isolated PHP",
+      "cases": 72,
+      "passed": 71,
+      "failed": 0,
+      "not_run": 1,
+      "limitation": "Private-snapshot integration explicitly skipped"
+    },
+    {
+      "name": "Actual PHP controller positive/negative current contracts",
+      "cases": 9,
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "name": "Flutter host tests",
+      "cases": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    {
+      "name": "Windows new EXE retained workflow",
+      "checks": 17,
+      "groups": 6,
+      "passed": 17,
+      "failed": 0
+    },
+    {
+      "name": "Docker Linux runtime",
+      "groups": 11,
+      "passed": 11,
+      "failed": 0,
+      "embedded_unit_cases": {
+        "cases": 31,
+        "passed": 30,
+        "not_run": 1,
+        "overlap": true
+      }
+    },
+    {
+      "name": "Python current wheel/sdist contents and fresh sdist CLI",
+      "groups": 5,
+      "passed": 5,
+      "failed": 0
+    }
+  ],
+  "workflow": {
+    "retained_matches": 760,
+    "core_engines": 6,
+    "supporting_components": 12,
+    "forecast_job": "9cee340634464547afd61af978132481",
+    "evaluation_job": "a87c98ae54b94913aa8a757d4c534d6e",
+    "target_match": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+    "input_records": 50,
+    "probability_outputs": 5,
+    "maximum_absolute_decimal_delta": "0",
+    "expected_workflow_changes": {
+      "jobs": 2,
+      "cognitive_records": 10,
+      "receipts": 10,
+      "job_events": 8,
+      "schema_additions": 27
+    },
+    "later_export_changes": {
+      "jobs": 3,
+      "events": 12
+    },
+    "evaluation": "PENDING_ELIGIBLE_OUTCOME",
+    "restart": "PASS_STANDALONE_APPLICATION_ONLY",
+    "provider_acquisition_or_ai_inference": false
+  },
+  "historical_failures": {
+    "original_forecast": "FAIL_preserved",
+    "reconcile_forecast": "PASS_separate",
+    "first405_source_run": "92PASS_1ERROR_OF93_preserved",
+    "first405_joomla": "69PASS_2FAIL_1NOT_RUN_OF72_preserved",
+    "correction": "Temporary isolated output, exact guard/delegation contract, exact child-template constituent; production remains unchanged"
+  },
+  "known_limitations": [
+    "Mandatory new-version Windows installation/service/GUI/restart/repair/uninstall and final installed privacy acceptance remain incomplete; no draft/publication exception is introduced.",
+    "Windows EXE builds are unsigned development outputs. Desktop numeric PE0.5.0.0 is Tauri prerelease mapping; embedded SemVer is0.5.0-dev.6. Server/Setup numeric PE0.5.0.6.",
+    "Android ARM64 optimized release build uses the existing development Debug signer, code9; no connected target or physical-device acceptance.",
+    "Joomla package/source/isolated PHP checks passed; new-version installed authenticated Joomla acceptance is NOT_RUN.",
+    "Linux verification used cached Docker CPython3.14, network none; no native Linux desktop, WSL, systemd or reboot acceptance.",
+    "Four model outputs plus their ensemble are uncalibrated statistical forecasts. No predictive-skill improvement, Neural Bridge, new training or live conditional forecasting is claimed.",
+    "No eligible real later outcome exists for the retained demonstration; evaluation is pending. Synthetic evaluation cases do not demonstrate real accuracy.",
+    "Earlier independent wheel/sdist byte-rebuild equality applies to40523425 only; byte reproducibility is not claimed for the full current distribution.",
+    "Remote software assets do not exist for this held candidate; remote binary download checks are NOT_RUN. The separately verified GitHub commit archive is not a Release asset."
+  ]
+}

@@ -1,3 +1,11 @@
+# Current release gate — 0.5.0-dev.6
+
+**LOCAL_STAGED / HELD, source795f962be36d30f8c30bcb1a2c3dc264b9b397e3.** The existing coordinator actually refused
+incomplete primary Windows acceptance. Builds/integrity and scoped runtime are PASS;
+new Windows installed/native/service/repair/uninstall/restoration/privacy remain
+unverified. All original failures remain. [Full matrix and scope](RELEASE-EVOLUTION-REPORT-20261103.md).
+No experimental/draft exception was introduced. Earlier statuses below are historical.
+
 # Reconciled release acceptance — dev.5 held
 
 Frozen source `ed78fab282599a181d4254ab65a2fc2eaa5b7f50`. Every status below is
