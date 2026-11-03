@@ -9,6 +9,7 @@ from email.parser import Parser
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -19,6 +20,41 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'scripts'))
 from release_coordinator import Coordinator, digest, now
+
+GIT = r'C:\Program Files\Git\cmd\git.exe'
+
+
+def ordinary_ancestors(path):
+    """Reject links before resolving ownership or creating release state."""
+    path = Path(os.path.abspath(path))
+    for item in (path, *path.parents):
+        if item.exists() or item.is_symlink():
+            stat = item.lstat()
+            require(not item.is_symlink() and not getattr(stat, 'st_file_attributes', 0) & 0x400,
+                    'Linked release path is not permitted')
+    return path
+
+
+def canonical_lab(root, git=GIT):
+    """A registered worktree uses its canonical clone's LAB, never a guessed sibling."""
+    root = ordinary_ancestors(root)
+    env = {k: v for k, v in os.environ.items()
+           if k not in {'GIT_DIR', 'GIT_COMMON_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE'}}
+    def query(*args):
+        try:
+            return subprocess.check_output([git, '--no-optional-locks', '-C', str(root), *args],
+                                           env=env, stderr=subprocess.DEVNULL, timeout=15).decode('utf-8').strip()
+        except (OSError, subprocess.SubprocessError) as error:
+            raise RuntimeError('Cannot establish registered Git worktree ownership') from error
+    top = ordinary_ancestors(query('rev-parse', '--path-format=absolute', '--show-toplevel'))
+    require(top == root, 'Release source must be the registered worktree root')
+    common = ordinary_ancestors(query('rev-parse', '--path-format=absolute', '--git-common-dir'))
+    require(common.name == '.git' and common.is_dir(), 'Canonical non-bare Git common directory required')
+    registered = [ordinary_ancestors(value[len('worktree '):])
+                  for value in query('worktree', 'list', '--porcelain', '-z').split('\0')
+                  if value.startswith('worktree ')]
+    require(root in registered and common.parent in registered, 'Unregistered release source rejected')
+    return ordinary_ancestors(common.parent.parent / (common.parent.name + '-LAB'))
 
 REQUIRED = frozenset({'workstation','desktop','joomla','server','wheel','sdist','source'})
 OPTIONAL = frozenset({'android','linux'})
@@ -78,7 +114,7 @@ class CoreNextRelease(Coordinator):
         # Reuse publisher/ledger logic while keeping all state outside source.
         self.root=ROOT
         self.lab=args.lab.resolve()
-        require(self.lab==(ROOT.parent/(ROOT.name+'-LAB')).resolve(),'Unexpected isolated lab root')
+        require(self.lab==canonical_lab(ROOT).resolve(),'Unexpected isolated lab root')
         self.assets=self.local(args.assets)
         require(self.assets.is_relative_to(self.lab/'dist'),'Release assets must stay under lab/dist')
         matrix=read(ROOT/'packaging/release/version.json')
@@ -218,9 +254,17 @@ class CoreNextRelease(Coordinator):
             private_bindings.append({'filename':name,'build':private_build,'acceptance':private_acceptance})
         for name in ('RELEASE-NOTES.md','INSTALLATION.md','BUILD-REPORT.json','TEST-REPORT.json'):
             require((self.assets/name).is_file(),'Required reviewed report missing: '+name)
-        manifest={'schema_version':1,'product':'DRAGONHYDRA CORE NEXT','version':self.matrix['product_version'],
+        manifest={'schema_version':'dragonhydra.release-candidate/1','legacy_manifest_schema_version':1,
+            'product':'DRAGONHYDRA CORE NEXT','version':self.matrix['product_version'],
             'source_sha':self.state['source_sha'],'tag':self.state['tag'],'classification':'development prerelease',
-            'artifacts':artifacts,'omitted_platforms':{kind:'NOT_RUN / not included' for kind in OPTIONAL-set(kinds)}}
+            'source_commit':self.state['source_sha'],'release_type':'development-prerelease',
+            'artifacts':artifacts,'omitted_platforms':{kind:'NOT_RUN / not included' for kind in OPTIONAL-set(kinds)},
+            'tested_capabilities':spec.get('tested_capabilities',[]),
+            'new_capabilities':spec.get('new_capabilities',[]),
+            'improved_capabilities':spec.get('improved_capabilities',[]),
+            'verification_improvements':spec.get('verification_improvements',[]),
+            'known_limitations':spec.get('known_limitations',[]),
+            'publication':{'state':'NOT_YET_PUBLISHED','scope':'State when this immutable manifest was assembled; release-state.json holds subsequent observations'}}
         write_new(self.assets/'ARTIFACT-MANIFEST.json',manifest)
         sums=''.join(digest(p)+'  '+p.name+'\n' for p in sorted(self.assets.iterdir()) if p.is_file() and p.name!='SHA256SUMS.txt')
         with (self.assets/'SHA256SUMS.txt').open('x',encoding='ascii') as stream:stream.write(sums)

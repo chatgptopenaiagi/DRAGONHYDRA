@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "dragonhydra"
-version = "0.5.0.dev5"
+version = "0.5.0.dev6"
 description = "Provenance-aware point-in-time football research laboratory"
 readme = "README.md"
 requires-python = ">=3.14,<3.15"

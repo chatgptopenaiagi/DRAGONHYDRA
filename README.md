@@ -19,7 +19,17 @@ repository.
 [the release report](docs/releases/CORE-NEXT-RELEASE-REPORT.md) for actual status.
 The intended release is a separate prerelease, not the stable update channel.
 
-**Current development checkpoint (2026-11-02):** nine fresh dev.5 packages are
+**Release evolution (2026-11-03):** the forensic checkpoint reached its Git branch,
+but no dev.5/dev.6 release or draft exists at the authenticated audit. Candidate
+**0.5.0-dev.6** is being built from a separate frozen source, with Androidcode9,
+improved preservation/recovery verification and registered-worktree build support.
+The forecasting formulas are unchanged; no new predictive skill, NeuralBridge or
+live conditional forecasting is claimed. Builds/runtime checks are NOT_RUN at
+this source-freeze preparation. Publication remains held by the existing mandatory
+Windows lifecycle/privacy gates. See [cognitive evolution](docs/releases/COGNITIVE-EVOLUTION-20261103.md)
+and [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md).
+
+**Historical development checkpoint (2026-11-02):** nine fresh dev.5 packages are
 built from `ed78fab282599a181d4254ab65a2fc2eaa5b7f50` and held locally. Source335distinct cases:
 328PASS/7NOT_RUN/0FAIL; actual standalone server/restart/SQLite restore and exports,
 Docker runtime and fresh Python/Android builds have scoped evidence. The installed

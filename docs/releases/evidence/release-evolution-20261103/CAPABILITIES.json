@@ -1,0 +1,121 @@
+{
+  "schema_version": "cognitive-capability-assessment/1",
+  "observed_at": "2026-11-03T14:31:35.515594+00:00",
+  "candidate_base": "4eca7ae0b68c7def8c8707f35de07c43058fec34",
+  "frozen_application": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "last_published_source": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+  "two_comparisons": {
+    "today": "59paths changed:14docs/handoff,35forensic evidence,10tests/acceptance tools;338product/build paths identical.",
+    "since_last_published": "155paths changed;46product/build input paths differ and292are identical. Labels in path ledgers overlap and must not be summed."
+  },
+  "actual_accumulated_improvements_since_published": [
+    "6engine default preserved,18inventory adds12supporting roles with bounded identity/freshness/operation-specific observations",
+    "Typed authorized durable forecast/evaluation commands and official persisted memory readback, owner/idempotency separation",
+    "Readonly memory/schema completeness guards and conservative eligible target timing; standings regulation-score scope repair",
+    "Joomla control/workflow UI and supported server-side bridge, explicit CSRF-protected mutations",
+    "Desktop/browser skip-target and content normalization fixes, responsive Joomla layout/presentation fixes",
+    "Workstation identity/payload/upgrade guards, source-bound build inputs and reproducible acceptance continuation"
+  ],
+  "what_is_new_today": "Acceptance preservation classification/auditor/reconciliation tools and sanitized evidence; no product/formula/API/schema change relative toed78.",
+  "features": [
+    {
+      "id": "frequency",
+      "implementation": "IMPLEMENTED",
+      "formula": "Same-source/competition full-time outcome counts with per-outcome smoothing; default alpha1.",
+      "reference": "src/dragonhydra/research.py:380; cognition/models.py:333",
+      "actual_proof": "Both dev5 workflows produced a persisted frequency output from the independently verified50input cohort.",
+      "limits": "League-outcome frequency, not a calibrated team-specific neural model."
+    },
+    {
+      "id": "poisson_goals",
+      "implementation": "IMPLEMENTED",
+      "formula": "Independent home/away Poisson goals; same-venue scored/conceded means shrunk toward league means (default k5), average attack/concession rates; bounded grid40 and omitted-mass tolerance1e-9.",
+      "reference": "src/dragonhydra/cognition/models.py:102-169",
+      "actual_proof": "Persisted finite distribution in both scoped workflows.",
+      "limits": "Independence and shrinkage assumptions; numerical normalization is not empirical accuracy."
+    },
+    {
+      "id": "elo",
+      "implementation": "IMPLEMENTED",
+      "formula": "Daily-batched Elo, initial1500,K20,home advantage55; logistic score share scaled by1-draw, draw share taken from frequency model.",
+      "reference": "src/dragonhydra/cognition/models.py:188-230",
+      "actual_proof": "Persisted finite distribution in both scoped workflows.",
+      "limits": "Shares frequency draw estimate and training cohort; not an independent trained model."
+    },
+    {
+      "id": "recency",
+      "implementation": "IMPLEMENTED",
+      "formula": "League-wide outcome counts weighted exp(-ln2*age/90days) plus per-outcome smoothing.",
+      "reference": "src/dragonhydra/cognition/models.py:171-185",
+      "actual_proof": "Persisted finite distribution in both scoped workflows.",
+      "limits": "League-wide recency, not team-specific form; age uses source event date, exact source timezone unknown."
+    },
+    {
+      "id": "ensemble",
+      "implementation": "IMPLEMENTED",
+      "formula": "Equal weights when eligible verified evaluation absent; otherwise normalized inverse proper loss with floor1e-12, complete compatible source/competition/period/settlement evidence required.",
+      "reference": "src/dragonhydra/cognition/models.py:236-355",
+      "actual_proof": "Equal-weight candidate persisted; all five original-v-reproduction vectors actually compared with zero Decimal delta.",
+      "limits": "Correlated shared inputs and assumptions; performance-weighted branch not established by these pending-outcome runs."
+    },
+    {
+      "id": "persisted_workflow",
+      "implementation": "IMPLEMENTED",
+      "reference": "src/dragonhydra/kernel/workflow.py;api.py:258-274;jobs.py",
+      "actual_proof": "Two jobs,5models+5predictions+10receipts; exact duplicate job reuse and official immutable history readback. Fresh separate reproduction confirms same-state process restart.",
+      "limits": "ClassC explicit empty typed body/admin operation; no new cutoff supplied by client. Complete Windows service repair/uninstall/reinstall remains separate."
+    },
+    {
+      "id": "evaluation",
+      "implementation": "IMPLEMENTED",
+      "reference": "src/dragonhydra/cognition/evaluation.py;kernel/workflow.py:147-187",
+      "actual_proof": "Pending LATER_RETAINED_OUTCOME_UNAVAILABLE; no invented outcome, zero evaluations.",
+      "limits": "Brier/log-loss/calibration and later-evidence safeguards have controlled test coverage. Ensemble may be scored readonly but explicit persistent supported-base evaluation excludes ensemble. Present-knowledge chronological holdout is not a historically issued prediction."
+    },
+    {
+      "id": "memory_observations",
+      "implementation": "IMPLEMENTED",
+      "reference": "src/dragonhydra/cognition/memory.py;kernel/engines.py:349;kernel/registry.py",
+      "actual_proof": "Schema2tables/4immutabletriggers,10records/10receipts, passive reads unchanged, scoped actual registry expiry.",
+      "limits": "Technical store observation READY can coexist with runtime operation EXPIRED. Existing UI Runtime-status filter names observation-state filtering ambiguously; expired capabilities remain unverified/neutral."
+    },
+    {
+      "id": "provider_preservation",
+      "implementation": "VERIFIED_FOR_RETAINED_WORKFLOW",
+      "reference": "Forensic original/reproduction/preservation receipts",
+      "actual_proof": "760fixtures,2rawsources and provider settings remain unchanged; auxiliary acquisition tables empty; exact auth bookkeeping exemptions only.",
+      "limits": "No paid provider request or live synchronization performed. Connector availability is not a live forecast integration."
+    },
+    {
+      "id": "NeuralBridge",
+      "implementation": "NOT_FOUND_IN_SCOPED_PRODUCT_SOURCE",
+      "reference": "claims-source-scan.json",
+      "actual_proof": "No binding found in93scoped tracked application source files.",
+      "limits": "Do not claim model bridge, paid API integration or neural learning."
+    },
+    {
+      "id": "OpenAI",
+      "implementation": "INFORMATIONAL_UI_ONLY",
+      "reference": "android/dragonhydra_mobile/lib/main.dart:356-358",
+      "actual_proof": "Source explicitly labels Not connected and says no paid request.",
+      "limits": "External dashboard link is not backend authentication/inference integration."
+    },
+    {
+      "id": "live_conditional_forecast",
+      "implementation": "NOT_DEMONSTRATED_AS_AN_IMPLEMENTED_PIPELINE",
+      "reference": "api.py:498-519;resources/web/app.js:108,291",
+      "actual_proof": "SSE streams committed durable job/data updates; current pre-match forecast is explicit retained-data computation.",
+      "limits": "No provider live-event\u2192forecast recalculation pipeline or live-state forecasting proof. Odds scenarios remain conditional mathematical scenarios, not an executable edge."
+    }
+  ],
+  "machine_capability_scope": "Nov3 SQLServer/Python capability refresh and external synthetic analytical connector are host evidence, not a DRAGONHYDRA backend integration.",
+  "earliest_runtime_limit": "First source additions are proved by Git; first-ever runtime-verified versions remain UNKNOWN where historical execution receipts were not exhaustively established. Actual independent receipts in this audit are frozen0.5.0-dev.5.",
+  "new_execution": {
+    "model": 0,
+    "provider": 0,
+    "API": 0,
+    "SCM": 0,
+    "network": 0,
+    "source_changes": 0
+  }
+}

@@ -7,7 +7,7 @@ param(
     [Parameter(Mandatory)][string]$ArtifactPath,
     [Parameter(Mandatory)][string]$Version,
     [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$SourceSha,
-    [int]$VersionCode=5
+    [int]$VersionCode=9
 )
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath($WorkspaceRoot)
@@ -15,7 +15,11 @@ $sourcePath=[IO.Path]::GetFullPath($SourceRoot)
 $workPath=[IO.Path]::GetFullPath($WorkRoot)
 $artifact=[IO.Path]::GetFullPath($ArtifactPath)
 . (Join-Path $projectRoot 'packaging\windows\workstation\CoreNextProfile.ps1')
-if($sourcePath -ine 'C:\xampp\DRAGONHYDRA-CORE-NEXT'){throw 'CORE_NEXT_ANDROID_SOURCE_REQUIRED'}
+if($projectRoot -ine $sourcePath){throw 'CORE_NEXT_ANDROID_FROZEN_WORKSPACE_REQUIRED'}
+$python='C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\tools-env\Scripts\python.exe'
+$bindingScript=Join-Path $projectRoot 'scripts\core_next\release.py'
+$binding=& $python -I -B -c 'import importlib.util,sys; s=importlib.util.spec_from_file_location("release_binding",sys.argv[1]); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); print(m.canonical_lab(sys.argv[2]))' $bindingScript $sourcePath
+if($LASTEXITCODE -ne 0 -or ([string]$binding).Trim() -ine 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'){throw 'CORE_NEXT_ANDROID_REGISTERED_SOURCE_REQUIRED'}
 $null=Assert-CoreNextOrdinaryPath $workPath 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
 $null=Assert-CoreNextOrdinaryPath $artifact 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
 $flutter='C:\flutter\bin\flutter.bat'

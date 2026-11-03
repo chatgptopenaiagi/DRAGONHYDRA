@@ -1,0 +1,4284 @@
+{
+  "schema_version": "source-change-classification/1",
+  "from": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+  "to": "4eca7ae0b68c7def8c8707f35de07c43058fec34",
+  "changed_paths": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "16d84ecc746b8bbd11ea899f7d81c26e28d367d0",
+        "bytes": 2113
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "40b87ef01431381cbd6521ce6a57a7785dad74ac",
+        "bytes": 3663
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "62acec647d5ecbf6b8ef0a95ac04bf9d3b15b045",
+        "bytes": 2573
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "47369494d0cfc592cb73c213987d85ec2ff3400f",
+        "bytes": 3690
+      }
+    },
+    {
+      "path": "ENGINEERING-STATE.json",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1ee16c66012850579a2a97114a2f7da72284f459",
+        "bytes": 2828
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "110caf6d6d6a47d103b30c1f5accfa660ea69fc6",
+        "bytes": 47817
+      }
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "61f1ba87e98d0593a47be60d41855c0342a49eae",
+        "bytes": 11324
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2e4dc06db316973662b1e8b94914f5fe2fc207f4",
+        "bytes": 15633
+      }
+    },
+    {
+      "path": "RESUME-CODEX.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d87485e19ccaecaced88e9ecbc20269417a62009",
+        "bytes": 3480
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e04d8949fa44c9ce10ff59b965c6e5f8ff67f6f0",
+        "bytes": 8699
+      }
+    },
+    {
+      "path": "android/dragonhydra_mobile/pubspec.yaml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "android"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e562d252e30b0e75780cef94a60c537141a68996",
+        "bytes": 401
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c3aee87519234ea3484ec3c7d4218b7767b76b53",
+        "bytes": 401
+      }
+    },
+    {
+      "path": "client/desktop/package-lock.json",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bb1a7a2960feaf99d025a35de257798b351a19ef",
+        "bytes": 7461
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c10284abd4aaf0a44812e2652c4aed3b40b0aae4",
+        "bytes": 7461
+      }
+    },
+    {
+      "path": "client/desktop/package.json",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7a60fa347c739547d941b523282a6dcf658d53e5",
+        "bytes": 270
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "57644ff7bdfaa830fab8235eddd6978ab1b5fdb5",
+        "bytes": 270
+      }
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.lock",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "703833d221698bc2d391172ba4398f3e18422ee5",
+        "bytes": 115836
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "031aa1eef2d7305d3555cd8a2e6426d9f014def2",
+        "bytes": 115836
+      }
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.toml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "15eb132e7d902462e6d1d55aee14f618b37966e8",
+        "bytes": 390
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "658216eb641ec2e3b4aca4872bed7257303bd148",
+        "bytes": 390
+      }
+    },
+    {
+      "path": "client/desktop/src-tauri/tauri.conf.json",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "91b393bdcc755c2553f181c51f4a925dda9adba2",
+        "bytes": 1084
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "10c98bb05a26c670e1753f8f0b4abf1d34ff7560",
+        "bytes": 1084
+      }
+    },
+    {
+      "path": "client/desktop/web/app.js",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "windows_desktop"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e54cc8e513f2a3abb230a2cf41931307062e8dd8",
+        "bytes": 52202
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5953296227d6578b7b9e98a2a2a90579c42ec3f7",
+        "bytes": 52501
+      }
+    },
+    {
+      "path": "docs/CORE-NEXT-CONTROL-CENTER.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9e26ca3d2898ac1bea948cbcdf9f01c8cb53fd87",
+        "bytes": 5303
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "88c893749424af472287560e63dd936e7459b167",
+        "bytes": 6194
+      }
+    },
+    {
+      "path": "docs/architecture/ENGINEERING-DECISION-RECORDS.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "385fb1f3cdbffb3c83e9d0c09ad5a9fa39316871",
+        "bytes": 701
+      }
+    },
+    {
+      "path": "docs/architecture/MODULE-CONTRACTS.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c132498f4861ca9f5a9158475baa9058b41e2ef5",
+        "bytes": 4661
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b77256eff428ef72acada8c9df008939f9a19928",
+        "bytes": 11271
+      }
+    },
+    {
+      "path": "docs/architecture/MODULE-MAP.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "a5ea66b8be7b980fb2a4d8be8cc79d255c8332de",
+        "bytes": 2396
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "021125134d6d8ff7521f99341879468f1ace785d",
+        "bytes": 7430
+      }
+    },
+    {
+      "path": "docs/architecture/RECONCILED-ARCHITECTURE.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0424dd8a7c9c1dc3f3d1cfe6cc94129f7472c631",
+        "bytes": 1874
+      }
+    },
+    {
+      "path": "docs/architecture/THEORY-COMPARISON.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b43c996fef37e77aa36bcc1b6f98720b616c0ee8",
+        "bytes": 2316
+      }
+    },
+    {
+      "path": "docs/engineering/CORE-NEXT-DEV2-SOURCE-VERIFICATION.json",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bf55297068de892e0c3beef35d965f5df1633c6f",
+        "bytes": 1016
+      }
+    },
+    {
+      "path": "docs/engineering/CORE-NEXT-DEV3-SOURCE-VERIFICATION.json",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "26f3a3135413ecef912a5e750dff91f06dc4dde9",
+        "bytes": 902
+      }
+    },
+    {
+      "path": "docs/engineering/CORE-NEXT-PACKAGING.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b38ce9dbc8b28aeea9bb4d1acf97dc9dc5028efd",
+        "bytes": 6491
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8f3c6c1f27321de24fc8fcaf8fcb4457857ab810",
+        "bytes": 7110
+      }
+    },
+    {
+      "path": "docs/engineering/CORE-NEXT-UPGRADE.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "28f405c6313133b09d366d3a9dd0a8d820796f79",
+        "bytes": 7222
+      }
+    },
+    {
+      "path": "docs/handover/ACTIVE-RECONCILIATION.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "66bfe28da1441d6294b11e06408a8cb29763fe3e",
+        "bytes": 12208
+      }
+    },
+    {
+      "path": "docs/handover/CONTINUATION-20261102.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "18dc7e10aadfa695967ea509f11b75c8a47d27c2",
+        "bytes": 23760
+      }
+    },
+    {
+      "path": "docs/reconciliation/ARCHITECTURAL-DIVERGENCES.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f735d1b479a82e0fe3c8e142d3e5cbfaba5749ab",
+        "bytes": 1240
+      }
+    },
+    {
+      "path": "docs/reconciliation/CONFLICT-LEDGER.json",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b8f7b8c41b8ff294c6693e266c5952872ce91d6b",
+        "bytes": 724524
+      }
+    },
+    {
+      "path": "docs/reconciliation/FILE-CONFLICT-MATRIX.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8956fe7bdb1a85f511cd7aabd0d282ddd10eb63b",
+        "bytes": 5828
+      }
+    },
+    {
+      "path": "docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f4b45438523eb1ca55f41ceb76aadaf6730d5cbd",
+        "bytes": 17592
+      }
+    },
+    {
+      "path": "docs/reconciliation/RECONCILIATION-DECISIONS.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1084623db6018868f9b02be83da74548a8bb80de",
+        "bytes": 5419
+      }
+    },
+    {
+      "path": "docs/reconciliation/RECOVERED-WORK.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "70e1534ad5baebdb0cb55e328caad9d875e2755c",
+        "bytes": 1602
+      }
+    },
+    {
+      "path": "docs/reconciliation/SESSION-INVENTORY.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "450770069de5331843787b0bc91254c1e22e0ff6",
+        "bytes": 1509
+      }
+    },
+    {
+      "path": "docs/reconciliation/SOURCE-LINEAGE-MATRIX.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ff4cf560f4e1acf9eb04d93d568ecafb4a268f4b",
+        "bytes": 1529
+      }
+    },
+    {
+      "path": "docs/reconciliation/WORKSPACE-OWNERSHIP.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bc69d5fee35e3f860701170a6b1ba86dcac7994d",
+        "bytes": 1948
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/INTEGRATED-SOURCE-DEV5.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cfba6b6cf0357458d1e74cc575a65a8902992b8c",
+        "bytes": 134352
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ACCEPTANCE-MATRIX.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "06a45a7e066c985bee49dcdf4c37bb497280420b",
+        "bytes": 15276
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ARTIFACT-PRESERVATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "36ccbbd555ea85e3fc75c26eafd2eb87ce2f6a84",
+        "bytes": 15432
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/BACKUP-ELEVATION-REQUEST.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9edad2776f62eb4d2d639cd7bddcb9455d27f861",
+        "bytes": 899
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CANONICAL-SCHEMA-REFERENCE.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d5e3baa6fc1ecf5dcd31d4382129ddec4fc9c721",
+        "bytes": 8081
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CODE-BINDINGS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "34eaf6bb845eb04fbec4549d75607b4df9035e0d",
+        "bytes": 968
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CONTINUATION-GUARD-TESTS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "eb4253afb348f4c3d529ec7b4edf83fe428b926c",
+        "bytes": 1848
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CONTINUATION-POWERSHELL-GUARDS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c377264d48e8ba9ed9428a7eb90ccded73fc1558",
+        "bytes": 597
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/COORDINATOR-ATTESTATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "19609a1a4e6825741331d6fa7cbdd30561344917",
+        "bytes": 982
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CURRENT-REGISTRY-OPERATIONS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ebcd6523d349aade8cd31eeedcda85e19ad5a712",
+        "bytes": 6045
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CURRENT-REGISTRY-READ.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4c13d6f98ad69f7daddf942c53cc61133e6aa6af",
+        "bytes": 10671
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/EVIDENCE-INDEX.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "91b7a30277726a4f2ea5968da5d883c42d27021b",
+        "bytes": 5878
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FINAL-INSTALLATION-STATE.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8daf598cbb2e0a648f610ca2b9d69cb87617e5ab",
+        "bytes": 4203
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FOCUSED-TESTS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f89b62ad19b27d6efc66a1dad5a2f1889728ea6e",
+        "bytes": 6239
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FORENSIC-MANIFEST-ADDITIONAL.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8cf66472954190bf76942413f43c232596e566a0",
+        "bytes": 419
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FORENSIC-MANIFEST.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d3aa75bd514de75af86f058f86ce6a4017dada71",
+        "bytes": 10705
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/INSTALLED-JOOMLA.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4be7e02464276cf283d35aefd4eb91d7bbaa4e97",
+        "bytes": 16133
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/INSTALLED-READBACK.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "45085f768d2e4448cec05ddf4f50cd2738671d95",
+        "bytes": 4340
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ISOLATED-RUNTIME.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0445a9216909762781264bbd495b152a2f1614cc",
+        "bytes": 18602
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-SNAPSHOT-AUDIT.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "13edf958acd5b9bd5155d32bddcf2b599e3ebe6c",
+        "bytes": 1405
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-WORKFLOW-CLOCKS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "51fbd4677080292ef681075581d4f0547bcc297b",
+        "bytes": 724
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-WORKFLOW-SEMANTICS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "3c93dc0b025e19499399c5a801427535ecc1de29",
+        "bytes": 69173
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/PACKAGE-ACCEPTANCE-STATUS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "122b1adc827221a2cd294c60ef2803137dcba74c",
+        "bytes": 10106
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/POINT-IN-TIME-DETAIL.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "60adc688ad247d0e8449fed2244209750a3564d1",
+        "bytes": 46149
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILE-PHASE.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ee49c9935770d2060e94b54d24d4e8d9a0a2bd11",
+        "bytes": 1557
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILE-READBACK.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4f994699797021ebcc0085c22c4a872f70852b26",
+        "bytes": 8541
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILIATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f1f4c2dcaa49e2f3ea4dca73ecb6d7c2f3cd703e",
+        "bytes": 6684
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REGISTRY-UI-SEMANTICS.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "029bd78c410454ec6327227a9e0373dfe68cc304",
+        "bytes": 3109
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REMOTE-PRESERVATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "dbd45530cd98f6b7a2b9de51a806d101c39d61c8",
+        "bytes": 63361
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REPAIR-VERIFICATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2d7fc95bab5f6666179e03ba755b05a3efd49cf1",
+        "bytes": 5140
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ROOT-CAUSE.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8b92201e259db279b7c78d69452ed940ed2276aa",
+        "bytes": 9163
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/SEMANTIC-REVIEW.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8972bdfb269536b9b110735944ac1c25edd655bc",
+        "bytes": 68408
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/SQLITE-LOGICAL-DIFF.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "34879eae761c693a1d610a9ced30f4d41ee80d89",
+        "bytes": 26922
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/TASK-PRIVACY-SCAN.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "363ff7ed23d36d8ad2995744fac060458a5a7344",
+        "bytes": 11304
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/TIMING-REVIEW.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c233df5ffe90bb30a40ac3427d510d211de702ea",
+        "bytes": 2297
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/WINDOWS-ACCEPTANCE-CONTINUATION.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "466592445c0bd1d2ef67a786ad3ba675f23f7083",
+        "bytes": 3650
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/foundation-tests-r2.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f93ee76746073dfe7853b173a4af7bb0b5b01628",
+        "bytes": 541
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/original-reference-tests-r2.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ec876089b19b356a4d50bf590f7e6946a7c3fc82",
+        "bytes": 587
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/source-restoration-r1.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0b87b7bda6afb210ba64bec616ce3caa85e7d9bf",
+        "bytes": 1631
+      }
+    },
+    {
+      "path": "docs/reconciliation/evidence/working-source-known-credential-scan-r1.json",
+      "change": "added",
+      "categories": [
+        "forensic_evidence"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "78e7068b869322f099a6ba100983fd445b048196",
+        "bytes": 376
+      }
+    },
+    {
+      "path": "docs/releases/CORE-NEXT-RELEASE-REPORT.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2e026c58a4a0acfe33b328c98e0a6eae7f96576c",
+        "bytes": 6641
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f1adba088e996b6e648b2a225b9debe3267865dd",
+        "bytes": 23142
+      }
+    },
+    {
+      "path": "docs/releases/DRAGONHYDRA-RELEASE-REPORT.md",
+      "change": "modified",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "977828aa3eba3f484c7d8e1628dae6db2ba81273",
+        "bytes": 7937
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "88cb1db820ba2b34c41844213f3e2234880631f7",
+        "bytes": 33333
+      }
+    },
+    {
+      "path": "docs/releases/PUBLISHED-BASELINE.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e24ed51512002707a4c29840b2f4f80b0292a3b5",
+        "bytes": 1390
+      }
+    },
+    {
+      "path": "docs/releases/RELEASE-ACCEPTANCE.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1c5ca0eba7b40bf47da2a927324cc8adffa66f58",
+        "bytes": 7310
+      }
+    },
+    {
+      "path": "docs/releases/SUPERIORITY-COMPARISON.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9997e849a03c9c4b92f8afc9280dceba12e4f8f5",
+        "bytes": 3028
+      }
+    },
+    {
+      "path": "docs/releases/evidence/BLOCKED-AUDIT-DEV5.json",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "de14ff0e56f97c17fa5766c7bdfa51388dd63ce6",
+        "bytes": 4152
+      }
+    },
+    {
+      "path": "docs/releases/evidence/POST-BUILD-DEV5.json",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d88fc272ad0888cfa235fb75c17abab3c5d54c01",
+        "bytes": 43454
+      }
+    },
+    {
+      "path": "docs/screenshots/README.md",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "59ba007ad44e335a46b2e2930adf40c8b5fbbdfe",
+        "bytes": 1068
+      }
+    },
+    {
+      "path": "docs/screenshots/core-next-control-center-modules-after-lifecycle-r3.png",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "596fb9bb8d61153cf2817b81ddaca5b6c3152dc4",
+        "bytes": 217001
+      }
+    },
+    {
+      "path": "docs/screenshots/core-next-control-center-overview-after-lifecycle-r3.png",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "26b0c57b73bd9d6a7093795a00d820fae8947c76",
+        "bytes": 281580
+      }
+    },
+    {
+      "path": "docs/screenshots/core-next-sports-home.png",
+      "change": "added",
+      "categories": [
+        "documentation_handoff"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f61e688e3ce083ab4f6a3a78b6a5c5d74c6a19b4",
+        "bytes": 181002
+      }
+    },
+    {
+      "path": "packaging/release/version.json",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest",
+        "packaging"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "905750dd5c612225d0886b22999844b3c8ab4d83",
+        "bytes": 416
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e65cdcc3a41c22dc1fef4d04038d497b8ffff4f3",
+        "bytes": 416
+      }
+    },
+    {
+      "path": "packaging/windows/version_info.txt",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "packaging"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "27859bd50d599eb865351bade66a0ad6cf107ab0",
+        "bytes": 694
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b11824a7bb0fa013ac4b058512d0c095d803cf66",
+        "bytes": 694
+      }
+    },
+    {
+      "path": "packaging/windows/workstation/CoreNextUpgrade.ps1",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "packaging"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "45b5c21baaf4f7106bb4cd831a464b1f56d24fbe",
+        "bytes": 16057
+      }
+    },
+    {
+      "path": "packaging/windows/workstation/README.md",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "documentation_handoff",
+        "packaging"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b89f9b441eff5b04fbd26776c54250f84d94fa11",
+        "bytes": 5261
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "fb7e65cfb95cd82594142b6218a4714fd2764453",
+        "bytes": 5889
+      }
+    },
+    {
+      "path": "packaging/windows/workstation/Workstation.ps1",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "packaging"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "06e3af3bde08ec82bca921a28abd8f837d497629",
+        "bytes": 24675
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d3cb447fd395b7d4679a6499e89613e06ca1af9d",
+        "bytes": 46373
+      }
+    },
+    {
+      "path": "pyproject.toml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "release_metadata_or_dependency_manifest"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "46706fb04d5e8a6dbb9a7f3f8f82c561b0ea1def",
+        "bytes": 904
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "262cf94faf6b03e13c9845fd9f3da21665754292",
+        "bytes": 904
+      }
+    },
+    {
+      "path": "scripts/Build-CoreNextWorkstation.ps1",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "windows_or_build_controller"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "a8ab55fe75fcd90f99f2a264b874ab059188acb3",
+        "bytes": 5039
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "dac925c89f8dd6a97188c5cc25693a7224bd70e7",
+        "bytes": 5182
+      }
+    },
+    {
+      "path": "scripts/Build-Desktop.ps1",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "windows_or_build_controller"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e24048cfa035e930627bf2d6ba467bc0cc66518f",
+        "bytes": 7100
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8c3572e584622c4a391a274fa4f590fa2aad28c4",
+        "bytes": 7219
+      }
+    },
+    {
+      "path": "scripts/Prepare-CoreNextPayload.ps1",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "windows_or_build_controller"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "399b6322fafba5426a54de9118ccb401d9da133b",
+        "bytes": 5697
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d075a5e03e6bbeee4a6ea042388aa7172297d67a",
+        "bytes": 8929
+      }
+    },
+    {
+      "path": "scripts/Upgrade-CoreNextWorkstation.ps1",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "windows_or_build_controller"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "45b1dd7e82326897e775f1d756b2a975af1b9ede",
+        "bytes": 21905
+      }
+    },
+    {
+      "path": "scripts/core_next_cargo_cache.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "windows_or_build_controller"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "401dc0c1b1a75510bd977742796230aa7b233ff6",
+        "bytes": 6121
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1fa9ee3343f0dce65eea4ec9c87b5b5414e111f1",
+        "bytes": 7537
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6d8607af811a477399fe15d1a2c85e658c4c6be2",
+        "bytes": 3443
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6d561faebaac7180a96b31d9a9420d2874faedc7",
+        "bytes": 6233
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ff7885d4f70b0413ac50b5175e2abea84678bbb7",
+        "bytes": 7551
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2142055d3567a4ca0a7fc271b03860f76d33033b",
+        "bytes": 16546
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ab5c8f51d68e6c60940cddbe1579b91d4947b283",
+        "bytes": 7153
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "84490dc3d15f2c25e85e01b7b4edfd62660503d5",
+        "bytes": 7541
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/ControlWorkflow.php",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "101937731ab04953c07703b48729e49ad29b482b",
+        "bytes": 7876
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "edd3578a904fa08d41979ec254942bc6e50e65e7",
+        "bytes": 3262
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2ca4c3e184e846223bf1337421dbd1fd714b7eb1",
+        "bytes": 3963
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "52bb22340c1da1ade906c1079372164fb5f6e445",
+        "bytes": 12884
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bc3e1c73cd1978960df71c76029d8e6a91abf9ff",
+        "bytes": 22280
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cf90b9f6cab61e00aba30ea3714fe8e17d542c4f",
+        "bytes": 10011
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d12514653f69cd53218be463b8a2254372920d96",
+        "bytes": 12706
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d674536944adfba0847f333009341ef9a1fb7bcd",
+        "bytes": 10482
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/dragonhydra.xml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "19fb2de44f84780635271e88941189b6cc1502dd",
+        "bytes": 2545
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8a4aa2b8a409cbd9a7aafe8381fdc9e6edf65fc4",
+        "bytes": 2545
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/css/control-center.css",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0747d33ac4d1c9986de6960320d25a0155676e55",
+        "bytes": 6532
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "424b7d3d9334adc62a561fc6a6dac22f26b1ca7c",
+        "bytes": 8356
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/joomla.asset.json",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d2c22c49b6bc11c5d31526a06ca9d2c5281de7db",
+        "bytes": 533
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "da2cb62e18fe70bca4e019c9bbfc8ce85e0e518a",
+        "bytes": 533
+      }
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-competitions.php",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c76bd826207828acddea499a2a85a7819c6a1c30",
+        "bytes": 3599
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e3480d686d2c2f4601cd122875da4c809895e77c",
+        "bytes": 3695
+      }
+    },
+    {
+      "path": "server/joomla/pkg_dragonhydra.xml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "3f8f043e6cc2707fcbce341f842b8664d4d4ec11",
+        "bytes": 650
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6d84524fbd90089586faabf52067740a3b563d6e",
+        "bytes": 650
+      }
+    },
+    {
+      "path": "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "joomla"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "8e9d8f61bef388c7d780533ff45c379c4af2c803",
+        "bytes": 479
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e13d02a6f474b7f7b215c8e5cac23cfc5f0c2388",
+        "bytes": 479
+      }
+    },
+    {
+      "path": "src/dragonhydra/api.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "api"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "23c69af36bc0e373200b848c06073fea539b443e",
+        "bytes": 26327
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "ae003390b467d5b1d93af13e5b5eb02ebeea8474",
+        "bytes": 27806
+      }
+    },
+    {
+      "path": "src/dragonhydra/build_meta.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "application_pipeline"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6bced1066d9db66c513332b1db2073b72f702fd2",
+        "bytes": 633
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "92bcfb093c4420ad87bd56f23beebdb3c0e2ae4c",
+        "bytes": 633
+      }
+    },
+    {
+      "path": "src/dragonhydra/cognition/memory.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "cognitive_pipeline",
+        "schema_persistence"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b889f82233d98c957cfcba667504df472de94abe",
+        "bytes": 47928
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6983c428e3d83e71f26cb13ddea7200f1b7b2fb1",
+        "bytes": 50386
+      }
+    },
+    {
+      "path": "src/dragonhydra/jobs.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "application_pipeline"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b23730458ff21fae2986bd8439fe0483e5ae041f",
+        "bytes": 26497
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9ea6de0abb336836a66570cb811af973994a7d3a",
+        "bytes": 26828
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/composition.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f6094b6d4c48baacbdbe6de413878594fefebfa7",
+        "bytes": 12931
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "a853bf840ece8845fa1ef0ff2b93321438baf74b",
+        "bytes": 14699
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/contracts.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "06fd43107f8c4b1040795a083da5c594d4dca040",
+        "bytes": 3397
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "26febf0d42baefb940ed773da722bdf01fb92b39",
+        "bytes": 8030
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/engines.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7614d9d0fab995b1d0c78e323278251026354d9d",
+        "bytes": 23150
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e9e4f25e6039e7e1f890892d1d333eb080b2e4da",
+        "bytes": 24019
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/job_dispatch.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "908c68e46c11003fabb8916c8f5ed280993572d7",
+        "bytes": 1825
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "315b65eeba53d63a7ff4d1f95eee77a40d4a7549",
+        "bytes": 2234
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/local_observer.py",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "22bc2bee4cdeb1844ab96d30cd1e4d401bb75377",
+        "bytes": 8949
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/ports.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "89d62d5faf3095b55c90e9ddaaff3745af09e352",
+        "bytes": 1488
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "14d2330ce31089df5fc2639feca8771518c17ba0",
+        "bytes": 1549
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/registry.py",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5b80319d7d01d68a9a9269aca348e49a716f09d7",
+        "bytes": 11651
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4525e84ad7a6e7d1e4e57609247c4d896e754110",
+        "bytes": 20236
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/supporting.py",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b5cd02f75c8b54ac3cafbf2abc1cf6f9713bc8dd",
+        "bytes": 15631
+      }
+    },
+    {
+      "path": "src/dragonhydra/kernel/workflow.py",
+      "change": "added",
+      "categories": [
+        "production_input",
+        "kernel_pipeline",
+        "observations_or_composition"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "bc74068d6a469ea1416238d50015e8720bf1e7ee",
+        "bytes": 11121
+      }
+    },
+    {
+      "path": "src/dragonhydra/resources/web/app.js",
+      "change": "modified",
+      "categories": [
+        "production_input",
+        "application_web_ui"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e54cc8e513f2a3abb230a2cf41931307062e8dd8",
+        "bytes": 52202
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5953296227d6578b7b9e98a2a2a90579c42ec3f7",
+        "bytes": 52501
+      }
+    },
+    {
+      "path": "tests/core_next/dashboard_children.cjs",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "5bd7ca8393485072ebdf58a8f3f44b42a218c15c",
+        "bytes": 6441
+      }
+    },
+    {
+      "path": "tests/core_next/test_dashboard_children.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1a01779a061393df376eafa6687c354ccb26fcd7",
+        "bytes": 1249
+      }
+    },
+    {
+      "path": "tests/core_next/test_dashboard_skip.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "d12c9075bdf5861e69b8ff4036b2b943a24c8af6",
+        "bytes": 6266
+      }
+    },
+    {
+      "path": "tests/core_next/test_joomla_admin_header.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4fb11ccce7d8b05753099a55b3f28787d270c5ce",
+        "bytes": 3788
+      }
+    },
+    {
+      "path": "tests/core_next/test_kernel.py",
+      "change": "modified",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c4746825eb2454d3e30b4133e832c4b53604b0ef",
+        "bytes": 21714
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "74ed851bfc688a147713bb36a4201f8742793a94",
+        "bytes": 22084
+      }
+    },
+    {
+      "path": "tests/core_next/test_local_observer.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "346414fcee496adb3495591b4098acaf9337a27a",
+        "bytes": 10360
+      }
+    },
+    {
+      "path": "tests/core_next/test_memory_readonly.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "0c8a15c09ff3c3eeb77fed6251ec81deb27707f4",
+        "bytes": 5505
+      }
+    },
+    {
+      "path": "tests/core_next/test_registry_safety.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "6db1fe04eb9bd4bd77cded4d93f9c4bb0e71ebc5",
+        "bytes": 6432
+      }
+    },
+    {
+      "path": "tests/core_next/test_service_identity.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "97f39033be155c667955d7077eb1378bc317c955",
+        "bytes": 15470
+      }
+    },
+    {
+      "path": "tests/core_next/test_standings_semantics.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "47a3b62be2f21f4301eac62d1c03810d6a170fac",
+        "bytes": 9634
+      }
+    },
+    {
+      "path": "tests/core_next/test_supervisor_heartbeat.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "66d606a4fe33c72b853d28950313c3cf0270d7b1",
+        "bytes": 16959
+      }
+    },
+    {
+      "path": "tests/core_next/test_supporting_registry.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "92530ad269c3469c62a81899f2b242ecdae52204",
+        "bytes": 9055
+      }
+    },
+    {
+      "path": "tests/core_next/test_workflow.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "040c31b85954d2c2c8134e96040441ec6a82c532",
+        "bytes": 9082
+      }
+    },
+    {
+      "path": "tests/core_next/test_workflow_api.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b8793930323363600ef132824b6e54c3d4c44c28",
+        "bytes": 7393
+      }
+    },
+    {
+      "path": "tests/core_next/test_workflow_eligibility.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "919c379725f89bac98a4343aac8d1ba182744999",
+        "bytes": 5782
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/CoordinatorApproval.example.json",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "af6e8b9e688bc5606a593b9e12283c0937c8d387",
+        "bytes": 889
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Invoke-ReconciledDev5Phase.ps1",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "dda5ac3dfc9fd3d1ebedcfa450dba58c38aaa64a",
+        "bytes": 19132
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/README.md",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "2b2d80c7eb0e42f0ed47283d6af923d8131d2141",
+        "bytes": 3076
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Read-Continuation.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "23801f878a757a8f6b7240e2c181ec9f264cf81f",
+        "bytes": 13353
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/ReconciliationReceipt.example.json",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c544c9bb815d2a7e283fe643c0eaa2de6c4b2f7e",
+        "bytes": 5360
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Test-ControllerGuards.ps1",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4d412b1671a91b2d49c089ca1a81e0f3368237fe",
+        "bytes": 3302
+      }
+    },
+    {
+      "path": "tests/installation/forecast_continuation/continuation_contract.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling",
+        "forensic_continuation"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "95ff690cf17dbaac6d95028fcf3682b1cb9a1277",
+        "bytes": 11766
+      }
+    },
+    {
+      "path": "tests/installation/workflow_preservation.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "1bc199d0f1deb8a8f1f6880e68877a6f9a5b6856",
+        "bytes": 20117
+      }
+    },
+    {
+      "path": "tests/test_core_next_control_workflow.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "c9c2338060b916bc6b5a97e8eb71b88ee3309e30",
+        "bytes": 11730
+      }
+    },
+    {
+      "path": "tests/test_core_next_joomla_control.py",
+      "change": "modified",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "b3c044df6128750d769b6f7cec82edaec52fe204",
+        "bytes": 13194
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7493c68792fe19f37989f7e016eb01101ccbbeba",
+        "bytes": 31026
+      }
+    },
+    {
+      "path": "tests/test_core_next_payload_inputs.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "4b504d9c37ab275a13479867b22a720e8ff9f16e",
+        "bytes": 6476
+      }
+    },
+    {
+      "path": "tests/test_core_next_upgrade.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "cea8ef4f65dbbfa82a5df76176e21c69db48e92d",
+        "bytes": 21365
+      }
+    },
+    {
+      "path": "tests/test_core_next_version_contract.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "7ff550618cee7e3c84a1110290aca0a32c037d95",
+        "bytes": 5042
+      }
+    },
+    {
+      "path": "tests/test_desktop_external_links.py",
+      "change": "modified",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "e4be5b045a4c58ce492dfdd0e8e215848710402b",
+        "bytes": 7006
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "eea4d5c84bdb1c4ef6fb710f27cad31eb6317953",
+        "bytes": 7181
+      }
+    },
+    {
+      "path": "tests/test_forecast_continuation.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "f47c3e283e740be539735e79f268982b2c467028",
+        "bytes": 10372
+      }
+    },
+    {
+      "path": "tests/test_joomla_frontend_setup.py",
+      "change": "modified",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "988c2361fc6f4cb4d99363c2ebf842be712c6f4f",
+        "bytes": 13598
+      },
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "fb7a2887151eafbd4946cf153560b6075d3deaa7",
+        "bytes": 14350
+      }
+    },
+    {
+      "path": "tests/test_workflow_preservation.py",
+      "change": "added",
+      "categories": [
+        "tests_acceptance_tooling"
+      ],
+      "before": null,
+      "after": {
+        "mode": "100644",
+        "type": "blob",
+        "blob": "9f856050230cd99cf2e9755cb49dddb21c619038",
+        "bytes": 21078
+      }
+    }
+  ],
+  "changed_count": 155,
+  "category_counts": {
+    "documentation_handoff": 38,
+    "production_input": 46,
+    "release_metadata_or_dependency_manifest": 8,
+    "android": 1,
+    "windows_desktop": 6,
+    "forensic_evidence": 40,
+    "packaging": 5,
+    "windows_or_build_controller": 5,
+    "joomla": 14,
+    "api": 1,
+    "application_pipeline": 2,
+    "cognitive_pipeline": 1,
+    "schema_persistence": 1,
+    "kernel_pipeline": 9,
+    "observations_or_composition": 9,
+    "application_web_ui": 1,
+    "tests_acceptance_tooling": 32,
+    "forensic_continuation": 7
+  },
+  "production_inputs": {
+    "union_count": 338,
+    "identical_count": 292,
+    "changed_paths": [
+      "android/dragonhydra_mobile/pubspec.yaml",
+      "client/desktop/package-lock.json",
+      "client/desktop/package.json",
+      "client/desktop/src-tauri/Cargo.lock",
+      "client/desktop/src-tauri/Cargo.toml",
+      "client/desktop/src-tauri/tauri.conf.json",
+      "client/desktop/web/app.js",
+      "packaging/release/version.json",
+      "packaging/windows/version_info.txt",
+      "packaging/windows/workstation/CoreNextUpgrade.ps1",
+      "packaging/windows/workstation/README.md",
+      "packaging/windows/workstation/Workstation.ps1",
+      "pyproject.toml",
+      "scripts/Build-CoreNextWorkstation.ps1",
+      "scripts/Build-Desktop.ps1",
+      "scripts/Prepare-CoreNextPayload.ps1",
+      "scripts/Upgrade-CoreNextWorkstation.ps1",
+      "scripts/core_next_cargo_cache.py",
+      "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php",
+      "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php",
+      "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php",
+      "server/joomla/com_dragonhydra/admin/src/Service/ControlWorkflow.php",
+      "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php",
+      "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php",
+      "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php",
+      "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php",
+      "server/joomla/com_dragonhydra/dragonhydra.xml",
+      "server/joomla/com_dragonhydra/media/css/control-center.css",
+      "server/joomla/com_dragonhydra/media/joomla.asset.json",
+      "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-competitions.php",
+      "server/joomla/pkg_dragonhydra.xml",
+      "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml",
+      "src/dragonhydra/api.py",
+      "src/dragonhydra/build_meta.py",
+      "src/dragonhydra/cognition/memory.py",
+      "src/dragonhydra/jobs.py",
+      "src/dragonhydra/kernel/composition.py",
+      "src/dragonhydra/kernel/contracts.py",
+      "src/dragonhydra/kernel/engines.py",
+      "src/dragonhydra/kernel/job_dispatch.py",
+      "src/dragonhydra/kernel/local_observer.py",
+      "src/dragonhydra/kernel/ports.py",
+      "src/dragonhydra/kernel/registry.py",
+      "src/dragonhydra/kernel/supporting.py",
+      "src/dragonhydra/kernel/workflow.py",
+      "src/dragonhydra/resources/web/app.js"
+    ],
+    "comparison": "Exact immutable Git blob/mode/type identity; not an inference from version labels"
+  },
+  "candidate_working_product_file_bindings": [
+    {
+      "path": "android/dragonhydra_mobile/.gitignore",
+      "sha256": "0581d23086f7283dc97d2d5bde4f60724f8115f67baa76949596790ab9800dd7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/.metadata",
+      "sha256": "17dc2ba8ee55cc0abd5edbb3343a4cda97c7928fcb1345a1e60a79f6b2c73b28",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/README.md",
+      "sha256": "e6d202651f4813195d84a03a545e05d6fa51a6c3fe30a26c5b764b15bf1e4a4d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/analysis_options.yaml",
+      "sha256": "81326dc8eb2ce39eb2e00ed1a5e44b692aae9ae9bcec15e6e131f0cac213e4cb",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/.gitignore",
+      "sha256": "c9af75dbc2c8aa867476a09426c80b178c4aeed8b9393ae48503eedfa3273d71",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/build.gradle.kts",
+      "sha256": "5cda164260b1ca2cc0e88d76143afe7810bee8bdb8e94fefd84f15d7856772ae",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/debug/AndroidManifest.xml",
+      "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/AndroidManifest.xml",
+      "sha256": "5bcf9b6434d87edb4e04bbd9cc82205fc0fd654caf637686abc846c39cc28524",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/kotlin/ai/dragonhydra/dragonhydra_mobile/MainActivity.kt",
+      "sha256": "fd740bb03f318ca15d416465b2087aed897a0e4d07e3e22ddc1c71134c338f0a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/kotlin/ai/dragonhydra/dragonhydra_mobile/SecureConnections.kt",
+      "sha256": "63e874c22ffd493291480b80f41a3209a7d4fdea3bd0e745877962defbb39874",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/drawable-v21/launch_background.xml",
+      "sha256": "dca312ec77de83e43ef70a825c299b51451247286c29167d62f19165750b8793",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/drawable/ic_dragonhydra.xml",
+      "sha256": "6bbe629280d2e42a56af0b24658abbfbca8b34449d585a2c87df8f66529ccf09",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/drawable/launch_background.xml",
+      "sha256": "2df60e2cfbee873ce2858088cf003e6b93498f2f568476da437610467ea1a9d7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "sha256": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "sha256": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "sha256": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "sha256": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "sha256": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/values-night/styles.xml",
+      "sha256": "ea763597dc1a84c8034251caee98d7753e0fbf57340ffc94677427de4b537516",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/values/styles.xml",
+      "sha256": "cca15a99b59380a548bf6a890f7ca5380ee509b1f9bbb2f5f9ec3589fa25c2f7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/main/res/xml/network_security_config.xml",
+      "sha256": "9b5e0e0e53707ffb5e4e30472816ffbb40f33433dae188f9a65213613c72f7b0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/app/src/profile/AndroidManifest.xml",
+      "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/build.gradle.kts",
+      "sha256": "218f400e3fff31c9c986a2535dfb974560e1b4d33cc27b7c1fee96a2b7e44454",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/gradle.properties",
+      "sha256": "7714698de712a7872e371f0dbae626c255fc83ac1c15e52e7cd9fcaa241b5092",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "c16d82b9773fb59bb6377e796b346edbb4149db9f1fa4035eecae538f266ffa6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/android/settings.gradle.kts",
+      "sha256": "092ba880c8d4a07591aafc082f45deedc9afcf60c113a4bb3d13cbe1a1fce9de",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/assets/football-snapshot.json",
+      "sha256": "086d0c7e1167a37d144fa3f25a6167db212a6f1417b401c003c6dd1c929e47e3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/assets/provider-manifest.json",
+      "sha256": "6a899846c1dba4ca7c7f7f03c81d79e5db69d11b80675a536a0e461b99db2391",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/connections.dart",
+      "sha256": "9b2cc21d1937a2a2329637cd92489fcbdeaa73f9024af9398510684587d66c5f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/main.dart",
+      "sha256": "c321bf351591b05cc0d55768642709820331e518dee0c69638e879e392ab3dc8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/public_sources.dart",
+      "sha256": "b8ecc7f129f06d40c7c27d5d780331d12006a93e412f02861b504dd3ecb465ee",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/server_api.dart",
+      "sha256": "91b20a083d593f3ec70997dadd9e2a3e14509a41eee9d278c6fa2c4dad7083c5",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/server_connection.dart",
+      "sha256": "d634e996a12b1ad5e9b4733c8e14d7a27cb3e744e2f9f491af9d0f4bee6901ee",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/lib/simulation.dart",
+      "sha256": "2040cb59090d7e9d833667939bbc48381cea5090aa10f9879227a5c730a68f30",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/pubspec.lock",
+      "sha256": "445be5b2e81eacfc9922170e346b420f4f0a81d1805e24205de41b80d4f1d4e7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/pubspec.yaml",
+      "sha256": "f75d03061e694413de18b121a2390d326b1023524314b002cff8770aeef3ebc7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/test/connections_test.dart",
+      "sha256": "837ff9830e6d8890d131a582f00a62f11699cc09e4aacdbda2942bd047880290",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/test/public_sources_test.dart",
+      "sha256": "c6831d99f82b75b0aa18c376c73fd583d4323f81903216ebedc0aef90b320059",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/test/server_connection_test.dart",
+      "sha256": "97dcaba5d9498bda470f3345ae53d3b454f5ebd34f6662faef0f08fa0c501126",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/test/widget_test.dart",
+      "sha256": "9914ce861256603ce5ada6fa38c4e6f7d9744ed18b90610adc016d17b22c3857",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/tool/public_source_probe.dart",
+      "sha256": "0b16fc0c3e56e0f9333a077b68194dafe785a76f0386db9c54f43b0dd434177c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/dragonhydra_mobile/tool/release_smoke.py",
+      "sha256": "b1cca30422930aebda3b6736274bb2ac2bcdaeab8396d1b34bffd7bd0fd587e2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/fixtures/build_snapshot.py",
+      "sha256": "4f058995ba56aecc6d7bcea8fdec60446e69f04aee9ce993dbfabf6a17b78752",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "android/fixtures/test_snapshot.py",
+      "sha256": "981405b6dce3e400fd14e4404e59b33f939e3cbfec8f1eb5d81675df87a88a30",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/THIRD-PARTY-OPENER-NOTICES.txt",
+      "sha256": "38c6e8a07c3f9f115ff3fb73be999689cecea7e3eb6f7a3ec8fbe3b09cf729fd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/package-lock.json",
+      "sha256": "9225d3d6c15d586538d3561e98b70ed69f584a20c7311cc112af8577e8a6c15c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/package.json",
+      "sha256": "564c0f4cd2c575fde10cf7ceecc444a01493f27ca533da224cf3b3358db6a9f2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.lock",
+      "sha256": "79479fe0cd4d6fa7109ec6e7dcf4a67411cd1649b99b851ba0a67297aed71e05",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/Cargo.toml",
+      "sha256": "b609ae5d426e5bc2bc6725ba63eb7acd9c9fd6a64e46c468c976c023b3a181e8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/build.rs",
+      "sha256": "8af41c0062014fc594e4bb9899e60ee9930ab57d4cf0c73041ff557d6ec736e6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/capabilities/external-browser.json",
+      "sha256": "1f111b7e827b9c659e49cf71aec022dffbc3045f15e6b4c04790cb29afca4739",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/gen/schemas/acl-manifests.json",
+      "sha256": "7985a7fce6e3d243cc660c50dcd0a0cf452501a24b82439affdd9f4a5f3ebba5",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/gen/schemas/capabilities.json",
+      "sha256": "9307b59ffa9c461365524ff1d67321d7f0ca0f1f9ee38b9058e04ddf5f43fddc",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/gen/schemas/desktop-schema.json",
+      "sha256": "2600849ddea8e3e9aba603f66af5e4897dadc19153c32954e53ed2b74193c43d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/gen/schemas/windows-schema.json",
+      "sha256": "2600849ddea8e3e9aba603f66af5e4897dadc19153c32954e53ed2b74193c43d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/128x128.png",
+      "sha256": "7e1ad1856c80ffff01e1d2029b4d9bb9fab5d927fd887cc80f18bb95ad73d92e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/128x128@2x.png",
+      "sha256": "c5d92979f2141a00959777411d4b9de237385341e050a4ba1d31f3cf6d3c4e62",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/32x32.png",
+      "sha256": "2aa801697dca4d91541b50f47cc187ddd95305b8108299c0995598a458bee277",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/64x64.png",
+      "sha256": "97f8ae9fdc1efa5a9c2cad2a36d9aa973a87c95fbac6d35c18891d76433d2290",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square107x107Logo.png",
+      "sha256": "aa72d419967dff14f2ee097dabcf9688cd793ece86d37c3bea3e094fe2d45c6d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square142x142Logo.png",
+      "sha256": "fc8d18cb3932ad8d48d40c37ae33512181461f62cffbab7d69286b52ecef7d12",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square150x150Logo.png",
+      "sha256": "35822072bb6fde9d046363045dbe5599ebd24b8b9f305788ff0538aa7c500254",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square284x284Logo.png",
+      "sha256": "fc76062420eb6c8c16b384b9e1826f0b359ac379850d967407fddfc42e772c3c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square30x30Logo.png",
+      "sha256": "24ac8bc68674bac40d4bf343eed1e4244118eb04c1762540b3d0418d4806d21e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square310x310Logo.png",
+      "sha256": "2136feb1230e749821e9cbdbfd85a9872afc592aafd496b2d84b6cf294d2d748",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square44x44Logo.png",
+      "sha256": "e2ec093c6d0c69aa3e8f259b17edaca4c61f1362769fc7b58be52cdd30c046fa",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square71x71Logo.png",
+      "sha256": "d76cb1531bbff753a17912b23c90965499ececef82112604d09c7c19429ca0be",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/Square89x89Logo.png",
+      "sha256": "48a5d6bba39438efb424a6b3536986e59f3dd6cdac9cb6b5949fc96c77fe1997",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/StoreLogo.png",
+      "sha256": "852d9ce71d60eca439fb7691eb87e578322921c400d52f1be3e582ec3cc8793c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "760d4b8a06bf7163dd010c33ad2cac9e4a75fa0177afaba042f83e311eef0c3e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher.png",
+      "sha256": "a7f2b6e0337b2692324eb0e48c716be29c4c69d32d1d67eb3a7c0221b9cac0f5",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher_foreground.png",
+      "sha256": "0394d4c3592fbbba7b86c44d34837c6907cd7c0bc0153efbdab1dfa3c0d33383",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-hdpi/ic_launcher_round.png",
+      "sha256": "43afba98dd5680bebca7fd69bc6fc4f9c861e8264548bc11ee6d501cd76bc3b0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher.png",
+      "sha256": "8a40247b6ec5800af41adb1270f8754d52b64b3f7aeecfc8345a517d93b38c12",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher_foreground.png",
+      "sha256": "8760defb61ef0a37d31de948a782545f7f5a1b9699aece55016a391e40df8ec9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-mdpi/ic_launcher_round.png",
+      "sha256": "39488b5005a4cff986e73cc2a14ad7a1071647b7defef72399a4c9968de66619",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png",
+      "sha256": "4b633bb5db051829a3e87ff0eae794bd4ff2c809d7b6e81761f84ea89bf6bc49",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png",
+      "sha256": "2aa1f4c76a935d799713b7a274b3536d48bef28ff390145e64a5296bc46ac59d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png",
+      "sha256": "e3d104a04b0b9d50b7342b2489ccc522491918e15d1bf5582a0bea9650e53557",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher.png",
+      "sha256": "eed57d154cf5eb0970916107ccd4edaf236bdb636254b7909e29b03a7744b8f6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "sha256": "74845625c9ac53e4db90528c507b313c870ce1f2bf55b78c7cef176b3c3b4e47",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_round.png",
+      "sha256": "980cb21915367d08a69a9ba61269b2fa50ea6d00850173068622a237f0621ad0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher.png",
+      "sha256": "1af07343141a8d47fa49b300693a35a27d9197e978a3d6aaae4ade5736715c97",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "sha256": "ddfe557b8a6bfb11b96e76a34a47fcbd33c5bed226ce977b41cab0e34c56af66",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_round.png",
+      "sha256": "f1c79ee9b70ee413e66f23cd55b29687ed22205a8b97beab09f532675f7b5649",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/android/values/ic_launcher_background.xml",
+      "sha256": "b1c42868a1777ed1cf61108b506ffc91d0a826318d8516e36cf8f76fab8c4ced",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/dragonhydra.svg",
+      "sha256": "9ec520e33d592baea04022e0cbd5c7ce6da155b060769a7176d62d53e67f27b4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/icon.icns",
+      "sha256": "4d9780f653e8775760f4d769abc7b18d343c3c72038aabbd2156521d8da1608d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/icon.ico",
+      "sha256": "b59e32241399cdf5933f0948eef77754d0fbc9005dc5b538dc6819271e8932b4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/icon.png",
+      "sha256": "5266993b8a00c2cca7e194fbafdac9dfddc4d8a35d8fd57c391a909c4b6ff54c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-20x20@1x.png",
+      "sha256": "eb90c47ead35f9c956de6a31cb5b17447378226ecf46305a514fb4ceab6c1d46",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-20x20@2x-1.png",
+      "sha256": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-20x20@2x.png",
+      "sha256": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-20x20@3x.png",
+      "sha256": "db1685870426b4ef836746b312903e458e3e53e150124698befe03477aec9216",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-29x29@1x.png",
+      "sha256": "77ec5fbf7291aa8a302b449efa6a10d3aef3acc749b9b64682f8b16d5229a13e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-29x29@2x-1.png",
+      "sha256": "dcbd45c1d3182f1fa22df999f64bfc4245b695b724854af7570fc199db0664a4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-29x29@2x.png",
+      "sha256": "dcbd45c1d3182f1fa22df999f64bfc4245b695b724854af7570fc199db0664a4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-29x29@3x.png",
+      "sha256": "ec9696aa497e6b72614eb94bb76c79e972a140bfebfff88bae2a2cca8ab2a3bc",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-40x40@1x.png",
+      "sha256": "a624a38ea3ff547f8b69d1823ad1cddd63c65513e12ba79efd9bca5bc311d5bd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-40x40@2x-1.png",
+      "sha256": "1f6b42d6191ed520685f3bd5d4662951fcbfed45f0b1ae43a9e1eec7d60cd862",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-40x40@2x.png",
+      "sha256": "1f6b42d6191ed520685f3bd5d4662951fcbfed45f0b1ae43a9e1eec7d60cd862",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-40x40@3x.png",
+      "sha256": "11fd0479cd3bc8fbdab40dd9dd9e714d5f6c0d608f8abe82e40e1ad605f834c4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-512@2x.png",
+      "sha256": "9f55bcada1a39081fed685294e9eb662daef9d4f3f9261fa9ca321e98c0eb07f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-60x60@2x.png",
+      "sha256": "11fd0479cd3bc8fbdab40dd9dd9e714d5f6c0d608f8abe82e40e1ad605f834c4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-60x60@3x.png",
+      "sha256": "05952be10d482f2ba3d43c6b6ef86e61eb465688b601064338abd16fd87e9d08",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-76x76@1x.png",
+      "sha256": "593ea0df9d54d54ef7b6b17323136dea412191799a1a0a21b0245f17c5126e69",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-76x76@2x.png",
+      "sha256": "46fccaeb33ff1b5d3692b9458dddddfa28348d63ad95733d5eb881a0d785baf3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/icons/ios/AppIcon-83.5x83.5@2x.png",
+      "sha256": "0bed22580c1cc00c65dd29f5b8c985795f3302c9167343c50cd54b8e5892ecd2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/src/client_state.rs",
+      "sha256": "30348527f36cef4cc6c8daa6ee33a3f5e31bcd105b927d5f673adb08c84d34be",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/src/external_target.rs",
+      "sha256": "092427c942305ad85b02d41333f66ea7a91277d23e6b18089b0fc5abf4870d9a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/src/main.rs",
+      "sha256": "bc6b0395bfcb2dd3d3401d3a6a035e383e2f0c9f3f23d8a4435e15ccda2205c1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/src-tauri/tauri.conf.json",
+      "sha256": "44df4cb6881c27bc62b5a9fe1ab815d3511b0a038a0fbe189bb64deb7550d630",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/web/app.js",
+      "sha256": "eec7c04ae5cd868f210f142ed03558aa47a51e7b2729c2d85998d93529c48bfd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/web/favicon.svg",
+      "sha256": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/web/index.html",
+      "sha256": "38e81a0faaedf41272e285f081189e5d3112ac13c03f554da56473a267a252c6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "client/desktop/web/style.css",
+      "sha256": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/dragonhydra.spec",
+      "sha256": "66a7f0bfef9829bcebe468845f74b9b899d8e6a0c475bb7ab0bbc391be3f2470",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/genesis2/README.md",
+      "sha256": "65aec1a440d8add5bbe123a3ec57a436c620a9c0709a979e3eee53c8e8b4d67a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/genesis2/THIRD-PARTY-NOTICES.txt",
+      "sha256": "e60dcba568f87127d2905cac7060f6eba21551d0f36915f8cfe9cc9893d93a8a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/genesis2/Write-ClientManifest.ps1",
+      "sha256": "7fef7b1c812fc78718db576ce67670c383ce2bafe381ff675f36fdb361b1ce12",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/README.md",
+      "sha256": "62c7e7f7e436f8bb33c9f9b8d985eeebb4d54c87a6f22fc986c3660b22f60184",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/api.env",
+      "sha256": "359574722c75715d918a34f4688f90563ca254b6086c2e13700fbaeda4666f95",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/bootstrap.py",
+      "sha256": "01d2cb5e48b76fba0c1f4bb4f974622d5abb6942196a9413741357151654a8d0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/build_deb.py",
+      "sha256": "27ecce748a28c5ce0a597e0e8323af5fff2b4909668b9ff09d2716a7b1b791a1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/build_local_ai.py",
+      "sha256": "a05ea794eec32daf7c38c43de0baa242732367cdf27dd88785b2cddbad4c2b37",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/configure_local_ai.py",
+      "sha256": "b81fc2d0d48b84cb930fec42f5ff49745859c06850c1e249c2245b2f34b8b0c9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/dragonhydra-api.service",
+      "sha256": "4b36e40e304e84a9d43d98bc33a6add4e9c9882cbe46df310591454d3bd779e9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/dragonhydra-server",
+      "sha256": "83903649be377b2f651f25ee04909f5b9e7e0a1002d20ef8661da6c5b1484c31",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/finalize_metadata.py",
+      "sha256": "b705b1354c0bf2ce90f312c446c8538ae84213bd0efc020979fa060d18433326",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/managed_endpoint.py",
+      "sha256": "05d584d799a7378a9c786a9a30ae02b1437576dadb262e1bd268832ac49a7b03",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/package_ai_setup.py",
+      "sha256": "fe46c19c612d9b5a80d2e1921b58166e0d1278c57968140175f4b0efbda6197d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/package_local_ai.py",
+      "sha256": "439164f47c867db02d179fe3cc77105ed47fc72dfc3791bf05b49f026527cee6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/postinst",
+      "sha256": "3774934c19b835d017e52bb769e47a829200177e797c333a355e89d9839ad7a6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/postrm",
+      "sha256": "adf3ad9c311ab0aeec8056aab52b803afefa4e4a5198f090d4dbc58b4b703016",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/preinst.in",
+      "sha256": "43dc361a2ff2f6bc89046919aecc0b4c2722665fa068fa2bee44a30661c928ed",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/prepare_frozen_bundle.py",
+      "sha256": "e55b1a871e33b12869cf3d5bd4266b577902add4bb0731fa73e360643c71c190",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/prerm",
+      "sha256": "2520d1481706c3fbf659fd8e5cadf46a6800447a003a722bae0dc6121005b68f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/server_patch.py",
+      "sha256": "0c47af145c61567d433e9858e743076cbb8e776dc0038e99f1c83e16a17e6a8f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux-native/test_build_contract.py",
+      "sha256": "e67f7d99ec4d4e6c16851d150a6382d4e8d54c164482b91c14f5197fac91f9c8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux/README.md",
+      "sha256": "d074ff39fcb370fcca19dc11e8df0717f6a51feaf4d27db25c30fafbe94a887b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux/dragonhydra.service.in",
+      "sha256": "4dc5f61aeda237b5e23c3f434cd485c461dd480757eb7d43f7691cbd08cda4be",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux/install.sh",
+      "sha256": "62949f38f477334de0f0e6d639c6b6c409aa3e4018fd15f966d2e861e87025a1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux/preflight.py",
+      "sha256": "71d6cd88d05a5dbb84c81c621efe01fada16a1eee5915232d1fcb8caa3865213",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/linux/run-server.sh",
+      "sha256": "ff226c3b00064941d951b46f17c7df0f03ca8457c0a87d8c6b824916a7b8d86c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/release/SOURCE-LOCK.md",
+      "sha256": "9c8383978e1085c61bd5d852ed87c1d367eda03928168312d65b3d10c8a1f97f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/release/artifact-contract.json",
+      "sha256": "e0602d78bad59d4844538264c35368d9cc0b005dacd1fa6c6179e2d7b77dded9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/release/build-requirements.txt",
+      "sha256": "94a409121a3c4c9531ac2e1f5cc298a58dcb6ba6b9d4d1e031fa26648c91a0e4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/release/version.json",
+      "sha256": "7ad962f2235653310121e5b68b24d820fcbe547e811de8353587a65d1457e8a4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/product-server.spec",
+      "sha256": "a6d6263def997d233586322c13f06c07b307169703247c6f038b5fb8f54f7b7c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/server_entry.py",
+      "sha256": "f09cb47749587ae4968cd53f3454d35ac70b276d77e7a9a5d665c16fdff44bb9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/version_info.txt",
+      "sha256": "44a83a35fcb5bb6538019a7558abc7a20e88fc7f45e62b986423f3e5b3d0ad2d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/Build-Runtime.ps1",
+      "sha256": "e32cadd2016cf3703a1fc976a1ef3a395dd2bd601f97775bbe8b37527d0d5f8d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/CORE-NEXT-INSTALLATION.md",
+      "sha256": "9cc7af4c58f8d593650519cb353068e9bf3e764bd36bcdd1e969a1001ffee9f0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/ClientBuild.ps1",
+      "sha256": "82137dd4d9d4fd9880f527134e8930347c3abc4de5594243b8218261e5fa2c66",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/CoreNext-InstallerChecks.ps1",
+      "sha256": "d858886c4f6919cc5f4aa288701f9a3ff12c8c2d19375b7185bb2d282d7a48b8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/CoreNextProfile.ps1",
+      "sha256": "4ff8676621b3e3662cc10d4de91345cf09d132215bf78f0b8a5c597e9cd7e27b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/CoreNextUpgrade.ps1",
+      "sha256": "79f97b8c48361059dc8b78027d073e2ff59d39bd48506bc31400cba6bf95be24",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraAtomicFile.cs",
+      "sha256": "e171507f2f397b51604f15fcd4467153ab8b9f1cbf2437a8407c6b72373cd0ff",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraLauncher.cs",
+      "sha256": "e92e78852075bcfb36228d991a17921a05e47e6e44f94fc9d9ed4851ad71e67f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/DragonhydraService.cs",
+      "sha256": "e32a90381de9f9144ffb7cfa5d94df2ed89bbc5328d342a0da039af4897efa2b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/README.md",
+      "sha256": "6bb41aa1ed7c606896367afcc3437cb0fdd68d435e0520656e7a1ae0ebd0e871",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/Workstation.ps1",
+      "sha256": "8afbb01d2209bacb9e2aa963073b06eb6ff15d52a80ef93751868529a5002d1f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/installer.nsi",
+      "sha256": "d012b66dbd438ae08f2e7e115532b7d5f1c0825ed54670b6e2fe100d666f5d3f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/web/Build-WebPayload.ps1",
+      "sha256": "ec92e8babd54b9e69ab22dda13d102b4e4e6d2554b810e2d1d1073ca4fd05192",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/web/CoreNextProfile.php",
+      "sha256": "2b136896460ba84da5c8f271321a140a467c7359103bf0c623be88a9c9f3c842",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/web/README.md",
+      "sha256": "d863db5b1082fc1d45e456779649bae24a87a99ec234a3a8747f7be72fadcc7c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/web/manage.php",
+      "sha256": "c62f286391f819ece535edc95fe1cc2b73acb1d3304255ffee6129e2797c425f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows/workstation/web/prepare_payload.py",
+      "sha256": "6a6c548c01245c9c8254bea891408c64b1c97ad9b469e50bacfc7e1fb0d1534a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "packaging/windows_entry.py",
+      "sha256": "5d3f1528f945586aef70c817d449fe47c72e88ea899bd63e03607d8c8cf1d5e1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "c2d4ad3c01d3c086637b36f922f28f1e5f18460b33b265b2731bcdd2e64a08cf",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Build-CoreNextWorkstation.ps1",
+      "sha256": "722595b8a64a62d04b4a1754c9bf949af615692bcb4b7dc3b99383d22c43f9d1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Build-Desktop.ps1",
+      "sha256": "843f1732f53236dade65983e6b111228c91af6a2eeadcdb18df060aed66aa9ea",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Build-Workstation.ps1",
+      "sha256": "8e93f81ebde7743600b01a466d508f35260b1eb4338285065e6e1d19a5a6066c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Dragonhydra-ServerOwnership.ps1",
+      "sha256": "4052a6b7d4836eaa121b9c399c78c6bd45e9179210070136106d5545797b110d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/New-CoreNextProfile.ps1",
+      "sha256": "6723c8f69e296ad5598550e37f3dd41dc424b687fb7ced5c69d21d03c778ede8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Prepare-CoreNextPayload.ps1",
+      "sha256": "1d389360d8daf2c1c1bee69aae62fcdda9d0524c48b13af99e22c1f6f9019f08",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Release-Dragonhydra.ps1",
+      "sha256": "cfeb47b3a92d37125ad98b7ec29438cac4b012638a350121f6815916051529db",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Release-Windows.ps1",
+      "sha256": "869a48d2a9246263547d180dc94fd26befb537991f6ab60065794273bbff8bb1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Repair-InstalledDesktopClient.ps1",
+      "sha256": "becd50c6c48e32be1ec331feca9f25e491879d627fa8fe05a6f85c1002a8931a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Resume-Codex.ps1",
+      "sha256": "2205c9ddc276f6f1c8db81f74d249f5c5183f714c2c0306ba8a699992dda707d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Start-Dragonhydra.ps1",
+      "sha256": "8f19affcdce4ad4ebb43ce61154b6186a4ed942e372d4e8a838b6bf4aa1d7bee",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Stop-Dragonhydra.ps1",
+      "sha256": "ef9bb3ed96db942158c43c888a46f2e6986752f894c8c5a3a70130628799827e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Upgrade-CoreNextWorkstation.ps1",
+      "sha256": "ae1579c7f14a54d8e6b4bff7d440a690845d335d571962b3a798c8050990eefd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/Verify-Joomla.ps1",
+      "sha256": "516a2b9d75e5989c41fcd53d86923f4ca040be17c5271cbef5a848df3721cecd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/build_checkpoint_archive.py",
+      "sha256": "7cd5f8faaa6aa2a1ad746f851c3932e6f73ce8f9972a25f7a81a829db11b40c4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/build_connector_server.py",
+      "sha256": "373e64fbd8cbd91ca6106232f415b52441271115a2dd48601d1098a09a7c266f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/build_joomla.py",
+      "sha256": "928634da53ea906756d597f0fb59a939590753349297c979a1f0450fb9044895",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/build_linux_bundle.py",
+      "sha256": "1eb97a451d42feccddc709042b7b86e325d2cad83d28c26f3396c8ac36ddfd9e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/build_mariadb_migration.py",
+      "sha256": "6551ae17e84366c3d838d215fe1bc6d1d1717a2598a7aae89f899914f5429df4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/compare_a6_calculations.py",
+      "sha256": "7c3900f7ec70a0ca6f8e4347f488f7e521256349e962280d8485d2d3e1d03ef8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/core_next/characterize.py",
+      "sha256": "31e8fba1f397e50dcf54e691d81bb64411a1e8de3568bfb837223820e16e6532",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/core_next/linux-server.sh",
+      "sha256": "9394494cfae8b8551cf460b328706e3780cc772749c60c4a4162d4ddd8868bd2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/core_next/release.py",
+      "sha256": "ddf8bd58e9180e4aed4bde9c6fc64849656f35cde25688b6d2edcac00deb9223",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/core_next_cargo_cache.py",
+      "sha256": "feddf1548985be342bfc39702179b86e594c8026f9bde3f81f7bd0c6a1ba579b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/finalize_core_next_payload.py",
+      "sha256": "301f6471b78afbea4e05c0715f36422e65444b648319b27aa6bbee6e7f5e7f51",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/freeze_release.py",
+      "sha256": "4d8c860a06e555bae0b41bd05034896f6e5d4af999a9c170c3a114a5dcc44623",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/master_release_manifest.py",
+      "sha256": "9d0af0d541f1154379c56a960bd84cb86e15eab15be90e20ce734ad134bf6749",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/prepare_android_production.py",
+      "sha256": "75d7b910edbafb5129b682ae1868775141191eaa3515feaafeb64e906110a08b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/prepare_database_migration.py",
+      "sha256": "10fd29c151d5f8d81faa50f260e5b5149a7e7444358e7a6e22f569d1fb6e3500",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/probe_local_ai.py",
+      "sha256": "9bbdbd871ab78e0c0d1c205ce205cdeedc9e06cde30e3d6c92d777e1dd48c045",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/release_android.ps1",
+      "sha256": "337f3d1b3a659c836ac823f5c775ede883d76a3e55a67dffde01b231fba81f07",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/release_coordinator.py",
+      "sha256": "c3ce845f353e051a605e2acdbd060d404215b20532e8522e3161dfea8ab8c1ae",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/release_joomla_gateway.py",
+      "sha256": "4633fd9cb0ea31b4453ee8277b81fac12503523c72699bab868636be71a84e77",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/release_wheel.py",
+      "sha256": "68f9539c9d96c5c6b8a2e9523db4d4e87370a51a11d09108accf113e52871049",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_connections.py",
+      "sha256": "cf4c639be048ec644d85dbdeb1b7e794ced4aa07dff0b94ef002f9f056056bca",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_context_foundation.py",
+      "sha256": "37da7078330028119ffa7527fe299c0c4267bfe97adbc81e84e15fd600669f21",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_continuity_checkpoint.py",
+      "sha256": "296d505d974dfb79ed2d4ddf22c4ea1cd89cb9c10de368cc0cfa98cc5a32b3c7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_core_next_payload.py",
+      "sha256": "06f08b5da00aa188dec1bdf239ff230acc2484c4c6b2e4d3581d253568f46570",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_linux_a6_runtime.py",
+      "sha256": "79eeca6f49b858f4328d063bfb696764771a93c82ad8450b181bd3fd3bf81f34",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_linux_fresh_runtime.py",
+      "sha256": "51017e09f5d87ee2db9c766d4d16ea25237946ca45229cae7fa4b7041c9dc7e3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_mariadb_migration.py",
+      "sha256": "37c860333a56d68be731d2072a3e293abfb46390ec50463a1e236639e06dcc4c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_master_publication.py",
+      "sha256": "4d13691d84a0e9941c21e13329410a6abe795b8abdd1efcc69975368ebd8b4f3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_retained_provenance.py",
+      "sha256": "275f8d030b0022408a4b3eaf387fd622e11c3e041be62e2c80188354f14915c1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_sports_package_3_retained.py",
+      "sha256": "9d66783ca493b5a786961d763e0df4b9c1adae44ff71b174e46e564f05d50cf5",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_statsbomb_context_job.py",
+      "sha256": "a61524740eb409676188b792bba9b1818668d480cf752531dd7dacdc8d61a4fe",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_statsbomb_context_live.py",
+      "sha256": "d5bd3d78207ae33d922be3a0b05f1520ef7f13ced7db584d0da7fb2b29bf6615",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_statsbomb_parent.py",
+      "sha256": "7acbdfd1ddc7926f00c27b766e75cc383d1605a751fa2f004cacb3714c541421",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "scripts/verify_statsbomb_parser.py",
+      "sha256": "f24f1c6fdd205f2347cad139ab1ccd060f85efb990e075c3bdbdd2c21f4c9fe9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/README.md",
+      "sha256": "71e931e4d7475b7c2cd31cf4c953d6847cc914d53c5c20884b44f3a67449be77",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/access.xml",
+      "sha256": "d7e2fc2a753b14d3b9bae5a230e38879751d95d529327172fe0f8d38c18386b7",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/config.xml",
+      "sha256": "bb243067695dca56606c464b8220b6939ab57afe9e88af53e53de5d64afbccd2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/forms/import.xml",
+      "sha256": "0761b775656701d62a24f0c5e12629f46dd9760f280109c512ef710edf0e7bda",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/language/en-GB/com_dragonhydra.ini",
+      "sha256": "25d3bad26535bda654bc7cf55ea8ff2a450193b44893d55cce1acaf7043175a9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/language/en-GB/com_dragonhydra.sys.ini",
+      "sha256": "fdb1d003acf8409c5b23b4adda9d3ea9395366399b8b302942467d1966105005",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/services/provider.php",
+      "sha256": "e4583f87f58d97ea9feee89b23a41f0380692f822e027ced487cdc3c6eed31e0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/sql/install.mysql.utf8.sql",
+      "sha256": "270923a2c273e50f912a19c5d6bee5d5025af1c3478a153ba909ee5c202da216",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/sql/uninstall.mysql.utf8.sql",
+      "sha256": "f701376b43acb0aefde0c2417a3d5ac85b40814b703ba71c1312a03a2c21372b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/sql/updates/mysql/0.3.0.sql",
+      "sha256": "a43b6329ab45abef3637f772b478cd8f46ffc5a2700678b27c36d8b2ea2ab260",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php",
+      "sha256": "d4ae0c1814ae07994abf6d54e71a7aee21621fae98ee046401d5a9b84f0a9310",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Controller/DisplayController.php",
+      "sha256": "5f9aa9b5750219a203b6aebe1a77045611681a2a5e83c4669234bcc8795d257d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Extension/DragonhydraComponent.php",
+      "sha256": "94795006829ef59b02940121c34ef51ff6d2bec1e799a2e40e8e3270344b9f98",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php",
+      "sha256": "43f17b3f8ae703db027b0d7af8cb5d2d8b4e1a7edcb1e4bf7683bf5f7cb3e5e4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php",
+      "sha256": "ca09a92e80f541ae8c2efef7a059e64cb5754c6a194c95a07351ec726b35fe26",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/ControlWorkflow.php",
+      "sha256": "83203758872b30f4cef8aafe2915dfee46b2a57272193ccc267321d35bd454ef",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/FrontendSetup.php",
+      "sha256": "1601adc2ee43bf888ceb4fb8d66de0ec40bf93c94a4498c7a463c1c38684c1a6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/Service/Kernel.php",
+      "sha256": "d1b2ae5a59bcd876d19eb95569c14d6c0cf5f0a6443b15452d5b58d55abbb0ec",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php",
+      "sha256": "e13ed619b4863c6cf168cb0f1100943756de057ca8192734b1f85eeb570cc4fe",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php",
+      "sha256": "0466edda3b92d8dfeaabf5c059b4d8a4b1c26bd6196f770cb4c36c4a48434552",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php",
+      "sha256": "13f91f5cbd2d40474b73c4b358f0f23f662c808dcb3c9e6c0efea51f61e7ca68",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php",
+      "sha256": "9ea3271663723031fec4c5f2a66b8fe8b90fbc3c8a195608592b7167e066162c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/dragonhydra.xml",
+      "sha256": "f4231b7dddf7ceb0aaaf5a81bde5d775249092ec969cdc09729c7dfd69d3768b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/css/control-center.css",
+      "sha256": "e890b66bb57c04d48311c5ceb630434753c1053efb067edc5ecfee00c01afc66",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/css/workspace.css",
+      "sha256": "43279ac1acd37aaf694244b8851910e8cc12a67c1a00208d54059a237c5ec435",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/media/joomla.asset.json",
+      "sha256": "33d47fde12a7792e3119362f7daa0a08424655d254c0cf0175acf99bfbc9cf44",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/script.php",
+      "sha256": "ec010a5abcb423e53f746f94b01e38c40eb21b4e46ea35262f5d3eff10697872",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/language/en-GB/com_dragonhydra.ini",
+      "sha256": "0a4aeaaa9089655dd1eeb27a3744eb8037f3dbb9a5993a9b43193dbdbabe3a71",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/src/Controller/ActionsController.php",
+      "sha256": "74312532dc17b46b936b762a33e8f620a196affff64322028352004273db448a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/src/Controller/DisplayController.php",
+      "sha256": "c0150b76348fbfa3dc40c495243dc1583a49ed0b20b43a0d3f55d98a38419004",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/src/Model/WorkspaceModel.php",
+      "sha256": "f07714427245d3358eb4c250cb51afaaab74a5494e84b3e32ae276d35e62fcae",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/src/Service/Kernel.php",
+      "sha256": "20bf656f99a29fb7f2f49fa2a68ccda672a308d0e6953d1032f99ba2dd9216cf",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/src/View/Dashboard/HtmlView.php",
+      "sha256": "cddfbf793321ba17c2d7895e343d915ebcc88d91414fcf45036c29517dfd407c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/default.php",
+      "sha256": "e2b478a9540cff11cc81a03406568662872c7fd4e519021d6414a687474819d3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/default.xml",
+      "sha256": "80209fa58564172c46923e54e5ae0a3170962461ba0d9c60426877512153db83",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-analysis.php",
+      "sha256": "063211ed22c1646e3a55d738f9b9d24589e9dea49356e919bd27dc167daeec3b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-competitions.php",
+      "sha256": "844fb99d4d7de13bc2d5c7d462d804986c24577ffffdfe78eb087644a1c5155d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-connections.php",
+      "sha256": "02dee028c379f581b29e7913b7c47bf4c3e7ec5f0a9ffd2d42a9fcc38c1200b6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-matches.php",
+      "sha256": "518b2ed5fc7094cf5c30624b4407731b5c3a359df5ec9db015ea9dcf3ab42818",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-overview.php",
+      "sha256": "9c34d87bbf04905d5eeec9543d8a2d19296d3bcb375c29ea51a822ad7c0efca8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-reports.php",
+      "sha256": "2469f21e17fd7ce988f197e2da47a6c96b1f219a137e695a6abc9db00d846d86",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-teams.php",
+      "sha256": "b5b4f819f69d6228ce92a807384b9a102663889b774e6e4c6daf1c4c68463598",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/integration/manage.php",
+      "sha256": "6a24f155d42f312f620be8efcbad20c5b1cbfc9a284bde9a713587be84888f73",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/integration/verify_ui.py",
+      "sha256": "444727923e9e65fccd5e79ed1d20a85410b11198cf181dea0ab5a4603ac88390",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/pkg_dragonhydra.xml",
+      "sha256": "5f879ed4b675618a64edbd838107791c374eadfe6da16ef740304f6b7a49ad5e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/tpl_cassiopeia_dragonhydra/index.php",
+      "sha256": "09a1c357493f9dd78b18db703629c3320b0434a7277c66cfbeff5a83ccddc944",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml",
+      "sha256": "79ce6e8c7a3ccaa2279ed6e281f9f300e8ab0baa388ea2bbf6974bc21ab4e458",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/__init__.py",
+      "sha256": "0bcd4a0201074f0b153bbfd456bbd353ea51a96dfeff1a51f7ccd8947b3284d0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/api.py",
+      "sha256": "a5a31fe9d682c9425c825681be777a521547c12c2a621df5703867bafc3b2db3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/api_contracts.py",
+      "sha256": "56056b71b7cdd4892eb450dfa575e78dca26aa5516fa791fb3b1b02ef59a1f19",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/build_meta.py",
+      "sha256": "549a10a84a8a6bd55588a23260ee1514769bad211600ac527d6b97052735e005",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cli.py",
+      "sha256": "b4f924b85f65413240568c3f556f46f8c76f5c7341e9eeb8fd2e6de8ed9fd186",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/__init__.py",
+      "sha256": "7992192172710200521ffa72af6aa50992fcee7328d2248208ff6bd561aa8c54",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/adaptation.py",
+      "sha256": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/commands.py",
+      "sha256": "8d8516bd3666b515d205559b4b402254b294d210c227eb48911549991cbac840",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "sha256": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/memory.py",
+      "sha256": "d068811c07ea960552800ca8cdee221799813e975bf566e22f65f2f5430f8b8f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "sha256": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/research.py",
+      "sha256": "08287e52f91e8c698d8b79258e556957605f66fd23ae079566207610e2278a81",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/runtime.py",
+      "sha256": "9d6ee182b80c9d03f7746f5b884efbe33e8a361255f173a52876f0ec5b5bad3a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/__init__.py",
+      "sha256": "736f747eacf276124b99c055e2d803cd35cabc1b2ca16a429bda0ed76cfc125a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/core.py",
+      "sha256": "3610559069a5fdb39f02eadc4f80642375c0dcab81da648f4165a28e481497a8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/football.py",
+      "sha256": "3df70ba3365413f5cac9435c10817057675eea2c55adcb03f20445f17cb74bd0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/multisport.py",
+      "sha256": "d01ec628c41f56744bb7f2959daac813cfe98b7a41638a283a531f092c5b4db2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/research.py",
+      "sha256": "c5627e6199e2583e368d211a7289b7316f7321abb2c3a07bb353084caea0def8",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/service.py",
+      "sha256": "f5a74aeaa2776b5b0574ea1803065fd35c1554df9b7590502c72521ec27d87c4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/statsbomb_context.py",
+      "sha256": "d66f53b14a23d0d165e442f0d9c8e1454d3ff9c44a131751f7be487d27d097b3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/statsbomb_context_jobs.py",
+      "sha256": "89f11cf9b8ddb20bdb00802bb3e9720729e789077b2da9170dbbef9c271f4793",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/statsbomb_context_parser.py",
+      "sha256": "0a7a682e431715f5b4aacc7a25e839333bc4d4f84d17995f4cb259955b7e80e3",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/statsbomb_context_view.py",
+      "sha256": "9f76c202dce8e6d5a79d4d324580c3fb0865860b5752564b1d82472244177ee1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/store.py",
+      "sha256": "2aad02a44dddf08502e03548e4e05203094f52c5d8ef73a32037396e6e283418",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/connectors/vault.py",
+      "sha256": "f833bba2aad66a7361c3da6eb97959fa240eff0e0963dbfb8799e4353c058824",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/domain.py",
+      "sha256": "af2608230c815fc6ec81313b48763f08f20257af771e8d056e5577627d5f9535",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/estimate_store.py",
+      "sha256": "4541b96fc2475048dbd538460f2c89270d8aea19d14f7d7ba15b5bc9568660f4",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/football_data.py",
+      "sha256": "db42314be53d2ab4d161001c3496f217dc911b9d178be755a1c2ad43fa37bb7c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/installation_profile.py",
+      "sha256": "ec8abffca2d621677bdaf05194a5852788176daf01f0cd246a58dfc71c9e3a1d",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/jobs.py",
+      "sha256": "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/__init__.py",
+      "sha256": "2ded2713043bf9604874ffeaa10d6f2f774f606783055fa0cca2f59a9799eadc",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/composition.py",
+      "sha256": "a93e1edfe3e80490d90356af71e3844d8aae74b27cc4ea7120d33a79aa3fee34",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/contracts.py",
+      "sha256": "14fc041dbc99c21f2baadc3d499fc47d3c26961ae47cf2663700de523a07badc",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/engines.py",
+      "sha256": "9c24d35f89867886cbc899405e70b7b7aeecebe1d1091e4e982faeae1151fb25",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/job_dispatch.py",
+      "sha256": "e7542681832d25501d09c551e864c3054f15f8bcdbd9ae4395a1b0343c7c26fd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/local_observer.py",
+      "sha256": "2586f7f4a44fd636e29bc126fc1620cd7d7954c7b5869d4b4bb130eba060c501",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/ports.py",
+      "sha256": "abafedbd676fa2cf200f4d16be15730072fb735ff4addae73b9ae0ac040ff956",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/registry.py",
+      "sha256": "6fef57d160ca953704db88c99bc98e3b53540e9c84350845fcc85239ead2c4c0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/supporting.py",
+      "sha256": "60d32da022e714cf461ee3efd230c90d270631367c14cca33a3a25afef2b49f9",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/kernel/workflow.py",
+      "sha256": "7bcdb8e6058b98e00313c0cbff56959a0c010b5c207f032f0b26eabe01284d9a",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/local_ai.py",
+      "sha256": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/local_ai_context.py",
+      "sha256": "bfd544221bb972e2752c3d84a303d6c9aa55c9d9d07f15e2275a6cd1fb447aec",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/local_ai_service.py",
+      "sha256": "e16c1603e0eb390519d61891d703304b2f6069af9aa2f4ee9b4908c6cfa57160",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/local_ai_settings.py",
+      "sha256": "529df95153f1145b755029e5f0975d011748faba51ad08ae54b92d15065ab2a6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/mariadb_migration.py",
+      "sha256": "6e87a6b3c63832a73ebac9180bf8877bd62d91d9ef56a5566a81e88f6e5e5103",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/market_signals.py",
+      "sha256": "6cc6919afdee7f6fd170d5111917d4bbdd1d6d201e86be6df25b705f93120a43",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/market_store.py",
+      "sha256": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/migration.py",
+      "sha256": "dea25a7f1492de3a0a808397713ba469e0970b23e4d53d89f9001e45b55696ca",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/packaging_entry.py",
+      "sha256": "fe12ca5e18f1dd210a3b98038f83860eff1d56f5285607225a2b2bf30f7c638c",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/product.py",
+      "sha256": "79607607706aee9dd7ab4131ae5ae8dabed414fe0af1e4dca150470c525768f6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/public_results.py",
+      "sha256": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/research.py",
+      "sha256": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/NOTICE.md",
+      "sha256": "f46681177b756cc89360d02f2ee0a7355c193916f6a503d0e0732e668e39ca8b",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv",
+      "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/football-data-2025-26-E0.csv.receipt.json",
+      "sha256": "de1c12c2241fd7a35bfb56994a254997539216f67ada57b5de05918e232dcb91",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json",
+      "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2025-26-en1.json.receipt.json",
+      "sha256": "ba3c81539f9e6068bb904d96f75b88051e6b6b2c309bab690f6053ffad040908",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json",
+      "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/data/raw/openfootball-2026-27-en1.json.receipt.json",
+      "sha256": "6ab7c2dad2f88a7118e8ef6c3b55713f997b09d3056123df6d38b07b69a3c30e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/examples/synthetic-estimate.json",
+      "sha256": "b36ccb38585e92d39efb9a67e32428d3351d6bd21a8641abf00cd3a27ae2e2fe",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/examples/synthetic-market.json",
+      "sha256": "50630cb2f1b98a8efdc0a571f13ec1f446267716845728e4a1cc186c5a24377e",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/examples/synthetic-scores.json",
+      "sha256": "bee6f470d7bc1a3d195d47b3292dd3d30dd8e14badef733f041af41b6366b208",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/examples/synthetic-totals.json",
+      "sha256": "68c30b103c2eedf23d054a5cefae4641b08a29eb15be661a7676b869e1619492",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/web/app.js",
+      "sha256": "eec7c04ae5cd868f210f142ed03558aa47a51e7b2729c2d85998d93529c48bfd",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/web/favicon.svg",
+      "sha256": "f343acd6a9092ca9abd6bc47b597b9c5a4bffdabb837250d4700d189901dfc39",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/web/index.html",
+      "sha256": "38e81a0faaedf41272e285f081189e5d3112ac13c03f554da56473a267a252c6",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/resources/web/style.css",
+      "sha256": "36e1dc9128ad1c5f81efd63381cc20c3382ccdf607cb19a04cbd5ed08dfbcdba",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/samples.py",
+      "sha256": "c1b191233f125ebd5f94a369835ecdd8e118d185bf114f1bec40652358936fd0",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/scenario.py",
+      "sha256": "63118fe4d762212adcb00f37b85d9677b1e8352bafbdb226e0af5ae4759070ce",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/server.py",
+      "sha256": "8d39c0e165ba6b0ff54055e8ba834a8c006c34b4150ea1eb7d84a2c0c9173b58",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/source_context.py",
+      "sha256": "03a1ac3a289451282bfd4c830fc4d7576d348ba81e91c43680d3f89c69b994b2",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/tipsaudit.py",
+      "sha256": "0d1a4080cb18f2b304dfc517e9665b711176e429efd58669aec7f2495151eae1",
+      "raw_matches_commit_blob": true
+    },
+    {
+      "path": "src/dragonhydra/watch.py",
+      "sha256": "97f16f7ea5a97dda3d53b02177f51bebc16599f37c6fc0db10f8bda3de9c3b99",
+      "raw_matches_commit_blob": true
+    }
+  ]
+}

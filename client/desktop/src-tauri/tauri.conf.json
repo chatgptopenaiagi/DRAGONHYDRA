@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "DRAGONHYDRA CORE NEXT",
-  "version": "0.5.0-dev.5",
+  "version": "0.5.0-dev.6",
   "identifier": "ai.dragonhydra.corenext.desktop",
   "build": {"frontendDist": "../web"},
   "app": {

@@ -6,8 +6,8 @@
   "preferred_e_available": false,
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
-  "branch": "forensic/forecast-preservation-20261103",
-  "phase": "FORENSIC_REPAIR_AND_RECONCILIATION_VERIFIED_WINDOWS_BACKUP_BLOCKED",
+  "branch": "release/core-next-dev6-20261103",
+  "phase": "DEV6_SOURCE_PREPARATION_BUILDS_NOT_RUN",
   "installation": "DISPOSABLE_DEV5_B447_ALL_FIVE_SOURCE_ED78_PRIMARY_PRESERVED_MIXED",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -37,7 +37,7 @@
     "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
   "publication": "HELD_NOT_PUBLISHED_NO_DEV5_TAG_OR_DRAFT",
-  "next_objective": "Execute reviewed b447 Backup once from already elevated matching owner, after inspecting the successful distinct reconciliation and absence of Backup marker/receipt. Later lifecycle adapters need separate implementation/review.",
+  "next_objective": "Freeze exactdev6source; build9packages into freshLAB outputs, verify allpossibleplatform scopes, retainmandatoryWindows/privacy publication gates",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -85,8 +85,8 @@
     "checksums": "LAB/dist/v0.5.0-dev.5-core-next/SHA256SUMS.txt",
     "publication_status": "HELD_NOT_PUBLISHED"
   },
-  "version": "0.5.0-dev.5",
-  "proposed_tag": "v0.5.0-dev.5-core-next",
+  "version": "0.5.0-dev.6",
+  "proposed_tag": "v0.5.0-dev.6-core-next",
   "updated_utc": "2026-11-03T09:04:07.825649+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
@@ -977,5 +977,18 @@
     "base_commit": "a4c0ecf1b7d0eaf35afdb7367ce8e464f285037e",
     "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
     "checkpoint_commit": "Resolve this branch HEAD; not compiled payload source"
+  },
+  "release_evolution_20261103": {
+    "android_version_code": 9,
+    "new_probability_formula": false,
+    "handoff": "docs/handover/RELEASE-EVOLUTION-20261103.md",
+    "worktree": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-source\\dev6-evolution-20261103",
+    "gates_unchanged": true,
+    "source_base": "4eca7ae0b68c7def8c8707f35de07c43058fec34",
+    "neural_bridge": "NOT_IMPLEMENTED",
+    "source_commit": "Resolve frozen release branch HEAD; recorded in LAB build identity after commit",
+    "publication": "LOCAL_SOURCE_PREPARATION_NOT_PUBLISHED",
+    "real_time_conditional_forecasting": "NOT_IMPLEMENTED",
+    "version": "0.5.0-dev.6"
   }
 }

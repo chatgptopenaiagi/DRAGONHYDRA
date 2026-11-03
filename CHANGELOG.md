@@ -1,5 +1,16 @@
 # Changelog
 
+## CORE NEXT 0.5.0-dev.6 — 2026-11-03 — source candidate, held
+
+- Integrates the verified Forecast preservation incident and scoped recovery
+  tooling without changing probability formulas or inventing evaluation outcomes.
+- Reconciles GitHub branch-only delivery with actual release/asset history.
+- Supports registered isolated worktrees in release and Android build entrypoints;
+  source operations remain bound to the frozen worktree and publication gates stay.
+- Aligns platform version metadata; Android development versionCode advances to9.
+- New builds and runtime acceptance are NOT_RUN at this source checkpoint; this
+  entry does not claim a published release, native/device acceptance or accuracy.
+
 ## CORE NEXT 0.5.0-dev.5 — 2026-11-02 — held development candidate
 
 - Reconciled independent source histories without replacing the authoritative

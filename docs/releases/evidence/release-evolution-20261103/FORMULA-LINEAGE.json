@@ -1,0 +1,524 @@
+{
+  "schema_version": "cognitive-source-lineage/1",
+  "comparisons": [
+    {
+      "from": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "to": "4eca7ae0b68c7def8c8707f35de07c43058fec34",
+      "changed_count": 59,
+      "category_counts": {
+        "documentation_handoff": 14,
+        "forensic_evidence": 35,
+        "tests_acceptance_tooling": 10,
+        "forensic_continuation": 7
+      },
+      "production_inputs": {
+        "union_count": 338,
+        "identical_count": 338,
+        "changed_paths": [],
+        "comparison": "Exact immutable Git blob/mode/type identity; not an inference from version labels"
+      }
+    },
+    {
+      "from": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+      "to": "4eca7ae0b68c7def8c8707f35de07c43058fec34",
+      "changed_count": 155,
+      "category_counts": {
+        "documentation_handoff": 38,
+        "production_input": 46,
+        "release_metadata_or_dependency_manifest": 8,
+        "android": 1,
+        "windows_desktop": 6,
+        "forensic_evidence": 40,
+        "packaging": 5,
+        "windows_or_build_controller": 5,
+        "joomla": 14,
+        "api": 1,
+        "application_pipeline": 2,
+        "cognitive_pipeline": 1,
+        "schema_persistence": 1,
+        "kernel_pipeline": 9,
+        "observations_or_composition": 9,
+        "application_web_ui": 1,
+        "tests_acceptance_tooling": 32,
+        "forensic_continuation": 7
+      },
+      "production_inputs": {
+        "union_count": 338,
+        "identical_count": 292,
+        "changed_paths": [
+          "android/dragonhydra_mobile/pubspec.yaml",
+          "client/desktop/package-lock.json",
+          "client/desktop/package.json",
+          "client/desktop/src-tauri/Cargo.lock",
+          "client/desktop/src-tauri/Cargo.toml",
+          "client/desktop/src-tauri/tauri.conf.json",
+          "client/desktop/web/app.js",
+          "packaging/release/version.json",
+          "packaging/windows/version_info.txt",
+          "packaging/windows/workstation/CoreNextUpgrade.ps1",
+          "packaging/windows/workstation/README.md",
+          "packaging/windows/workstation/Workstation.ps1",
+          "pyproject.toml",
+          "scripts/Build-CoreNextWorkstation.ps1",
+          "scripts/Build-Desktop.ps1",
+          "scripts/Prepare-CoreNextPayload.ps1",
+          "scripts/Upgrade-CoreNextWorkstation.ps1",
+          "scripts/core_next_cargo_cache.py",
+          "server/joomla/com_dragonhydra/admin/src/Controller/ActionsController.php",
+          "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php",
+          "server/joomla/com_dragonhydra/admin/src/Service/ApiClient.php",
+          "server/joomla/com_dragonhydra/admin/src/Service/ControlWorkflow.php",
+          "server/joomla/com_dragonhydra/admin/src/View/Dashboard/HtmlView.php",
+          "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php",
+          "server/joomla/com_dragonhydra/admin/tmpl/dashboard/default.php",
+          "server/joomla/com_dragonhydra/admin/tmpl/dashboard/workflow.php",
+          "server/joomla/com_dragonhydra/dragonhydra.xml",
+          "server/joomla/com_dragonhydra/media/css/control-center.css",
+          "server/joomla/com_dragonhydra/media/joomla.asset.json",
+          "server/joomla/com_dragonhydra/site/tmpl/dashboard/section-competitions.php",
+          "server/joomla/pkg_dragonhydra.xml",
+          "server/joomla/tpl_cassiopeia_dragonhydra/templateDetails.xml",
+          "src/dragonhydra/api.py",
+          "src/dragonhydra/build_meta.py",
+          "src/dragonhydra/cognition/memory.py",
+          "src/dragonhydra/jobs.py",
+          "src/dragonhydra/kernel/composition.py",
+          "src/dragonhydra/kernel/contracts.py",
+          "src/dragonhydra/kernel/engines.py",
+          "src/dragonhydra/kernel/job_dispatch.py",
+          "src/dragonhydra/kernel/local_observer.py",
+          "src/dragonhydra/kernel/ports.py",
+          "src/dragonhydra/kernel/registry.py",
+          "src/dragonhydra/kernel/supporting.py",
+          "src/dragonhydra/kernel/workflow.py",
+          "src/dragonhydra/resources/web/app.js"
+        ],
+        "comparison": "Exact immutable Git blob/mode/type identity; not an inference from version labels"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "54b46d9596af7e1961078b754089ccf7991abde41a22ef1948aec2d5f98b0a06"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/research.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "4263327bb1b92c8d1408be2dbf2f15cdebd67e9e853ce9bb474ff56371f0b6df"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "6d792917aefb24f915ad8980f48687dbbc040f4a9960c752ce6f073cc20f775f"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/adaptation.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "29360b7cc847d3049a6ec43ac82ac272c3dd25f4611c283d73f616c92d7fd669"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/memory.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "7449c13798127748a6824b4685ab94ea842afd63ea527e135bb01a6f17a3f980",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "d068811c07ea960552800ca8cdee221799813e975bf566e22f65f2f5430f8b8f",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "d068811c07ea960552800ca8cdee221799813e975bf566e22f65f2f5430f8b8f"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": false
+    },
+    {
+      "path": "src/dragonhydra/kernel/workflow.py",
+      "sha256": {
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "7bcdb8e6058b98e00313c0cbff56959a0c010b5c207f032f0b26eabe01284d9a",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "7bcdb8e6058b98e00313c0cbff56959a0c010b5c207f032f0b26eabe01284d9a"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": false
+    },
+    {
+      "path": "src/dragonhydra/kernel/registry.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "32c4e990e318ca8b23b4f1d0fb6886491f5178ce21ff2968d7ac9c58087f8a00",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "6fef57d160ca953704db88c99bc98e3b53540e9c84350845fcc85239ead2c4c0",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "6fef57d160ca953704db88c99bc98e3b53540e9c84350845fcc85239ead2c4c0"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": false
+    },
+    {
+      "path": "src/dragonhydra/kernel/contracts.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "d1159018dd36f2850dbffc1384591c8355f55d78be6098d0a858935f9cd863cd",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "14fc041dbc99c21f2baadc3d499fc47d3c26961ae47cf2663700de523a07badc",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "14fc041dbc99c21f2baadc3d499fc47d3c26961ae47cf2663700de523a07badc"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": false
+    },
+    {
+      "path": "src/dragonhydra/jobs.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "4a3d91e2a8caf187c975da990fa8cdfe242f8b668d18c450b3687165f17329bf",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": false
+    },
+    {
+      "path": "src/dragonhydra/public_results.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "bfa91e2cf0e832562da2a87928d69092fc8fda190ed9db5730c014bfe5ba182f"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/market_store.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    },
+    {
+      "path": "src/dragonhydra/local_ai.py",
+      "sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "ec5c086e77259ed9c16fb2c32e55a431c3463d0a70de8d93f0f3b33f3a210ef6"
+      },
+      "today_exact_equal": true,
+      "published_exact_equal": true
+    }
+  ],
+  "formula_functions": [
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_config",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "a52121d0e58145d54a2fd4583c81fa7051b79430c936b5adafc5427c7a6c40f0",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "a52121d0e58145d54a2fd4583c81fa7051b79430c936b5adafc5427c7a6c40f0",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "a52121d0e58145d54a2fd4583c81fa7051b79430c936b5adafc5427c7a6c40f0"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_poisson",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "613f074c91b3d3d82b19e4b96564cc300cef432b0ec5f73fa11cfdbb565815f0",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "613f074c91b3d3d82b19e4b96564cc300cef432b0ec5f73fa11cfdbb565815f0",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "613f074c91b3d3d82b19e4b96564cc300cef432b0ec5f73fa11cfdbb565815f0"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_recency",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "af69757fc5eaeb3c0daad92535286fff2ba5040c4b3fd2f816e184eafee0b9ff",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "af69757fc5eaeb3c0daad92535286fff2ba5040c4b3fd2f816e184eafee0b9ff",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "af69757fc5eaeb3c0daad92535286fff2ba5040c4b3fd2f816e184eafee0b9ff"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_elo_expectation",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "6a9b1b1cc27e80abff3ae0152f1e091abb8335bc64dae8900e19f5812309a1b4",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "6a9b1b1cc27e80abff3ae0152f1e091abb8335bc64dae8900e19f5812309a1b4",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "6a9b1b1cc27e80abff3ae0152f1e091abb8335bc64dae8900e19f5812309a1b4"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_elo",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "1906b6265cefaac20b03ced3504f2933a2e16858838e144b793722fc9efc9b43",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "1906b6265cefaac20b03ced3504f2933a2e16858838e144b793722fc9efc9b43",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "1906b6265cefaac20b03ced3504f2933a2e16858838e144b793722fc9efc9b43"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "_weights",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "3e7f9203dde163b869769a0466b12065a104e43808de083a99f653fe69426b91",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "3e7f9203dde163b869769a0466b12065a104e43808de083a99f653fe69426b91",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "3e7f9203dde163b869769a0466b12065a104e43808de083a99f653fe69426b91"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "function": "forecast",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "6efef8f263517305c2695d0b3d7503c5a007d6f5afdf45f5fdba06752501b890",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "6efef8f263517305c2695d0b3d7503c5a007d6f5afdf45f5fdba06752501b890",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "6efef8f263517305c2695d0b3d7503c5a007d6f5afdf45f5fdba06752501b890"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/research.py",
+      "function": "current_frequency_prior",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "8577e1599ffc4524a85f07346b3c49a724d852d6ac5b0bf8f4cefcc03f3e6991",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "8577e1599ffc4524a85f07346b3c49a724d852d6ac5b0bf8f4cefcc03f3e6991",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "8577e1599ffc4524a85f07346b3c49a724d852d6ac5b0bf8f4cefcc03f3e6991"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "function": "_score",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "627a32915e213b628d118ab8534425649e5cb0c503f44f5d151ae2e78eb2773d",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "627a32915e213b628d118ab8534425649e5cb0c503f44f5d151ae2e78eb2773d",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "627a32915e213b628d118ab8534425649e5cb0c503f44f5d151ae2e78eb2773d"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "function": "chronological_holdout",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "03939821aa4836d4b54118259a5f5f8455a0904ea3fa0145fdf5805959e6feea",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "03939821aa4836d4b54118259a5f5f8455a0904ea3fa0145fdf5805959e6feea",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "03939821aa4836d4b54118259a5f5f8455a0904ea3fa0145fdf5805959e6feea"
+      },
+      "exact_bytes_same_since_published": true
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "function": "evaluate_observed",
+      "function_source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "5297d795238c4f9a337759f5406611be7b6024029aecc4585a6108385211dca4",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "5297d795238c4f9a337759f5406611be7b6024029aecc4585a6108385211dca4",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "5297d795238c4f9a337759f5406611be7b6024029aecc4585a6108385211dca4"
+      },
+      "exact_bytes_same_since_published": true
+    }
+  ],
+  "first_source_vs_runtime": [
+    {
+      "path": "src/dragonhydra/cognition/models.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Five actual deterministic outputs (four base models plus ensemble), 50 inputs, original b447 and isolated reproduction; no accuracy or independence claim."
+    },
+    {
+      "path": "src/dragonhydra/research.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Retained source/version/record/cutoff eligibility independently checked for original and reproduction; historical capture is not a new network request."
+    },
+    {
+      "path": "src/dragonhydra/cognition/evaluation.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Actual operation pending without later outcome; no nonzero operational accuracy result or new persisted evaluation. Nonzero/ensemble cases are existing controlled source tests."
+    },
+    {
+      "path": "src/dragonhydra/cognition/adaptation.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Equal-weight branch without eligible evaluations in these runs; performance-weighted adaptation was not demonstrated by a genuine later-outcome cohort here."
+    },
+    {
+      "path": "src/dragonhydra/cognition/memory.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Ten records/ten receipts persisted and read back; schema/trigger completeness and readonly behavior verified. No actual new outcome/evaluation attached in this evidence."
+    },
+    {
+      "path": "src/dragonhydra/kernel/workflow.py",
+      "first_source_addition": {
+        "commit": "89ba00b430753c0fec6676ced0d0ecfd558cb071",
+        "date": "2026-11-02",
+        "subject": "feat(core-next): observe scoped modules and trace durable research workflows",
+        "project_version_at_commit": "0.5.0.dev2"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Typed explicit forecast and pending evaluation persisted via durable jobs, replay and same-state process restart verified; not complete Windows lifecycle acceptance."
+    },
+    {
+      "path": "src/dragonhydra/kernel/registry.py",
+      "first_source_addition": {
+        "commit": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
+        "date": "2026-11-01",
+        "subject": "Introduce CORE NEXT composed engines, registry and isolated System Control Center",
+        "project_version_at_commit": "0.5.0.dev1"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Passive 6/18 inventories and operation-specific expiry independently inspected. Fresh memory schema counts do not renew expired engine operation proof."
+    },
+    {
+      "path": "src/dragonhydra/kernel/contracts.py",
+      "first_source_addition": {
+        "commit": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
+        "date": "2026-11-01",
+        "subject": "Introduce CORE NEXT composed engines, registry and isolated System Control Center",
+        "project_version_at_commit": "0.5.0.dev1"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Binding/privacy/freshness source tests plus scoped actual registry observations; no blanket readiness of all declared capabilities."
+    },
+    {
+      "path": "src/dragonhydra/jobs.py",
+      "first_source_addition": {
+        "commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+        "date": "2026-10-31",
+        "subject": "checkpoint: preserve verified A6 engineering state and resumable source",
+        "project_version_at_commit": "0.4.0a1"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Original two approved jobs succeeded; separate reproduction used two new IDs, duplicate reuse and process restart. No retry of failed original helper phase."
+    },
+    {
+      "path": "src/dragonhydra/public_results.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "760 retained fixtures/two raw sources preserved; per-input exact source bytes, records and operational clocks verified, not provider synchronization."
+    },
+    {
+      "path": "src/dragonhydra/market_store.py",
+      "first_source_addition": {
+        "commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+        "date": "2026-10-28",
+        "subject": "checkpoint: preserve DRAGONHYDRA GENESIS-2 engineering state",
+        "project_version_at_commit": "0.2.0+genesis2.checkpoint"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "Retained raw-byte resolution and expected first-use auxiliary DDL verified; auxiliary acquisition/quarantine/receipt tables remain empty. No market/provider acquisition executed."
+    },
+    {
+      "path": "src/dragonhydra/local_ai.py",
+      "first_source_addition": {
+        "commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+        "date": "2026-10-31",
+        "subject": "checkpoint: preserve verified A6 engineering state and resumable source",
+        "project_version_at_commit": "0.4.0a1"
+      },
+      "first_ever_runtime_verified_version": "UNKNOWN: source presence is not runtime evidence",
+      "current_preserved_runtime_proof": "No optional local-LLM inference was executed in these cognitive receipts. Source supplies bounded local fact-selection integration, not new forecast generation."
+    }
+  ],
+  "note": "R2 narrows per-file runtime scope, notably local AI, adaptation and actual pending evaluation. R1 metadata is retained as an initial broad draft, not the authoritative capability proof.",
+  "memory_function_continuity": [
+    {
+      "function": "_append",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "5fd2ad589a74726dae79a7d8c89511211e8a1d155b927263ede2376877d1aade",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "5fd2ad589a74726dae79a7d8c89511211e8a1d155b927263ede2376877d1aade",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "5fd2ad589a74726dae79a7d8c89511211e8a1d155b927263ede2376877d1aade"
+      },
+      "exact_body_same_since_published": true
+    },
+    {
+      "function": "_record_model_run",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "3ccb724d15251f4058eab8e71e83b988fc2f867a98f23f42634fda49c6960b7c",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "3ccb724d15251f4058eab8e71e83b988fc2f867a98f23f42634fda49c6960b7c",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "3ccb724d15251f4058eab8e71e83b988fc2f867a98f23f42634fda49c6960b7c"
+      },
+      "exact_body_same_since_published": true
+    },
+    {
+      "function": "_record_prediction",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "55d237ae69855be97b1ad6e02d0625a103bb51240a0fbf7a16b9ed4cdeb70445",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "55d237ae69855be97b1ad6e02d0625a103bb51240a0fbf7a16b9ed4cdeb70445",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "55d237ae69855be97b1ad6e02d0625a103bb51240a0fbf7a16b9ed4cdeb70445"
+      },
+      "exact_body_same_since_published": true
+    },
+    {
+      "function": "_record_outcome",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "de2aa4b1a026d6ed34f5a52f429c88ad47af7023947ec5fc1b0d270fa43884d0",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "de2aa4b1a026d6ed34f5a52f429c88ad47af7023947ec5fc1b0d270fa43884d0",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "de2aa4b1a026d6ed34f5a52f429c88ad47af7023947ec5fc1b0d270fa43884d0"
+      },
+      "exact_body_same_since_published": true
+    },
+    {
+      "function": "_record_evaluation",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "e1b994dabff3752327ccf0270e6d465de6cc5795ad02507a8af9a744a5615539",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "e1b994dabff3752327ccf0270e6d465de6cc5795ad02507a8af9a744a5615539",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "e1b994dabff3752327ccf0270e6d465de6cc5795ad02507a8af9a744a5615539"
+      },
+      "exact_body_same_since_published": true
+    },
+    {
+      "function": "_as_of",
+      "source_sha256": {
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001": "0cdfc3e32ab5651c206a3f9016f6785e747539fa90eaa93c0f4ec7ba4771c94e",
+        "ed78fab282599a181d4254ab65a2fc2eaa5b7f50": "26aec6ecf6955368927b3030a5032fffb61effb786aa435050f06c0fcbf5e61e",
+        "4eca7ae0b68c7def8c8707f35de07c43058fec34": "26aec6ecf6955368927b3030a5032fffb61effb786aa435050f06c0fcbf5e61e"
+      },
+      "exact_body_same_since_published": false
+    }
+  ]
+}

@@ -12,7 +12,7 @@ from zipfile import ZipFile
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('core_next_release',ROOT/'scripts/core_next/release.py')
 release=importlib.util.module_from_spec(spec);spec.loader.exec_module(release)
-LAB=ROOT.parent/(ROOT.name+'-LAB')
+LAB=release.canonical_lab(ROOT)
 
 
 class ReleaseGuards(unittest.TestCase):
@@ -34,7 +34,8 @@ class ReleaseGuards(unittest.TestCase):
         release.archive_members(['config/runtime/server-python314.lock.txt'])
 
     def test_paths_and_reference_parser_do_not_accept_original_or_invalid_refs(self):
-        with self.assertRaises(RuntimeError):self.tool.local(ROOT.parent/'DRAGONHYDRA/workstation.json')
+        with self.assertRaises(RuntimeError):self.tool.local(LAB.parent/'DRAGONHYDRA/workstation.json')
+        self.assertEqual(self.tool.local(LAB/'synthetic-input.json'),(LAB/'synthetic-input.json').resolve())
         self.assertEqual(release.refs('a'*40+'\trefs/tags/new\n'),{'refs/tags/new':'a'*40})
         with self.assertRaises(RuntimeError):release.refs('not-a-git-hash refs/heads/main')
 

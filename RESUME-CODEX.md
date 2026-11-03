@@ -1,4 +1,14 @@
-# Current forensic continuation — 2026-11-03
+# Current release evolution — 2026-11-03
+
+Read [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md) before the
+preserved forensic checkpoint below. Active source is the isolated dev.6 release
+worktree/branch. GitHub audit establishes4eca is branch-only; no dev5/dev6 release
+or draft exists. Candidate0.5.0-dev.6 uses Androidcode9 and unchanged formulas.
+Build/runtime status at this source checkpoint is NOT_RUN. Freeze exact Git source
+before any build; never relabel dev.5 binaries or mutate old one-shot evidence.
+Mandatory lifecycle/privacy gates still control draft and public publication.
+
+# Historical forensic continuation — 2026-11-03
 
 Read [docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md](docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md) and the current section of
 docs/handover/ACTIVE-RECONCILIATION.md before the historical Nov2 checkpoint below.

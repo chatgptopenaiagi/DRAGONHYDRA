@@ -1,4 +1,14 @@
-## Current forensic continuation — 2026-11-03
+## Current release evolution — 2026-11-03
+
+The owner's latest directive authorizes root as sole writer in the isolated
+`LAB/release-source/dev6-evolution-20261103` worktree on
+`release/core-next-dev6-20261103`. Read docs/handover/RELEASE-EVOLUTION-20261103.md.
+The canonical, ed78 and4eca worktrees stay unchanged. Version6 is a development
+candidate with unchanged forecasting formulas. Freeze before builds; all generated
+files/runtime profiles stay outside tracked source. Never bypass mandatory
+Windows/privacy gates by using another publisher or changing their status.
+
+## Historical forensic continuation — 2026-11-03
 
 The owner's later directive authorizes the isolated forensic worktree
 `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\forensics\forecast-preservation-20261103\source`.
