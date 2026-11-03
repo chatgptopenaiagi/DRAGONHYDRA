@@ -6,8 +6,8 @@
   "preferred_e_available": false,
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
-  "branch": "release/core-next-dev6-20261103",
-  "phase": "DEV6_SOURCE_PREPARATION_BUILDS_NOT_RUN",
+  "branch": "release/core-next-dev6-verified-20261103",
+  "phase": "DEV6_TEST_FIXTURE_RECONCILIATION_BEFORE_NEW_FREEZE",
   "installation": "DISPOSABLE_DEV5_B447_ALL_FIVE_SOURCE_ED78_PRIMARY_PRESERVED_MIXED",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
@@ -37,7 +37,7 @@
     "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
   "publication": "HELD_NOT_PUBLISHED_NO_DEV5_TAG_OR_DRAFT",
-  "next_objective": "Freeze exactdev6source; build9packages into freshLAB outputs, verify allpossibleplatform scopes, retainmandatoryWindows/privacy publication gates",
+  "next_objective": "Freeze corrected tests without product changes; rebuild all source-identity-bearing packages into new paths, rerun focused acceptance, assemble held candidate and preserve mandatory Windows gates",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -87,7 +87,7 @@
   },
   "version": "0.5.0-dev.6",
   "proposed_tag": "v0.5.0-dev.6-core-next",
-  "updated_utc": "2026-11-03T09:04:07.825649+00:00",
+  "updated_utc": "2026-11-03T10:04:07.825649+01:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -129,21 +129,21 @@
     {
       "filename": "core-next-control-center-overview-after-lifecycle-r3.png",
       "sha256": "268578a237a91458df07eb2194a6c6332782149fc893b071ebe1477b6ba6a015",
-      "file_written_utc": "2026-11-01T15:31:08.778601+00:00",
+      "file_written_utc": "2026-11-01T16:31:08.778601+01:00",
       "scope": "Actual cached registry after owned full lifecycle; no probe on status read; point-in-time states, not a claim every capability is READY",
       "visual_review": "Metadata lane visually reviewed; source953 and installation ID legible; no visiblecredentials"
     },
     {
       "filename": "core-next-control-center-modules-after-lifecycle-r3.png",
       "sha256": "3a71943527a14ac20a9173d98701533a0209a6ba1d3d1106d28a3c067ad194a1",
-      "file_written_utc": "2026-11-01T15:31:09.943460+00:00",
+      "file_written_utc": "2026-11-01T16:31:09.94346+01:00",
       "scope": "Actual cached registry after owned full lifecycle; no probe on status read; point-in-time states, not a claim every capability is READY",
       "visual_review": "Metadata lane visually reviewed; source953 and installation ID legible; no visiblecredentials"
     },
     {
       "filename": "core-next-sports-home.png",
       "sha256": "0a2b53ee9910ca369f52404b417af0d096cc4c7593f777df3749e395b446967b",
-      "file_written_utc": "2026-11-01T15:20:06.558849+00:00",
+      "file_written_utc": "2026-11-01T16:20:06.558849+01:00",
       "scope": "Actual authenticated953UI and retained-data display; registry cards are cached point-in-time observations, not a claim all capabilities are READY",
       "visual_review": "Root approved; overview root-reviewed, modules/home reviewed by metadata lane; no visiblecredentialvalues"
     }
@@ -198,7 +198,7 @@
   "delivery_availability_closeout": {
     "status": "PASS",
     "checks": 12,
-    "finished_utc": "2026-11-01T16:29:00.960772+00:00",
+    "finished_utc": "2026-11-01T17:29:00.960772+01:00",
     "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\final-availability-delivery-953b67f.json",
     "receipt_sha256": "f7d08c8529d656b49a87a96915d79caac539fdc239d9d273331118ed60c028cf",
     "scope": "ONE bounded read-only delivery availability closeout. Anonymous versioned health/live and five public homepage requests only; no authentication, capability/module/provider/job/AI endpoints, database/log inspection, installation, service/process/window mutation or repairs."
@@ -234,7 +234,7 @@
     }
   ],
   "active_continuation_20261102": {
-    "updated_at": "2026-11-02T12:00:01.647312+00:00",
+    "updated_at": "2026-11-02T13:00:01.647312+01:00",
     "phase": "UNPUBLISHED_DEV4_R2_SOURCE_PENDING_FREEZE",
     "owner_target_decision": "USE_RUNNING_CORE_NEXT_18822",
     "profile": "core-next-7ac520727b85456cac4a3a92a8dd62da",
@@ -623,7 +623,7 @@
     "current_runtime_observation": {
       "receipt": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\final-current-runtime-953b67f.json",
       "receipt_sha256": "8e9714a1f42287d176435b5ec1d67ed5bf1e6f2fd2685ceedc1161a19ca9010b",
-      "observed_utc": "2026-11-01T16:07:43.219375+00:00",
+      "observed_utc": "2026-11-01T17:07:43.219375+01:00",
       "health": {
         "status": "ready",
         "backend": "sqlite",
@@ -656,8 +656,8 @@
           "module_id": "prediction",
           "state": "EXPIRED",
           "runtime_state": "UNVERIFIED",
-          "observed_at": "2026-11-01T15:27:45.260010Z",
-          "expires_at": "2026-11-01T15:32:45.260010Z",
+          "observed_at": "2026-11-01T15:27:45.26001Z",
+          "expires_at": "2026-11-01T15:32:45.26001Z",
           "reason": "Observation expired.",
           "metrics_state": "EXPIRED"
         },
@@ -665,8 +665,8 @@
           "module_id": "memory",
           "state": "EXPIRED",
           "runtime_state": "UNVERIFIED",
-          "observed_at": "2026-11-01T15:27:45.261180Z",
-          "expires_at": "2026-11-01T15:32:45.261180Z",
+          "observed_at": "2026-11-01T15:27:45.26118Z",
+          "expires_at": "2026-11-01T15:32:45.26118Z",
           "reason": "Observation expired.",
           "metrics_state": "EXPIRED"
         },
@@ -788,7 +788,7 @@
   "delivery_document_commit_resolution": "Resolve Git commit of this post-build documentation update; not used as compiled source",
   "postbuild_dev5": {
     "status": "PARTIALLY_COMPLETE_WITH_EXACT_REMAINING_GATES",
-    "recorded_at": "2026-11-02T15:52:27.813227+00:00",
+    "recorded_at": "2026-11-02T16:52:27.813227+01:00",
     "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
     "release_source_tree_hash": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
     "release_version": "0.5.0-dev.5",
@@ -834,7 +834,7 @@
       "sha256": "1e5b5cb31c24e391d71c66d85880028b589e718e545b68ebfde0e88b562c63f2"
     },
     "additional_acceptance": {
-      "observed_at": "2026-11-02T16:42:39.789310+00:00",
+      "observed_at": "2026-11-02T17:42:39.78931+01:00",
       "goal_turn_classification": "PROGRESS: completed previously missing standalone source5 UI and archived MariaDB restore evidence; previous goal turn also PROGRESS",
       "release_source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
       "product_source_or_asset_changes": false,
@@ -990,5 +990,13 @@
     "publication": "LOCAL_SOURCE_PREPARATION_NOT_PUBLISHED",
     "real_time_conditional_forecasting": "NOT_IMPLEMENTED",
     "version": "0.5.0-dev.6"
+  },
+  "release_fixture_reconciliation": {
+    "earlier_frozen_source": "40523425be06a7afe2f6223cb395f5e23b62300b",
+    "original_failures_preserved": true,
+    "production_changed": false,
+    "source_check_original": "92PASS_1ERROR_OF93",
+    "joomla_original": "69PASS_2FAIL_1SKIP_OF72",
+    "report": "docs/releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md"
   }
 }

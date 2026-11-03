@@ -51,7 +51,14 @@ class ReleasePayloadTests(unittest.TestCase):
         result=builder.build_joomla(ROOT,target,'c'*40)
         self.assertEqual(result['source_sha'],'c'*40)
         with zipfile.ZipFile(target) as package:
-            self.assertEqual({'pkg_dragonhydra.xml','constituents/com_dragonhydra.zip'},set(package.namelist()))
+            self.assertEqual({'pkg_dragonhydra.xml','constituents/com_dragonhydra.zip','constituents/tpl_cassiopeia_dragonhydra.zip'},set(package.namelist()))
+            outer = ET.fromstring(package.read('pkg_dragonhydra.xml'))
+            self.assertIn('tpl_cassiopeia_dragonhydra.zip', [x.text for x in outer.findall('files/file')])
+            with zipfile.ZipFile(io.BytesIO(package.read('constituents/tpl_cassiopeia_dragonhydra.zip'))) as template:
+                self.assertEqual({'templateDetails.xml','index.php'},set(template.namelist()))
+                details = ET.fromstring(template.read('templateDetails.xml'))
+                self.assertEqual('cassiopeia', details.findtext('parent'))
+                self.assertEqual(result['version'], details.findtext('version'))
             with zipfile.ZipFile(io.BytesIO(package.read('constituents/com_dragonhydra.zip'))) as component:
                 info=json.loads(component.read('admin/build-info.json'))
                 self.assertEqual(info['source_sha'],'c'*40)

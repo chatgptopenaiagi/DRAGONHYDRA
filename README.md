@@ -27,7 +27,11 @@ The forecasting formulas are unchanged; no new predictive skill, NeuralBridge or
 live conditional forecasting is claimed. Builds/runtime checks are NOT_RUN at
 this source-freeze preparation. Publication remains held by the existing mandatory
 Windows lifecycle/privacy gates. See [cognitive evolution](docs/releases/COGNITIVE-EVOLUTION-20261103.md)
-and [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md).
+and [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md). Preliminary
+40523425 packages passed scoped runtime checks, but regression reruns exposed
+three test-fixture defects. The [corrected checkpoint](docs/releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md)
+preserves those failures and requires fresh source-bound outputs; it changes no
+forecast formula or installed application behavior.
 
 **Historical development checkpoint (2026-11-02):** nine fresh dev.5 packages are
 built from `ed78fab282599a181d4254ab65a2fc2eaa5b7f50` and held locally. Source335distinct cases:

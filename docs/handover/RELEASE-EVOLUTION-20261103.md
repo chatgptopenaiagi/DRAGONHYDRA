@@ -1,5 +1,12 @@
 # Release evolution — 3 November 2026
 
+Updated integration source: `LAB/release-source/dev6-verified-20261103`, branch
+`release/core-next-dev6-verified-20261103`. Preserve the40523425 worktree and all
+its preliminary builds/receipts. Read
+[regression reconciliation](../releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md).
+Only stale test assumptions and continuity documentation changed in this second
+freeze. Root alone edits source; child builds write separate LAB outputs.
+
 Root owns only `LAB/release-source/dev6-evolution-20261103`, branch
 `release/core-next-dev6-20261103`. Canonical a4c0ecf, frozen application ed78 and
 forensic4eca worktrees remain independent and unchanged. No Sentinel project or

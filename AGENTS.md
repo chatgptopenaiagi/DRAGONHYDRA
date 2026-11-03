@@ -1,6 +1,12 @@
 ## Current release evolution — 2026-11-03
 
-The owner's latest directive authorizes root as sole writer in the isolated
+Root now owns `LAB/release-source/dev6-verified-20261103`, branch
+`release/core-next-dev6-verified-20261103`. The earlier40523425 worktree and all
+its build/test receipts remain immutable. Read
+docs/releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md. Freeze this corrected
+test checkpoint and rebuild source-identity-bearing outputs into new paths.
+
+The preceding source-preparation increment authorized root as sole writer in the isolated
 `LAB/release-source/dev6-evolution-20261103` worktree on
 `release/core-next-dev6-20261103`. Read docs/handover/RELEASE-EVOLUTION-20261103.md.
 The canonical, ed78 and4eca worktrees stay unchanged. Version6 is a development

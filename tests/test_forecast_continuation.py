@@ -84,9 +84,21 @@ class Guards(unittest.TestCase):
         def imports():
             real_imports();r.configuration=lambda:configuration;r.validate_state_inputs=lambda:None;r.live_projection=lambda:copy.deepcopy(projected)
             r.db_snapshot=lambda *_:self.fail('ValidateOnly created snapshot output')
-        args=SimpleNamespace(phase='reconcile',receipt='fixture',receipt_sha256='d'*64,approval='fixture',approval_sha256='e'*64,output=str(c.OP/'acceptance/reconcile'),previous=None,validate_only=True)
-        output=io.StringIO()
-        with patch.object(r.cc,'validate',return_value=({},baseline)),patch.object(r.cc,'HISTORY',c.sha(c.canonical(records))),patch.object(r,'imports',side_effect=imports),patch.object(r,'build_opener',return_value=Opener()),patch.object(Path,'read_text',reads),patch.object(Path,'mkdir',side_effect=AssertionError('OUTPUT_DIRECTORY_CREATED')),patch.object(Path,'write_text',side_effect=AssertionError('OUTPUT_FILE_CREATED')),redirect_stdout(output):
-            self.assertEqual(r.run(args),0)
+        # Never bind a synthetic output to a completed historical operation.
+        # Create the fixture before forbidding writes, and leave its output absent.
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture_op=Path(temporary)/'operation-not-created'
+            args=SimpleNamespace(phase='reconcile',receipt='fixture',receipt_sha256='d'*64,approval='fixture',approval_sha256='e'*64,output=str(fixture_op/'acceptance/reconcile'),previous=None,validate_only=True)
+            output=io.StringIO()
+            with patch.object(r.cc,'OP',fixture_op),patch.object(r.cc,'validate',return_value=({},baseline)),patch.object(r.cc,'HISTORY',c.sha(c.canonical(records))),patch.object(r,'imports',side_effect=imports),patch.object(r,'build_opener',return_value=Opener()),patch.object(Path,'read_text',reads),patch.object(Path,'mkdir',side_effect=AssertionError('OUTPUT_DIRECTORY_CREATED')),patch.object(Path,'write_text',side_effect=AssertionError('OUTPUT_FILE_CREATED')),redirect_stdout(output):
+                self.assertEqual(r.run(args),0)
+            self.assertFalse(fixture_op.exists())
         value=json.loads(output.getvalue());self.assertTrue(value['passed']);self.assertTrue(value['validate_only']);self.assertFalse(value['output_created']);self.assertTrue(all(x['method']=='GET' for x in value['requests']))
+    def test_26_existing_output_rejected_before_imports_or_requests(self):
+        spec=importlib.util.spec_from_file_location('reader_existing_output',HERE/'Read-Continuation.py');r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture_op=Path(temporary);output=fixture_op/'acceptance/reconcile';output.mkdir(parents=True)
+            args=SimpleNamespace(phase='reconcile',receipt='fixture',receipt_sha256='d'*64,approval='fixture',approval_sha256='e'*64,output=str(output),previous=None,validate_only=True)
+            with patch.object(r.cc,'OP',fixture_op),patch.object(r.cc,'validate',return_value=({},{})),patch.object(r,'imports',side_effect=AssertionError('IMPORTS_AFTER_USED_OUTPUT')),patch.object(r,'build_opener',side_effect=AssertionError('REQUEST_AFTER_USED_OUTPUT')):
+                with self.assertRaisesRegex(r.cc.Refused,'EXACT_FRESH_ACCEPTANCE_OUTPUT_REQUIRED'):r.run(args)
 if __name__=='__main__':unittest.main(verbosity=2)

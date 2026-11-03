@@ -1,10 +1,17 @@
 # Current release evolution — 2026-11-03
 
+Current integration branch: `release/core-next-dev6-verified-20261103`, worktree
+`LAB/release-source/dev6-verified-20261103`. Earlier40523425 outputs are preserved.
+Three stale test assumptions were corrected without changing application code:
+historical output-path reuse, omitted guards, omitted child template. Read
+[the reconciliation](docs/releases/RELEASE-REGRESSION-RECONCILIATION-20261103.md).
+New source-bound builds supersede preliminary outputs only after verification.
+
 Read [release handoff](docs/handover/RELEASE-EVOLUTION-20261103.md) before the
 preserved forensic checkpoint below. Active source is the isolated dev.6 release
 worktree/branch. GitHub audit establishes4eca is branch-only; no dev5/dev6 release
 or draft exists. Candidate0.5.0-dev.6 uses Androidcode9 and unchanged formulas.
-Build/runtime status at this source checkpoint is NOT_RUN. Freeze exact Git source
+Final-source build/runtime status at this source checkpoint is NOT_RUN. Freeze exact Git source
 before any build; never relabel dev.5 binaries or mutate old one-shot evidence.
 Mandatory lifecycle/privacy gates still control draft and public publication.
 

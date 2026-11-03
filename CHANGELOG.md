@@ -8,6 +8,8 @@
 - Supports registered isolated worktrees in release and Android build entrypoints;
   source operations remain bound to the frozen worktree and publication gates stay.
 - Aligns platform version metadata; Android development versionCode advances to9.
+- Corrects isolated continuation and Joomla regression fixtures while preserving
+  their original failures, production guards and historical operation evidence.
 - New builds and runtime acceptance are NOT_RUN at this source checkpoint; this
   entry does not claim a published release, native/device acceptance or accuracy.
 

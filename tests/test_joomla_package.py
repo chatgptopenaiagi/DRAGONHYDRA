@@ -10,6 +10,7 @@ import http.server
 import importlib.util
 import io
 import json
+import re
 from pathlib import Path
 import subprocess
 import threading
@@ -74,7 +75,16 @@ class JoomlaPackageTests(unittest.TestCase):
         self.assertIn("Session::checkToken('post')", controller)
         self.assertIn("authorise('core.manage'", controller)
         self.assertIn("authorise('dragonhydra.import'", controller)
-        self.assertEqual(3, controller.count('$this->guard();'))
+        # Four direct actions and the shared workflow are guarded. Forecast and
+        # evaluation delegate to that same workflow; a raw historic count of
+        # three omitted the implemented observation and research operations.
+        guarded = set(re.findall(r'(?:public|private) function (\w+)\([^)]*\): void\s*\{\s*\$this->guard\(\);', controller))
+        self.assertEqual({'sync', 'probe', 'cancel', 'observe', 'workflow'}, guarded)
+        public = set(re.findall(r'public function (\w+)\(', controller))
+        self.assertEqual({'sync', 'probe', 'cancel', 'observe', 'forecast', 'evaluate'}, public)
+        self.assertRegex(controller, r"public function forecast\(\): void\s*\{\s*\$this->workflow\('forecasts'\);\s*\}")
+        self.assertRegex(controller, r"public function evaluate\(\): void\s*\{\s*\$this->workflow\('evaluations'\);\s*\}")
+        self.assertIn('CORE_NEXT_INSTALLATION_MISMATCH', controller)
         self.assertNotIn('shell_exec', controller)
         self.assertNotIn('exec(', controller)
 
