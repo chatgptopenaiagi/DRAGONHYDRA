@@ -1,0 +1,39 @@
+{
+  "schema_version": "workflow-preservation/1",
+  "passed": true,
+  "errors": [],
+  "authentication_bookkeeping_row_exemptions": [
+    "product_bridge_nonces",
+    "product_sessions"
+  ],
+  "scope_limits": [
+    "Does not replace configuration/credential fingerprint checks",
+    "Caller binds source/profile, approved IDs and preserved snapshot hashes",
+    "Does not prove network inactivity or model numerical correctness"
+  ],
+  "before_sha256": "0fbc6c70e5bd78db53f82ba75cabd841d4e85dba152b13d4e9881954610c2c48",
+  "after_sha256": "b7c0c52c694f1ade073dee0589985853b9b881fe81dfcba14e973f345f46c187",
+  "schema_contract_sha256": "f0b216aaf58e9bde1351e0e152263f25480b39cdab17fe8ee49ee0d3ecf5485b",
+  "counts": {
+    "added_schema_objects": 27,
+    "new_jobs": 2,
+    "new_cognitive_records": 10,
+    "new_cognitive_receipts": 10,
+    "new_events": 8,
+    "protected_retained_rows": 760,
+    "auth_bookkeeping": {
+      "product_bridge_nonces": {
+        "before": 7,
+        "after": 14
+      },
+      "product_sessions": {
+        "before": 0,
+        "after": 0
+      }
+    }
+  },
+  "evidence_class": "REPAIRED_TEST_ON_NEW_WORKING_COPIES_OF_ORIGINAL_EVIDENCE",
+  "auditor_sha256": "94b98d6e030a2090ee99f55abffa72f0e5e6ef1f148f47c707d4035cb03d6478",
+  "frozen_application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "prior_audit_r1_preserved": true
+}

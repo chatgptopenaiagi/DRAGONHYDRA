@@ -1,3 +1,10 @@
+## Current forensic continuation — 2026-11-03
+
+The dev.5 release remains HELD/UNPUBLISHED at frozen application source ed78fab282599a181d4254ab65a2fc2eaa5b7f50. New owner-executed InstallFresh and ReadFresh receipts PASS. Original Forecast remains FAIL; forensic analysis establishes an acceptance-harness defect, with protected760 matches/source versions/settings unchanged and five model/five prediction outputs persisted. No application build change is needed.
+
+See [incident report](../reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md) for52 distinct Python PASS cases, separate actual frozen-runtime13 groups, installed Joomla HTTP7 groups, exact SQLite differences and held artifacts. Additional continuation guards25 Python/6 PowerShell PASS; live preflight and distinct ReconcileForecast PASS once. Backup elevation reported cancellation before any child handle/marker/receipt; no retry. Later lifecycle adapters are explicitly NOT_IMPLEMENTED. All15 asset bytes and historical10releases/95assets freshly match baseline. SCM restart/repair/retained lifecycle/native GUI/final publication remain separate gates. The previous zero-phase/authority statements below are historical Nov2 evidence, superseded only by these explicitly linked Nov3 receipts.
+
+---
 # DRAGONHYDRA GENESIS — master reconciliation result
 
 Recorded 2026-11-02T15:52:27.813227+00:00. **PARTIALLY COMPLETE WITH EXACT REMAINING GATES.**

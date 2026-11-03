@@ -1,0 +1,160 @@
+{
+  "schema_version": "disposable-post-workflow-operation-review/1",
+  "passed": true,
+  "as_of": "2026-11-03T08:30:13.769638+00:00",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "modules": [
+    {
+      "id": "prediction",
+      "top_state": "UNVERIFIED",
+      "runtime_state": "EXPIRED",
+      "configuration_state": "UNVERIFIED",
+      "reason_code": "NO_CURRENT_OPERATION_OBSERVATION",
+      "passive_observation_fresh_at_capture": true,
+      "operations": {
+        "predictions": {
+          "state": "UNVERIFIED",
+          "reason": "NO_OPERATION_EVIDENCE",
+          "observed_at": null,
+          "expires_at": null,
+          "fresh_at_capture": false,
+          "scope": []
+        },
+        "persist": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T07:35:14.388980Z",
+          "expires_at": "2026-11-03T07:40:14.388980Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:persist"
+          ]
+        }
+      },
+      "explanation": "Fresh lightweight observation does not run or certify predictions. persist retains its historical success but expired at07:40:14.388980Z; predictions has no operation evidence. No new forecast was submitted."
+    },
+    {
+      "id": "memory",
+      "top_state": "READY",
+      "runtime_state": "EXPIRED",
+      "configuration_state": "CONFIGURED",
+      "reason_code": "IMMUTABLE_MEMORY_PRESENT",
+      "passive_observation_fresh_at_capture": true,
+      "operations": {
+        "view": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T07:35:14.713829Z",
+          "expires_at": "2026-11-03T07:40:14.713829Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:view"
+          ]
+        },
+        "history": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T08:23:56.163245Z",
+          "expires_at": "2026-11-03T08:28:56.163245Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:history"
+          ]
+        },
+        "record_model": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T07:35:14.330658Z",
+          "expires_at": "2026-11-03T07:40:14.330658Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:record_model"
+          ]
+        },
+        "record_prediction": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T07:35:14.380779Z",
+          "expires_at": "2026-11-03T07:40:14.380779Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:record_prediction"
+          ]
+        },
+        "attach_outcome": {
+          "state": "UNVERIFIED",
+          "reason": "NO_OPERATION_EVIDENCE",
+          "observed_at": null,
+          "expires_at": null,
+          "fresh_at_capture": false,
+          "scope": []
+        }
+      },
+      "explanation": "Fresh read-only schema/count observation finds10immutable records+10receipts and marks memory structure READY/CONFIGURED. view/history/record_model/record_prediction operation proofs are expired; attach_outcome has none. Fresh passive counts do not renew those operation clocks."
+    },
+    {
+      "id": "evaluation",
+      "top_state": "UNVERIFIED",
+      "runtime_state": "EXPIRED",
+      "configuration_state": "UNVERIFIED",
+      "reason_code": "ELIGIBLE_FORECAST_OUTCOME_COHORT_NOT_OBSERVED",
+      "passive_observation_fresh_at_capture": true,
+      "operations": {
+        "evaluate": {
+          "state": "UNVERIFIED",
+          "reason": "NO_OPERATION_EVIDENCE",
+          "observed_at": null,
+          "expires_at": null,
+          "fresh_at_capture": false,
+          "scope": []
+        },
+        "persist": {
+          "state": "UNVERIFIED",
+          "reason": "NO_OPERATION_EVIDENCE",
+          "observed_at": null,
+          "expires_at": null,
+          "fresh_at_capture": false,
+          "scope": []
+        },
+        "evaluate_match": {
+          "state": "EXPIRED",
+          "reason": "OBSERVATION_EXPIRED",
+          "observed_at": "2026-11-03T07:35:14.717296Z",
+          "expires_at": "2026-11-03T07:40:14.717296Z",
+          "fresh_at_capture": false,
+          "scope": [
+            "EXPLICIT_OPERATION:evaluate_match"
+          ]
+        }
+      },
+      "explanation": "Fresh observation finds no eligible forecast/later-outcome cohort. evaluate_match historical result was UNAVAILABLE, and its scoped evidence has expired; evaluate/persist have no proof. Brier/logloss/calibration are not currently available. No new evaluation was submitted."
+    }
+  ],
+  "requests": {
+    "GET": 4,
+    "POST": 0
+  },
+  "preservation": {
+    "schema_unchanged": true,
+    "all_domain_and_jobs_settings_rows_unchanged_except_exact_auth_bookkeeping": true,
+    "configuration_unchanged": true,
+    "auth_counts_before": {
+      "product_bridge_nonces": 8,
+      "product_sessions": 0
+    },
+    "auth_counts_after": {
+      "product_bridge_nonces": 8,
+      "product_sessions": 0
+    },
+    "before_sqlite_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "after_sqlite_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5"
+  },
+  "security_scope": {
+    "existing_owner_readable_client_token_in_memory_only": true,
+    "protected_bridge_access": false,
+    "ACL_changes": false,
+    "provider_job_model_observation_or_service_actions": false
+  },
+  "raw_response_policy": "Only sanitized allowlisted projection persisted; raw response hashes and lengths retained, no raw headers or credentials"
+}

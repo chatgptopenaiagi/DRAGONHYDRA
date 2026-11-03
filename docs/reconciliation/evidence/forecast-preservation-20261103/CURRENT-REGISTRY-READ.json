@@ -1,0 +1,266 @@
+{
+  "schema_version": "disposable-post-workflow-registry/1",
+  "passed": true,
+  "started_at": "2026-11-03T08:30:13.601973+00:00",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health/ready",
+      "started_at": "2026-11-03T08:30:13.680210+00:00",
+      "finished_at": "2026-11-03T08:30:13.690717+00:00",
+      "bytes": 167,
+      "raw_response_sha256": "e312335da7c23bc688a7694bb7bc9ec014f984665bdefb98517f088c6f1d2e7d"
+    },
+    {
+      "method": "GET",
+      "path": "/system",
+      "started_at": "2026-11-03T08:30:13.690767+00:00",
+      "finished_at": "2026-11-03T08:30:13.724486+00:00",
+      "bytes": 1157,
+      "raw_response_sha256": "efcc2d21bbe53b6ed396c33bc98b47a93fe37d0f8e5f9d5c0cad7fdd3a04785c"
+    },
+    {
+      "method": "GET",
+      "path": "/modules",
+      "started_at": "2026-11-03T08:30:13.724545+00:00",
+      "finished_at": "2026-11-03T08:30:13.754586+00:00",
+      "bytes": 32577,
+      "raw_response_sha256": "777dd7c2e1281198b43c081eb42d2d5940fda8ef38ba4fbd8b3e2ed161d54b37"
+    },
+    {
+      "method": "GET",
+      "path": "/modules?scope=all",
+      "started_at": "2026-11-03T08:30:13.754849+00:00",
+      "finished_at": "2026-11-03T08:30:13.768969+00:00",
+      "bytes": 81731,
+      "raw_response_sha256": "70bf0c3d952c33143388440d8eeb9c945415d6b1bf113c23d080ec13484f9897"
+    }
+  ],
+  "post_count": 0,
+  "no_observer_provider_inference_job_or_service_actions": true,
+  "protected_bridge_access_attempted": false,
+  "acl_changes": false,
+  "configuration_before": {
+    "workstation.json": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+    "first-run.json": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+    "site/configuration.php": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+    "client/local-session.json": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+    "kernel/product.json": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+    "web-config/httpd.conf": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+    "web-config/php.ini": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+    "web-config/my.ini": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc",
+    "installation-profile.json": "6079355639bac4b0ed8ea17c41a337bda2f2489c622a8d83842807542144b01c"
+  },
+  "before": {
+    "file": "before.sqlite3",
+    "file_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "domain_tables": {
+      "acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cognitive_receipts": {
+        "rows": 10,
+        "sha256": "4bf43fa824d5c893f13352fc24b181dfbbb20b4f0790ce0161d8f5af4eddb529"
+      },
+      "cognitive_records": {
+        "rows": 10,
+        "sha256": "d371c18534b7dbb4c963959fa65d0fb85b90fdded6a66c04288bf2d90706d6b4"
+      },
+      "connector_acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_attempts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_identity_review": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_observations": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_settings": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "product_jobs": {
+        "rows": 3,
+        "sha256": "10021a34a012a7c0af5a14f14e9d6786ead2327588ec8c442e473636042789f7"
+      },
+      "product_schema": {
+        "rows": 1,
+        "sha256": "77c14c7ee894f3f14ace33d7e15dfb363c3f37ff86811a9c23b5a9e7ead46b03"
+      },
+      "product_updates": {
+        "rows": 14,
+        "sha256": "529b2d8b31893eaad027f60a6e8a5ccd1b13f456f15c4fe29c0db5b63a54624a"
+      },
+      "public_fixture_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public_fixture_records": {
+        "rows": 760,
+        "sha256": "7535f8a08089bd93c7118f80d1022cbf3a3d94ec383545e91cf0ee56dd0504b4"
+      },
+      "public_result_captures": {
+        "rows": 2,
+        "sha256": "8d1764dd40f73cf26bd7fdd0aad8176c42e9066e3d0da918e6f65b688c55123d"
+      },
+      "public_result_receipts": {
+        "rows": 2,
+        "sha256": "5a4b0b647dfeca75d1422a10cbf0ff16764e0842d2ca48fe24d8bc1cccfa5562"
+      },
+      "quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "quarantine_receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "raw_sources": {
+        "rows": 2,
+        "sha256": "943ac22cc9f60373632d51ce3015dfb0f0e78c7de629d1e01f67b177d93792a3"
+      },
+      "receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "86410f3eff0b2552a57e0ceb3921f0f4137545ec97ea4172514ea099a23125b2"
+      }
+    },
+    "auth_bookkeeping_counts": {
+      "product_bridge_nonces": 8,
+      "product_sessions": 0
+    }
+  },
+  "after": {
+    "file": "after.sqlite3",
+    "file_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "domain_tables": {
+      "acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cognitive_receipts": {
+        "rows": 10,
+        "sha256": "4bf43fa824d5c893f13352fc24b181dfbbb20b4f0790ce0161d8f5af4eddb529"
+      },
+      "cognitive_records": {
+        "rows": 10,
+        "sha256": "d371c18534b7dbb4c963959fa65d0fb85b90fdded6a66c04288bf2d90706d6b4"
+      },
+      "connector_acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_attempts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_identity_review": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_observations": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_settings": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "product_jobs": {
+        "rows": 3,
+        "sha256": "10021a34a012a7c0af5a14f14e9d6786ead2327588ec8c442e473636042789f7"
+      },
+      "product_schema": {
+        "rows": 1,
+        "sha256": "77c14c7ee894f3f14ace33d7e15dfb363c3f37ff86811a9c23b5a9e7ead46b03"
+      },
+      "product_updates": {
+        "rows": 14,
+        "sha256": "529b2d8b31893eaad027f60a6e8a5ccd1b13f456f15c4fe29c0db5b63a54624a"
+      },
+      "public_fixture_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public_fixture_records": {
+        "rows": 760,
+        "sha256": "7535f8a08089bd93c7118f80d1022cbf3a3d94ec383545e91cf0ee56dd0504b4"
+      },
+      "public_result_captures": {
+        "rows": 2,
+        "sha256": "8d1764dd40f73cf26bd7fdd0aad8176c42e9066e3d0da918e6f65b688c55123d"
+      },
+      "public_result_receipts": {
+        "rows": 2,
+        "sha256": "5a4b0b647dfeca75d1422a10cbf0ff16764e0842d2ca48fe24d8bc1cccfa5562"
+      },
+      "quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "quarantine_receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "raw_sources": {
+        "rows": 2,
+        "sha256": "943ac22cc9f60373632d51ce3015dfb0f0e78c7de629d1e01f67b177d93792a3"
+      },
+      "receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "86410f3eff0b2552a57e0ceb3921f0f4137545ec97ea4172514ea099a23125b2"
+      }
+    },
+    "auth_bookkeeping_counts": {
+      "product_bridge_nonces": 8,
+      "product_sessions": 0
+    }
+  },
+  "configuration_after": {
+    "workstation.json": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+    "first-run.json": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+    "site/configuration.php": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+    "client/local-session.json": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+    "kernel/product.json": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+    "web-config/httpd.conf": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+    "web-config/php.ini": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+    "web-config/my.ini": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc",
+    "installation-profile.json": "6079355639bac4b0ed8ea17c41a337bda2f2489c622a8d83842807542144b01c"
+  },
+  "domain_rows_unchanged": true,
+  "schema_unchanged": true,
+  "configuration_unchanged": true,
+  "scopes": {
+    "engines": 6,
+    "all": 18
+  },
+  "sanitized_registry_sha256": "d1609dbf7ca87cf1680da1a297e959f36ee9329fdaedbb0848f43e9085a9e2b6",
+  "finished_at": "2026-11-03T08:30:13.844241+00:00"
+}

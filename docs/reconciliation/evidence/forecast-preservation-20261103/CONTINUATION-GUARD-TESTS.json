@@ -1,0 +1,30 @@
+{
+  "schema_version": "dragonhydra.integrated-continuation-guards/1",
+  "passed": true,
+  "observed_at": "2026-11-03T08:58:29.251323+00:00",
+  "python_cases": 25,
+  "python_passed": 25,
+  "python_failed": 0,
+  "python_not_run": 0,
+  "python_exit_code": 0,
+  "powershell_groups": 6,
+  "powershell_exit_code": 0,
+  "case_scope": "24 sanitized-proof/path/AST cases plus1 mocked-GET reader case; no real operation, backup or service mutation",
+  "test_source_sha256": "8b78d7b2e6e7cceea1cc496446d4b7cde03803142d48c8ae82340bb453a53720",
+  "powershell_test_sha256": "b02a94ece55119ab00f958c423928a3ed2ba5080f63f4170bd1930e72c4968fb",
+  "python_log_sha256": "34ed07495d3c6cb338d2a5ea11421f9ab82ceb219a777a5a94cd4e3a75975618",
+  "powershell_receipt_sha256": "34a394743faaf76d3b3ee668b56e5a87da3cabee0b7f8c9d002556b55da80819",
+  "code_bindings": {
+    "schema_version": "dev5.forecast-continuation-code-bindings/1",
+    "operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+    "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+    "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "setup_sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+    "controller_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\source\\tests\\installation\\forecast_continuation\\Invoke-ReconciledDev5Phase.ps1",
+    "reviewed_at": "2026-11-03T08:58:29.249056+00:00",
+    "root_source_review": "PASS plus independent final static review; not installed acceptance",
+    "new_controller_sha256": "8131d353dd2c5191e5f7fbc4a01b016e7f51703fc6b4880b5cd49df3c2314e36",
+    "reader_sha256": "ae984420292bd5c2629667ec6dab91e5f6971d168c8074c5ec18c27a7ba177a5",
+    "contract_sha256": "c5c65458c1bf6434af03745f6a09bfea50bdf5504b19e974cba299a067432a54"
+  }
+}

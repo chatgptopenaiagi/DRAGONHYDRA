@@ -1,0 +1,17 @@
+{
+  "schema_version": "dev5.forecast-reconciliation-approval/1",
+  "approval_kind": "COORDINATOR_HASH_ATTESTATION",
+  "approved": false,
+  "approved_source_owner": "root",
+  "approved_phase": "ReconcileForecast",
+  "operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+  "operation_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "version": "0.5.0-dev.5",
+  "setup_sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+  "reconciliation_sha256": null,
+  "approved_at": null,
+  "scope": "Only the initial read-only ReconcileForecast; no later phase, original verdict change, job resubmission or privilege escalation",
+  "digital_signature_claim": false
+}

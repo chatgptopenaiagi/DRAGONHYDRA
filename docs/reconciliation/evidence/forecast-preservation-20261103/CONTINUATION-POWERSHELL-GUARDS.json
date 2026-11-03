@@ -1,0 +1,15 @@
+{
+  "scope": "Source AST and synthetic files plus Preview and NOT_IMPLEMENTED refusals only",
+  "checks": [
+    "full_function_parameters_and_no_top_level_execution",
+    "ordinary_descendant_positive",
+    "string_walk_reaches_file_parent_and_rejects_reparse",
+    "actual_preview_no_actions",
+    "all_later_phases_refused_before_bindings_marker_or_actions",
+    "typed_parameter_name_does_not_collide_with_imported_compatibility_binding"
+  ],
+  "passed": true,
+  "count": 6,
+  "schema_version": "dev5.continuation-ps-guards/1",
+  "no_live_api_backup_scm_ui_or_lifecycle": true
+}

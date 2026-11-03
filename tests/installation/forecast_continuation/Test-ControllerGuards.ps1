@@ -1,0 +1,16 @@
+# Synthetic source/fixture tests only. Never invoke ReconcileForecast or Backup Apply.
+$ErrorActionPreference='Stop';$root=$PSScriptRoot;$file=Join-Path $root 'Invoke-ReconciledDev5Phase.ps1';$tokens=$null;$errors=$null;$ast=[Management.Automation.Language.Parser]::ParseFile($file,[ref]$tokens,[ref]$errors);if($errors.Count){throw 'CONTROLLER_PARSE_FAILED'}
+foreach($name in @('Assert-StringWalk','Digest','Import-ExactFunctions')){$n=$ast.Find({param($node)$node -is [Management.Automation.Language.FunctionDefinitionAst] -and $node.Name -ceq $name},$true);Invoke-Expression $n.Extent.Text}
+$fixture=Join-Path 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\forensics\forecast-preservation-20261103' ('synthetic-ps-'+[Guid]::NewGuid().ToString('N'));New-Item -ItemType Directory -Path $fixture|Out-Null;$checks=[Collections.Generic.List[string]]::new()
+function Reject([scriptblock]$Code,[string]$Expected){try{&$Code;throw 'EXPECTED_REJECTION'}catch{if($_.Exception.Message -notlike ('*'+$Expected+'*')){throw}}}
+$definition=Join-Path $fixture 'definitions.ps1';[IO.File]::WriteAllText($definition,"function Probe([string]`$Value){'ok:'+`$Value}`nthrow 'TOP_LEVEL_BODY_EXECUTED'",[Text.UTF8Encoding]::new($false))
+Import-ExactFunctions $definition (Digest $definition) @('Probe');if((Probe 'retained-parameter') -cne 'ok:retained-parameter'){throw 'PARAMETER_AST_LOST'};$checks.Add('full_function_parameters_and_no_top_level_execution')
+$leaf=Join-Path $fixture 'ordinary.txt';[IO.File]::WriteAllText($leaf,'fixture');$null=Assert-StringWalk $leaf $fixture -Leaf;$checks.Add('ordinary_descendant_positive')
+function Get-Item{param([string]$LiteralPath,[switch]$Force);if($LiteralPath -ceq $fixture){[pscustomobject]@{Attributes=[IO.FileAttributes]::ReparsePoint}}else{Microsoft.PowerShell.Management\Get-Item -LiteralPath $LiteralPath -Force:$Force}}
+Reject {$null=Assert-StringWalk $leaf $fixture -Leaf} 'REPARSE_ANCESTOR_REJECTED';Remove-Item Function:\Get-Item;$checks.Add('string_walk_reaches_file_parent_and_rejects_reparse')
+$before=Test-Path -LiteralPath 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\continuation-20261103\disposable-dev5-b447-reconciled-r1'
+$preview=& $file|ConvertFrom-Json;if($preview.actions_performed -ne $false -or $preview.status -cne 'PREVIEW_ONLY_NOT_EXECUTED'){throw 'PREVIEW_ACTION_OR_STATE_CHANGED'};$checks.Add('actual_preview_no_actions')
+foreach($phase in @('Restart','Repair','UninstallRetain','ReinstallRetained','FinalUninstall')){Reject {& $file -Phase $phase -Apply} 'NOT_IMPLEMENTED_BEFORE_MARKER'};$checks.Add('all_later_phases_refused_before_bindings_marker_or_actions')
+if((Test-Path -LiteralPath 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\continuation-20261103\disposable-dev5-b447-reconciled-r1') -ne $before){throw 'LIVE_OPERATION_ROOT_CREATED_BY_TEST'}
+$names=@($ast.ParamBlock.Parameters|ForEach-Object {$_.Name.VariablePath.UserPath});if('Bindings' -in $names -or 'BindingsPath' -notin $names){throw 'TYPED_BINDINGS_COLLISION'};$checks.Add('typed_parameter_name_does_not_collide_with_imported_compatibility_binding')
+@{schema_version='dev5.continuation-ps-guards/1';passed=$true;checks=@($checks);count=$checks.Count;scope='Source AST and synthetic files plus Preview and NOT_IMPLEMENTED refusals only';no_live_api_backup_scm_ui_or_lifecycle=$true}|ConvertTo-Json -Depth 4

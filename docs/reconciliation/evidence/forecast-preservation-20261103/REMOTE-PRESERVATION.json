@@ -1,0 +1,1566 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-03T08:34:24.693392+00:00",
+  "status": "PASS_HISTORICAL_TAG_ASSET_STABLELATEST_PRESERVATION",
+  "passed": true,
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "baseline": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\reconciliation-20261102\\release-baseline-20261102T122047Z-remote.json",
+    "bytes": 71305,
+    "sha256": "56dff39fc1ba9b9aa9cb490a9f478be392cefc29e702d1eab38a9b7dadc9984b"
+  },
+  "baseline_observed_at": "2026-11-02T12:21:01.244509+00:00",
+  "remote_mutations_performed": false,
+  "api_method": "GET only through existing authenticated gh CLI",
+  "commands": [
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/releases?per_page=100",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/releases/latest",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/matching-refs/tags?per_page=100",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/matching-refs/heads?per_page=100",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/tags/7205c7c41d1f162bbe0670f8079a8df68866ae1c",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/tags/56e3cbaa0286ccbc47f286fa0a973fe41440c8bd",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/tags/a2154fe1838551ceac1e488097b209cb9bdcbc76",
+      "exit_code": 0
+    },
+    {
+      "method": "GET",
+      "path": "repos/chatgptopenaiagi/DRAGONHYDRA/git/tags/51c9a387fb077effeb207942dbb4944e453c7778",
+      "exit_code": 0
+    }
+  ],
+  "latest_stable_api": {
+    "id": 426798763,
+    "tag": "v0.2.0+genesis2.checkpoint",
+    "name": "DRAGONHYDRA GENESIS-2 | Cognitive Intelligence Checkpoint",
+    "draft": false,
+    "prerelease": false,
+    "published_at": "2026-10-28T14:48:37Z",
+    "target_commitish": "genesis2-checkpoint",
+    "source_commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+    "body_sha256_current": "fe732c2da4152b0939f156aac933ec95a26cdfa7551bd09ad6bf181777c23649",
+    "body_commit_references": [
+      "5f49cfdfa7c67245d381078edfad7414bdba5a65"
+    ],
+    "asset_count": 7,
+    "assets": [
+      {
+        "id": 685309063,
+        "name": "dragonhydra-0.2.0+genesis2.checkpoint-py3-none-any.whl",
+        "bytes": 90024,
+        "digest": "sha256:e904f2444474dba1f176b3b7fb890c1a901deab6c43b36afee0d54f5e4807780",
+        "created_at": "2026-10-28T14:48:16Z",
+        "updated_at": "2026-10-28T14:48:16Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 685309064,
+        "name": "DRAGONHYDRA-0.2.0+genesis2.checkpoint-windows-amd64-onedir.zip",
+        "bytes": 10993106,
+        "digest": "sha256:701e3499eb844d753d776223446094469695ea1c9bbe58f6f39f4296a8fa2e70",
+        "created_at": "2026-10-28T14:48:16Z",
+        "updated_at": "2026-10-28T14:48:36Z",
+        "content_type": "application/zip"
+      },
+      {
+        "id": 685309062,
+        "name": "dragonhydra-0.2.0+genesis2.checkpoint.tar.gz",
+        "bytes": 128734,
+        "digest": "sha256:2357c0c2769b95aa2f645222c15e6d2cf21e542f67e4eb6c1c2ed2f1877c5bdf",
+        "created_at": "2026-10-28T14:48:16Z",
+        "updated_at": "2026-10-28T14:48:17Z",
+        "content_type": "application/x-gtar"
+      },
+      {
+        "id": 685309056,
+        "name": "DRAGONHYDRA-GENESIS2-RECOVERY.zip",
+        "bytes": 2529496,
+        "digest": "sha256:81cd5d9b1bd74c65740f7332b8a62ea11afe4c092c2f753dd78e2763708be2f9",
+        "created_at": "2026-10-28T14:48:16Z",
+        "updated_at": "2026-10-28T14:48:25Z",
+        "content_type": "application/zip"
+      },
+      {
+        "id": 685309054,
+        "name": "DRAGONHYDRA.exe",
+        "bytes": 2413914,
+        "digest": "sha256:7f02347902034b28884c27223f150f847d3dc54d6935370357c905fc31f34dd1",
+        "created_at": "2026-10-28T14:48:16Z",
+        "updated_at": "2026-10-28T14:48:25Z",
+        "content_type": "application/x-msdownload"
+      },
+      {
+        "id": 685309129,
+        "name": "RELEASE-MANIFEST.json",
+        "bytes": 7994,
+        "digest": "sha256:d509e9ac524c6a7b0a4ac9069b65e0f833e66afc2d01b51e5288161a26ca606d",
+        "created_at": "2026-10-28T14:48:17Z",
+        "updated_at": "2026-10-28T14:48:18Z",
+        "content_type": "application/json"
+      },
+      {
+        "id": 685309158,
+        "name": "SHA256SUMS.txt",
+        "bytes": 637,
+        "digest": "sha256:34aaba497e443dff42a6d5ee56f613a1ac2228b2e88934e1014811ada106a10b",
+        "created_at": "2026-10-28T14:48:18Z",
+        "updated_at": "2026-10-28T14:48:18Z",
+        "content_type": "text/plain; charset=utf-8"
+      }
+    ]
+  },
+  "most_recent_published_release": {
+    "id": 430678928,
+    "tag": "v0.5.0-dev.1-core-next",
+    "name": "DRAGONHYDRA CORE NEXT 0.5.0-dev.1 | Development prerelease",
+    "draft": false,
+    "prerelease": true,
+    "published_at": "2026-11-01T16:25:32Z",
+    "target_commitish": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "body_sha256_current": "b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+    "body_commit_references": [
+      "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "953b67fa50dfa9d705f060f97b8a1af5d317c001"
+    ],
+    "asset_count": 15,
+    "assets": [
+      {
+        "id": 698829144,
+        "name": "ARTIFACT-MANIFEST.json",
+        "bytes": 19530,
+        "digest": "sha256:7af17c736b3ffc5cb9b5ab86df13781e3f718c2c1764229b86aef25638ee9230",
+        "created_at": "2026-11-01T16:17:38Z",
+        "updated_at": "2026-11-01T16:17:38Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698829205,
+        "name": "BUILD-REPORT.json",
+        "bytes": 9590,
+        "digest": "sha256:382b2d4d98397293f38fdf9cc7155f841c3e999116fb03d965f6f1f73d48a6be",
+        "created_at": "2026-11-01T16:17:40Z",
+        "updated_at": "2026-11-01T16:17:40Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836348,
+        "name": "dragonhydra-0.5.0.dev1-py3-none-any.whl",
+        "bytes": 315532,
+        "digest": "sha256:1e8c2015d47e3144dc702a93e05d9f686a9b5ae62cde049497cf5be9413cb30a",
+        "created_at": "2026-11-01T16:20:29Z",
+        "updated_at": "2026-11-01T16:20:29Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836393,
+        "name": "dragonhydra-0.5.0.dev1.tar.gz",
+        "bytes": 2118944,
+        "digest": "sha256:01e79f1bb665aa19b9add579abf3364f394e7b95c886cc97d00ae5e5cd7acb34",
+        "created_at": "2026-11-01T16:20:30Z",
+        "updated_at": "2026-11-01T16:20:32Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698829252,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Android-arm64-development.apk",
+        "bytes": 17345950,
+        "digest": "sha256:269a6fdedefcae2807f17df19989839eacc1f45d600cb80d653099bc2a1f649e",
+        "created_at": "2026-11-01T16:17:41Z",
+        "updated_at": "2026-11-01T16:17:57Z",
+        "content_type": "application/vnd.android.package-archive"
+      },
+      {
+        "id": 698830420,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe",
+        "bytes": 10087424,
+        "digest": "sha256:1fd382247b047e87d9091bea95b9710aaf5d584eaadafb47b9c8fa95b6bfec08",
+        "created_at": "2026-11-01T16:18:09Z",
+        "updated_at": "2026-11-01T16:18:18Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698830949,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Linux-server-x86_64.tar.gz",
+        "bytes": 4293260,
+        "digest": "sha256:5cf689477a6b3347275ec787389ced525ce1bd81ee60c07d94ddf942beb0b8e1",
+        "created_at": "2026-11-01T16:18:19Z",
+        "updated_at": "2026-11-01T16:18:24Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698831205,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Server-win-x64.zip",
+        "bytes": 19534517,
+        "digest": "sha256:ad98c08cc33b63aceb7e1b04249b7fd58e9e8af8f6dbe88f2a24f7493b3f0352",
+        "created_at": "2026-11-01T16:18:25Z",
+        "updated_at": "2026-11-01T16:18:49Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698832521,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip",
+        "bytes": 3116264,
+        "digest": "sha256:5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2",
+        "created_at": "2026-11-01T16:19:01Z",
+        "updated_at": "2026-11-01T16:19:05Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698832776,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe",
+        "bytes": 64863681,
+        "digest": "sha256:a4ce2f0f918ee37760138cc07f11b4881ef9ec376fcb1b25d76ebf0c5ee19f30",
+        "created_at": "2026-11-01T16:19:06Z",
+        "updated_at": "2026-11-01T16:20:09Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836063,
+        "name": "INSTALLATION.md",
+        "bytes": 2617700,
+        "digest": "sha256:43da640ef99bbb72f9d2be0f8006d27ab5be8f148e15923bb7d2aae37abd87f5",
+        "created_at": "2026-11-01T16:20:22Z",
+        "updated_at": "2026-11-01T16:20:24Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836537,
+        "name": "pkg_dragonhydra-0.5.0-dev.1.zip",
+        "bytes": 52232,
+        "digest": "sha256:849176a4a178a9899cb1b0b5f7344195e24ce90048df78a2daefc17ef0b29f02",
+        "created_at": "2026-11-01T16:20:34Z",
+        "updated_at": "2026-11-01T16:20:34Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836184,
+        "name": "RELEASE-NOTES.md",
+        "bytes": 2328,
+        "digest": "sha256:b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+        "created_at": "2026-11-01T16:20:25Z",
+        "updated_at": "2026-11-01T16:20:25Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836234,
+        "name": "SHA256SUMS.txt",
+        "bytes": 1472,
+        "digest": "sha256:b4915662019e03ba8a4573c339a999b8a7fed41897919a97a1cf2d52876637a3",
+        "created_at": "2026-11-01T16:20:26Z",
+        "updated_at": "2026-11-01T16:20:27Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836296,
+        "name": "TEST-REPORT.json",
+        "bytes": 10232,
+        "digest": "sha256:26f868c3ada1276ba8bb4fdb9746f21d09f44fd7640345e9a4a1683b0c06eeff",
+        "created_at": "2026-11-01T16:20:28Z",
+        "updated_at": "2026-11-01T16:20:28Z",
+        "content_type": "application/octet-stream"
+      }
+    ]
+  },
+  "most_recent_published_prerelease": {
+    "id": 430678928,
+    "tag": "v0.5.0-dev.1-core-next",
+    "name": "DRAGONHYDRA CORE NEXT 0.5.0-dev.1 | Development prerelease",
+    "draft": false,
+    "prerelease": true,
+    "published_at": "2026-11-01T16:25:32Z",
+    "target_commitish": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+    "body_sha256_current": "b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+    "body_commit_references": [
+      "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "953b67fa50dfa9d705f060f97b8a1af5d317c001"
+    ],
+    "asset_count": 15,
+    "assets": [
+      {
+        "id": 698829144,
+        "name": "ARTIFACT-MANIFEST.json",
+        "bytes": 19530,
+        "digest": "sha256:7af17c736b3ffc5cb9b5ab86df13781e3f718c2c1764229b86aef25638ee9230",
+        "created_at": "2026-11-01T16:17:38Z",
+        "updated_at": "2026-11-01T16:17:38Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698829205,
+        "name": "BUILD-REPORT.json",
+        "bytes": 9590,
+        "digest": "sha256:382b2d4d98397293f38fdf9cc7155f841c3e999116fb03d965f6f1f73d48a6be",
+        "created_at": "2026-11-01T16:17:40Z",
+        "updated_at": "2026-11-01T16:17:40Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836348,
+        "name": "dragonhydra-0.5.0.dev1-py3-none-any.whl",
+        "bytes": 315532,
+        "digest": "sha256:1e8c2015d47e3144dc702a93e05d9f686a9b5ae62cde049497cf5be9413cb30a",
+        "created_at": "2026-11-01T16:20:29Z",
+        "updated_at": "2026-11-01T16:20:29Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836393,
+        "name": "dragonhydra-0.5.0.dev1.tar.gz",
+        "bytes": 2118944,
+        "digest": "sha256:01e79f1bb665aa19b9add579abf3364f394e7b95c886cc97d00ae5e5cd7acb34",
+        "created_at": "2026-11-01T16:20:30Z",
+        "updated_at": "2026-11-01T16:20:32Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698829252,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Android-arm64-development.apk",
+        "bytes": 17345950,
+        "digest": "sha256:269a6fdedefcae2807f17df19989839eacc1f45d600cb80d653099bc2a1f649e",
+        "created_at": "2026-11-01T16:17:41Z",
+        "updated_at": "2026-11-01T16:17:57Z",
+        "content_type": "application/vnd.android.package-archive"
+      },
+      {
+        "id": 698830420,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe",
+        "bytes": 10087424,
+        "digest": "sha256:1fd382247b047e87d9091bea95b9710aaf5d584eaadafb47b9c8fa95b6bfec08",
+        "created_at": "2026-11-01T16:18:09Z",
+        "updated_at": "2026-11-01T16:18:18Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698830949,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Linux-server-x86_64.tar.gz",
+        "bytes": 4293260,
+        "digest": "sha256:5cf689477a6b3347275ec787389ced525ce1bd81ee60c07d94ddf942beb0b8e1",
+        "created_at": "2026-11-01T16:18:19Z",
+        "updated_at": "2026-11-01T16:18:24Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698831205,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Server-win-x64.zip",
+        "bytes": 19534517,
+        "digest": "sha256:ad98c08cc33b63aceb7e1b04249b7fd58e9e8af8f6dbe88f2a24f7493b3f0352",
+        "created_at": "2026-11-01T16:18:25Z",
+        "updated_at": "2026-11-01T16:18:49Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698832521,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip",
+        "bytes": 3116264,
+        "digest": "sha256:5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2",
+        "created_at": "2026-11-01T16:19:01Z",
+        "updated_at": "2026-11-01T16:19:05Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698832776,
+        "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe",
+        "bytes": 64863681,
+        "digest": "sha256:a4ce2f0f918ee37760138cc07f11b4881ef9ec376fcb1b25d76ebf0c5ee19f30",
+        "created_at": "2026-11-01T16:19:06Z",
+        "updated_at": "2026-11-01T16:20:09Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836063,
+        "name": "INSTALLATION.md",
+        "bytes": 2617700,
+        "digest": "sha256:43da640ef99bbb72f9d2be0f8006d27ab5be8f148e15923bb7d2aae37abd87f5",
+        "created_at": "2026-11-01T16:20:22Z",
+        "updated_at": "2026-11-01T16:20:24Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836537,
+        "name": "pkg_dragonhydra-0.5.0-dev.1.zip",
+        "bytes": 52232,
+        "digest": "sha256:849176a4a178a9899cb1b0b5f7344195e24ce90048df78a2daefc17ef0b29f02",
+        "created_at": "2026-11-01T16:20:34Z",
+        "updated_at": "2026-11-01T16:20:34Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836184,
+        "name": "RELEASE-NOTES.md",
+        "bytes": 2328,
+        "digest": "sha256:b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+        "created_at": "2026-11-01T16:20:25Z",
+        "updated_at": "2026-11-01T16:20:25Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836234,
+        "name": "SHA256SUMS.txt",
+        "bytes": 1472,
+        "digest": "sha256:b4915662019e03ba8a4573c339a999b8a7fed41897919a97a1cf2d52876637a3",
+        "created_at": "2026-11-01T16:20:26Z",
+        "updated_at": "2026-11-01T16:20:27Z",
+        "content_type": "application/octet-stream"
+      },
+      {
+        "id": 698836296,
+        "name": "TEST-REPORT.json",
+        "bytes": 10232,
+        "digest": "sha256:26f868c3ada1276ba8bb4fdb9746f21d09f44fd7640345e9a4a1683b0c06eeff",
+        "created_at": "2026-11-01T16:20:28Z",
+        "updated_at": "2026-11-01T16:20:28Z",
+        "content_type": "application/octet-stream"
+      }
+    ]
+  },
+  "historical_releases_compared": 10,
+  "historical_assets_compared": 95,
+  "historical_tag_ref_entries_compared": 14,
+  "historical_release_results": [
+    {
+      "release_id": 430678928,
+      "tag": "v0.5.0-dev.1-core-next",
+      "preserved": true,
+      "baseline_asset_count": 15,
+      "current_asset_count": 15,
+      "differences": []
+    },
+    {
+      "release_id": 430460255,
+      "tag": "genesis-linux-a7-20261101",
+      "preserved": true,
+      "baseline_asset_count": 7,
+      "current_asset_count": 7,
+      "differences": []
+    },
+    {
+      "release_id": 430590555,
+      "tag": "genesis-a9-20261101",
+      "preserved": true,
+      "baseline_asset_count": 21,
+      "current_asset_count": 21,
+      "differences": []
+    },
+    {
+      "release_id": 430084764,
+      "tag": "v0.4.1-dev.1-genesis-a6",
+      "preserved": true,
+      "baseline_asset_count": 1,
+      "current_asset_count": 1,
+      "differences": []
+    },
+    {
+      "release_id": 430438995,
+      "tag": "genesis-linux-a6-20261031",
+      "preserved": true,
+      "baseline_asset_count": 3,
+      "current_asset_count": 3,
+      "differences": []
+    },
+    {
+      "release_id": 430085688,
+      "tag": "genesis-continuity-20261031-a6",
+      "preserved": true,
+      "baseline_asset_count": 22,
+      "current_asset_count": 22,
+      "differences": []
+    },
+    {
+      "release_id": 429233546,
+      "tag": "v0.4.0-alpha.1",
+      "preserved": true,
+      "baseline_asset_count": 12,
+      "current_asset_count": 12,
+      "differences": []
+    },
+    {
+      "release_id": 426827847,
+      "tag": "v0.3.0-android-alpha",
+      "preserved": true,
+      "baseline_asset_count": 7,
+      "current_asset_count": 7,
+      "differences": []
+    },
+    {
+      "release_id": 426798763,
+      "tag": "v0.2.0+genesis2.checkpoint",
+      "preserved": true,
+      "baseline_asset_count": 7,
+      "current_asset_count": 7,
+      "differences": []
+    },
+    {
+      "release_id": 396006598,
+      "tag": "v0.1.0-alpha",
+      "preserved": true,
+      "baseline_asset_count": 0,
+      "current_asset_count": 0,
+      "differences": []
+    }
+  ],
+  "historical_asset_differences": [],
+  "historical_tag_differences": [],
+  "stable_latest_preserved": true,
+  "candidate_tag_or_release_present": false,
+  "new_tags_since_baseline": {},
+  "existing_branch_differences": [],
+  "new_branches_since_baseline": {
+    "refs/heads/reconcile/genesis-20261102": "a4c0ecf1b7d0eaf35afdb7367ce8e464f285037e",
+    "refs/heads/release/core-next-dev5-20261102": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50"
+  },
+  "current_release_count": 10,
+  "current_asset_count": 95,
+  "current_metadata": [
+    {
+      "id": 430678928,
+      "tag": "v0.5.0-dev.1-core-next",
+      "name": "DRAGONHYDRA CORE NEXT 0.5.0-dev.1 | Development prerelease",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-11-01T16:25:32Z",
+      "target_commitish": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+      "source_commit": "953b67fa50dfa9d705f060f97b8a1af5d317c001",
+      "body_sha256_current": "b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+      "body_commit_references": [
+        "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+        "953b67fa50dfa9d705f060f97b8a1af5d317c001"
+      ],
+      "asset_count": 15,
+      "assets": [
+        {
+          "id": 698829144,
+          "name": "ARTIFACT-MANIFEST.json",
+          "bytes": 19530,
+          "digest": "sha256:7af17c736b3ffc5cb9b5ab86df13781e3f718c2c1764229b86aef25638ee9230",
+          "created_at": "2026-11-01T16:17:38Z",
+          "updated_at": "2026-11-01T16:17:38Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698829205,
+          "name": "BUILD-REPORT.json",
+          "bytes": 9590,
+          "digest": "sha256:382b2d4d98397293f38fdf9cc7155f841c3e999116fb03d965f6f1f73d48a6be",
+          "created_at": "2026-11-01T16:17:40Z",
+          "updated_at": "2026-11-01T16:17:40Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836348,
+          "name": "dragonhydra-0.5.0.dev1-py3-none-any.whl",
+          "bytes": 315532,
+          "digest": "sha256:1e8c2015d47e3144dc702a93e05d9f686a9b5ae62cde049497cf5be9413cb30a",
+          "created_at": "2026-11-01T16:20:29Z",
+          "updated_at": "2026-11-01T16:20:29Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836393,
+          "name": "dragonhydra-0.5.0.dev1.tar.gz",
+          "bytes": 2118944,
+          "digest": "sha256:01e79f1bb665aa19b9add579abf3364f394e7b95c886cc97d00ae5e5cd7acb34",
+          "created_at": "2026-11-01T16:20:30Z",
+          "updated_at": "2026-11-01T16:20:32Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698829252,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Android-arm64-development.apk",
+          "bytes": 17345950,
+          "digest": "sha256:269a6fdedefcae2807f17df19989839eacc1f45d600cb80d653099bc2a1f649e",
+          "created_at": "2026-11-01T16:17:41Z",
+          "updated_at": "2026-11-01T16:17:57Z",
+          "content_type": "application/vnd.android.package-archive"
+        },
+        {
+          "id": 698830420,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Desktop-win-x64.exe",
+          "bytes": 10087424,
+          "digest": "sha256:1fd382247b047e87d9091bea95b9710aaf5d584eaadafb47b9c8fa95b6bfec08",
+          "created_at": "2026-11-01T16:18:09Z",
+          "updated_at": "2026-11-01T16:18:18Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698830949,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Linux-server-x86_64.tar.gz",
+          "bytes": 4293260,
+          "digest": "sha256:5cf689477a6b3347275ec787389ced525ce1bd81ee60c07d94ddf942beb0b8e1",
+          "created_at": "2026-11-01T16:18:19Z",
+          "updated_at": "2026-11-01T16:18:24Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698831205,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Server-win-x64.zip",
+          "bytes": 19534517,
+          "digest": "sha256:ad98c08cc33b63aceb7e1b04249b7fd58e9e8af8f6dbe88f2a24f7493b3f0352",
+          "created_at": "2026-11-01T16:18:25Z",
+          "updated_at": "2026-11-01T16:18:49Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698832521,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Source.zip",
+          "bytes": 3116264,
+          "digest": "sha256:5d7365387908ac44d8caf30e558ec6635a9a9286b6860fd9ff156146ae20d9b2",
+          "created_at": "2026-11-01T16:19:01Z",
+          "updated_at": "2026-11-01T16:19:05Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698832776,
+          "name": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.1-Workstation-win-x64-Setup.exe",
+          "bytes": 64863681,
+          "digest": "sha256:a4ce2f0f918ee37760138cc07f11b4881ef9ec376fcb1b25d76ebf0c5ee19f30",
+          "created_at": "2026-11-01T16:19:06Z",
+          "updated_at": "2026-11-01T16:20:09Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836063,
+          "name": "INSTALLATION.md",
+          "bytes": 2617700,
+          "digest": "sha256:43da640ef99bbb72f9d2be0f8006d27ab5be8f148e15923bb7d2aae37abd87f5",
+          "created_at": "2026-11-01T16:20:22Z",
+          "updated_at": "2026-11-01T16:20:24Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836537,
+          "name": "pkg_dragonhydra-0.5.0-dev.1.zip",
+          "bytes": 52232,
+          "digest": "sha256:849176a4a178a9899cb1b0b5f7344195e24ce90048df78a2daefc17ef0b29f02",
+          "created_at": "2026-11-01T16:20:34Z",
+          "updated_at": "2026-11-01T16:20:34Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836184,
+          "name": "RELEASE-NOTES.md",
+          "bytes": 2328,
+          "digest": "sha256:b05b9a7315c1e6ffcc24b34f24c81881fb837aba99c6940a5c6ba4b960935081",
+          "created_at": "2026-11-01T16:20:25Z",
+          "updated_at": "2026-11-01T16:20:25Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836234,
+          "name": "SHA256SUMS.txt",
+          "bytes": 1472,
+          "digest": "sha256:b4915662019e03ba8a4573c339a999b8a7fed41897919a97a1cf2d52876637a3",
+          "created_at": "2026-11-01T16:20:26Z",
+          "updated_at": "2026-11-01T16:20:27Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698836296,
+          "name": "TEST-REPORT.json",
+          "bytes": 10232,
+          "digest": "sha256:26f868c3ada1276ba8bb4fdb9746f21d09f44fd7640345e9a4a1683b0c06eeff",
+          "created_at": "2026-11-01T16:20:28Z",
+          "updated_at": "2026-11-01T16:20:28Z",
+          "content_type": "application/octet-stream"
+        }
+      ]
+    },
+    {
+      "id": 430460255,
+      "tag": "genesis-linux-a7-20261101",
+      "name": "DRAGONHYDRA GENESIS A7 \u2014 Verified Linux Server",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-11-01T09:49:57Z",
+      "target_commitish": "2ca96e94213cc6f516b6963052ef68ff1948af94",
+      "source_commit": "2ca96e94213cc6f516b6963052ef68ff1948af94",
+      "body_sha256_current": "b27e2533f6f4d15a0b9eefd8d6d35f6301effcd50072ee20610cb5994418d5ca",
+      "body_commit_references": [],
+      "asset_count": 7,
+      "assets": [
+        {
+          "id": 697799325,
+          "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+          "bytes": 298309,
+          "digest": "sha256:8b060a28de5eff5ab252d7c1586df36fd99ac626acd3df9e1d57c55b55138871",
+          "created_at": "2026-11-01T09:49:52Z",
+          "updated_at": "2026-11-01T09:49:54Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 697799371,
+          "name": "DRAGONHYDRA-GENESIS-A7-SHA256.json",
+          "bytes": 1682,
+          "digest": "sha256:b27a5588593ac9f30cfd07a9292e93b07b5b57430cb2970bba7ece0a16691a73",
+          "created_at": "2026-11-01T09:49:53Z",
+          "updated_at": "2026-11-01T09:49:53Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 697799334,
+          "name": "DRAGONHYDRA-GENESIS-A7-Source-2ca96e9.zip",
+          "bytes": 1863082,
+          "digest": "sha256:1b66d7289584829b571de81440834898ccc59799552ab7ea0191d69bce5e2ff3",
+          "created_at": "2026-11-01T09:49:52Z",
+          "updated_at": "2026-11-01T09:49:56Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 697799338,
+          "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+          "bytes": 304065,
+          "digest": "sha256:a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+          "created_at": "2026-11-01T09:49:52Z",
+          "updated_at": "2026-11-01T09:49:54Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 697799329,
+          "name": "LINUX-A7-RUNTIME-VERIFICATION.json",
+          "bytes": 7697,
+          "digest": "sha256:28170beae735b1251d82f316df3fc22b5e569eed0a038f68684a34909616fe4a",
+          "created_at": "2026-11-01T09:49:52Z",
+          "updated_at": "2026-11-01T09:49:52Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 697799326,
+          "name": "LINUX-A7-RUNTIME.md",
+          "bytes": 10107,
+          "digest": "sha256:3343f98e58efb9e9a61d43b425313eb855856d43913bfdfb5f0839653321a616",
+          "created_at": "2026-11-01T09:49:52Z",
+          "updated_at": "2026-11-01T09:49:52Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 697799366,
+          "name": "server-cp314-linux-x86_64.lock",
+          "bytes": 1727,
+          "digest": "sha256:ae5a0c19ec94e188235728db94380dc5769c371faedad69f92fb70278b38a995",
+          "created_at": "2026-11-01T09:49:53Z",
+          "updated_at": "2026-11-01T09:49:53Z",
+          "content_type": "application/octet-stream"
+        }
+      ]
+    },
+    {
+      "id": 430590555,
+      "tag": "genesis-a9-20261101",
+      "name": "DRAGONHYDRA GENESIS A9 \u2014 Sports Intelligence Workstation",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-11-01T13:09:12Z",
+      "target_commitish": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "source_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+      "body_sha256_current": "7366b8beab54f98b2e92cf1f60902f6da2d063d15573da813f0fc652ea5422e0",
+      "body_commit_references": [
+        "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
+        "981f7c94a21964d7db0eeb08f9403ca8f2b12dd9"
+      ],
+      "asset_count": 21,
+      "assets": [
+        {
+          "id": 698370535,
+          "name": "ANDROID-BUILD-REPORT.json",
+          "bytes": 9057,
+          "digest": "sha256:f67ccc58bcebf75793ab8c91901f1038d1e77e9fd35058a1d12249a551269f28",
+          "created_at": "2026-11-01T13:06:09Z",
+          "updated_at": "2026-11-01T13:06:09Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 698370540,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+          "bytes": 17345938,
+          "digest": "sha256:d06d3886cf9813fa256fd0179b27ce2e8d1c8022027878f9a48a83180d5da0e1",
+          "created_at": "2026-11-01T13:06:09Z",
+          "updated_at": "2026-11-01T13:08:16Z",
+          "content_type": "application/vnd.android.package-archive"
+        },
+        {
+          "id": 698370539,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-BUILD-INFO.json",
+          "bytes": 300,
+          "digest": "sha256:2487445a3cf80fae5f9828c7b20fefb93c998c5a5b513b64b0fad235eb23eba4",
+          "created_at": "2026-11-01T13:06:09Z",
+          "updated_at": "2026-11-01T13:06:09Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 698370543,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-NOTICES.txt",
+          "bytes": 2607816,
+          "digest": "sha256:c9a9aa3b22d84020bf45350656c3b3aa6bef0ee8258d58abc1b047ba1a3a7eb6",
+          "created_at": "2026-11-01T13:06:09Z",
+          "updated_at": "2026-11-01T13:06:42Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 698370538,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-README.txt",
+          "bytes": 1558,
+          "digest": "sha256:f1b25e430a394c57a25ab652ebe5f09d92bb6ccb03d24e61aabe9be56ceb8011",
+          "created_at": "2026-11-01T13:06:09Z",
+          "updated_at": "2026-11-01T13:06:09Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 698370582,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64.exe",
+          "bytes": 10078208,
+          "digest": "sha256:f4e8fbae68c4fdc3f52c7f9baaeb98f375df26e34dced3dc87c7988d9a4c0617",
+          "created_at": "2026-11-01T13:06:10Z",
+          "updated_at": "2026-11-01T13:06:46Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 698370581,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+          "bytes": 19953545,
+          "digest": "sha256:46ced87c0be6500dc75b01797599b57aef92fc91215342e1c54813c1b83d375b",
+          "created_at": "2026-11-01T13:06:10Z",
+          "updated_at": "2026-11-01T13:07:12Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 698370604,
+          "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+          "bytes": 301616,
+          "digest": "sha256:ddfa346c1c1c915018388f077fa07e82b6c538d00fdbc32d80f9f7464af95792",
+          "created_at": "2026-11-01T13:06:11Z",
+          "updated_at": "2026-11-01T13:06:12Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698370664,
+          "name": "dragonhydra-0.4.0a1.tar.gz",
+          "bytes": 2046747,
+          "digest": "sha256:81875f950b6d58caeee46db6b4822cf11421d7154ca624b63da1211ff7be3af4",
+          "created_at": "2026-11-01T13:06:13Z",
+          "updated_at": "2026-11-01T13:06:21Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 698371015,
+          "name": "DRAGONHYDRA-GENESIS-A9-Source.zip",
+          "bytes": 3000651,
+          "digest": "sha256:13d6eaee8d9ba136fd5ba2174d979f7823a7e117bda44f47163ed9b69ef1fed8",
+          "created_at": "2026-11-01T13:06:23Z",
+          "updated_at": "2026-11-01T13:06:34Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 698371464,
+          "name": "DRAGONHYDRA-GENESIS-A9-Workstation-win-x64-Setup.exe",
+          "bytes": 64801813,
+          "digest": "sha256:51950fdd70559f35dadf7161bb511363ebb88faad3a04c913721c283fb5a816a",
+          "created_at": "2026-11-01T13:06:36Z",
+          "updated_at": "2026-11-01T13:08:20Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 698371728,
+          "name": "dragonhydra-linux-dev-8f170de1559b.tar.gz",
+          "bytes": 304065,
+          "digest": "sha256:a146186c9a1416059fbd6e9978a3da7a62ec8592b8ed9dae6989a04a934ca05a",
+          "created_at": "2026-11-01T13:06:43Z",
+          "updated_at": "2026-11-01T13:06:45Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 698371818,
+          "name": "GENESIS-A9-RELEASE-NOTES.md",
+          "bytes": 6484,
+          "digest": "sha256:f4f60b3b824dfede8491d9c87e4913f3365a5af6a0386439dff7968e1602b6f5",
+          "created_at": "2026-11-01T13:06:46Z",
+          "updated_at": "2026-11-01T13:06:46Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698371880,
+          "name": "JOOMLA-FRONTEND-REPORT.md",
+          "bytes": 16968,
+          "digest": "sha256:46b9470c3a4579be68295a612cc90c631d60bbfa9f3298ec083a55546dcf0ac5",
+          "created_at": "2026-11-01T13:06:48Z",
+          "updated_at": "2026-11-01T13:06:48Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 698371883,
+          "name": "pkg_dragonhydra-0.4.1-dev.2.zip",
+          "bytes": 43686,
+          "digest": "sha256:8b639f154d086af6616d04ddbec40ad280d772577a0e7fba176cb8958c502a49",
+          "created_at": "2026-11-01T13:06:48Z",
+          "updated_at": "2026-11-01T13:06:48Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 698371921,
+          "name": "README-INSTALL.txt",
+          "bytes": 10560,
+          "digest": "sha256:f6fd37409c61f91c602f538d27041a2ee415367d28afcf8fa1cef871bb8aea68",
+          "created_at": "2026-11-01T13:06:50Z",
+          "updated_at": "2026-11-01T13:06:50Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 698385715,
+          "name": "RELEASE-MANIFEST.json",
+          "bytes": 25636,
+          "digest": "sha256:9d4dac86133f6303c64bc51256fa03ba2722d331305a9c87e42fcf44ecb4d869",
+          "created_at": "2026-11-01T13:12:46Z",
+          "updated_at": "2026-11-01T13:12:46Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 698371953,
+          "name": "RUNTIME-BUILD-REPORT.json",
+          "bytes": 22065,
+          "digest": "sha256:b7b1e399da7bd96264498acdb227cada875385d1fb301ac2a0eee5107d4c3758",
+          "created_at": "2026-11-01T13:06:51Z",
+          "updated_at": "2026-11-01T13:06:52Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 698385716,
+          "name": "SHA256SUMS.txt",
+          "bytes": 2067,
+          "digest": "sha256:c9d932084eef666fad706781ba1f81eca522470e23e5a464354fe3f84d15bfc7",
+          "created_at": "2026-11-01T13:12:46Z",
+          "updated_at": "2026-11-01T13:12:46Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 698371996,
+          "name": "TEST-REPORT.json",
+          "bytes": 6727,
+          "digest": "sha256:92493764355717bd08e136682f5c67d4eb0bb07e59489c61f2817a3e36fdb786",
+          "created_at": "2026-11-01T13:06:53Z",
+          "updated_at": "2026-11-01T13:06:53Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 698385717,
+          "name": "WINDOWS-BUILD-REPORT.json",
+          "bytes": 16698,
+          "digest": "sha256:70c27dc935f27e03cc7935e09d89be0a5cbe8e99d5eea007ab3ad5a9e81aec5b",
+          "created_at": "2026-11-01T13:12:46Z",
+          "updated_at": "2026-11-01T13:12:46Z",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": 430084764,
+      "tag": "v0.4.1-dev.1-genesis-a6",
+      "name": "DRAGONHYDRA GENESIS A6 - Windows Development Checkpoint",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-10-31T17:41:02Z",
+      "target_commitish": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+      "source_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+      "body_sha256_current": "397f3b0edb0356b93795e9d36a2567c4f163e425399f7729f730380840cebe4a",
+      "body_commit_references": [],
+      "asset_count": 1,
+      "assets": [
+        {
+          "id": 696029068,
+          "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+          "bytes": 64359085,
+          "digest": "sha256:2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+          "created_at": "2026-10-31T17:36:57Z",
+          "updated_at": "2026-10-31T17:40:48Z",
+          "content_type": "application/x-msdownload"
+        }
+      ]
+    },
+    {
+      "id": 430438995,
+      "tag": "genesis-linux-a6-20261031",
+      "name": "Linux A6 preparation - verified CLI, parser and package contract",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-11-01T09:01:30Z",
+      "target_commitish": "5cf69cb9ce4cb350f41cac10683903a8865a0d0b",
+      "source_commit": "5cf69cb9ce4cb350f41cac10683903a8865a0d0b",
+      "body_sha256_current": "40476d1b1fba1b593314ce371f01b726ed4f0bb9b545f344a5fc3e4a1998ee5f",
+      "body_commit_references": [],
+      "asset_count": 3,
+      "assets": [
+        {
+          "id": 697706273,
+          "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+          "bytes": 298310,
+          "digest": "sha256:021e07fd23deb43836171b44c95d25ec27b34a8db8209b667f2dd334d5f83d09",
+          "created_at": "2026-11-01T09:01:29Z",
+          "updated_at": "2026-11-01T09:01:29Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 697706275,
+          "name": "dragonhydra-linux-dev-3319aed91dd0.tar.gz",
+          "bytes": 303125,
+          "digest": "sha256:2a1b74207661c191e48750e64d268b0f7727c5215a324091264c05c60acabee2",
+          "created_at": "2026-11-01T09:01:29Z",
+          "updated_at": "2026-11-01T09:01:29Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 697706276,
+          "name": "LINUX-A6-INDEPENDENT-PUBLIC-SUMMARY.json",
+          "bytes": 2498,
+          "digest": "sha256:6f6608a2c519ead01418093389655ed1a47bf48a0b0411ba9fa3d7c7d9b4c007",
+          "created_at": "2026-11-01T09:01:29Z",
+          "updated_at": "2026-11-01T09:01:29Z",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": 430085688,
+      "tag": "genesis-continuity-20261031-a6",
+      "name": "GENESIS continuity | A6 verified builds and recovery checkpoint",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-10-31T17:38:39Z",
+      "target_commitish": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+      "source_commit": "9d6a9ef82f6f646ab020da5fb25969584e617299",
+      "body_sha256_current": "480a291eec33c35aa20ce7eb5959537767402c78733c12a17d8ed63292d36333",
+      "body_commit_references": [
+        "9d6a9ef82f6f646ab020da5fb25969584e617299"
+      ],
+      "asset_count": 22,
+      "assets": [
+        {
+          "id": 696145834,
+          "name": "A6-INSTALLED-ACCEPTANCE-20261031.json",
+          "bytes": 6571,
+          "digest": "sha256:4d752f5deed2c8289323b18569b5075c0ae13caaaf2271481b1a8c7f1544bcc9",
+          "created_at": "2026-10-31T18:29:07Z",
+          "updated_at": "2026-10-31T18:29:08Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 696079508,
+          "name": "CONCURRENT-LINUX-PRESERVATION.json",
+          "bytes": 10883,
+          "digest": "sha256:97a3a103421b5d48d772e5c1a85b30259929220307ca38b985978d35a3959384",
+          "created_at": "2026-10-31T17:58:36Z",
+          "updated_at": "2026-10-31T17:58:36Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 696034008,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+          "bytes": 17345938,
+          "digest": "sha256:8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c",
+          "created_at": "2026-10-31T17:38:55Z",
+          "updated_at": "2026-10-31T17:42:25Z",
+          "content_type": "application/vnd.android.package-archive"
+        },
+        {
+          "id": 696034530,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+          "bytes": 1886742,
+          "digest": "sha256:282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384",
+          "created_at": "2026-10-31T17:39:08Z",
+          "updated_at": "2026-10-31T17:39:51Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 696034580,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+          "bytes": 41356,
+          "digest": "sha256:373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55",
+          "created_at": "2026-10-31T17:39:09Z",
+          "updated_at": "2026-10-31T17:39:10Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696034150,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+          "bytes": 19295262,
+          "digest": "sha256:ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467",
+          "created_at": "2026-10-31T17:38:58Z",
+          "updated_at": "2026-10-31T17:41:20Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696033981,
+          "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+          "bytes": 290646,
+          "digest": "sha256:c46f4d3903d965765b193cad215062ce0b72174863a833d3b57f54aba01c353e",
+          "created_at": "2026-10-31T17:38:54Z",
+          "updated_at": "2026-10-31T17:39:06Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 696079512,
+          "name": "DRAGONHYDRA-0.4.1-dev.1-Linux-LocalAI-Setup.zip",
+          "bytes": 14484,
+          "digest": "sha256:7552d02c1c12993ad315ad333b7dfae5d50939845251644eee5656c7784049f7",
+          "created_at": "2026-10-31T17:58:36Z",
+          "updated_at": "2026-10-31T17:58:37Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696044731,
+          "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-A5r2-verified-installed-win-x64-Setup.exe",
+          "bytes": 64341255,
+          "digest": "sha256:b8bcc4d7ee26ea7db2f163fd20fecdbd95349ef5ac085d40375f43e5918d7544",
+          "created_at": "2026-10-31T17:43:13Z",
+          "updated_at": "2026-10-31T17:47:29Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 696033974,
+          "name": "DRAGONHYDRA-0.4.1-dev.1-Workstation-win-x64-Setup.exe",
+          "bytes": 64359085,
+          "digest": "sha256:2d87e2bfac18099d9921674a2975604999fc7a79cddf36f5404cd293ff20c2d1",
+          "created_at": "2026-10-31T17:38:54Z",
+          "updated_at": "2026-10-31T17:45:46Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 696044733,
+          "name": "DRAGONHYDRA-A5r2-Installed-Baseline-Source-20261031.zip",
+          "bytes": 344750,
+          "digest": "sha256:a429cf7d68f34ea59849a0aa36ed35c1b82051afc6061e9a5a6169c579079de6",
+          "created_at": "2026-10-31T17:43:13Z",
+          "updated_at": "2026-10-31T17:43:18Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696034770,
+          "name": "DRAGONHYDRA-A6-Recovery-20261031.zip",
+          "bytes": 988209,
+          "digest": "sha256:a6e6a325203fc75865178add48e5728f9191c8174585d98b97640a50c41fa95d",
+          "created_at": "2026-10-31T17:39:14Z",
+          "updated_at": "2026-10-31T17:39:42Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696079511,
+          "name": "dragonhydra-api_0.4.0.alpha.1+dev20261031.r8.ac7e694e9e38-1_amd64.deb",
+          "bytes": 2939100,
+          "digest": "sha256:d8b741ee36921a536a4624e4c351f8f790c89b75e9bd2bea6127a72b865dd675",
+          "created_at": "2026-10-31T17:58:36Z",
+          "updated_at": "2026-10-31T17:59:19Z",
+          "content_type": "application/x-debian-package"
+        },
+        {
+          "id": 696033972,
+          "name": "dragonhydra-linux-dev-09822a188bd1.tar.gz",
+          "bytes": 294855,
+          "digest": "sha256:dcf3c31f7fcfb11fc3170ddbdb3566eaf917e586a437de3dc93ec9d441de2562",
+          "created_at": "2026-10-31T17:38:54Z",
+          "updated_at": "2026-10-31T17:39:05Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 696079545,
+          "name": "dragonhydra-local-ai-runtime_0.7.0.dev+git2280f0f.cpu1-1_amd64.deb",
+          "bytes": 5956236,
+          "digest": "sha256:a2f5e3a1e2e52f180479c572c3c27e5efd5934488062e754edc1535e5f33fe5a",
+          "created_at": "2026-10-31T17:58:37Z",
+          "updated_at": "2026-10-31T17:59:39Z",
+          "content_type": "application/x-debian-package"
+        },
+        {
+          "id": 696033994,
+          "name": "pkg_dragonhydra-0.4.0-alpha.1.zip",
+          "bytes": 13526,
+          "digest": "sha256:66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585",
+          "created_at": "2026-10-31T17:38:54Z",
+          "updated_at": "2026-10-31T17:38:56Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 696088560,
+          "name": "PRESERVATION-REPORT-FINAL-20261031.md",
+          "bytes": 4492,
+          "digest": "sha256:3e895c91520833c376794dc67b687c134e11375f3e18b7b611b48198dcea5036",
+          "created_at": "2026-10-31T18:02:47Z",
+          "updated_at": "2026-10-31T18:02:48Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 696063123,
+          "name": "PRESERVATION-REPORT.md",
+          "bytes": 3440,
+          "digest": "sha256:a1fdf6bf3d03b86748b95ec7cba27f1e8017f35738a15b9115472a7d7cd28de2",
+          "created_at": "2026-10-31T17:50:34Z",
+          "updated_at": "2026-10-31T17:50:34Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 696063125,
+          "name": "PUBLICATION-VERIFICATION.json",
+          "bytes": 7327,
+          "digest": "sha256:0e509663cc9c3d91029681ba3341969cd408b99ea71c5f797e97c42ab58ce307",
+          "created_at": "2026-10-31T17:50:34Z",
+          "updated_at": "2026-10-31T17:50:34Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 696063127,
+          "name": "RESUME-CODEX.md",
+          "bytes": 1218,
+          "digest": "sha256:1ef45c8ecf02f4f32fbaad4c95657530cfbdf6ba0459471e470525e9bc8781ba",
+          "created_at": "2026-10-31T17:50:34Z",
+          "updated_at": "2026-10-31T17:50:34Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 696063124,
+          "name": "SHA256SUMS.txt",
+          "bytes": 1272,
+          "digest": "sha256:8488e8d506036bf81805637c038d091055202f58029fa836033010ccd987915f",
+          "created_at": "2026-10-31T17:50:34Z",
+          "updated_at": "2026-10-31T17:50:34Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 696063122,
+          "name": "VERIFIED-ARTIFACTS.json",
+          "bytes": 18466,
+          "digest": "sha256:33f022c67bcc197c12a4046571e6f7713ca92cd60c68b5687635d617d056e9dc",
+          "created_at": "2026-10-31T17:50:34Z",
+          "updated_at": "2026-10-31T17:50:34Z",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": 429233546,
+      "tag": "v0.4.0-alpha.1",
+      "name": "DRAGONHYDRA 0.4.0-alpha.1 | Integrated prerelease",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-10-30T16:13:37Z",
+      "target_commitish": "a1380545bd3bb225f400e7e328535ff692c0123a",
+      "source_commit": "a1380545bd3bb225f400e7e328535ff692c0123a",
+      "body_sha256_current": "40a74afc3e55f466614b60bcf328932fbb16592626e85e4100e856355dc3a87b",
+      "body_commit_references": [
+        "a1380545bd3bb225f400e7e328535ff692c0123a"
+      ],
+      "asset_count": 12,
+      "assets": [
+        {
+          "id": 692654348,
+          "name": "ARTIFACT-MANIFEST.json",
+          "bytes": 8677,
+          "digest": "sha256:f4525816798276733d3ce670d9f9b83b966b0f419e0ba2849b436bd707c3bc3e",
+          "created_at": "2026-10-30T16:13:26Z",
+          "updated_at": "2026-10-30T16:13:26Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 692654426,
+          "name": "BUILD-REPORT.json",
+          "bytes": 9847,
+          "digest": "sha256:5934d2d922007c172f9237f4e89f3c48796418b30fb31a440a06aa9595a27db5",
+          "created_at": "2026-10-30T16:13:28Z",
+          "updated_at": "2026-10-30T16:13:28Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 692653047,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Android-arm64-development.apk",
+          "bytes": 17345938,
+          "digest": "sha256:8c139ad6a4f75a0518299431dcb64703910aa6b68f220272fcfabef5d17e6e0c",
+          "created_at": "2026-10-30T16:12:56Z",
+          "updated_at": "2026-10-30T16:13:17Z",
+          "content_type": "application/vnd.android.package-archive"
+        },
+        {
+          "id": 692651367,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Desktop-win-x64-Setup.exe",
+          "bytes": 1886742,
+          "digest": "sha256:282b4175e269d82f525e2e67ab2ceb07d7cbd130e6f6735600f4c79c780a5384",
+          "created_at": "2026-10-30T16:12:22Z",
+          "updated_at": "2026-10-30T16:12:25Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 692654136,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-PublicGateway.zip",
+          "bytes": 41356,
+          "digest": "sha256:373890613dfb71f668c52a04a1afcfa2aeebc78c72d582be145bfc49f78dfe55",
+          "created_at": "2026-10-30T16:13:20Z",
+          "updated_at": "2026-10-30T16:13:20Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 692651540,
+          "name": "DRAGONHYDRA-0.4.0-alpha.1-Server-win-x64.zip",
+          "bytes": 19295262,
+          "digest": "sha256:ea9457f3662189172b4385d05eea884e67a655fbfdbc4c11e4994e44b3416467",
+          "created_at": "2026-10-30T16:12:26Z",
+          "updated_at": "2026-10-30T16:12:53Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 692652967,
+          "name": "dragonhydra-0.4.0a1-py3-none-any.whl",
+          "bytes": 197523,
+          "digest": "sha256:ddb011bd12a042baafc4fc78173f589d5a22079a2481c81de901634689cf4f7d",
+          "created_at": "2026-10-30T16:12:54Z",
+          "updated_at": "2026-10-30T16:12:55Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 692654288,
+          "name": "INSTALLATION.md",
+          "bytes": 7381,
+          "digest": "sha256:caaf9d4aacac74104e20998a5dfc3a3d6460b57c8b1b4f6b97b53f16ff48e998",
+          "created_at": "2026-10-30T16:13:24Z",
+          "updated_at": "2026-10-30T16:13:24Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 692654015,
+          "name": "pkg_dragonhydra-0.4.0-alpha.1.zip",
+          "bytes": 13526,
+          "digest": "sha256:66529fd54fd913b3fc90ef5b21e5b8c972956379c16a48b8d9a94419e60ed585",
+          "created_at": "2026-10-30T16:13:18Z",
+          "updated_at": "2026-10-30T16:13:19Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 692654223,
+          "name": "RELEASE-NOTES.md",
+          "bytes": 3588,
+          "digest": "sha256:40a74afc3e55f466614b60bcf328932fbb16592626e85e4100e856355dc3a87b",
+          "created_at": "2026-10-30T16:13:22Z",
+          "updated_at": "2026-10-30T16:13:22Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 692654704,
+          "name": "SHA256SUMS.txt",
+          "bytes": 1096,
+          "digest": "sha256:52bc8187108437391be26b9633c708cb95723b3d8a1acf65f4b388a194c3326e",
+          "created_at": "2026-10-30T16:13:32Z",
+          "updated_at": "2026-10-30T16:13:32Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 692654623,
+          "name": "TEST-REPORT.json",
+          "bytes": 4826,
+          "digest": "sha256:9697e74dd2b04d2071d7248753307809010dc764c079a7cd83f57273f93cb2cb",
+          "created_at": "2026-10-30T16:13:30Z",
+          "updated_at": "2026-10-30T16:13:30Z",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": 426827847,
+      "tag": "v0.3.0-android-alpha",
+      "name": "DRAGONHYDRA GENESIS-3 | Android Companion & Sports API Galaxy",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-10-28T15:14:13Z",
+      "target_commitish": "genesis3-android-alpha",
+      "source_commit": "7e04b4ca355cee0bc322b579146be348644c444c",
+      "body_sha256_current": "c6033ad2ba8cb69dd09c54691bc884a26494f5fda4ab9a0c38469d6ef3865415",
+      "body_commit_references": [],
+      "asset_count": 7,
+      "assets": [
+        {
+          "id": 685378752,
+          "name": "DRAGONHYDRA-GENESIS3-ANDROID-ARM64.apk",
+          "bytes": 92367946,
+          "digest": "sha256:ef253066022f0e2208a3384bcb87ec8b6b1cb27904b416cd80b2a4a0c271889d",
+          "created_at": "2026-10-28T15:11:54Z",
+          "updated_at": "2026-10-28T15:14:12Z",
+          "content_type": "application/vnd.android.package-archive"
+        },
+        {
+          "id": 685378764,
+          "name": "DRAGONHYDRA-GENESIS3-ANDROID-SOURCE.zip",
+          "bytes": 308232,
+          "digest": "sha256:ee393b576ed6375f0734146938abd6c18a4a24f8ca515c22e7724a6958c18db0",
+          "created_at": "2026-10-28T15:11:54Z",
+          "updated_at": "2026-10-28T15:11:56Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 685378755,
+          "name": "DRAGONHYDRA-GENESIS3-BUILD-REPORT.md",
+          "bytes": 2308,
+          "digest": "sha256:fa27c79d4650bb6624f17996991e619821f20a72ed8ea6cd61deb7a9540405f3",
+          "created_at": "2026-10-28T15:11:54Z",
+          "updated_at": "2026-10-28T15:11:54Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 685378753,
+          "name": "DRAGONHYDRA-GENESIS3-PROVIDER-MANIFEST.json",
+          "bytes": 20487,
+          "digest": "sha256:6a899846c1dba4ca7c7f7f03c81d79e5db69d11b80675a536a0e461b99db2391",
+          "created_at": "2026-10-28T15:11:54Z",
+          "updated_at": "2026-10-28T15:11:54Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 685378760,
+          "name": "DRAGONHYDRA-GENESIS3-RELEASE-MANIFEST.json",
+          "bytes": 2159,
+          "digest": "sha256:92b25377df628401d0858f5aa5055911e419bc3fd86daab0400936eaf432680f",
+          "created_at": "2026-10-28T15:11:54Z",
+          "updated_at": "2026-10-28T15:11:54Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 685378821,
+          "name": "DRAGONHYDRA-GENESIS3-SHA256SUMS.txt",
+          "bytes": 642,
+          "digest": "sha256:2294bc2708cf1971bd62f6c760993123175e577d2efd84eb8500097db05a7476",
+          "created_at": "2026-10-28T15:11:55Z",
+          "updated_at": "2026-10-28T15:11:56Z",
+          "content_type": "text/plain; charset=utf-8"
+        },
+        {
+          "id": 685378834,
+          "name": "DRAGONHYDRA-GENESIS3-TEST-RESULTS.md",
+          "bytes": 1343,
+          "digest": "sha256:6a764940bbe97e88c6e61ac9a6880d0e5e68d48ccffebca9eaf1f47a42807997",
+          "created_at": "2026-10-28T15:11:56Z",
+          "updated_at": "2026-10-28T15:11:56Z",
+          "content_type": "application/octet-stream"
+        }
+      ]
+    },
+    {
+      "id": 426798763,
+      "tag": "v0.2.0+genesis2.checkpoint",
+      "name": "DRAGONHYDRA GENESIS-2 | Cognitive Intelligence Checkpoint",
+      "draft": false,
+      "prerelease": false,
+      "published_at": "2026-10-28T14:48:37Z",
+      "target_commitish": "genesis2-checkpoint",
+      "source_commit": "5f49cfdfa7c67245d381078edfad7414bdba5a65",
+      "body_sha256_current": "fe732c2da4152b0939f156aac933ec95a26cdfa7551bd09ad6bf181777c23649",
+      "body_commit_references": [
+        "5f49cfdfa7c67245d381078edfad7414bdba5a65"
+      ],
+      "asset_count": 7,
+      "assets": [
+        {
+          "id": 685309063,
+          "name": "dragonhydra-0.2.0+genesis2.checkpoint-py3-none-any.whl",
+          "bytes": 90024,
+          "digest": "sha256:e904f2444474dba1f176b3b7fb890c1a901deab6c43b36afee0d54f5e4807780",
+          "created_at": "2026-10-28T14:48:16Z",
+          "updated_at": "2026-10-28T14:48:16Z",
+          "content_type": "application/octet-stream"
+        },
+        {
+          "id": 685309064,
+          "name": "DRAGONHYDRA-0.2.0+genesis2.checkpoint-windows-amd64-onedir.zip",
+          "bytes": 10993106,
+          "digest": "sha256:701e3499eb844d753d776223446094469695ea1c9bbe58f6f39f4296a8fa2e70",
+          "created_at": "2026-10-28T14:48:16Z",
+          "updated_at": "2026-10-28T14:48:36Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 685309062,
+          "name": "dragonhydra-0.2.0+genesis2.checkpoint.tar.gz",
+          "bytes": 128734,
+          "digest": "sha256:2357c0c2769b95aa2f645222c15e6d2cf21e542f67e4eb6c1c2ed2f1877c5bdf",
+          "created_at": "2026-10-28T14:48:16Z",
+          "updated_at": "2026-10-28T14:48:17Z",
+          "content_type": "application/x-gtar"
+        },
+        {
+          "id": 685309056,
+          "name": "DRAGONHYDRA-GENESIS2-RECOVERY.zip",
+          "bytes": 2529496,
+          "digest": "sha256:81cd5d9b1bd74c65740f7332b8a62ea11afe4c092c2f753dd78e2763708be2f9",
+          "created_at": "2026-10-28T14:48:16Z",
+          "updated_at": "2026-10-28T14:48:25Z",
+          "content_type": "application/zip"
+        },
+        {
+          "id": 685309054,
+          "name": "DRAGONHYDRA.exe",
+          "bytes": 2413914,
+          "digest": "sha256:7f02347902034b28884c27223f150f847d3dc54d6935370357c905fc31f34dd1",
+          "created_at": "2026-10-28T14:48:16Z",
+          "updated_at": "2026-10-28T14:48:25Z",
+          "content_type": "application/x-msdownload"
+        },
+        {
+          "id": 685309129,
+          "name": "RELEASE-MANIFEST.json",
+          "bytes": 7994,
+          "digest": "sha256:d509e9ac524c6a7b0a4ac9069b65e0f833e66afc2d01b51e5288161a26ca606d",
+          "created_at": "2026-10-28T14:48:17Z",
+          "updated_at": "2026-10-28T14:48:18Z",
+          "content_type": "application/json"
+        },
+        {
+          "id": 685309158,
+          "name": "SHA256SUMS.txt",
+          "bytes": 637,
+          "digest": "sha256:34aaba497e443dff42a6d5ee56f613a1ac2228b2e88934e1014811ada106a10b",
+          "created_at": "2026-10-28T14:48:18Z",
+          "updated_at": "2026-10-28T14:48:18Z",
+          "content_type": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "id": 396006598,
+      "tag": "v0.1.0-alpha",
+      "name": "DRAGONHYDRA v0.1.0-alpha",
+      "draft": false,
+      "prerelease": true,
+      "published_at": "2026-09-24T19:22:32Z",
+      "target_commitish": "continuity/genesis-20261031-a6",
+      "source_commit": "4d1b4b3d1960cdd047a9c857aafdc544961b9426",
+      "body_sha256_current": "5364a3478294535376480790108a12f14d61f6dbbeb3d5b5d9b2a7a730b17843",
+      "body_commit_references": [
+        "4d1b4b3d1960cdd047a9c857aafdc544961b9426"
+      ],
+      "asset_count": 0,
+      "assets": []
+    }
+  ],
+  "limitations": [
+    "GitHub asset digests/IDs/sizes and immutable tag refs were compared as metadata; no release binaries were downloaded again.",
+    "Nov2 baseline did not record full release-body hashes. Current prose hashes create a new witness, not proof historical bodies were unchanged.",
+    "Download counts and repository push/update timestamps are dynamic and excluded from byte-preservation judgments.",
+    "Branch differences are reported separately; branch tips are not immutable release tags."
+  ]
+}

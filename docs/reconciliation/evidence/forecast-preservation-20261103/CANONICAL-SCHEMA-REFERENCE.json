@@ -1,0 +1,167 @@
+{
+  "frozen_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "objects": {
+    "trigger:cognitive_records_no_delete": {
+      "type": "trigger",
+      "name": "cognitive_records_no_delete",
+      "tbl_name": "cognitive_records",
+      "sql": "CREATE TRIGGER cognitive_records_no_delete BEFORE DELETE ON cognitive_records\n      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END"
+    },
+    "trigger:cognitive_receipts_no_update": {
+      "type": "trigger",
+      "name": "cognitive_receipts_no_update",
+      "tbl_name": "cognitive_receipts",
+      "sql": "CREATE TRIGGER cognitive_receipts_no_update BEFORE UPDATE ON cognitive_receipts\n      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END"
+    },
+    "index:sqlite_autoindex_cognitive_records_2": {
+      "type": "index",
+      "name": "sqlite_autoindex_cognitive_records_2",
+      "tbl_name": "cognitive_records",
+      "sql": null
+    },
+    "table:quarantine": {
+      "type": "table",
+      "name": "quarantine",
+      "tbl_name": "quarantine",
+      "sql": "CREATE TABLE quarantine (\n      source_hash TEXT NOT NULL REFERENCES raw_sources(source_hash), ordinal INTEGER NOT NULL,\n      reason TEXT NOT NULL, recorded_at TEXT NOT NULL, PRIMARY KEY(source_hash,ordinal,reason))"
+    },
+    "trigger:quarantine_immutable_delete": {
+      "type": "trigger",
+      "name": "quarantine_immutable_delete",
+      "tbl_name": "quarantine",
+      "sql": "CREATE TRIGGER quarantine_immutable_delete BEFORE DELETE ON quarantine BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "trigger:receipt_immutable_update": {
+      "type": "trigger",
+      "name": "receipt_immutable_update",
+      "tbl_name": "receipts",
+      "sql": "CREATE TRIGGER receipt_immutable_update BEFORE UPDATE ON receipts BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "trigger:raw_immutable_delete": {
+      "type": "trigger",
+      "name": "raw_immutable_delete",
+      "tbl_name": "raw_sources",
+      "sql": "CREATE TRIGGER raw_immutable_delete BEFORE DELETE ON raw_sources BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "index:sqlite_autoindex_acquisitions_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_acquisitions_1",
+      "tbl_name": "acquisitions",
+      "sql": null
+    },
+    "index:sqlite_autoindex_quarantine_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_quarantine_1",
+      "tbl_name": "quarantine",
+      "sql": null
+    },
+    "table:cognitive_records": {
+      "type": "table",
+      "name": "cognitive_records",
+      "tbl_name": "cognitive_records",
+      "sql": "CREATE TABLE cognitive_records (\n      kind TEXT NOT NULL, record_id TEXT NOT NULL PRIMARY KEY, natural_key TEXT NOT NULL,\n      fingerprint TEXT NOT NULL, payload TEXT NOT NULL, UNIQUE(kind,natural_key))"
+    },
+    "trigger:cognitive_records_no_update": {
+      "type": "trigger",
+      "name": "cognitive_records_no_update",
+      "tbl_name": "cognitive_records",
+      "sql": "CREATE TRIGGER cognitive_records_no_update BEFORE UPDATE ON cognitive_records\n      BEGIN SELECT RAISE(ABORT,'immutable cognitive record'); END"
+    },
+    "trigger:raw_immutable_update": {
+      "type": "trigger",
+      "name": "raw_immutable_update",
+      "tbl_name": "raw_sources",
+      "sql": "CREATE TRIGGER raw_immutable_update BEFORE UPDATE ON raw_sources BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "index:sqlite_autoindex_cognitive_records_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_cognitive_records_1",
+      "tbl_name": "cognitive_records",
+      "sql": null
+    },
+    "index:sqlite_autoindex_receipts_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_receipts_1",
+      "tbl_name": "receipts",
+      "sql": null
+    },
+    "table:quarantine_receipts": {
+      "type": "table",
+      "name": "quarantine_receipts",
+      "tbl_name": "quarantine_receipts",
+      "sql": "CREATE TABLE quarantine_receipts (\n      source_hash TEXT NOT NULL, ordinal INTEGER NOT NULL, reason TEXT NOT NULL,\n      usable_at TEXT NOT NULL, clock_mode TEXT NOT NULL, PRIMARY KEY(source_hash,ordinal,reason),\n      FOREIGN KEY(source_hash,ordinal,reason) REFERENCES quarantine(source_hash,ordinal,reason))"
+    },
+    "trigger:acquisition_immutable_update": {
+      "type": "trigger",
+      "name": "acquisition_immutable_update",
+      "tbl_name": "acquisitions",
+      "sql": "CREATE TRIGGER acquisition_immutable_update BEFORE UPDATE ON acquisitions BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "trigger:cognitive_receipts_no_delete": {
+      "type": "trigger",
+      "name": "cognitive_receipts_no_delete",
+      "tbl_name": "cognitive_receipts",
+      "sql": "CREATE TRIGGER cognitive_receipts_no_delete BEFORE DELETE ON cognitive_receipts\n      BEGIN SELECT RAISE(ABORT,'immutable cognitive receipt'); END"
+    },
+    "table:acquisitions": {
+      "type": "table",
+      "name": "acquisitions",
+      "tbl_name": "acquisitions",
+      "sql": "CREATE TABLE acquisitions (\n      source_id TEXT NOT NULL, acquisition_id TEXT NOT NULL, fingerprint TEXT NOT NULL,\n      source_hash TEXT NOT NULL REFERENCES raw_sources(source_hash), payload TEXT NOT NULL,\n      supersedes TEXT, PRIMARY KEY(source_id,acquisition_id))"
+    },
+    "trigger:quarantine_receipts_no_update": {
+      "type": "trigger",
+      "name": "quarantine_receipts_no_update",
+      "tbl_name": "quarantine_receipts",
+      "sql": "CREATE TRIGGER quarantine_receipts_no_update BEFORE UPDATE ON quarantine_receipts BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "table:receipts": {
+      "type": "table",
+      "name": "receipts",
+      "tbl_name": "receipts",
+      "sql": "CREATE TABLE receipts (\n      source_id TEXT NOT NULL, acquisition_id TEXT NOT NULL, received_at TEXT NOT NULL,\n      persisted_at TEXT NOT NULL, usable_at TEXT NOT NULL, clock_mode TEXT NOT NULL,\n      PRIMARY KEY(source_id,acquisition_id),\n      FOREIGN KEY(source_id,acquisition_id) REFERENCES acquisitions(source_id,acquisition_id))"
+    },
+    "trigger:quarantine_immutable_update": {
+      "type": "trigger",
+      "name": "quarantine_immutable_update",
+      "tbl_name": "quarantine",
+      "sql": "CREATE TRIGGER quarantine_immutable_update BEFORE UPDATE ON quarantine BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "trigger:receipt_immutable_delete": {
+      "type": "trigger",
+      "name": "receipt_immutable_delete",
+      "tbl_name": "receipts",
+      "sql": "CREATE TRIGGER receipt_immutable_delete BEFORE DELETE ON receipts BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "trigger:acquisition_immutable_delete": {
+      "type": "trigger",
+      "name": "acquisition_immutable_delete",
+      "tbl_name": "acquisitions",
+      "sql": "CREATE TRIGGER acquisition_immutable_delete BEFORE DELETE ON acquisitions BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "index:sqlite_autoindex_cognitive_receipts_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_cognitive_receipts_1",
+      "tbl_name": "cognitive_receipts",
+      "sql": null
+    },
+    "trigger:quarantine_receipts_no_delete": {
+      "type": "trigger",
+      "name": "quarantine_receipts_no_delete",
+      "tbl_name": "quarantine_receipts",
+      "sql": "CREATE TRIGGER quarantine_receipts_no_delete BEFORE DELETE ON quarantine_receipts BEGIN SELECT RAISE(ABORT,'immutable'); END"
+    },
+    "table:cognitive_receipts": {
+      "type": "table",
+      "name": "cognitive_receipts",
+      "tbl_name": "cognitive_receipts",
+      "sql": "CREATE TABLE cognitive_receipts (\n      record_id TEXT PRIMARY KEY REFERENCES cognitive_records(record_id),\n      received_at TEXT NOT NULL, persisted_at TEXT NOT NULL, usable_at TEXT NOT NULL)"
+    },
+    "index:sqlite_autoindex_quarantine_receipts_1": {
+      "type": "index",
+      "name": "sqlite_autoindex_quarantine_receipts_1",
+      "tbl_name": "quarantine_receipts",
+      "sql": null
+    }
+  }
+}

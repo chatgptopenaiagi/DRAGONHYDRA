@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-11-03T08:34:28.448015+00:00",
+  "status": "PASS_READ_ONLY_PRESERVATION",
+  "passed": true,
+  "scope": "Fresh hashes and source bindings only; no builds/products/platform tests rerun",
+  "held_assets_directory": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.5-core-next",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "source_tree": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+  "held_inventory_witness": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\evidence\\dev5-held-release-identity.json",
+    "bytes": 3325,
+    "sha256": "c0815a8870be1a0dcf0f8b02e3411c6772c135316b133274ff884508cf88c41e"
+  },
+  "manifest_witness": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.5-core-next\\ARTIFACT-MANIFEST.json",
+    "bytes": 12578,
+    "sha256": "b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b"
+  },
+  "assets": [
+    {
+      "filename": "ARTIFACT-MANIFEST.json",
+      "bytes": 12578,
+      "sha256": "b22b3a89ae74054aecbb63ca28083362c2d4cca301f9960078d55fab2af0b64b",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "BUILD-REPORT.json",
+      "bytes": 5503,
+      "sha256": "2bacbc7e08dc842dd8637c57af471ebd3dded026c7d279702fce3d9f11da693a",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Android-arm64-development.apk",
+      "bytes": 17345950,
+      "sha256": "4b207ffd9b7518f2aaef4e5ec25596bbc947d69dc26cfa33cc97abf6043fe994",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Desktop-win-x64.exe",
+      "bytes": 10087424,
+      "sha256": "f3f9f366a2d7d6979f84a71a99cb1ef343b1fe27b00a623b12e48408579c2a71",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Linux-server-x86_64.tar.gz",
+      "bytes": 4316578,
+      "sha256": "9d5585dc9831bbc66e61f469385aa8610655e71890092278024deb892e4d11b4",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Server-win-x64.zip",
+      "bytes": 19612787,
+      "sha256": "b7b2e58790738c7ecfb0169b30ef27ca579dbb3eedbe8be43917e834333572a9",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Source.zip",
+      "bytes": 4049648,
+      "sha256": "b47550c7e84091d38f298c7d9d91193527ad6a46f3074a9b0f909ac1550ec46e",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Workstation-win-x64-Setup.exe",
+      "bytes": 64918477,
+      "sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "INSTALLATION.md",
+      "bytes": 3019,
+      "sha256": "3c39c6d3528f16efcaa04774ea3d90b54bf2a47ac6d5dc868d141f8c31233b31",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "RELEASE-NOTES.md",
+      "bytes": 2331,
+      "sha256": "efd0b97fe262480f2f4e6abc14001c6f39f37f5ce020ceb9f33b356cd1542aca",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "bytes": 1472,
+      "sha256": "4f523e9e2b5fb68864d6cb4f0a39828ef79300898ec978edd3fe0674bd723959",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "TEST-REPORT.json",
+      "bytes": 4759,
+      "sha256": "93865c105dd8259a9fb22cf56b8fd560f3f464762d7ef5c1ce7c48ef12c1c1d4",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "dragonhydra-0.5.0.dev5-py3-none-any.whl",
+      "bytes": 338599,
+      "sha256": "705a6d657ed85f03ec55468961b6a88cf67827efa5e580a487d6d63c032c9145",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "dragonhydra-0.5.0.dev5.tar.gz",
+      "bytes": 2995992,
+      "sha256": "585d75a74343271144d5032f8c7e405ca122140ba02b0cef98feb4e9a9e8ce78",
+      "matches_held_inventory": true
+    },
+    {
+      "filename": "pkg_dragonhydra-0.5.0-dev.5.zip",
+      "bytes": 64159,
+      "sha256": "212cf909c69ede78b83888a1041a2d3260d5f5c0838dbc24bc8a5ab60d114582",
+      "matches_held_inventory": true
+    }
+  ],
+  "asset_count": 15,
+  "packages": [
+    {
+      "kind": "workstation",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Workstation-win-x64-Setup.exe",
+      "bytes": 64918477,
+      "sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Windows x64",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_PAYLOAD_VERIFIED",
+        "installation_result": "NOT_RUN",
+        "runtime_result": "NOT_RUN",
+        "known_limitations": [
+          "Unsigned development installer",
+          "Fresh/repair/restart/recovery/uninstall Windows lifecycle not executed",
+          "No clean-machine or OS-reboot acceptance"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "desktop",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Desktop-win-x64.exe",
+      "bytes": 10087424,
+      "sha256": "f3f9f366a2d7d6979f84a71a99cb1ef343b1fe27b00a623b12e48408579c2a71",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Windows x64 Tauri/WebView2",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_SOURCE_METADATA_VERIFIED",
+        "installation_result": "NOT_RUN",
+        "runtime_result": "BLOCKED",
+        "known_limitations": [
+          "Native GUI launch/check command was rejected before execution by automatic review: blocked by policy",
+          "No dev.5 native default-browser click or official shortcut acceptance"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "server",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Server-win-x64.zip",
+      "bytes": 19612787,
+      "sha256": "b7b2e58790738c7ecfb0169b30ef27ca579dbb3eedbe8be43917e834333572a9",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Windows x64 frozen Python runtime",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_ARCHIVE_AND_RUNTIME_VERIFIED",
+        "installation_result": "PASS_STANDALONE_EXTRACTION",
+        "runtime_result": "PASS_STANDALONE",
+        "known_limitations": [
+          "Current-host standalone scope; no Windows service/Joomla/clean-machine acceptance implied"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "joomla",
+      "filename": "pkg_dragonhydra-0.5.0-dev.5.zip",
+      "bytes": 64159,
+      "sha256": "212cf909c69ede78b83888a1041a2d3260d5f5c0838dbc24bc8a5ab60d114582",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Joomla 6 / PHP >=8.3",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_SOURCE_VERIFIED",
+        "installation_result": "PASS_UPDATE_AND_REPEAT",
+        "runtime_result": "PASS_JOOMLA5_BACKEND3",
+        "known_limitations": [
+          "Actual installed component5/backend3 compatibility scope; coherent full Windows5 installation pending"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "wheel",
+      "filename": "dragonhydra-0.5.0.dev5-py3-none-any.whl",
+      "bytes": 338599,
+      "sha256": "705a6d657ed85f03ec55468961b6a88cf67827efa5e580a487d6d63c032c9145",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0.dev5",
+      "target": "CPython >=3.14,<3.15",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_INSTALLED",
+        "installation_result": "PASS_OFFLINE_VENV",
+        "runtime_result": "PASS_API_AND_RESTART",
+        "known_limitations": [
+          "Isolated current-host Python installation, not a Windows workstation service"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "sdist",
+      "filename": "dragonhydra-0.5.0.dev5.tar.gz",
+      "bytes": 2995992,
+      "sha256": "585d75a74343271144d5032f8c7e405ca122140ba02b0cef98feb4e9a9e8ce78",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0.dev5",
+      "target": "CPython >=3.14,<3.15",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_INSTALLED",
+        "installation_result": "PASS_OFFLINE_SDIST_INSTALL",
+        "runtime_result": "PASS_CLI_AND_API",
+        "known_limitations": [
+          "Build backend normalizes TOML formatting with exact semantic equality; source Python payload verified"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "linux",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Linux-server-x86_64.tar.gz",
+      "bytes": 4316578,
+      "sha256": "9d5585dc9831bbc66e61f469385aa8610655e71890092278024deb892e4d11b4",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Linux x86_64 Python server",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_AND_CONTAINER_INSTALLED",
+        "installation_result": "PASS_OFFLINE_CONTAINER",
+        "runtime_result": "PASS_OFFLINE_CONTAINER",
+        "known_limitations": [
+          "Verified in pinned nonroot Docker Linux; no native Linux desktop, WSL or systemd acceptance"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "android",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Android-arm64-development.apk",
+      "bytes": 17345950,
+      "sha256": "4b207ffd9b7518f2aaef4e5ec25596bbc947d69dc26cfa33cc97abf6043fe994",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Android ARM64-v8a, min24/target36",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "BUILT_ANALYZED_TESTED",
+        "installation_result": "NOT_RUN",
+        "runtime_result": "NOT_RUN",
+        "known_limitations": [
+          "Development/debug certificate, not production signing",
+          "Fresh ADB query found zero devices; no device/emulator pairing acceptance for this APK"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    },
+    {
+      "kind": "source",
+      "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Source.zip",
+      "bytes": 4049648,
+      "sha256": "b47550c7e84091d38f298c7d9d91193527ad6a46f3074a9b0f909ac1550ec46e",
+      "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+      "version": "0.5.0-dev.5",
+      "target": "Complete Git source",
+      "matches_manifest": true,
+      "dated_declared_verification": {
+        "snapshot_at": "2026-11-02T15:17:45.592249+00:00",
+        "build_status": "PASS_775_EXACT_GIT_BLOBS",
+        "installation_result": "NOT_APPLICABLE",
+        "runtime_result": "NOT_APPLICABLE",
+        "known_limitations": [
+          "Exact source commit archive; proposed release tag not created"
+        ],
+        "platform_acceptance_rerun_by_this_check": false
+      }
+    }
+  ],
+  "package_count": 9,
+  "checksum_validation": {
+    "listed_non_self_files": 14,
+    "all_match": true,
+    "self_checksum": "SHA256SUMS cannot hash itself; its own size/SHA matches the separate held 15-file inventory"
+  },
+  "frozen_worktree": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-source\\dev5-ed78",
+    "head": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "tree": "7a93bc2cfb92372d7dbe0feec8e621774d1a4c6a",
+    "status_clean": true,
+    "tracked_raw_files_compared": 775,
+    "raw_git_byte_mismatches": [],
+    "git_optional_index_locks_disabled": true
+  },
+  "source_archive": {
+    "artifact": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.5-core-next\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.5-Source.zip",
+      "bytes": 4049648,
+      "sha256": "b47550c7e84091d38f298c7d9d91193527ad6a46f3074a9b0f909ac1550ec46e"
+    },
+    "prefix": "DRAGONHYDRA-CORE-NEXT/",
+    "crc_pass": true,
+    "exact_git_files_compared": 775,
+    "raw_git_byte_mismatches": []
+  },
+  "dated_supplementary_evidence": [
+    {
+      "name": "Joomla5_backend3_browser",
+      "receipt": {
+        "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\acceptance\\dev3-joomla5-browser-r3\\verification.json",
+        "bytes": 66950,
+        "sha256": "812f7c78959d95da42e5b2ac8890be88f7f5b0554bb60b24a41e07cd84566546"
+      },
+      "recorded_at": "2026-11-02T14:43:06.876199+00:00",
+      "passed": true,
+      "scope": "Dated installed Joomla5/backend3 compatibility only",
+      "rerun_in_preservation_check": false
+    },
+    {
+      "name": "Standalone5_dashboard",
+      "receipt": {
+        "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\acceptance\\dev5-kernel-standalone-r1\\verification.json",
+        "bytes": 9721,
+        "sha256": "ed0b69e6a00860be43d5188205b7c4c70fc658b561d0be6032d526c7be393c73"
+      },
+      "recorded_at": "2026-11-02T16:30:21.961012+00:00",
+      "passed": true,
+      "scope": "Dated standalone Python-served dashboard, not native/whole Windows",
+      "rerun_in_preservation_check": false
+    },
+    {
+      "name": "Independent_workflow_reproduction",
+      "receipt": {
+        "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\proposals\\isolated-runtime-r1\\verification.json",
+        "bytes": 18602,
+        "sha256": "6f202bdfc15c6be40cf8e49d4a213ae0e6893f5f5e92b8c21e2dd2b9bb59a135"
+      },
+      "recorded_at": "2026-11-03T08:16:56.583953+00:00",
+      "passed": true,
+      "scope": "New isolated copied fixture; original failed phase remains FAIL",
+      "rerun_in_preservation_check": false
+    }
+  ],
+  "publication_status": "HELD_NOT_PUBLISHED",
+  "limitations": [
+    "Manifest verification statuses are preserved as dated Nov2 statements; this receipt does not rewrite them into fresh platform acceptance.",
+    "Supplementary later receipts keep their distinct scope; no whole Windows lifecycle/native/default-browser claim.",
+    "No credential scanning or private runtime-configuration read was performed."
+  ]
+}

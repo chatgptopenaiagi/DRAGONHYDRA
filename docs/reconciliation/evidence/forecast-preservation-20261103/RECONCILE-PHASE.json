@@ -1,0 +1,30 @@
+{
+  "schema_version": "dev5.forecast-continuation-phase/1",
+  "operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+  "phase": "ReconcileForecast",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "setup_sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+  "bindings_sha256": "ad0faf32895c9e2c42adf647506ec2891cdfa1481159d3d11f8af71f30f90e2c",
+  "reconciliation": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\continuation-authority-r1\\RECONCILIATION.json",
+    "sha256": "74c4ec17e8a0020882b72829fe3a26b65c8d0783f5e597e9477ff8e226b3810d"
+  },
+  "approval": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\continuation-authority-r1\\COORDINATOR-ATTESTATION.json",
+    "sha256": "5f8c52d3c55b5d114da60096a82c88f0104af436f4a391235d76afa9bfd53979"
+  },
+  "operation_acl_verified": true,
+  "original_forecast_status": "FAIL",
+  "passed": true,
+  "stage": "passed",
+  "started_at": "2026-11-03T08:58:52.6264309Z",
+  "automatic_retry": false,
+  "gui": "BLOCKED_NO_NATIVE_ACTION",
+  "live_sql_restore": "NOT_RUN",
+  "observed_at": "2026-11-03T08:58:54.6944885Z",
+  "acceptance": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1\\acceptance\\reconcile\\verification.json",
+    "sha256": "247943b1a9459fc22343b139d6756d3f5e708862ac6a7803bc02a61861872eb0"
+  }
+}

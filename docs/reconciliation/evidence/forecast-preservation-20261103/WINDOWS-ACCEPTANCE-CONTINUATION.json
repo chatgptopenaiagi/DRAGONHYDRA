@@ -1,0 +1,63 @@
+{
+  "schema_version": "dragonhydra.windows-acceptance-continuation/1",
+  "status": "RECONCILIATION_PASS_BACKUP_BLOCKED_BEFORE_PHASE",
+  "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "service_name": "DragonhydraCoreNextcandidatec235077685de",
+  "ports": {
+    "api": 18860,
+    "joomla": 18861,
+    "mariadb": 18862
+  },
+  "original_operation": "C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261102/disposable-dev5-lifecycle-r1",
+  "original_forecast_status": "FAIL_PRESERVED",
+  "original_receipts_or_markers_modified": false,
+  "original_jobs_resubmitted": false,
+  "new_operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+  "new_operation": "C:/xampp/DRAGONHYDRA-CORE-NEXT-LAB/continuation-20261103/disposable-dev5-b447-reconciled-r1",
+  "reconciliation": "VERIFIED_INDEPENDENTLY_NOT_AN_ORIGINAL_PHASE_OVERRIDE",
+  "root_cause": "B_ACCEPTANCE_HARNESS_DEFECT",
+  "implemented_continuation_scope": [
+    "ReconcileForecast",
+    "Backup"
+  ],
+  "later_phase_adapters": "NOT_IMPLEMENTED_IN_THIS_INCREMENT; original inspected plan preserved for separately reviewed target-specific continuation",
+  "phases": {
+    "InstallFresh": "ORIGINAL_PASS_EXIT_0",
+    "ReadFresh": "ORIGINAL_PASS",
+    "Forecast": "ORIGINAL_FAIL_RECONCILED_BY_SEPARATE_PROOFS",
+    "ReconcileForecast": "PASS_DISTINCT_NEW_READONLY_PREDECESSOR",
+    "Backup": "BLOCKED_WINDOWS_ELEVATION_BEFORE_PHASE_NO_MARKER",
+    "Restart": "NOT_RUN",
+    "Repair": "NOT_RUN",
+    "UninstallRetain": "NOT_RUN",
+    "ReinstallRetained": "NOT_RUN",
+    "FinalUninstall": "NOT_RUN"
+  },
+  "backup_precondition": "New exact-source/profile hash-attested successful read-only predecessor and matching owner Windows elevation",
+  "backup_scope": "Only b447 runtime/state, coherent SQLite snapshot and consistent dump of its own MariaDB schemas; no service restart/uninstall/restore",
+  "sql_restoration": "NOT_RUN",
+  "native_gui_acceptance": "NOT_RUN_PRIOR_POLICY_REJECTION_NOT_RETRIED",
+  "current_shell_elevated": false,
+  "new_elevation_attempts": 1,
+  "automatic_retry": false,
+  "release_status": "HELD_NOT_PUBLISHED",
+  "reconciliation_receipt": {
+    "sha256": "f5e22d7ec3b9bf2f2b903d259c76ef2e1978b8c37b72b77310614dfd1381cc9e",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1\\phase-ReconcileForecast.json",
+    "acceptance": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1\\acceptance\\reconcile\\verification.json",
+      "sha256": "247943b1a9459fc22343b139d6756d3f5e708862ac6a7803bc02a61861872eb0"
+    }
+  },
+  "elevation_launch_session": 49628,
+  "observed_at": "2026-11-03T09:04:07.825649+00:00",
+  "windows_launch_error": "This command cannot be run due to the error: An error occurred trying to start process 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' with working directory 'C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103'. The operation was canceled by the user.",
+  "error_type": "InvalidOperationException",
+  "elevation_launch_terminal": true,
+  "elevated_child_handle_returned": false,
+  "backup_marker_present": false,
+  "backup_receipt_present": false,
+  "original_evidence_hashes_preserved": true,
+  "next_action": "From an already elevated matching-owner PowerShell, run ONLY the reviewed Backup command once after checking no Backup marker/receipt exists. If it is already claimed, reconcile instead of repeating. No new UAC attempt in this run."
+}

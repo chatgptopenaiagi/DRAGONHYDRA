@@ -1,0 +1,696 @@
+{
+  "schema_version": "dragonhydra.sqlite-logical-diff/2",
+  "created_at": "2026-11-03T07:56:48.847766+00:00",
+  "evidence_class": "DERIVED_FROM_HASH_VERIFIED_ORIGINAL_SNAPSHOTS_NOT_REPRODUCED_EVIDENCE",
+  "derived_r1_preserved": {
+    "path": "SQLITE-LOGICAL-DIFF.json",
+    "sha256": "e02c64941b36103ff0b241dcb47d3969e350b520dae7cab9514bf8be862350f7",
+    "limitation": "Initial table summary omitted counts for created tables; full original schema-name differences were retained. Corrected here; no original evidence replaced."
+  },
+  "snapshot_method": "Fresh separate working copies of preserved main/WAL/SHM; mode=ro/query_only/BEGIN; original and preserved files rehashed unchanged",
+  "serialization": "Type-tagged canonical SQLite row values, sorted independently of page/row order; PK/composite keys or multisets; no private values emitted",
+  "before": {
+    "integrity_check": [
+      "ok"
+    ],
+    "foreign_key_violations": 0,
+    "pragmas": {
+      "schema_version": 1,
+      "user_version": 0,
+      "application_id": 0,
+      "journal_mode": "wal",
+      "page_size": 4096,
+      "page_count": 254,
+      "freelist_count": 0
+    },
+    "schema_sha256": "4ab8d1051ee0ff46358c88b1ba40ce02db09bfe432edd106db5047bac6d5cc11",
+    "read_seconds": 0.08378699998138472
+  },
+  "after": {
+    "integrity_check": [
+      "ok"
+    ],
+    "foreign_key_violations": 0,
+    "pragmas": {
+      "schema_version": 1,
+      "user_version": 0,
+      "application_id": 0,
+      "journal_mode": "wal",
+      "page_size": 4096,
+      "page_count": 743,
+      "freelist_count": 0
+    },
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "read_seconds": 0.052289599989308044
+  },
+  "schema_equal": false,
+  "schema_delta": {
+    "created": [
+      "index:sqlite_autoindex_acquisitions_1",
+      "index:sqlite_autoindex_cognitive_receipts_1",
+      "index:sqlite_autoindex_cognitive_records_1",
+      "index:sqlite_autoindex_cognitive_records_2",
+      "index:sqlite_autoindex_quarantine_1",
+      "index:sqlite_autoindex_quarantine_receipts_1",
+      "index:sqlite_autoindex_receipts_1",
+      "table:acquisitions",
+      "table:cognitive_receipts",
+      "table:cognitive_records",
+      "table:quarantine",
+      "table:quarantine_receipts",
+      "table:receipts",
+      "trigger:acquisition_immutable_delete",
+      "trigger:acquisition_immutable_update",
+      "trigger:cognitive_receipts_no_delete",
+      "trigger:cognitive_receipts_no_update",
+      "trigger:cognitive_records_no_delete",
+      "trigger:cognitive_records_no_update",
+      "trigger:quarantine_immutable_delete",
+      "trigger:quarantine_immutable_update",
+      "trigger:quarantine_receipts_no_delete",
+      "trigger:quarantine_receipts_no_update",
+      "trigger:raw_immutable_delete",
+      "trigger:raw_immutable_update",
+      "trigger:receipt_immutable_delete",
+      "trigger:receipt_immutable_update"
+    ],
+    "deleted": [],
+    "modified_existing": [],
+    "created_counts": {
+      "table": 6,
+      "index": 7,
+      "trigger": 14,
+      "view": 0
+    }
+  },
+  "tables": [
+    {
+      "table": "acquisitions",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 0,
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "source_id",
+        "acquisition_id"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": false,
+      "created_column_names": [
+        "source_id",
+        "acquisition_id",
+        "fingerprint",
+        "source_hash",
+        "payload",
+        "supersedes"
+      ],
+      "expected_empty_auxiliary_table": true
+    },
+    {
+      "table": "cognitive_receipts",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 10,
+      "inserted_records": 10,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "record_id"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "5caf899404b818f24d79146b1fc5524ea6d861459d5d6c59ac7bc7e4dbbf917c",
+      "schema_equal": false,
+      "created_column_names": [
+        "record_id",
+        "received_at",
+        "persisted_at",
+        "usable_at"
+      ]
+    },
+    {
+      "table": "cognitive_records",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 10,
+      "inserted_records": 10,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "record_id"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "6f5921999481aeda1180430cdc1741aa04c0a86436729cc3a86c2f836dae8593",
+      "schema_equal": false,
+      "created_column_names": [
+        "kind",
+        "record_id",
+        "natural_key",
+        "fingerprint",
+        "payload"
+      ],
+      "record_kind_counts": {
+        "model": 5,
+        "prediction": 5
+      }
+    },
+    {
+      "table": "connector_acquisitions",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "connector_attempts",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "connector_identity_review",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "connector_observations",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "seq"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "connector_quarantine",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "connector_settings",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "provider"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "product_bridge_nonces",
+      "before_rows": 7,
+      "after_rows": 14,
+      "before_logical_sha256": "6c353464b83b5a48bd937f78354240802947b84811edab948aae41f060a3479c",
+      "after_logical_sha256": "529ccb9d8d3a200b9a815391440461c33368e95c64f77e23610b20b3dd761ba9",
+      "schema_equal": true,
+      "key_columns": [
+        "nonce"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 7,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 7,
+      "unchanged_primary_key_count": 7,
+      "before_key_set_sha256": "31a13c08b1ab69221250719d0b919b8aa7f94d01019ee790e095ef3c127a778b",
+      "after_key_set_sha256": "0ea83e36ae4daab2c855557cfca26f6f32404641a9bae583dcc210e8325caa26",
+      "inserted_key_hashes": [
+        "e73084309697f39771b004696b752d5619cc49ce847f8370bb39ac061c3d4969",
+        "d4302511c8f4866cd3bd99e2a4680320efe5bf37364d78383be7a4aa6ad27ddd",
+        "81d6fd161f74f6df1792e47af0ac0c769b13faf0b867102466d62af5b374678b",
+        "4feffdec168ff7d73c400f72424e05ec6e01f64a422c0498ea2835dbf771c4d7",
+        "f4a84edf444809ed1bfb41d109e0c2870f2894741c1f249bb55f370eb601c84c",
+        "c1c21f447d71b9fb5f87875cd6f4a7e29b8bcbcab32a05ad4c08dc53a9c47523",
+        "a1891993e2c886485b7ee696ddf519dd334aba963278809c348b74c9a41699c5"
+      ],
+      "deleted_key_hashes": [],
+      "classification": "EXPECTED_AUTH_BOOKKEEPING"
+    },
+    {
+      "table": "product_jobs",
+      "before_rows": 1,
+      "after_rows": 3,
+      "before_logical_sha256": "58641bcc60afff887bcf24b2b1e7b07c775834d61980effe74c6f5df31c1b412",
+      "after_logical_sha256": "932b33749399e342be7c42ed36b7f9a5247ee09d9259e2fddce0192673ded25f",
+      "schema_equal": true,
+      "key_columns": [
+        "id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 2,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 1,
+      "unchanged_primary_key_count": 1,
+      "before_key_set_sha256": "0d651c01d09218ac3453e6c1601906f2ad91caa70aba5d42789aa034fe13da97",
+      "after_key_set_sha256": "e5303b5c01a094f88241fc55819d681d092a455dfb9ef060306d9a69c3c681ae",
+      "inserted_key_hashes": [
+        "53f7ef18aa37cfd8a7679273a1f6da4ade90db3640f575befcfb39301cc4b94a",
+        "47fc1cbb1abdcced0fc5b2de6be0a60875a4622da9695f9e721ab7c39c7c5d09"
+      ],
+      "deleted_key_hashes": [],
+      "classification": "WORKFLOW_MUTATION_REQUIRES_SEMANTIC_VALIDATION"
+    },
+    {
+      "table": "product_schema",
+      "before_rows": 1,
+      "after_rows": 1,
+      "before_logical_sha256": "3fec2464c708190b42d90102c70bb123356ab76fd0ed421d8adba2376c367ee4",
+      "after_logical_sha256": "3fec2464c708190b42d90102c70bb123356ab76fd0ed421d8adba2376c367ee4",
+      "schema_equal": true,
+      "key_columns": [
+        "version"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 1,
+      "unchanged_primary_key_count": 1,
+      "before_key_set_sha256": "77c14c7ee894f3f14ace33d7e15dfb363c3f37ff86811a9c23b5a9e7ead46b03",
+      "after_key_set_sha256": "77c14c7ee894f3f14ace33d7e15dfb363c3f37ff86811a9c23b5a9e7ead46b03",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "product_sessions",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "token_hash"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "product_updates",
+      "before_rows": 6,
+      "after_rows": 14,
+      "before_logical_sha256": "0694bb81879f451bf36534393fba95ecaa9b8c629b9b46999a5207a478a3e26d",
+      "after_logical_sha256": "d480d145436f42adb53292f319a31dad238eb322b5381d6950d4e1e12515c3b6",
+      "schema_equal": true,
+      "key_columns": [
+        "seq"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 8,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 6,
+      "unchanged_primary_key_count": 6,
+      "before_key_set_sha256": "f929b3c726518632abdbf38a1f34be0f10ad8afe5f98cc6da65d1fcd9ec12565",
+      "after_key_set_sha256": "3f4498c0681abe71210c47846afc2d2887de09390a33cdb71f3e6bba14abd0f4",
+      "inserted_key_hashes": [
+        "6e7c2db23e4b581870a9c67d0879c0840f1050565012c6134b757910a4679c5d",
+        "50bcd37e93c62229453201509326b8d6a91a43172900c2b7a9b780224d121037",
+        "4d5a0d927ab414fb939f37f6cc27bca4403684ee6209bd869172f2115c21f907",
+        "4f1dd3a806ee053f2205e486459074257224d95f3453079d0b1672043ff6776d",
+        "1d1832683ad35e6c9db442d48e7e9320a5067bc003c13dfe2493b89f45e70816",
+        "26aa64e57c3baf509a22f2c7d6665377ef0b9ed444aa3489ce5577df15c0193c",
+        "10307beac8a3fa6c3853aa9d5145ded462d0adf5f2d9bb7c215d570e6edfa6ee",
+        "f1d4a05e8395d09f9db03b83bf336bfc6428b15c6e825dec226ff4d75cfc25ad"
+      ],
+      "deleted_key_hashes": [],
+      "classification": "WORKFLOW_MUTATION_REQUIRES_SEMANTIC_VALIDATION"
+    },
+    {
+      "table": "public_fixture_quarantine",
+      "before_rows": 0,
+      "after_rows": 0,
+      "before_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": true,
+      "key_columns": [
+        "source_id",
+        "acquisition_id",
+        "ordinal"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "after_key_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "public_fixture_records",
+      "before_rows": 760,
+      "after_rows": 760,
+      "before_logical_sha256": "34e4a0abe79f081cf1549e2d50367312fa4a451220cba66a09a71c7540675d52",
+      "after_logical_sha256": "34e4a0abe79f081cf1549e2d50367312fa4a451220cba66a09a71c7540675d52",
+      "schema_equal": true,
+      "key_columns": [
+        "source_id",
+        "acquisition_id",
+        "ordinal"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 760,
+      "unchanged_primary_key_count": 760,
+      "before_key_set_sha256": "289bf1c351c8712579f70a09977536fa5f7bb2b71ebe52638879da8b8f35906c",
+      "after_key_set_sha256": "289bf1c351c8712579f70a09977536fa5f7bb2b71ebe52638879da8b8f35906c",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "public_result_captures",
+      "before_rows": 2,
+      "after_rows": 2,
+      "before_logical_sha256": "d6fb837138b2f4b75eaa92b359f9dc61f0833f97f13aa25136d3942cab9725f4",
+      "after_logical_sha256": "d6fb837138b2f4b75eaa92b359f9dc61f0833f97f13aa25136d3942cab9725f4",
+      "schema_equal": true,
+      "key_columns": [
+        "source_id",
+        "acquisition_id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 2,
+      "unchanged_primary_key_count": 2,
+      "before_key_set_sha256": "29ce843915269d3c0ff779b993981fbb121513b156975c0465705d1f8b57f2d6",
+      "after_key_set_sha256": "29ce843915269d3c0ff779b993981fbb121513b156975c0465705d1f8b57f2d6",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "public_result_receipts",
+      "before_rows": 2,
+      "after_rows": 2,
+      "before_logical_sha256": "0bc6075173ce65b6698612b1f99d59015535ee5bffb4239923ff8acff8ef8092",
+      "after_logical_sha256": "0bc6075173ce65b6698612b1f99d59015535ee5bffb4239923ff8acff8ef8092",
+      "schema_equal": true,
+      "key_columns": [
+        "source_id",
+        "acquisition_id"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 2,
+      "unchanged_primary_key_count": 2,
+      "before_key_set_sha256": "29ce843915269d3c0ff779b993981fbb121513b156975c0465705d1f8b57f2d6",
+      "after_key_set_sha256": "29ce843915269d3c0ff779b993981fbb121513b156975c0465705d1f8b57f2d6",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "quarantine",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 0,
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "source_hash",
+        "ordinal",
+        "reason"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": false,
+      "created_column_names": [
+        "source_hash",
+        "ordinal",
+        "reason",
+        "recorded_at"
+      ],
+      "expected_empty_auxiliary_table": true
+    },
+    {
+      "table": "quarantine_receipts",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 0,
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "source_hash",
+        "ordinal",
+        "reason"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": false,
+      "created_column_names": [
+        "source_hash",
+        "ordinal",
+        "reason",
+        "usable_at",
+        "clock_mode"
+      ],
+      "expected_empty_auxiliary_table": true
+    },
+    {
+      "table": "raw_sources",
+      "before_rows": 2,
+      "after_rows": 2,
+      "before_logical_sha256": "0e6cbcb4e81a476b418c6d1203023eef09a96ef6b74b8fb8966096ea8aaff158",
+      "after_logical_sha256": "0e6cbcb4e81a476b418c6d1203023eef09a96ef6b74b8fb8966096ea8aaff158",
+      "schema_equal": true,
+      "key_columns": [
+        "source_hash"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 2,
+      "unchanged_primary_key_count": 2,
+      "before_key_set_sha256": "ba9e01f8250f5b6826695a8657e6af5be48d5ffc24649ed1e4b37fb63804cf0c",
+      "after_key_set_sha256": "ba9e01f8250f5b6826695a8657e6af5be48d5ffc24649ed1e4b37fb63804cf0c",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "UNCHANGED"
+    },
+    {
+      "table": "receipts",
+      "schema_change": true,
+      "classification": "DECLARED_FIRST_USE_MEMORY_SCHEMA_REQUIRES_CANONICAL_DDL_VALIDATION",
+      "before_rows": 0,
+      "after_rows": 0,
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 0,
+      "stable_primary_key_count": 0,
+      "key_columns": [
+        "source_id",
+        "acquisition_id"
+      ],
+      "comparison_strategy": "TABLE_CREATED",
+      "before_logical_sha256": null,
+      "after_logical_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "schema_equal": false,
+      "created_column_names": [
+        "source_id",
+        "acquisition_id",
+        "received_at",
+        "persisted_at",
+        "usable_at",
+        "clock_mode"
+      ],
+      "expected_empty_auxiliary_table": true
+    },
+    {
+      "table": "sqlite_sequence",
+      "before_rows": 1,
+      "after_rows": 1,
+      "before_logical_sha256": "2049695bbea1c81142398ed4e0b70ad862f79d527f3386de95ddd992a4afc83d",
+      "after_logical_sha256": "7c2550c77473297d14123460d6022b94bd2f8e84e8a014f09574b17064dba549",
+      "schema_equal": true,
+      "key_columns": [
+        "name"
+      ],
+      "comparison_strategy": "STABLE_LOGICAL_PRIMARY_KEY",
+      "changed_record_details": [
+        {
+          "key_sha256": "734e4ca88a021a6df72dee28371e04bcef37281f8ea7916fc92396bfee66c94d",
+          "fields": [
+            {
+              "column": "seq",
+              "before_value_sha256": "a1bb926c0df35f5a41007d4d376f57f1e020e305e3daa8070ef8e9fd9f5a9d4a",
+              "after_value_sha256": "1d1832683ad35e6c9db442d48e7e9320a5067bc003c13dfe2493b89f45e70816"
+            }
+          ]
+        }
+      ],
+      "inserted_records": 0,
+      "deleted_records": 0,
+      "changed_records": 1,
+      "stable_primary_key_count": 1,
+      "unchanged_primary_key_count": 0,
+      "before_key_set_sha256": "734e4ca88a021a6df72dee28371e04bcef37281f8ea7916fc92396bfee66c94d",
+      "after_key_set_sha256": "734e4ca88a021a6df72dee28371e04bcef37281f8ea7916fc92396bfee66c94d",
+      "inserted_key_hashes": [],
+      "deleted_key_hashes": [],
+      "classification": "SQLITE_SEQUENCE_CHANGE_REQUIRES_VALIDATION",
+      "operational_counter_values": {
+        "before": [
+          [
+            "product_updates",
+            6
+          ]
+        ],
+        "after": [
+          [
+            "product_updates",
+            14
+          ]
+        ]
+      }
+    }
+  ],
+  "originals_and_preserved_copies_unchanged": true,
+  "schema_version_note": "These are destination backup-file PRAGMA cookies, not an authoritative live-source migration history; complete sqlite_master objects are compared explicitly."
+}

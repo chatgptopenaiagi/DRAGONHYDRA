@@ -1,3 +1,65 @@
+# Current forensic continuation — 2026-11-03
+
+Read [docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md](docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md) and the current section of
+docs/handover/ACTIVE-RECONCILIATION.md before the historical Nov2 checkpoint below.
+
+Root is the sole integrating writer in the owner-authorized isolated worktree
+`LAB/forensics/forecast-preservation-20261103/source`, branch
+`forensic/forecast-preservation-20261103`, based on a4c0ecf1b7d0eaf35afdb7367ce8e464f285037e.
+Canonical CORE NEXT source remains untouched. Compiled application source stays
+`ed78fab282599a181d4254ab65a2fc2eaa5b7f50`; this tooling/docs checkpoint is not compiled into the dev.5 packages.
+
+Fresh owner-executed Windows InstallFresh and ReadFresh passed. The original
+Forecast receipt remains FAIL. Its preservation failure was a harness defect:
+legitimate exact27 first-use schema objects and product_updates.seq advancement.
+All760 retained rows/versions/fields, two raw sources and eight configuration
+fingerprints are unchanged; two jobs and five model/five prediction records persist.
+Evaluation is honestly pending, not measured predictive success.
+
+52 distinct Python cases PASS; separate frozen-executable reproduction13 groups
+PASS with clean process restart; genuine installed Joomla HTTP acceptance7 groups
+PASS. These are separate scopes. Native GUI, disposable SCM restart/repair/retained
+lifecycle and final release gates remain unverified. Do not add old suite totals.
+
+Actual disposable association: API18860/Joomla18861/DB18862, profileb447...685de,
+service DragonhydraCoreNextcandidatec235077685de. Preserve original18821/18822/18823,
+original18740/18744, all other profiles and all historical releases.
+
+The distinct hash-bound reconciliation actually PASSed once. Never rerun the old
+Forecast or new ReconcileForecast phase. Next is Backup from an already elevated
+matching-owner shell; its one RunAs launch reported cancellation before any child
+handle/marker/receipt. Do not retry elevation automatically. Later lifecycle
+adapters remain NOT_IMPLEMENTED. Current shell is non-admin.
+The nine ed78 packages remain held/unpublished; no product rebuild is needed.
+
+
+### Verified continuation closeout — 2026-11-03T09:04:07.825649+00:00
+
+The new hash-bound ReconcileForecast phase actually PASSed once (receiptf5e22d7e...,
+readback247943b1...), with original Forecast FAIL untouched, sourceed78/profileb447
+and all protected rows/configuration preserved. Full ValidateOnly passed first
+without creating an operation/marker. Implemented controller scope is only
+ReconcileForecast+Backup. Later lifecycle phases refuse before any marker.
+
+Additional integrated guards:25 Python cases and6 PowerShell groups PASS; separate
+from the52 preservation/eligibility/API cases and13 runtime/7 Joomla groups.
+Twenty-four guard cases use committed sanitized proofs; one reader adapter requires
+the original Windows LAB/profile and is explicitly skipped where absent.
+
+One scoped RunAs request for Backup returned InvalidOperationException with
+"The operation was canceled by the user." No child handle, Backup marker or phase
+receipt was returned. This records the Windows error text; it does not attribute a
+human action or diagnose the older dev.4 failure. No retry, service restart, repair,
+uninstall or restore occurred. Native policy rejection was not bypassed.
+
+Next: review the exact command in the incident report and use already-elevated
+matching-owner PowerShell for Backup only, once. Check current marker/receipt first.
+Then implement/review the scoped Restart adapter; later phases are NOT_IMPLEMENTED.
+SQL restoration and native GUI remain separate required gates. Dev.5 remains held.
+
+
+---
+
 # Resume DRAGONHYDRA product reconciliation
 
 Read AGENTS.md, ENGINEERING-STATE.json and [active handoff](docs/handover/ACTIVE-RECONCILIATION.md).

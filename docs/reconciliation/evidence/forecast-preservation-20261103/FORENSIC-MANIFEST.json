@@ -1,0 +1,189 @@
+{
+  "schema_version": "dragonhydra.forensic-evidence/1",
+  "created_at": "2026-11-03T07:43:01.254780+00:00",
+  "scope": "Original failed Forecast acceptance artifacts copied with before/after SHA/size/mtime checks; original snapshots NOT regenerated",
+  "private_acl": "Owner/SYSTEM/Administrators only, inheritance disabled at investigation root",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "frozen_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "artifacts": [
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\phase-InstallFresh.json",
+      "relative_copy_path": "originals/operation/phase-InstallFresh.json",
+      "bytes": 612,
+      "sha256": "fb86ef87b6d234895b5e7cbfe7d5e097d41a6cad2075bdf3576d6f890d72e637",
+      "last_write_utc": "2026-11-03T07:26:56.359900+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\phase-ReadFresh.json",
+      "relative_copy_path": "originals/operation/phase-ReadFresh.json",
+      "bytes": 968,
+      "sha256": "fdc4e182852b8ace82633b8d5fa03c06e82dbd3c445e131e5174963a03be7ac0",
+      "last_write_utc": "2026-11-03T07:34:26.493538+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\phase-Forecast.json",
+      "relative_copy_path": "originals/operation/phase-Forecast.json",
+      "bytes": 944,
+      "sha256": "e25a958d991987b0a017a9423a8d97ca853719cddaecf4fa3699f4e41a10b9a6",
+      "last_write_utc": "2026-11-03T07:35:18.146423+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\verification.json",
+      "relative_copy_path": "originals/operation/acceptance/workflow/verification.json",
+      "bytes": 159361,
+      "sha256": "ff643cf602c118dac689874106a045220e29b79098b91dc147de5e5d4da92e37",
+      "last_write_utc": "2026-11-03T07:35:18.104308+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\before-reads.sqlite3",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/before-reads.sqlite3",
+      "bytes": 1040384,
+      "sha256": "0fbc6c70e5bd78db53f82ba75cabd841d4e85dba152b13d4e9881954610c2c48",
+      "last_write_utc": "2026-11-03T07:35:10.735481+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\after-reads.sqlite3",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/after-reads.sqlite3",
+      "bytes": 3043328,
+      "sha256": "b7c0c52c694f1ade073dee0589985853b9b881fe81dfcba14e973f345f46c187",
+      "last_write_utc": "2026-11-03T07:35:18.057507+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\BINDINGS.json",
+      "relative_copy_path": "originals/operation/BINDINGS.json",
+      "bytes": 1568,
+      "sha256": "df0260dd0f54a5bab7a3e62e6359259da5db7db9572c366aabf67b43f87cc2c7",
+      "last_write_utc": "2026-11-02T15:51:12.734412+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\PLAN.json",
+      "relative_copy_path": "originals/operation/PLAN.json",
+      "bytes": 3910,
+      "sha256": "5bcf53a0077440d7537e659bc94b5cf3dbb5e29ae1428d207b19a5f8a4a47b7c",
+      "last_write_utc": "2026-11-02T15:51:12.718723+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\PREPARATION-RECEIPT.json",
+      "relative_copy_path": "originals/operation/PREPARATION-RECEIPT.json",
+      "bytes": 3143,
+      "sha256": "400105c2a741beaeeaaed5e3bb9010fa9bb58d60b8193f4fb02adae33122958e",
+      "last_write_utc": "2026-11-02T15:51:45.520339+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Invoke-Dev5Phase.ps1",
+      "relative_copy_path": "originals/operation/Invoke-Dev5Phase.ps1",
+      "bytes": 21007,
+      "sha256": "125748d3a31714f02c0c47c3218573cf948e1d5018af465e424c0d045276d6fd",
+      "last_write_utc": "2026-11-02T14:41:48.809677+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Backup-Disposable.ps1",
+      "relative_copy_path": "originals/operation/Backup-Disposable.ps1",
+      "bytes": 8854,
+      "sha256": "b42c3ea720026872077f9db9c92d4370e0c2246fb6d55123cfae1d830b336178",
+      "last_write_utc": "2026-11-02T14:31:43.341341+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Forecast.started.lock",
+      "relative_copy_path": "originals/operation/Forecast.started.lock",
+      "bytes": 122,
+      "sha256": "36b6c6ada192dead54a343b48f179febc4d523276c01e4db263bb28525527072",
+      "last_write_utc": "2026-11-03T07:35:05.157059+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\InstallFresh.started.lock",
+      "relative_copy_path": "originals/operation/InstallFresh.started.lock",
+      "bytes": 126,
+      "sha256": "703067d9e8abcdb26396f3ab29bfb632725d93a0ef39169b07bf7f1fe6d8ebf9",
+      "last_write_utc": "2026-11-03T07:25:19.530189+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\ReadFresh.started.lock",
+      "relative_copy_path": "originals/operation/ReadFresh.started.lock",
+      "bytes": 123,
+      "sha256": "389d9bb430d9eefd1f657a9e1f727710b2ea6b3015993b615bab9a02cfeb7e74",
+      "last_write_utc": "2026-11-03T07:34:13.203756+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\before-reads.sqlite3-wal",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/before-reads.sqlite3-wal",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_write_utc": "2026-11-03T07:35:10.743511+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\before-reads.sqlite3-shm",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/before-reads.sqlite3-shm",
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "last_write_utc": "2026-11-03T07:35:10.745024+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\after-reads.sqlite3-wal",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/after-reads.sqlite3-wal",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "last_write_utc": "2026-11-03T07:35:18.066562+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\after-reads.sqlite3-shm",
+      "relative_copy_path": "originals/operation/acceptance/workflow/private/after-reads.sqlite3-shm",
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+      "last_write_utc": "2026-11-03T07:35:18.067074+00:00",
+      "category": "ORIGINAL_EVIDENCE_UNMODIFIED_COPY",
+      "original_unchanged_after_copy": true
+    },
+    {
+      "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\verify_disposable_workstation_dev5.py",
+      "relative_copy_path": "originals/tooling/verify_disposable_workstation_dev5.py",
+      "bytes": 47211,
+      "sha256": "47d5ffc472bbb0675ab8942c77fccb14e9a780e8f40acff2e397fe5e1c197f0b",
+      "category": "ORIGINAL_ACCEPTANCE_HELPER",
+      "original_unchanged_after_copy": true
+    }
+  ],
+  "sqlite_sidecars_present": [
+    "acceptance/workflow/private/before-reads.sqlite3-wal",
+    "acceptance/workflow/private/before-reads.sqlite3-shm",
+    "acceptance/workflow/private/after-reads.sqlite3-wal",
+    "acceptance/workflow/private/after-reads.sqlite3-shm"
+  ],
+  "original_advertised_direct_snapshot_paths_missing": true,
+  "actual_snapshots_under": "acceptance/workflow/private/",
+  "source_or_installed_state_changed": false
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "module-state-ui-semantics-review/1",
+  "as_of_capture": "2026-11-03T08:30:13.769638+00:00",
+  "scope": "Static source/deployed-byte review plus captured registry; no browser interaction or additional request",
+  "field_meanings": {
+    "items[id=memory].state": "Latest bounded passive observation, subject to observation/dependency expiry. Here complete immutable schema and10records, reason IMMUTABLE_MEMORY_PRESENT. Not blanket operation readiness.",
+    "items[id=memory].implementation_state": "BOUND: concrete implementation binding exists, not evidence operation executed.",
+    "items[id=memory].configuration_state": "CONFIGURED from specifically observed metrics.configured boolean; no claim all requirements accepted.",
+    "items[id=memory].runtime_state": "EXPIRED from latest actual history operation timestamp and its own5minute TTL, independent of fresh passive counts.",
+    "items[id=memory].capability_status[*].available": "False for every captured memory capability; no current named operation proof.",
+    "items[id=memory].capability_status[*].operation_status[*].state": "Expired for previously executed view/history/record_model/record_prediction; unverified attach_outcome."
+  },
+  "source_references": {
+    "passive_memory_observer": "src/dragonhydra/kernel/engines.py:349-364",
+    "observation_aggregate": "src/dragonhydra/kernel/registry.py:170-180",
+    "capability_operation_expiry": "src/dragonhydra/kernel/registry.py:193-221",
+    "configuration_state": "src/dragonhydra/kernel/registry.py:240-242",
+    "engine_runtime_state": "src/dragonhydra/kernel/registry.py:257-261",
+    "contract": "docs/architecture/MODULE-CONTRACTS.md:21-50,131-137",
+    "php_card_summary": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php:17,27,121",
+    "php_capability_and_runtime_detail": "server/joomla/com_dragonhydra/admin/tmpl/dashboard/control-center.php:80-95",
+    "php_state_colors": "server/joomla/com_dragonhydra/admin/src/Model/ControlCenterModel.php:29-34"
+  },
+  "conclusion": {
+    "expired_capability_falsely_green_in_capture": false,
+    "reason": "Capability table uses capability.available; named operation badges use proof.state, making EXPIRED neutral. Runtime operation detail displays EXPIRED. Green card/Ready-within-scope summary use fresh bounded observation state.",
+    "actual_ui_presentation_limitation": "Filter labelled Runtime status (template118) filters module.state (Model202), not runtime_state. Thus selectingReady may includeMemory with expired operations. This is a verified naming ambiguity, not promotion of expired operation proof.",
+    "product_changes_performed": false
+  },
+  "bindings": {
+    "deployed_php_model_matches_frozen": true,
+    "deployed_php_template_matches_frozen": true,
+    "model_sha256": "43f17b3f8ae703db027b0d7af8cb5d2d8b4e1a7edcb1e4bf7683bf5f7cb3e5e4",
+    "template_sha256": "0466edda3b92d8dfeaabf5c059b4d8a4b1c26bd6196f770cb4c36c4a48434552",
+    "registry_matches_server_manifest": true,
+    "engines_matches_server_manifest": true
+  }
+}

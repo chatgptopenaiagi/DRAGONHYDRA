@@ -1,3 +1,18 @@
+## Current forensic continuation — 2026-11-03
+
+The owner's later directive authorizes the isolated forensic worktree
+`C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\forensics\forecast-preservation-20261103\source`.
+Root alone integrates task-owned acceptance tools and sanitized evidence on
+`forensic/forecast-preservation-20261103`. Do not write the canonical checkout or
+frozen application worktree. Read the incident report linked by RESUME-CODEX.md.
+Preserve original failed one-shot receipts and raw snapshots; SQLite analysis uses
+independent working copies. Actual disposable ports are API18860/Joomla18861/DB18862.
+No Sentinel/general workspace-control development. No application rebuild or dev.5
+publication unless an actual product change or completed acceptance gate warrants it.
+
+
+---
+
 # DRAGONHYDRA CORE NEXT
 
 Active continuation: read docs/handover/CONTINUATION-20261102.md for the settled

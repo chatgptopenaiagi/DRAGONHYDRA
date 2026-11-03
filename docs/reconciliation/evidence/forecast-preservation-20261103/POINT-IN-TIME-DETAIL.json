@@ -1,0 +1,1022 @@
+{
+  "schema_version": "forensic-availability-coverage-detail/1",
+  "passed": true,
+  "input_clock_bindings": [
+    {
+      "evidence_id": "e332dee2ecc79d5ea832186c4bd8bf50dad08df09be951b3f859c88c297361fe",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "8391ce4deeff37b865738a02354ef356c46a1b00f31271800122adf9364f0ccb",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "5db510de95c224689479fbc53aafdbe3ce1a64f01fde741984c60f4f0538346c",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "ed2ff47153d7549e8c323c2289144ca84a4b51b0f50e86ca3b9d5f96fee0dba7",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "7700870c2d0b7c40fbe2325de45c37f10399a84044d3de4ac5e69a8a43a444d2",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "a9d236bf7f53b61b80442562a41ba12a175d722b5a51ebc5db9e06ec3bd94085",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "f6a5502e205eacef49ad086dfffbf07d9e3bd1106be3a3156d04ff758f2f1af6",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "282414dda355411034a367e5972b78571c5e52459e6204c565dfa7316e84c9a9",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "c97cfb36f10d4cc218d9440625b27facb365d0f168fc8190151eba77ae054e31",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "7cab0b774c6e7826b109758fe9b264c36e3975d237b05932bbae7efaeeba29d6",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "d54699a576b16a81834392dc29a19074795eb75146cc2a96ab998f905959c687",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "67b019a456b3b95465e036a9dcb0b343f6cbde2b026b367950643ca698b7238c",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "8ad8aff9a5231e07aa87f43b4964b6c9e811e9ac3368b4775e39a4e1a5ce653d",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "7efaaef97652bef451a8046fa08ba6ec6a20f05b7a76d5e8e1fd30494246b9df",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "e2e12e7814b534afc92830fb24938b42dd789832a92359dc8b40e2b4b94ba62b",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "6a2f94ecc9d30ecf6664a8006d386bf352aed473dbbc10e3062cd2471cc050c5",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "b9bc79630a116262f65fbf73771495ea0109300ed7672469597437d41b05c9b5",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "624f707f0ea86e16c13fe58720508413caed01f8ab1f0e1212ba1924e9a086a3",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "0dfe85fb84f82263497df135a859dd779648ae0370b5b309914e5ffd53976a44",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "8ea5d56fb1f856ebf5428e4bd596c9325ecf59844621f50f91b7939fac1612a6",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "4ee04fc2a8d1111adf45aa186b06332796f43a2328316bdb03936717f2ba8743",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "2f1e49f0dec7d63c9f0273b1b872c5de47fd0f81578b18b2ded6f50fd495cd8d",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "d1074ab4d342d6abd232f3e288899bd0eab6d69f2312ecaa824749ebf22dedee",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "0a1da6696ff63de2adae0c750a0effb6d4fb7463d0696edc84ff68f531fc78da",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "893d55d247968813492215d49214f703df78518e5e01eafb5b24768cb7ab6225",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "aacc89a520aaebb2c9cdfbe4d9f14e90136388175f8a86460b385b7d067906e6",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "0696391942416ad79be5ea9deeac79bf595aac8f1bf99b4b7b24c39c20831cad",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "30f7350a181badd1295db382c39b747302af81d0ddf758600df3ad97f7f6ffa4",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "34f953729adf240f81d48dadf825d961444b83e203c3115ff20789a8e54c5acd",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "f540a66959bc3ac8bf1cb4b9bff451ab7b0ddfbb973d3a1a53c4f50cafb823d3",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "d66cb0cccbad47200e5a5e2f928f64725e4bf6699e1d4318c0dd38c16d8ae98f",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "90b8062f95c095740e071ab807b073985b9ee1e86a3c9924bbf494836e7dc331",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "271107e239ab272f926950b3f17e0d0270be517cb869e3f66651725c9ffb0048",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "ee55fcc4ea12a13a5ac798bba315f0c3024d898723b350c09c85379818b7da10",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "eac4be5e169eeed0f75f0f05f089e8fac6d207320a59b990741c97e2ea387d62",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "008295f8d238ef6a6b233cbe1fdfc7c388bcb92ffd4ca4b928b1cf5c2b20c0ae",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "e46aac3ed6c0cecbee23be51d99e229a0a4907218d28794f8939b90eaa34267a",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "4ec2f50c09234c0fbbcc10e9f10cf8c764259e66e854bf26c762253b210880e3",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "18388b169a0e7211e5592ff5dacdc53c6e0ef85eebacb00390ece8bd20779f92",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "15cf96b3d53120464a43b69c60f2adb821d937079e242a5b6ceb23466c7db7a2",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "59ebb460a5630739157ca2da9f0e4bf6d9593e96f8738457035fdd86019e20af",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "1d0b68c300a769262e9ba27af470c7df8b69b4b52a0537102d391174a32c42f4",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "2a5f21f39b120010e5b784cf3b98a4fd6e6951951a9f8e5c277deaf5aa21a8a0",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "88558588718e9e37eca568524fb5c3c97e65ace6ec582ccda8e90e390c795476",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "fd0ee4c52b5745efd2e499e18e953d22aa37b1c5b633f0e6a1be8b6508e149ec",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "e26a6e2843a363f73e819f210c85fefc994ce6aa63ada7260fe14ab184079950",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "0c4f4705ec9b7452578841158f707270ae689eefb332538b476360b88d00d733",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "729d984bbbcfdd0758654aae32076cd84d8c61933abd89f6babb9329e79731c9",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "266f74271a2a07ec540cebd2c0205ec63241580413bc90284e6ee9ded92c2b22",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    },
+    {
+      "evidence_id": "f8284c441c1ff54de54e4442874cc2c4dd42dbf961bf6a7ff3c3c5ca9b70984a",
+      "archived_download_receipt": {
+        "captured_at": "2026-10-28T13:51:48.055200+00:00",
+        "persistence_acknowledged_at": "2026-10-28T13:51:48.055956+00:00",
+        "usable_at": "2026-10-28T13:51:48.055956+00:00"
+      },
+      "operational_import": {
+        "received_at": "2026-11-03T07:26:51.707533Z",
+        "persisted_at": "2026-11-03T07:26:51.719483Z",
+        "usable_at": "2026-11-03T07:26:51.719483Z"
+      },
+      "published_at": null,
+      "available_by_cutoff": true,
+      "archived_receipt_sha256": "41b79f57bc28dac8f5fb4fd60755db1bdd62c8cfd7c71d4d4e7be0a17396a7cb"
+    }
+  ],
+  "target_raw_and_unplayed_retained_binding": "PASS",
+  "coverage": {
+    "existing_fixture_cases": 22,
+    "focused_receipt_total_passed": 52,
+    "rerun_here": false,
+    "mapping": [
+      {
+        "case": "source\\tests\\core_next\\test_workflow_eligibility.py::test_known_result_cannot_be_erased_by_a_later_scheduled_revision",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_eligibility.py::test_unknown_timezone_near_event_date_does_not_establish_pregame_timing",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_eligibility.py::test_model_inputs_generation_and_prediction_receipts_keep_distinct_clocks",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "50input and10cognitive clock chains verified"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_eligibility.py::test_incomplete_run_with_one_prediction_is_not_a_ready_explicit_operation",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_eligibility.py::test_ensemble_is_scored_readonly_but_not_persisted_as_supported_base_evaluation",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_api.py::test_anonymous_and_reader_permissions_empty_body_and_no_backdating",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_api.py::test_durable_forecast_jobs_bind_owner_key_run_and_same_state_restart",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "exact duplicate and restart job/record identity verified"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_workflow_api.py::test_evaluation_job_is_honestly_pending_without_later_result",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "pending no later outcome/no accuracy score verified"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_memory_readonly.py::test_partial_records_table_cannot_report_immutable_memory_ready",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_memory_readonly.py::test_initial_history_read_does_not_initialize_memory",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "passive snapshot bytes unchanged verified"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_memory_readonly.py::test_each_missing_immutable_trigger_fails_closed_without_repair",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_memory_readonly.py::test_explicit_readonly_memory_api_does_not_write_complete_or_partial_schema",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "absent/complete actual reads preserved; partial-schema negative only source fixture"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_memory_readonly.py::test_unavailable_store_does_not_create_file_or_infer_empty_memory",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_secret_or_unknown_metrics_never_escape_any_projection",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_nonfinite_and_wrong_scalar_types_rejected_before_publish",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_future_observation_cannot_stay_ready_when_clock_moves_back",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_failed_refresh_retains_actual_historical_success",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_failed_or_empty_sample_does_not_renew_retained_count",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_invalid_identifiers_and_configuration_references_rejected",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_observation_has_bound_identity_scope_and_unique_ids",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "historical pre-workflow registry identity/scope inspected"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_operation_proof_does_not_verify_other_capabilities_or_renew_expired_evidence",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      },
+      {
+        "case": "source\\tests\\core_next\\test_registry_safety.py::test_scoped_read_success_does_not_promote_absent_store_or_optional_model",
+        "existing_scoped_fixture_result": "PASS",
+        "actual_runtime_relation": "Adversarial/failure source fixture only; not triggered against successful isolated runtime"
+      }
+    ]
+  },
+  "historical_registry_freshness": [
+    {
+      "id": "sqlite_storage",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "data",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "odds",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "prediction",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "memory",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "evaluation",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "ai",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "web_server",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "mariadb_storage",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "api_server",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "joomla_administration",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "joomla_website",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "durable_jobs",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "provider_scheduler",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "runtime_supervisor",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "windows_desktop",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "android_client",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    },
+    {
+      "id": "packaging_recovery",
+      "fresh_at_passive_read_window_end": true,
+      "expired_at_analysis": true
+    }
+  ],
+  "post_workflow_registry_state": "UNVERIFIABLE: no post-workflow modules response",
+  "limits": [
+    "Archived download receipt metadata is not a witnessed new network retrieval in this runtime",
+    "Published-at null remains unknown; no exact kickoff timezone inferred"
+  ],
+  "harness_note": "UTC instant comparison used for equivalent Z and +00:00 spellings; direct string equality rejected that valid formatting difference in the first supplemental attempt"
+}

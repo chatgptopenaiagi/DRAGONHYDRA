@@ -1,0 +1,127 @@
+{
+  "schema_version": "dragonhydra.forecast-installed-readback/1",
+  "passed": true,
+  "evidence_class": "NEW_INSTALLED_READ_ONLY_EVIDENCE_NOT_REPLACEMENT_ORIGINAL_SNAPSHOTS",
+  "source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health/live",
+      "seconds": 0.007941799995023757
+    },
+    {
+      "method": "GET",
+      "path": "/health/ready",
+      "seconds": 0.025559800007613376
+    },
+    {
+      "method": "GET",
+      "path": "/system",
+      "seconds": 0.011646500002825633
+    },
+    {
+      "method": "GET",
+      "path": "/modules?scope=all",
+      "seconds": 0.021153899986529723
+    },
+    {
+      "method": "GET",
+      "path": "/matches?limit=1&offset=0",
+      "seconds": 0.03786270000273362
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/9cbe1c2be77d46a49c692b5cb8bf8f2b",
+      "seconds": 0.033096900006057695
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/c4be90b6379d44309f9faeb696975b4f",
+      "seconds": 0.012271400017198175
+    },
+    {
+      "method": "GET",
+      "path": "/matches/de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea/cognition-history",
+      "seconds": 0.06772059999639168
+    }
+  ],
+  "checks": [
+    {
+      "name": "installed_five_components_source_hashes",
+      "status": "PASS",
+      "count": 5
+    },
+    {
+      "name": "authenticated_health_and_18_module_inventory",
+      "status": "PASS",
+      "inventory": {
+        "engines": 6,
+        "supporting": 12,
+        "total": 18
+      }
+    },
+    {
+      "name": "original_persisted_forecast_and_pending_evaluation_readback",
+      "status": "PASS",
+      "original_jobs_only": true
+    },
+    {
+      "name": "new_online_backup_integrity",
+      "status": "PASS"
+    }
+  ],
+  "mutating_requests": 0,
+  "credentials_logged": false,
+  "raw_response_saved": false,
+  "workflow": {
+    "forecast_job_id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+    "evaluation_job_id": "c4be90b6379d44309f9faeb696975b4f",
+    "forecast_status": "succeeded",
+    "evaluation_job_status": "succeeded",
+    "evaluation_result_status": "pending",
+    "pending_reason": "LATER_RETAINED_OUTCOME_UNAVAILABLE",
+    "history_records_sha256": "b0998ba044a1c29fea65d12dce6f1c3e59cdbc4763362db8b242a2f5ef77790d",
+    "record_ids": {
+      "models": [
+        "model:ba6535d46bc4cf94a0d0c4343974ef22da11e05f79bc8f5657625a8a589362ae",
+        "model:4ac2deabf68b30635fd4ee8edec017c89d583972389da3cd0a66c8f74de670c6",
+        "model:34617658a2e7ca12b1b60241b8d8da827a4073310a1296109bc98285528cf642",
+        "model:41a58dc4e488d732c110eba562d2098da859b340913d004eece37543b50876ae",
+        "model:253fe66f6debdea5a0806292bb4cb6e15a732fd7e679e04cd7ae837f636ef7de"
+      ],
+      "predictions": [
+        "prediction:3ca6691a389b7dd4de160679b183239588c0991d9e027d7bc4b9efaaaa3796c4",
+        "prediction:5f2f8a32bad413d0d11e1c25bfbbaed2a504adb149aebef4d4e012c554495935",
+        "prediction:be1207a6e242f623662bd0f95962fdf7df2273889dae5b0009d125d5bce23221",
+        "prediction:2998ded59e69206f75ea4ba6d88ff03bb678f6ac22b30f92708e09670549e37a",
+        "prediction:5632bd541b8fc0cd59ca089c3451c1cda1734e742f995249368a1c49ca4a0553"
+      ],
+      "outcomes": [],
+      "evaluations": []
+    },
+    "counts": {
+      "models": 5,
+      "predictions": 5,
+      "outcomes": 0,
+      "evaluations": 0
+    },
+    "new_operations_submitted": 0,
+    "forecast_result_sha256": "9f017a21f78050f2b0fcbc7ae35b5ac37e61c33f0dbe6cd8c803bd8d3509a866"
+  },
+  "new_snapshot": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\installed-readback-r1\\private\\current-readback.sqlite3",
+    "sha256": "b7c0c52c694f1ade073dee0589985853b9b881fe81dfcba14e973f345f46c187",
+    "integrity_check": "ok",
+    "counts": {
+      "public_fixture_records": 760,
+      "connector_settings": 0,
+      "cognitive_records": 10,
+      "cognitive_receipts": 10,
+      "product_jobs": 3,
+      "product_updates": 14
+    },
+    "scope": "New current readback evidence, never substituted for original before/after"
+  },
+  "observed_at": "2026-11-03T07:58:58.053595+00:00"
+}

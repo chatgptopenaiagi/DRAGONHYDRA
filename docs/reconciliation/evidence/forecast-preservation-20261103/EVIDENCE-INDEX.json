@@ -1,0 +1,175 @@
+{
+  "schema_version": "dragonhydra.forensic-evidence-index/2",
+  "observed_at": "2026-11-03T09:06:32.7095722Z",
+  "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "raw_databases_included": false,
+  "credentials_included": false,
+  "files": [
+    {
+      "file": "ACCEPTANCE-MATRIX.json",
+      "bytes": 15276,
+      "sha256": "93dbc0f085517e2a8e1cc63c8c32da043863ff4c51a008163dd716353f6972b4"
+    },
+    {
+      "file": "ARTIFACT-PRESERVATION.json",
+      "bytes": 15432,
+      "sha256": "55645734109afe470bd97525dad110dcaae3b3195f642ce3f938bdc7040823d1"
+    },
+    {
+      "file": "BACKUP-ELEVATION-REQUEST.json",
+      "bytes": 899,
+      "sha256": "d6cc2c5ea90fdb20622ae118b74c3dfd8352f15132e584ac193d9f5e05f5fb7e"
+    },
+    {
+      "file": "CANONICAL-SCHEMA-REFERENCE.json",
+      "bytes": 8081,
+      "sha256": "12c68f7a339214c53395131aac50df994e33dc490d516f22742ab6fef158dc9c"
+    },
+    {
+      "file": "CODE-BINDINGS.json",
+      "bytes": 968,
+      "sha256": "ad0faf32895c9e2c42adf647506ec2891cdfa1481159d3d11f8af71f30f90e2c"
+    },
+    {
+      "file": "CONTINUATION-GUARD-TESTS.json",
+      "bytes": 1848,
+      "sha256": "a146c5c81c59ac216547c136f5f9bd855d0efd5af92bea5a8cb3008aba977cd2"
+    },
+    {
+      "file": "CONTINUATION-POWERSHELL-GUARDS.json",
+      "bytes": 597,
+      "sha256": "34a394743faaf76d3b3ee668b56e5a87da3cabee0b7f8c9d002556b55da80819"
+    },
+    {
+      "file": "COORDINATOR-ATTESTATION.json",
+      "bytes": 982,
+      "sha256": "5f8c52d3c55b5d114da60096a82c88f0104af436f4a391235d76afa9bfd53979"
+    },
+    {
+      "file": "CURRENT-REGISTRY-OPERATIONS.json",
+      "bytes": 6045,
+      "sha256": "94ab7fd2be1d7fe23dcd256fe39969342bb899126afb3c62dad7042ae65c1b21"
+    },
+    {
+      "file": "CURRENT-REGISTRY-READ.json",
+      "bytes": 10671,
+      "sha256": "09ec54b86aae830154c4c72ed9f8fd88a14e71f044dc0e8eb124686eac14167b"
+    },
+    {
+      "file": "FINAL-INSTALLATION-STATE.json",
+      "bytes": 4203,
+      "sha256": "61d456a4fcb9d8be5216ea028dc20c1a0f80e7201d3f88e2e887f44ddcf4cc74"
+    },
+    {
+      "file": "FOCUSED-TESTS.json",
+      "bytes": 6239,
+      "sha256": "56e59f4f78be097a971d077a739c2f161e47fe4709fa730162397efd7bb92160"
+    },
+    {
+      "file": "FORENSIC-MANIFEST-ADDITIONAL.json",
+      "bytes": 419,
+      "sha256": "01fbb1c26f62f027f320956d6f971dff35564fc9a1547ec4c76eb428022b2e6b"
+    },
+    {
+      "file": "FORENSIC-MANIFEST.json",
+      "bytes": 10705,
+      "sha256": "e02558910fe67641d1d54123e20d30f44d8cce12b8fd457f706e445d593bde23"
+    },
+    {
+      "file": "INSTALLED-JOOMLA.json",
+      "bytes": 16133,
+      "sha256": "b6b83e5498320e0a06907ff6a703dd87b78512641d8d7fceae3b2a7460bfa2a2"
+    },
+    {
+      "file": "INSTALLED-READBACK.json",
+      "bytes": 4340,
+      "sha256": "c8a087eb1c90d3416cd36e1f0ce9962a8abc0d687b19fd6b704bd3d8e3a789d7"
+    },
+    {
+      "file": "ISOLATED-RUNTIME.json",
+      "bytes": 18602,
+      "sha256": "6f202bdfc15c6be40cf8e49d4a213ae0e6893f5f5e92b8c21e2dd2b9bb59a135"
+    },
+    {
+      "file": "ORIGINAL-SNAPSHOT-AUDIT.json",
+      "bytes": 1405,
+      "sha256": "21bc70022454b4969d634a1bab1e7f6a65ca43a316709f58296f227f09c7574f"
+    },
+    {
+      "file": "ORIGINAL-WORKFLOW-CLOCKS.json",
+      "bytes": 724,
+      "sha256": "96a980eaa49db130426efaaaad84dd1b5af543ad8fa8a0b0330c53c1dc62cdae"
+    },
+    {
+      "file": "ORIGINAL-WORKFLOW-SEMANTICS.json",
+      "bytes": 69173,
+      "sha256": "2bcb5a890b92449b705588aaeba3f0d6fc1770dce891b85102084f2dac07f936"
+    },
+    {
+      "file": "PACKAGE-ACCEPTANCE-STATUS.json",
+      "bytes": 10106,
+      "sha256": "5333fd1c17fedbf938f72a1477775f8a7af83f99320ce9f667a39d003887eb2c"
+    },
+    {
+      "file": "POINT-IN-TIME-DETAIL.json",
+      "bytes": 46149,
+      "sha256": "495f3389961e6ba319cfee5098ef82d93b042216afa923edc2514ec3ad5634f7"
+    },
+    {
+      "file": "RECONCILE-PHASE.json",
+      "bytes": 1557,
+      "sha256": "f5e22d7ec3b9bf2f2b903d259c76ef2e1978b8c37b72b77310614dfd1381cc9e"
+    },
+    {
+      "file": "RECONCILE-READBACK.json",
+      "bytes": 8541,
+      "sha256": "247943b1a9459fc22343b139d6756d3f5e708862ac6a7803bc02a61861872eb0"
+    },
+    {
+      "file": "RECONCILIATION.json",
+      "bytes": 6684,
+      "sha256": "74c4ec17e8a0020882b72829fe3a26b65c8d0783f5e597e9477ff8e226b3810d"
+    },
+    {
+      "file": "REGISTRY-UI-SEMANTICS.json",
+      "bytes": 3109,
+      "sha256": "77bc6562cb28f25ce501fd8d2ac18b5159d34f8780967994ad2a71612bc0f871"
+    },
+    {
+      "file": "REMOTE-PRESERVATION.json",
+      "bytes": 63361,
+      "sha256": "7856e3001825a97f8c1d306ee671cd89f3b2e02e704cbdc6ccdfae4f5f3dd4ea"
+    },
+    {
+      "file": "REPAIR-VERIFICATION.json",
+      "bytes": 5140,
+      "sha256": "60abfe40b3f75dc0fe197ef7a0abe9f2476bdb6315ce5121bbc6d399c50905df"
+    },
+    {
+      "file": "ROOT-CAUSE.json",
+      "bytes": 9163,
+      "sha256": "997ad7b6bc863c605bafd5891664c5c63c9422e279a77d179f21ef2ad79663b0"
+    },
+    {
+      "file": "SEMANTIC-REVIEW.json",
+      "bytes": 68408,
+      "sha256": "3dd9be1e1ffa0f096a57ec5ae7b08728e5b55895e19a283c6840a8de25e0b5a9"
+    },
+    {
+      "file": "SQLITE-LOGICAL-DIFF.json",
+      "bytes": 26922,
+      "sha256": "cc1b63982189664d87b0290a69216df0e04cff1b0a5e9d06e388fa8eccefd07a"
+    },
+    {
+      "file": "TIMING-REVIEW.json",
+      "bytes": 2297,
+      "sha256": "565a041786e2b12f3830293db423831c1db37a98173ee6038c5880bdcf2a1ebf"
+    },
+    {
+      "file": "WINDOWS-ACCEPTANCE-CONTINUATION.json",
+      "bytes": 3650,
+      "sha256": "68f48de740f792a909ecfc811c86665045a6b7bdd9209b7378d6b18e8198d9cc"
+    }
+  ],
+  "generated_scan_receipt": "TASK-PRIVACY-SCAN.json is excluded from its own inputs and this checksum list; Git preserves its exact bytes"
+}

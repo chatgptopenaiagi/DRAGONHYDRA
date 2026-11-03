@@ -1,0 +1,15 @@
+{
+  "schema_version": "original-workflow-clock-target-detail/1",
+  "passed": true,
+  "original_cutoff": "2026-11-03T07:35:11.280781Z",
+  "all10_cognitive_receipts_within_original_forecast_job_window": true,
+  "forecast_job_created_at": "2026-11-03T07:35:11.069609Z",
+  "forecast_job_updated_at": "2026-11-03T07:35:14.396040Z",
+  "target_source_version_retained_raw_and_unplayed_binding": "PASS",
+  "original_duplicate_pending_checkpoint": {
+    "name": "disposable_real_forecast_persisted_duplicate_reused_and_evaluation_pending",
+    "status": "PASS",
+    "observed_at": "2026-11-03T07:35:15.002473+00:00"
+  },
+  "scope": "Preserved original evidence/ownworkingcopy only; no live request or new operation"
+}

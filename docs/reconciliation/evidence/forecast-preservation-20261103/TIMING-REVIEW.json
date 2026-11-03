@@ -1,0 +1,65 @@
+{
+  "schema_version": "forensic-timing-review/1",
+  "job_samples": [
+    {
+      "kind": "evaluation",
+      "job_id": "6fc419caa6a84cf89e8d4ad63fba531f",
+      "event_clocks": {
+        "queued": "2026-11-03T08:16:54.357747Z",
+        "running": "2026-11-03T08:16:54.391751Z",
+        "succeeded": "2026-11-03T08:16:54.483992Z"
+      },
+      "queue_latency_seconds": 0.034004,
+      "running_to_terminal_seconds": 0.092241,
+      "queued_to_terminal_seconds": 0.126245,
+      "attempts": 1
+    },
+    {
+      "kind": "forecast",
+      "job_id": "78df2e7464644862b8544430b3378119",
+      "event_clocks": {
+        "queued": "2026-11-03T08:16:50.169132Z",
+        "running": "2026-11-03T08:16:50.351506Z",
+        "succeeded": "2026-11-03T08:16:54.164525Z"
+      },
+      "queue_latency_seconds": 0.182374,
+      "running_to_terminal_seconds": 3.813019,
+      "queued_to_terminal_seconds": 3.995393,
+      "attempts": 1
+    }
+  ],
+  "method": "Persisted UTC job-event timestamps, one forecast and one pending evaluation; includes worker/persistence overhead, not isolated model-math timing",
+  "auditor": {
+    "sample_count": 5,
+    "wall_seconds": [
+      0.07483420000062324,
+      0.09127539998735301,
+      0.07507279998390004,
+      0.0793773999903351,
+      0.0851453999930527
+    ],
+    "median_seconds": 0.0793773999903351,
+    "range_seconds": [
+      0.07483420000062324,
+      0.09127539998735301
+    ],
+    "method": "Sequential perf_counter, same already-warm read-only working copies, includes audit hashing/SQLite reads; no cold-cache or comparative baseline",
+    "sha256": "94b98d6e030a2090ee99f55abffa72f0e5e6ef1f148f47c707d4035cb03d6478"
+  },
+  "runner_elapsed_seconds": 11.33277,
+  "lifetime_elapsed_seconds": [
+    5.954271,
+    1.401331
+  ],
+  "per_request_or_original_audit_timing": "UNVERIFIABLE: original request receipts have no per-request/audit elapsed clock",
+  "hardware_nonidentifying": {
+    "physical_cores": 6,
+    "logical_processors": 12,
+    "recorded_max_clock_mhz": 3901,
+    "ram_bytes": 68047577088,
+    "os_version": "10.0.29695",
+    "os_architecture": "64-bit",
+    "scope": "Fresh read-only CIM metadata, not sampled CPU/RAM utilization"
+  },
+  "performance_improvement_claim": false
+}

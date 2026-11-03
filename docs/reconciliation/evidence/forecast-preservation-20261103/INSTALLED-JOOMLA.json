@@ -1,0 +1,460 @@
+{
+  "schema_version": "joomla.retained-history-readback/1",
+  "status": "PASS",
+  "passed": true,
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "checks": [
+    {
+      "name": "exact_profile_source_deployed_php_and_consistent_before_snapshot",
+      "status": "PASS",
+      "php_files": 5
+    },
+    {
+      "name": "associated_backend_original_jobs_and_ten_history_records",
+      "status": "PASS",
+      "history_sha256": "b0998ba044a1c29fea65d12dce6f1c3e59cdbc4763362db8b242a2f5ef77790d",
+      "job_ids": [
+        "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+        "c4be90b6379d44309f9faeb696975b4f"
+      ],
+      "counts": {
+        "models": 5,
+        "predictions": 5,
+        "outcomes": 0,
+        "evaluations": 0
+      }
+    },
+    {
+      "name": "joomla_bridge_renders_all_ten_original_records",
+      "status": "PASS",
+      "counts": {
+        "models": 5,
+        "predictions": 5,
+        "outcomes": 0,
+        "evaluations": 0
+      },
+      "model_record_ids": [
+        "model:253fe66f6debdea5a0806292bb4cb6e15a732fd7e679e04cd7ae837f636ef7de",
+        "model:34617658a2e7ca12b1b60241b8d8da827a4073310a1296109bc98285528cf642",
+        "model:41a58dc4e488d732c110eba562d2098da859b340913d004eece37543b50876ae",
+        "model:4ac2deabf68b30635fd4ee8edec017c89d583972389da3cd0a66c8f74de670c6",
+        "model:ba6535d46bc4cf94a0d0c4343974ef22da11e05f79bc8f5657625a8a589362ae"
+      ],
+      "prediction_record_ids": [
+        "prediction:2998ded59e69206f75ea4ba6d88ff03bb678f6ac22b30f92708e09670549e37a",
+        "prediction:3ca6691a389b7dd4de160679b183239588c0991d9e027d7bc4b9efaaaa3796c4",
+        "prediction:5632bd541b8fc0cd59ca089c3451c1cda1734e742f995249368a1c49ca4a0553",
+        "prediction:5f2f8a32bad413d0d11e1c25bfbbaed2a504adb149aebef4d4e012c554495935",
+        "prediction:be1207a6e242f623662bd0f95962fdf7df2273889dae5b0009d125d5bce23221"
+      ],
+      "model_metadata_fields_compared": 7,
+      "percentages": [
+        {
+          "record_id": "prediction:3ca6691a389b7dd4de160679b183239588c0991d9e027d7bc4b9efaaaa3796c4",
+          "displayed_percentages": {
+            "home": "35.85%",
+            "draw": "32.08%",
+            "away": "32.08%"
+          }
+        },
+        {
+          "record_id": "prediction:5f2f8a32bad413d0d11e1c25bfbbaed2a504adb149aebef4d4e012c554495935",
+          "displayed_percentages": {
+            "home": "42.63%",
+            "draw": "25.09%",
+            "away": "32.28%"
+          }
+        },
+        {
+          "record_id": "prediction:be1207a6e242f623662bd0f95962fdf7df2273889dae5b0009d125d5bce23221",
+          "displayed_percentages": {
+            "home": "42.95%",
+            "draw": "32.08%",
+            "away": "24.97%"
+          }
+        },
+        {
+          "record_id": "prediction:2998ded59e69206f75ea4ba6d88ff03bb678f6ac22b30f92708e09670549e37a",
+          "displayed_percentages": {
+            "home": "35.24%",
+            "draw": "32.37%",
+            "away": "32.40%"
+          }
+        },
+        {
+          "record_id": "prediction:5632bd541b8fc0cd59ca089c3451c1cda1734e742f995249368a1c49ca4a0553",
+          "displayed_percentages": {
+            "home": "39.16%",
+            "draw": "30.40%",
+            "away": "30.43%"
+          }
+        }
+      ],
+      "pending_outcome": true,
+      "persisted_evaluation_metrics": 0
+    },
+    {
+      "name": "joomla_original_job_views_and_session_continuity",
+      "status": "PASS",
+      "job_ids": [
+        "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+        "c4be90b6379d44309f9faeb696975b4f"
+      ],
+      "evaluation_result_status": "pending"
+    },
+    {
+      "name": "normal_logout_and_fresh_anonymous_protection",
+      "status": "PASS",
+      "login_post_count": 1,
+      "product_action_posts": 0
+    },
+    {
+      "name": "consistent_sqlite_and_configuration_preservation",
+      "status": "PASS",
+      "schema_unchanged": true,
+      "protected_tables_unchanged": 21,
+      "job_count_unchanged": 3,
+      "only_auth_bookkeeping_exemptions": [
+        "product_bridge_nonces",
+        "product_sessions"
+      ]
+    },
+    {
+      "name": "no_known_credentials_in_responses_or_public_evidence",
+      "status": "PASS",
+      "known_secret_matches": 0,
+      "html_saved": false,
+      "cookie_or_command_key_values_saved": false
+    }
+  ],
+  "requests": [
+    {
+      "origin": "http://127.0.0.1:18860/dragon/api/v1",
+      "method": "GET",
+      "path": "/health/ready"
+    },
+    {
+      "origin": "http://127.0.0.1:18860/dragon/api/v1",
+      "method": "GET",
+      "path": "/system"
+    },
+    {
+      "origin": "http://127.0.0.1:18860/dragon/api/v1",
+      "method": "GET",
+      "path": "/matches/de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea/cognition-history"
+    },
+    {
+      "origin": "http://127.0.0.1:18860/dragon/api/v1",
+      "method": "GET",
+      "path": "/jobs/9cbe1c2be77d46a49c692b5cb8bf8f2b"
+    },
+    {
+      "origin": "http://127.0.0.1:18860/dragon/api/v1",
+      "method": "GET",
+      "path": "/jobs/c4be90b6379d44309f9faeb696975b4f"
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "prediction",
+      "job_id": null,
+      "anonymous": true
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/",
+      "section": null,
+      "job_id": null,
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "POST",
+      "purpose": "login",
+      "path": "/administrator/index.php",
+      "section": null,
+      "job_id": null,
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "prediction",
+      "job_id": null,
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "jobs",
+      "job_id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "jobs",
+      "job_id": "c4be90b6379d44309f9faeb696975b4f",
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "logout",
+      "path": "/administrator/index.php",
+      "section": null,
+      "job_id": null,
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "prediction",
+      "job_id": null,
+      "anonymous": false
+    },
+    {
+      "origin": "http://127.0.0.1:18861",
+      "method": "GET",
+      "purpose": "read",
+      "path": "/administrator/index.php",
+      "section": "prediction",
+      "job_id": null,
+      "anonymous": true
+    }
+  ],
+  "raw_html_or_credentials_saved": false,
+  "product_action_post_count": 0,
+  "database_before": {
+    "private_snapshot": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\installed-joomla-history-r1\\private\\before.sqlite3",
+    "snapshot_sha256": "b7c0c52c694f1ade073dee0589985853b9b881fe81dfcba14e973f345f46c187",
+    "integrity_check": "ok",
+    "consistent_backup": true,
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "protected_tables": {
+      "acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cognitive_receipts": {
+        "rows": 10,
+        "sha256": "a12273277bbc2e4fbddc1bf7274d67a043de24eb9b13fb131e56441a309355dd"
+      },
+      "cognitive_records": {
+        "rows": 10,
+        "sha256": "0720e2db365c88955cc644108fd77b47f0a8117baea3a184e81183a34dba6283"
+      },
+      "connector_acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_attempts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_identity_review": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_observations": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_settings": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "product_jobs": {
+        "rows": 3,
+        "sha256": "7697b22c1a69709bb045e5031bad156990917de6fdd88b5c72ffe984797b2057"
+      },
+      "product_schema": {
+        "rows": 1,
+        "sha256": "acc07b62f23f458923737c4cd4a66bd05d1e71eb4f384003baaf2dcc760d6349"
+      },
+      "product_updates": {
+        "rows": 14,
+        "sha256": "f2c2e86097161e1d13f06b2ae49c1f09f42fc50d114f6b7d470a6cbc1366e580"
+      },
+      "public_fixture_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public_fixture_records": {
+        "rows": 760,
+        "sha256": "21b0864a02ee2b03d2cf07a44b9e5edc3d86d4ecc91dd0e1b3dc896d61ae9a3e"
+      },
+      "public_result_captures": {
+        "rows": 2,
+        "sha256": "2584bdff6d68ce41b6e3837d9efcf0ab2e42a7c8cf11d5dad91d15561d2a44b3"
+      },
+      "public_result_receipts": {
+        "rows": 2,
+        "sha256": "20177aad0e223dba5a27c9b98fd065943ee283efa64b3e75a95cb02add2227c3"
+      },
+      "quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "quarantine_receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "raw_sources": {
+        "rows": 2,
+        "sha256": "f847e2d21cb246c18a1ce2feb2b80d9114643c6e22bd724f1ea96d5b0ed0f09e"
+      },
+      "receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "ba50dd2bcbe23f9c37a620cd46b7238c6bae1a94b32a2586d0c66a1b96a70116"
+      }
+    },
+    "auth_bookkeeping": {
+      "product_bridge_nonces": {
+        "rows": 14,
+        "sha256": "1236fc8d82fffdd26abea455a02660f2a44f2c08d48162fa7e733de9376fcdf4"
+      },
+      "product_sessions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "job_count": 3
+  },
+  "database_after": {
+    "private_snapshot": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\installed-joomla-history-r1\\private\\after.sqlite3",
+    "snapshot_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "integrity_check": "ok",
+    "consistent_backup": true,
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "protected_tables": {
+      "acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cognitive_receipts": {
+        "rows": 10,
+        "sha256": "a12273277bbc2e4fbddc1bf7274d67a043de24eb9b13fb131e56441a309355dd"
+      },
+      "cognitive_records": {
+        "rows": 10,
+        "sha256": "0720e2db365c88955cc644108fd77b47f0a8117baea3a184e81183a34dba6283"
+      },
+      "connector_acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_attempts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_identity_review": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_observations": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_settings": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "product_jobs": {
+        "rows": 3,
+        "sha256": "7697b22c1a69709bb045e5031bad156990917de6fdd88b5c72ffe984797b2057"
+      },
+      "product_schema": {
+        "rows": 1,
+        "sha256": "acc07b62f23f458923737c4cd4a66bd05d1e71eb4f384003baaf2dcc760d6349"
+      },
+      "product_updates": {
+        "rows": 14,
+        "sha256": "f2c2e86097161e1d13f06b2ae49c1f09f42fc50d114f6b7d470a6cbc1366e580"
+      },
+      "public_fixture_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public_fixture_records": {
+        "rows": 760,
+        "sha256": "21b0864a02ee2b03d2cf07a44b9e5edc3d86d4ecc91dd0e1b3dc896d61ae9a3e"
+      },
+      "public_result_captures": {
+        "rows": 2,
+        "sha256": "2584bdff6d68ce41b6e3837d9efcf0ab2e42a7c8cf11d5dad91d15561d2a44b3"
+      },
+      "public_result_receipts": {
+        "rows": 2,
+        "sha256": "20177aad0e223dba5a27c9b98fd065943ee283efa64b3e75a95cb02add2227c3"
+      },
+      "quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "quarantine_receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "raw_sources": {
+        "rows": 2,
+        "sha256": "f847e2d21cb246c18a1ce2feb2b80d9114643c6e22bd724f1ea96d5b0ed0f09e"
+      },
+      "receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "ba50dd2bcbe23f9c37a620cd46b7238c6bae1a94b32a2586d0c66a1b96a70116"
+      }
+    },
+    "auth_bookkeeping": {
+      "product_bridge_nonces": {
+        "rows": 8,
+        "sha256": "f62ad23736a2a6d0bb26bcd125f9c8f5d6ecadd7d856b33affea464e97fc1780"
+      },
+      "product_sessions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "job_count": 3
+  },
+  "configuration_fingerprints": {
+    "workstation.json": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+    "first-run.json": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+    "site/configuration.php": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+    "client/local-session.json": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+    "kernel/product.json": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+    "web-config/httpd.conf": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+    "web-config/php.ini": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+    "web-config/my.ini": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc"
+  },
+  "observed_at": "2026-11-03T08:23:57.790306+00:00"
+}

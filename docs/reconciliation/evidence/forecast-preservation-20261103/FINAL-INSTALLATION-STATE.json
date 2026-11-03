@@ -1,0 +1,122 @@
+{
+  "schema_version": "dragonhydra.forensic-installed-service-state/1",
+  "observed_at": "2026-11-03T08:43:10.3660606Z",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "passed": true,
+  "services": [
+    {
+      "Name": "DragonhydraProvidersA2Test",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 23500
+    },
+    {
+      "Name": "DragonhydraWorkstation",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 39364
+    },
+    {
+      "Name": "DragonhydraWorkstationTest",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 12904
+    },
+    {
+      "Name": "DragonhydraGenesisA8Test",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 29480
+    },
+    {
+      "Name": "DragonhydraCoreNextcandidate3a92a8dd62da",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 32192
+    },
+    {
+      "Name": "DragonhydraCoreNextcandidatec235077685de",
+      "State": "Running",
+      "StartName": "NT AUTHORITY\\LocalService",
+      "ProcessId": 11236
+    }
+  ],
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18862,
+      "OwningProcess": 13104
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18861,
+      "OwningProcess": 25008
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18860,
+      "OwningProcess": 23048
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18823,
+      "OwningProcess": 2196
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18822,
+      "OwningProcess": 53392
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18821,
+      "OwningProcess": 57728
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18744,
+      "OwningProcess": 24532
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 18740,
+      "OwningProcess": 40396
+    }
+  ],
+  "service_actions_performed": [],
+  "current_shell_elevated": false,
+  "source_and_health_receipt": "installed-readback-r1/verification.json",
+  "protected_reference": [
+    {
+      "state": "Running",
+      "name": "DragonhydraWorkstationTest",
+      "binding": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\state data\" --name DragonhydraWorkstationTest",
+      "pid": 12904
+    },
+    {
+      "state": "Running",
+      "name": "DragonhydraProvidersA2Test",
+      "binding": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\provider-a2\\state data\" --name DragonhydraProvidersA2Test",
+      "pid": 23500
+    },
+    {
+      "state": "Running",
+      "name": "DragonhydraCoreNextcandidate3a92a8dd62da",
+      "binding": "\"C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\profiles\\core-next-7ac520727b85456cac4a3a92a8dd62da\\application\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\profiles\\core-next-7ac520727b85456cac4a3a92a8dd62da\\state\" --name DragonhydraCoreNextcandidate3a92a8dd62da",
+      "pid": 32192
+    },
+    {
+      "state": "Running",
+      "name": "DragonhydraGenesisA8Test",
+      "binding": "\"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\application files\\workstation\\DragonhydraService.exe\" --state \"C:\\xampp\\DRAGONHYDRA\\build\\workstation\\test-install\\genesis-a8\\state data\" --name DragonhydraGenesisA8Test",
+      "pid": 29480
+    },
+    {
+      "state": "Running",
+      "name": "DragonhydraWorkstation",
+      "binding": "\"C:\\Program Files\\DRAGONHYDRA\\workstation\\DragonhydraService.exe\" --state \"C:\\ProgramData\\DRAGONHYDRA\" --name DragonhydraWorkstation",
+      "pid": 39364
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "dev5.forecast-reconciliation/1",
+  "status": "NOT_RUN",
+  "verdict": "PENDING_ROOT_VERIFICATION",
+  "operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+  "operation_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1",
+  "original_operation_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "version": "0.5.0-dev.5",
+  "setup_sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+  "original_forecast_status": "FAIL",
+  "earlier_phase_status_override_allowed": false,
+  "resubmit_allowed": false,
+  "original_phase": {
+    "status": "FAIL_PRESERVED",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\originals\\operation\\phase-Forecast.json",
+    "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\phase-Forecast.json",
+    "sha256": "e25a958d991987b0a017a9423a8d97ca853719cddaecf4fa3699f4e41a10b9a6"
+  },
+  "original_workflow": {
+    "status": "FAIL_PRESERVED",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\originals\\operation\\acceptance\\workflow\\verification.json",
+    "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\verification.json",
+    "sha256": "ff643cf602c118dac689874106a045220e29b79098b91dc147de5e5d4da92e37"
+  },
+  "before_snapshot": {
+    "status": "PRESERVED",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\originals\\operation\\acceptance\\workflow\\private\\before-reads.sqlite3",
+    "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\before-reads.sqlite3",
+    "sha256": "0fbc6c70e5bd78db53f82ba75cabd841d4e85dba152b13d4e9881954610c2c48"
+  },
+  "after_snapshot": {
+    "status": "PRESERVED",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\originals\\operation\\acceptance\\workflow\\private\\after-reads.sqlite3",
+    "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\acceptance\\workflow\\private\\after-reads.sqlite3",
+    "sha256": "b7c0c52c694f1ade073dee0589985853b9b881fe81dfcba14e973f345f46c187"
+  },
+  "forecast_job_id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+  "evaluation_job_id": "c4be90b6379d44309f9faeb696975b4f",
+  "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+  "history_records_sha256": "b0998ba044a1c29fea65d12dce6f1c3e59cdbc4763362db8b242a2f5ef77790d",
+  "forensic_manifest": {
+    "status": "PRESERVED_PENDING_ROOT_VERIFICATION",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\FORENSIC-MANIFEST.json",
+    "sha256": "e02558910fe67641d1d54123e20d30f44d8cce12b8fd457f706e445d593bde23"
+  },
+  "root_cause": {
+    "status": "NOT_RUN",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\ROOT-CAUSE.md",
+    "sha256": ""
+  },
+  "repair_verification": {
+    "status": "NOT_RUN",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\REPAIR-VERIFICATION.json",
+    "sha256": ""
+  },
+  "corrected_contract": {
+    "status": "PENDING_ROOT_REVIEW",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\proposals\\backend-contract\\workflow_preservation.py",
+    "exact_schema_objects_sha256": null,
+    "operational_cursor_rule_sha256": null,
+    "sha256": "36a446f5563c12f1deb1263382665c4fbf6f8cf44491289317cf0b51dde4a725"
+  },
+  "isolated_reproduction": {
+    "status": "NOT_RUN",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\REPRODUCTION-VERIFICATION.json",
+    "sha256": ""
+  },
+  "contract_tests": {
+    "status": "PASS",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\proposals\\backend-contract\\verification-r1.json",
+    "scope": "30 isolated SQLite tests passed; actual incident and fresh reproduction decisions pending root verification",
+    "sha256": "8bdfbb5ee43ef4c860aff64fa54e20c404928047383d64690f34dde79fdd1290"
+  },
+  "preapproval_live_readback": {
+    "status": "NOT_RUN",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\PREAPPROVAL-LIVE-READBACK.json",
+    "sha256": ""
+  },
+  "installed_identity": {
+    "status": "NOT_RUN",
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\INSTALLED-IDENTITY.json",
+    "sha256": ""
+  },
+  "protected_760_ids_and_versions_preserved": false,
+  "provider_and_pairing_preserved": false,
+  "exact_declared_schema_delta_only": false,
+  "operational_updates_delta_verified": false,
+  "two_original_jobs_reconciled": false,
+  "claim": "Template cannot authorize continuation; no digital signature or lifecycle success is claimed."
+}

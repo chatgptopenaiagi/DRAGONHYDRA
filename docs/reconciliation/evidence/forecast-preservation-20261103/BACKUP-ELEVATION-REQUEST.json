@@ -1,0 +1,16 @@
+{
+  "schema_version": "dragonhydra.backup-elevation-attempt/1",
+  "requested_at": "2026-11-03T08:59:36.7302098Z",
+  "phase": "Backup",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "service_actions": [],
+  "automatic_retry": false,
+  "scope": "Only private recoverable b447 backup; no service restart, install, uninstall, restore or native GUI",
+  "launched": false,
+  "error_type": "InvalidOperationException",
+  "error_message": "This command cannot be run due to the error: An error occurred trying to start process 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' with working directory 'C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103'. The operation was canceled by the user.",
+  "native_error_code": null,
+  "observed_at": "2026-11-03T09:01:39.1867751Z",
+  "backup_marker_present": false,
+  "backup_receipt_present": false
+}

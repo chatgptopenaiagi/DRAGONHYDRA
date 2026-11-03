@@ -1,0 +1,210 @@
+{
+  "schema_version": "dev5.forecast-continuation-readback/1",
+  "operation_id": "dev5-b447-forecast-reconciled-20261103-r1",
+  "phase": "reconcile",
+  "passed": true,
+  "expected_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "version": "0.5.0-dev.5",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "setup_sha256": "8d5a790ac54b4cca3c51d08746db80a5551c211474bcdead7dc86a44b3a8e553",
+  "reconciliation_sha256": "74c4ec17e8a0020882b72829fe3a26b65c8d0783f5e597e9477ff8e226b3810d",
+  "approval_sha256": "5f8c52d3c55b5d114da60096a82c88f0104af436f4a391235d76afa9bfd53979",
+  "helper_sha256": "ae984420292bd5c2629667ec6dab91e5f6971d168c8074c5ec18c27a7ba177a5",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health/ready"
+    },
+    {
+      "method": "GET",
+      "path": "/system"
+    },
+    {
+      "method": "GET",
+      "path": "/modules?scope=all"
+    },
+    {
+      "method": "GET",
+      "path": "/matches/de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea/cognition-history"
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/9cbe1c2be77d46a49c692b5cb8bf8f2b"
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/c4be90b6379d44309f9faeb696975b4f"
+    }
+  ],
+  "checks": [
+    {
+      "name": "new_approved_baseline_original_jobs_and_full_protected_state",
+      "status": "PASS"
+    }
+  ],
+  "product_action_posts": 0,
+  "original_forecast_status": "FAIL",
+  "workflow": {
+    "forecast_job_id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+    "evaluation_job_id": "c4be90b6379d44309f9faeb696975b4f",
+    "history_records_sha256": "b0998ba044a1c29fea65d12dce6f1c3e59cdbc4763362db8b242a2f5ef77790d",
+    "record_ids": {
+      "models": [
+        "model:ba6535d46bc4cf94a0d0c4343974ef22da11e05f79bc8f5657625a8a589362ae",
+        "model:4ac2deabf68b30635fd4ee8edec017c89d583972389da3cd0a66c8f74de670c6",
+        "model:34617658a2e7ca12b1b60241b8d8da827a4073310a1296109bc98285528cf642",
+        "model:41a58dc4e488d732c110eba562d2098da859b340913d004eece37543b50876ae",
+        "model:253fe66f6debdea5a0806292bb4cb6e15a732fd7e679e04cd7ae837f636ef7de"
+      ],
+      "predictions": [
+        "prediction:3ca6691a389b7dd4de160679b183239588c0991d9e027d7bc4b9efaaaa3796c4",
+        "prediction:5f2f8a32bad413d0d11e1c25bfbbaed2a504adb149aebef4d4e012c554495935",
+        "prediction:be1207a6e242f623662bd0f95962fdf7df2273889dae5b0009d125d5bce23221",
+        "prediction:2998ded59e69206f75ea4ba6d88ff03bb678f6ac22b30f92708e09670549e37a",
+        "prediction:5632bd541b8fc0cd59ca089c3451c1cda1734e742f995249368a1c49ca4a0553"
+      ],
+      "outcomes": [],
+      "evaluations": []
+    },
+    "counts": {
+      "models": 5,
+      "predictions": 5,
+      "outcomes": 0,
+      "evaluations": 0
+    },
+    "new_operations_submitted": 0
+  },
+  "service_identity": {
+    "service_name": "DragonhydraCoreNextcandidatec235077685de",
+    "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+    "source_commit": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "build_id": "package-dev5-r1",
+    "observed_at": "2026-11-03T08:58:29.807507Z",
+    "evidence_expires_at": "2026-11-03T08:59:14.811673Z",
+    "verification_scope": "BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY"
+  },
+  "snapshot": {
+    "private_snapshot": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1\\acceptance\\reconcile\\private\\after-reads.sqlite3",
+    "snapshot_sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "integrity_check": "ok",
+    "consistent_backup": true,
+    "schema_sha256": "cfb0f1cbb2903f7d83588bafd28a76406700b55fda33edb6e892e605fa990ab3",
+    "protected_tables": {
+      "acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "cognitive_receipts": {
+        "rows": 10,
+        "sha256": "a12273277bbc2e4fbddc1bf7274d67a043de24eb9b13fb131e56441a309355dd"
+      },
+      "cognitive_records": {
+        "rows": 10,
+        "sha256": "0720e2db365c88955cc644108fd77b47f0a8117baea3a184e81183a34dba6283"
+      },
+      "connector_acquisitions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_attempts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_identity_review": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_observations": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_settings": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "product_jobs": {
+        "rows": 3,
+        "sha256": "7697b22c1a69709bb045e5031bad156990917de6fdd88b5c72ffe984797b2057"
+      },
+      "product_schema": {
+        "rows": 1,
+        "sha256": "acc07b62f23f458923737c4cd4a66bd05d1e71eb4f384003baaf2dcc760d6349"
+      },
+      "product_updates": {
+        "rows": 14,
+        "sha256": "f2c2e86097161e1d13f06b2ae49c1f09f42fc50d114f6b7d470a6cbc1366e580"
+      },
+      "public_fixture_quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "public_fixture_records": {
+        "rows": 760,
+        "sha256": "21b0864a02ee2b03d2cf07a44b9e5edc3d86d4ecc91dd0e1b3dc896d61ae9a3e"
+      },
+      "public_result_captures": {
+        "rows": 2,
+        "sha256": "2584bdff6d68ce41b6e3837d9efcf0ab2e42a7c8cf11d5dad91d15561d2a44b3"
+      },
+      "public_result_receipts": {
+        "rows": 2,
+        "sha256": "20177aad0e223dba5a27c9b98fd065943ee283efa64b3e75a95cb02add2227c3"
+      },
+      "quarantine": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "quarantine_receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "raw_sources": {
+        "rows": 2,
+        "sha256": "f847e2d21cb246c18a1ce2feb2b80d9114643c6e22bd724f1ea96d5b0ed0f09e"
+      },
+      "receipts": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "sqlite_sequence": {
+        "rows": 1,
+        "sha256": "ba50dd2bcbe23f9c37a620cd46b7238c6bae1a94b32a2586d0c66a1b96a70116"
+      }
+    },
+    "auth_bookkeeping": {
+      "product_bridge_nonces": {
+        "rows": 8,
+        "sha256": "f62ad23736a2a6d0bb26bcd125f9c8f5d6ecadd7d856b33affea464e97fc1780"
+      },
+      "product_sessions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "job_count": 3
+  },
+  "configuration_fingerprints": {
+    "workstation.json": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+    "first-run.json": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+    "site/configuration.php": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+    "client/local-session.json": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+    "kernel/product.json": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+    "web-config/httpd.conf": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+    "web-config/php.ini": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+    "web-config/my.ini": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc"
+  },
+  "offline": false,
+  "validate_only": false,
+  "sqlite_consistent_snapshot": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261103\\disposable-dev5-b447-reconciled-r1\\acceptance\\reconcile\\private\\after-reads.sqlite3",
+    "sha256": "5c8991f60998a7dbc2182c5b627ea876a02e56831b5bfa0f89bf9188e6ac2ab5",
+    "integrity_check": "ok",
+    "consistent_backup": true
+  },
+  "observed_at": "2026-11-03T08:58:53.195005+00:00"
+}

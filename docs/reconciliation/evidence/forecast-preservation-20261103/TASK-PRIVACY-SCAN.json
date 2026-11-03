@@ -1,0 +1,267 @@
+{
+  "schema_version": "dragonhydra.task-known-value-scan/1",
+  "observed_at": "2026-11-03T09:11:18.434439+00:00",
+  "passed": true,
+  "known_private_values_compared": 51,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 3663,
+      "sha256": "740e0a06976e8432ce6623a340ac0a1c66119b82fea86c3c76be20d395672b0d"
+    },
+    {
+      "path": "docs/handover/ACTIVE-RECONCILIATION.md",
+      "bytes": 12208,
+      "sha256": "73e8fa9d474963e70b03d36183653ca2f04abf7222de1ebbd9c92e40ad387f1c"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ACCEPTANCE-MATRIX.json",
+      "bytes": 15276,
+      "sha256": "93dbc0f085517e2a8e1cc63c8c32da043863ff4c51a008163dd716353f6972b4"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ARTIFACT-PRESERVATION.json",
+      "bytes": 15432,
+      "sha256": "55645734109afe470bd97525dad110dcaae3b3195f642ce3f938bdc7040823d1"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/BACKUP-ELEVATION-REQUEST.json",
+      "bytes": 899,
+      "sha256": "d6cc2c5ea90fdb20622ae118b74c3dfd8352f15132e584ac193d9f5e05f5fb7e"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CANONICAL-SCHEMA-REFERENCE.json",
+      "bytes": 8081,
+      "sha256": "12c68f7a339214c53395131aac50df994e33dc490d516f22742ab6fef158dc9c"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CODE-BINDINGS.json",
+      "bytes": 968,
+      "sha256": "ad0faf32895c9e2c42adf647506ec2891cdfa1481159d3d11f8af71f30f90e2c"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CONTINUATION-GUARD-TESTS.json",
+      "bytes": 1848,
+      "sha256": "a146c5c81c59ac216547c136f5f9bd855d0efd5af92bea5a8cb3008aba977cd2"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CONTINUATION-POWERSHELL-GUARDS.json",
+      "bytes": 597,
+      "sha256": "34a394743faaf76d3b3ee668b56e5a87da3cabee0b7f8c9d002556b55da80819"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/COORDINATOR-ATTESTATION.json",
+      "bytes": 982,
+      "sha256": "5f8c52d3c55b5d114da60096a82c88f0104af436f4a391235d76afa9bfd53979"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CURRENT-REGISTRY-OPERATIONS.json",
+      "bytes": 6045,
+      "sha256": "94ab7fd2be1d7fe23dcd256fe39969342bb899126afb3c62dad7042ae65c1b21"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/CURRENT-REGISTRY-READ.json",
+      "bytes": 10671,
+      "sha256": "09ec54b86aae830154c4c72ed9f8fd88a14e71f044dc0e8eb124686eac14167b"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/EVIDENCE-INDEX.json",
+      "bytes": 5878,
+      "sha256": "37e4c36e20b659b1b392781c8b54824fc38467a4e4528c59ee782d34dba9e58e"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FINAL-INSTALLATION-STATE.json",
+      "bytes": 4203,
+      "sha256": "61d456a4fcb9d8be5216ea028dc20c1a0f80e7201d3f88e2e887f44ddcf4cc74"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FOCUSED-TESTS.json",
+      "bytes": 6239,
+      "sha256": "56e59f4f78be097a971d077a739c2f161e47fe4709fa730162397efd7bb92160"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FORENSIC-MANIFEST-ADDITIONAL.json",
+      "bytes": 419,
+      "sha256": "01fbb1c26f62f027f320956d6f971dff35564fc9a1547ec4c76eb428022b2e6b"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/FORENSIC-MANIFEST.json",
+      "bytes": 10705,
+      "sha256": "e02558910fe67641d1d54123e20d30f44d8cce12b8fd457f706e445d593bde23"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/INSTALLED-JOOMLA.json",
+      "bytes": 16133,
+      "sha256": "b6b83e5498320e0a06907ff6a703dd87b78512641d8d7fceae3b2a7460bfa2a2"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/INSTALLED-READBACK.json",
+      "bytes": 4340,
+      "sha256": "c8a087eb1c90d3416cd36e1f0ce9962a8abc0d687b19fd6b704bd3d8e3a789d7"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ISOLATED-RUNTIME.json",
+      "bytes": 18602,
+      "sha256": "6f202bdfc15c6be40cf8e49d4a213ae0e6893f5f5e92b8c21e2dd2b9bb59a135"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-SNAPSHOT-AUDIT.json",
+      "bytes": 1405,
+      "sha256": "21bc70022454b4969d634a1bab1e7f6a65ca43a316709f58296f227f09c7574f"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-WORKFLOW-CLOCKS.json",
+      "bytes": 724,
+      "sha256": "96a980eaa49db130426efaaaad84dd1b5af543ad8fa8a0b0330c53c1dc62cdae"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ORIGINAL-WORKFLOW-SEMANTICS.json",
+      "bytes": 69173,
+      "sha256": "2bcb5a890b92449b705588aaeba3f0d6fc1770dce891b85102084f2dac07f936"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/PACKAGE-ACCEPTANCE-STATUS.json",
+      "bytes": 10106,
+      "sha256": "5333fd1c17fedbf938f72a1477775f8a7af83f99320ce9f667a39d003887eb2c"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/POINT-IN-TIME-DETAIL.json",
+      "bytes": 46149,
+      "sha256": "495f3389961e6ba319cfee5098ef82d93b042216afa923edc2514ec3ad5634f7"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILE-PHASE.json",
+      "bytes": 1557,
+      "sha256": "f5e22d7ec3b9bf2f2b903d259c76ef2e1978b8c37b72b77310614dfd1381cc9e"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILE-READBACK.json",
+      "bytes": 8541,
+      "sha256": "247943b1a9459fc22343b139d6756d3f5e708862ac6a7803bc02a61861872eb0"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/RECONCILIATION.json",
+      "bytes": 6684,
+      "sha256": "74c4ec17e8a0020882b72829fe3a26b65c8d0783f5e597e9477ff8e226b3810d"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REGISTRY-UI-SEMANTICS.json",
+      "bytes": 3109,
+      "sha256": "77bc6562cb28f25ce501fd8d2ac18b5159d34f8780967994ad2a71612bc0f871"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REMOTE-PRESERVATION.json",
+      "bytes": 63361,
+      "sha256": "7856e3001825a97f8c1d306ee671cd89f3b2e02e704cbdc6ccdfae4f5f3dd4ea"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/REPAIR-VERIFICATION.json",
+      "bytes": 5140,
+      "sha256": "60abfe40b3f75dc0fe197ef7a0abe9f2476bdb6315ce5121bbc6d399c50905df"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/ROOT-CAUSE.json",
+      "bytes": 9163,
+      "sha256": "997ad7b6bc863c605bafd5891664c5c63c9422e279a77d179f21ef2ad79663b0"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/SEMANTIC-REVIEW.json",
+      "bytes": 68408,
+      "sha256": "3dd9be1e1ffa0f096a57ec5ae7b08728e5b55895e19a283c6840a8de25e0b5a9"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/SQLITE-LOGICAL-DIFF.json",
+      "bytes": 26922,
+      "sha256": "cc1b63982189664d87b0290a69216df0e04cff1b0a5e9d06e388fa8eccefd07a"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/TIMING-REVIEW.json",
+      "bytes": 2297,
+      "sha256": "565a041786e2b12f3830293db423831c1db37a98173ee6038c5880bdcf2a1ebf"
+    },
+    {
+      "path": "docs/reconciliation/evidence/forecast-preservation-20261103/WINDOWS-ACCEPTANCE-CONTINUATION.json",
+      "bytes": 3650,
+      "sha256": "68f48de740f792a909ecfc811c86665045a6b7bdd9209b7378d6b18e8198d9cc"
+    },
+    {
+      "path": "docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md",
+      "bytes": 17592,
+      "sha256": "c864297ad91976498be2e2b3641146cdef775c358f0db94c84f067c9fdaf41a2"
+    },
+    {
+      "path": "docs/releases/DRAGONHYDRA-RELEASE-REPORT.md",
+      "bytes": 33333,
+      "sha256": "ae3bc47894346f03b0cd6267a011757f0ce2dd2624bf4ca218e216d41614dd66"
+    },
+    {
+      "path": "ENGINEERING-STATE.json",
+      "bytes": 47817,
+      "sha256": "da860c875ee8b5dfd20d499d8865852816294785e765ea924bb463b2cd6102b0"
+    },
+    {
+      "path": "RESUME-CODEX.md",
+      "bytes": 8699,
+      "sha256": "34810d3ebc6d73131b3fceb343d18650886642a2722f39776f2bd58952bd6485"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/continuation_contract.py",
+      "bytes": 11766,
+      "sha256": "c5c65458c1bf6434af03745f6a09bfea50bdf5504b19e974cba299a067432a54"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/CoordinatorApproval.example.json",
+      "bytes": 889,
+      "sha256": "201afe414b2040288cbcce066a478035dc925a447d703b7b96757432a2050aca"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Invoke-ReconciledDev5Phase.ps1",
+      "bytes": 19132,
+      "sha256": "8131d353dd2c5191e5f7fbc4a01b016e7f51703fc6b4880b5cd49df3c2314e36"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Read-Continuation.py",
+      "bytes": 13353,
+      "sha256": "ae984420292bd5c2629667ec6dab91e5f6971d168c8074c5ec18c27a7ba177a5"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/README.md",
+      "bytes": 3076,
+      "sha256": "e495bd1a1042c4de37fd1658aa97e8a85da730fb2bda649ddb8f4798c7ad2e73"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/ReconciliationReceipt.example.json",
+      "bytes": 5360,
+      "sha256": "cf2cae2b7ae7961779b8806fa7442433a7eee1cd50922de5497e42cb3e6ff6e3"
+    },
+    {
+      "path": "tests/installation/forecast_continuation/Test-ControllerGuards.ps1",
+      "bytes": 3302,
+      "sha256": "b02a94ece55119ab00f958c423928a3ed2ba5080f63f4170bd1930e72c4968fb"
+    },
+    {
+      "path": "tests/installation/workflow_preservation.py",
+      "bytes": 20117,
+      "sha256": "94b98d6e030a2090ee99f55abffa72f0e5e6ef1f148f47c707d4035cb03d6478"
+    },
+    {
+      "path": "tests/test_forecast_continuation.py",
+      "bytes": 10372,
+      "sha256": "8b78d7b2e6e7cceea1cc496446d4b7cde03803142d48c8ae82340bb453a53720"
+    },
+    {
+      "path": "tests/test_workflow_preservation.py",
+      "bytes": 21078,
+      "sha256": "e15dd993acf2e8bca439d9b2deb75bf568368dd1fd8db16cf044de0438d2aa5a"
+    }
+  ],
+  "matches": [],
+  "secret_values_or_fingerprints_emitted": false,
+  "credential_source_classes": [
+    "existing_owner_dpapi_handoff",
+    "local_client_handoff",
+    "local_workstation_config"
+  ],
+  "unavailable_source_classes": [],
+  "scope": "Exact task-owned files/JSON receipts; existing known-value policy with UTF8/UTF16/JSON/URL/Base64 encodings. Not a universal secret detector; no binary release payload rerun."
+}

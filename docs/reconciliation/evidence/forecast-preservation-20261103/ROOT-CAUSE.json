@@ -1,0 +1,203 @@
+{
+  "schema_version": "dragonhydra.forecast-root-cause/1",
+  "recorded_at": "2026-11-03T08:30:59.743798+00:00",
+  "classification": "B_ACCEPTANCE_HARNESS_DEFECT",
+  "status": "ROOT_CAUSE_VERIFIED_BY_INDEPENDENT_FROZEN_RUNTIME_REPRODUCTION",
+  "original_failure_preserved": true,
+  "original_phase_stage": "failed_reconciliation_required",
+  "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "acceptance_helper_sha256": "47d5ffc472bbb0675ab8942c77fccb14e9a780e8f40acff2e397fe5e1c197f0b",
+  "failed_expression": "before['domain_tables'].get(table)==after['domain_tables'].get(table) for every union table except cognitive_records,cognitive_receipts,product_jobs,product_updates",
+  "intended_invariant": "Forecast may persist its approved research/job history while retained football inputs and provider/configuration state remain unchanged.",
+  "fault": "The old boundary also treats declared first-use empty market-evidence tables and the AUTOINCREMENT product_updates counter as protected input mutations. Its following cognitive-prefix-only schema gate would also reject18 canonical non-cognitive bootstrap objects.",
+  "offending_domain_entries": [
+    "acquisitions",
+    "quarantine",
+    "quarantine_receipts",
+    "receipts",
+    "sqlite_sequence"
+  ],
+  "first_offending_entry": "UNRECORDED: original set-union iteration order is not deterministic; receipt gives generic code only",
+  "additional_unreached_schema_mismatches": [
+    "index:sqlite_autoindex_acquisitions_1",
+    "index:sqlite_autoindex_quarantine_1",
+    "index:sqlite_autoindex_quarantine_receipts_1",
+    "index:sqlite_autoindex_receipts_1",
+    "table:acquisitions",
+    "table:quarantine",
+    "table:quarantine_receipts",
+    "table:receipts",
+    "trigger:acquisition_immutable_delete",
+    "trigger:acquisition_immutable_update",
+    "trigger:quarantine_immutable_delete",
+    "trigger:quarantine_immutable_update",
+    "trigger:quarantine_receipts_no_delete",
+    "trigger:quarantine_receipts_no_update",
+    "trigger:raw_immutable_delete",
+    "trigger:raw_immutable_update",
+    "trigger:receipt_immutable_delete",
+    "trigger:receipt_immutable_update"
+  ],
+  "schema_created": {
+    "created": [
+      "index:sqlite_autoindex_acquisitions_1",
+      "index:sqlite_autoindex_cognitive_receipts_1",
+      "index:sqlite_autoindex_cognitive_records_1",
+      "index:sqlite_autoindex_cognitive_records_2",
+      "index:sqlite_autoindex_quarantine_1",
+      "index:sqlite_autoindex_quarantine_receipts_1",
+      "index:sqlite_autoindex_receipts_1",
+      "table:acquisitions",
+      "table:cognitive_receipts",
+      "table:cognitive_records",
+      "table:quarantine",
+      "table:quarantine_receipts",
+      "table:receipts",
+      "trigger:acquisition_immutable_delete",
+      "trigger:acquisition_immutable_update",
+      "trigger:cognitive_receipts_no_delete",
+      "trigger:cognitive_receipts_no_update",
+      "trigger:cognitive_records_no_delete",
+      "trigger:cognitive_records_no_update",
+      "trigger:quarantine_immutable_delete",
+      "trigger:quarantine_immutable_update",
+      "trigger:quarantine_receipts_no_delete",
+      "trigger:quarantine_receipts_no_update",
+      "trigger:raw_immutable_delete",
+      "trigger:raw_immutable_update",
+      "trigger:receipt_immutable_delete",
+      "trigger:receipt_immutable_update"
+    ],
+    "deleted": [],
+    "modified_existing": [],
+    "created_counts": {
+      "table": 6,
+      "index": 7,
+      "trigger": 14,
+      "view": 0
+    }
+  },
+  "configuration_fingerprints": {
+    "workstation.json": {
+      "before": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+      "after": "3a49ce2a83b04cf99e8f58503a2d63ba8c735419517ec9b1a0be7ebb687ba7b4",
+      "equal": true
+    },
+    "first-run.json": {
+      "before": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+      "after": "74ca69b49e3fe978d8a93e925a1154a1fda50b63b9d874d91770ff008950e0e3",
+      "equal": true
+    },
+    "site/configuration.php": {
+      "before": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+      "after": "1a8afedd10f405dab0e314ef9f46e98b201350118eed786544f43cd546b8c9b4",
+      "equal": true
+    },
+    "client/local-session.json": {
+      "before": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+      "after": "8c6359344effd74a26d1014388baaa07de8def0d2b89b8d079169b1456fc52eb",
+      "equal": true
+    },
+    "kernel/product.json": {
+      "before": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+      "after": "87d98d733f4508bb2373470d1c271f89782784e779b0bb240cb157a430002408",
+      "equal": true
+    },
+    "web-config/httpd.conf": {
+      "before": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+      "after": "510a8d091e6ff233fd413295e2fcd741ba7b26218d65762a298cf03ca3a80384",
+      "equal": true
+    },
+    "web-config/php.ini": {
+      "before": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+      "after": "e8a6282290cc6aec16bf4d221ee3a5ac8adaf826aaa53d28a5360679603d0674",
+      "equal": true
+    },
+    "web-config/my.ini": {
+      "before": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc",
+      "after": "9c4e69beca406352014dd28129ab6e9df04f8add85feb7015ad3258b68d108fc",
+      "equal": true
+    }
+  },
+  "retained_760_ids_versions_and_all_fields": "UNCHANGED_FULL_ROW_LOGICAL_FINGERPRINT",
+  "provider_settings": "UNCHANGED:connector_settings remains0rows; protectedconfiguration fingerprints unchanged",
+  "raw_sources": "UNCHANGED:2source rows including original retained bytes",
+  "workflow": {
+    "new_jobs": 2,
+    "new_events": 8,
+    "new_models": 5,
+    "new_predictions": 5,
+    "new_cognitive_receipts": 10,
+    "new_auxiliary_records": 0,
+    "sqlite_sequence_product_updates": [
+      6,
+      14
+    ],
+    "existing_jobs_and_events": "UNCHANGED",
+    "jobs_after": [
+      {
+        "id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+        "kind": "forecast",
+        "status": "succeeded"
+      },
+      {
+        "id": "9dd2acb25b394fb1a2276a88fcfa4d3d",
+        "kind": "import_public",
+        "status": "succeeded"
+      },
+      {
+        "id": "c4be90b6379d44309f9faeb696975b4f",
+        "kind": "evaluation",
+        "status": "succeeded"
+      }
+    ],
+    "evaluation": "Original evaluation job succeeded with pending result LATER_RETAINED_OUTCOME_UNAVAILABLE; no outcome/evaluation record fabricated"
+  },
+  "file_growth": {
+    "before_bytes": 1040384,
+    "after_bytes": 3043328,
+    "before_pages": 254,
+    "after_pages": 743,
+    "page_size": 4096,
+    "cognitive_payload_bytes": 531552,
+    "cognitive_records": 10,
+    "interpretation": "First-use tables/indexes and embedded research payload storage expand the database; size is not an integrity or preservation predicate."
+  },
+  "snapshot_consistency": {
+    "both_integrity_checks": "ok",
+    "both_foreign_key_violations": 0,
+    "source_capture_code": "SQLite backup API on read-only source connection; closing connections",
+    "target_identity": "Original receipt/profile/hash/source/ports agree; private before/after are one disposable installation",
+    "same_backup_schema_version_cookie": "Not used as proof of equal schema; actual sqlite_master additions compared",
+    "sidecars": "Original WAL files0bytes and SHM preserved; analysis uses separate working copies"
+  },
+  "concurrent_writer_classification": "No unexplained persisted mutation; snapshots alone cannot prove that no transient concurrent writer existed. Observed8events bind approved2jobs; no evidence supports assigning blame to another session.",
+  "repair_scope": "Acceptance tooling only: exact independently source-bound27object schema plus owned workflow/event/counter validation, protected row equality, no blanket exemptions",
+  "application_code_change_required": false,
+  "application_rebuild_required": false,
+  "verification_on_originals": {
+    "repaired_audit_passed": true,
+    "new_forecast_was_not_submitted": true,
+    "audit_report": "derived-r2/original-snapshots-repaired-audit-r1.json"
+  },
+  "remaining": "Hash-bound continuation, disposable Windows service backup/restart/repair/retained lifecycle, native GUI and release gates remain separate. Original Forecast stays failed.",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "initial_diagnosis_preserved": {
+    "path": "derived-r2/ROOT-CAUSE-initial.json",
+    "sha256": "7fbc6ca074634d98d2e9031185005e92b5a75fdc3bb1c3dc3658c6ce10947ce4",
+    "bytes": 8518,
+    "scope": "Initial derived diagnosis, not original evidence"
+  },
+  "independent_reproduction": {
+    "path": "proposals/isolated-runtime-r1/verification.json",
+    "sha256": "6f202bdfc15c6be40cf8e49d4a213ae0e6893f5f5e92b8c21e2dd2b9bb59a135",
+    "bytes": 18602,
+    "scope": "Separate profile, new jobs, actual frozen executable and clean restart"
+  },
+  "focused_regressions": {
+    "path": "focused-tests-r1/verification.json",
+    "sha256": "56e59f4f78be097a971d077a739c2f161e47fe4709fa730162397efd7bb92160",
+    "bytes": 6239,
+    "scope": "52 distinct cases: 30 new contract cases and 22 existing focused cases"
+  }
+}

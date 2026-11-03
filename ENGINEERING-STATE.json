@@ -6,9 +6,9 @@
   "preferred_e_available": false,
   "baseline_tag": "genesis-a9-20261101",
   "baseline_commit": "2e6520d5b6a7874881e5de85dbb6ececaef11d8f",
-  "branch": "reconcile/genesis-20261102",
-  "phase": "RELEASE_HELD_WINDOWS_AUTHORITY_REQUIRED_NO_LIVE_INSTALLER",
-  "installation": "MIXED_JOOMLA_DEV5_BACKEND_NATIVE_PROFILE_DEV3",
+  "branch": "forensic/forecast-preservation-20261103",
+  "phase": "FORENSIC_REPAIR_AND_RECONCILIATION_VERIFIED_WINDOWS_BACKUP_BLOCKED",
+  "installation": "DISPOSABLE_DEV5_B447_ALL_FIVE_SOURCE_ED78_PRIMARY_PRESERVED_MIXED",
   "architecture": {
     "status": "PASS_SOURCE_SCOPE",
     "mathematical_files_byte_identical": 5,
@@ -37,7 +37,7 @@
     "limitations": "New SCM producer/localobserve/nativeUI/serviceRestart NOT_RUN"
   },
   "publication": "HELD_NOT_PUBLISHED_NO_DEV5_TAG_OR_DRAFT",
-  "next_objective": "Review prepared disposable CORE NEXT Windows5 phase plan. Obtain required local elevation/native launch clearance once before actual installation; do not repeat canceled RunAs or bypass auto-review. Verify all mandatory lifecycle/GUI/identity/privacy gates, supported3-to5 transition, then publish/download-verify.",
+  "next_objective": "Execute reviewed b447 Backup once from already elevated matching owner, after inspecting the successful distinct reconciliation and absence of Backup marker/receipt. Later lifecycle adapters need separate implementation/review.",
   "baseline_installation": {
     "status": "PASS_HISTORICAL_INSTALLATION",
     "installation_id": "core-next-36c76ab00e5b49e59225a38169df1ac6",
@@ -87,7 +87,7 @@
   },
   "version": "0.5.0-dev.5",
   "proposed_tag": "v0.5.0-dev.5-core-next",
-  "updated_utc": "2026-11-02T16:49:41.850356+00:00",
+  "updated_utc": "2026-11-03T09:04:07.825649+00:00",
   "prior_unpublished_source": "03c6d82fba37b6e32b606fdb59cdcf6b153aeb3b",
   "runtime_repair": "Reuse A9 linux-listener-reuse-v1 in shared server; Windows listener behavior unchanged",
   "prior_artifacts": "LAB/attempts/source-03c6d82",
@@ -912,5 +912,70 @@
     "live_installer_handle": null,
     "next_owner_action": "In matching-owner administrator PowerShell7: & 'C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\continuation-20261102\\disposable-dev5-lifecycle-r1\\Invoke-Dev5Phase.ps1' -Phase InstallFresh -Apply; report the result for receipt inspection",
     "goal_tool_status_is_authoritative": true
+  },
+  "historical_pre_forecast_forensics_phase": "RELEASE_HELD_WINDOWS_AUTHORITY_REQUIRED_NO_LIVE_INSTALLER",
+  "forecast_preservation_20261103": {
+    "report": "docs/reconciliation/FORECAST-PRESERVATION-INCIDENT-20261103.md",
+    "source_branch": "forensic/forecast-preservation-20261103",
+    "source_worktree": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\source",
+    "source_base": "a4c0ecf1b7d0eaf35afdb7367ce8e464f285037e",
+    "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "canonical_source_modified": false,
+    "original_forecast_status": "FAIL_PRESERVED",
+    "classification": "B_ACCEPTANCE_HARNESS_DEFECT",
+    "product_code_changed": false,
+    "product_rebuild_required": false,
+    "protected_retained_records": 760,
+    "retained_all_fields_unchanged": true,
+    "expected_new_jobs": 2,
+    "expected_new_models": 5,
+    "expected_new_predictions": 5,
+    "evaluation": "LATER_RETAINED_OUTCOME_UNAVAILABLE_PENDING",
+    "python_distinct_tests": {
+      "run": 52,
+      "passed": 52,
+      "failed": 0,
+      "not_run": 0
+    },
+    "separate_groups": {
+      "frozen_runtime_reproduction": 13,
+      "installed_joomla_http": 7,
+      "continuation_python_guards": 25,
+      "continuation_powershell_guards": 6
+    },
+    "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+    "ports": {
+      "api": 18860,
+      "joomla": 18861,
+      "mariadb": 18862
+    },
+    "windows_phases": {
+      "InstallFresh": "PASS",
+      "ReadFresh": "PASS",
+      "Forecast": "ORIGINAL_FAIL_SEPARATELY_RECONCILED",
+      "Backup": "BLOCKED_BEFORE_PHASE_WINDOWS_RUNAS_REPORTED_CANCELED",
+      "Restart": "NOT_RUN_SCM",
+      "Repair": "NOT_RUN",
+      "UninstallRetain": "NOT_RUN",
+      "ReinstallRetained": "NOT_RUN",
+      "FinalUninstall": "NOT_RUN",
+      "ReconcileForecast": "PASS_DISTINCT_NEW_OPERATION"
+    },
+    "private_evidence": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103",
+    "release": "HELD_NOT_PUBLISHED",
+    "checkpoint_commit": "Resolve this forensic branch HEAD; this value is not the compiled application source",
+    "continuation_receipt": "docs/reconciliation/evidence/forecast-preservation-20261103/WINDOWS-ACCEPTANCE-CONTINUATION.json",
+    "os_elevation_attempts": 1,
+    "elevated_child_handle_returned": false,
+    "automatic_retry": false
+  },
+  "canonical_source_branch": "reconcile/genesis-20261102",
+  "historical_primary_installation_status": "MIXED_JOOMLA_DEV5_BACKEND_NATIVE_PROFILE_DEV3",
+  "current_engineering_worktree": {
+    "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\forensics\\forecast-preservation-20261103\\source",
+    "branch": "forensic/forecast-preservation-20261103",
+    "base_commit": "a4c0ecf1b7d0eaf35afdb7367ce8e464f285037e",
+    "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+    "checkpoint_commit": "Resolve this branch HEAD; not compiled payload source"
   }
 }

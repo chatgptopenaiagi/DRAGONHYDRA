@@ -1,0 +1,127 @@
+{
+  "schema_version": "dragonhydra.forecast-repair-verification/1",
+  "recorded_at": "2026-11-03T08:30:59.754536+00:00",
+  "passed": true,
+  "status": "FORENSIC_AND_HARNESS_REPAIR_VERIFIED_WINDOWS_LIFECYCLE_INCOMPLETE",
+  "application_source": "ed78fab282599a181d4254ab65a2fc2eaa5b7f50",
+  "installation_id": "core-next-b447d99ab9524197af09c235077685de",
+  "original_forecast_status": "FAIL",
+  "original_receipt_unchanged": true,
+  "classification": "B_ACCEPTANCE_HARNESS_DEFECT",
+  "auditor_sha256": "94b98d6e030a2090ee99f55abffa72f0e5e6ef1f148f47c707d4035cb03d6478",
+  "application_source_modified": false,
+  "application_rebuild_required": false,
+  "proofs": {
+    "original_manifest": {
+      "path": "FORENSIC-MANIFEST.json",
+      "sha256": "e02558910fe67641d1d54123e20d30f44d8cce12b8fd457f706e445d593bde23",
+      "bytes": 10705,
+      "scope": "19 immutable original artifacts and their preserved copies"
+    },
+    "logical_diff": {
+      "path": "derived-r2/SQLITE-LOGICAL-DIFF.json",
+      "sha256": "cc1b63982189664d87b0290a69216df0e04cff1b0a5e9d06e388fa8eccefd07a",
+      "bytes": 26922,
+      "scope": "Complete schema and table comparison from independent working copies"
+    },
+    "original_snapshot_audit": {
+      "path": "derived-r2/original-snapshots-repaired-audit-r2.json",
+      "sha256": "21bc70022454b4969d634a1bab1e7f6a65ca43a316709f58296f227f09c7574f",
+      "bytes": 1405,
+      "scope": "Integrated auditor strict contract against independent working copies of the original snapshots"
+    },
+    "focused_tests": {
+      "path": "focused-tests-r1/verification.json",
+      "sha256": "56e59f4f78be097a971d077a739c2f161e47fe4709fa730162397efd7bb92160",
+      "bytes": 6239,
+      "scope": "52 distinct cases; no historic suite totals added"
+    },
+    "independent_runtime": {
+      "path": "proposals/isolated-runtime-r1/verification.json",
+      "sha256": "6f202bdfc15c6be40cf8e49d4a213ae0e6893f5f5e92b8c21e2dd2b9bb59a135",
+      "bytes": 18602,
+      "scope": "13 installed-executable groups on isolated profile, including actual process restart"
+    },
+    "installed_readback": {
+      "path": "installed-readback-r1/verification.json",
+      "sha256": "c8a087eb1c90d3416cd36e1f0ce9962a8abc0d687b19fd6b704bd3d8e3a789d7",
+      "bytes": 4340,
+      "scope": "GET-only original jobs, history, deployed identity and hashes"
+    },
+    "installed_joomla": {
+      "path": "installed-joomla-history-r1/verification.json",
+      "sha256": "b6b83e5498320e0a06907ff6a703dd87b78512641d8d7fceae3b2a7460bfa2a2",
+      "bytes": 16133,
+      "scope": "7 genuine authenticated HTTP application groups, not native GUI acceptance"
+    },
+    "semantic_review": {
+      "path": "derived-r2/backend-semantic-r1/semantic-review.json",
+      "sha256": "3dd9be1e1ffa0f096a57ec5ae7b08728e5b55895e19a283c6840a8de25e0b5a9",
+      "bytes": 68408,
+      "scope": "50 source-backed inputs, point-in-time eligibility and model output bindings"
+    },
+    "timing_review": {
+      "path": "derived-r2/backend-semantic-r1/timing-review.json",
+      "sha256": "565a041786e2b12f3830293db423831c1db37a98173ee6038c5880bdcf2a1ebf",
+      "bytes": 2297,
+      "scope": "Bounded measurements; no performance improvement claim"
+    },
+    "root_cause": {
+      "path": "ROOT-CAUSE.json",
+      "sha256": "997ad7b6bc863c605bafd5891664c5c63c9422e279a77d179f21ef2ad79663b0",
+      "bytes": 9163,
+      "scope": "Verified acceptance-harness diagnosis"
+    }
+  },
+  "counts_by_scope": {
+    "distinct_python_tests": 52,
+    "python_passed": 52,
+    "python_failed": 0,
+    "independent_runtime_groups": 13,
+    "installed_joomla_http_groups": 7
+  },
+  "counting_policy": "Separate scopes, not a combined distinct test total; runtime groups and overlapping assertions are not added to Python cases.",
+  "preservation": {
+    "retained_records": 760,
+    "all_retained_fields_unchanged": true,
+    "raw_sources_unchanged": 2,
+    "provider_settings_rows_before_after": [
+      0,
+      0
+    ],
+    "private_configuration_fingerprints_equal": 8,
+    "new_jobs": 2,
+    "new_cognitive_records": 10,
+    "new_cognitive_receipts": 10,
+    "new_events": 8,
+    "new_schema_objects": 27,
+    "unexplained_mutations": 0
+  },
+  "original_workflow": {
+    "forecast_job_id": "9cbe1c2be77d46a49c692b5cb8bf8f2b",
+    "evaluation_job_id": "c4be90b6379d44309f9faeb696975b4f",
+    "evaluation_state": "Awaiting eligible outcome",
+    "resubmitted": false
+  },
+  "ports": {
+    "api": 18860,
+    "joomla": 18861,
+    "mariadb": 18862
+  },
+  "remaining_windows_phases": [
+    "Backup",
+    "Restart",
+    "Repair",
+    "UninstallRetain",
+    "ReinstallRetained",
+    "FinalUninstall"
+  ],
+  "release_publish_authorized_by_this_receipt": false,
+  "limitations": [
+    "Original Forecast receipt remains FAIL; this is separate repaired evidence",
+    "Independent executable restart is not a Windows service lifecycle test",
+    "Genuine Joomla HTTP login is not native desktop/default-browser acceptance",
+    "No actual eligible later outcome or measured predictive accuracy",
+    "No service restart, repair or uninstall was performed by the forensic repair"
+  ]
+}
