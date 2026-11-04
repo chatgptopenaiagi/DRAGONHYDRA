@@ -13,6 +13,7 @@ dependencies = []
 [project.optional-dependencies]
 server = ["fastapi==0.162.0", "uvicorn==0.42.0", "openpyxl==3.1.5", "tzdata==2026.2"]
 verification = ["httpx==0.28.1", "playwright==1.58.0"]
+sqlserver = ["pyodbc==5.3.0"]
 
 [project.scripts]
 dragon = "dragonhydra.packaging_entry:main"
@@ -21,6 +22,6 @@ dragonhydra-samples = "dragonhydra.samples:main"
 
 [tool.uv.build-backend]
 module-name = "dragonhydra"
-source-include = ["tests/**", "examples/**", "docs/**", "dragon.py", "packaging/**", "scripts/build_checkpoint_archive.py", "config/runtime/server-python314.lock.txt"]
+source-include = ["tests/**", "examples/**", "docs/**", "dragon.py", "packaging/**", "scripts/build_checkpoint_archive.py", "config/runtime/server-python314.lock.txt", "config/runtime/sqlserver-python314-windows.lock.txt", "config/research-storage.example.json"]
 source-exclude = ["/data", "/runtime", "/dist", "__pycache__", "*.pyc"]
 

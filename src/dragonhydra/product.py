@@ -27,7 +27,7 @@ from .domain import API, now, identity
 
 
 class Product:
-    def __init__(self, state: Path, source_root: Path = ROOT, *, kernel_config=None, engine_adapters=None):
+    def __init__(self, state: Path, source_root: Path = ROOT, *, kernel_config=None, engine_adapters=None, research_settings=None):
         self.state = Path(state).resolve()
         self.source_root = Path(source_root).resolve()
         packaged = Path(__file__).parent / 'resources'
@@ -45,8 +45,13 @@ class Product:
         self.connector_store = Store(self)
         from .kernel.composition import Kernel
         from .kernel.ports import ApplicationContext, StoragePort
+        from .research_storage import configured_repository
+        scope = (kernel_config.get('installation_id') if isinstance(kernel_config,dict)
+                 else getattr(kernel_config,'installation_id',None))
+        scope = scope or 'core-next-source-'+hashlib.sha256(str(self.state).encode()).hexdigest()[:16]
+        self.research = configured_repository(self.state,scope,research_settings)
         context = ApplicationContext(StoragePort(self.state, self.db_path, self.source_root, self.exports, self.connect),
-                                     self.connector_store, lambda: now())
+                                     self.connector_store, lambda: now(), self.research)
         self.kernel = Kernel(context, config=kernel_config, adapters=engine_adapters)
 
     def connect(self):

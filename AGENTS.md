@@ -1,4 +1,15 @@
-## Current release evolution — 2026-11-03
+## Active SQL Server integration — 2026-11-04
+
+Root owns this isolated worktree on feature/dragonhydra-sqlserver-20261104.
+Preserve all frozen release worktrees, sealed packages and existing services.
+The optional research repository is explicitly selected per profile. Canonical
+source records/cognitive memory/jobs stay SQLite-owned; Joomla stays MariaDB-owned.
+SQL Server owns only explicitly published immutable research snapshots and notes.
+There is no background synchronization, silent fallback or forecasting formula change.
+Read docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md and the runtime receipts.
+Use the private isolated SQL runtime; never change the installed Codex executable.
+
+## Historical release evolution — 2026-11-03
 
 Root now owns `LAB/release-source/dev6-verified-20261103`, branch
 `release/core-next-dev6-verified-20261103`. The earlier40523425 worktree and all

@@ -22,6 +22,8 @@ from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
 from .api_contracts import ConnectionInput, EmptyInput, ExportInput, Health, Job, JobInput, LocalExplanationInput, LocalModelInput, Match, MatchPage, SessionInput, SyncInput
+from .api_contracts import ResearchArchiveInput, ResearchNoteInput, ResearchNoteUpdate
+from .research_storage.base import StorageError
 from .connectors.core import ConnectorError
 from .jobs import Jobs, PUBLIC_URLS, fetch_public
 from .product import API, ROOT, VERSION, Product, now
@@ -81,6 +83,12 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     async def invalid(request, exc):
         code = str(exc) if str(exc).isupper() and len(str(exc)) < 80 else 'INVALID_REQUEST'
         return failure(code, 'The request is invalid or conflicts with retained state.', 409 if code == 'IDEMPOTENCY_CONFLICT' else 400)
+
+    @app.exception_handler(StorageError)
+    async def storage_error(request,exc):
+        conflict='CONFLICT' in exc.code
+        return JSONResponse({'error':{'code':exc.code,'message':'Research storage operation could not be confirmed; check its diagnostic and stored identity before retrying.',
+                            'sqlstate':exc.sqlstate,'uncertain_write':exc.uncertain_write}},status_code=409 if conflict else 503)
 
     @app.exception_handler(ConnectorError)
     async def connector_error(request, exc):
@@ -272,6 +280,47 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                           match_id: str = PathParameter(pattern=r'^[a-f0-9]{64}$'), user=Depends(admin)):
         product.find(match_id)
         return jobs.submit('evaluation', {'match_id': match_id}, user['user'], request.headers.get('idempotency-key'))
+
+    @router.get('/research/storage',dependencies=[Depends(admin)])
+    def research_storage_health():
+        return {'canonical_backend':'sqlite','research':product.research.health(),
+                'ownership':'Explicit immutable research publications and versioned notes; no automatic source synchronization or fallback.',
+                'installation':product.kernel.identity()}
+
+    @router.post('/research/storage/initialize',status_code=202,response_model=Job)
+    def initialize_research_storage(body:EmptyInput,request:Request,user=Depends(admin)):
+        return jobs.submit('research_initialize',{},user['user'],request.headers.get('idempotency-key'))
+
+    @router.post('/matches/{match_id}/research/archives',status_code=202,response_model=Job)
+    def archive_research(body:ResearchArchiveInput,request:Request,
+                         match_id:str=PathParameter(pattern=r'^[a-f0-9]{64}$'),user=Depends(admin)):
+        return jobs.submit('research_archive',{'match_id':match_id,'forecast_run_id':body.forecast_run_id},user['user'],request.headers.get('idempotency-key'))
+
+    @router.get('/research/archives/{archive_id}')
+    def read_research_archive(archive_id:str=PathParameter(pattern=r'^[a-f0-9]{64}$')):
+        result=product.research.get(archive_id)
+        if result is None:raise LookupError('RESEARCH_ARCHIVE_NOT_FOUND')
+        return result
+
+    @router.get('/research/archives/{archive_id}/match')
+    def read_research_match(archive_id:str=PathParameter(pattern=r'^[a-f0-9]{64}$')):
+        return product.kernel.execute('data','research_match',archive_id)
+
+    @router.get('/matches/{match_id}/research/archives')
+    def research_history(match_id:str=PathParameter(pattern=r'^[a-f0-9]{64}$'),limit:int=Query(default=50,ge=1,le=100)):
+        return {'items':product.research.history(match_id,limit),'research':product.research.health()}
+
+    @router.post('/research/notes',dependencies=[Depends(admin)])
+    def create_research_note(body:ResearchNoteInput):
+        return product.research.create_note(body.match_id,body.text)
+
+    @router.put('/research/notes/{note_id}',dependencies=[Depends(admin)])
+    def update_research_note(body:ResearchNoteUpdate,note_id:str=PathParameter(pattern=r'^[a-f0-9-]{36}$')):
+        return product.research.update_note(note_id,body.text,body.expected_revision)
+
+    @router.get('/matches/{match_id}/research/notes')
+    def research_notes(match_id:str=PathParameter(pattern=r'^[a-f0-9]{64}$')):
+        return {'items':product.research.notes(match_id),'research':product.research.health()}
 
     @router.get('/matches/{match_id}/analysis-package')
     def analysis_package(match_id: str, context_record_id: str | None = Query(

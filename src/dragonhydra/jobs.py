@@ -279,6 +279,10 @@ class Jobs:
             # Never expose exception text from network transports or credentials.
             result, state, error = None, 'failed', {'code': 'JOB_OPERATION_FAILED', 'message': type(exc).__name__+' during '+job['kind']+'. Retained data remains available.'}
             from .connectors.core import ConnectorError
+            from .research_storage.base import StorageError
+            if isinstance(exc,StorageError):
+                error={'code':exc.code,'message':'Research write was not confirmed. Inspect its stable stored identity before another explicit submission.',
+                       'sqlstate':exc.sqlstate,'uncertain_write':exc.uncertain_write}
             if isinstance(exc, ConnectorError):
                 error = {'code': exc.code, 'message': exc.message, 'http_status': exc.http_status, 'retry_after': exc.retry_after}
             if job['kind'] != 'statsbomb_context' and isinstance(exc, (TimeoutError, URLError)) and job['attempts'] < 3:

@@ -1,5 +1,11 @@
 # DRAGONHYDRA CORE NEXT
 
+**Unreleased SQL integration branch:** optional SQLite/SQL Server storage for
+explicit immutable research publications and versioned notes. Canonical sports
+evidence, forecasts and jobs retain their existing owners; Joomla uses MariaDB.
+See [the integration contract](docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md)
+for actual verification status. Frozen dev.6 artifacts remain unchanged.
+
 DRAGONHYDRA is a provenance-aware sports research workstation. It retains real
 football fixtures and evidence, offers deterministic analysis and forecasting,
 exports JSON/CSV/XLSX, and connects Joomla, a Windows client and an Android

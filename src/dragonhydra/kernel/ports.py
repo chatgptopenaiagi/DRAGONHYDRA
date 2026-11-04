@@ -44,6 +44,7 @@ class ApplicationContext:
     storage: StoragePort
     providers: ProviderReadPort
     clock: Callable[[], str]
+    research: object | None = None
 
 
 @dataclass(frozen=True)

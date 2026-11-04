@@ -44,6 +44,20 @@ class EmptyInput(Input):
     pass
 
 
+class ResearchArchiveInput(Input):
+    forecast_run_id: str = Field(min_length=1,max_length=128)
+
+
+class ResearchNoteInput(Input):
+    match_id: str = Field(pattern=r'^[a-f0-9]{64}$')
+    text: str = Field(min_length=1,max_length=4000)
+
+
+class ResearchNoteUpdate(Input):
+    text: str = Field(min_length=1,max_length=4000)
+    expected_revision: int = Field(ge=1,strict=True)
+
+
 class LocalExplanationInput(Input):
     context_record_id: str | None = Field(default=None, strict=True, pattern=r'^source_context:[a-f0-9]{64}$')
 

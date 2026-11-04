@@ -28,7 +28,7 @@ DEFINITIONS = (
 
 _CONTRACTS = {
     'data': (('sqlite_state',), ('rows', 'match_id', 'competition_id', 'team_id', 'present', 'find',
-               'matches', 'competitions', 'team', 'standings', 'evidence'),
+               'matches', 'competitions', 'team', 'standings', 'evidence', 'research_match'),
              ('source_observations', 'fixtures', 'teams', 'competitions', 'raw_evidence'),
              ('tests/test_public_results.py', 'tests/test_connectors_store.py', 'tests/core_next/test_kernel.py')),
     'odds': (('retained_provider_scope',), ('odds', 'signals', 'scenario'),
@@ -37,7 +37,7 @@ _CONTRACTS = {
     'prediction': (('eligible_future_fixture', 'same_source_training_evidence'), ('predictions', 'persist'),
                    ('model_runs', 'prospective_predictions', 'uncertainty'),
                    ('tests/test_cognition_models.py', 'tests/core_next/test_kernel.py', 'tests/core_next/test_characterization.py')),
-    'memory': (('sqlite_state',), ('view', 'history', 'record_model', 'record_prediction', 'attach_outcome'),
+    'memory': (('sqlite_state',), ('view', 'history', 'record_model', 'record_prediction', 'attach_outcome', 'archive_forecast'),
                ('immutable_memory', 'prediction_receipts', 'later_outcomes'),
                ('tests/test_cognition_memory.py', 'tests/core_next/test_kernel.py')),
     'evaluation': (('eligible_persisted_prediction_and_later_outcome',), ('evaluate', 'persist', 'evaluate_match'),
@@ -191,6 +191,11 @@ class Kernel:
         return result
 
     def dispatch_job(self, jobs, job):
+        if job['kind'] in ('research_initialize','research_archive'):
+            jobs.check(job['id'],job['attempts'])
+            if job['kind']=='research_initialize':
+                return self.context.research.initialize()
+            return self.execute('memory','archive_forecast',job['payload']['match_id'],job['payload']['forecast_run_id'])
         from .job_dispatch import JobDispatcher
         from ..connectors.statsbomb_context_jobs import run
         result = JobDispatcher(import_public=jobs.import_public, export=jobs.export,

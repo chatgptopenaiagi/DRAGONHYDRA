@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "provider": "sqlserver",
+  "sqlserver": {
+    "server": "YOUR_VERIFIED_WINDOWS_SQL_INSTANCE",
+    "database": "YOUR_OWNED_RESEARCH_DATABASE",
+    "driver": "ODBC Driver 18 for SQL Server",
+    "authentication": "windows_integrated",
+    "encrypt": true,
+    "trust_server_certificate": false,
+    "connection_timeout_seconds": 5,
+    "query_timeout_seconds": 10
+  }
+}

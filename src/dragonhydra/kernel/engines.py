@@ -13,6 +13,7 @@ class BoundEngine:
     contract_version = 'core-next.engine/1'
     def __init__(self, context: ApplicationContext):
         self.storage = context.storage
+        self.research = context.research
         self.state, self.db_path = self.storage.state, self.storage.db_path
         self.source_root, self.exports = self.storage.source_root, self.storage.exports
         self.connect, self.clock = self.storage.connect, context.clock
@@ -40,6 +41,14 @@ class BoundEngine:
 
 
 class DataEngine(BoundEngine):
+    def research_match(self, archive_id):
+        repository=self.research
+        if repository is None:raise ValueError('RESEARCH_STORAGE_NOT_CONFIGURED')
+        retained=repository.get(archive_id)
+        if retained is None:raise LookupError('RESEARCH_ARCHIVE_NOT_FOUND')
+        return {'match':retained['archive']['match'],'storage':retained['storage'],
+                'scope':'Immutable published target snapshot, not a current provider refresh'}
+
     def rows(self):
         with closing(self.connect()) as db:
             rows = public_results.latest(db, self.clock())
@@ -342,6 +351,11 @@ class MemoryEngine(BoundEngine):
 
     def record_prediction(self, draft):
         return self.backend.record_prediction(self.db_path, draft)
+
+    def archive_forecast(self, match_id, run_id):
+        from ..research_storage.service import archive_forecast
+        return archive_forecast(repository=self.research,data=self.data,
+            memory_view=self.view,clock=self.clock,match_id=match_id,run_id=run_id)
 
     def attach_outcome(self, evidence_id):
         return self.backend.record_outcome(self.db_path, evidence_id)
