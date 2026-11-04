@@ -62,7 +62,10 @@ def validate_bundle(value):
             for key, p in zip(('home','draw','away'), probabilities):
                 original = model['parameters']['result']['probabilities'][key]
                 original = original['value'] if isinstance(original, dict) else original
-                if p != Decimal(original):raise StorageError('RESEARCH_MODEL_PROBABILITY_MISMATCH')
+                # Match cognitive memory's Decimal(str(value)) boundary for
+                # original JSON numeric model outputs; never expand binary floats.
+                if isinstance(original,bool) or p != Decimal(str(original)):
+                    raise StorageError('RESEARCH_MODEL_PROBABILITY_MISMATCH')
         except (KeyError, TypeError, InvalidOperation):
             raise StorageError('INVALID_RESEARCH_PROBABILITY') from None
     if len(canonical(value)) > 8*1024*1024:raise StorageError('RESEARCH_ARCHIVE_TOO_LARGE')

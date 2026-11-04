@@ -50,6 +50,17 @@ def set_probabilities(bundle, values):
 
 
 class ResearchStorage(unittest.TestCase):
+    def test_json_numeric_model_matches_canonical_prediction_decimal_text(self):
+        value = set_probabilities(synthetic_bundle(),
+            {'home':'0.3584905660377358','draw':'0.32075471698113206','away':'0.32075471698113206'})
+        for model in value['models']:
+            for number in model['parameters']['result']['probabilities'].values():
+                number['value'] = float(number['value'])
+        self.assertEqual(validate_bundle(value), value)
+        value['predictions'][0]['probabilities']['home'] = '0.3584905660377359'
+        with self.assertRaisesRegex(StorageError,'RESEARCH_MODEL_PROBABILITY_MISMATCH'):
+            validate_bundle(value)
+
     def setUp(self):
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(prefix='synthetic-', dir=TEMP_ROOT)
