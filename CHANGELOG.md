@@ -1,5 +1,21 @@
 # Changelog
 
+## CORE NEXT 0.5.0-dev.7 — 2026-11-04 — development generation
+
+- Incorporates the verified optional SQL Server research repository, immutable
+  forecast publications, versioned notes, typed projections and explicit provider
+  selection. Canonical SQLite and Joomla MariaDB ownership are preserved.
+- Includes the optional connector and exact migration resource in frozen Windows
+  server inputs, with pinned wheel and native-byte provenance checks.
+- Adds scoped Windows service-SID provisioning for a dedicated research database;
+  interactive-user SQL proof remains distinct from installed-service acceptance.
+- Reconciles the historical continuity tip through pinned pre-mission evidence;
+  unauthorized subsequent ref movement and all primary gates remain rejected.
+- Aligns all application generations to dev.7; Android versionCode advances to10.
+- Forecast mathematics and evaluation eligibility remain unchanged. This source
+  entry does not claim predictive accuracy, live intelligence, unexecuted native
+  tests or publication. Actual later results belong to sealed release reports.
+
 ## CORE NEXT 0.5.0-dev.6 — 2026-11-03 — source candidate, held
 
 - Integrates the verified Forecast preservation incident and scoped recovery

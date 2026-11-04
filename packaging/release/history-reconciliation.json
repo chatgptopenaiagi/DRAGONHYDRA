@@ -1,0 +1,24 @@
+{
+  "schema_version": "core-next.history-reconciliation/1",
+  "repository": "chatgptopenaiagi/DRAGONHYDRA",
+  "scope": "EXACT_PREMISSION_REF_ONLY",
+  "ref": "refs/heads/continuity/genesis-20261031-a6",
+  "legacy_tip": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
+  "accepted_tip": "a63068de10a111a7784bcf677101a66b693d0908",
+  "reason": "The original independently managed continuity branch already had this exact tip in the pre-mission Nov3 authenticated audit. This policy records that historical fact without moving a ref or accepting future movement. The earlier addendum alone did not satisfy the old validator.",
+  "proofs": {
+    "legacy_baseline": {
+      "path": "evidence/branches-before.txt",
+      "sha256": "35c4a3c8767501ddabf029b40491d0ece528bbde33f3246f5705e2e8cd1effb0"
+    },
+    "premission_audit": {
+      "path": "release-evolution-20261103/audit-github/GITHUB-AUDIT.json",
+      "sha256": "397af7be7ad1922e202e48da69ecabb6c0b0a9f1cda1f9b5d94593d2f17a05bd",
+      "observed_at": "2026-11-03T14:29:25.574881Z"
+    },
+    "unaccepted_addendum": {
+      "path": "release-evolution-20261103/history-addendum-r3/HISTORY-ADDENDUM-R3.json",
+      "sha256": "cbe2bdbaeb5f8977c2c496a1c033cca036174a3a90ad848ea32e99ff0f0329eb"
+    }
+  }
+}

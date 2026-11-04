@@ -73,6 +73,9 @@ def ownership_handler(repo, *, owner=True, missing_trigger=False, checksum=None)
             return rows
         if 'SELECT checksum' in statement: return [(repo._schema_hash(),)]
         if 'COUNT_BIG' in statement: return [(0,)]
+        if 'SELECT SUSER_SNAME()' in statement:
+            return [('NT AUTHORITY\\LOCAL SERVICE', 'NT SERVICE\\SyntheticCandidate',
+                     'DRAGONHYDRA_CORE_NEXT_SQL_LAB', 'Shared memory', 'NTLM')]
         return []
     return handle
 
@@ -201,6 +204,25 @@ class OwnershipAndTransactions(TestCase):
         self.assertTrue(all(s.startswith('SELECT') for s, _ in connection.calls))
         self.assertTrue(all(p == ('profile-a',) for s, p in connection.calls if 'COUNT_BIG' in s))
         self.assertIn('is_disabled=0', next(s for s, _ in connection.calls if 'sys.objects' in s))
+        self.assertEqual(result['connection_identity']['login'], 'NT AUTHORITY\\LOCAL SERVICE')
+        self.assertEqual(result['connection_identity']['database_user'], 'NT SERVICE\\SyntheticCandidate')
+        self.assertEqual(result['connection_identity']['auth_scheme'], 'NTLM')
+        self.assertFalse(any('sys.dm_' in s for s, _ in connection.calls))
+
+    def test_connection_identity_is_actual_bounded_metadata_not_inferred_from_configuration(self):
+        for identity in [None, ('user', 'dbo', 'database', 'Shared memory', 'SQL'),
+                         ('FAKE_CANARY\nunsafe', 'dbo', 'database', 'Shared memory', 'NTLM')]:
+            repo = repository(owned=False)
+            normal = ownership_handler(repo)
+            def handle(statement, parameters):
+                if 'SELECT SUSER_SNAME()' in statement:
+                    return [] if identity is None else [identity]
+                return normal(statement, parameters)
+            repo._connect = Mock(return_value=Connection(handle))
+            result = repo.health()
+            self.assertFalse(result['ready'])
+            self.assertNotIn('connection_identity', result)
+            self.assertNotIn('FAKE_CANARY', json.dumps(result))
 
     def test_missing_trigger_or_foreign_migration_fails_closed_without_ddl(self):
         for options in [{'missing_trigger': True}, {'checksum': bytes(32)}, {'owner': False}]:

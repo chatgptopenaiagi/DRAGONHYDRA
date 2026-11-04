@@ -31,14 +31,20 @@ class RuntimeReleaseInputsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory); source = base/'original'; stage = base/'staged'
             files = {'config/runtime/server-python314.lock.txt':'fastapi==0.162.0\n',
+                     'config/runtime/sqlserver-python314-windows.lock.txt':'pyodbc==5.3.0 --hash=sha256:'+'a'*64+'\n',
                      'config/runtime/private.json':'SYNTHETIC private configuration',
                      'runtime/private.json':'SYNTHETIC runtime state', 'build/output.txt':'SYNTHETIC build',
                      'dist/output.txt':'SYNTHETIC artifact', '.git':'SYNTHETIC worktree binding',
-                     'src/dragonhydra/product.py':'# SYNTHETIC source\n'}
+                     'src/dragonhydra/product.py':'# SYNTHETIC source\n',
+                     'src/dragonhydra/research_storage/schema_sqlserver.sql':'-- SYNTHETIC source schema\n'}
             for relative, text in files.items():
                 path=source/relative;path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text)
             shutil.copytree(source,stage,ignore=builder.source_ignores(source))
             self.assertEqual((stage/'config/runtime/server-python314.lock.txt').read_text(),files['config/runtime/server-python314.lock.txt'])
+            self.assertEqual((stage/'config/runtime/sqlserver-python314-windows.lock.txt').read_text(),
+                             files['config/runtime/sqlserver-python314-windows.lock.txt'])
+            self.assertEqual((stage/'src/dragonhydra/research_storage/schema_sqlserver.sql').read_text(),
+                             files['src/dragonhydra/research_storage/schema_sqlserver.sql'])
             self.assertTrue((stage/'src/dragonhydra/product.py').is_file())
             for relative in ('config/runtime/private.json','runtime','build','dist','.git'):
                 self.assertFalse((stage/relative).exists(),relative)

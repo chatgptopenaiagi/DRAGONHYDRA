@@ -1,13 +1,13 @@
 VSVersionInfo(
-  ffi=FixedFileInfo(filevers=(0, 5, 0, 6), prodvers=(0, 5, 0, 6), mask=0x3f,
+  ffi=FixedFileInfo(filevers=(0, 5, 0, 7), prodvers=(0, 5, 0, 7), mask=0x3f,
                     flags=0x2, OS=0x40004, fileType=0x1, subtype=0x0, date=(0, 0)),
   kids=[StringFileInfo([StringTable('040904B0', [
     StringStruct('CompanyName', 'DRAGONHYDRA'),
     StringStruct('FileDescription', 'DRAGONHYDRA CORE NEXT authenticated server'),
-    StringStruct('FileVersion', '0.5.0.6'),
+    StringStruct('FileVersion', '0.5.0.7'),
     StringStruct('InternalName', 'DRAGONHYDRA-Server'),
     StringStruct('OriginalFilename', 'DRAGONHYDRA-Server.exe'),
     StringStruct('ProductName', 'DRAGONHYDRA CORE NEXT'),
-    StringStruct('ProductVersion', '0.5.0-dev.6')
+    StringStruct('ProductVersion', '0.5.0-dev.7')
   ])]), VarFileInfo([VarStruct('Translation', [1033, 1200])])]
 )

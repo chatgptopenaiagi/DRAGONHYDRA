@@ -1010,5 +1010,25 @@
     "actual_repository_integrity_assertions": 3,
     "actual_unavailable_driver_assertions": 5,
     "numerical_delta": "0"
+  },
+  "active_dev7_release": {
+    "version": "0.5.0-dev.7",
+    "tag": "v0.5.0-dev.7-core-next",
+    "source_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-source\\dev7-sqlserver-20261104",
+    "branch": "release/core-next-dev7-20261104",
+    "origin_source": "fa4dd93b4fb93eeff2f93f0362caa5ed3373c04a",
+    "phase": "SOURCE_PREPARATION",
+    "publication": "NOT_CREATED",
+    "owner": "root sole integration writer; agent files disjoint",
+    "evidence_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261104\\dev7",
+    "remote_version_unused": true,
+    "previous_releases": 10,
+    "previous_assets": 95,
+    "software_packages_to_rebuild": 9,
+    "sql_ownership": "explicit optional research archive and notes; canonical SQLite, Joomla MariaDB unchanged",
+    "installed_service_sql": "NOT_RUN",
+    "native_gui": "NOT_RUN",
+    "history_intake": "14 focused tests PASS; actual validator run after freeze",
+    "next": "Finish new controller/provisioning/lifecycle tests; integrated gate then freeze/build; do not relax primary/native/privacy requirements"
   }
 }

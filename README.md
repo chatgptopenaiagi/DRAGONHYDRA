@@ -1,10 +1,18 @@
 # DRAGONHYDRA CORE NEXT
 
-**Unreleased SQL integration branch:** optional SQLite/SQL Server storage for
+**Development generation 0.5.0-dev.7:** optional SQLite/SQL Server storage for
 explicit immutable research publications and versioned notes. Canonical sports
 evidence, forecasts and jobs retain their existing owners; Joomla uses MariaDB.
-See [the integration contract](docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md)
-for actual verification status. Frozen dev.6 artifacts remain unchanged.
+Windows service SQL access is scoped to each installation's service SID and its
+own research database. Android and desktop clients continue using the backend API.
+
+Find actual published software on [GitHub Releases](https://github.com/chatgptopenaiagi/DRAGONHYDRA/releases).
+The [dev.7 qualification plan](docs/releases/CORE-NEXT-DEV7-PLAN.md) explains the
+mandatory installed, native and privacy gates. Build and test reports accompanying
+a release establish its actual acceptance scope; a version or source push alone
+does not. See [the SQL contract](docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md)
+for storage ownership and the earlier host source-run evidence. Frozen dev.6 and
+historical release assets remain preserved.
 
 DRAGONHYDRA is a provenance-aware sports research workstation. It retains real
 football fixtures and evidence, offers deterministic analysis and forecasting,

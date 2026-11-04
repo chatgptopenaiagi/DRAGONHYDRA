@@ -18,4 +18,6 @@ foreach($name in @('DragonhydraService','DragonhydraLauncher')){
 }
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Workstation.ps1') -Destination $OutputRoot
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'CoreNextProfile.ps1') -Destination $OutputRoot
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Configure-CoreNextSqlResearch.ps1') -Destination $OutputRoot
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'SQL-RESEARCH.md') -Destination $OutputRoot
 'Compiled native SCM service host and interactive launcher against installed .NET Framework.'

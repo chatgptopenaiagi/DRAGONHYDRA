@@ -7,6 +7,7 @@ Run with the existing Python 3.14 server environment. No packages are installed.
 from __future__ import annotations
 
 import argparse
+import base64
 from datetime import datetime, timezone
 import hashlib
 import importlib.metadata
@@ -14,6 +15,7 @@ import io
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -22,6 +24,15 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 LAB = Path(r'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB')
+SQL_SCHEMA = Path('src/dragonhydra/research_storage/schema_sqlserver.sql')
+RESEARCH_INPUTS = tuple(Path('src/dragonhydra/research_storage') / name for name in
+                        ('__init__.py', 'base.py', 'service.py', 'sqlite.py', 'sqlserver.py', 'schema_sqlserver.sql'))
+SQL_DRIVER_LOCK = Path('config/runtime/sqlserver-python314-windows.lock.txt')
+PUBLIC_RESEARCH_INPUTS = (
+    (Path('config/research-storage.example.json'), Path('config/research-storage.example.json')),
+    (SQL_DRIVER_LOCK, Path('config/runtime/sqlserver-python314-windows.lock.txt')),
+    (Path('docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md'), Path('docs/MICROSOFT-SQLSERVER-INTEGRATION.md')),
+)
 
 
 def digest(path):
@@ -32,11 +43,96 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
+def product_inputs(root):
+    """Allow the one reviewed SQL resource, not arbitrary runtime/config data."""
+    selected = []
+    for path in (root / 'src/dragonhydra').rglob('*'):
+        if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc' and path.name != 'build_info.json':
+            if not (path.suffix == '.py' or path.is_relative_to(root / 'src/dragonhydra/resources')
+                    or path == root / SQL_SCHEMA):
+                raise RuntimeError('Unexpected product source input: ' + str(path.relative_to(root)))
+            selected.append(path)
+    if not set(root / name for name in RESEARCH_INPUTS).issubset(selected):
+        raise RuntimeError('The scoped source is missing a research adapter or SQL schema input.')
+    return selected
+
+
+def research_driver(root, wheel):
+    """Pin the optional native connector for this Windows distribution only.
+
+    This validates installed wheel bytes, without connecting to SQL Server or
+    asserting availability of the separately installed Microsoft ODBC driver.
+    PyInstaller follows the extension's native imports using its existing hook.
+    """
+    lock = (root / SQL_DRIVER_LOCK).read_text(encoding='utf-8')
+    pins = re.findall(r'^pyodbc==([^\s]+)\s+--hash=sha256:([a-f0-9]{64})\s*$', lock, re.M)
+    if len(pins) != 1:
+        raise RuntimeError('Expected one hash-pinned Windows pyodbc dependency.')
+    wheel = Path(os.path.abspath(wheel))
+    for path in (wheel, *wheel.parents):
+        if path.is_symlink() or getattr(path, 'is_junction', lambda: False)():
+            raise RuntimeError('Linked SQL connector wheel input is not permitted.')
+    if (wheel.name != 'pyodbc-'+pins[0][0]+'-cp314-cp314-win_amd64.whl'
+            or not wheel.is_file() or digest(wheel) != pins[0][1]):
+        raise RuntimeError('SQL connector wheel differs from the Windows dependency lock.')
+    with zipfile.ZipFile(wheel) as archive:
+        names = archive.namelist()
+        if len(set(name.lower() for name in names)) != len(names):
+            raise RuntimeError('Duplicate SQL connector wheel member.')
+        native = {name: hashlib.sha256(archive.read(name)).hexdigest()
+                  for name in names if Path(name).suffix.lower() in ('.pyd', '.dll')}
+    distribution = importlib.metadata.distribution('pyodbc')
+    if distribution.version != pins[0][0]:
+        raise RuntimeError('Installed pyodbc differs from the Windows SQL dependency lock.')
+    binaries = []
+    for entry in distribution.files or ():
+        if entry.suffix.lower() not in ('.pyd', '.dll'):
+            continue
+        path = Path(distribution.locate_file(entry))
+        if path.is_symlink() or not path.is_file() or not entry.hash or entry.hash.mode != 'sha256':
+            raise RuntimeError('SQL connector binary has no regular hash-verified wheel member.')
+        expected = base64.urlsafe_b64decode(entry.hash.value + '=' * (-len(entry.hash.value) % 4)).hex()
+        if (native.get(entry.as_posix()) != expected or digest(path) != expected
+                or (entry.size is not None and path.stat().st_size != entry.size)):
+            raise RuntimeError('SQL connector binary differs from its installed wheel RECORD.')
+        binaries.append({'path': str(path), 'name': entry.as_posix(), 'bytes': path.stat().st_size, 'sha256': expected})
+    if len([entry for entry in binaries if entry['name'] == 'pyodbc.cp314-win_amd64.pyd']) != 1:
+        raise RuntimeError('The Windows CPython 3.14 x64 SQL connector extension is unavailable.')
+    if set(native) != {entry['name'] for entry in binaries}:
+        raise RuntimeError('The installed SQL connector native members differ from the locked wheel.')
+    return {'version': distribution.version, 'wheel': str(wheel), 'wheel_sha256': pins[0][1], 'binaries': binaries,
+            'host_prerequisite': 'Microsoft ODBC Driver 18 and an explicitly configured accessible SQL Server; neither is bundled'}
+
+
+def verify_research_payload(payload, snapshot, driver):
+    schema = payload / '_internal/dragonhydra/research_storage/schema_sqlserver.sql'
+    if not schema.is_file() or digest(schema) != digest(snapshot / SQL_SCHEMA):
+        raise RuntimeError('Frozen SQL schema is missing or differs from the scoped source.')
+    for entry in driver['binaries']:
+        # The pinned pyodbc wheel is a top-level extension. Any future vendor
+        # directory remains relative to site-packages; never accept a basename-only match.
+        target = payload / '_internal' / entry['name']
+        if not target.is_file() or digest(target) != entry['sha256']:
+            raise RuntimeError('Frozen SQL connector binary is missing or changed: ' + entry['name'])
+
+
+def copy_research_guidance(payload, snapshot):
+    """Ship only these Git-bound public instructions, never installed settings."""
+    for source, relative in PUBLIC_RESEARCH_INPUTS:
+        original, target = snapshot / source, payload / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(original, target)
+        if digest(target) != digest(original):
+            raise RuntimeError('Standalone research instructions changed while copying: ' + source.as_posix())
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--work', type=Path, required=True,
                         help='Fresh directory within build/connections; existing evidence is never overwritten')
     parser.add_argument('--builder-packages', type=Path, default=ROOT / 'runtime/genesis2-pyinstaller-builder')
+    parser.add_argument('--sqlserver-wheel', type=Path, required=True,
+                        help='Existing Windows CPython 3.14 x64 pyodbc wheel, verified against the scoped public lock; never installed by this builder')
     parser.add_argument('--skip-verification', action='store_true', help='Build only; report remains built_unverified')
     parser.add_argument('--source-sha', help='Exact clean candidate Git commit; never inferred for a working-tree build')
     args = parser.parse_args()
@@ -70,15 +166,12 @@ def main():
     # Scope is explicit: importable product source and the three packaging inputs.
     # Databases, raw acquired connector bytes, credentials and old releases never
     # enter the snapshot. Only the reviewed, bundled public sample resources do.
-    selected = []
-    for path in (ROOT / 'src/dragonhydra').rglob('*'):
-        if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc' and path.name != 'build_info.json':
-            if not (path.suffix == '.py' or path.is_relative_to(ROOT / 'src/dragonhydra/resources')):
-                raise SystemExit('Unexpected product source input: ' + str(path.relative_to(ROOT)))
-            selected.append(path)
+    selected = product_inputs(ROOT)
+    driver = research_driver(ROOT, args.sqlserver_wheel)  # Fail before creating a build on missing/unverified optional native inputs.
     selected += [ROOT / 'packaging/windows' / name
                  for name in ('product-server.spec', 'server_entry.py', 'version_info.txt')]
     selected += [ROOT / 'packaging/release/version.json']
+    selected += [ROOT / source for source, _ in PUBLIC_RESEARCH_INPUTS]
     selected += [ROOT / 'tests/installation' / name
                  for name in ('frozen_server.py', 'connector_payload.py')]
     selected += [Path(__file__).resolve()]
@@ -124,6 +217,10 @@ def main():
               'source_content_sha256': source_hash, 'source_manifest': 'SOURCE-MANIFEST.json',
               'python': sys.executable, 'python_version': sys.version, 'builder_packages': str(packages),
               'versions': {name: importlib.metadata.version(name) for name in ('fastapi', 'uvicorn', 'tzdata', 'openpyxl')},
+              'research_storage': driver,
+              'required_research_inputs': [path.as_posix() for path in RESEARCH_INPUTS],
+              'public_research_inputs': [{'source': source.as_posix(), 'payload': target.as_posix()}
+                                        for source, target in PUBLIC_RESEARCH_INPUTS],
               'required_context_inputs': [path.relative_to(ROOT).as_posix() for path in required_context_inputs],
               'commands': [], 'scope': 'Unsigned development Windows x64 server; no installer replacement or clean-machine claim'}
     env = os.environ.copy()
@@ -161,6 +258,8 @@ def main():
         for name in ('app.js', 'index.html', 'style.css'):
             if digest(payload / '_internal/dragonhydra/resources/web' / name) != digest(snapshot / 'src/dragonhydra/resources/web' / name):
                 raise RuntimeError('Frozen dashboard resource drift: ' + name)
+        verify_research_payload(payload, snapshot, driver)
+        copy_research_guidance(payload, snapshot)
         if not args.skip_verification:
             run('frozen-server', [sys.executable, '-B', snapshot / 'tests/installation/frozen_server.py',
                                   '--binary', binary, '--output', work / 'frozen-server.json'])

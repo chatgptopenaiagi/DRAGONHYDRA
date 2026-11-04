@@ -16,7 +16,7 @@ from zipfile import ZipFile
 
 
 def source_ignores(source):
-    """Keep the public nested dependency lock while excluding runtime state."""
+    """Keep only the two public nested dependency locks, excluding runtime state."""
     source = Path(source).resolve()
     def ignored(directory, names):
         relative = Path(directory).resolve().relative_to(source)
@@ -24,7 +24,8 @@ def source_ignores(source):
         if not relative.parts:
             blocked.update(('runtime', 'build', 'dist'))
         if relative.parts == ('config', 'runtime'):
-            return [name for name in names if name != 'server-python314.lock.txt']
+            return [name for name in names if name not in
+                    {'server-python314.lock.txt', 'sqlserver-python314-windows.lock.txt'}]
         return [name for name in names if name in blocked]
     return ignored
 

@@ -110,6 +110,41 @@ function Owned-Service {
     }
     return $existing
 }
+function Set-CoreNextOwnedServiceSid {
+    param($Profile,[switch]$CreatedNow,[string]$Policy='',[switch]$SqlEnabled)
+    $null=Assert-CoreNextProfile $Profile
+    $name=[string]$Profile.service_name
+    $service=Get-CimInstance Win32_Service -Filter ("Name='"+$name+"'")
+    $expected=(Quote (Join-Path $Profile.install_root 'workstation\DragonhydraService.exe'))+' --state '+(Quote $Profile.state_root)+' --name '+$name
+    if(-not $service -or $service.Name -cne $name -or $service.PathName -cne $expected -or $service.StartName -ine 'NT AUTHORITY\LocalService'){
+        throw 'CORE_NEXT_SERVICE_SID_OWNERSHIP_MISMATCH'
+    }
+    if(-not $Policy -and -not $CreatedNow -and -not $SqlEnabled){
+        return [pscustomobject]@{service_name=$name;installation_id=$Profile.installation_id;sid_type='LEGACY_NOT_REQUIRED';
+            account='NT AUTHORITY\LocalService';changed=$false;observed_at=[DateTime]::UtcNow.ToString('o');
+            verification_scope='Existing no-SQL profile unchanged; no service SID or SQL readiness inferred'}
+    }
+    if($Policy -cne 'unrestricted'){throw 'CORE_NEXT_SQL_SERVICE_SID_POLICY_REQUIRED'}
+    if($CreatedNow -and $service.State -cne 'Stopped'){throw 'CORE_NEXT_NEW_SERVICE_MUST_BE_STOPPED'}
+    $sc=Join-Path $env:WINDIR 'System32\sc.exe'
+    function Read-ExactSidType {
+        $raw=(@(Native $sc @('qsidtype',$name))|ForEach-Object{[string]$_}) -join "`n"
+        $names=[regex]::Matches($raw,'(?m)^\s*SERVICE_NAME:\s*(\S+)\s*$')
+        $types=[regex]::Matches($raw,'(?m)^\s*SERVICE_SID_TYPE:\s*(\S+)\s*$')
+        if($names.Count -ne 1 -or $names[0].Groups[1].Value -cne $name -or $types.Count -ne 1){throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'}
+        $types[0].Groups[1].Value
+    }
+    $before=Read-ExactSidType
+    if($before -cne 'UNRESTRICTED'){
+        # Never retrofit another/older installation's service security settings.
+        if(-not $CreatedNow -or $before -cne 'NONE'){throw 'CORE_NEXT_EXISTING_SERVICE_SID_UNVERIFIED'}
+        $null=Native $sc @('sidtype',$name,'unrestricted')
+    }
+    if((Read-ExactSidType) -cne 'UNRESTRICTED'){throw 'CORE_NEXT_SERVICE_SID_CONFIGURATION_FAILED'}
+    [pscustomobject]@{service_name=$name;installation_id=$Profile.installation_id;sid_type='UNRESTRICTED';
+        account='NT AUTHORITY\LocalService';changed=($before -cne 'UNRESTRICTED');observed_at=[DateTime]::UtcNow.ToString('o');
+        verification_scope='SCM configuration only; child token membership and SQL authentication require separate actual evidence'}
+}
 function Close-OwnedClient {
     $clientPath=Join-Path $script:cfg.install_root 'client\DRAGONHYDRA-Client.exe'
     $statePath=Join-Path $script:cfg.state_root 'client'
@@ -480,16 +515,18 @@ if($Action -eq 'Install'){
         Protect-Directory $StateRoot $OwnerSid
         $apiPort=[int]$coreProfile.ports.api;$webPort=[int]$coreProfile.ports.web;$dbPort=[int]$coreProfile.ports.database
         foreach($port in @($apiPort,$webPort,$dbPort)){Assert-FreePort $port}
-        $script:cfg=[pscustomobject][ordered]@{schema_version=1;product_version='0.4.1-dev.1';install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;owner_sid=$OwnerSid;api_port=$apiPort;web_port=$webPort;database_port=$dbPort;api_base=('http://127.0.0.1:'+$apiPort+'/dragon/api/v1');bridge_secret_path=(Join-Path $StateRoot 'kernel\joomla-bridge.json');root_password=(Random-Secret);db_name='dragonhydra_admin';db_user='dragonhydra_admin';db_password=(Random-Secret);core_db_name='dragonhydra_core';core_db_user='dragonhydra_core';core_db_password=(Random-Secret);admin_user='dragonadmin';admin_password=(Random-Secret);admin_email='administrator@dragonhydra.invalid';site_name='DRAGONHYDRA';kernel_backend='sqlite';optional_ai=@{enabled=$false;runtime='llama.cpp';endpoint=$null;model_directory=(Join-Path $StateRoot 'models');status='optional_not_installed'};analytics=@{authority='kernel';external_sql_server='optional_not_configured';external_postgresql='optional_not_configured';xlsx_export=$true}}
+        $script:cfg=[pscustomobject][ordered]@{schema_version=1;product_version=$coreProfile.version;install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;owner_sid=$OwnerSid;api_port=$apiPort;web_port=$webPort;database_port=$dbPort;api_base=('http://127.0.0.1:'+$apiPort+'/dragon/api/v1');bridge_secret_path=(Join-Path $StateRoot 'kernel\joomla-bridge.json');root_password=(Random-Secret);db_name='dragonhydra_admin';db_user='dragonhydra_admin';db_password=(Random-Secret);core_db_name='dragonhydra_core';core_db_user='dragonhydra_core';core_db_password=(Random-Secret);admin_user='dragonadmin';admin_password=(Random-Secret);admin_email='administrator@dragonhydra.invalid';site_name='DRAGONHYDRA';kernel_backend='sqlite';optional_ai=@{enabled=$false;runtime='llama.cpp';endpoint=$null;model_directory=(Join-Path $StateRoot 'models');status='optional_not_installed'};analytics=@{authority='kernel';external_sql_server='optional_not_configured';external_postgresql='optional_not_configured';xlsx_export=$true}}
         foreach($key in @('product','edition','installation_id','environment_id','browser_user_data','cookie_name','joomla_session_suffix','build_id','source_commit','version')){$script:cfg|Add-Member -NotePropertyName $key -NotePropertyValue $coreProfile.$key -Force}
         $script:cfg|Add-Member -NotePropertyName profile_path -NotePropertyValue $ProfilePath -Force
         $script:cfg.db_name=$coreProfile.database.admin_schema;$script:cfg.db_user=$coreProfile.database.admin_user
         $script:cfg.core_db_name=$coreProfile.database.core_schema;$script:cfg.core_db_user=$coreProfile.database.core_user
         $script:cfg.site_name='DRAGONHYDRA CORE NEXT'
         $script:cfg.product_version=$coreProfile.version
+        $script:cfg|Add-Member -NotePropertyName service_sid_policy -NotePropertyValue 'unrestricted'
         Assert-CoreNextConfig $script:cfg $coreProfile
         Save-Json $script:cfg $configFile
     }
+    if($script:cfg.product_version -cne $coreProfile.version){$script:cfg.product_version=$coreProfile.version;Save-Json $script:cfg $configFile}
     Protect-Directory $StateRoot $OwnerSid
     Protect-Binaries $InstallRoot
     $null=Owned-Service
@@ -509,16 +546,23 @@ if($Action -eq 'Install'){
     Save-Json @{service_name=$ServiceName;installation_id=$coreProfile.installation_id;browser_user_data=$coreProfile.browser_user_data;profile_path=$ProfilePath} (Join-Path $StateRoot 'launcher.json')
     Save-Json @{install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;product=$coreProfile.product;installation_id=$coreProfile.installation_id;profile_path=$ProfilePath} (Join-Path $InstallRoot 'workstation-installed.json')
     $service=Owned-Service
+    $newServiceCreated=$false
     if(-not $service){
         $image=(Quote (Join-Path $InstallRoot 'workstation\DragonhydraService.exe'))+' --state '+(Quote $StateRoot)+' --name '+$ServiceName
         # Typed CIM avoids Windows PowerShell 5.1 stripping the nested quotes
         # required by a service ImagePath containing spaces and arguments.
         $created=Invoke-CimMethod -ClassName Win32_Service -MethodName Create -Arguments @{Name=$ServiceName;DisplayName='DRAGONHYDRA Complete Workstation';PathName=$image;ServiceType=[byte]16;ErrorControl=[byte]1;StartMode='Automatic';StartName='NT AUTHORITY\LocalService'}
         if($created.ReturnValue -ne 0){throw ('Owned service registration failed, code '+$created.ReturnValue)}
+        $newServiceCreated=$true
         $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('description',$ServiceName,'Private DRAGONHYDRA kernel, Joomla web stack and database; loopback only.')
         $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('failure',$ServiceName,'reset=','86400','actions=','restart/30000/restart/120000/restart/300000')
         $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('failureflag',$ServiceName,'1')
     }
+    $researchSqlEnabled=$false
+    $researchConfig=Join-Path $StateRoot 'kernel\research-storage.json'
+    if(Test-Path -LiteralPath $researchConfig){$researchSqlEnabled=(Read-Json $researchConfig).provider -ceq 'sqlserver'}
+    $sidEvidence=Set-CoreNextOwnedServiceSid -Profile $coreProfile -CreatedNow:$newServiceCreated -Policy $script:cfg.service_sid_policy -SqlEnabled:$researchSqlEnabled
+    Save-Json $sidEvidence (Join-Path $StateRoot 'service-sid.json')
     $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('config',$ServiceName,'start=','delayed-auto')
     if((Get-Service $ServiceName).Status -ne 'Running'){Status 'queued';Start-Service $ServiceName}
     $deadline=[DateTime]::UtcNow.AddSeconds($StartupTimeout)

@@ -1,3 +1,20 @@
+# Active GENESIS-8 — CORE NEXT dev.7 release
+
+Root owns the registered release/core-next-dev7-20261104 worktree at
+LAB/release-source/dev7-sqlserver-20261104, derived from verified fa4dd93.
+Remote audit confirms dev.7 unused; ten releases/95 assets remain preserved.
+Read docs/releases/CORE-NEXT-DEV7-PLAN.md. Version7/Androidcode10 and SQL frozen
+closure are implemented; source freeze/build/installed qualification remain next.
+Private current evidence: LAB/release-evolution-20261104/dev7 and dev7-discovery.
+Agents have disjoint source ownership; root alone commits/freezes. Never mutate
+prior worktrees/seals, retry old phases, bypass UAC/policy or waive installed/native
+criteria. SQLservice qualification uses a new per-service SID and dedicated DB;
+existing LocalService/SQL owner proof is not sufficient. No tag/upload before
+existing coordinator accepts authentic primary/privacy/preservation evidence.
+Next executable step: finish controller/provisioning/lifecycle helper regressions,
+run the integrated source gate, freeze and build all nine packages from that SHA.
+Historical SQL and held dev.6 status below remain separate facts.
+
 # Active SQL Server integration — 2026-11-04
 
 Owner-authorized isolated feature worktree `LAB/sqlserver-integration-20261104`,

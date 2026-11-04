@@ -310,6 +310,60 @@ class CoreNextRelease(Coordinator):
         require(privacy.get('artifact_sha256')=={name:digest(self.assets/name) for name in sorted(expected)},'Privacy receipt must bind every exact final asset')
         return [self.assets/name for name in sorted(expected)]
 
+    def reconcile_history_branch(self, baseline, recorded, current):
+        """Accept one frozen, pre-mission fact; never authorize a ref movement.
+
+        The policy comes from the candidate Git commit, not an editable LAB
+        override. Its exact local witnesses preserve the failed old gate and
+        establish that the accepted tip predates this release mission. No
+        ancestry test can authorize a newer tip, including a fast-forward.
+        """
+        policy=json.loads(self.command(['git','show',self.state['source_sha']+':packaging/release/history-reconciliation.json']))
+        require(policy.get('schema_version')=='core-next.history-reconciliation/1'
+                and policy.get('scope')=='EXACT_PREMISSION_REF_ONLY'
+                and policy.get('repository')==self.state['repository'], 'History reconciliation policy identity mismatch')
+        ref=policy.get('ref')
+        require(ref=='refs/heads/continuity/genesis-20261031-a6', 'Only the reviewed continuity reference may be reconciled')
+        legacy,accepted=policy.get('legacy_tip'),policy.get('accepted_tip')
+        require(all(isinstance(v,str) and re.fullmatch('[a-f0-9]{40}',v) for v in (legacy,accepted))
+                and legacy!=accepted and recorded.get(ref)==legacy, 'History reconciliation legacy tip mismatch')
+        # Enforce even if the branch rewinds to the old baseline: this exception
+        # names exactly one current tip, not a choice between old and new tips.
+        require(current.get(ref)==accepted, 'Reconciled reference differs from the exact pre-mission tip')
+        proofs=policy.get('proofs',{})
+        require(set(proofs)=={'legacy_baseline','premission_audit','unaccepted_addendum'}, 'Exact history proof set required')
+        paths={};evidence={}
+        for name,spec in proofs.items():
+            relative=spec.get('path')
+            require(isinstance(relative,str) and not Path(relative).is_absolute()
+                    and '..' not in Path(relative).parts and '\\' not in relative and ':' not in relative,
+                    'History proof must use an ordinary LAB-relative path')
+            path=ordinary_ancestors(self.lab/relative)
+            require(path.is_relative_to(self.lab) and path.is_file(), 'History reconciliation proof missing')
+            require(re.fullmatch('[a-f0-9]{64}',str(spec.get('sha256','')))
+                    and digest(path)==spec['sha256'], 'History reconciliation proof hash mismatch')
+            paths[name]=path;evidence[name]={'path':relative,'sha256':spec['sha256']}
+        require(paths['legacy_baseline']==baseline and refs(baseline.read_text(encoding='utf-8-sig'))==recorded,
+                'History reconciliation must retain the original branches baseline')
+        audit=read(paths['premission_audit'])
+        require(audit.get('status')=='PASS' and audit.get('repository',{}).get('full_name')==policy['repository']
+                and audit.get('finished_at',{}).get('utc')==proofs['premission_audit'].get('observed_at'),
+                'Pre-mission audit identity/time mismatch')
+        branches=[v for v in audit.get('branches',[]) if v.get('ref')==ref]
+        require(len(branches)==1 and branches[0].get('sha')==accepted, 'Pre-mission audit does not prove the accepted tip')
+        addendum=read(paths['unaccepted_addendum'])
+        require(addendum.get('coordinator_expected_baseline')==legacy
+                and addendum.get('actual_tip_at_mission_start')==accepted and addendum.get('current_tip')==accepted
+                and addendum.get('expected_is_ancestor_of_actual') is True
+                and addendum.get('refs_moved_by_this_mission') is False
+                and addendum.get('status')=='HISTORY_EVIDENCE_RECORDED_GATE_NOT_ACCEPTED'
+                and addendum.get('publication_allowed') is False,
+                'Historical unaccepted addendum mismatch')
+        adjusted=dict(recorded);adjusted[ref]=accepted
+        return adjusted,{'ref':ref,'legacy_tip':legacy,'accepted_tip':accepted,
+                         'scope':'EXACT_PREMISSION_REF_ONLY','proofs':evidence,
+                         'future_tip_movement_allowed':False,'refs_moved':False}
+
     def history(self):
         before=read(self.lab/'evidence/releases-before.json')
         after=json.loads(self.gh('api',f"repos/{self.state['repository']}/releases?per_page=100"))
@@ -322,16 +376,22 @@ class CoreNextRelease(Coordinator):
             require(set(older)==set(newer),'Historical asset ID set changed')
             for ident,asset in older.items():
                 require(all(newer[ident].get(key)==asset.get(key) for key in ('name','size','digest')),'Historical asset name/size/digest changed');asset_count+=1
+        reconciliation=None
         for name,flag in (('tags-before.txt','--tags'),('branches-before.txt','--heads')):
-            old=refs((self.lab/'evidence'/name).read_text(encoding='utf-8-sig'))
+            baseline=self.lab/'evidence'/name
+            old=refs(baseline.read_text(encoding='utf-8-sig'))
             current=refs(self.command(['git','ls-remote',flag,'origin']))
+            if name=='branches-before.txt':
+                old,reconciliation=self.reconcile_history_branch(baseline,old,current)
             require(all(current.get(key)==value for key,value in old.items()),'Historical '+name+' refs changed')
         stable=[v for v in before if not v['draft'] and not v['prerelease']]
         if stable:
             expected=max(stable,key=lambda v:v['published_at'])['id']
             latest=json.loads(self.gh('api',f"repos/{self.state['repository']}/releases/latest"))
             require(latest['id']==expected,'Stable/latest channel changed')
-        return {'passed':True,'historical_releases':len(before),'historical_assets':asset_count,'old_tags_and_branches_preserved':True,'stable_latest_preserved':True}
+        return {'passed':True,'historical_releases':len(before),'historical_assets':asset_count,
+                'historical_tags_preserved':True,'other_historical_branches_preserved':True,
+                'history_reconciliation':reconciliation,'stable_latest_preserved':True}
 
     def verify_remote(self,remote,files):
         require(all(a.get('digest') for a in remote['assets']),'Remote SHA256 digests are required')

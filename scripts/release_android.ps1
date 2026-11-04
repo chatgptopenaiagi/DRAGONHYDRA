@@ -7,7 +7,7 @@ param(
     [Parameter(Mandatory)][string]$ArtifactPath,
     [Parameter(Mandatory)][string]$Version,
     [Parameter(Mandatory)][ValidatePattern('^[a-f0-9]{40}$')][string]$SourceSha,
-    [int]$VersionCode=9
+    [int]$VersionCode=10
 )
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath($WorkspaceRoot)

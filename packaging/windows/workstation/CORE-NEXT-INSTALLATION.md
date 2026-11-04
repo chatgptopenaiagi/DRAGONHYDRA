@@ -15,6 +15,18 @@ The installer requires x64 Windows, .NET Framework 4.8 and WebView2. A missing
 WebView2 uses Microsoft's verified online bootstrapper; that case needs internet.
 Current-host acceptance does not establish clean-machine or OS-reboot support.
 
+SQL Server research storage is optional. The server includes its Python connector
+and schema; Microsoft ODBC Driver18 and the SQL Server engine remain separate
+prerequisites. Start with the installed `workstation\SQL-RESEARCH.md` guide and
+preview `Configure-CoreNextSqlResearch.ps1` against this exact owned profile.
+The matching owner provisions a dedicated database and only this service SID's
+narrow SQL permissions. This does not grant access to the shared LocalService
+account or change another database. Apply the protected configuration only after
+owned installation, then explicitly restart this profile to load it. Verify the
+authenticated research diagnostic reports the service's SQL identity. Interactive
+owner connectivity alone does not establish service connectivity. SQLite and
+Joomla MariaDB retain their established data responsibilities.
+
 Open the newly named **DRAGONHYDRA CORE NEXT candidate <suffix>** shortcut. The
 launcher provides this installation's first-run credentials, also stored privately
 in its state directory. Keep that directory private. The Administration shortcut

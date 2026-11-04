@@ -311,9 +311,19 @@ class Repo:
             self._owned(connection)
             archives = connection.execute('SELECT COUNT_BIG(*) FROM dbo.dh_research_archives WHERE scope=?', self.scope).fetchone()[0]
             notes = connection.execute('SELECT COUNT_BIG(*) FROM dbo.dh_research_notes WHERE scope=?', self.scope).fetchone()[0]
+            row = connection.execute("SELECT SUSER_SNAME(),CURRENT_USER,DB_NAME(),"
+                "CONVERT(nvarchar(40),CONNECTIONPROPERTY('net_transport')),"
+                "CONVERT(nvarchar(40),CONNECTIONPROPERTY('auth_scheme'))").fetchone()
+            if (row is None or len(row) != 5 or any(not isinstance(value, str) or not value.strip()
+                    or len(value) > 256 or any(ord(character) < 32 for character in value) for value in row)):
+                raise _error('SQLSERVER_CONNECTION_IDENTITY_INVALID')
+            connection_identity = dict(zip(('login', 'database_user', 'database', 'net_transport', 'auth_scheme'), row))
+            if connection_identity['auth_scheme'].upper() not in {'NTLM', 'KERBEROS'}:
+                raise _error('SQLSERVER_WINDOWS_AUTHENTICATION_UNVERIFIED')
             self.last_success_at, self.last_error = utc_now(), None
             return {**diagnostics, 'connected': True, 'ready': True, 'status': 'ready',
                     'schema_version': SCHEMA_VERSION, 'counts': {'archives': int(archives), 'notes': int(notes)},
+                    'connection_identity': connection_identity,
                     'last_success_at': self.last_success_at, 'last_error': None}
         except StorageError as exc:
             self.last_error = exc.code

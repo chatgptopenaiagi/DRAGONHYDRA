@@ -1,4 +1,18 @@
-## Active SQL Server integration — 2026-11-04
+## Active GENESIS-8 release — 2026-11-04
+
+Root integrates only this registered `release/core-next-dev7-20261104` worktree,
+derived from verified SQL checkpoint fa4dd93. Target dev.7 was unused in the
+authenticated release audit. Prior SQL/frozen/release worktrees, packages, tags,
+profiles and services remain protected. Agents edit only explicitly assigned
+files; root owns the Git index and final freeze. Build every application package
+from the same committed source and rebuild affected outputs after source changes.
+Use the existing coordinator: primary installed Windows, native desktop, privacy
+and preservation gates remain mandatory. An explanatory receipt cannot pass an
+unexecuted operation. Never bypass elevation or policy rejection. SQL remains
+an optional secondary research store; no formula or accuracy changes are claimed.
+Read docs/releases/CORE-NEXT-DEV7-PLAN.md and the current resume before acting.
+
+## Completed SQL Server integration — 2026-11-04
 
 Root owns this isolated worktree on feature/dragonhydra-sqlserver-20261104.
 Preserve all frozen release worktrees, sealed packages and existing services.
