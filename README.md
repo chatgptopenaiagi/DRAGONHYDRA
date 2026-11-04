@@ -210,6 +210,11 @@ browser, platform, package and publication outcomes and remaining limitations.
 
 Example tests using the isolated Python environment:
 
+For the full suite in a fresh checkout, create its ignored fixture parents
+`runtime/scratch` and `build/android-signing` first. Browser fixtures use the
+already installed Playwright package and Edge; a SQL-only environment is not the
+complete test environment. These directories contain disposable synthetic data.
+
 ```powershell
 $env:PYTHONPATH = (Join-Path (Get-Location) 'src') + ';' + (Join-Path (Get-Location) 'tests')
 & C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\tools-env\Scripts\python.exe -m unittest discover -s tests/core_next

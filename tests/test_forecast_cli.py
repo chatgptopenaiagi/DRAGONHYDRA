@@ -14,8 +14,9 @@ from dragonhydra import cli, market_store, public_results, research
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / 'data' / 'raw' / 'openfootball-2026-27-en1.json'
-RECEIPT = ROOT / 'data' / 'raw' / 'openfootball-2026-27-en1.json.receipt.json'
+PUBLIC_RAW = ROOT / 'src' / 'dragonhydra' / 'resources' / 'data' / 'raw'
+DATA = PUBLIC_RAW / 'openfootball-2026-27-en1.json'
+RECEIPT = PUBLIC_RAW / 'openfootball-2026-27-en1.json.receipt.json'
 
 
 class ForecastCLITests(unittest.TestCase):
@@ -95,8 +96,8 @@ class ForecastCLITests(unittest.TestCase):
 
     def test_results_scope_stays_separate_after_forecast_import(self):
         self.forecast()
-        source25 = ROOT / 'data' / 'raw' / 'openfootball-2025-26-en1.json'
-        receipt25 = ROOT / 'data' / 'raw' / 'openfootball-2025-26-en1.json.receipt.json'
+        source25 = PUBLIC_RAW / 'openfootball-2025-26-en1.json'
+        receipt25 = PUBLIC_RAW / 'openfootball-2025-26-en1.json.receipt.json'
         self.assertTrue(source25.is_file())
         source25_receipt = json.loads(receipt25.read_text(encoding='utf-8-sig'))
         self.assertEqual(hashlib.sha256(source25.read_bytes()).hexdigest(), source25_receipt['sha256'])

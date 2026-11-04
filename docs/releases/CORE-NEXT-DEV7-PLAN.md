@@ -59,3 +59,28 @@ At source freeze, build/installed/publication outcomes are not yet established.
 The final BUILD-REPORT, TEST-REPORT and release ledger carry actual later results.
 If a mandatory gate cannot execute, retain all independently verified outputs
 and report the exact remaining requirement without claiming publication.
+
+## Preserved first full source run
+
+Candidate45f4d41's first full Windows run executed979 tests: four failures,
+99 errors and32 skips. Its original log remains hashed in private source-suite-r1.
+The runner then failed to serialize raw unittest skip objects, so a separate
+log-derived receipt explicitly records that reporting failure; it does not pretend
+an original successful JSON receipt existed.
+
+Distinct causes are kept separate: the selected SQL environment lacked the
+already-installed browser test dependency; fresh fixture scratch parents were
+not prepared; six tests guessed the laboratory location instead of using the
+existing registered-worktree resolver; an A8 DOM extraction fixture omitted the
+shared contentNodes helper; CLI fixtures expected an ignored downloaded-data tree;
+Linux source selection rejected the new required SQL resource; and a read-only
+probe still bound pre-Kernel Product methods. The fixes preserve assertions and
+reuse existing environments, bundled source data and authoritative DataEngine
+functions. No forecast formula changes or new inference are involved.
+
+The preservation test's original jobs.py whole-file pin is deliberately retained.
+The exact historical ed78 bytes are now non-executable fixture data; current jobs
+may add research operations, while an additional assertion requires the actual
+job SQL schema to remain identical. No expected hash, historical ref or failed
+receipt is changed to obtain a pass. A new source checkpoint and new run are
+required before compilation.

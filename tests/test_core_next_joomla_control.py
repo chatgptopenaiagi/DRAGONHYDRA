@@ -5,6 +5,7 @@ import json
 import os
 import shutil
 from pathlib import Path
+import importlib.util
 import subprocess
 import sys
 import tempfile
@@ -12,6 +13,10 @@ import unittest
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+_lab_spec=importlib.util.spec_from_file_location('registered_fixture_release',ROOT/'scripts/core_next/release.py')
+_lab_release=importlib.util.module_from_spec(_lab_spec)
+_lab_spec.loader.exec_module(_lab_release)
+LAB=_lab_release.canonical_lab(ROOT)
 PHP = Path(os.environ.get('DRAGONHYDRA_TEST_PHP', 'C:/xampp/php/php.exe'))
 COMPONENT = ROOT / 'server/joomla/com_dragonhydra'
 MODEL = COMPONENT / 'admin/src/Model/ControlCenterModel.php'
@@ -369,7 +374,7 @@ class CoreNextControlTests(unittest.TestCase):
         from dragonhydra.api import API, create_app
         from dragonhydra.kernel import KernelConfig
         snapshot = Path(os.environ['DRAGONHYDRA_CHARACTERIZATION_SNAPSHOT']).resolve()
-        lab = ROOT.parent/(ROOT.name+'-LAB')
+        lab = LAB
         self.assertTrue(snapshot.is_relative_to(lab.resolve()))
         temporary = lab/'tests'; temporary.mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='joomla-registry-',dir=temporary) as directory:

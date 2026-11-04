@@ -3,6 +3,7 @@ from contextlib import closing
 import hashlib
 import json
 from pathlib import Path
+import importlib.util
 import sqlite3
 import sys
 import tempfile
@@ -10,6 +11,10 @@ from types import SimpleNamespace
 import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
+_lab_spec=importlib.util.spec_from_file_location('registered_fixture_release',ROOT/'scripts/core_next/release.py')
+_lab_release=importlib.util.module_from_spec(_lab_spec)
+_lab_spec.loader.exec_module(_lab_release)
+LAB=_lab_release.canonical_lab(ROOT)
 sys.path.insert(0,str(ROOT/'src'))
 from dragonhydra import public_results
 from dragonhydra.kernel.engines import DataEngine
@@ -24,7 +29,7 @@ class FixtureTransport:
 
 class StandingsSemanticsTests(unittest.TestCase):
     def setUp(self):
-        lab=ROOT.parent/(ROOT.name+'-LAB')/'tests';lab.mkdir(exist_ok=True)
+        lab=LAB/'tests';lab.mkdir(exist_ok=True)
         self.temp=tempfile.TemporaryDirectory(prefix='standings-semantics-',dir=lab)
         self.addCleanup(self.temp.cleanup)
         self.database=Path(self.temp.name)/'synthetic.sqlite3'

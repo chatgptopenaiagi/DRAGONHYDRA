@@ -4,6 +4,7 @@ import http.server
 import json
 import os
 from pathlib import Path
+import importlib.util
 import socketserver
 import subprocess
 import tempfile
@@ -12,7 +13,10 @@ import time
 import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
-LAB=ROOT.parent/(ROOT.name+'-LAB')
+_lab_spec=importlib.util.spec_from_file_location('registered_fixture_release',ROOT/'scripts/core_next/release.py')
+_lab_release=importlib.util.module_from_spec(_lab_spec)
+_lab_spec.loader.exec_module(_lab_release)
+LAB=_lab_release.canonical_lab(ROOT)
 SHELLS=[Path('C:/Program Files/PowerShell/7/pwsh.exe'),Path('C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe')]
 TOKEN='SYNTHETIC_HEARTBEAT_FIXTURE_ONLY_0123456789'
 IDENTITY={'product':'DRAGONHYDRA CORE NEXT','edition':'CORE NEXT','installation_id':'core-next-'+'a'*32,

@@ -3,6 +3,7 @@ from dataclasses import replace
 from datetime import datetime,timedelta,timezone
 import json,os,subprocess,tempfile,unittest
 from pathlib import Path
+import importlib.util
 
 from dragonhydra.kernel.contracts import KernelConfig,ServiceIdentity,sanitized_metrics
 from dragonhydra.kernel.ports import ApplicationContext,StoragePort
@@ -11,7 +12,10 @@ from dragonhydra.kernel.registry import ModuleRegistry
 from dragonhydra.kernel.local_observer import LocalObserver
 
 ROOT=Path(__file__).resolve().parents[2]
-LAB=ROOT.parent/(ROOT.name+'-LAB')
+_lab_spec=importlib.util.spec_from_file_location('registered_fixture_release',ROOT/'scripts/core_next/release.py')
+_lab_release=importlib.util.module_from_spec(_lab_spec)
+_lab_spec.loader.exec_module(_lab_release)
+LAB=_lab_release.canonical_lab(ROOT)
 SHELLS=[Path('C:/Program Files/PowerShell/7/pwsh.exe'),Path('C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe')]
 SCOPE='BOUND_SUPERVISOR_SERVICE_IDENTITY_ONLY'
 

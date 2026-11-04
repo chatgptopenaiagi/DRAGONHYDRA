@@ -1,9 +1,13 @@
 """Real Atum CSS/header structure in isolated Edge; no installed app requests."""
 from pathlib import Path
+import importlib.util
 import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
-LAB=ROOT.parent/(ROOT.name+'-LAB')
+_lab_spec=importlib.util.spec_from_file_location('registered_fixture_release',ROOT/'scripts/core_next/release.py')
+_lab_release=importlib.util.module_from_spec(_lab_spec)
+_lab_spec.loader.exec_module(_lab_release)
+LAB=_lab_release.canonical_lab(ROOT)
 EDGE=Path(r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe')
 ATUM=LAB/'baseline-payload/web/joomla-base/media/templates/administrator/atum/css/template.css'
 COMPONENT=ROOT/'server/joomla/com_dragonhydra/media/css/control-center.css'

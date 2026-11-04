@@ -50,7 +50,7 @@ const location={origin:'http://127.0.0.1:19000',href:'http://127.0.0.1:19000/#co
 const window={addEventListener:(k,f)=>listeners[k]=f,__TAURI_INTERNALS__:{invoke:(cmd,args)=>{calls.push({cmd,url:String(args.url)});return Promise.resolve();}}};
 const context=vm.createContext({Node,document,location,window,URL});
 const app=fs.readFileSync(input.dashboard,'utf8');
-const helpers=['el','safeUrl','link'].map(name=>{const line=app.split('\n').find(x=>x.startsWith('function '+name+'('));assert.ok(line);return line;}).join('\n');
+const helpers=['contentNodes','el','safeUrl','link'].map(name=>{const line=app.split('\n').find(x=>x.startsWith('function '+name+'('));assert.ok(line);return line;}).join('\n');
 vm.runInContext(helpers,context);vm.runInContext(fs.readFileSync(input.plugin,'utf8'),context);
 for(const provider of input.providers){
  context.destination=provider.url;context.label=provider.rendered_label;

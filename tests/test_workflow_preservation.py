@@ -22,8 +22,8 @@ NAMES = ("frequency", "poisson_goals", "elo", "recency", "ensemble")
 NOW = "2026-11-03T10:00:00.000000Z"
 
 
-def frozen_tree(relative, expected):
-    raw = (SOURCE / relative).read_bytes()
+def frozen_tree(relative, expected, fixture=None):
+    raw = (HERE / fixture if fixture else SOURCE / relative).read_bytes()
     if hashlib.sha256(raw).hexdigest() != expected:
         raise AssertionError("Frozen reference source hash mismatch")
     return ast.parse(raw)
@@ -41,12 +41,19 @@ def script_constant(tree, contains):
 
 MARKET_TREE = frozen_tree("market_store.py", "12c31071ef80a8a9422d68a05bbf09978327a4250c525cb8ee7791cd7190ffbc")
 MEMORY_TREE = frozen_tree("cognition/memory.py", "d068811c07ea960552800ca8cdee221799813e975bf566e22f65f2f5430f8b8f")
-JOBS_TREE = frozen_tree("jobs.py", "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296")
+JOBS_TREE = frozen_tree("jobs.py", "bccb8f08caf58df333942bcc5c527def1a18c1acd09cc01f6dadb95565c16296",
+                        fixture="fixtures/forecast-preservation/jobs-ed78.py.txt")
 MARKET_SQL = script_constant(MARKET_TREE, "CREATE TABLE IF NOT EXISTS acquisitions")
 JOBS_SQL = script_constant(JOBS_TREE, "CREATE TABLE IF NOT EXISTS product_jobs")
 COGNITIVE_SQL = next(node.value.value for node in MEMORY_TREE.body
                      if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "SCHEMA_SQL" for t in node.targets))
 REFERENCE = w.canonical_schema_from_sql(MARKET_SQL, COGNITIVE_SQL)
+
+
+class CurrentJobSchemaReference(unittest.TestCase):
+    def test_current_schema_matches_original_pinned_forecast_reference(self):
+        current = ast.parse((SOURCE / "jobs.py").read_bytes())
+        self.assertEqual(script_constant(current, "CREATE TABLE IF NOT EXISTS product_jobs"), JOBS_SQL)
 
 
 def payload_record(kind, name):

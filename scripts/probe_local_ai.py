@@ -29,6 +29,7 @@ sys.path.insert(0, str(ROOT / 'src'))
 from dragonhydra.local_ai import (LocalAIError, SCHEMA_CONTEXT, build_context_package, build_package,
                                  canonical, infer, validate_grounding, validate_output)
 from dragonhydra.product import Product
+from dragonhydra.kernel.engines import DataEngine
 from dragonhydra.server import protect
 
 RUNTIME = Path(r'D:\LocalAI\runtime\llama-b10665\llama-server.exe')
@@ -80,7 +81,7 @@ def readonly_product(state):
     """Only pure presentation methods; constructing this view cannot initialize a DB."""
     product = SimpleNamespace(state=Path(state), db_path=Path(state)/'core.sqlite3')
     for name in ('present', 'match_id', 'team_id', 'competition_id'):
-        setattr(product, name, MethodType(getattr(Product, name), product))
+        setattr(product, name, MethodType(getattr(DataEngine, name), product))
     return product
 
 

@@ -22,6 +22,14 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES = ('preflight.py', 'install.sh', 'run-server.sh', 'dragonhydra.service.in', 'README.md')
 FORBIDDEN = {'.sqlite3', '.db', '.dpapi', '.pem', '.key', '.keystore', '.jks', '.pfx', '.pyc'}
+SQL_SCHEMA = Path('src/dragonhydra/research_storage/schema_sqlserver.sql')
+RESEARCH_PACKAGE_INPUTS = tuple(Path('src/dragonhydra/research_storage') / name for name in
+                                ('__init__.py', 'base.py', 'service.py', 'sqlite.py', 'sqlserver.py', 'schema_sqlserver.sql'))
+PUBLIC_RESEARCH_FILES = (
+    (Path('config/research-storage.example.json'), 'research-storage.example.json'),
+    (Path('config/runtime/sqlserver-python314-windows.lock.txt'), 'sqlserver-python314-windows.lock.txt'),
+    (Path('docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md'), 'MICROSOFT-SQLSERVER-INTEGRATION.md'),
+)
 
 
 def digest(path):
@@ -49,12 +57,15 @@ def collect_inputs(root):
             continue
         if path.suffix in FORBIDDEN or path.name == '.env' or path.is_symlink():
             raise ValueError('UNSAFE_SOURCE_INPUT')
-        if path.suffix != '.py' and not path.is_relative_to(package / 'resources'):
+        if path.suffix != '.py' and not path.is_relative_to(package / 'resources') and path != root / SQL_SCHEMA:
             raise ValueError('UNEXPECTED_SOURCE_INPUT')
         selected.append(path)
+    if not set(root / path for path in RESEARCH_PACKAGE_INPUTS).issubset(selected):
+        raise ValueError('RESEARCH_SOURCE_INPUT_MISSING')
     selected += [root / name for name in ('pyproject.toml', 'README.md', 'packaging/release/version.json',
                                           'config/runtime/server-python314.lock.txt', 'scripts/build_linux_bundle.py')]
     selected += [root / 'packaging/linux' / name for name in TEMPLATES]
+    selected += [root / source for source, _ in PUBLIC_RESEARCH_FILES]
     files = []
     for path in sorted(selected):
         if path.is_symlink() or not path.is_file() or path.stat().st_size > 8 * 1024 * 1024:
@@ -82,7 +93,7 @@ def snapshot(root, work):
     return source, manifest
 
 
-def inspect_wheel(path, source_hash):
+def inspect_wheel(path, source_hash, sql_schema_bytes):
     with ZipFile(path) as archive:
         names = archive.namelist()
         for item in archive.infolist():
@@ -94,13 +105,29 @@ def inspect_wheel(path, source_hash):
         if len(names) != len(set(names)) or sum(item.file_size for item in archive.infolist()) > 64 * 1024 * 1024:
             raise ValueError('INVALID_WHEEL_SIZE_OR_DUPLICATES')
         required = ('dragonhydra/api.py', 'dragonhydra/connectors/service.py', 'dragonhydra/local_ai.py',
-                    'dragonhydra/resources/web/app.js', 'dragonhydra/resources/data/raw/openfootball-2025-26-en1.json')
+                    'dragonhydra/resources/web/app.js', 'dragonhydra/resources/data/raw/openfootball-2025-26-en1.json') + tuple(
+                        relative.relative_to('src').as_posix() for relative in RESEARCH_PACKAGE_INPUTS)
         if any(name not in names for name in required) or not path.name.endswith('-py3-none-any.whl'):
             raise ValueError('WHEEL_CAPABILITY_OR_TAG_MISSING')
         info = json.loads(archive.read('dragonhydra/build_info.json'))
         if info['source_sha'] is not None or info['source_content_sha256'] != source_hash:
             raise ValueError('WHEEL_SOURCE_IDENTITY_MISMATCH')
+        if archive.read(SQL_SCHEMA.relative_to('src').as_posix()) != sql_schema_bytes:
+            raise ValueError('WHEEL_SQL_SCHEMA_MISMATCH')
         return {'members': len(names), 'build': info, 'tag': 'py3-none-any'}
+
+
+def copy_public_research_files(source, bundle):
+    """Configuration is an opt-in example, never an installed profile's state.
+
+    The Windows lock is documentation for that optional platform only. Its
+    presence does not install pyodbc/ODBC or assert Linux SQL authentication.
+    """
+    for relative, name in PUBLIC_RESEARCH_FILES:
+        original, target = source / relative, bundle / name
+        shutil.copyfile(original, target)
+        if digest(original) != digest(target):
+            raise ValueError('PUBLIC_RESEARCH_COPY_MISMATCH')
 
 
 def windows_to_wsl(path):
@@ -195,7 +222,7 @@ def main():
         if len(wheels) != 1:
             raise ValueError('EXPECTED_ONE_WHEEL')
         wheel = wheels[0]
-        report['wheel'] = inspect_wheel(wheel, source_hash)
+        report['wheel'] = inspect_wheel(wheel, source_hash, (source / SQL_SCHEMA).read_bytes())
         bundle = work / ('dragonhydra-linux-dev-' + source_hash[:12])
         bundle.mkdir()
         shutil.copyfile(wheel, bundle / wheel.name)
@@ -205,6 +232,7 @@ def main():
             text = (source / 'packaging/linux' / name).read_text(encoding='utf-8')
             (bundle / name).write_text(text, encoding='utf-8', newline='\n')
         shutil.copyfile(source / 'config/runtime/server-python314.lock.txt', bundle / 'server-python314.lock.txt')
+        copy_public_research_files(source, bundle)
         files = [{'path': path.name, 'bytes': path.stat().st_size, 'sha256': digest(path)} for path in sorted(bundle.iterdir())]
         manifest = {'schema_version': 1, 'kind': 'linux-preparation-development-bundle', 'source_sha': None,
                     'source_content_sha256': source_hash, 'wheel': wheel.name, 'files': files}
