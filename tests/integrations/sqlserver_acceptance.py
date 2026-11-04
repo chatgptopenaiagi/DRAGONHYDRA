@@ -22,6 +22,7 @@ import time
 from urllib.error import HTTPError, URLError
 from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
 from uuid import uuid4
+from unittest import TestCase
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -173,7 +174,7 @@ class Acceptance:
         allowed_get = {'/health/ready', '/system', '/modules', '/modules?scope=all', '/matches?limit=1', '/matches/' + target,
             '/matches/' + target + '/cognition-history', '/research/storage', '/matches/' + target + '/research/archives',
             '/matches/' + target + '/research/notes'}
-        allowed = method == 'GET' and (path in allowed_get or re.fullmatch(r'/jobs/[a-f0-9]{32}|/research/archives/[a-f0-9]{64}(?:/match)?', path))
+        allowed = method == 'GET' and (path in allowed_get or re.fullmatch(r'/jobs/[a-f0-9]{32}|/research/archives/[a-f0-9]{64}(?:/match)?', path) is not None)
         allowed |= method == 'POST' and path in {'/research/storage/initialize', '/matches/' + target + '/forecasts',
             '/matches/' + target + '/research/archives', '/research/notes', '/system/shutdown'}
         allowed |= method == 'PUT' and re.fullmatch(r'/research/notes/[a-f0-9-]{36}', path) is not None
@@ -432,6 +433,45 @@ class Acceptance:
             direct_sql_schema_types_verified=True, no_predictive_accuracy_claim=True,
             numeric_comparison='Separate frozen795/cohort analysis; not inferred by this SQL persistence acceptance')
         self.save()
+
+
+class OperationGuardTests(TestCase):
+    """Pure transport double: no files, app, ODBC or actual HTTP requests."""
+
+    def candidate(self):
+        class Response:
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *_args): return False
+            def read(self, _limit): return b'{"fixture":true}'
+        class Transport:
+            def __init__(self): self.requests = []
+            def open(self, request, timeout):
+                self.requests.append((request.full_url, timeout))
+                return Response()
+        candidate = object.__new__(Acceptance)
+        candidate.plan = {'target_match': TARGET}
+        candidate.origin = 'http://127.0.0.1:9'
+        candidate.token = 'synthetic-unit-credential'
+        candidate.opener = Transport()
+        candidate.record = {'requests': []}
+        candidate.save = lambda: None
+        return candidate
+
+    def test_dynamic_read_routes_are_boolean_and_reach_only_fake_transport(self):
+        for path in ['/jobs/' + '1' * 32, '/research/archives/' + '2' * 64,
+                     '/research/archives/' + '2' * 64 + '/match']:
+            with self.subTest(path_kind=path.split('/')[1]):
+                candidate = self.candidate()
+                self.assertEqual(candidate.api(path), {'fixture': True})
+                self.assertEqual(len(candidate.opener.requests), 1)
+                self.assertEqual(candidate.record['requests'][0]['status'], 200)
+
+    def test_unrelated_path_is_rejected_before_transport(self):
+        candidate = self.candidate()
+        with self.assertRaisesRegex(RuntimeError, 'NARROW_API_OPERATION_REQUIRED'):
+            candidate.api('/unrelated/path')
+        self.assertEqual(candidate.opener.requests, [])
 
 
 def main():
