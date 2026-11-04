@@ -14,9 +14,9 @@ application stopped cleanly. Original failedlive-r1/profilefbd056 remains preser
 and stopped; do not restart it or resend its interrupted initializer.
 
 Frozen dev.6 remains a separate held release. No sealed package, historical tag,
-installed service, Codex executable or mathematical source was changed. Finish
-numerical/preservation/registry evidence and source-only checkpoint before final
-delivery. Historical release and forensic facts below remain scoped to their dates.
+installed service, Codex executable or mathematical source was changed. Same-input numerical parity, scoped machine registration and final preservation
+are now complete. Dedicated Windows-service SQL authorization/deployment is the
+next independent objective. Historical release and forensic facts below remain scoped to their dates.
 
 ## Current forensic continuation — 2026-11-03
 

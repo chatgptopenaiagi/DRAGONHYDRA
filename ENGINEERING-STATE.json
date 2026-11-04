@@ -995,14 +995,20 @@
     "branch": "feature/dragonhydra-sqlserver-20261104",
     "source_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\sqlserver-integration-20261104",
     "tested_source_commit": "03f52fbcffd774cabbb01bb9acc8373d952bf396",
-    "status": "SQL_APPLICATION_PASS_FINAL_EVIDENCE_PENDING",
+    "status": "DRAGONHYDRA_SQLSERVER_INTEGRATION_COMPLETE",
     "installation_id": "core-next-254b30ff0a0242b8bc90bd2fe789fbeb",
     "database": "DRAGONHYDRA_CORE_NEXT_SQL_LAB",
     "owned_api_port": 19006,
     "owned_app_state": "STOPPED_CLEANLY",
     "registry_inventory": "6 core engines + 12 supporting components =18",
     "evidence": "docs/integrations/evidence/sqlserver-20261104.json",
-    "next": "Complete same-input numerical comparison, protected preservation and registry registration; commit sanitized checkpoint",
-    "sealed_dev6_untouched": true
+    "next": "Verify a dedicated Windows service identity SQL authorization before new installed-profile deployment/packaging; preserve frozen dev6 and its separate held release gates",
+    "sealed_dev6_untouched": true,
+    "registry_capability_id": "pc-discovery-20261103-81d4ebe655abe405",
+    "source_tests": 156,
+    "actual_sql_application_assertions": 25,
+    "actual_repository_integrity_assertions": 3,
+    "actual_unavailable_driver_assertions": 5,
+    "numerical_delta": "0"
   }
 }

@@ -50,7 +50,16 @@
   "evaluation_status": "pending",
   "mathematics_changed": false,
   "sealed_packages_modified": false,
-  "capability_registry": "AWAITING_FINAL_REGISTRATION",
+  "capability_registry": {
+    "status": "VERIFIED_FUNCTIONAL",
+    "record_id": "pc-discovery-20261103-81d4ebe655abe405",
+    "inventory_count": 1706,
+    "prior_records_preserved": 1705,
+    "changed_existing_records": 0,
+    "inventory_sha256": "cd073baae835feeed2f47decf33eedfd2d01fc5ba060833b10dca009bfcad462",
+    "derived_generation": "20261104T084503Z-9cbfcdd5",
+    "verification_scope": "Exact current Windows-user source runtime/03f52fbc; optional secondary repository only"
+  },
   "limitations": [
     "SQL owns secondary archive and notes, not canonical SQLite evidence/jobs/auth",
     "Host current Windows account only; LocalService, VM and Android integrated authentication NOT_RUN",
@@ -64,5 +73,77 @@
       "replay_and_rejected_mutation_leave_every_sql_row_unchanged": true
     },
     "receipt_sha256": "c486334fe2d7eaadcdf87041261751e5405fd8dba6a555a2aee2fb4e08ad990b"
-  }
+  },
+  "mathematical_equivalence": {
+    "status": "PASS",
+    "baseline_source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+    "feature_replay_commit": "1c48b6a52dcb4b0338eb611014524430635767d8",
+    "loaded_math_identical_to_tested_sql_source": true,
+    "full_as_of_rows": 760,
+    "training_cohort": 50,
+    "raw_source_documents": 2,
+    "model_vectors": 5,
+    "probabilities": 15,
+    "numeric_result_leaves": 1812,
+    "maximum_absolute_delta": "0",
+    "receipt_sha256": "d60845afc22ec3edf830e490e626da8b52f6f4fddf479f04e40293c1f36ab5d3",
+    "scope": "Offline retrospective same-input, cutoff, config and original generation-clock numerical replay; not predictive-skill evidence",
+    "original_readonly_sidecar_effect": "First comparator opened coherent backup without immutable mode, creating empty WAL/SHM; base content unchanged. First receipt and sidecars retained. Corrected r2 proves unchanged input-family hashes."
+  },
+  "preservation": {
+    "registry": {
+      "status": "PASS",
+      "private_receipt": "runtime\\sqlserver-evidence\\registry-preparation\\REGISTRATION-READBACK.json",
+      "sha256": "f3d9eef9ab44374ca2076d1cbc92e13f46bcbd657c9d1d1a29139f9519b0e103"
+    },
+    "preservation": {
+      "status": "PASS",
+      "private_receipt": "runtime\\sqlserver-evidence\\preservation-after-r1\\PRESERVATION-AFTER.json",
+      "sha256": "6f1e5171c4c8a7787c4e3a503c7d24aae2cdea8c1371a838ba3ee81b357143c9"
+    },
+    "sealed_source": {
+      "status": "PASS",
+      "private_receipt": "runtime\\sqlserver-evidence\\root-source-and-seal-preservation-r1.json",
+      "sha256": "864fedaccdb491fcb90027fc4f3f41d3440b06e7cd902e81be936d659052cc65"
+    },
+    "sql_instance": {
+      "status": "PASS",
+      "private_receipt": "runtime\\sqlserver-evidence\\sql-instance-preservation-r1.json",
+      "sha256": "ead468c7d0e8e0e16d2ad1befe3a849b8332a1a367637ef5b46005b86b3e21d6"
+    }
+  },
+  "preservation_scope": {
+    "sealed_assets_verified": 15,
+    "sealed_software_packages_verified": 9,
+    "frozen_source_files_verified_against_git_blobs": 832,
+    "protected_service_identities_unchanged": 7,
+    "prior_sql_database_metadata_unchanged": 10,
+    "only_added_sql_database": "DRAGONHYDRA_CORE_NEXT_SQL_LAB",
+    "mariadb": "Original18745 schema76 tables/833 columns unchanged; current menus30/articles0/component1 is first data witness, not historical row-equality proof",
+    "authenticated_existing_backend_reads": {
+      "18743": 1225,
+      "18744": 760,
+      "18821": 760
+    },
+    "provider_catalogues": "10 entries read in each; no provider credential validation or synchronization claimed"
+  },
+  "acceptance": {
+    "sqlserver_reachable": "PASS",
+    "windows_authentication": "PASS",
+    "integrated_application_adapter": "PASS",
+    "operational_schema": "PASS",
+    "application_write": "PASS",
+    "application_read": "PASS",
+    "forecast_publication": "PASS",
+    "forecast_readback": "PASS",
+    "transaction_commit": "PASS",
+    "transaction_rollback": "PASS",
+    "application_restart_persistence": "PASS",
+    "existing_sqlite_and_mariadb_reads": "PASS",
+    "unchanged_forecast_mathematics": "PASS",
+    "recorded_tests_and_evidence": "PASS",
+    "source_changes_committed": "PASS"
+  },
+  "result": "DRAGONHYDRA_SQLSERVER_INTEGRATION_COMPLETE",
+  "completion_scope": "Optional secondary research repository; host current Windows user. Native service deployment and full canonical backend replacement are outside tested scope."
 }

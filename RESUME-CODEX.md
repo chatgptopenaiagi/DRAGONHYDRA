@@ -9,8 +9,11 @@ SQL is an optional explicit secondary research repository. Original profile serv
 frozen dev.6 packages and historical failed receipts remain preserved. New profile
 254b30ff uses19006 and is stopped cleanly; SQL database and research archive remain.
 Do not replay old plans, restart interrupted fbd056 profile, or infer this feature
-is packaged in frozen dev.6. Finish numerical/preservation/registry evidence before
-final delivery. Historical release mission below remains separate and held.
+is packaged in frozen dev.6. Numerical parity, protected preservation and scoped
+registry registration are COMPLETE; all832 frozen source files/nine packages are
+verified unchanged. Registry1706 retains all1705 prior records. Next: separately
+verify dedicated Windows-service identity SQL access before installed deployment.
+Historical release mission below remains separate and held.
 
 # Current release evolution — 2026-11-03
 

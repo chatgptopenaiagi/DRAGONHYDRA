@@ -92,7 +92,7 @@ def worker(mode,module_root,request_path):
         from dragonhydra import public_results
         snapshot=ordinary(request['snapshot']);require(re.fullmatch(r'\d\d-.+\.sqlite3',snapshot.name),'NAMED_COHERENT_SNAPSHOT_REQUIRED')
         before=digest(snapshot)
-        source=sqlite3.connect(snapshot.as_uri()+'?mode=ro',uri=True)
+        source=sqlite3.connect(snapshot.as_uri()+'?mode=ro&immutable=1',uri=True)
         memory=sqlite3.connect(':memory:')
         try:
             source.execute('PRAGMA query_only=ON');require(source.execute('PRAGMA integrity_check').fetchone()[0]=='ok','SNAPSHOT_INTEGRITY_FAILED')
@@ -106,7 +106,7 @@ def worker(mode,module_root,request_path):
                 blob=bytes(found[0]);require(hashlib.sha256(blob).hexdigest()==sha,'RAW_SOURCE_HASH_MISMATCH');raw[sha]=base64.b64encode(blob).decode()
         finally:source.close();memory.close()
         require(digest(snapshot)==before,'SNAPSHOT_CHANGED')
-        return dict(rows=rows,raw_sources=raw,snapshot_sha256=before,projection='Existing frozen public_results.latest on an in-memory copy; disk backup mode=ro',loaded_sources=loaded_sources(module_root))
+        return dict(rows=rows,raw_sources=raw,snapshot_sha256=before,projection='Existing frozen public_results.latest on an in-memory copy; disk coherent backup mode=ro&immutable=1',loaded_sources=loaded_sources(module_root))
     from dragonhydra.cognition import models
     from dragonhydra import research
     evidence=read(request['inputs']);rows=evidence['rows'];target=request['target'];clock=utc(request['generated_at'])
@@ -189,6 +189,7 @@ def run(args):
             else:target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(exported.read(entry))
     feature_head=subprocess.check_output([GIT,'--no-optional-locks','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip()
     input_hashes={str(p.relative_to(ROOT)):digest(p) for p in (archive_path,forecast_path,snapshot)}
+    snapshot_family={p.name:digest(p) for p in snapshot.parent.glob(snapshot.name+'*') if p.is_file()}
     extract_request=output/'extract-request.json';write_new(extract_request,dict(snapshot=str(snapshot),cutoff=cutoff))
     evidence=child('extract',baseline_root,extract_request,output);inputs_path=output/'inputs.json';write_new(inputs_path,evidence)
     rows={r['evidence_id']:r for r in evidence['rows']};require(len(rows)==len(evidence['rows']),'DUPLICATE_INPUT_EVIDENCE_ID')
@@ -210,9 +211,11 @@ def run(args):
         require(hashlib.sha256(raw).hexdigest()==row['sha256'],'FEATURE_LOADED_SOURCE_DIFFERS_FROM_COMMIT')
     write_new(output/'frozen-models.json',frozen);write_new(output/'feature-models.json',feature)
     require(all(digest(ROOT/p)==sha for p,sha in input_hashes.items()),'INPUT_CHANGED_DURING_COMPARISON')
-    receipt=dict(schema_version='dragonhydra.same-input-numerical-comparison/1',status='PASS',baseline_source_commit=BASELINE,feature_source_commit=feature_head,
+    family_after={p.name:digest(p) for p in snapshot.parent.glob(snapshot.name+'*') if p.is_file()}
+    require(snapshot_family==family_after,'SNAPSHOT_FAMILY_CHANGED_DURING_COMPARISON')
+    receipt=dict(schema_version='dragonhydra.same-input-numerical-comparison/1',status='PASS',comparison_recorded_at=datetime.now(timezone.utc).isoformat(),baseline_source_commit=BASELINE,feature_source_commit=feature_head,
                  archive_id=bundle['archive_id'],forecast_run_id=bundle['forecast_run_id'],match_id=bundle['match_id'],data_cutoff=cutoff,original_generation_clock=generated,
-                 input_hashes=input_hashes,coherent_snapshot_sha256=evidence['snapshot_sha256'],full_as_of_rows=len(evidence['rows']),training_cohort=len(expected_ids),raw_source_documents=len(evidence['raw_sources']),
+                 input_hashes=input_hashes,snapshot_family_before=snapshot_family,snapshot_family_after=family_after,coherent_snapshot_sha256=evidence['snapshot_sha256'],full_as_of_rows=len(evidence['rows']),training_cohort=len(expected_ids),raw_source_documents=len(evidence['raw_sources']),
                  models=sorted(NAMES),numeric_checks=checks,original_five_model_records_preserved=True,original_five_prediction_records_preserved=True,sql_payload_hash_verified=True,
                  frozen_loaded_sources=frozen['loaded_sources'],feature_loaded_sources=feature['loaded_sources'],snapshot_changed=False,sqlserver_connections=0,live_database_access=False,
                  forecast_persistence=False,clock_scope='Explicit retrospective replay at original generation instant; no backdated operational forecast.',

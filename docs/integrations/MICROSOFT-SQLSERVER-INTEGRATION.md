@@ -28,6 +28,24 @@ snapshots. It is not a distributed transaction with the SQLite job queue. A
 recovered job checks the immutable SQL identity/hash, allowing a SQL commit that
 preceded a lost job acknowledgment to be read back without creating duplicates.
 
+## Implementation boundaries
+
+| Component | Source and responsibility |
+|---|---|
+| Provider selection | `src/dragonhydra/research_storage/__init__.py`; explicit per-profile config, lazy SQL import, no fallback |
+| SQL repository and migration | `research_storage/sqlserver.py`, `schema_sqlserver.sql`; owned schema, parameterized SQL, exact typed projections, transactions and versioned notes |
+| Shared publication contract | `research_storage/base.py`, `service.py`; validate and publish original complete forecast snapshots |
+| SQLite research repository | `research_storage/sqlite.py`; independent default archive, with no SQL dependency |
+| Application integration | `product.py`, `kernel/ports.py`, `kernel/engines.py`, `kernel/composition.py`; shared injected repository, Data Engine readback and Memory Engine publication |
+| Authenticated operations | `api.py`, `api_contracts.py`, `jobs.py`; existing API/admin/origin/job boundaries and sanitized storage errors |
+| Optional dependency | `pyproject.toml`, `config/runtime/sqlserver-python314-windows.lock.txt`; isolated pinned pyodbc wheel provenance |
+| Tests | `tests/test_research_storage*.py`, `test_sqlserver_adapter.py`, `tests/integrations/`; source, actual SQL and same-input numerical scopes |
+
+Existing `cognition` implementations, model formulas, immutable memory schema,
+forecast workflow, evaluation eligibility and public-results transformations were
+not edited. No Joomla database migration or database-server configuration change
+was applied.
+
 ## Configuration and operations
 
 Set `<profile-state>/kernel/research-storage.json` before starting a dedicated
@@ -104,6 +122,7 @@ cleanly. Its state and SQL database remain available for readback.
 | Actual authenticated application + SQL Server | 25 acceptance assertions PASS, including initialization, duplicate reuse, original forecast publication, typed SQL readback, source-preservation, notes, transactions and restart |
 | Actual unavailable local SQL instance | 5 assertions PASS through the real driver and in-process API; sanitized 08001/HTTP503, original retained reads still work, no silent fallback |
 | Existing SQL archive replay and immutable UPDATE | 3 assertions PASS against actual SQL; archive reused, rejected update and replay leave all68 SQL rows unchanged |
+| Same-input frozen795 numerical comparison | PASS: all5 vectors, 15 probabilities and1,812 numerical result leaves exactly equal; maximum absolute difference0 |
 | Optional SQLite research archive | Actual old persisted forecast published/read back; repeat publication returns the same immutable archive |
 | Native installer, GUI, VMware guest, Android SQL authentication | NOT_RUN; these are separate scopes |
 
@@ -172,6 +191,19 @@ The generated build metadata identifies the executed feature source and explicit
 labels it an unreleased source build. Do not reuse this development launch as a
 claim that the frozen dev.6 executable contains SQL support.
 
+The offline comparator replayed the same760 source rows,50 selected inputs, two
+raw documents, configuration, cutoff and original generation clock in independent
+frozen795 and feature workers. All five vectors and1,812 numerical result leaves
+matched the canonical generation and SQL archive exactly. This retrospective
+comparison is not evidence of predictive skill or historical availability of a
+newly generated forecast. Final numerical receipt:
+`runtime/sqlserver-evidence/numerical-r2/verification.json`, SHA256
+`d60845afc22ec3edf830e490e626da8b52f6f4fddf479f04e40293c1f36ab5d3`.
+The first comparator created empty SQLite WAL/shared-memory sidecars beside a
+coherent private backup; original database contents and hashes did not change.
+Its first receipt/sidecars remain preserved. The corrected immutable-reader run
+verifies every input-family member/hash remains unchanged.
+
 ### Preservation and rollback
 
 The original coherent760-record baseline is preserved in the forensic laboratory;
@@ -200,3 +232,37 @@ forecast publication success does not prove evaluation success. LocalService SQL
 permissions, production certificate chains, native installer payloads and VM/mobile
 Windows Authentication require separate verification before deployment in those
 contexts. No public release is created by this integration increment.
+
+## Final preservation and capability registration
+
+The final independent seal check verified all15 prior asset sizes/SHA256 values,
+including all nine sealed software packages. All832 tracked files in the frozen795
+worktree matched their actual Git blob bytes. Seven protected service identities,
+PIDs, accounts and states were unchanged. All ten original SQL database catalog
+identities/state/read-only flags remained unchanged; the only addition is the
+owned research lab. No historical Git tag or release asset was replaced.
+
+The original MariaDB18745 schema still has76 tables/833 columns with the same
+schema fingerprint. Current SELECT witnesses report30 menus,0 articles and one
+enabled com_dragonhydra entry. These are first data witnesses, not fabricated
+before/after row-equality proof. Independently traced, authenticated backend
+reads returned1,225 matches at18743 and760 each at18744/18821; pairing hashes
+and provider catalogue reads passed. These are three separate installations,
+not interchangeable data. No provider synchronization or acquisition was run.
+
+The existing machine registry publisher appended one distinct **VERIFIED
+FUNCTIONAL** source-run capability, ID `pc-discovery-20261103-81d4ebe655abe405`.
+All1,705 previous records/history were preserved exactly; inventory now1,706.
+JSON/TOML agree and the refreshed graph uses inventory SHA256
+`cd073baae835feeed2f47decf33eedfd2d01fc5ba060833b10dca009bfcad462`,
+generation `20261104T084503Z-9cbfcdd5`. Registration binds executed03f52fbc,
+not the old standalone SQL preflight or sealed dev.6 binaries. Registry backup:
+`C:\Users\LOVE\.codex\machine-capabilities\backups\pc-discovery-20261104T084434Z-02451089`.
+
+Result: **DRAGONHYDRA_SQLSERVER_INTEGRATION_COMPLETE** within the explicitly
+selected optional secondary repository and Windows-owner-process scope.
+Next: verify a dedicated Windows service identity's narrowly scoped SQL access
+before packaging/deploying this feature into an installed service profile.
+No production certificate, native GUI, VMware guest, Android SQL authentication,
+SQL outage/uncertain-commit recovery or full canonical SQL migration acceptance
+is inferred from the host checks.
