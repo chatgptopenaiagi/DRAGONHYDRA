@@ -123,7 +123,7 @@
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -990,5 +990,19 @@
     "publication": "LOCAL_SOURCE_PREPARATION_NOT_PUBLISHED",
     "real_time_conditional_forecasting": "NOT_IMPLEMENTED",
     "version": "0.5.0-dev.6"
+  },
+  "active_sqlserver_integration": {
+    "branch": "feature/dragonhydra-sqlserver-20261104",
+    "source_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\sqlserver-integration-20261104",
+    "tested_source_commit": "03f52fbcffd774cabbb01bb9acc8373d952bf396",
+    "status": "SQL_APPLICATION_PASS_FINAL_EVIDENCE_PENDING",
+    "installation_id": "core-next-254b30ff0a0242b8bc90bd2fe789fbeb",
+    "database": "DRAGONHYDRA_CORE_NEXT_SQL_LAB",
+    "owned_api_port": 19006,
+    "owned_app_state": "STOPPED_CLEANLY",
+    "registry_inventory": "6 core engines + 12 supporting components =18",
+    "evidence": "docs/integrations/evidence/sqlserver-20261104.json",
+    "next": "Complete same-input numerical comparison, protected preservation and registry registration; commit sanitized checkpoint",
+    "sealed_dev6_untouched": true
   }
 }

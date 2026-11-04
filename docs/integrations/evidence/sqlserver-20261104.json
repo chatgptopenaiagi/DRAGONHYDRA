@@ -1,0 +1,68 @@
+{
+  "schema_version": "dragonhydra.sqlserver-integration/1",
+  "product": "DRAGONHYDRA CORE NEXT",
+  "scope": "Optional explicit secondary research repository; host Windows user source-run, no new installer/release",
+  "tested_source_commit": "03f52fbcffd774cabbb01bb9acc8373d952bf396",
+  "base_sealed_source_commit": "795f962be36d30f8c30bcb1a2c3dc264b9b397e3",
+  "branch": "feature/dragonhydra-sqlserver-20261104",
+  "application_acceptance": {
+    "status": "PASS",
+    "assertions": 25,
+    "receipt_sha256": "b8c43cdbebb25fd02f49e3c65ebd3e1d3ef2d30a17980e92b5252495222607d0"
+  },
+  "source_tests": {
+    "tests": 156,
+    "passed": 156,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "receipt_sha256": "133defa40cfe117ba5fd9a71490707e3b9bc86d3def090fe8e5fe686e4686557"
+  },
+  "unavailable_actual_driver": {
+    "status": "PASS",
+    "checks": {
+      "real_driver_reports_unavailable": true,
+      "failed_sql_read_is_503_not_false_success": true,
+      "canonical_sqlite_remains_readable": true,
+      "no_silent_provider_fallback": true,
+      "independently_selected_sqlite_still_operates": true
+    },
+    "receipt_sha256": "21d4e82520dac431c863c32ab80c4c2638ebeb0d24b584127f8bc396d9fa7e3d"
+  },
+  "installation_id": "core-next-254b30ff0a0242b8bc90bd2fe789fbeb",
+  "match_id": "de2c0fb3d3215eb157292f0941def2d44aa520a79db77dc73e40d13f88014aea",
+  "forecast_job": "3c7372ab4fd240e89a7898593db1533a",
+  "publication_job": "b1da73082eb94ea3876bcb5c62264ba0",
+  "archive_id": "db1f5485749ecebfc019100e5ead5732699d1c9d99744cf1d7ad5de470d218e7",
+  "sql_schema_version": 1,
+  "sql_counts": {
+    "owner": 1,
+    "migrations": 1,
+    "archives": 1,
+    "models": 5,
+    "predictions": 5,
+    "inputs": 50,
+    "notes": 2,
+    "note_audit": 3
+  },
+  "source_records": 760,
+  "input_cutoff": "2026-11-04T08:27:17.589916Z",
+  "evaluation_status": "pending",
+  "mathematics_changed": false,
+  "sealed_packages_modified": false,
+  "capability_registry": "AWAITING_FINAL_REGISTRATION",
+  "limitations": [
+    "SQL owns secondary archive and notes, not canonical SQLite evidence/jobs/auth",
+    "Host current Windows account only; LocalService, VM and Android integrated authentication NOT_RUN",
+    "No new installer/publication/native GUI acceptance"
+  ],
+  "repository_integrity": {
+    "status": "PASS",
+    "checks": {
+      "actual_sql_repository_reuses_exact_archive": true,
+      "actual_sql_immutable_archive_update_denied": true,
+      "replay_and_rejected_mutation_leave_every_sql_row_unchanged": true
+    },
+    "receipt_sha256": "c486334fe2d7eaadcdf87041261751e5405fd8dba6a555a2aee2fb4e08ad990b"
+  }
+}

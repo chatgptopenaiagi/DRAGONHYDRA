@@ -1,3 +1,23 @@
+## Current SQL integration — 2026-11-04
+
+This feature is isolated in `LAB/sqlserver-integration-20261104`, branch
+`feature/dragonhydra-sqlserver-20261104`. Executed source03f52fbc adds optional,
+explicit SQL Server research publication/notes; it does not replace canonical
+SQLite evidence/jobs or Joomla MariaDB. Read
+[the integration report](../integrations/MICROSOFT-SQLSERVER-INTEGRATION.md).
+
+Actual Windows-user SQL application acceptance passed25 assertions across two
+clean source-run lifetimes. Source regressions passed156 distinct methods.
+Actual unavailable-driver tests passed5 assertions; repository replay/immutable
+SQL rejection passed3. SQL database and isolated profile254b30ff remain retained,
+application stopped cleanly. Original failedlive-r1/profilefbd056 remains preserved
+and stopped; do not restart it or resend its interrupted initializer.
+
+Frozen dev.6 remains a separate held release. No sealed package, historical tag,
+installed service, Codex executable or mathematical source was changed. Finish
+numerical/preservation/registry evidence and source-only checkpoint before final
+delivery. Historical release and forensic facts below remain scoped to their dates.
+
 ## Current forensic continuation — 2026-11-03
 
 Updated 2026-11-03T08:35:01.111085+00:00. **PARTIALLY COMPLETE: forensic failure reconciled, Windows lifecycle held.**

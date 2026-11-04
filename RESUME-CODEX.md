@@ -1,3 +1,17 @@
+# Active SQL Server integration — 2026-11-04
+
+Owner-authorized isolated feature worktree `LAB/sqlserver-integration-20261104`,
+branch `feature/dragonhydra-sqlserver-20261104`, from sealed795. Actual application
+SQL source `03f52fbcffd774cabbb01bb9acc8373d952bf396`: 25 SQL application
+assertions PASS, 156 source tests PASS, 5 actual unavailable-driver assertions PASS.
+Read [the integration contract and evidence](docs/integrations/MICROSOFT-SQLSERVER-INTEGRATION.md).
+SQL is an optional explicit secondary research repository. Original profile services,
+frozen dev.6 packages and historical failed receipts remain preserved. New profile
+254b30ff uses19006 and is stopped cleanly; SQL database and research archive remain.
+Do not replay old plans, restart interrupted fbd056 profile, or infer this feature
+is packaged in frozen dev.6. Finish numerical/preservation/registry evidence before
+final delivery. Historical release mission below remains separate and held.
+
 # Current release evolution — 2026-11-03
 
 Current integration branch: `release/core-next-dev6-verified-20261103`, worktree
