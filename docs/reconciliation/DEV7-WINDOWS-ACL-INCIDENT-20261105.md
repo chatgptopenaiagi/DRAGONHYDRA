@@ -69,8 +69,12 @@ Readiness, version0.5.0-dev.7, sourcec7f9478, installation identity and build
 INSTALLED-READS.json confirms all760 retained matches (430finished/330scheduled),
 registry18 and one successful persisted import job with one attempt. Historical
 forecast endpoints are readable but this fresh candidate has no forecasts or
-exports. JSON/CSV/XLSX and forecast persistence remain NOT_RUN; no new job was
-created merely to inspect history.
+exports at that read checkpoint. A distinct exports-r3 operation subsequently
+created exactly three JSON/CSV/XLSX exports of one retained finished match and
+validated actual downloads. All original sporting/auth/config/job records remained
+unchanged; the frozen delta auditor verified three jobs/twelve events. Earlier r1
+(first-page selection) and r2 (intentional kernel-secret denial) stopped before POST
+and remain failed. No forecast was created; forecast persistence remains NOT_RUN.
 
 ## SQL Server
 
@@ -117,6 +121,11 @@ regression. The discoverable wrapper executes both NTFS/path fixtures under
 PowerShell7 and Windows PowerShell5.1. Recovery-contract behavior rejects tampered
 receipts/profiles, wrong identities, unauthorized directories, denial and junctions.
 Original failed fixture/observer receipts remain private and immutable.
+The c44 source checkpoint passed1044 tests:1016PASS/28NOT_RUN/0FAIL; all tracked
+files stayed unchanged. The final acceptance adapter also binds the release version
+to the exact frozen source matrix, replacing its dev.7-only literal with four new
+behavioral tests. This tooling correction requires another source freeze and new
+identity-bearing outputs; c44 builds remain preserved as preliminary evidence.
 Final source-suite and build results belong to new source-bound receipts; they
 must not be inferred from earlier runs or added as overlapping test totals.
 

@@ -2,6 +2,7 @@
 from pathlib import Path
 from contextlib import closing
 import argparse, copy, hashlib, importlib.util, json, sqlite3, tempfile, unittest
+from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('dev7_service_adapter',ROOT/'tests/installation/dev7_service_acceptance.py')
@@ -9,6 +10,29 @@ m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 TARGET='d'*64
 
 class AdapterGuards(unittest.TestCase):
+    def test_release_versions_match_their_exact_frozen_source_matrices(self):
+        for source,version in [('a'*40,'0.5.0-dev.7'),('b'*40,'0.5.0-dev.8')]:
+            with self.subTest(version=version),patch.object(m,'source_bytes',return_value=json.dumps({'product_version':version}).encode()) as frozen,patch.object(m.subprocess,'check_output') as process:
+                m.validate_release_identity(source,version)
+                frozen.assert_called_once_with(source,'packaging/release/version.json')
+                process.assert_not_called()
+    def test_wrong_version_or_different_source_matrix_is_rejected(self):
+        matrices={'a'*40:{'product_version':'0.5.0-dev.7'},'b'*40:{'product_version':'0.5.0-dev.8'}}
+        for source,version in [('a'*40,'0.5.0-dev.8'),('b'*40,'0.5.0-dev.7'),('b'*40,'0.5.0-dev.8-tampered'),('b'*40,None)]:
+            with self.subTest(source=source,version=version),patch.object(m,'source_bytes',side_effect=lambda sha,path:json.dumps(matrices[sha]).encode()) as frozen,patch.object(m.subprocess,'check_output') as process:
+                with self.assertRaisesRegex(m.GateError,'RELEASE_VERSION_NOT_FROZEN_SOURCE'):m.validate_release_identity(source,version)
+                frozen.assert_called_once_with(source,'packaging/release/version.json')
+                process.assert_not_called()
+    def test_invalid_source_is_refused_before_frozen_source_or_subprocess_access(self):
+        for source in [None,'','a'*39,'A'*40,'HEAD','a'*40+':other','--help',123]:
+            with self.subTest(source=source),patch.object(m,'source_bytes') as frozen,patch.object(m.subprocess,'check_output') as process:
+                with self.assertRaisesRegex(m.GateError,'RELEASE_IDENTITY_REQUIRED'):m.validate_release_identity(source,'0.5.0-dev.8')
+                frozen.assert_not_called();process.assert_not_called()
+    def test_tampered_or_malformed_frozen_matrix_is_rejected(self):
+        for matrix in [b'{"product_version":"changed"}',b'{}',b'[]',b'{"product_version":8}',b'{"product_version":""}',b'{broken',b'\xff']:
+            with self.subTest(matrix=matrix),patch.object(m,'source_bytes',return_value=matrix),patch.object(m.subprocess,'check_output') as process:
+                with self.assertRaises(m.GateError):m.validate_release_identity('b'*40,'0.5.0-dev.8')
+                process.assert_not_called()
     def test_read_modes_forbid_every_state_changing_route(self):
         for phase in ['read-fresh','restart-readback','repair-readback','reinstall-readback']:
             for route in ['/research/storage/initialize','/matches/'+TARGET+'/forecasts','/exports','/modules/observe','/system/shutdown']:

@@ -64,6 +64,15 @@ def bound(spec):
 def source_bytes(source,relative):
     return subprocess.check_output([GIT,'--no-optional-locks','-C',str(ROOT),'show',source+':'+relative],stderr=subprocess.DEVNULL,timeout=15)
 
+def validate_release_identity(source,version):
+    # Validate the object name before passing it to Git. Release acceptance uses
+    # the immutable matrix of the bound source, including historical candidates.
+    need(isinstance(source,str) and re.fullmatch('[a-f0-9]{40}',source),'RELEASE_IDENTITY_REQUIRED')
+    try:matrix=json.loads(source_bytes(source,'packaging/release/version.json'))
+    except (UnicodeDecodeError,json.JSONDecodeError):raise GateError('FROZEN_RELEASE_MATRIX_INVALID') from None
+    need(isinstance(matrix,dict) and isinstance(matrix.get('product_version'),str)
+         and bool(matrix['product_version']) and version==matrix['product_version'],'RELEASE_VERSION_NOT_FROZEN_SOURCE')
+
 def authorize(phase,method,path,target,approved_jobs):
     reads={'/health/ready','/system','/modules','/modules?scope=all','/research/storage',
            '/matches/'+target+'/cognition-history','/matches/'+target+'/research/archives'}
@@ -79,7 +88,7 @@ def authorize(phase,method,path,target,approved_jobs):
 def validate_bindings(path,expected):
     path=ordinary(path);need(path.is_file() and digest(path)==expected,'BINDINGS_HASH_MISMATCH');b=load(path)
     need(b.get('schema_version')=='core-next.dev7-service-bindings/1','BINDINGS_SCHEMA_MISMATCH')
-    need(re.fullmatch('[a-f0-9]{40}',str(b.get('source_commit',''))) and b.get('version')=='0.5.0-dev.7','RELEASE_IDENTITY_REQUIRED')
+    validate_release_identity(b.get('source_commit'),b.get('version'))
     identity=b.get('installation_id','');need(re.fullmatch('core-next-[a-f0-9]{32}',identity),'OWNED_NEW_PROFILE_REQUIRED')
     need(identity not in {'core-next-b447d99ab9524197af09c235077685de','core-next-7ac520727b85456cac4a3a92a8dd62da'},'HISTORICAL_PROFILE_FORBIDDEN')
     ports=b.get('ports',{});need(set(ports)=={'api','web','database'} and all(type(v) is int and 1024<=v<=65535 and not 18740<=v<=18751 for v in ports.values()) and len(set(ports.values()))==3,'EXCLUSIVE_PORTS_REQUIRED')
