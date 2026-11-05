@@ -1,3 +1,21 @@
+# Final GENESIS-8.2 delivery — documentation checkpoint
+
+Application source is frozen/pushed0e5df36704eeeaadbbf2380cc5352473fc2ebf0b
+in LAB/release-source/dev7-acl-repair-20261105. This branch is documentation only;
+never relabel its commit as the source compiled into the nine dev.8 packages.
+Read docs/reconciliation/DEV7-WINDOWS-ACL-INCIDENT-20261105.md and its JSON report.
+Actual dev.7 candidate PID30700 recovered and ready; original failure preserved.
+Final source tests1020PASS/28NOT_RUN/0FAIL; nine packages+six metadata built/sealed,
+archive/private-value scan passed. Existing coordinator still refuses mandatory
+primary acceptance. Code source and documentation branches are separate.
+Private incident: LAB/release-evolution-20261105/dev7-acl-recovery.
+Fresh ff4b profile19150/51/52 PLAN prepared only, no START marker. SQL helper was
+rejected before execution by Windows script policy; no Bypass/alternate transport.
+Next: approved compliant PS5.1 context, new one-shot fresh install, then separate
+SQL/lifecycle/native/installed privacy/coordinator gates. No dev.8 tag/release,
+upload/download claim or old phase retry. Six protected services/60 old assets,
+prior profiles and installed Codex unchanged. Source histories remain immutable.
+
 # Active GENESIS-8.2 — Windows service ACL recovery
 
 Repair worktree: LAB/release-source/dev7-acl-repair-20261105; branch

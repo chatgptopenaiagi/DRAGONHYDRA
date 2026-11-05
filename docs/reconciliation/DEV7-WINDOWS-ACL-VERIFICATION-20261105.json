@@ -1,0 +1,263 @@
+{
+  "schema_version": "core-next.windows-acl-final-verification/1",
+  "result": "PARTIALLY_COMPLETE",
+  "observed_at": "2026-11-05T21:39:18.4607452Z",
+  "original_failure": {
+    "service_exit_code": 1067,
+    "original_receipt_unchanged": true,
+    "outcome": "FAIL_PRESERVED",
+    "supervisor_exit_code": 1,
+    "installation_id": "core-next-63cd93a95e8e4e1da4e7ee258463b56a",
+    "source_commit": "c7f94787672ed96153c4c4cbe1a253bb64c2ba85"
+  },
+  "repair": {
+    "service_specific_acl": true,
+    "recovery_restored": true,
+    "real_service_token_after_passed": true,
+    "application_bytes_patched": false,
+    "profile_sha256_unchanged": true,
+    "real_service_token_before_denied": true
+  },
+  "service": {
+    "observed_at": "2026-11-05T21:36:39.9506794Z",
+    "pid": 30700,
+    "running": true,
+    "uptime_seconds": 1895.2124389,
+    "account": "NT AUTHORITY\\LocalService",
+    "authenticated_status": "ready",
+    "version": "0.5.0-dev.7",
+    "source_sha": "c7f94787672ed96153c4c4cbe1a253bb64c2ba85",
+    "same_single_start_generation": true,
+    "profile_sha256": "ded5a1efdebdc42daca53444d677eb756de7d9686b858101b970af3ae988f60f"
+  },
+  "installed_data": {
+    "export_formats": [
+      "json",
+      "csv",
+      "xlsx"
+    ],
+    "retained_matches": 760,
+    "export_jobs": 3,
+    "export_delta_events": 12,
+    "scheduled": 330,
+    "prior_data_auth_config_jobs_preserved": true,
+    "original_import_job_attempts": 1,
+    "forecast_jobs_created": 0,
+    "finished": 430
+  },
+  "source": {
+    "branch": "fix/core-next-dev7-windows-profile-acl-20261105",
+    "remote_sha_verified": true,
+    "application_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+    "changed_dragonhydra_source_paths": [
+      "src/dragonhydra/build_meta.py"
+    ],
+    "forecasting_implementation_changed": false,
+    "documentation_branch": "docs/core-next-dev8-acl-recovery-20261105"
+  },
+  "tests": {
+    "errors": 0,
+    "discovered": 1048,
+    "linux_runtime": "BLOCKED_DOCKER_ENGINE_UNAVAILABLE",
+    "failed": 0,
+    "android_host_tests": 15,
+    "real_sql_attempts": 0,
+    "new_frozen_server_owner_smoke": "PASS_NOT_SERVICE_ACCEPTANCE",
+    "passed": 1020,
+    "skipped": 28,
+    "android_new_device": "NOT_RUN",
+    "external_network_attempts": 0,
+    "tracked_files_unchanged": true,
+    "linux_archive": "PASS"
+  },
+  "release": {
+    "manifest_sha256": "732960068f3d262556d5f6b1638b4ca8e90019eeab4590ab6d0f86425fa2d2d3",
+    "sql_service_authentication": "BLOCKED_SCRIPT_POLICY_REJECTION",
+    "coordinator_validate": "BLOCKED_MANDATORY_PRIMARY_ACCEPTANCE",
+    "actual_gate_refusal": "Primary acceptance source/hash/pass mismatch",
+    "native_gui": "NOT_RUN",
+    "coordinator_prepare": "PASS_LOCAL_ONLY",
+    "assets": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\v0.5.0-dev.8-core-next-acl-held-r1",
+    "restart_repair_uninstall_retention": "NOT_RUN_DEPENDENT_ACCEPTANCE",
+    "artifacts": [
+      {
+        "kind": "wheel",
+        "filename": "dragonhydra-0.5.0.dev8-py3-none-any.whl",
+        "bytes": 397875,
+        "sha256": "583ffa22527415b5ebefaed8a6918abb88932a32bdcfa44022bcf9a7f03dc96e",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\python-dev8-r2\\dragonhydra-0.5.0.dev8-py3-none-any.whl"
+      },
+      {
+        "kind": "sdist",
+        "filename": "dragonhydra-0.5.0.dev8.tar.gz",
+        "bytes": 3392962,
+        "sha256": "79754f64b3016eabe6a55031c370d02ba2c49ee6e4e92d005d550b2adce67f02",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\python-dev8-r2\\dragonhydra-0.5.0.dev8.tar.gz"
+      },
+      {
+        "kind": "android",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Android-arm64-development.apk",
+        "bytes": 17345950,
+        "sha256": "e11691c887422e50c6abd9779459133c509ce68352b4fa990ba0525ecdfd339d",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\android-dev8-r2\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Android-arm64-development.apk"
+      },
+      {
+        "kind": "linux",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Linux-server-x86_64.tar.gz",
+        "bytes": 4384105,
+        "sha256": "daec986b63ef56dae7a571c6b66a65ff04295a5ad4cf0cf4731bfa4dd7476f39",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\linux-dev8-r2\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Linux-server-x86_64.tar.gz"
+      },
+      {
+        "kind": "source",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Source.zip",
+        "bytes": 4482560,
+        "sha256": "41732d8765dddb3a1dea1bd8864df4a63fa014c9bf40c44e259ec91c8a682cbf",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\source-dev8-r2\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Source.zip"
+      },
+      {
+        "kind": "desktop",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Desktop-win-x64.exe",
+        "bytes": 10087424,
+        "sha256": "bc4f121bd25bfbe7c872a76d8da08ad1720316094fde116faabb8ffd751ebba3",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\desktop-dev8-acl-r2\\DRAGONHYDRA-Client.exe"
+      },
+      {
+        "kind": "server",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Server-win-x64.zip",
+        "bytes": 19731346,
+        "sha256": "e1c5d17b8fa859a6f0bb37d1aa461572c331eab83b45d3536c558da60c4e11ae",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\server-dev8-acl-r2\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Server-win-x64.zip"
+      },
+      {
+        "kind": "joomla",
+        "filename": "pkg_dragonhydra-0.5.0-dev.8.zip",
+        "bytes": 64158,
+        "sha256": "eb015a8328e87583744ce69815527b730222c0047a2a2c18daf08b801d69be6d",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\joomla-dev8-acl-r2\\pkg_dragonhydra-0.5.0-dev.8.zip"
+      },
+      {
+        "kind": "workstation",
+        "filename": "DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Workstation-win-x64-Setup.exe",
+        "bytes": 65015133,
+        "sha256": "59e5bfff315de6eeb5c75140dadab2694d52eb394d37021b431edf1fb017cce8",
+        "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+        "original_path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\dist\\workstation-dev8-acl-r2\\DRAGONHYDRA-CORE-NEXT-0.5.0-dev.8-Workstation-win-x64-Setup.exe"
+      }
+    ],
+    "installed_privacy": "NOT_RUN",
+    "public_download_verification": "NOT_RUN_NO_RELEASE",
+    "tag_created": false,
+    "privacy": "PASS_FINITE_SCOPE_ZERO_FINDINGS",
+    "software_release_published": false,
+    "fresh_install": "BLOCKED_PENDING_APPROVED_PS51_CONTEXT",
+    "packages": 9,
+    "metadata_files": 6,
+    "version": "0.5.0-dev.8"
+  },
+  "preservation": {
+    "protected_services_pid_and_binding_unchanged": true,
+    "codex_executable_matches_registry": true,
+    "old_sealed_assets_unchanged": 60,
+    "original_operation_files_unchanged": 9,
+    "github_historical_releases": 10,
+    "whole_live_database_equality_claimed": false,
+    "github_historical_assets": 95,
+    "stable_latest_unchanged": true,
+    "protected_database_mutations": 0,
+    "old_profile_metadata_unchanged": 43,
+    "protected_services": 6,
+    "forensic_copies_unchanged": 14
+  },
+  "evidence": {
+    "BEFORE-REPAIR.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\BEFORE-REPAIR.json",
+      "sha256": "ee217bd8cf81ba1ff548e3a56db69ba9de1c388073fc15e1cdad4f983627ace9"
+    },
+    "OPERATION.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\OPERATION.json",
+      "sha256": "8b84be79a79476d44c8a5d1eed782e418b80ad3c91fe556086e079d39ea00a19"
+    },
+    "TOKEN-before.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\TOKEN-before.json",
+      "sha256": "9e3f0af2286e7719df9f1fec8904f3f5581c7455e88ded603bac433de7708cd9"
+    },
+    "TOKEN-after.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\TOKEN-after.json",
+      "sha256": "fd17eac22ab754cbc15a2971bf8d66a50bd63800bfc9eab7d897175779c868b7"
+    },
+    "ACL-APPLIED.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\ACL-APPLIED.json",
+      "sha256": "d39e59dc5d60f21343c2633021aa8fc335bc7ac7a710ec878fc78e5011e05bfe"
+    },
+    "RECOVERED-STARTUP.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\RECOVERED-STARTUP.json",
+      "sha256": "8747c9f7d4d1c5772dcf57afb6ec8346dc0de79b9d7724fc5901ef0410bd49db"
+    },
+    "RECOVERED-READBACK-R1.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\RECOVERED-READBACK-R1.json",
+      "sha256": "3b669c88d459759bd25fa4451429c4d0cc5dee22c282d6519c865ff770a75a06"
+    },
+    "RECOVERY-RESTORED.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\RECOVERY-RESTORED.json",
+      "sha256": "2ea2e67215bf212971ff52e3e84edbea65b800d59fafdc9b869b7e77519ea88d"
+    },
+    "INSTALLED-READS.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\INSTALLED-READS.json",
+      "sha256": "20161ba926d5420f7c0899e1e46e835fec2028ab208068dff3c28d7cbc925391"
+    },
+    "exports-r3\\verification.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\exports-r3\\verification.json",
+      "sha256": "458ff9a8e756016ba7f4d3d9c70a5893caadc7d48621f3628a7f0cc08135fbe9"
+    },
+    "SQL-POLICY-BLOCKED.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\SQL-POLICY-BLOCKED.json",
+      "sha256": "1750c0c13fdf5bcc991b5a28563ca329ee2d20adef56ffe33d11fe41e5052025"
+    },
+    "source-suite-r3\\verification.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\source-suite-r3\\verification.json",
+      "sha256": "a515f75a56d01e14aff81d802e9838d3ee30fe4f5c6b6da593e36d98361a1279"
+    },
+    "dev8-profile-bound-server-r2.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\dev8-profile-bound-server-r2.json",
+      "sha256": "3f63c5f784a148d79ff96f9171e198ea32d9d10b3e81d5b6971ef551ec27c434"
+    },
+    "SOURCE-PUSH.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\SOURCE-PUSH.json",
+      "sha256": "70959d94caee968fe0ae2a52a58aeab13f0fec22d1f8379210341530e57e3d18"
+    },
+    "PRESERVATION-FINAL.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\PRESERVATION-FINAL.json",
+      "sha256": "9ef2a040b1860d329524384441cf8cd48d479a4f6d939bc03fd3edb1a5a56b64"
+    },
+    "GITHUB-PRESERVATION-FINAL.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\GITHUB-PRESERVATION-FINAL.json",
+      "sha256": "0f644507b1d879fa5ef4fe6f64635e75eb9bfb6f5f0c2e4e0a951d90bd374dfd"
+    },
+    "held-final-r1\\FINAL-PRIVACY.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\held-final-r1\\FINAL-PRIVACY.json",
+      "sha256": "97fdbdcee109ed1851184ff4d3350cdd22947fd193d13cdffefa603e7389deb9"
+    },
+    "held-final-r1\\COORDINATOR-VALIDATE.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\held-final-r1\\COORDINATOR-VALIDATE.json",
+      "sha256": "8a42a13da4df6264d59f8f7d3782747a7b1b61233793d061eb35c889000ae5a0"
+    },
+    "dev8-windows-fresh-r1\\PLAN.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\dev8-windows-fresh-r1\\PLAN.json",
+      "sha256": "60fd1169cea3efb14acf0a94a16c8725de9b15a995b1ef6c47ea6301187fbdda"
+    },
+    "HELD-DISTRIBUTION-COMPLETE.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261105\\dev7-acl-recovery\\HELD-DISTRIBUTION-COMPLETE.json",
+      "sha256": "d8f08153323b221efcd7ae280e2a7fcdac623cc127ac968dff5a51b4815340e9"
+    }
+  },
+  "next_engineering_action": "Provide compliant approved Windows PowerShell5.1 context, review new dev8-windows-fresh-r1/PLAN.json and execute once; then separate SQL provisioning, lifecycle/native/installed privacy and authoritative coordinator before publishing/download verification."
+}

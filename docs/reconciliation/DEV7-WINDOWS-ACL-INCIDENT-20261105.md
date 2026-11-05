@@ -1,171 +1,179 @@
-# Windows profile access incident — November 5, 2026
+# DRAGONHYDRA Windows service ACL recovery — final delivery
 
 ## Original failure
 
-Frozen application `c7f94787672ed96153c4c4cbe1a253bb64c2ba85`, version
-`0.5.0-dev.7`, installation `core-next-63cd93a95e8e4e1da4e7ee258463b56a`:
-service `DragonhydraCoreNextcandidateee258463b56a` exited with Windows1067,
-supervisor1, SCM7031. `CoreNextProfile.ps1:9` raised UnauthorizedAccessException
-while testing the canonical `installation-profile.json`. Original InstallFresh
-remains `INSTALLER_FAILED_RECONCILE_NO_RETRY` / failed_reconciliation_required.
+The immutable dev.7 application source is `c7f94787672ed96153c4c4cbe1a253bb64c2ba85`.
+Installation `core-next-63cd93a95e8e4e1da4e7ee258463b56a`, service
+`DragonhydraCoreNextcandidateee258463b56a`, failed with SCM1067/supervisor1/event7031.
+`CoreNextProfile.ps1:9` could not access the canonical installation-profile.json.
+The original InstallFresh receipt remains failed_reconciliation_required and unchanged.
 
-Private evidence is under
+All private receipts below are under
 `C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB\release-evolution-20261105\dev7-acl-recovery`.
-`BEFORE-REPAIR.json` binds original receipts, scripts, logs, ACLs, parents, service
-configuration, recovery actions and event records with SHA256. Original evidence
-was copied before changing the service. No historical receipt was overwritten.
+BEFORE-REPAIR.json preserves original receipts, logs, hashes, SDDL, parents, SCM
+configuration and recovery policy. No historical failure was overwritten.
 
 ## ACL repair
 
-The actual LocalService token (`S-1-5-19`) contains enabled candidate SID
+Actual LocalService (`S-1-5-19`) contained enabled service SID
 `S-1-5-80-3359176657-272294135-2464709472-3477227934-2942367633`.
-Before repair, this token could read workstation scripts, inspect all ancestors
-and write state, but could neither read the profile nor validate its path. The
-installation root and profile granted only SYSTEM, Administrators and the owner.
+Before repair: profile read and path validation denied; ancestor metadata, scripts
+and state operations succeeded. The profile root/file lacked a service grant.
 No contributing parent deny or reparse point was observed.
 
-Operation `DEV7-WINDOWS-ACL-RECOVERY-20261105-R1` binds the exact failed predecessor.
-Only this service was disabled and its recovery actions suspended. Windows cannot
-cancel a queued restart merely by changing failure actions; disabling the service
-and waiting beyond300 seconds controlled the previously queued actions.
-See [Microsoft's SCM contract](https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-changeserviceconfig2a).
-
-Before/after probes used the same registered service, account and enabled SID:
-its unchanged service EXE was copied to a private diagnostic directory, its binary
-binding temporarily changed and then restored. This was explicitly a token probe,
-not application acceptance. Installed application bytes were not patched.
-
-The production ACL function adds only candidate-SID permissions: installation root
-RX (noninheriting), profile Read, application inheritable RX, state inheritable
-Modify. Existing owner/SYSTEM/admin grants and protected ACLs remain. The recovered
-old state's preexisting LocalService grant is preserved as forensic history; fresh
-installs use the service SID for state access.
-
-`TOKEN-after.json` proves profile read, ancestor metadata, script read, state
-create/read/delete, denied profile/script write and original path-validator success.
-Profile SHA256 remains
+The separately bound recovery operation applied only candidate-SID root RX,
+profile Read, application inheritable RX and state inheritable Modify. Owner,
+SYSTEM and Administrator permissions remain. Real-token after checks passed,
+including denied profile/script writes. Profile SHA256 remains
 `ded5a1efdebdc42daca53444d677eb756de7d9686b858101b970af3ae988f60f`.
+TOKEN-before.json, TOKEN-after.json and ACL-APPLIED.json distinguish actual access
+from ACL metadata. Temporary diagnostic binary bindings were restored; installed
+application bytes were not patched. Original recovery/start settings were restored
+only after genuine readiness, without a further restart.
 
 ## Service startup
 
-Exactly one application startup was executed after verifying10,670 installed
-manifest members. The original observer encountered a sharing violation reading
-`status.json` during atomic replacement; its failed receipt is retained as
-`RECOVERED-STARTUP.json`. This was an observer failure, not a second service crash.
+Exactly one recovered application start occurred. All10,670 installed manifest
+members were checked beforehand. The first observer hit a status.json sharing
+race; its failed RECOVERED-STARTUP.json remains preserved. A separate read-only
+receipt used the established atomic reader and verified the same service generation.
+No application startup retry occurred.
 
-The separate, read-only `RECOVERED-READBACK-R1.json` uses the existing atomic reader
-and confirms the same service generation: PID30700, started21:05:04UTC,
-LocalService, running for99.87 seconds at21:06:44UTC. Backend31024,
-MariaDB31720 and Apache9692 were alive. No startup retry occurred. The original delayed-auto/restart policy was restored after successful readback,
-without stopping or restarting this generation; RECOVERY-RESTORED.json records
-exact recovery-configuration readback. Crash injection remains NOT_RUN.
+SERVICE-FINAL-READBACK.json confirms LocalService PID30700 still Running and
+ready at21:36:39UTC, uptime1,895seconds, version0.5.0-dev.7/sourcec7f9478.
+Backend, MariaDB and Apache started under the supervisor. Automatic recovery and
+delayed-auto configuration read back exactly as before the incident. Deliberate
+crash injection and restart persistence were not executed.
 
 ## Application readiness
 
-The existing local-session token was used only in memory for authenticated
-`/dragon/api/v1/health/ready` and `/system` at127.0.0.1:19100.
-Readiness, version0.5.0-dev.7, sourcec7f9478, installation identity and build
-`dev7-workstation-c7f94787672e` matched. No credential is included in this report.
-INSTALLED-READS.json confirms all760 retained matches (430finished/330scheduled),
-registry18 and one successful persisted import job with one attempt. Historical
-forecast endpoints are readable but this fresh candidate has no forecasts or
-exports at that read checkpoint. A distinct exports-r3 operation subsequently
-created exactly three JSON/CSV/XLSX exports of one retained finished match and
-validated actual downloads. All original sporting/auth/config/job records remained
-unchanged; the frozen delta auditor verified three jobs/twelve events. Earlier r1
-(first-page selection) and r2 (intentional kernel-secret denial) stopped before POST
-and remain failed. No forecast was created; forecast persistence remains NOT_RUN.
+The existing authorized client session was used only in memory. Authenticated
+`/dragon/api/v1/health/ready` and `/system` matched version, source, installation
+and build identity at127.0.0.1:19100. No token is included in this report.
+
+INSTALLED-READS.json confirms760 retained matches (430finished/330scheduled),
+registry18 and the existing successful import job with one attempt. Forecast
+history endpoints are readable; this fresh candidate contained no forecasts.
+
+A distinct exports-r3 operation completed exactly three JSON/CSV/XLSX export jobs
+and validated actual downloads for one retained finished match. The frozen delta
+auditor verified three appended jobs/twelve events; original sporting, auth,
+configuration and job records were preserved. No forecast/provider job was created.
+R1 first-page selection and R2 protected-kernel-secret fingerprint failures stopped
+before POST and remain preserved. Service-only kernel secrets were not read or
+re-ACLed. These export checks do not constitute whole-release acceptance.
 
 ## SQL Server
 
-SQL provisioning is a separate explicit owner operation. Its installed PowerShell5.1
-preview was rejected by script execution policy before the helper ran. All policy
-scopes were Undefined, resulting in the Windows default Restricted policy. No SQL
-provisioning, alternate transport, policy change or service-SQL claim followed.
-Service SQL authentication, archive transactions, duplicate handling and SQL restart
-persistence remain BLOCKED. Interactive historical SQL proof does not satisfy them.
-SQLite and MariaDB retain their established ownership.
+BLOCKED. The installed SQL helper's normal Windows PowerShell5.1 preview was
+rejected before execution by the effective Restricted script policy (all explicit
+policy scopes Undefined). SQL-POLICY-BLOCKED.json records zero SQL actions.
+No Bypass, alternate transport or policy modification followed. Service SQL login,
+scoped database provisioning, archive transactions/rollback/duplicates and SQL
+restart persistence remain unexecuted. Historical interactive SQL tests are a
+separate scope. SQLite and MariaDB retain their established ownership.
 
 ## Permanent installer repair
 
-`packaging/windows/workstation/Workstation.ps1` provisions the generated service
-SID and ACLs before startup and records the unchanged profile hash. Fresh services
-are registered Manual until provisioning completes. Fresh state no longer receives
-shared LocalService FullControl. A bounded Run preflight requires actual LocalService
-and enabled installation SID, profile/hash and application reads, immutable-file
-write denial, and state write/delete. Automatic failure restarts are configured
-only after initial readiness. Legacy profiles keep their explicit existing policy.
+Workstation.ps1 now registers a fresh service Manual, verifies its generated SID,
+provisions root/profile/application/state permissions and records the unchanged
+profile hash before startup. Fresh state uses service-specific Modify access.
+The actual supervisor preflight checks LocalService and enabled service SID,
+profile/hash/script/binary reads, immutable-file write denial and state write/delete.
+Initial automatic recovery is enabled only after readiness; legacy policy remains
+explicitly preserved.
 
-`CoreNextProfile.ps1` now uses terminating metadata reads: genuine absence is
-allowed for future paths, permission denial reports the exact path, other provider
-errors propagate, and every ancestor remains checked for reparse points. Canonical
-profile, installation-ID and containment checks remain in force. New profile roots
-receive private inheritable SYSTEM/Admin/owner permissions before the JSON is
-written; existing roots are rejected without ACL changes. This closes the default
-generator inherited-write gap demonstrated beneath the lab parent.
+CoreNextProfile.ps1 reports exact denied paths with terminating metadata reads,
+allows genuine missing future leaves, rejects unexpected provider errors,
+junctions, traversal and noncanonical profile identities. Newly generated profile
+roots become private to SYSTEM/Admin/owner before JSON contents are written;
+existing roots are rejected without ACL mutation.
+
+The existing installed acceptance adapter now binds version to the release matrix
+from the exact frozen source commit; its other immutable-byte/security gates remain.
+Forecasting source and mathematics are unchanged: the only changed path under
+src/dragonhydra is version metadata build_meta.py.
 
 ## Fresh installation
 
-NOT_RUN at this source checkpoint. Recovered dev.7 is not proof of a corrected
-fresh installer. New same-source server, desktop, Joomla and workstation outputs
-are required before a new identity/port triple can undergo the existing Windows,
-SQL, persistence, repair, retained uninstall and native/Joomla acceptance sequence.
-The existing release coordinator remains authoritative; no parallel release pass
-is issued by the recovery contract.
+NOT_RUN / BLOCKED_PENDING_APPROVED_PS51_CONTEXT. The complete corrected Setup is
+built, but inherited NSIS script-policy overrides must not be used as another
+transport around the recorded rejection. The separately prepared
+`dev8-windows-fresh-r1/PLAN.json` binds new profile ff4b...720f, source0e5df367,
+service DragonhydraCoreNextcandidate86aad1db720f and ports19150/19151/19152.
+No fresh install marker or service was created. The recovered dev.7 installation
+is not substituted for fresh dev.8 acceptance.
+
+SQL, restart, repair, retained uninstall/reinstall, authenticated Joomla/native
+GUI and final installed privacy still require their established genuine phases.
 
 ## Regression tests
 
-The original focused39 tests passed. Subsequent review added file-specific write
-denial, Manual-registration sequencing and a PowerShell7 timestamp normalization
-regression. The discoverable wrapper executes both NTFS/path fixtures under
-PowerShell7 and Windows PowerShell5.1. Recovery-contract behavior rejects tampered
-receipts/profiles, wrong identities, unauthorized directories, denial and junctions.
-Original failed fixture/observer receipts remain private and immutable.
-The c44 source checkpoint passed1044 tests:1016PASS/28NOT_RUN/0FAIL; all tracked
-files stayed unchanged. The final acceptance adapter also binds the release version
-to the exact frozen source matrix, replacing its dev.7-only literal with four new
-behavioral tests. This tooling correction requires another source freeze and new
-identity-bearing outputs; c44 builds remain preserved as preliminary evidence.
-Final source-suite and build results belong to new source-bound receipts; they
-must not be inferred from earlier runs or added as overlapping test totals.
+Final source suite:1048 tests,1020PASS,28NOT_RUN,0 failures/errors; all tracked files
+unchanged, zero real SQL/external network attempts. This includes final focused
+ACL/path/recovery/service/adapter/version cases; overlapping counts are not added.
+The earlier source1044 run and all earlier failures remain separate receipts.
+
+New compiled Windows server0e5df367 reached authenticated readiness in a fresh
+standalone profile and exited cleanly. That owner-process proof is not service
+acceptance. Offline wheel/server and sdist/CLI verification passed. Android15 host
+checks, ARM64 build, embedded source/code11 and signature checks passed; new device
+acceptance is NOT_RUN. Linux archive integrity passed; runtime is BLOCKED because
+the existing Docker engine pipe is unavailable. No daemon was started as a workaround.
 
 ## Source
 
-Repair worktree `release-source/dev7-acl-repair-20261105`, branch
-`fix/core-next-dev7-windows-profile-acl-20261105`, derived from immutablec7f9478.
-The actual new commit is recorded in the private source-freeze/build receipts.
-Forecasting implementations and sporting calculations are unchanged.
+Application source `0e5df36704eeeaadbbf2380cc5352473fc2ebf0b` is frozen, clean and
+pushed on `fix/core-next-dev7-windows-profile-acl-20261105`; remote SHA verified.
+This final report is a separate documentation-only delivery checkpoint. It is
+not the source identity embedded in the packages. SOURCE-PUSH and freeze receipts
+record the exact bindings. No historical commit or branch was rewritten.
 
 ## Release
 
-Next candidate:0.5.0-dev.8 / Python0.5.0.dev8 / Windows0.5.0.8 / Android11.
-The exact remote dev.8 tag was absent during read-only audit. The coordinator binds
-each immutable release tag to one source, so sealed dev.7 is not reused. All
-required packages must be built from the new frozen source. GitHub software
-publication remains HELD until genuine mandatory gates pass. A source push is
-separate from downloadable release publication.
+Candidate0.5.0-dev.8 / Python0.5.0.dev8 / Windows0.5.0.8 / Android11.
+Nine final software packages are built from0e5df367 and staged with six metadata
+files at `LAB\dist\v0.5.0-dev.8-core-next-acl-held-r1`.
+Manifest SHA256:
+`732960068f3d262556d5f6b1638b4ca8e90019eeab4590ab6d0f86425fa2d2d3`.
+Preliminary c44 builds remain separate and preserved.
+
+The unchanged coordinator prepared the honest held manifest. Actual Setup CRC/
+extraction and all10,679 decoded files passed verification. Finite privacy checks
+passed with zero findings across15 assets, the decoded Setup and2,801 recognized
+archive members. The unchanged validator genuinely refused publication eligibility:
+Primary acceptance source/hash/pass mismatch. No mandatory condition is waived.
+[Machine-readable final verification](DEV7-WINDOWS-ACL-VERIFICATION-20261105.json)
+binds the measured artifacts and private receipts by SHA256. No dev.8 tag, draft, software
+release, upload or public-asset download verification occurred. Source publication
+is complete; downloadable software publication remains HELD.
 
 ## Preservation
 
-`PRESERVATION-AFTER.json` verifies frozen dev.7 clean atc7f9478; all15 dev.7 assets
-(nine software packages), both15-asset dev.6 seals and all15 dev.5 assets unchanged;
-43 prior profile metadata files unchanged; nine original operation files and14
-preserved evidence copies unchanged. All six protected services remained Running
-with identical current PIDs/configuration since BEFORE-REPAIR and bindings equal
-to the original failure receipt. Their historical PIDs differ from that older
-receipt; the difference is recorded without attributing a cause. No protected
-database was opened or mutated; no whole-live-database equality is claimed.
+PRESERVATION-FINAL.json verifies60 sealed dev.5/dev.6/dev.7 assets,43 prior profile
+metadata files,9 original operation files and14 forensic copies unchanged. Six
+protected services remain Running with identical PIDs/configuration since
+BEFORE-REPAIR; their bindings match the original failure receipt. Historical PID
+differences from the older failure baseline are recorded without attributing cause.
+The recovered candidate retains its original application/profile bytes.
+
+GitHub still has10 historical releases/95 assets, unchanged identities/digests and
+stable/latest selection. Only authorized new source/documentation branches are
+added. Installed Codex's SHA256 equals its recorded baseline; it was not executed,
+updated or reinstalled. Protected databases were not opened or mutated; no claim
+of whole-live-database byte equality is made.
 
 ## Result
 
-PARTIALLY_COMPLETE: actual token ACL repair and recovered application readiness
-PASS; permanent source correction implemented. Fresh corrected installation,
-installed SQL and full lifecycle/native/privacy/release qualification are pending.
+PARTIALLY_COMPLETE. Actual dev.7 service recovery, application/data/export access,
+permanent installer correction, source tests, nine new builds and source delivery
+are complete. Installed SQL, corrected fresh installation, lifecycle/native and
+mandatory release qualification remain unexecuted or blocked.
 
 ## Next engineering action
 
-Freeze verified repair source and build new source-bound candidate. Resolve the
-recorded Windows script-policy prerequisite through an approved owner context
-before the existing SQL provisioning phase; do not retry it through Bypass or a
-different transport. Then execute the established fresh-install acceptance and
-coordinator gates. No historical failed phase may be replayed.
+Provide a compliant, approved Windows PowerShell5.1 execution context, then review
+and execute the new hash-bound fresh-install plan exactly once. Run separate
+source-owned SQL provisioning and dependent lifecycle/native/privacy/coordinator
+phases. Publish the unused dev.8 tag only when actual mandatory gates pass, then
+download and compare the published bytes. Never replay the historical failed phases.
