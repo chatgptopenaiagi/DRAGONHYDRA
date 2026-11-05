@@ -56,9 +56,9 @@ manifest members. The original observer encountered a sharing violation reading
 The separate, read-only `RECOVERED-READBACK-R1.json` uses the existing atomic reader
 and confirms the same service generation: PID30700, started21:05:04UTC,
 LocalService, running for99.87 seconds at21:06:44UTC. Backend31024,
-MariaDB31720 and Apache9692 were alive. No startup retry occurred. Recovery remains
-suspended during qualification; configuration restoration is a separately recorded
-action after acceptance, using the preserved original delayed-auto/restart policy.
+MariaDB31720 and Apache9692 were alive. No startup retry occurred. The original delayed-auto/restart policy was restored after successful readback,
+without stopping or restarting this generation; RECOVERY-RESTORED.json records
+exact recovery-configuration readback. Crash injection remains NOT_RUN.
 
 ## Application readiness
 
@@ -66,8 +66,11 @@ The existing local-session token was used only in memory for authenticated
 `/dragon/api/v1/health/ready` and `/system` at127.0.0.1:19100.
 Readiness, version0.5.0-dev.7, sourcec7f9478, installation identity and build
 `dev7-workstation-c7f94787672e` matched. No credential is included in this report.
-Installed sporting-history readback has a separate private result; no forecast
-operation is needed merely to inspect existing history.
+INSTALLED-READS.json confirms all760 retained matches (430finished/330scheduled),
+registry18 and one successful persisted import job with one attempt. Historical
+forecast endpoints are readable but this fresh candidate has no forecasts or
+exports. JSON/CSV/XLSX and forecast persistence remain NOT_RUN; no new job was
+created merely to inspect history.
 
 ## SQL Server
 
@@ -92,7 +95,10 @@ only after initial readiness. Legacy profiles keep their explicit existing polic
 `CoreNextProfile.ps1` now uses terminating metadata reads: genuine absence is
 allowed for future paths, permission denial reports the exact path, other provider
 errors propagate, and every ancestor remains checked for reparse points. Canonical
-profile, installation-ID and containment checks remain in force.
+profile, installation-ID and containment checks remain in force. New profile roots
+receive private inheritable SYSTEM/Admin/owner permissions before the JSON is
+written; existing roots are rejected without ACL changes. This closes the default
+generator inherited-write gap demonstrated beneath the lab parent.
 
 ## Fresh installation
 

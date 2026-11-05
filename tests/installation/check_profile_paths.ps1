@@ -76,6 +76,53 @@ try{
     }
     Set-Acl -LiteralPath $denied -AclObject $savedAcl;$savedAcl=$null
     Check 'PROFILE_HASH_PRESERVATION' {if((Get-FileHash -LiteralPath $denied -Algorithm SHA256).Hash -cne $before){throw 'Profile bytes changed'}}
+    $privateProfile=New-CoreNextProfileObject -SourceCommit ('b'*40) -Version '0.5.0-dev.8' -LabRoot $fixture
+    $privateRoot=Split-Path $privateProfile.install_root -Parent
+    $profilesParent=Split-Path $privateRoot -Parent
+    $null=New-Item -ItemType Directory -Path $profilesParent
+    $parentAcl=Get-Acl -LiteralPath $profilesParent
+    $parentAcl.AddAccessRule([Security.AccessControl.FileSystemAccessRule]::new([Security.Principal.SecurityIdentifier]::new('S-1-5-11'),'Modify','ContainerInherit,ObjectInherit','None','Allow'))
+    Set-Acl -LiteralPath $profilesParent -AclObject $parentAcl
+    $parentBefore=(Get-Acl -LiteralPath $profilesParent).Sddl
+    $creationOwners=@{}
+    Check 'FRESH_PROFILE_DIRECTORY_PRIVATE_BEFORE_CONTENTS' {
+        function New-Item {
+            [CmdletBinding()]param([string]$ItemType,[string]$Path)
+            $created=Microsoft.PowerShell.Management\New-Item -ItemType $ItemType -Path $Path -ErrorAction Stop
+            $creationOwners[$Path]=(Get-Acl -LiteralPath $Path).Owner
+            $created
+        }
+        try{$null=New-CoreNextPrivateProfileDirectory $privateRoot -LabRoot $fixture}finally{Remove-Item Function:\New-Item}
+        $acl=Get-Acl -LiteralPath $privateRoot
+        if(-not $acl.AreAccessRulesProtected){throw 'Fresh profile inherits laboratory access'}
+        if($acl.Owner -cne $creationOwners[$privateRoot]){throw 'Directory owner changed'}
+        $expected=@('S-1-5-18','S-1-5-32-544',[Security.Principal.WindowsIdentity]::GetCurrent().User.Value)|Sort-Object -Unique
+        $rules=@($acl.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]))
+        if(@($rules|Where-Object {$_.IdentityReference.Value -notin $expected -or $_.AccessControlType -ne 'Allow'}).Count){throw 'Unexpected profile principal'}
+        foreach($sid in $expected){
+            $grants=@($rules|Where-Object {$_.IdentityReference.Value -ceq $sid -and $_.FileSystemRights -eq 'FullControl' -and $_.InheritanceFlags -eq 'ContainerInherit,ObjectInherit'})
+            if(-not $grants.Count){throw "Missing inheritable FullControl: $sid"}
+        }
+    }
+    $privateFile=Join-Path $privateRoot 'installation-profile.json'
+    [IO.File]::WriteAllText($privateFile,($privateProfile|ConvertTo-Json -Depth 8))
+    Check 'FRESH_PROFILE_FILE_INHERITS_PRIVATE_ACL' {
+        $expected=@('S-1-5-18','S-1-5-32-544',[Security.Principal.WindowsIdentity]::GetCurrent().User.Value)|Sort-Object -Unique
+        $rules=@((Get-Acl -LiteralPath $privateFile).GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]))
+        if(@($rules|Where-Object {$_.IdentityReference.Value -notin $expected -or $_.AccessControlType -ne 'Allow'}).Count){throw 'Broad profile-file access inherited'}
+        foreach($sid in $expected){if(-not @($rules|Where-Object {$_.IdentityReference.Value -ceq $sid -and $_.FileSystemRights -eq 'FullControl'}).Count){throw "Profile-file grant missing: $sid"}}
+    }
+    Check 'EXISTING_PROFILE_ACL_NEVER_MODIFIED' {
+        $rootBefore=(Get-Acl -LiteralPath $privateRoot).Sddl;$fileBefore=(Get-Acl -LiteralPath $privateFile).Sddl
+        $null=Reject {New-CoreNextPrivateProfileDirectory $privateRoot -LabRoot $fixture} 'CORE_NEXT_NEW_PROFILE_PATH_REQUIRED'
+        if((Get-Acl -LiteralPath $privateRoot).Sddl -cne $rootBefore -or (Get-Acl -LiteralPath $privateFile).Sddl -cne $fileBefore -or (Get-Acl -LiteralPath $profilesParent).Sddl -cne $parentBefore){throw 'Existing ACL changed'}
+    }
+    Check 'FRESH_PROFILE_CREATION_PROTECTS_BEFORE_WRITING' {
+        $definition=${function:New-CoreNextInstallationProfile}.ToString()
+        $privacy=$definition.IndexOf('New-CoreNextPrivateProfileDirectory',[StringComparison]::Ordinal)
+        $write=$definition.IndexOf('[IO.File]::WriteAllText',[StringComparison]::Ordinal)
+        if($privacy -lt 0 -or $write -le $privacy){throw 'Private directory creation must precede profile writes'}
+    }
 }finally{
     if($savedAcl){Set-Acl -LiteralPath $denied -AclObject $savedAcl}
     # Remove the link itself before cleaning the verified disposable fixture.

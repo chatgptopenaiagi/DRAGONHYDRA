@@ -77,6 +77,24 @@ function New-CoreNextProfileObject([string]$Environment='candidate',[string]$Sou
         api_namespace='/dragon/api/v1';kernel_schema_version=1;source_commit=$SourceCommit;build_id=$BuildId;version=$Version;created_utc=[DateTime]::UtcNow.ToString('o')}
     Assert-CoreNextProfile $profile -LabRoot $lab
 }
+function New-CoreNextPrivateProfileDirectory([string]$Path,[string]$LabRoot='C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB') {
+    $directory=Assert-CoreNextOrdinaryPath $Path $LabRoot
+    if((Split-Path -Path $directory -Parent) -ine (Join-Path $LabRoot 'profiles') -or (Split-Path -Path $directory -Leaf) -cnotmatch '^core-next-[a-f0-9]{32}$'){throw 'CORE_NEXT_NEW_PROFILE_PATH_REQUIRED'}
+    # Never re-ACL an existing installation. No profile contents are written until
+    # the newly created directory has stopped inheriting broad laboratory access.
+    if(Test-Path -LiteralPath $directory -ErrorAction Stop){throw 'CORE_NEXT_NEW_PROFILE_PATH_REQUIRED'}
+    $null=New-Item -ItemType Directory -Path $directory -ErrorAction Stop
+    $acl=Get-Acl -LiteralPath $directory -ErrorAction Stop
+    $acl.SetAccessRuleProtection($true,$false)
+    $owner=[Security.Principal.WindowsIdentity]::GetCurrent().User
+    foreach($sid in @([Security.Principal.SecurityIdentifier]::new('S-1-5-18'),[Security.Principal.SecurityIdentifier]::new('S-1-5-32-544'),$owner)){
+        $acl.AddAccessRule([Security.AccessControl.FileSystemAccessRule]::new($sid,'FullControl','ContainerInherit,ObjectInherit','None','Allow'))
+    }
+    # Set-Acl preserves the directory's existing owner; service-specific access
+    # is added only after the installer registers and verifies its own service.
+    Set-Acl -LiteralPath $directory -AclObject $acl -ErrorAction Stop
+    $directory
+}
 function New-CoreNextInstallationProfile([string]$Environment='candidate',[string]$SourceCommit,[string]$Version,[string]$BuildId) {
     $lab='C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB';$profiles=Join-Path $lab 'profiles'
     $used=@(Get-NetTCPConnection -State Listen -ErrorAction SilentlyContinue|Select-Object -ExpandProperty LocalPort)
@@ -92,7 +110,7 @@ function New-CoreNextInstallationProfile([string]$Environment='candidate',[strin
     $directory=Split-Path $profile.install_root -Parent
     $null=Assert-CoreNextOrdinaryPath $directory $lab
     if(Test-Path -LiteralPath $directory){throw 'CORE_NEXT_NEW_PROFILE_PATH_REQUIRED'}
-    New-Item -ItemType Directory -Path $directory -Force|Out-Null
+    $null=New-CoreNextPrivateProfileDirectory $directory -LabRoot $lab
     $file=Join-Path $directory 'installation-profile.json'
     [IO.File]::WriteAllText($file,($profile|ConvertTo-Json -Depth 8),[Text.UTF8Encoding]::new($false))
     [pscustomobject]@{profile_path=$file;profile=$profile}

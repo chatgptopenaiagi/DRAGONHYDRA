@@ -9,7 +9,7 @@ Original installation and sharing-race observer failures remain preserved.
 Private incident: LAB/release-evolution-20261105/dev7-acl-recovery.
 Do not replay original InstallFresh, either token probe or RecoveredStartup.
 SQL helper preview was rejected by Windows script policy before execution; no
-Bypass/alternate transport or SQL acceptance. Candidate recovery is suspended.
+Bypass/alternate transport or SQL acceptance. Original candidate recovery policy restored after ready readback without restart.
 Source correction and discoverable regressions implemented; next dev.8 identity
 is unused. Freeze/build new outputs, then genuine fresh Windows/SQL/lifecycle/
 native/privacy/coordinator gates before software publication. Source push alone
