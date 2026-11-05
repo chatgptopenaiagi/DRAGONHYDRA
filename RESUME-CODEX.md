@@ -1,3 +1,20 @@
+# Active GENESIS-8.2 — Windows service ACL recovery
+
+Repair worktree: LAB/release-source/dev7-acl-repair-20261105; branch
+fix/core-next-dev7-windows-profile-acl-20261105. Frozen c7f9478/dev.7 remains
+unchanged. Read docs/reconciliation/DEV7-WINDOWS-ACL-INCIDENT-20261105.md.
+Real service-token profile denial was reproduced, scoped SID ACL repair passed,
+and the single recovered service generation PID30700 reached authenticated ready.
+Original installation and sharing-race observer failures remain preserved.
+Private incident: LAB/release-evolution-20261105/dev7-acl-recovery.
+Do not replay original InstallFresh, either token probe or RecoveredStartup.
+SQL helper preview was rejected by Windows script policy before execution; no
+Bypass/alternate transport or SQL acceptance. Candidate recovery is suspended.
+Source correction and discoverable regressions implemented; next dev.8 identity
+is unused. Freeze/build new outputs, then genuine fresh Windows/SQL/lifecycle/
+native/privacy/coordinator gates before software publication. Source push alone
+is not release publication. Six protected services/sealed generations unchanged.
+
 # Active GENESIS-8 — CORE NEXT dev.7 release
 
 Root owns the registered release/core-next-dev7-20261104 worktree at

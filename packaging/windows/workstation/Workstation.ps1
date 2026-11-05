@@ -45,10 +45,14 @@ function Save-Json($value,[string]$path) {
     [Dragonhydra.Workstation.AtomicFile]::Write($path,($value|ConvertTo-Json -Depth 12))
 }
 function Read-Json([string]$path) { [Dragonhydra.Workstation.AtomicFile]::Read($path)|ConvertFrom-Json }
-function Protect-Directory([string]$path,[string]$owner) {
+function Protect-Directory([string]$path,[string]$owner,[switch]$ServiceSpecific) {
     $acl=New-Object Security.AccessControl.DirectorySecurity
     $acl.SetAccessRuleProtection($true,$false)
-    foreach($sid in @('S-1-5-18','S-1-5-32-544','S-1-5-19',$owner)|Select-Object -Unique){
+    $principals=@('S-1-5-18','S-1-5-32-544',$owner)
+    # New profiles receive their own service SID after SCM registration. Keep
+    # the shared account grant only for explicitly legacy profiles.
+    if(-not $ServiceSpecific){$principals+='S-1-5-19'}
+    foreach($sid in $principals|Select-Object -Unique){
         if($sid){$identity=New-Object Security.Principal.SecurityIdentifier($sid);$acl.AddAccessRule((New-Object Security.AccessControl.FileSystemAccessRule($identity,'FullControl','ContainerInherit,ObjectInherit','None','Allow')))}
     }
     Set-Acl -LiteralPath $path -AclObject $acl
@@ -144,6 +148,97 @@ function Set-CoreNextOwnedServiceSid {
     [pscustomobject]@{service_name=$name;installation_id=$Profile.installation_id;sid_type='UNRESTRICTED';
         account='NT AUTHORITY\LocalService';changed=($before -cne 'UNRESTRICTED');observed_at=[DateTime]::UtcNow.ToString('o');
         verification_scope='SCM configuration only; child token membership and SQL authentication require separate actual evidence'}
+}
+function Resolve-CoreNextServiceSid([string]$ServiceName) {
+    if($ServiceName -cnotmatch '^DragonhydraCoreNext(?:candidate|baseline)[a-f0-9]{12}$'){throw 'CORE_NEXT_SERVICE_ACL_IDENTITY_MISMATCH'}
+    $principal=New-Object Security.Principal.NTAccount('NT SERVICE',$ServiceName)
+    $principal.Translate([Security.Principal.SecurityIdentifier])
+}
+function Set-CoreNextServiceProfileAccess {
+    param($Profile,[string]$ProfilePath,$SidEvidence)
+    $null=Assert-CoreNextProfile $Profile -CheckService
+    $expectedProfile=Join-Path (Split-Path $Profile.install_root -Parent) 'installation-profile.json'
+    if([IO.Path]::GetFullPath($ProfilePath) -ine $expectedProfile){throw 'CORE_NEXT_CANONICAL_PROFILE_PATH_REQUIRED'}
+    $boundProfile=Read-CoreNextProfile $ProfilePath -CheckService
+    # Normalize both through the same JSON parser: PowerShell 7 may parse ISO
+    # timestamps as DateTime and serialize equivalent fractional seconds shorter.
+    $expectedProfileObject=$Profile|ConvertTo-Json -Depth 12|ConvertFrom-Json
+    if(($boundProfile|ConvertTo-Json -Depth 12 -Compress) -cne ($expectedProfileObject|ConvertTo-Json -Depth 12 -Compress)){throw 'CORE_NEXT_SERVICE_ACL_PROFILE_BINDING_MISMATCH'}
+    if($SidEvidence.installation_id -cne $Profile.installation_id -or $SidEvidence.service_name -cne $Profile.service_name -or $SidEvidence.account -ine 'NT AUTHORITY\LocalService'){throw 'CORE_NEXT_SERVICE_ACL_IDENTITY_MISMATCH'}
+    if($SidEvidence.sid_type -ceq 'LEGACY_NOT_REQUIRED'){
+        return [pscustomobject]@{installation_id=$Profile.installation_id;service_name=$Profile.service_name;status='LEGACY_UNCHANGED';effective_access_verified=$false}
+    }
+    if($SidEvidence.sid_type -cne 'UNRESTRICTED'){throw 'CORE_NEXT_SERVICE_ACL_SID_REQUIRED'}
+    $service=Get-CimInstance Win32_Service -Filter ("Name='"+$Profile.service_name+"'")
+    $image=(Quote (Join-Path $Profile.install_root 'workstation\DragonhydraService.exe'))+' --state '+(Quote $Profile.state_root)+' --name '+$Profile.service_name
+    if(-not $service -or $service.Name -cne $Profile.service_name -or $service.PathName -cne $image -or $service.StartName -ine 'NT AUTHORITY\LocalService'){throw 'CORE_NEXT_SERVICE_ACL_IDENTITY_MISMATCH'}
+    $sid=Resolve-CoreNextServiceSid $Profile.service_name
+    if($sid.Value -notmatch '^S-1-5-80-(?:\d+-){4}\d+$'){throw 'CORE_NEXT_SERVICE_ACL_SID_REQUIRED'}
+    $beforeHash=(Get-FileHash -LiteralPath $ProfilePath -Algorithm SHA256).Hash.ToLowerInvariant()
+    $entries=@(
+        @{path=(Split-Path $Profile.install_root -Parent);rights='ReadAndExecute';inherit='None'},
+        @{path=$ProfilePath;rights='Read';inherit='None'},
+        @{path=$Profile.install_root;rights='ReadAndExecute';inherit='ContainerInherit,ObjectInherit'},
+        @{path=$Profile.state_root;rights='Modify';inherit='ContainerInherit,ObjectInherit'}
+    )
+    foreach($entry in $entries){
+        $null=Assert-CoreNextOrdinaryPath $entry.path $Profile.lab_root
+        $acl=Get-Acl -LiteralPath $entry.path
+        # Add only this installation's ACE. Owner, protection and existing
+        # SYSTEM/administrator/owner grants are not replaced by this repair.
+        $rule=New-Object Security.AccessControl.FileSystemAccessRule($sid,$entry.rights,$entry.inherit,'None','Allow')
+        $acl.AddAccessRule($rule)
+        Set-Acl -LiteralPath $entry.path -AclObject $acl
+        $actual=Get-Acl -LiteralPath $entry.path
+        $required=[Security.AccessControl.FileSystemRights]$entry.rights
+        $denies=@($actual.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier])|Where-Object {$_.IdentityReference.Value -in @($sid.Value,'S-1-5-19','S-1-1-0','S-1-5-11') -and $_.AccessControlType -eq 'Deny' -and ($_.FileSystemRights -band $required)})
+        if($denies.Count){throw 'CORE_NEXT_SERVICE_ACL_DENY_PRESENT'}
+        $grants=@($actual.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier])|Where-Object {$_.IdentityReference.Value -ceq $sid.Value -and $_.AccessControlType -eq 'Allow' -and ($_.FileSystemRights -band $required) -eq $required})
+        if(-not $grants.Count){throw 'CORE_NEXT_SERVICE_ACL_READBACK_FAILED'}
+    }
+    $afterHash=(Get-FileHash -LiteralPath $ProfilePath -Algorithm SHA256).Hash.ToLowerInvariant()
+    if($beforeHash -cne $afterHash){throw 'CORE_NEXT_SERVICE_ACL_PROFILE_CHANGED'}
+    [pscustomobject]@{schema_version=1;installation_id=$Profile.installation_id;service_name=$Profile.service_name;
+        principal=('NT SERVICE\'+$Profile.service_name);service_sid=$sid.Value;profile_sha256=$afterHash;status='PROVISIONED';entries=$entries;
+        effective_access_verified=$false;observed_at=[DateTime]::UtcNow.ToString('o');
+        verification_scope='ACL provisioning/readback only; actual service token must pass startup preflight'}
+}
+function Assert-CoreNextImmutableFiles([string[]]$Paths) {
+    # Opening for write without writing bytes verifies denial without changing
+    # application/profile contents. A service must never repair its own ACLs.
+    foreach($path in $Paths){
+        $stream=$null;$denied=$false
+        try{$stream=[IO.File]::Open($path,[IO.FileMode]::Open,[IO.FileAccess]::Write,[IO.FileShare]::ReadWrite)}
+        catch [UnauthorizedAccessException]{$denied=$true}
+        finally{if($stream){$stream.Dispose()}}
+        if(-not $denied){throw 'CORE_NEXT_SERVICE_IMMUTABLE_PATH_WRITABLE'}
+    }
+}
+function Test-CoreNextServiceProfileAccess {
+    param($Profile,[string]$ProfilePath,$Provision)
+    if($Provision.status -cne 'PROVISIONED' -or $Provision.installation_id -cne $Profile.installation_id -or $Provision.service_name -cne $Profile.service_name){throw 'CORE_NEXT_SERVICE_ACCESS_PROVISION_REQUIRED'}
+    $sid=Resolve-CoreNextServiceSid $Profile.service_name
+    $identity=[Security.Principal.WindowsIdentity]::GetCurrent()
+    if($identity.User.Value -cne 'S-1-5-19' -or $Provision.service_sid -cne $sid.Value -or -not ([Security.Principal.WindowsPrincipal]$identity).IsInRole($sid)){throw 'CORE_NEXT_SERVICE_TOKEN_IDENTITY_MISMATCH'}
+    $null=Read-CoreNextProfile $ProfilePath
+    $hash=(Get-FileHash -LiteralPath $ProfilePath -Algorithm SHA256).Hash.ToLowerInvariant()
+    if($hash -cne $Provision.profile_sha256){throw 'CORE_NEXT_SERVICE_ACCESS_PROFILE_CHANGED'}
+    $immutablePaths=@($ProfilePath)
+    foreach($relative in @('workstation\Workstation.ps1','workstation\CoreNextProfile.ps1','workstation\DragonhydraService.exe','server\DRAGONHYDRA-Server.exe')){
+        $path=Assert-CoreNextOrdinaryPath (Join-Path $Profile.install_root $relative) $Profile.install_root
+        $immutablePaths+=$path
+        $stream=[IO.File]::Open($path,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::ReadWrite)
+        try{$null=$stream.ReadByte()}finally{$stream.Dispose()}
+    }
+    Assert-CoreNextImmutableFiles $immutablePaths
+    $probe=Join-Path $Profile.state_root ('service-access-'+[Guid]::NewGuid().ToString('N')+'.tmp')
+    $stream=[IO.File]::Open($probe,[IO.FileMode]::CreateNew,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
+    try{$stream.WriteByte(1);$stream.Flush();$stream.Position=0;if($stream.ReadByte() -ne 1){throw 'CORE_NEXT_SERVICE_STATE_READBACK_FAILED'}}
+    finally{$stream.Dispose();[IO.File]::Delete($probe)}
+    [pscustomobject]@{schema_version=1;installation_id=$Profile.installation_id;service_name=$Profile.service_name;
+        account=$identity.Name;account_sid=$identity.User.Value;service_sid=$sid.Value;service_sid_enabled=$true;
+        profile_sha256=$hash;profile_read=$true;application_read=$true;immutable_write_denied=$true;state_write=$true;
+        observed_at=[DateTime]::UtcNow.ToString('o');verification_scope='Actual supervisor token before backend launch; executable launch/readiness require later acceptance'}
 }
 function Close-OwnedClient {
     $clientPath=Join-Path $script:cfg.install_root 'client\DRAGONHYDRA-Client.exe'
@@ -512,7 +607,7 @@ if($Action -eq 'Install'){
         if((Test-Path -LiteralPath $StateRoot) -and @(Get-ChildItem -LiteralPath $StateRoot -Force).Count){throw 'The selected data directory is nonempty and not owned by this workstation; it was not changed.'}
         if(Get-Service -Name $ServiceName -ErrorAction SilentlyContinue){throw 'Requested service name already exists; it was not changed.'}
         New-Item -ItemType Directory -Path $StateRoot -Force|Out-Null
-        Protect-Directory $StateRoot $OwnerSid
+        Protect-Directory $StateRoot $OwnerSid -ServiceSpecific
         $apiPort=[int]$coreProfile.ports.api;$webPort=[int]$coreProfile.ports.web;$dbPort=[int]$coreProfile.ports.database
         foreach($port in @($apiPort,$webPort,$dbPort)){Assert-FreePort $port}
         $script:cfg=[pscustomobject][ordered]@{schema_version=1;product_version=$coreProfile.version;install_root=$InstallRoot;state_root=$StateRoot;service_name=$ServiceName;owner_sid=$OwnerSid;api_port=$apiPort;web_port=$webPort;database_port=$dbPort;api_base=('http://127.0.0.1:'+$apiPort+'/dragon/api/v1');bridge_secret_path=(Join-Path $StateRoot 'kernel\joomla-bridge.json');root_password=(Random-Secret);db_name='dragonhydra_admin';db_user='dragonhydra_admin';db_password=(Random-Secret);core_db_name='dragonhydra_core';core_db_user='dragonhydra_core';core_db_password=(Random-Secret);admin_user='dragonadmin';admin_password=(Random-Secret);admin_email='administrator@dragonhydra.invalid';site_name='DRAGONHYDRA';kernel_backend='sqlite';optional_ai=@{enabled=$false;runtime='llama.cpp';endpoint=$null;model_directory=(Join-Path $StateRoot 'models');status='optional_not_installed'};analytics=@{authority='kernel';external_sql_server='optional_not_configured';external_postgresql='optional_not_configured';xlsx_export=$true}}
@@ -527,7 +622,7 @@ if($Action -eq 'Install'){
         Save-Json $script:cfg $configFile
     }
     if($script:cfg.product_version -cne $coreProfile.version){$script:cfg.product_version=$coreProfile.version;Save-Json $script:cfg $configFile}
-    Protect-Directory $StateRoot $OwnerSid
+    Protect-Directory $StateRoot $OwnerSid -ServiceSpecific:($script:cfg.service_sid_policy -ceq 'unrestricted')
     Protect-Binaries $InstallRoot
     $null=Owned-Service
     foreach($folder in @('kernel','client','models')){New-Item -ItemType Directory -Force -Path (Join-Path $StateRoot $folder)|Out-Null}
@@ -551,11 +646,15 @@ if($Action -eq 'Install'){
         $image=(Quote (Join-Path $InstallRoot 'workstation\DragonhydraService.exe'))+' --state '+(Quote $StateRoot)+' --name '+$ServiceName
         # Typed CIM avoids Windows PowerShell 5.1 stripping the nested quotes
         # required by a service ImagePath containing spaces and arguments.
-        $created=Invoke-CimMethod -ClassName Win32_Service -MethodName Create -Arguments @{Name=$ServiceName;DisplayName='DRAGONHYDRA Complete Workstation';PathName=$image;ServiceType=[byte]16;ErrorControl=[byte]1;StartMode='Automatic';StartName='NT AUTHORITY\LocalService'}
+        # Keep a reboot from starting a partially provisioned installation. The
+        # delayed-auto policy is applied only after SID/profile ACL provisioning.
+        $created=Invoke-CimMethod -ClassName Win32_Service -MethodName Create -Arguments @{Name=$ServiceName;DisplayName='DRAGONHYDRA Complete Workstation';PathName=$image;ServiceType=[byte]16;ErrorControl=[byte]1;StartMode='Manual';StartName='NT AUTHORITY\LocalService'}
         if($created.ReturnValue -ne 0){throw ('Owned service registration failed, code '+$created.ReturnValue)}
         $newServiceCreated=$true
         $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('description',$ServiceName,'Private DRAGONHYDRA kernel, Joomla web stack and database; loopback only.')
-        $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('failure',$ServiceName,'reset=','86400','actions=','restart/30000/restart/120000/restart/300000')
+        # A newly registered service has no automatic restart actions. Enable
+        # recovery only after genuine first-run readiness below; a broken first
+        # installation must retain one controlled failure for reconciliation.
         $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('failureflag',$ServiceName,'1')
     }
     $researchSqlEnabled=$false
@@ -563,6 +662,8 @@ if($Action -eq 'Install'){
     if(Test-Path -LiteralPath $researchConfig){$researchSqlEnabled=(Read-Json $researchConfig).provider -ceq 'sqlserver'}
     $sidEvidence=Set-CoreNextOwnedServiceSid -Profile $coreProfile -CreatedNow:$newServiceCreated -Policy $script:cfg.service_sid_policy -SqlEnabled:$researchSqlEnabled
     Save-Json $sidEvidence (Join-Path $StateRoot 'service-sid.json')
+    $accessEvidence=Set-CoreNextServiceProfileAccess -Profile $coreProfile -ProfilePath $ProfilePath -SidEvidence $sidEvidence
+    Save-Json $accessEvidence (Join-Path $StateRoot 'service-profile-access.json')
     $null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('config',$ServiceName,'start=','delayed-auto')
     if((Get-Service $ServiceName).Status -ne 'Running'){Status 'queued';Start-Service $ServiceName}
     $deadline=[DateTime]::UtcNow.AddSeconds($StartupTimeout)
@@ -571,7 +672,10 @@ if($Action -eq 'Install'){
         $statusPath=Join-Path $StateRoot 'status.json'
         if(Test-Path -LiteralPath $statusPath){
             $status=Read-Json $statusPath
-            if($status.stage -eq 'ready'){Write-Output ('DRAGONHYDRA ready: http://127.0.0.1:'+$script:cfg.api_port+'; Joomla http://127.0.0.1:'+$script:cfg.web_port+'; service '+$ServiceName);return}
+            if($status.stage -eq 'ready'){
+                if($newServiceCreated){$null=Native (Join-Path $env:WINDIR 'System32\sc.exe') @('failure',$ServiceName,'reset=','86400','actions=','restart/30000/restart/120000/restart/300000')}
+                Write-Output ('DRAGONHYDRA ready: http://127.0.0.1:'+$script:cfg.api_port+'; Joomla http://127.0.0.1:'+$script:cfg.web_port+'; service '+$ServiceName);return
+            }
             if($status.stage -eq 'failed'){throw ('First-run initialization failed: '+$status.error)}
         }
     }while([DateTime]::UtcNow -lt $deadline)
@@ -603,6 +707,11 @@ if($Action -in @('Stop','Uninstall')){
 
 $exitCode=0
 try{
+    if($script:cfg.service_sid_policy -ceq 'unrestricted'){
+        $provision=Read-Json (Join-Path $StateRoot 'service-profile-access.json')
+        $access=Test-CoreNextServiceProfileAccess -Profile $coreProfile -ProfilePath $ProfilePath -Provision $provision
+        Save-Json $access (Join-Path $StateRoot 'service-profile-access-runtime.json')
+    }
     $stopFile=Join-Path $StateRoot 'stop.request'
     if(Test-Path -LiteralPath $stopFile){Remove-Item -LiteralPath $stopFile}
     Status 'preparing'

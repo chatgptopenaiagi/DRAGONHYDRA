@@ -6,7 +6,19 @@ function Assert-CoreNextOrdinaryPath([string]$Path,[string]$Root) {
     if(-not $full.StartsWith($boundary+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'CORE_NEXT_PATH_OUTSIDE_LAB'}
     $walk=$full
     while($walk){
-        if((Test-Path -LiteralPath $walk) -and ((Get-Item -LiteralPath $walk -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)){throw 'CORE_NEXT_REPARSE_PATH_REJECTED'}
+        # A missing future leaf is permitted, but an unreadable existing path is
+        # not evidence that it is ordinary. Force terminating provider errors so
+        # validation stays fail-closed even when the caller uses Continue.
+        $item=$null
+        try{$item=Get-Item -LiteralPath $walk -Force -ErrorAction Stop}
+        catch{
+            $denied=$_.CategoryInfo.Category -in @('PermissionDenied','SecurityError')
+            $cause=$_.Exception
+            while($cause){if($cause -is [UnauthorizedAccessException]){$denied=$true};$cause=$cause.InnerException}
+            if($denied){throw [UnauthorizedAccessException]::new(('CORE_NEXT_PATH_ACCESS_DENIED: '+$walk),$_.Exception)}
+            if($_.Exception -isnot [Management.Automation.ItemNotFoundException] -or $_.CategoryInfo.Category -ne 'ObjectNotFound'){throw}
+        }
+        if($item -and ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)){throw 'CORE_NEXT_REPARSE_PATH_REJECTED'}
         $next=Split-Path -Path $walk -Parent;if($next -eq $walk){break};$walk=$next
     }
     $full
@@ -38,8 +50,9 @@ function Assert-CoreNextProfile($Profile,[string]$LabRoot='C:\xampp\DRAGONHYDRA-
 }
 function Read-CoreNextProfile([string]$Path,[switch]$CheckService) {
     $null=Assert-CoreNextOrdinaryPath $Path 'C:\xampp\DRAGONHYDRA-CORE-NEXT-LAB'
-    if(-not(Test-Path -LiteralPath $Path -PathType Leaf)){throw 'CORE_NEXT_PROFILE_MISSING'}
-    $profile=Get-Content -LiteralPath $Path -Raw|ConvertFrom-Json
+    if(-not(Test-Path -LiteralPath $Path -PathType Leaf -ErrorAction Stop)){throw 'CORE_NEXT_PROFILE_MISSING'}
+    try{$profile=Get-Content -LiteralPath $Path -Raw -ErrorAction Stop|ConvertFrom-Json -ErrorAction Stop}
+    catch [UnauthorizedAccessException]{throw [UnauthorizedAccessException]::new(('CORE_NEXT_PROFILE_READ_ACCESS_DENIED: '+$Path),$_.Exception)}
     $profile=Assert-CoreNextProfile $profile -CheckService:$CheckService
     if([IO.Path]::GetFullPath($Path) -ine (Join-Path (Split-Path $profile.install_root -Parent) 'installation-profile.json')){throw 'CORE_NEXT_CANONICAL_PROFILE_PATH_REQUIRED'}
     $profile

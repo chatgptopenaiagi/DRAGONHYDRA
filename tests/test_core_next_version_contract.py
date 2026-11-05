@@ -42,7 +42,7 @@ class VersionContractTests(unittest.TestCase):
         self.assertEqual(len(declared), 1)
         self.assertEqual(declared[0], (matrix['android_version_name'], str(matrix['android_version_code'])))
         self.assertEqual(matrix['android_version_name'], matrix['product_version'])
-        self.assertEqual(matrix['android_version_code'], 10)
+        self.assertEqual(matrix['android_version_code'], 11)
         self.assertIn('[int]$VersionCode='+str(matrix['android_version_code']),
                       (ROOT/'scripts/release_android.ps1').read_text())
         cargo = tomllib.loads((ROOT/'client/desktop/src-tauri/Cargo.toml').read_text())
