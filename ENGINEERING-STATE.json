@@ -1087,12 +1087,17 @@
     "source_lane": "GENESIS-6.1-FUTURE-RELEVANCE/source",
     "baseline": "4f17ccde30a9598f05ac200464d2e45e44885db1",
     "mode": "VIRTUAL_ONLY",
-    "phase": "SOURCE_VERIFIED_DEVELOPMENT_PACKAGE_QUALIFICATION",
+    "phase": "FIRST_VIRTUAL_DEVELOPMENT_SLICE_COMPLETE",
     "study_seed": 7331,
     "cases_per_family": 200,
     "model": "ridge-future-relevance/1-1d7d8ec18549e44fd85ff281",
     "superiority": "NOT_ESTABLISHED",
     "publication": "NOT_REQUESTED_AUTOMATICALLY",
-    "handoff": "docs/future-relevance/ARCHITECTURE.md"
+    "handoff": "docs/future-relevance/ARCHITECTURE.md",
+    "acceptance_result": "COMPLETE",
+    "application_commit": "0e09db6a6a5ecaa8c4d5111d66fb9124d80f9d89",
+    "package_sha256": "739d14dd117b62b9817bcd05800c42fe0d46a825c086a26d6827c9f2c2a4f46b",
+    "packaged_tests": 220,
+    "hand_off": "docs/future-relevance/GENESIS-6.1-DELIVERY-20261106.md"
   }
 }

@@ -1,3 +1,18 @@
+# Accepted GENESIS-6.1 virtual slice — 2026-11-06
+
+Application/package source: `0e09db6a6a5ecaa8c4d5111d66fb9124d80f9d89`.
+Read docs/future-relevance/GENESIS-6.1-DELIVERY-20261106.md first.
+The extracted package passes220 tests,18 offline checks and actual Edge/restart
+acceptance. The 55,500-decision benchmark and protected-software audit pass.
+The learned policy does not establish better net usefulness than acquire-none;
+reduced acquisition did not reduce inference CPU. All sporting data is virtual.
+The package was independently reproduced with identical SHA256739d14dd117b62b9817bcd05800c42fe0d46a825c086a26d6827c9f2c2a4f46b.
+Loopback19390 owns the verified extracted payload; old19380 remains protected.
+No release was published. Do not retune against the frozen7331 final test.
+This documentation closure does not alter the sealed application ZIP.
+
+---
+
 # GENESIS-6.1 continuation — 2026-11-06
 
 This worktree is the isolated future-relevance increment on branch
