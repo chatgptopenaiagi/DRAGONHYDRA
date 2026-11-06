@@ -106,8 +106,45 @@ class Coordinator:
                 raise RuntimeError('Final checksum mismatch: '+name)
         return [self.assets/name for name in names+metadata]
 
+    def find_release(self):
+        """Find the exact tag through the authenticated draft-aware listing.
+
+        The by-tag endpoint discovers published releases, so a newly created
+        draft must be found by listing all authenticated pages. Only a valid,
+        successful listing with no matching tag establishes absence.
+        """
+        raw=self.gh('api','--paginate','--slurp',f"repos/{self.state['repository']}/releases?per_page=100")
+        try:
+            pages=json.loads(raw)
+        except (TypeError,ValueError) as error:
+            raise RuntimeError('Malformed authenticated release listing; do not infer absence') from error
+        if not isinstance(pages,list) or not pages or any(not isinstance(page,list) for page in pages):
+            raise RuntimeError('Malformed paginated release listing; do not infer absence')
+        matches=[];identifiers=set()
+        for page in pages:
+            for remote in page:
+                if (not isinstance(remote,dict) or type(remote.get('id')) is not int or remote['id']<=0
+                        or not isinstance(remote.get('tag_name'),str) or not remote['tag_name'].strip()
+                        or type(remote.get('draft')) is not bool or type(remote.get('prerelease')) is not bool
+                        or not isinstance(remote.get('assets'),list)):
+                    raise RuntimeError('Malformed release record; do not infer absence')
+                if remote['id'] in identifiers:
+                    raise RuntimeError('Duplicate release ID in authenticated listing')
+                identifiers.add(remote['id'])
+                if remote['tag_name']==self.state['tag']:
+                    if (not isinstance(remote.get('body'),str) or not isinstance(remote.get('html_url'),str)
+                            or not remote['html_url'] or any(not isinstance(asset,dict) for asset in remote['assets'])):
+                        raise RuntimeError('Malformed matching release record')
+                    matches.append(remote)
+        if len(matches)>1:
+            raise RuntimeError('Multiple releases match the exact candidate tag')
+        return matches[0] if matches else None
+
     def release(self):
-        return json.loads(self.gh('api',f"repos/{self.state['repository']}/releases/tags/{self.state['tag']}"))
+        remote=self.find_release()
+        if remote is None:
+            raise RuntimeError('Exact release tag is absent from authenticated listing')
+        return remote
 
     def verify_remote(self,remote,files):
         if remote['tag_name']!=self.state['tag'] or not remote['prerelease']:
@@ -131,15 +168,12 @@ class Coordinator:
         remote_tags=self.command(['git','ls-remote','origin',f'refs/tags/{tag}^{{}}'])
         if not remote_tags.strip() or remote_tags.split()[0]!=self.state['source_sha']:
             raise RuntimeError('Push and verify the exact annotated source tag before staging a draft')
-        result=subprocess.run([getattr(self,'gh_executable','gh'),'api',f'repos/{repo}/releases/tags/{tag}'],capture_output=True,text=True)
-        if result.returncode:
-            if '404' not in result.stderr:
-                raise RuntimeError('Unable to inspect release; do not infer absence')
+        remote=self.find_release()
+        if remote is None:
             self.gh('release','create',tag,'--repo',repo,'--verify-tag','--draft','--prerelease','--latest=false','--title',self.state['title'],'--notes-file',str(self.assets/'RELEASE-NOTES.md'))
             remote=self.release()
             self.state['publication'].update(release_id=remote['id'],owned_draft=True,created_at=now());self.save()
         else:
-            remote=json.loads(result.stdout)
             if remote['id']!=self.state['publication'].get('release_id') or not self.state['publication'].get('owned_draft'):
                 raise RuntimeError('Existing release was not created by this release run')
         if not remote['draft']:

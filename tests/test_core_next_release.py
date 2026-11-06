@@ -96,13 +96,13 @@ class ReleaseGuards(unittest.TestCase):
             def save(inner):pass
             def gh(inner,*args):
                 inner.calls.append(args)
+                if args[0]=='api':return json.dumps([[]])
                 if args[:2]==('release','upload'):inner.uploaded=True
             def release(inner):
                 return {'id':123,'draft':True,'prerelease':True,'tag_name':inner.state['tag'],'html_url':'https://example.test/draft','body':notes.read_text(),
                     'assets':([{'name':p.name,'state':'uploaded','size':p.stat().st_size,'digest':'sha256:'+release.digest(p)} for p in [notes,payload]] if inner.uploaded else [])}
         instance=Fake()
-        with patch('release_coordinator.subprocess.run',return_value=subprocess.CompletedProcess([],1,'','HTTP 404')):
-            instance.publish(draft_only=True)
+        instance.publish(draft_only=True)
         self.assertEqual(instance.state['publication']['status'],'OWNED_DRAFT_ASSETS_VERIFIED')
         self.assertTrue(any('--prerelease' in c and '--latest=false' in c for c in instance.calls))
         self.assertFalse(any('--draft=false' in c or '--clobber' in c for c in instance.calls))
