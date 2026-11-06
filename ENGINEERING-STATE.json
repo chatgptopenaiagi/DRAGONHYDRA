@@ -1080,5 +1080,19 @@
       "port": 19380,
       "url": "http://127.0.0.1:19380/#research"
     }
+  },
+  "genesis61": {
+    "component": "0.2.0-virtual-experimental",
+    "branch": "research/genesis61-future-relevance-20261106",
+    "source_lane": "GENESIS-6.1-FUTURE-RELEVANCE/source",
+    "baseline": "4f17ccde30a9598f05ac200464d2e45e44885db1",
+    "mode": "VIRTUAL_ONLY",
+    "phase": "SOURCE_VERIFIED_DEVELOPMENT_PACKAGE_QUALIFICATION",
+    "study_seed": 7331,
+    "cases_per_family": 200,
+    "model": "ridge-future-relevance/1-1d7d8ec18549e44fd85ff281",
+    "superiority": "NOT_ESTABLISHED",
+    "publication": "NOT_REQUESTED_AUTOMATICALLY",
+    "handoff": "docs/future-relevance/ARCHITECTURE.md"
   }
 }

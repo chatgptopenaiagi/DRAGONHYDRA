@@ -1,0 +1,49 @@
+# GENESIS-6.1 performance measurement
+
+The benchmark executes actual acquisition-policy decisions over fictional episodes using the existing tools-environment Python and the standard library. It has no live feed, OpenAI client, real sporting dataset, Windows-service control or software installation. The 100-decision canary and full 100/1,000/10,000 run passed with stable selected source hashes. Actual 10,000-decision learned-policy net utility did not establish an improvement over acquire-none.
+
+Each size, 100/1,000/10,000, means that many real `execute_policy` calls per policy. Five policies are compared: acquire all affordable evidence, acquire none, seeded random, a public handcrafted rule and a frozen learned relevance policy. Corresponding decisions share the same episode conditions and latent outcome. Each policy starts its own 100-credit experiment acquisition ledger and each episode has the same 0.12-credit cap; actual receipts reduce only that policy's ledger. Limit binding, exhaustion and remaining credits are reported. Each policy owns its independent visibility and budget and receives only the public snapshot. The simulator's family, seed, latent rates and future outcomes never become policy features.
+
+The model is fitted on TRAIN families and selected on VALIDATION only, then frozen and hashed before any final TEST decision. Training and validation costs are recorded separately from policy decision latency. The final test families are noisy signal, possession inverse and late-card interaction; neither test labels nor root-group branches enter fitting or selection. A single frozen model is reused across all policy arms and sizes. The three sizes use nested condition prefixes; they are not independent repeated experiments. Each size resets its own arm ledgers before its actual decisions. Public metadata identifiers and absolute seed-derived dates are not legitimate learned features.
+
+Per-decision latency surrounds the actual pure execution call. `perf_counter`, `process_time` and `tracemalloc` report elapsed time, CPU time and traced Python peak allocation. Raw kernel-call counts, computation units and actual acquisition receipts are distinct quantities. Virtual computation credits are documented accounting units, not billed tokens, money or a hardware cycle count. SQLite connections are denied in this direct-kernel benchmark; it does not measure journal, HTTP, browser or SQLite throughput. Episode generation/cloning and later oracle scoring are outside decision latency and are separately disclosed when included in aggregate wall time.
+
+This is a shared-host measurement. Root's separate `offline-r3` deterministic replay/study verification overlapped the full benchmark's later work; its reported duration estimate was about 40 seconds, not a measured attribution of CPU interference. The influence on individual wall times is unquantified. The report retains actual wall and process CPU measurements and makes no claim of a dedicated machine, cold caches, hardware superiority or stable production throughput.
+
+Acquisition is read-only information disclosure. Deferral never advances the clock inside `execute_policy`; a DEFER result is not counted as an acquisition. Before and after probabilities refer to the same target origin, maturity and decision cutoff. Labels are accessed only after every paired arm has decided and target maturity plus the declared publication delay has passed. Outcomes must match across cloned policy arms; otherwise the pairing fails instead of producing an attractive comparison.
+
+Reports must retain before/after proper scores, acquisition credits, computation credits, net utility, latency and negative results. Net utility uses actual loss reduction minus the declared weighted costs. Faster execution alone cannot establish better acquisition decisions. Paired differences and uncertainty use the common root groups; repeated branches are not independent observations. A learned policy may be worse than acquire-none, and a positive pre-cost score change may become negative after costs.
+
+The final receipt will identify Git HEAD, working-tree status, selected source/dependency hashes, model hash, coupled-condition hashes, actual decision counts and measurement scope. Selected-source changes during a run fail that run. Reports are written only to a new directory below this lane's `evidence` directory; earlier evidence is never overwritten. Identical test-state bytes or exact numeric seed replay do not establish real-world transfer or calibration.
+
+The actual canary at `evidence/benchmark-canary-r1/BENCHMARK.json` passed 100 decisions per policy, 500 total, with 4.054 seconds aggregate case wall time. Its separately recorded TRAIN/VALIDATION preparation took 20.918 seconds. The experiment seed is 7331 and training uses 200 root cases per family. The frozen content hash is `1d7d8ec18549e44fd85ff28168ae7c99b5d0c4f085456da4c10600d83d4606c7`, matching the formal study. The full run reuses that completed canary's model only after verifying its terminal PASS, selected source hashes, seed, training count, cost weight and model hash. A cache hit is not another model fit; its receipt retains the original preparation provenance.
+
+The full terminal receipt is `evidence/benchmark-r1/BENCHMARK.json`, SHA-256 `1a53a7a6e89fa2589b838b654d8fdbc917f6e7c2efe2b2edd4a696e0397cc74f`. The separate shared-host disclosure is `HOST-CONTEXT.json`, SHA-256 `721242776e99f32a8dce4d83ada5d54ba5ecc91236aae1bf247fd1647fe5c3fe`. All 15 selected source/dependency pins remained unchanged. The receipt honestly records base HEAD `4f17ccde30a9598f05ac200464d2e45e44885db1` with working-tree changes; final freeze must bind these measured bytes rather than pretend the new modules were already committed at that base.
+
+| Actual decisions per policy | Five-policy decisions | Aggregate wall seconds | Aggregate process CPU seconds | Actual kernel calls |
+|---:|---:|---:|---:|---:|
+| 100 | 500 | 4.025 | 4.031 | 1,052 |
+| 1,000 | 5,000 | 38.472 | 38.328 | 10,344 |
+| 10,000 | 50,000 | 323.257 | 322.438 | 61,225 |
+
+These aggregate times include world construction, cloning and oracle scoring; they exclude the separate model fit. The 55,500 actual decisions reuse nested condition prefixes, not 55,500 independent root worlds. The canary's additional 500 decisions are separate from that total.
+
+At 10,000 decisions per policy, the actual measurements were:
+
+| Policy | p50 / p95 / p99 milliseconds | Maximum incremental traced bytes | Actual kernel calls | Actual acquisitions | Acquisition / computation credits | Paired net utility versus none |
+|---|---:|---:|---:|---:|---:|---:|
+| acquire_all | 1.716 / 6.276 / 11.613 | 83,173 | 13,395 | 3,395 | 99.997761 / 13.395 | -0.015427440 |
+| acquire_none | 1.407 / 2.740 / 2.905 | 21,205 | 10,000 | 0 | 0 / 10.000 | 0 |
+| random | 1.718 / 5.187 / 8.112 | 81,170 | 13,310 | 3,310 | 99.999879 / 13.310 | -0.017342786 |
+| handcrafted | 1.754 / 4.953 / 7.491 | 81,622 | 14,477 | 4,477 | 99.999944 / 14.477 | -0.022193618 |
+| learned | 10.236 / 20.126 / 21.013 | 101,216 | 10,043 | 43 | 0.416324 / 10.043 | -0.000338527 |
+
+The approximate paired root-group 95% interval for the learned net difference is [-0.000680481, 0.000003426], crossing zero. Learned Brier was 0.473881 versus acquire-none 0.473588. Actual mean decision latency was 11.5868 ms for learned, 2.5195 ms for acquire-all and 1.5957 ms for acquire-none. Model validation and chooser work remain inside the learned policy's measured latency: fewer acquisitions did not save CPU here. `policy_chooser_calls` counts actual chooser invocations, not individual ridge dot products or hardware instructions.
+
+Every arm respected its 100-credit acquisition cap and every episode its 0.12-credit cap. The first three acquiring heuristics reached cap-binding decisions while retaining small positive balances below useful later quotes; the report's exact-zero exhaustion counter remains zero rather than relabelling those residuals as literally spent. Global cap binding changes the later case mixture and therefore comparisons at 10,000 decisions; these are budget-constrained trajectories, not equal numbers of acquisitions. Per-decision memory is the traced allocation peak above the decision-entry baseline, including measurement/bookkeeping effects; it is not process RSS or total-journal storage.
+
+The separate formal study at `evidence/offline-r2/STUDY.json` (SHA-256 `40b4e982b477bf6edc2623b4f55d77da56f45538ac9d2cfd1cbe08e42e0563db`) includes all supported targets rather than this benchmark's fixed 10-minute goal-occurrence target. Actual learned Brier score was 0.377242 versus 0.376065 for acquire-none; paired Brier improvement was -0.001177 and paired net-utility improvement was -0.001401. Those are unfavorable results for the learned policy on these held-out synthetic cases. They are retained without a claim of real-world calibration or forced superiority. The small canary is a performance qualification step and does not replace that study or its uncertainty.
+
+Root's later `offline-r3` repetition passes 18 checks including deterministic replay. The STUDY file bytes remain identical to r2, and its canonical report SHA-256 is `73ec8504cf5739e21c1721fdaea2dd375c9c1e050694eb74f2d41de77adf3ffa`. That replay/study verification was the disclosed overlapping host workload, not a policy or runtime source change during the benchmark.
+
+`scripts/Verify-Genesis61.ps1` runs only the new `test_future*.py` focused suite and pure benchmark guards unless `-Benchmark` is explicitly supplied after source stability. The inherited 142-test virtual baseline is a separate root-owned run. The older data-bearing global suite, real providers, real OpenAI, SQL Server and existing Windows services are not executed by this wrapper.

@@ -43,8 +43,11 @@ def secure_equal(value: str, expected: str):
 
 def create_app(state: Path, *, local_token: str | None = None, bridge_secret: str | None = None,
                start_worker=True, source_root=ROOT, kernel_config=None, engine_adapters=None,
-               realtime_config=None):
+               realtime_config=None, future_config=None):
     virtual_mode = realtime_config is not None
+    future_mode = future_config is not None
+    if future_mode and (not virtual_mode or not isinstance(future_config, dict)):
+        raise ValueError('FUTURE_REQUIRES_VIRTUAL_CONFIGURATION')
     if virtual_mode:
         from dataclasses import replace
         from .kernel.contracts import KernelConfig
@@ -66,6 +69,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     product = Product(state, source_root, kernel_config=kernel_config, engine_adapters=engine_adapters)
     jobs = Jobs(product)
     realtime = None
+    future = None
     if virtual_mode:
         from .realtime.service import RealtimeService
         from .realtime.router import definition
@@ -73,6 +77,16 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
         try:
             product.kernel.register_extension(definition(realtime), realtime)
         except Exception:
+            realtime.close()
+            raise
+    if future_mode:
+        from .future_relevance.service import FutureService
+        from .future_relevance.router import definition as future_definition
+        try:
+            future = FutureService(product.state / 'future-relevance', config=future_config)
+            product.kernel.register_extension(future_definition(future), future)
+        except Exception:
+            if future is not None: future.close()
             realtime.close()
             raise
     token_path = product.state / 'local-session.json'
@@ -96,12 +110,15 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
             product.kernel.stop()
             if realtime is not None:
                 realtime.close()
+            if future is not None:
+                future.close()
 
     app = FastAPI(title='DRAGONHYDRA Application API', version=VERSION, lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.product, app.state.jobs = product, jobs
     app.state.kernel = product.kernel
     app.state.realtime = realtime
+    app.state.future_relevance = future
     app.state.virtual_mode = virtual_mode
     session_cookie_name = 'dragon_core_next_'+hashlib.sha256(
         product.kernel.config.installation_id.encode()).hexdigest()[:24]
@@ -159,7 +176,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                 return failure('REQUEST_TOO_LARGE', 'Request body exceeds the product limit.', 413)
         if virtual_mode:
             path = request.url.path
-            allowed_write = path in (API+'/session', API+'/session/logout', API+'/system/shutdown') or path.startswith(API+'/realtime/')
+            allowed_write = (path in (API+'/session', API+'/session/logout', API+'/system/shutdown')
+                             or path.startswith(API+'/realtime/')
+                             or (future_mode and path.startswith(API+'/future/')))
             if request.method in ('POST', 'PUT', 'PATCH', 'DELETE') and not allowed_write:
                 return failure('VIRTUAL_MODE_LEGACY_MUTATION_DENIED', 'This synthetic workspace cannot submit legacy product work.', 403)
             if path == API+'/connections' or path.startswith(API+'/connections/'):
@@ -616,6 +635,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     if realtime is not None:
         from .realtime.router import register_routes
         register_routes(router, realtime, admin, product.kernel)
+    if future is not None:
+        from .future_relevance.router import register_routes as register_future_routes
+        register_future_routes(router, future, admin, product.kernel)
     app.include_router(router)
     web = Path(__file__).parent / 'resources' / 'web'
     if not web.is_dir():

@@ -1,3 +1,18 @@
+## Active GENESIS-6.1 future relevance research — 2026-11-06
+
+Root owns research/genesis61-future-relevance-20261106 in the isolated
+LAB/GENESIS-6.1-FUTURE-RELEVANCE/source worktree. All sporting worlds,
+providers, credentials and outcomes are fictional. Preserve the accepted
+GENESIS-6 source/ZIP, CORE NEXT, services, databases, Git releases and Codex.
+Read docs/future-relevance/ARCHITECTURE.md, EXPERIMENT-7331.md and DASHBOARD.md.
+Do not tune against final-test 7331 or claim learned-policy superiority.
+Keep model availability, observation availability, decision and outcome cutoffs
+separate. The old mathematical kernel remains unchanged. Source, runtime,
+evidence and dist stay distinct; use only the new marked foreground runtime.
+No automatic release publication is authorized by this development increment.
+Root alone owns integration, Git index and freeze; agents have disjoint files.
+Older active sections below are preserved historical context, not permission to
+mutate another lane or rerun a failed one-shot operation.
 ## Active GENESIS-6 virtual relevance research — 2026-11-06
 
 Root is the sole integration/index/freeze coordinator on research/genesis6-realtime-20261106

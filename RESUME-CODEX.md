@@ -1,3 +1,18 @@
+# GENESIS-6.1 continuation — 2026-11-06
+
+This worktree is the isolated future-relevance increment on branch
+research/genesis61-future-relevance-20261106, component0.2.0-virtual-experimental.
+Read docs/future-relevance/ARCHITECTURE.md and EXPERIMENT-7331.md.
+The executable pipeline trains a past-only estimator, freezes it before unseen
+rule families, makes cost-aware information decisions, and journals later
+measurements without rewriting historical predictions. All inputs are virtual.
+The measured held-out study does not establish better net usefulness than none.
+Use scripts/Start-Genesis61.ps1 and #future on loopback19390; old19380 is protected.
+The earlier GENESIS-6 prerelease staging is held: no remote tag/release mutation
+was performed by this task. GENESIS-6.1 does not automatically publish.
+Original source and package identities and earlier handoff follow unchanged.
+
+---
 # Delivered GENESIS-6 — first virtual vertical slice
 
 Accepted application/package source: c269cf00e712340977b97985eb27ec23c7709ab0.

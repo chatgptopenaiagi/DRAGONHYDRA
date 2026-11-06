@@ -211,7 +211,7 @@ class ExtensionAndRuntimeTests(unittest.TestCase):
         self.assertEqual(port_number(19380),19380)
         for port in (18740,18751,0,65536):
             with self.assertRaises(ValueError):port_number(port)
-        with patch('dragonhydra.realtime.server.source_identity',return_value={'source_sha':'a'*40,'synthetic':True}),patch('dragonhydra.realtime.server.prepare_state',side_effect=AssertionError('BUILD_INFO_MUST_NOT_CREATE_STATE')):
+        with patch('dragonhydra.realtime.server.LANE',Path('C:/virtual/GENESIS-6-REALTIME-INTELLIGENCE')),patch('dragonhydra.realtime.server.source_identity',return_value={'source_sha':'a'*40,'synthetic':True}),patch('dragonhydra.realtime.server.prepare_state',side_effect=AssertionError('BUILD_INFO_MUST_NOT_CREATE_STATE')):
             from contextlib import redirect_stdout
             import io
             output=io.StringIO()
