@@ -24,7 +24,7 @@ function Quote([string]$Value){'"'+$Value+'"'}
 # These are intentional test doubles. In particular, no real service identity
 # is resolved or SCM queried; actual-token acceptance is a separate operation.
 $testSid=[Security.Principal.SecurityIdentifier]::new('S-1-5-80-11-22-33-44-55')
-function Resolve-CoreNextServiceSid([string]$ServiceName){$testSid}
+function Get-CoreNextServiceSid {param($Profile);if($Profile.service_name -cne $script:fakeService.Name){throw 'SCM_FORBIDDEN'};$testSid}
 function Get-CimInstance {param($ClassName,$Filter);if($ClassName -cne 'Win32_Service'){throw 'SCM_FORBIDDEN'};return $script:fakeService}
 function Rules([string]$Path){(Get-Acl -LiteralPath $Path).GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier])}
 function Has-Grant([string]$Path,[string]$Sid,[Security.AccessControl.FileSystemRights]$Rights){

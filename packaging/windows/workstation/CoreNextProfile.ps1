@@ -1,5 +1,6 @@
 #requires -Version 5.1
-# Pure profile validation; dot-sourcing does not install, bind ports or write state.
+# Profile validation and explicit read-only service SID queries. Dot-sourcing
+# does not query services, install, bind ports or write state.
 function Assert-CoreNextOrdinaryPath([string]$Path,[string]$Root) {
     if(-not [IO.Path]::IsPathRooted($Path) -or $Path.IndexOfAny([char[]]"`"`r`n") -ge 0 -or $Path -match '(?:^|[\\/])\.\.(?:[\\/]|$)'){throw 'CORE_NEXT_ABSOLUTE_ORDINARY_PATH_REQUIRED'}
     $full=[IO.Path]::GetFullPath($Path).TrimEnd('\');$boundary=[IO.Path]::GetFullPath($Root).TrimEnd('\')
@@ -56,6 +57,61 @@ function Read-CoreNextProfile([string]$Path,[switch]$CheckService) {
     $profile=Assert-CoreNextProfile $profile -CheckService:$CheckService
     if([IO.Path]::GetFullPath($Path) -ine (Join-Path (Split-Path $profile.install_root -Parent) 'installation-profile.json')){throw 'CORE_NEXT_CANONICAL_PROFILE_PATH_REQUIRED'}
     $profile
+}
+function Invoke-CoreNextServiceSidQuery {
+    param([Parameter(Mandatory)][ValidatePattern('^DragonhydraCoreNext(?:candidate|baseline)[a-f0-9]{12}$')][string]$ServiceName,
+        [Parameter(Mandatory)][ValidateSet('qsidtype','showsid')][string]$Query)
+    $sc=Join-Path $env:WINDIR 'System32\sc.exe'
+    if(-not(Test-Path -LiteralPath $sc -PathType Leaf -ErrorAction Stop)){throw 'CORE_NEXT_SERVICE_SID_QUERY_UNAVAILABLE'}
+    $previousPreference=$ErrorActionPreference
+    try{
+        # PS5.1 turns native stderr into ErrorRecord. Preserve it in the output
+        # for strict parsing, and reject every nonzero native exit separately.
+        $ErrorActionPreference='Continue'
+        $output=& $sc $Query $ServiceName 2>&1
+        $code=$LASTEXITCODE
+    }finally{$ErrorActionPreference=$previousPreference}
+    if($code -ne 0){throw 'CORE_NEXT_SERVICE_SID_NATIVE_QUERY_FAILED'}
+    $output
+}
+function Get-CoreNextServiceSid {
+    param([Parameter(Mandatory)]$Profile)
+    $null=Assert-CoreNextProfile $Profile
+    $name=[string]$Profile.service_name
+    $services=@(Get-CimInstance Win32_Service -Filter ("Name='"+$name+"'") -ErrorAction Stop)
+    $expected='"'+(Join-Path $Profile.install_root 'workstation\DragonhydraService.exe')+'" --state "'+$Profile.state_root+'" --name '+$name
+    if($services.Count -ne 1 -or $services[0].Name -cne $name -or $services[0].PathName -cne $expected -or $services[0].StartName -ine 'NT AUTHORITY\LocalService'){
+        throw 'CORE_NEXT_SERVICE_SID_OWNERSHIP_MISMATCH'
+    }
+    $typeRaw=@(Invoke-CoreNextServiceSidQuery -ServiceName $name -Query qsidtype)
+    $typeLines=@(($typeRaw -join "`n") -split '\r?\n'|ForEach-Object{$_.Trim()}|Where-Object{$_})
+    # Current native sc.exe may emit this success banner before its two fields.
+    # Accept it only once in that position; errors or extra records still fail.
+    if($typeLines.Count -eq 3 -and $typeLines[0] -ceq '[SC] QueryServiceConfig2 SUCCESS'){$typeLines=@($typeLines[1],$typeLines[2])}
+    if($typeLines.Count -ne 2){throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'}
+    $typeName=[regex]::Match($typeLines[0],'^SERVICE_NAME:\s*(\S+)$')
+    $type=[regex]::Match($typeLines[1],'^SERVICE_SID_TYPE:\s*(\S+)$')
+    if(-not $typeName.Success -or $typeName.Groups[1].Value -cne $name -or -not $type.Success -or $type.Groups[1].Value -cne 'UNRESTRICTED'){
+        throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'
+    }
+    # Account-name translation can fail after deletion/recreation even while
+    # SCM reports the exact active service SID. Use the supported read-only SCM
+    # query, bound to the owned service above, without reverse lookup or retries.
+    $sidRaw=@(Invoke-CoreNextServiceSidQuery -ServiceName $name -Query showsid)
+    $sidLines=@(($sidRaw -join "`n") -split '\r?\n'|ForEach-Object{$_.Trim()}|Where-Object{$_})
+    if($sidLines.Count -ne 3){throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'}
+    $sidName=[regex]::Match($sidLines[0],'^NAME:\s*(\S+)$')
+    $sidValue=[regex]::Match($sidLines[1],'^SERVICE SID:\s*(S-1-5-80-(?:[0-9]+-){4}[0-9]+)$')
+    $status=[regex]::Match($sidLines[2],'^STATUS:\s*(\S+)$')
+    if(-not $sidName.Success -or $sidName.Groups[1].Value -cne $name -or -not $sidValue.Success -or -not $status.Success -or $status.Groups[1].Value -cne 'Active'){
+        throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'
+    }
+    try{$sid=[Security.Principal.SecurityIdentifier]::new($sidValue.Groups[1].Value)}
+    catch{throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'}
+    if($sid.Value -cne $sidValue.Groups[1].Value){throw 'CORE_NEXT_SERVICE_SID_QUERY_UNVERIFIED'}
+    # Configuration evidence only. The supervisor still verifies that this SID
+    # is enabled in its actual token and can read/write only its required paths.
+    $sid
 }
 function Assert-CoreNextConfig($Config,$Profile) {
     foreach($key in @('installation_id','product','edition','environment_id','install_root','state_root','service_name','browser_user_data','cookie_name','joomla_session_suffix')){if($Config.$key -cne $Profile.$key){throw 'CORE_NEXT_PERSISTED_BINDING_MISMATCH'}}

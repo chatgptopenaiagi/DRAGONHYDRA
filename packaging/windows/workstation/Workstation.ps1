@@ -149,11 +149,6 @@ function Set-CoreNextOwnedServiceSid {
         account='NT AUTHORITY\LocalService';changed=($before -cne 'UNRESTRICTED');observed_at=[DateTime]::UtcNow.ToString('o');
         verification_scope='SCM configuration only; child token membership and SQL authentication require separate actual evidence'}
 }
-function Resolve-CoreNextServiceSid([string]$ServiceName) {
-    if($ServiceName -cnotmatch '^DragonhydraCoreNext(?:candidate|baseline)[a-f0-9]{12}$'){throw 'CORE_NEXT_SERVICE_ACL_IDENTITY_MISMATCH'}
-    $principal=New-Object Security.Principal.NTAccount('NT SERVICE',$ServiceName)
-    $principal.Translate([Security.Principal.SecurityIdentifier])
-}
 function Set-CoreNextServiceProfileAccess {
     param($Profile,[string]$ProfilePath,$SidEvidence)
     $null=Assert-CoreNextProfile $Profile -CheckService
@@ -172,7 +167,7 @@ function Set-CoreNextServiceProfileAccess {
     $service=Get-CimInstance Win32_Service -Filter ("Name='"+$Profile.service_name+"'")
     $image=(Quote (Join-Path $Profile.install_root 'workstation\DragonhydraService.exe'))+' --state '+(Quote $Profile.state_root)+' --name '+$Profile.service_name
     if(-not $service -or $service.Name -cne $Profile.service_name -or $service.PathName -cne $image -or $service.StartName -ine 'NT AUTHORITY\LocalService'){throw 'CORE_NEXT_SERVICE_ACL_IDENTITY_MISMATCH'}
-    $sid=Resolve-CoreNextServiceSid $Profile.service_name
+    $sid=Get-CoreNextServiceSid -Profile $Profile
     if($sid.Value -notmatch '^S-1-5-80-(?:\d+-){4}\d+$'){throw 'CORE_NEXT_SERVICE_ACL_SID_REQUIRED'}
     $beforeHash=(Get-FileHash -LiteralPath $ProfilePath -Algorithm SHA256).Hash.ToLowerInvariant()
     $entries=@(
@@ -217,7 +212,7 @@ function Assert-CoreNextImmutableFiles([string[]]$Paths) {
 function Test-CoreNextServiceProfileAccess {
     param($Profile,[string]$ProfilePath,$Provision)
     if($Provision.status -cne 'PROVISIONED' -or $Provision.installation_id -cne $Profile.installation_id -or $Provision.service_name -cne $Profile.service_name){throw 'CORE_NEXT_SERVICE_ACCESS_PROVISION_REQUIRED'}
-    $sid=Resolve-CoreNextServiceSid $Profile.service_name
+    $sid=Get-CoreNextServiceSid -Profile $Profile
     $identity=[Security.Principal.WindowsIdentity]::GetCurrent()
     if($identity.User.Value -cne 'S-1-5-19' -or $Provision.service_sid -cne $sid.Value -or -not ([Security.Principal.WindowsPrincipal]$identity).IsInRole($sid)){throw 'CORE_NEXT_SERVICE_TOKEN_IDENTITY_MISMATCH'}
     $null=Read-CoreNextProfile $ProfilePath

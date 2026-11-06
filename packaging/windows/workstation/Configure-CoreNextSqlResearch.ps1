@@ -205,7 +205,7 @@ $master=$null;$target=$null;$transaction=$null
 try{
     Save-CoreNextSqlReceipt $record $ReceiptPath $profile.lab_root
     Add-Type -AssemblyName System.Data
-    $sid=([Security.Principal.NTAccount]::new($names.principal)).Translate([Security.Principal.SecurityIdentifier])
+    $sid=Get-CoreNextServiceSid -Profile $profile
     $sidBytes=New-Object byte[] $sid.BinaryLength;$sid.GetBinaryForm($sidBytes,0);$record.service_sid=$sid.Value
     $master=Open-CoreNextSqlOwnerConnection 'master'
     $exists=Invoke-CoreNextSql $master 'SELECT DB_ID(@name) AS database_id' @{'@name'=$Database} -Read
