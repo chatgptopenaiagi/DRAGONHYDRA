@@ -75,12 +75,18 @@ function Get-CoreNextSqlValidatedSettingsHash([string]$Path,[string]$StateRoot,$
         Get-CoreNextSqlHex ($sha.ComputeHash($stream))
     }finally{if($reader){$reader.Dispose()};if($sha){$sha.Dispose()};$stream.Dispose()}
 }
-function Open-CoreNextSqlOwnerConnection([string]$Target){
+function New-CoreNextSqlConnectionString([string]$Server,[string]$Target,[bool]$TrustCertificate){
     $builder=New-Object System.Data.SqlClient.SqlConnectionStringBuilder
-    $builder.DataSource=$SqlServer;$builder.InitialCatalog=$Target;$builder.IntegratedSecurity=$true
-    $builder.Encrypt=$true;$builder.TrustServerCertificate=[bool]$TrustServerCertificate
-    $builder.ConnectTimeout=5;$builder.Pooling=$false;$builder.ApplicationName='DRAGONHYDRA owned SQL provisioning'
-    $connection=New-Object System.Data.SqlClient.SqlConnection($builder.ConnectionString)
+    # PowerShell adapts this IDictionary through its keys; CLR property spellings
+    # such as DataSource are not canonical connection-string keywords.
+    $builder['Data Source']=$Server;$builder['Initial Catalog']=$Target;$builder['Integrated Security']=$true
+    $builder['Encrypt']=$true;$builder['TrustServerCertificate']=$TrustCertificate
+    $builder['Connect Timeout']=5;$builder['Pooling']=$false;$builder['Application Name']='DRAGONHYDRA owned SQL provisioning'
+    $builder.ConnectionString
+}
+function Open-CoreNextSqlOwnerConnection([string]$Target){
+    $connectionString=New-CoreNextSqlConnectionString $SqlServer $Target ([bool]$TrustServerCertificate)
+    $connection=New-Object System.Data.SqlClient.SqlConnection($connectionString)
     $connection.Open()
     $command=$connection.CreateCommand();$command.CommandTimeout=10;$command.CommandText='SET XACT_ABORT ON; SET LOCK_TIMEOUT 3000;'
     try{$null=$command.ExecuteNonQuery()}finally{$command.Dispose()}
@@ -133,8 +139,15 @@ function Save-CoreNextSqlReceipt($Record,[string]$Path,[string]$LabRoot){
     $Path=Assert-CoreNextOrdinaryPath $Path $LabRoot
     $temporary=Assert-CoreNextOrdinaryPath ($Path+'.tmp') $LabRoot
     if(Test-Path -LiteralPath $temporary){throw 'CORE_NEXT_SQL_UNRECONCILED_RECEIPT_TEMP'}
+    if(-not ('Dragonhydra.Workstation.AtomicFile' -as [type])){
+        $library=Assert-CoreNextOrdinaryPath (Join-Path $PSScriptRoot 'DragonhydraAtomicFile.dll') $LabRoot
+        if(-not(Test-Path -LiteralPath $library -PathType Leaf)){throw 'CORE_NEXT_SQL_ATOMIC_HELPER_REQUIRED'}
+        Add-Type -Path $library -ErrorAction Stop
+    }
     [IO.File]::WriteAllText($temporary,($Record|ConvertTo-Json -Depth 12),[Text.UTF8Encoding]::new($false))
-    if(Test-Path -LiteralPath $Path){[IO.File]::Replace($temporary,$Path,$null)}else{[IO.File]::Move($temporary,$Path)}
+    # Keep File.Replace's nullable backup inside the existing typed helper:
+    # Windows PowerShell 5.1 converts a direct $null backup to an illegal path.
+    [Dragonhydra.Workstation.AtomicFile]::Commit($temporary,$Path)
 }
 
 $profile=Read-CoreNextProfile $ProfilePath -CheckService
@@ -240,12 +253,20 @@ try{
     Save-CoreNextSqlReceipt $record $ReceiptPath $profile.lab_root
     @{passed=$true;receipt=$ReceiptPath;receipt_sha256=(Get-CoreNextSqlHash $ReceiptPath);service_restart_performed=$false}|ConvertTo-Json
 }catch{
+    $primaryFailure=$_
     if($transaction){try{$transaction.Rollback()}catch{};try{$transaction.Dispose()}catch{}}
     $record.passed=$false;$record.stage='failed_reconciliation_required';$record.failure_code='CORE_NEXT_SQL_OWNER_PROVISIONING_FAILED'
-    $record.failure_class=$_.Exception.GetType().Name
-    if($_.Exception -is [Data.SqlClient.SqlException]){$record.sql_error_number=$_.Exception.Number;$record.sql_server_state=$_.Exception.State}
-    $record.finished_at=[DateTime]::UtcNow.ToString('o');Save-CoreNextSqlReceipt $record $ReceiptPath $profile.lab_root
-    throw 'CORE_NEXT_SQL_OWNER_PROVISIONING_FAILED'
+    $record.failure_class=$primaryFailure.Exception.GetType().Name
+    $record.failure_line=$primaryFailure.InvocationInfo.ScriptLineNumber
+    if($primaryFailure.Exception.InnerException){$record.failure_inner_class=$primaryFailure.Exception.InnerException.GetType().Name}
+    if($primaryFailure.Exception -is [Data.SqlClient.SqlException]){$record.sql_error_number=$primaryFailure.Exception.Number;$record.sql_server_state=$primaryFailure.Exception.State}
+    $record.finished_at=[DateTime]::UtcNow.ToString('o')
+    $failure=[InvalidOperationException]::new('CORE_NEXT_SQL_OWNER_PROVISIONING_FAILED',$primaryFailure.Exception)
+    try{Save-CoreNextSqlReceipt $record $ReceiptPath $profile.lab_root}
+    catch{$failure.Data['receipt_failure_class']=$_.Exception.GetType().Name}
+    # Preserve the original provisioning exception even if the failure receipt
+    # cannot be committed; never let that secondary error hide the first one.
+    throw $failure
 }finally{
     if($target){$target.Dispose()};if($master){$master.Dispose()};$lock.Dispose()
 }
