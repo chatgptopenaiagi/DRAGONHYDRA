@@ -21,7 +21,8 @@ if($PSVersionTable.PSVersion.Major -eq 5){$env:PSModulePath=Join-Path $PSHOME 'M
 
 function Get-CoreNextSqlHash([string]$Path){(Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()}
 function Get-CoreNextSqlHex([byte[]]$Bytes){([BitConverter]::ToString($Bytes)).Replace('-','').ToLowerInvariant()}
-function Convert-CoreNextSqlHash([string]$Value){[byte[]]@(for($i=0;$i -lt 64;$i+=2){[Convert]::ToByte($Value.Substring($i,2),16)})}
+# Return one typed binary value; pipeline enumeration otherwise collects Object[].
+function Convert-CoreNextSqlHash([string]$Value){,([byte[]]@(for($i=0;$i -lt 64;$i+=2){[Convert]::ToByte($Value.Substring($i,2),16)}))}
 function Get-CoreNextSqlNames($Profile){
     $null=Assert-CoreNextProfile $Profile
     if($Profile.environment_id -cne 'candidate'){throw 'CORE_NEXT_SQL_CANDIDATE_REQUIRED'}

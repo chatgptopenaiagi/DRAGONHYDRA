@@ -26,7 +26,7 @@ def quote(value):
 @unittest.skipUnless(os.name == 'nt' and LIBRARY.is_file(),
                      'Windows and an existing prebuilt AtomicFile DLL required; no compiler fallback')
 class SqlReceiptTests(unittest.TestCase):
-    def run_ps(self, body, *, hosts=HOSTS, historical=False, library=True):
+    def run_ps(self, body, *, hosts=HOSTS, historical=False, library=True, checksum_baseline=False):
         scratch=LAB/'tests';scratch.mkdir(exist_ok=True)
         results=[]
         for host in hosts:
@@ -43,6 +43,11 @@ class SqlReceiptTests(unittest.TestCase):
                     helper.write_bytes(subprocess.check_output([
                         str(GIT),'-C',str(ROOT),'show',
                         '0e5df36704eeeaadbbf2380cc5352473fc2ebf0b:packaging/windows/workstation/Configure-CoreNextSqlResearch.ps1'],timeout=15))
+                if checksum_baseline:
+                    baseline=fixture/'checksum-baseline.ps1'
+                    baseline.write_bytes(subprocess.check_output([
+                        str(GIT),'-C',str(ROOT),'show',
+                        '4a8177691bc272acb9258e256c7e9155baba76d3:packaging/windows/workstation/Configure-CoreNextSqlResearch.ps1'],timeout=15))
                 setup=r'''
 $ErrorActionPreference='Stop'
 $OutputEncoding=[Text.UTF8Encoding]::new($false)
@@ -56,10 +61,12 @@ function Reject([scriptblock]$Body,[string]$Code){
 }
 '''
                 setup+='\n$fixture='+quote(fixture)+'\n. '+quote(PROFILE)+'\n'
+                if checksum_baseline:
+                    setup+='$checksumBaseline='+quote(baseline)+'\n'
                 setup+='$source='+quote(helper)+r'''
 $tokens=$null;$errors=$null;$ast=[Management.Automation.Language.Parser]::ParseFile($source,[ref]$tokens,[ref]$errors)
 Require ($errors.Count -eq 0) 'SOURCE_PARSE_FAILED'
-$definitions=@($ast.FindAll({param($n)$n -is [Management.Automation.Language.FunctionDefinitionAst] -and $n.Name -in @('Save-CoreNextSqlReceipt','New-CoreNextSqlConnectionString')},$true))
+$definitions=@($ast.FindAll({param($n)$n -is [Management.Automation.Language.FunctionDefinitionAst] -and $n.Name -in @('Save-CoreNextSqlReceipt','New-CoreNextSqlConnectionString','Convert-CoreNextSqlHash','Get-CoreNextSqlHex')},$true))
 $functionFile=Join-Path $fixture 'receipt-functions.ps1'
 [IO.File]::WriteAllText($functionFile,(($definitions|ForEach-Object {$_.Extent.Text}) -join "`r`n"),[Text.UTF8Encoding]::new($true))
 . $functionFile
@@ -193,6 +200,44 @@ $pure=($definitions|Where-Object Name -CEQ 'New-CoreNextSqlConnectionString').Ex
 Require (-not $pure.Contains('.Open(') -and -not $pure.Contains('SqlConnection(')) 'PURE_BUILDER_OPENS_CONNECTION'
 @{passed=$true;sql_connections=0;trust_variants=2}|ConvertTo-Json -Compress
 ''')
+
+
+    def test_checksum_remains_one_byte_array_and_infers_varbinary_without_sql(self):
+        schema=ROOT/'src/dragonhydra/research_storage/schema_sqlserver.sql'
+        body='$schemaHash='+quote(hashlib.sha256(schema.read_bytes()).hexdigest())+'\n'+r'''
+foreach($hex in @($schemaHash,('00'*32),('ff'*32),('0123456789ABCDEF'*4))){
+ $checksum=Convert-CoreNextSqlHash $hex
+ Require ($checksum.GetType().FullName -ceq 'System.Byte[]' -and $checksum.Length -eq 32) 'TYPED_BINARY_CHECKSUM_REQUIRED'
+ Require ((Get-CoreNextSqlHex $checksum) -ceq $hex.ToLowerInvariant()) 'CHECKSUM_BYTES_CHANGED'
+ $command=New-Object System.Data.SqlClient.SqlCommand
+ try{
+  $parameter=$command.Parameters.AddWithValue('@checksum',$checksum)
+  Require ($parameter.Value.GetType().FullName -ceq 'System.Byte[]') 'PARAMETER_LOST_BINARY_TYPE'
+  Require ($parameter.get_SqlDbType() -eq [Data.SqlDbType]::VarBinary -and $parameter.Size -eq 32) 'VARBINARY_32_REQUIRED'
+  Require ((Get-CoreNextSqlHex $parameter.Value) -ceq $hex.ToLowerInvariant()) 'PARAMETER_BYTES_CHANGED'
+ }finally{$command.Dispose()}
+}
+$tokens=$null;$errors=$null;$oldAst=[Management.Automation.Language.Parser]::ParseFile($checksumBaseline,[ref]$tokens,[ref]$errors)
+Require ($errors.Count -eq 0) 'HISTORICAL_CHECKSUM_SOURCE_PARSE_FAILED'
+$old=@($oldAst.FindAll({param($n)$n -is [Management.Automation.Language.FunctionDefinitionAst] -and $n.Name -ceq 'Convert-CoreNextSqlHash'},$true))
+Require ($old.Count -eq 1) 'EXACT_HISTORICAL_CHECKSUM_FUNCTION_REQUIRED'
+. ([scriptblock]::Create($old[0].Extent.Text.Replace('function Convert-CoreNextSqlHash(','function Convert-HistoricalCoreNextSqlHash(')))
+$oldChecksum=Convert-HistoricalCoreNextSqlHash $schemaHash
+Require ($oldChecksum.GetType().FullName -ceq 'System.Object[]' -and $oldChecksum.Length -eq 32) 'HISTORICAL_ENUMERATION_FAILURE_NOT_REPRODUCED'
+Require ((Get-CoreNextSqlHex ([byte[]]$oldChecksum)) -ceq $schemaHash) 'HISTORICAL_BINARY_CONTENT_DIFFERS'
+$command=New-Object System.Data.SqlClient.SqlCommand
+try{
+ $parameter=$command.Parameters.AddWithValue('@checksum',$oldChecksum)
+ $caught=$null;try{$null=$parameter.get_SqlDbType()}catch{$caught=$_}
+ Require ($null -ne $caught) 'HISTORICAL_PROVIDER_MAPPING_FAILURE_NOT_REPRODUCED'
+ $cause=$caught.Exception;$argument=$false
+ while($cause){if($cause -is [ArgumentException] -and $cause.Message -match [regex]::Escape('System.Object[]')){$argument=$true};$cause=$cause.InnerException}
+ Require $argument 'HISTORICAL_PROVIDER_ARGUMENT_EXCEPTION_REQUIRED'
+}finally{$command.Dispose()}
+Require ((Get-FileHash -LiteralPath $profilePath -Algorithm SHA256).Hash -ceq $profileBefore) 'PROFILE_CHANGED'
+@{passed=$true;checksum_type='System.Byte[]';sql_db_type='VarBinary';bytes=32;vectors=4;historical_failure_reproduced=$true;sql_connections=0;sql_commands_executed=0}|ConvertTo-Json -Compress
+'''
+        self.run_ps(body,checksum_baseline=True)
 
 
 if __name__ == '__main__':

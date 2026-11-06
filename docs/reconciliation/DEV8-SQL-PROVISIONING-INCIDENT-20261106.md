@@ -25,6 +25,42 @@ locked/stale/unsafe/missing-helper negatives and original-exception preservation
 The new tests use only the explicitly owner-authorized Process RemoteSigned context;
 no machine/user policy is changed and no SQL/service operation occurs in those tests.
 
+The distinct development-maintenance Apply `sql-reconciliation-r2` executed helper
+correction source `4a8177691bc272acb9258e256c7e9155baba76d3` against the installed
+`0e5df36704eeeaadbbf2380cc5352473fc2ebf0b` ff4 candidate. It failed with
+`new_database_created=true` at helper line105, `ExecuteNonQuery`, before owned-schema
+verification. Its failed receipt was saved successfully with
+`MethodInvocationException` and inner `ArgumentException`; the corrected receipt
+writer did not mask this new primary failure.
+
+Actual managed-provider probes under both PowerShell hosts established the next
+cause: `Convert-CoreNextSqlHash` constructed `byte[]`, but function output enumeration
+made the caller receive `System.Object[]`. `AddWithValue` retained that type, and the
+actual `get_SqlDbType()` getter raised "No mapping exists from object type
+System.Object[] to a known managed provider native type." The smallest source
+correction returns the byte array as one pipeline object with unary comma. The
+new real-host regression verifies `System.Byte[]`, `VarBinary`, size32 and identical
+checksum bytes for the canonical schema hash, all-zero, all-FF and mixed-case
+vectors. It also reproduces the exact frozen4a Object[] provider failure. These are
+in-memory parameter checks: no connection is opened and no SQL command executes.
+
+The separate read-only rollback inspection found
+`DRAGONHYDRA_CORE_NEXT_SQL_86AAD1DB720F` ONLINE with zero user tables and zero
+triggers. It has no ownership/migration marker, service login, database user or
+research-storage configuration. The schema transaction rolled back; database
+creation itself remains visible. The empty, unowned database, failed R2 receipt,
+started lock and executed4a helper are retained. No retry, database adoption or
+drop occurred, and those are not implied by this source repair. The seven prior
+database metadata records and95 server settings matched their preserved hashes.
+
+Evidence is under
+`LAB/release-evolution-20261106/dev8-acceptance-r1/genesis84/sql-reconciliation-r2/diagnostic-r1`:
+`DIAGNOSTIC-SUMMARY.json`, `EXACT-ROLLED-BACK-SQL-STATE.json` and the two
+`*-HASH-PARAMETER-R2.json` host receipts. The original4a commit and its executed
+bundle remain unchanged. Later qualification requires a distinct clean candidate,
+new committed source and a separate operation; the failed ff4 operation must never
+be replayed. SQL owner Apply and actual service SQL authentication remain unpassed.
+
 A separately hash-bound development-maintenance bundle may qualify this correction
 against the still-isolated installed0e5 server, with ExpectedSourceCommit truthfully
 remaining0e5 and correction_source_commit separately recorded. This does not patch
@@ -35,3 +71,10 @@ Any corrected distribution must be built into fresh paths from one final committ
 source; version remains the unpublished0.5.0-dev.8. Preserve frozen0e5, all nine sealed
 packages and the original ff4 service/profile/evidence. Final installed SQL/lifecycle/
 GUI/privacy/coordinator and publication results remain separate actual gates.
+
+The existing coordinator has already bound the held
+`v0.5.0-dev.8-core-next` run to source0e5. Its identity remains immutable. The
+supported corrected run uses the separately verified unused matrix tag
+`v0.5.0-dev.8-core-next-r2`, retaining every software version at0.5.0-dev.8.
+The coordinator and all acceptance gates remain unchanged. Selecting the new
+run does not authorize publication before genuine corrected-source acceptance.
