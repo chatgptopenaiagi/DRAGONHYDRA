@@ -42,9 +42,39 @@ def secure_equal(value: str, expected: str):
 
 
 def create_app(state: Path, *, local_token: str | None = None, bridge_secret: str | None = None,
-               start_worker=True, source_root=ROOT, kernel_config=None, engine_adapters=None):
+               start_worker=True, source_root=ROOT, kernel_config=None, engine_adapters=None,
+               realtime_config=None):
+    virtual_mode = realtime_config is not None
+    if virtual_mode:
+        from dataclasses import replace
+        from .kernel.contracts import KernelConfig
+        from .realtime.router import validate_virtual_context
+        if not isinstance(realtime_config, dict):
+            raise ValueError('VIRTUAL_CONFIGURATION_REQUIRED')
+        validate_virtual_context(state, source_root)
+        if local_token is None or bridge_secret not in (None, ''):
+            raise ValueError('EXPLICIT_VIRTUAL_SESSION_REQUIRED')
+        bridge_secret = ''
+        start_worker = False
+        if kernel_config is None:
+            kernel_config = KernelConfig('core-next-source-' + hashlib.sha256(str(Path(state).resolve()).encode()).hexdigest()[:16])
+        elif isinstance(kernel_config, dict):
+            kernel_config = KernelConfig(**kernel_config)
+        if not isinstance(kernel_config, KernelConfig):
+            raise ValueError('INVALID_KERNEL_CONFIGURATION')
+        kernel_config = replace(kernel_config, disabled_modules=tuple(dict.fromkeys((*kernel_config.disabled_modules, 'ai'))))
     product = Product(state, source_root, kernel_config=kernel_config, engine_adapters=engine_adapters)
     jobs = Jobs(product)
+    realtime = None
+    if virtual_mode:
+        from .realtime.service import RealtimeService
+        from .realtime.router import definition
+        realtime = RealtimeService(product.state / 'realtime', config=realtime_config)
+        try:
+            product.kernel.register_extension(definition(realtime), realtime)
+        except Exception:
+            realtime.close()
+            raise
     token_path = product.state / 'local-session.json'
     if local_token is None:
         local_token = json.loads(token_path.read_text())['token'] if token_path.exists() else secrets.token_urlsafe(48)
@@ -56,19 +86,23 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
 
     @asynccontextmanager
     async def lifespan(app):
-        product.kernel.start()
-        if start_worker:
-            jobs.start()
         try:
+            product.kernel.start()
+            if start_worker:
+                jobs.start()
             yield
         finally:
             jobs.close()
             product.kernel.stop()
+            if realtime is not None:
+                realtime.close()
 
     app = FastAPI(title='DRAGONHYDRA Application API', version=VERSION, lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.product, app.state.jobs = product, jobs
     app.state.kernel = product.kernel
+    app.state.realtime = realtime
+    app.state.virtual_mode = virtual_mode
     session_cookie_name = 'dragon_core_next_'+hashlib.sha256(
         product.kernel.config.installation_id.encode()).hexdigest()[:24]
     app.state.session_cookie_name = session_cookie_name
@@ -123,6 +157,13 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                 return failure('INVALID_CONTENT_LENGTH', 'Content-Length must be a nonnegative integer.', 400)
             if content_length > 32*1024:
                 return failure('REQUEST_TOO_LARGE', 'Request body exceeds the product limit.', 413)
+        if virtual_mode:
+            path = request.url.path
+            allowed_write = path in (API+'/session', API+'/session/logout', API+'/system/shutdown') or path.startswith(API+'/realtime/')
+            if request.method in ('POST', 'PUT', 'PATCH', 'DELETE') and not allowed_write:
+                return failure('VIRTUAL_MODE_LEGACY_MUTATION_DENIED', 'This synthetic workspace cannot submit legacy product work.', 403)
+            if path == API+'/connections' or path.startswith(API+'/connections/'):
+                return failure('VIRTUAL_MODE_PROVIDERS_DISABLED', 'Real provider configuration and credentials are unavailable in virtual mode.', 403)
         response = await call_next(request)
         response.headers['X-Content-Type-Options'] = 'nosniff'
         response.headers['Referrer-Policy'] = 'no-referrer'
@@ -210,9 +251,11 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     def ready():
         with closing(product.connect()) as db:
             db.execute('SELECT version FROM product_schema').fetchone()
-        return {'status': 'ready', 'backend': 'sqlite', 'version': VERSION, 'schema_version': 1, 'optional_ai': optional_ai_status()['status'], 'source_sha': build_info()['source_sha']}
+        return {'status': 'ready', 'backend': 'sqlite', 'version': VERSION, 'schema_version': 1, 'optional_ai': optional_ai_status()['status'], 'source_sha': product.kernel.config.source_commit if virtual_mode else build_info()['source_sha']}
 
     def optional_ai_status():
+        if virtual_mode:
+            return {'status': 'not_configured', 'configured': False, 'mode': 'VIRTUAL_ONLY', 'runtime_health': 'not_checked'}
         from .local_ai_settings import Settings
         result = {'status': 'not_configured', 'configured': False,
                   'mode': 'constrained_source_fact_selection', 'runtime_health': 'not_checked'}
@@ -230,6 +273,8 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
 
     @router.get('/local-model/configuration', dependencies=[Depends(admin)])
     def local_model_configuration():
+        if virtual_mode:
+            return {'endpoint': '', 'configured': False, 'credential_source': 'none', 'mode': 'VIRTUAL_ONLY'}
         from .local_ai_settings import Settings
         return Settings(product.state).public()
 
@@ -530,7 +575,8 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
         config = product.state / 'product.json'
         settings = json.loads(config.read_text()) if config.exists() else {}
         local_ai = optional_ai_status()
-        return {'status': 'ready', 'backend': 'sqlite', 'version': VERSION, 'build': build_info(),
+        build = {**build_info(), **getattr(app.state, 'virtual_build', {})} if virtual_mode else build_info()
+        return {'status': 'ready', 'backend': 'sqlite', 'version': VERSION, 'build': build,
                 'administration_url': settings.get('administration_url'),
                 'ai': local_ai['status'], 'local_ai': local_ai, 'network_mode': 'loopback-only',
                 'installation': product.kernel.identity(), 'modules_summary': product.kernel.summary(),
@@ -567,6 +613,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                 await asyncio.sleep(0.5)
         return StreamingResponse(stream(), media_type='text/event-stream', headers={'X-Accel-Buffering': 'no'})
 
+    if realtime is not None:
+        from .realtime.router import register_routes
+        register_routes(router, realtime, admin, product.kernel)
     app.include_router(router)
     web = Path(__file__).parent / 'resources' / 'web'
     if not web.is_dir():

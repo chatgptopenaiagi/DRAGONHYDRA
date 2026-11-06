@@ -1030,5 +1030,35 @@
     "native_gui": "NOT_RUN",
     "history_intake": "14 focused tests PASS; actual validator run after freeze",
     "next": "Finish new controller/provisioning/lifecycle tests; integrated gate then freeze/build; do not relax primary/native/privacy requirements"
+  },
+  "genesis6_virtual_research": {
+    "schema_version": "dragonhydra.genesis6-engineering/1",
+    "source_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\GENESIS-6-REALTIME-INTELLIGENCE\\source",
+    "branch": "research/genesis6-realtime-20261106",
+    "base_commit": "db8414ff6a08bd0c85310564771475e71d00e8a4",
+    "component_version": "0.1.0-virtual-experimental",
+    "mode": "VIRTUAL_ONLY",
+    "ownership": "ROOT_ONLY_INDEX_AND_FREEZE_DISJOINT_ASSIGNED_FILES",
+    "real_records": 0,
+    "real_api_calls": 0,
+    "historical_state_above": "PRESERVED_NOT_CURRENT_RESEARCH_STATUS",
+    "evidence_root": "LAB/GENESIS-6-REALTIME-INTELLIGENCE/evidence",
+    "runtime_root": "LAB/GENESIS-6-REALTIME-INTELLIGENCE/runtime",
+    "report": "docs/realtime/GENESIS-6-ACCEPTANCE.md",
+    "publication": "ISOLATED_DEVELOPMENT_PACKAGE_NO_PRODUCT_RELEASE_PROMOTION",
+    "next": "Freeze this source, build the curated new package, verify extraction and actual packaged browser operation",
+    "phase": "VIRTUAL_SOURCE_QUALIFIED_PRE_PACKAGE_FREEZE",
+    "virtual_focused_tests": {
+      "passed": 130,
+      "failed": 0,
+      "skipped": 0
+    },
+    "package_verifier_tests": {
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0
+    },
+    "benchmark": "PASS_100_1000_10000_CORE_BYTES_UNCHANGED_ROUTER_ENUM_CHANGE_SEPARATE",
+    "preservation": "PASS_10_SERVICES_27_PACKAGES_13_WORKTREES_11_RELEASES_110_ASSETS_16_TAG_REFS"
   }
 }

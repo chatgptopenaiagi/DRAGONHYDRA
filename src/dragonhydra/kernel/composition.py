@@ -120,8 +120,31 @@ class Kernel:
         self.observer=LocalObserver(self.registry,self.supporting,context.storage.state,self.identity(),
             interval=config.observation_interval_seconds,clock=clock)
         self.supporting.observer=self.observer
+        self._has_started = False
+
+    def register_extension(self, definition, engine):
+        """Bind one concrete extension before startup through the strict registry."""
+        if self._has_started or self.observer.running or self.registry.running:
+            raise ValueError('MODULE_EXTENSION_AFTER_START_REJECTED')
+        if not isinstance(definition, ModuleDefinition) or definition.layer != 'engine':
+            raise ValueError('INVALID_ENGINE_EXTENSION_DEFINITION')
+        if definition.id in self.registry.definitions:
+            raise ValueError('DUPLICATE_MODULE_ID')
+        definitions = tuple(self.registry.definitions.values()) + (definition,)
+        engines = {**self.engines, definition.id: engine}
+        previous = self.registry
+        # Build first: invalid operations/dependencies/schema leave the old graph intact.
+        registry = ModuleRegistry(definitions, engines, supporting=previous.supporting,
+            ttl_seconds=previous.ttl, clock=previous.clock, disabled=self.config.disabled_modules,
+            installation_id=previous.installation_id, build_identity=previous.build_identity,
+            source_commit=previous.source_commit)
+        observer = LocalObserver(registry, self.supporting, self.context.storage.state, self.identity(),
+            interval=self.config.observation_interval_seconds, clock=previous.clock)
+        self.engines, self.registry, self.observer = engines, registry, observer
+        self.supporting.observer = observer
 
     def start(self):
+        self._has_started = True
         self.supporting.api_active=True
         self.observer.start()
 

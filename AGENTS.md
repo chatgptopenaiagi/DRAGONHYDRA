@@ -1,3 +1,17 @@
+## Active GENESIS-6 virtual relevance research — 2026-11-06
+
+Root is the sole integration/index/freeze coordinator on research/genesis6-realtime-20261106
+in LAB/GENESIS-6-REALTIME-INTELLIGENCE/source. Later owner instructions require
+all sporting inputs, histories, providers, outcomes and API credentials to be virtual.
+Never contact a real feed or API, adopt installed state, execute old one-shot phases,
+or change protected services, databases, releases, Codex or frozen worktrees.
+Use the new marked runtime only. Component 0.1.0-virtual-experimental is an isolated
+research capability, not a replacement dev.8 installer or a stable/live release.
+Read docs/realtime/REALTIME-ARCHITECTURE.md and the new research handoff.
+Root assigns disjoint files to the existing agents; no competing CLI writer.
+Historical release instructions below remain forensic context and preservation rules,
+not authority to rerun their operations in this lane. Package only fictional assets;
+source resources containing retained real sporting data must be excluded.
 ## Active GENESIS-8 release — 2026-11-04
 
 Root integrates only this registered `release/core-next-dev7-20261104` worktree,

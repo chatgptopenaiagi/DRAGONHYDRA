@@ -1,3 +1,17 @@
+# Active GENESIS-6 — virtual relevance laboratory
+
+Isolated source: LAB/GENESIS-6-REALTIME-INTELLIGENCE/source.
+Branch: research/genesis6-realtime-20261106; preserved parent db8414ff6a08bd0c85310564771475e71d00e8a4.
+Component 0.1.0-virtual-experimental uses exclusively fictional objects and inert
+virtual credentials. Do not reopen the old Windows release or dev.5 Forecast phases.
+The published v0.5.0-dev.8-core-next-r2 and all old installations are protected.
+Read docs/realtime/REALTIME-ARCHITECTURE.md, docs/realtime/GENESIS-6-ACCEPTANCE.md
+and docs/handover/GENESIS6-VIRTUAL-RESEARCH-20261106.md for this lane's scope.
+Evidence/runtime/dist are outside tracked source. Real feed/OpenAI access and
+real-world calibration are not established. Root owns the Git index and freeze.
+Use existing PowerShell 7/Python, launch scripts/Start-Genesis6.ps1; no service installer.
+
+# Preserved prior handoff (historical)
 # Active GENESIS-8.2 — Windows service ACL recovery
 
 Repair worktree: LAB/release-source/dev7-acl-repair-20261105; branch
