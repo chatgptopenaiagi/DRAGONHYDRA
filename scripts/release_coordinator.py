@@ -141,9 +141,65 @@ class Coordinator:
         return matches[0] if matches else None
 
     def release(self):
+        publication=self.state['publication']
+        if publication.get('owned_draft'):
+            ident=publication.get('release_id')
+            if type(ident) is not int or ident<=0:
+                raise RuntimeError('Invalid owned release ID in ledger')
+            raw=self.gh('api','--header','Cache-Control: no-cache',
+                        f"repos/{self.state['repository']}/releases/{ident}")
+            try:
+                remote=json.loads(raw)
+            except (TypeError,ValueError) as error:
+                raise RuntimeError('Malformed owned release response') from error
+            self.check_release_record(remote)
+            if remote['id']!=ident or remote['tag_name']!=self.state['tag']:
+                raise RuntimeError('Owned release ID/tag differs from ledger')
+            return remote
         remote=self.find_release()
         if remote is None:
             raise RuntimeError('Exact release tag is absent from authenticated listing')
+        return remote
+
+    @staticmethod
+    def check_release_record(remote):
+        if (not isinstance(remote,dict) or type(remote.get('id')) is not int or remote['id']<=0
+                or not isinstance(remote.get('tag_name'),str) or not remote['tag_name']
+                or type(remote.get('draft')) is not bool or type(remote.get('prerelease')) is not bool
+                or not isinstance(remote.get('assets'),list)
+                or any(not isinstance(asset,dict) for asset in remote['assets'])
+                or not isinstance(remote.get('body'),str) or not isinstance(remote.get('html_url'),str)
+                or not remote['html_url'] or not isinstance(remote.get('name'),str)):
+            raise RuntimeError('Malformed release response')
+
+    def create_draft(self):
+        """Record ownership from the create response, never from a later list.
+
+        Reserve both private evidence files before POST. An uncertain/invalid
+        attempt leaves them in place and cannot silently create another draft.
+        """
+        request_path=self.private/'draft-create-request.json'
+        response_path=self.private/'draft-create-response.json'
+        payload={'tag_name':self.state['tag'],'target_commitish':self.state['source_sha'],
+                 'name':self.state['title'],'body':(self.assets/'RELEASE-NOTES.md').read_text(encoding='utf-8'),
+                 'draft':True,'prerelease':True,'make_latest':'false'}
+        with request_path.open('x',encoding='utf-8',newline='\n') as stream:
+            json.dump(payload,stream,ensure_ascii=False,indent=2);stream.write('\n');stream.flush();os.fsync(stream.fileno())
+        with response_path.open('x',encoding='utf-8',newline='') as stream:
+            raw=self.gh('api','--method','POST',f"repos/{self.state['repository']}/releases",'--input',str(request_path))
+            if not isinstance(raw,str):
+                raise RuntimeError('Create release response is not text; reconcile without retry')
+            stream.write(raw);stream.flush();os.fsync(stream.fileno())
+        try:
+            remote=json.loads(raw)
+        except ValueError as error:
+            raise RuntimeError('Malformed create release response; reconcile without retry') from error
+        self.check_release_record(remote)
+        # GitHub may canonicalize target_commitish when the tag already exists.
+        # The unchanged annotated-tag peel gates authenticate application source.
+        if (remote['tag_name']!=payload['tag_name'] or remote.get('name')!=payload['name'] or remote['body']!=payload['body']
+                or remote['draft'] is not True or remote['prerelease'] is not True or remote['assets']):
+            raise RuntimeError('Create release identity/notes/type differs; reconcile without retry')
         return remote
 
     def verify_remote(self,remote,files):
@@ -168,10 +224,9 @@ class Coordinator:
         remote_tags=self.command(['git','ls-remote','origin',f'refs/tags/{tag}^{{}}'])
         if not remote_tags.strip() or remote_tags.split()[0]!=self.state['source_sha']:
             raise RuntimeError('Push and verify the exact annotated source tag before staging a draft')
-        remote=self.find_release()
+        remote=self.release() if self.state['publication'].get('owned_draft') else self.find_release()
         if remote is None:
-            self.gh('release','create',tag,'--repo',repo,'--verify-tag','--draft','--prerelease','--latest=false','--title',self.state['title'],'--notes-file',str(self.assets/'RELEASE-NOTES.md'))
-            remote=self.release()
+            remote=self.create_draft()
             self.state['publication'].update(release_id=remote['id'],owned_draft=True,created_at=now());self.save()
         else:
             if remote['id']!=self.state['publication'].get('release_id') or not self.state['publication'].get('owned_draft'):

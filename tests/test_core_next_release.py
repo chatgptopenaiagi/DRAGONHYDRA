@@ -91,12 +91,19 @@ class ReleaseGuards(unittest.TestCase):
             def __init__(inner):
                 inner.state={'repository':'owner/repo','tag':'v0.5.0-dev.1-core-next','source_sha':'a'*40,'title':'CORE NEXT','publication':{}}
                 inner.assets=self.work;inner.calls=[];inner.uploaded=False
+                inner.private=self.work/'publisher-private';inner.private.mkdir()
             def files(inner):return [notes,payload]
             def command(inner,args,**kwargs):return 'a'*40+'\trefs/tags/new^{}'
             def save(inner):pass
             def gh(inner,*args):
                 inner.calls.append(args)
-                if args[0]=='api':return json.dumps([[]])
+                if args[0]=='api':
+                    if '--method' in args:
+                        payload=json.loads(Path(args[-1]).read_text(encoding='utf-8'))
+                        return json.dumps({'id':123,'tag_name':payload['tag_name'],'target_commitish':payload['target_commitish'],
+                            'name':payload['name'],'body':payload['body'],'draft':True,'prerelease':True,'assets':[],
+                            'html_url':'https://example.test/draft'})
+                    return json.dumps([[]])
                 if args[:2]==('release','upload'):inner.uploaded=True
             def release(inner):
                 return {'id':123,'draft':True,'prerelease':True,'tag_name':inner.state['tag'],'html_url':'https://example.test/draft','body':notes.read_text(),
@@ -104,7 +111,9 @@ class ReleaseGuards(unittest.TestCase):
         instance=Fake()
         instance.publish(draft_only=True)
         self.assertEqual(instance.state['publication']['status'],'OWNED_DRAFT_ASSETS_VERIFIED')
-        self.assertTrue(any('--prerelease' in c and '--latest=false' in c for c in instance.calls))
+        request=json.loads((instance.private/'draft-create-request.json').read_text(encoding='utf-8'))
+        self.assertIs(request['draft'],True);self.assertIs(request['prerelease'],True);self.assertEqual(request['make_latest'],'false')
+        self.assertEqual(request['target_commitish'],'a'*40);self.assertEqual(request['body'],notes.read_text())
         self.assertFalse(any('--draft=false' in c or '--clobber' in c for c in instance.calls))
 
 
