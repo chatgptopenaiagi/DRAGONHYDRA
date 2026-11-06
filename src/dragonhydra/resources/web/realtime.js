@@ -224,8 +224,15 @@
         const first = ["universe", "feature", "target", "horizon", "train_brier", "test_brier", "heldout_brier_delta", "observed_improvement"].filter(name => names.includes(name));
         const columns = [...first, ...names.filter(name => !first.includes(name))].slice(0, 20);
         const body = node("tbody");
-        for (const row of rows.slice(0, 400)) body.append(node("tr", {}, columns.map(key => node("td", {}, key === "observed_improvement" && typeof row[key] === "boolean" ? row[key] ? "Observed (synthetic)" : "Not observed" : row[key] === null || row[key] === undefined ? "Not supplied" : typeof row[key] === "object" ? JSON.stringify(inspectValue(row[key])) : String(row[key])))));
+        for (const row of rows.slice(0, 400)) body.append(node("tr", {}, columns.map(key => {
+          const value = row[key];
+          const display = number(value) ? Number.isInteger(value) ? String(value) : value.toPrecision(6) :
+            key === "observed_improvement" && typeof value === "boolean" ? value ? "Observed (synthetic)" : "Not observed" :
+            value === null || value === undefined ? "Not supplied" : typeof value === "object" ? JSON.stringify(inspectValue(value)) : label(value);
+          return node("td", {title: number(value) ? String(value) : null}, display);
+        })));
         section.append(node("div", {class: "table-wrap rt-experiment"}, node("table", {}, node("thead", {}, node("tr", {}, columns.map(key => node("th", {scope: "col"}, label(key))))), body)));
+        section.append(hint("Numerical cells use six significant digits; hover for full precision. Positive loss reduction means improvement on these synthetic held-out cases. Scroll the table to inspect all columns."));
         if (rows.length > 400 || names.length > 20) section.append(hint(`Table display is limited to 400 rows and 20 columns; the API supplied ${rows.length} rows and ${names.length} fields. Inspect the report for the remaining data.`));
       }
       section.append(details("Actual experiment report and limitations", model.relevance));
