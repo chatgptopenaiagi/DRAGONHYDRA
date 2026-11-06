@@ -1,0 +1,143 @@
+{
+  "schema_version": "core-next.genesis83-acceptance-summary/1",
+  "observed_at": "2026-11-06T05:42:52.3313769Z",
+  "result": "BLOCKED",
+  "source_commit": "0e5df36704eeeaadbbf2380cc5352473fc2ebf0b",
+  "source_changed": false,
+  "packages_rebuilt": 0,
+  "packages_verified": 9,
+  "metadata_files_verified": 6,
+  "package_differences": 0,
+  "target_installation_id": "core-next-ff4b47d263f2405fa77286aad1db720f",
+  "target_service": "DragonhydraCoreNextcandidate86aad1db720f",
+  "target_ports": {
+    "web": 19151,
+    "database": 19152,
+    "api": 19150
+  },
+  "fresh_installation": "NOT_RUN_POLICY_CONTEXT_REQUIRED",
+  "fresh_markers_created": 0,
+  "fresh_service_registered": false,
+  "fresh_backend": "NOT_RUN",
+  "installed_sql_service_authentication": "NOT_RUN_FRESH_INSTALL_REQUIRED",
+  "sql_prerequisites": "PASS_INTERACTIVE_OWNER_READ_ONLY_ONLY",
+  "sql_database_and_configuration_metadata_unchanged": true,
+  "sql_provisioning_actions": 0,
+  "sql_ddl_or_grants": 0,
+  "lifecycle": "NOT_RUN_FRESH_INSTALL_AND_SQL_PREDECESSORS_REQUIRED",
+  "native_gui": "NOT_RUN_INSTALLED_DEV8_REQUIRED",
+  "joomla": "NOT_RUN_INSTALLED_DEV8_REQUIRED",
+  "source_suite": {
+    "scope": "Prior unchanged exact-source suite; not unnecessarily rerun",
+    "skipped": 28,
+    "failed": 0,
+    "passed": 1020
+  },
+  "new_controller_tests": {
+    "scope": "External controller guards, fake runtime, real metadata/AtomicFile fixture; not application acceptance",
+    "guard_groups_passed": 15,
+    "failed": 0,
+    "real_apply": 0,
+    "independent_review": "PASS"
+  },
+  "controller": {
+    "policy": "Restricted",
+    "preview": "BLOCKED_PENDING_COMPLIANT_PS51_CONTEXT",
+    "bindings_sha256": "960fd0f73445244c7eadc6f63bdf44f54ad02852cff5f54ccc63acac2fabe9bc",
+    "operation_root": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2"
+  },
+  "policy": {
+    "ps51": "Restricted",
+    "approved_context_found": false,
+    "ps7_sql_apply_supported": false,
+    "origin": "Windows client default because all native5.1 configured scopes are Undefined",
+    "owner_decision": "PENDING",
+    "ps7": "RemoteSigned LocalMachine",
+    "proposed_context": "Temporary dedicated process-tree RemoteSigned, no persisted scope changes; normal sealed installer as built. Not executed.",
+    "policies_changed": 0
+  },
+  "recovered_dev7": {
+    "pid": 30700,
+    "state": "Running",
+    "persisted_export_formats_verified": 3,
+    "new_jobs": 0,
+    "authenticated_ready": true
+  },
+  "preservation": {
+    "original_operation_hashes_unchanged": true,
+    "packages_unchanged": true,
+    "github_assets": 95,
+    "existing_services": 7,
+    "service_pids_and_bindings_unchanged": true,
+    "codex_update_or_execution": 0,
+    "historical_release_metadata_unchanged": true,
+    "github_releases": 10
+  },
+  "github": {
+    "coordinator": "NOT_RERUN_NO_NEW_MANDATORY_ACCEPTANCE; prior authentic refusal unchanged",
+    "uploads": 0,
+    "dev8_release": "ABSENT",
+    "public_download_verification": "NOT_RUN_NO_RELEASE",
+    "dev8_tag": "ABSENT"
+  },
+  "failed_readonly_harness_receipts_preserved": [
+    "RECOVERED-READBACK-R1-FAILED.json",
+    "SQL-PREREQUISITES.json",
+    "SQL-PREREQUISITES-R2.json"
+  ],
+  "next_requirement": "Explicit owner decision on compliant native Windows PowerShell5.1 execution context; then frozen windows-fresh-r2 controller once, followed by separate SQL/lifecycle/GUI/Joomla/coordinator phases.",
+  "evidence": {
+    "EXECUTION-CONTEXT-DISCOVERY.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\EXECUTION-CONTEXT-DISCOVERY.json",
+      "sha256": "4dbf509328c359f05fb1cc42a781301753346670c81e44bb197b9f0bdf5bf751"
+    },
+    "FRESH-DISCOVERY.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\FRESH-DISCOVERY.json",
+      "sha256": "5eacbde7e7cb640f2cceb25a28fe394ede0b2e565043047906524020cccf88db"
+    },
+    "PACKAGES-DISCOVERY.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\PACKAGES-DISCOVERY.json",
+      "sha256": "8fec88be04ac30e718700959e90610287d6f4ce9a020f0fdd4555f8012712cbe"
+    },
+    "RECOVERED-READBACK.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\RECOVERED-READBACK.json",
+      "sha256": "a4d838328a3b68d0a0e89a77ecb532f01a96ba793432190bf623d621c60d0595"
+    },
+    "SQL-PREREQUISITES-R3.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\SQL-PREREQUISITES-R3.json",
+      "sha256": "d770530ac3991646f0d15b7837adb1c9f3de528b2a4749bddc069f60e69e4f91"
+    },
+    "GUI-PREREQUISITES.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\GUI-PREREQUISITES.json",
+      "sha256": "a1d68468100601b15e67d603b6c87c9f88c9cee1cb96303d60d581a54d2e6620"
+    },
+    "GITHUB-DISCOVERY.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\GITHUB-DISCOVERY.json",
+      "sha256": "1597bfd436f956608b7685dd807b7c8d93d7efc5e4d6ada28546b30a037c772d"
+    },
+    "windows-fresh-r2\\PLAN.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2\\PLAN.json",
+      "sha256": "2f2810867d01a7bb8c83d07cd8190d4436e3545ed4a584cbedd670cb82134d5f"
+    },
+    "windows-fresh-r2\\BINDINGS.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2\\BINDINGS.json",
+      "sha256": "960fd0f73445244c7eadc6f63bdf44f54ad02852cff5f54ccc63acac2fabe9bc"
+    },
+    "windows-fresh-r2\\Invoke-InstallFresh.ps1": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2\\Invoke-InstallFresh.ps1",
+      "sha256": "d0f3c6fdad3aeca27537fda749a19fbe41e2a2d08c769ed62893176717cc95de"
+    },
+    "windows-fresh-r2\\TEST-REPORT-r2.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2\\TEST-REPORT-r2.json",
+      "sha256": "fcc3e743d95e673bc4d5ede6b4498ee7d32c60e8db6e4a7d8acff22883f73aac"
+    },
+    "windows-fresh-r2\\PREVIEW-r2.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\windows-fresh-r2\\PREVIEW-r2.json",
+      "sha256": "1871207f889e2125e8058300a156cc3533a4c77eddc4d49536c73c4222e023fb"
+    },
+    "EXECUTION-CONTEXT-DECISION-REQUEST.json": {
+      "path": "C:\\xampp\\DRAGONHYDRA-CORE-NEXT-LAB\\release-evolution-20261106\\dev8-acceptance-r1\\EXECUTION-CONTEXT-DECISION-REQUEST.json",
+      "sha256": "a0b6623b9e1f82e15c86c8c0ee88a28e12848c7e5478acf1fba8f31ad1fa0321"
+    }
+  }
+}

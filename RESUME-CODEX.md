@@ -1,3 +1,20 @@
+# Current GENESIS-8.3 — policy context decision pending
+
+Code remains frozen/pushed0e5df367; all9dev.8 packages+6metadata hashes unchanged.
+Read docs/reconciliation/DEV8-WINDOWS-ACCEPTANCE-20261106.md and its JSON report.
+Sevenexisting services unchanged; recovered7/PID30700 ready; persisted3exports match.
+NativePS5.1 is Restricted (all scopes Undefined); PS7 RemoteSigned does not qualify
+SQL Apply. No policy change, fresh install or actualnewservice/SQL/GUI phase ran.
+New external Nov6/windows-fresh-r2 controller+PLAN/BINDINGS reviewed,15guardgroups
+PASS; safePreview blocks before marker. Bindings960fd0f73445244c7eadc6f63bdf44f54ad02852cff5f54ccc63acac2fabe9bc.
+Exact ff4profile remains unused on19150/19151/19152. Never replay old claimed phases.
+Owner question requests explicit dedicated ProcessRemoteSigned context with no
+persistedpolicy changes and normal sealed installer entrypoint. No answer/approval
+observed at this checkpoint; elapsedtime/defaultUIselection is not approval.
+Private currentevidence LAB/release-evolution-20261106/dev8-acceptance-r1.
+This is documentation-only; no rebuild/version bump/publication. Existing mandatory
+SQL/lifecycle/native/Joomla/privacy/coordinator gates remain in force.
+
 # Final GENESIS-8.2 delivery — documentation checkpoint
 
 Application source is frozen/pushed0e5df36704eeeaadbbf2380cc5352473fc2ebf0b
