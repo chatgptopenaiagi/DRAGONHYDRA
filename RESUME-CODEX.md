@@ -1,3 +1,17 @@
+# Delivered GENESIS-6 — first virtual vertical slice
+
+Accepted application/package source: c269cf00e712340977b97985eb27ec23c7709ab0.
+Component 0.1.0-virtual-experimental, branch research/genesis6-realtime-20261106.
+Read docs/realtime/GENESIS-6-DELIVERY-20261106.md for terminal acceptance.
+The extracted package passed142tests,18offlinechecks/5000episodes,18browserchecks
+and7restartchecks. It is running at http://127.0.0.1:19380/#research, PID41000.
+Every sporting input/provider/credential is virtual; no real API/data is needed.
+The new delivery documentation does not change sealed package bytes. Previous
+pre-build and historical handoffs below remain evidence, not current blockers.
+Next research: past-only target/time-specific acquisition policy, held-out on an
+unseen universe with shared-prefix branches grouped correctly. No real predictive
+accuracy, external OpenAI, native/Android/Joomla research integration or live claim.
+
 # Active GENESIS-6 — virtual relevance laboratory
 
 Isolated source: LAB/GENESIS-6-REALTIME-INTELLIGENCE/source.

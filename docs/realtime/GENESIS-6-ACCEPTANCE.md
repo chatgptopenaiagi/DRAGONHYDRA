@@ -1,6 +1,8 @@
 # GENESIS-6 virtual realtime acceptance
 
-Current checkpoint: **PARTIALLY_COMPLETE** pending source freeze and the subsequent build/extracted-package acceptance. The synthetic vertical journey, Edge browser journey, browser restart, virtual-focused source suite, benchmark and preservation checks have terminal passing evidence. This document does not predeclare the post-freeze package result.
+Post-freeze closure: the first virtual vertical slice is COMPLETE. See [the accepted source, package and final evidence](GENESIS-6-DELIVERY-20261106.md). The pre-build checkpoint below remains preserved as historical engineering evidence.
+
+Pre-build checkpoint (preserved): **PARTIALLY_COMPLETE** pending source freeze and the subsequent build/extracted-package acceptance. The synthetic vertical journey, Edge browser journey, browser restart, virtual-focused source suite, benchmark and preservation checks have terminal passing evidence. This document does not predeclare the post-freeze package result.
 
 The implementation is in `LAB/GENESIS-6-REALTIME-INTELLIGENCE/source`, branch `research/genesis6-realtime-20261106`, based on `db8414ff6a08bd0c85310564771475e71d00e8a4`. That base hash does not identify the new uncommitted implementation. A final source freeze and its verification receipt are still required. The previously accepted application/release and original failed operations remain separate histories.
 
