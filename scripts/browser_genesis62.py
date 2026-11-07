@@ -166,7 +166,9 @@ def main(argv=None):
                     report['active_operation']=action;save()
                     with page.expect_response(lambda r:r.request.method=='POST' and r.url.startswith(url+BASE+'/'),timeout=timeout) as pending:
                         page.locator('[data-action='+action+']').click()
-                    response=pending.value;response.finished();ready(timeout)
+                    response=pending.value
+                    # Refresh enables only after response JSON and UI readbacks complete.
+                    ready(timeout)
                     report['active_operation']=None;save()
                     if not expect_error:need(response.status==200,'UI_MUTATION_FAILED_'+action);expect(page.locator('.lg-error')).to_have_count(0)
                     return response
