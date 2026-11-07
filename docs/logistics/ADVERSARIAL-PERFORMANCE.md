@@ -82,3 +82,18 @@ bound to its own recorded source pins. The final
 100/1,000/10,000-event run is **NOT_RUN** until source stabilization and owner GO.
 No service, SQLite throughput, UI, real-world calibration or decision superiority
 is established by this in-memory cache workload.
+
+
+## Final qualified execution — 2026-11-07
+
+The earlier NOT_RUN/held statements above describe the pre-final checkpoint.
+Actual final receipts now pass: source110 logistics tests plus12 package tests,
+all220 prior tests, and342 extracted-package tests. Final100/1000/10000 event
+workloads accept all requests with zero skips and exact full reference equality.
+Cached/reference calls are25/500,217/5000 and2142/50000. The10k medians are
+2.254/5.755ms per five-request checkpoint; shared-host and tracing limitations
+are recorded. This is not API throughput or proof of predictive improvement.
+The27-check source study,28-check packaged replay,64-check package browser
+journey and28-check real-process restart pass. First45 final policy records
+match exactly; historical failure evidence is retained. Read the delivery report
+for measured mixed research findings and explicit preservation/privacy scope.

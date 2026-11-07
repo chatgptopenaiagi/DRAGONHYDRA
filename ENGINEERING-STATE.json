@@ -123,7 +123,7 @@
     "initial_local_head": "c9fcc789d0380bc372cd349d3fb43abcfaeca09f",
     "attribution": "Concurrent external original-project engineering was observed; CORE NEXT commands did not write original source",
     "evidence": "LAB/evidence/original-preservation-after-candidate-20261101T152844Z.json",
-    "remote_tip_handling": "Sealed metadata captures c9\u2192f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
+    "remote_tip_handling": "Sealed metadata captures c9→f45 at its timestamp; later observations use an anchored monotonic live journal, preserving initial and last accepted ancestry and excluding953; six other old heads/tags/assets/stable latest remain strict"
   },
   "screenshots": [
     {
@@ -1105,12 +1105,21 @@
     "branch": "research/genesis62-cognitive-logistics-20261107",
     "baseline": "67c531462e90bc79c653b74066101dfa5a1e4125",
     "mode": "VIRTUAL_ONLY",
-    "phase": "INTEGRATION_SOURCE_CHECKPOINT_ACCEPTANCE_PENDING",
+    "phase": "FIRST_BOUNDED_VIRTUAL_SLICE_QUALIFIED",
     "study_seed": 8821,
     "independent_root_groups": 40,
     "study_days": 20,
     "target_tag": "v0.3.0-genesis62-cognitive-logistics.1",
-    "publication": "HELD_UNTIL_MANDATORY_ACCEPTANCE",
-    "handoff": "docs/logistics/ARCHITECTURE.md"
+    "publication": "QUALIFIED_PENDING_ACTUAL_GITHUB_UPLOAD_AND_DOWNLOAD_VERIFICATION",
+    "handoff": "docs/logistics/GENESIS-6.2-DELIVERY-20261107.md",
+    "application_commit": "30452b88aec900229a25b7693a455f23f95f3adf",
+    "frozen_model": "logistics-ridge/1-9c8c6341e6db800a48362e15",
+    "packaged_tests": 342,
+    "source_offline_checks": 27,
+    "package_offline_checks": 28,
+    "package_browser_checks": 64,
+    "package_restart_checks": 28,
+    "package_sha256": "ae18daf43a864557835f681a6255b920c9595c3a37220ed301f7792eaf8397f0",
+    "superiority": "NOT_ESTABLISHED_GENERALLY; small one-experiment virtual cost/fill gains; pre-reveal value estimator worse than TRAIN constant"
   }
 }

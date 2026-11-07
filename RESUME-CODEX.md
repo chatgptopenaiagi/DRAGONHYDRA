@@ -1,3 +1,28 @@
+# Qualified GENESIS-6.2 virtual slice — 2026-11-07
+
+Application/package source30452b88aec900229a25b7693a455f23f95f3adf.
+Read docs/logistics/GENESIS-6.2-DELIVERY-20261107.md. The sealed789896-byte
+ZIP SHA256ae18daf43a864557835f681a6255b920c9595c3a37220ed301f7792eaf8397f0
+passes342 tests,28 offline checks,64 actual Edge checks and28 actual restart
+checks. Its independent build and first45 frozen-model policy records reproduce
+exactly. Benchmark100/1000/10000 and protected-software/privacy gates pass.
+Final study8821 has40 independent roots,200familycontexts and1800policyrollouts.
+Learned acquisition has small favorable virtual cost/fill changes in this one
+experiment, but future-value MSE is worse than the TRAIN constant and overall
+fill is onlyabout53%. General/real-world superiority is not established.
+The prior GENESIS61 negative result remains unchanged.
+
+This is the pre-publication documentation freeze. The exact unique prerelease
+v0.3.0-genesis62-cognitive-logistics.1 is authorized only with actual draft/upload,
+asset download/hash, publication, second download/hash and historical preservation
+receipts. The later external publication receipt must establish remote completion;
+this checkpoint does not invent it. No CORE NEXT distribution or old tag changes.
+The packaged foreground19400 runtime is owned by this increment;19380/19390 and
+all protected services remain untouched. Source, runtime, evidence and sealed
+packages remain separate. No real data/API/provider/key or paid inference is used.
+
+---
+
 # GENESIS-6.2 continuation — 2026-11-07
 
 Isolated branch research/genesis62-cognitive-logistics-20261107; component
