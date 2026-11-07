@@ -1099,5 +1099,18 @@
     "package_sha256": "739d14dd117b62b9817bcd05800c42fe0d46a825c086a26d6827c9f2c2a4f46b",
     "packaged_tests": 220,
     "hand_off": "docs/future-relevance/GENESIS-6.1-DELIVERY-20261106.md"
+  },
+  "genesis62": {
+    "component": "0.3.0-virtual-experimental",
+    "branch": "research/genesis62-cognitive-logistics-20261107",
+    "baseline": "67c531462e90bc79c653b74066101dfa5a1e4125",
+    "mode": "VIRTUAL_ONLY",
+    "phase": "INTEGRATION_SOURCE_CHECKPOINT_ACCEPTANCE_PENDING",
+    "study_seed": 8821,
+    "independent_root_groups": 40,
+    "study_days": 20,
+    "target_tag": "v0.3.0-genesis62-cognitive-logistics.1",
+    "publication": "HELD_UNTIL_MANDATORY_ACCEPTANCE",
+    "handoff": "docs/logistics/ARCHITECTURE.md"
   }
 }

@@ -43,9 +43,12 @@ def secure_equal(value: str, expected: str):
 
 def create_app(state: Path, *, local_token: str | None = None, bridge_secret: str | None = None,
                start_worker=True, source_root=ROOT, kernel_config=None, engine_adapters=None,
-               realtime_config=None, future_config=None):
+               realtime_config=None, future_config=None, logistics_config=None):
     virtual_mode = realtime_config is not None
     future_mode = future_config is not None
+    logistics_mode = logistics_config is not None
+    if logistics_mode and (not virtual_mode or not future_mode or not isinstance(logistics_config, dict)):
+        raise ValueError('LOGISTICS_REQUIRES_VIRTUAL_EXTENSIONS')
     if future_mode and (not virtual_mode or not isinstance(future_config, dict)):
         raise ValueError('FUTURE_REQUIRES_VIRTUAL_CONFIGURATION')
     if virtual_mode:
@@ -70,6 +73,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     jobs = Jobs(product)
     realtime = None
     future = None
+    logistics = None
     if virtual_mode:
         from .realtime.service import RealtimeService
         from .realtime.router import definition
@@ -87,6 +91,17 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
             product.kernel.register_extension(future_definition(future), future)
         except Exception:
             if future is not None: future.close()
+            realtime.close()
+            raise
+    if logistics_mode:
+        from .cognitive_logistics.service import LogisticsService
+        from .cognitive_logistics.router import definition as logistics_definition
+        try:
+            logistics = LogisticsService(product.state / 'cognitive-logistics', config=logistics_config)
+            product.kernel.register_extension(logistics_definition(logistics), logistics)
+        except Exception:
+            if logistics is not None: logistics.close()
+            future.close()
             realtime.close()
             raise
     token_path = product.state / 'local-session.json'
@@ -112,6 +127,8 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
                 realtime.close()
             if future is not None:
                 future.close()
+            if logistics is not None:
+                logistics.close()
 
     app = FastAPI(title='DRAGONHYDRA Application API', version=VERSION, lifespan=lifespan,
                   docs_url=None, redoc_url=None, openapi_url=None)
@@ -119,6 +136,7 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     app.state.kernel = product.kernel
     app.state.realtime = realtime
     app.state.future_relevance = future
+    app.state.cognitive_logistics = logistics
     app.state.virtual_mode = virtual_mode
     session_cookie_name = 'dragon_core_next_'+hashlib.sha256(
         product.kernel.config.installation_id.encode()).hexdigest()[:24]
@@ -178,7 +196,8 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
             path = request.url.path
             allowed_write = (path in (API+'/session', API+'/session/logout', API+'/system/shutdown')
                              or path.startswith(API+'/realtime/')
-                             or (future_mode and path.startswith(API+'/future/')))
+                             or (future_mode and path.startswith(API+'/future/'))
+                             or (logistics_mode and path.startswith(API+'/logistics/')))
             if request.method in ('POST', 'PUT', 'PATCH', 'DELETE') and not allowed_write:
                 return failure('VIRTUAL_MODE_LEGACY_MUTATION_DENIED', 'This synthetic workspace cannot submit legacy product work.', 403)
             if path == API+'/connections' or path.startswith(API+'/connections/'):
@@ -638,6 +657,9 @@ def create_app(state: Path, *, local_token: str | None = None, bridge_secret: st
     if future is not None:
         from .future_relevance.router import register_routes as register_future_routes
         register_future_routes(router, future, admin, product.kernel)
+    if logistics is not None:
+        from .cognitive_logistics.router import register_routes as register_logistics_routes
+        register_logistics_routes(router, logistics, admin, product.kernel)
     app.include_router(router)
     web = Path(__file__).parent / 'resources' / 'web'
     if not web.is_dir():

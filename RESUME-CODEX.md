@@ -1,3 +1,19 @@
+# GENESIS-6.2 continuation — 2026-11-07
+
+Isolated branch research/genesis62-cognitive-logistics-20261107; component
+0.3.0-virtual-experimental. Read docs/logistics/ARCHITECTURE.md and
+EXPERIMENT-PROTOCOL.md. Current source implements real inventory conservation,
+eight demand models, five inventory policies, routing, budgeted future relevance,
+immutable journals and seven dashboard sections. No original math kernel changed.
+The initial source checkpoint is not a published/accepted application package.
+Final8821/40-root evaluation, actual browser/restart, benchmark, preservation and
+source-bound package gates must pass before the authorized unique prerelease.
+GENESIS61 was subsequently published asv0.2.0-genesis61-virtual.1; its earlier
+negative research result and frozen delivery text remain preserved below.
+No real sporting/ERP/WMS/POS/TMS or OpenAI connection is used.
+
+---
+
 # Accepted GENESIS-6.1 virtual slice — 2026-11-06
 
 Application/package source: `0e09db6a6a5ecaa8c4d5111d66fb9124d80f9d89`.

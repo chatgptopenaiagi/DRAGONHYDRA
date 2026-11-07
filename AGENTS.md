@@ -1,3 +1,20 @@
+## Active GENESIS-6.2 cognitive logistics — 2026-11-07
+
+Root owns research/genesis62-cognitive-logistics-20261107 in the isolated
+LAB/GENESIS-6.2-COGNITIVE-LOGISTICS/source lane. All inventory, demand,
+shipments, providers, credentials and outcomes are virtual. Preserve the old
+CORE NEXT/GENESIS6/GENESIS61 source, packages, services, databases, tags and
+published releases, plus Codex. Do not use sporting schemas for inventory.
+Read docs/logistics/ARCHITECTURE.md and EXPERIMENT-PROTOCOL.md first.
+Root owns the Git index and freeze; agents edit only explicitly assigned files.
+The owner authorizes only the unique GENESIS62 prerelease after real mandatory
+acceptance; prior CORE NEXT release gates and held artifacts remain unchanged.
+Do not tune against predeclared final seed8821 or treat fewer calculations as
+proof of better decisions. Record cost and service independently, including
+negative results. Runtime/evidence/dist stay outside source. Loopback19400 is
+owned by this increment;19380/19390 and old services are protected.
+Older active instructions below are historical preservation context.
+
 ## Active GENESIS-6.1 future relevance research — 2026-11-06
 
 Root owns research/genesis61-future-relevance-20261106 in the isolated
